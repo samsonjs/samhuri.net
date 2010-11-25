@@ -44,7 +44,7 @@ li a:active { color: #000
             ; border-bottom: dashed 1px #000
             }
 
-a { border: none }
+a.img { border: none }
 
 a.up { font-size: 1.5em
      ; text-shadow: none
