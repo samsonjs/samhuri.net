@@ -1,0 +1,384 @@
+html {
+  background: #000 url(../images/background.jpg) no-repeat;
+  -webkit-user-select: none;
+}
+
+@media only screen and (orientation:landscape) {
+  html {
+    background-position-y: -129px;
+  }
+}
+
+@media only screen and (orientation:portrait) {
+  html {
+    background-position-x: -128px;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  z-index: 10;
+  visibility: hidden;
+  -webkit-transition: visibility 0.5s ease-in-out;
+}
+
+#shade div.dim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: none;
+  -webkit-transition: background 0.5s ease-in-out;
+}
+
+@media only screen and (orientation:portrait) {
+  #shade {
+    height: 946px;
+  }
+
+  #shade div.dim {
+    width: 768px;
+    height: 129px;
+  }
+
+  #shade div.dim:nth-child(1) {
+    top: 0;
+  }
+
+  #shade div.dim:nth-child(2) {
+    top: 818px;
+  }
+}
+
+@media only screen and (orientation:landscape) {
+  #shade {
+    width: 1024px;
+  }
+
+  #shade div.dim {
+    width: 128px;
+    height: 690px;
+  }
+
+  #shade div.dim:nth-child(1) {
+    left: 0;
+  }
+
+  #shade div.dim:nth-child(2) {
+    left: 896px;
+  }
+}
+
+body.shade #shade {
+  -webkit-transition: none;
+  visibility: visible;
+}
+
+body.shade #shade div.dim {
+  background: rgba(0, 0, 0, 0.67);
+}
+
+body.shade #ledge {
+  -webkit-transition-property: opacity, visibility;
+  -webkit-transition-duration: 0.5s, 0s;
+  -webkit-transition-delay: 0s, 0.5s;
+  -webkit-transition-timing-function: ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+
+body.shade #share {
+  opacity: 0;
+}
+
+#lightswitch {
+  display: none;
+}
+
+@media only screen and (orientation:landscape) {
+  #lightswitch {
+    display: block;
+    position: absolute;
+    top: 336px;
+    width: 30px;
+    height: 100px;
+    z-index: 11;
+  }
+}
+
+#share {
+  position: absolute;
+  background: url(../images/chalk-sprites.png) no-repeat 0 -462px;
+  width: 49px;
+  height: 36px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-transition: opacity 0.5s ease-in-out;
+}
+
+#share.active {
+  background-position-y: -498px;
+}
+
+@media only screen and (orientation:landscape) {
+  #share {
+    top: 85px;
+    left: 935px;
+  }
+}
+
+@media only screen and (orientation:portrait) {
+  #share {
+    top: 38px;
+    left: 706px;
+  }
+}
+
+#chalkboard {
+  position: absolute;
+}
+
+#chalkboard,
+#canvas,
+#output {
+  width: 768px;
+  height: 690px;
+}
+
+@media only screen and (orientation:landscape) {
+  #chalkboard {
+    top: 0;
+    left: 127px;
+  }
+}
+
+@media only screen and (orientation:portrait) {
+  #chalkboard {
+    top: 129px;
+    left: 0;
+  }
+}
+
+
+
+/* Tools */
+
+#ledge {
+  position: absolute;
+  background: url(../images/chalk-sprites.png) no-repeat 0 0;
+  width: 266px;
+  height: 107px;
+  margin: 0;
+  padding: 0;
+  bottom: 20px;
+  right: 20px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-transition: opacity 0.5s ease-in-out;
+}
+
+#tools div.tool {
+  position: absolute;
+  bottom: 30px;
+  background-image: url(../images/chalk-sprites.png);
+  background-repeat: no-repeat;
+  background-position-x: 1px;
+}
+
+#targets {
+  position: absolute;
+  z-index: 5;
+  overflow: hidden;
+  bottom: 15px;
+  height: 62px;
+  left: 32px;
+  width: 196px;
+}
+
+#targets a {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  padding: 15px 0;
+}
+
+#tools div.chalk {
+  width: 110px;
+  height: 32px;
+}
+
+#tools div.indicator {
+  position: absolute;
+  opacity: 0;
+  background-image: url(../images/chalk-sprites.png);
+  background-repeat: no-repeat;
+  background-position-y: -230px;
+  width: 36px;
+  height: 25px;
+  bottom: -15px;
+  left: 50%;
+  margin-left: -18px;
+  -webkit-transition: opacity 0.25s ease-in-out;
+}
+
+#tools div.tool.active div.indicator {
+  opacity: 1;
+}
+
+#red_chalk_tool {
+  background-position-y: -113px;
+  left: 5px;
+}
+
+#white_chalk_tool {
+  background-position-y: -151px;
+  left: 60px;
+}
+
+#eraser_tool {
+  width: 140px;
+  height: 42px;
+  background-position-y: -183px;
+  left: 110px;
+}
+
+#targets a.chalk {
+  width: 60px;
+  height: 15px;
+}
+
+#red_chalk {
+  left: 0;
+}
+
+#white_chalk {
+  left: 55px;
+}
+
+#eraser {
+  left: 106px;
+  height: 30px;
+  width: 90px;
+}
+
+
+
+/* Shade screen */
+
+#share {
+  -webkit-transition: opacity 0.5s ease-in-out;
+}
+
+#output {
+  display: none;
+}
+
+body.share #ledge,
+body.share #share {
+  opacity: 0;
+}
+
+body.share #canvas {
+  display: none;
+}
+
+body.share #output {
+  display: block;
+}
+
+div.share_container div.close,
+div.share_container div.cover {
+  -webkit-transition: all 0.5s ease-in-out;
+}
+
+div.share_container div.instruction,
+div.share_container div.close a {
+  -webkit-transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+
+body.share div.share_container div.instruction,
+body.share div.share_container div.close a {
+  -webkit-transition: opacity 0.5s 0.5s ease-in-out;
+  opacity: 1;
+}
+
+@media only screen and (orientation:landscape) {
+  div.share_container div.close,
+  div.share_container div.cover {
+    width: 0;
+    height: 690px;
+  }
+  div.share_container div.close {
+    float: right;
+  }
+  div.share_container div.cover {
+    float: left;
+  }
+}
+
+@media only screen and (orientation:portrait) {
+  div.share_container div.close,
+  div.share_container div.cover {
+    height: 0;
+    width: 768px;
+  }
+  div.share_container div.cover {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+body.share div.share_container div.close,
+body.share div.share_container div.cover {
+  background-color: #000;
+}
+
+div.share_container div.close a {
+  background: url(../images/chalk-sprites.png) no-repeat 0 -260px;
+  width: 36px;
+  height: 36px;
+  margin: 15px 10px 0 0;
+  padding: 0;
+  float: right;
+}
+
+@media only screen and (orientation:landscape) {
+  body.share div.share_container { width: 1024px; height: 690px; }
+  body.share div.share_container div.close { width: 128px; height: 690px; float: right; }
+  body.share div.share_container div.close div.instruction { visibility: hidden; }
+  body.share div.share_container div.cover {
+    width: 128px;
+  }
+  body.share div.share_container div.cover div.instruction {
+    width: 100px;
+    height: 100px;
+    background: url(../images/chalk-sprites.png) no-repeat 0 -360px;
+    margin: 250px 0 0 10px;
+  }
+}
+
+@media only screen and (orientation:portrait) {
+  body.share div.share_container { width: 768px; height: 946px; }
+  body.share div.share_container div.close { height: 130px; }
+  body.share div.share_container div.close div.instruction {
+    position: absolute;
+    top: 40px;
+    left: 120px;
+    width: 502px;
+    height: 68px;
+    background: url(../images/chalk-sprites.png) no-repeat 0 -297px;
+  }
+  body.share div.share_container div.cover { height: 129px; }
+  body.share div.share_container div.cover div.instruction { visibility: hidden; }
+}

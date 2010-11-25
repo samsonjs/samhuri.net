@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html manifest="chalk.manifest">
+  <head>
+    <meta charset="utf-8">
+    <title>Chalk</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="stylesheets/chalk.css">
+    <link rel="apple-touch-icon-precomposed" href="images/chalk.png"/>
+    <script type="application/javascript" src="zepto.min.js"></script>
+    <script type="application/javascript" src="chalk.js"></script>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-1876445-15']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="share_container">
+      <div class="close">
+        <a id="close" href="#"></a>
+        <div class="instruction"></div>
+      </div>
+      <div class="cover">
+        <div class="instruction"></div>
+      </div>
+    </div>
+    <div id="shade">
+      <div class="dim"></div>
+      <div class="dim"></div>
+    </div>
+    <a id="lightswitch" href="#"></a>
+    <button id="share" href="#"></button>
+    <div id="chalkboard">
+      <img id="output">
+      <canvas id="canvas"></canvas>
+      <div id="ledge">
+        <div id="targets">
+          <a id="red_chalk" class="chalk"></a>
+          <a id="white_chalk" class="chalk"></a>
+          <a id="eraser"></a>
+        </div>
+        <div id="tools">
+          <div id="red_chalk_tool" class="tool chalk">
+            <div class="indicator"></div>
+          </div>
+          <div id="white_chalk_tool" class="tool chalk">
+            <div class="indicator"></div>
+          </div>
+          <div id="eraser_tool" class="tool eraser">
+            <div class="indicator"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
