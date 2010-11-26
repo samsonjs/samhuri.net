@@ -56,6 +56,7 @@
   })();
   </script>
   <script src=../gitter.js></script>
+  <script src=../store.js></script>
   <script>
   (function() {
     function addClass(el, name) {
@@ -94,63 +95,79 @@
       })
     }
 
-    var data = {}
+    function updateBranches(branches) {
+      html('branches', Object.keys(branches).map(branchLink).join('<br>'))
+    }
+
+    function updateContributors(contributors) {
+      html('contributors', contributors.map(userLink).join('<br>'))
+    }
+
+    function updateLangs(langs) {
+      html('langs', langsByUsage(langs).join('<br>'))
+    }
+
+    function updateN(name, things) {
+      textHighlight('n' + name, things.length)
+      if (things.length === 1) hide(name.charAt(0) + 'plural')
+    }
 
     document.addEventListener('DOMContentLoaded', ready, false)
 
-    function fakeReady() {
-      text('branches', 'master')
-      text('langs', 'JavaScript')
-    }
-
     function ready() {
-      GITR.repo('samsonjs/batteries')
-        .getBranches(function(err, branches) {
-          if (err) {
-            text('branches', '(oops)')
-          } else {
-            data.branches = branches
-            html('branches', Object.keys(branches).map(branchLink).join('<br>'))
-          }
-        })
-        .getLanguages(function(err, langs) {
-          if (err) {
-            text('(oops)')
-            return
-          }
-          data.langs = langs
-          html('langs', langsByUsage(langs).join('<br>'))
-        })
-        .getWatchers(function(err, users) {
-          if (err) {
-            text('nwatchers', '?')
-          } else {
-            data.watchers = users
-            textHighlight('nwatchers', users.length)
-            if (users.length === 1) hide('wplural')
-          }
-        })
-        .getNetwork(function(err, repos) {
-          if (err) {
-            text('nforks', '?')
-          } else {
-            data.forks = repos
-            textHighlight('nforks', repos.length)
-            if (repos.length === 1) hide('fplural')
-          }
-        })
-        .getContributors(function(err, users) {
-          if (err) {
-            text('contributors', '(oops)')
-          } else {
-            data.contributors = users
-            html('contributors', users.map(userLink).join('<br>'))
-          }
-        })
-
-      //
-      // integrate github finder into project pages
-      //
+      var t = ObjectStore.get('t-batteries')
+      if (!t || +new Date() - t > 86400000) {
+        console.log('stale ' + String(t))
+        ObjectStore.set('t-batteries', +new Date())
+        GITR.repo('samsonjs/batteries')
+          .getBranches(function(err, branches) {
+            if (err) {
+              text('branches', '(oops)')
+            } else {
+              ObjectStore.set('branches', branches)
+              updateBranches(branches)
+            }
+          })
+          .getLanguages(function(err, langs) {
+            if (err) {
+              text('langs', '(oops)')
+              return
+            }
+            ObjectStore.set('langs', langs)
+            updateLangs(langs)
+          })
+          .getContributors(function(err, users) {
+            if (err) {
+              text('contributors', '(oops)')
+            } else {
+              ObjectStore.set('contributors', users)
+              updateContributors(users)
+            }
+          })
+          .getWatchers(function(err, users) {
+            if (err) {
+              text('nwatchers', '?')
+            } else {
+              ObjectStore.set('watchers', users)
+              updateN('watchers', users)
+            }
+          })
+          .getNetwork(function(err, repos) {
+            if (err) {
+              text('nforks', '?')
+            } else {
+              ObjectStore.set('forks', repos)
+              updateN('forks', repos)
+            }
+          })
+      } else {
+        console.log('hit ' + t + ' (' + (+new Date() - t) + ')')
+        updateBranches(ObjectStore.get('branches'))
+        updateLangs(ObjectStore.get('langs'))
+        updateContributors(ObjectStore.get('contributors'))
+        updateN('watchers', ObjectStore.get('watchers'))
+        updateN('forks', ObjectStore.get('forks'))
+      }
     }
   }())
   </script>

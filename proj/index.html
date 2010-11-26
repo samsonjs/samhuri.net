@@ -27,6 +27,7 @@
   })();
   </script>
   <script src=gitter.js></script>
+  <script src=store.js></script>
   <script>
   (function() {
     function addClass(el, name) {
@@ -44,29 +45,34 @@
       el.innerText = text
       el.className = ' highlight'
     }
-
-    var data = {}
+    function updateN(name, things) {
+      textHighlight('n' + name, things.length)
+    }
 
     document.addEventListener('DOMContentLoaded', ready, false)
 
-    function fakeReady() {
-      textHighlight('nrepos', '20')
-      textHighlight('nfollowers', '13')
-      textHighlight('nwatched', '100')
-      textHighlight('nfollowing', '69')
-    }
-
     function ready() {
-      ['followers', 'following', 'repos', 'watched'].forEach(function(thing) {
-        GITR[thing]('samsonjs', function(err, things) {
-          if (err) {
-            text('n' + thing, '?')
-          } else {
-            data[thing] = things
-            textHighlight('n' + thing, things.length)
-          }
+      var t = ObjectStore.get('t-proj')
+        , names = ['followers', 'following', 'repos', 'watched']
+      if (!t || +new Date() - t > 86400000) {
+        console.log('stale ' + String(t))
+        ObjectStore.set('t-proj', +new Date())
+        names.forEach(function(name) {
+          GITR[name]('samsonjs', function(err, things) {
+            if (err) {
+              text('n' + name, '?')
+            } else {
+              ObjectStore.set(name, things)
+              updateN(name, things)
+            }
+          })
         })
-      })
+      } else {
+        console.log('hit ' + t + ' (' + (+new Date() - t) + ')')
+        names.forEach(function(name) {
+          updateN(name, ObjectStore.get(name))
+        })
+      }
     }
   }())
   </script>
