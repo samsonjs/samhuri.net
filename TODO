@@ -1,0 +1,8 @@
+TODO
+====
+
+ * use a template for project pages, generate static html
+
+ * integrate github finder into project pages
+
+ * use LABjs instead of script tag soup
