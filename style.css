@@ -4,13 +4,20 @@ body { background-color: #f7f7f7
      }
 
 h1 { text-align: center
-    ; vertical-align: center
-    ; font-size: 4em
-    ; font-weight: normal
-    ; height: 100%
-    ; margin: 0.6em 0 0.4em
-    ; padding: 0
-    }
+   ; vertical-align: center
+   ; font-size: 4em
+   ; font-weight: normal
+   ; margin: 0.6em 0 0.4em
+   ; padding: 0
+   }
+
+h2 { text-align: center
+   ; vertical-align: center
+   ; font-size: 2em
+   ; font-weight: normal
+   ; margin: 0.2em 0 1em
+   ; padding: 0
+   }
 
 ul { text-align: center
    ; margin: 0 auto
@@ -24,6 +31,11 @@ ul { text-align: center
    ; -moz-border-radius: 20px
    }
 
+a { color: #22a
+  ; text-decoration: none
+  ; border-bottom: dashed 1px #22a
+  }
+
 li { display: inline
    ; font-size: 2em
    ; margin: 0
@@ -32,13 +44,12 @@ li { display: inline
 li:after { content: ' •' }
 li:last-child:after { content: '' }
 
-li a { color: #22a
-     ; text-decoration: none
-     ; border-bottom: dashed 1px #22a
-     ; padding: 5px
+li a { padding: 5px
      ; text-shadow: #999 5px 5px 5px
      }
 li a:visited { color: #227 }
+
+li a:hover,
 li a:active { color: #000
             ; text-shadow: #aa7 5px 5px 5px
             ; border-bottom: dashed 1px #000
@@ -56,6 +67,18 @@ a.up { font-size: 1.5em
 p#promoteJS { margin-top: 3em
             ; text-align: center
             }
+
+td { font-size: 1.5em
+   ; line-height: 1.6em
+   }
+
+td:nth-child(2) { padding: 0 10px }
+
+
+.highlight { background-image: -webkit-gradient(radial, 50% 50%, 5, 50% 50%, 15, from(#ffa), to(#f7f7f7))
+           ; background-image: -moz-radial-gradient(center 45deg, circle contain, #ffa 0%, #f7f7f7 100%)
+           ; font-size: 1.2em
+           }
 
 
 /* iPad (landscape) */

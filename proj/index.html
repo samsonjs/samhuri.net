@@ -4,6 +4,16 @@
   <meta name=viewport content=width=device-width>
   <title>samhuri.net</title> 
   <link rel=stylesheet href=../style.css>
+  <style>
+    #forkme { position: absolute
+            ; top: 0
+            ; right: 0
+            }
+  
+    #gh { text-align: center }
+
+    span { padding: 5px }
+  </style>
   <script>
   var _gaq = _gaq || [];
   _gaq.push( ['_setAccount', 'UA-214054-5']
@@ -16,8 +26,53 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
   </script>
+  <script src=gitter.js></script>
+  <script>
+  (function() {
+    function addClass(el, name) {
+      var c = el.className || name
+      if (!c.match(new RegExp('\b' + name + '\b', 'i'))) c += ' ' + name
+    }
+    function text(id, text) {
+      document.getElementById(id).innerText = text
+    }
+    function highlight(id) {
+      document.getElementById(id).style.className = ' highlight'
+    }
+    function textHighlight(id, text) {
+      var el = document.getElementById(id)
+      el.innerText = text
+      el.className = ' highlight'
+    }
+
+    var data = {}
+
+    document.addEventListener('DOMContentLoaded', ready, false)
+
+    function fakeReady() {
+      textHighlight('nrepos', '20')
+      textHighlight('nfollowers', '13')
+      textHighlight('nwatched', '100')
+      textHighlight('nfollowing', '69')
+    }
+
+    function ready() {
+      ['followers', 'following', 'repos', 'watched'].forEach(function(thing) {
+        GITR[thing]('samsonjs', function(err, things) {
+          if (err) {
+            text('n' + thing, '?')
+          } else {
+            data[thing] = things
+            textHighlight('n' + thing, things.length)
+          }
+        })
+      })
+    }
+  }())
+  </script>
 </head>
 <a class=up href=../>&larr; samhuri.net</a>
+<a href=https://github.com/samsonjs><img id=forkme src=forkme.png alt="Fork me on GitHub"></a>
 <h1>projects</h1>
 <ul>
   <li><a href=batteries>batteries</a></li>
@@ -26,6 +81,21 @@
   <li><a href=repl-edit>repl-edit</a></li>
   <li><a href=strftime>strftime</a></li>
 </ul>
+<p id=gh>
+  <a class=img href=https://github.com/samsonjs><img src=gh.png alt=GitHub></a>
+</p>
+<table align=center>
+  <tr>
+    <td align=right><span id=nrepos><img src=spinner.gif></span> projects</td>
+    <td>&mdash;</td>
+    <td align=left><span id=nfollowers><img src=spinner.gif></span> followers</td>
+  </tr>
+  <tr>
+    <td align=right>watching <span id=nwatched><img src=spinner.gif></span> projects
+    <td>&mdash;</td>
+    <td align=left>following <span id=nfollowing><img src=spinner.gif></span> people</td>
+  </tr>
+</table>
 <p id=promoteJS>
   <a class=img href=https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function title='JS Function arity'><img src=http://static.jsconf.us/promotejsh.gif height=150 width=180 alt='JS Function arity'/></a>
 </p>

@@ -1,19 +1,184 @@
 <!doctype html>
-<meta charset=utf-8>
-<title>batteries for node</title>
-<script>
-var _gaq = _gaq || [];
-_gaq.push( ['_setAccount', 'UA-214054-5']
-         , ['_trackPageview']
-         );
+<head>
+  <meta charset=utf-8>
+  <meta name=viewport content=width=device-width>
+  <title>batteries for node</title>
+  <link rel=stylesheet href=../../style.css>
+  <style>
+    #forkme { position: absolute
+            ; top: 0
+            ; right: 0
+            }
 
-(function() {
-  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
-</script>
-<p align=center>
-  A slightly higher-level library for node<br>
-  <a href="http://github.com/samsonjs/batteries">github project</a>
-</p>
+    #info { text-align: center
+          ; margin: 0 auto
+          ; padding: 1em
+          ; border: solid 1px #ccc
+          ; width: 90%
+          ; max-width: 950px
+          ; background-color: #fff
+          ; border-radius: 20px
+          ; -webkit-border-radius: 20px
+          ; -moz-border-radius: 20px
+          }
+
+    h4 { margin: 0.5em 0 0.7em }
+
+    #info > div { text-align: center
+                ; font-size: 1.3em
+                ; width: 32%
+                ; max-width: 400px
+                ; float: left
+                ; padding: 0.5em 0.2em
+                ; border-left: dashed 1px #aaa
+                }
+
+    #info > div:first-child { border-left: none }
+    
+    #info div:last-child { clear: both
+                         ; float: none
+                         ; border: none
+                         ; height: 0
+                         ; width: 0
+                         ; padding: 0
+                         }
+  </style>
+  <script>
+  var _gaq = _gaq || [];
+  _gaq.push( ['_setAccount', 'UA-214054-5']
+           , ['_trackPageview']
+           );
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
+  <script src=../gitter.js></script>
+  <script>
+  (function() {
+    function addClass(el, name) {
+      var c = el.className || name
+      if (!c.match(new RegExp('\b' + name + '\b', 'i'))) c += ' ' + name
+    }
+    function html(id, h) {
+      document.getElementById(id).innerHTML = h
+    }
+    function text(id, text) {
+      document.getElementById(id).innerText = text
+    }
+    function highlight(id) {
+      document.getElementById(id).style.className = ' highlight'
+    }
+    function textHighlight(id, text) {
+      var el = document.getElementById(id)
+      el.innerText = text
+      el.className = ' highlight'
+    }
+    function hide(id) {
+      document.getElementById(id).style.display = 'none'
+    }
+
+    function branchLink(b) {
+      return '<a href=https://github.com/samsonjs/batteries/tree/' + b + '>' + b + '</a>'
+    }
+
+    function userLink(u) {
+      return '<a href=https://github.com/' + u.login + '>' + u.name + '</a>'
+    }
+
+    function langsByUsage(langs) {
+      return Object.keys(langs).sort(function(a, b) {
+        return langs[a] < langs[b] ? -1 : 1
+      })
+    }
+
+    var data = {}
+
+    document.addEventListener('DOMContentLoaded', ready, false)
+
+    function fakeReady() {
+      text('branches', 'master')
+      text('langs', 'JavaScript')
+    }
+
+    function ready() {
+      GITR.repo('samsonjs/batteries')
+        .getBranches(function(err, branches) {
+          if (err) {
+            text('branches', '(oops)')
+          } else {
+            data.branches = branches
+            html('branches', Object.keys(branches).map(branchLink).join('<br>'))
+          }
+        })
+        .getLanguages(function(err, langs) {
+          if (err) {
+            text('(oops)')
+            return
+          }
+          data.langs = langs
+          html('langs', langsByUsage(langs).join('<br>'))
+        })
+        .getWatchers(function(err, users) {
+          if (err) {
+            text('nwatchers', '?')
+          } else {
+            data.watchers = users
+            textHighlight('nwatchers', users.length)
+            if (users.length === 1) hide('wplural')
+          }
+        })
+        .getNetwork(function(err, repos) {
+          if (err) {
+            text('nforks', '?')
+          } else {
+            data.forks = repos
+            textHighlight('nforks', repos.length)
+            if (repos.length === 1) hide('fplural')
+          }
+        })
+        .getContributors(function(err, users) {
+          if (err) {
+            text('contributors', '(oops)')
+          } else {
+            data.contributors = users
+            html('contributors', users.map(userLink).join('<br>'))
+          }
+        })
+
+      //
+      // integrate github finder into project pages
+      //
+    }
+  }())
+  </script>
+</head>
+<a class=up href=../../>&larr; samhuri.net</a>
+<p><a class=up href=../>&larr; projects</a></p>
+<a href=https://github.com/samsonjs/batteries><img id=forkme src=../forkme.png alt="Fork me on GitHub"></a>
+<h1>batteries</h1>
+<h2>useful stuff for node</h2>
+<table align=center>
+  <tr>
+    <td align=right><span id=nwatchers><img src=../spinner.gif></span> watcher<span id=wplural>s</span></td>
+    <td>&mdash;</td>
+    <td align=left><span id=nforks><img src=../spinner.gif></span> fork<span id=fplural>s</span></td>
+  </tr>
+</table>
+<div id=info>
+  <div>
+    <h4>branches</h4>
+    <span id=branches><img src=../spinner.gif></span>
+  </div>
+  <div>
+    <h4>languages</h4>
+    <span id=langs><img src=../spinner.gif></span>
+  </div>
+  <div>
+    <h4>contributors</h4>
+    <span id=contributors><img src=../spinner.gif></span>
+  </div>
+  <div></div>
+</div>
