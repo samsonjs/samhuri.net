@@ -36,6 +36,15 @@ a { color: #22a
   ; border-bottom: dashed 1px #22a
   }
 
+a.img { border: none }
+
+a.up { font-size: 1.5em
+     ; text-shadow: none
+     ; color: #222
+     ; border: none
+     ; text-decoration: underline
+     }
+
 li { display: inline
    ; font-size: 2em
    ; margin: 0
@@ -54,15 +63,6 @@ li a:active { color: #000
             ; text-shadow: #aa7 5px 5px 5px
             ; border-bottom: dashed 1px #000
             }
-
-a.img { border: none }
-
-a.up { font-size: 1.5em
-     ; text-shadow: none
-     ; color: #222
-     ; border: none
-     ; text-decoration: underline
-     }
 
 p#promoteJS { margin-top: 3em
             ; text-align: center
