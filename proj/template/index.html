@@ -2,13 +2,14 @@
 <head>
   <meta charset=utf-8>
   <meta name=viewport content=width=device-width>
-  <title>gitter</title>
+  <title>{{name}}</title>
   <link rel=stylesheet href=../../style.css>
   <style>
     #forkme { position: absolute
             ; top: 0
             ; right: 0
             }
+
     #info { text-align: center
           ; margin: 0 auto
           ; padding: 1em
@@ -20,7 +21,9 @@
           ; -webkit-border-radius: 20px
           ; -moz-border-radius: 20px
           }
+
     h4 { margin: 0.5em 0 0.7em }
+
     #info > div { text-align: center
                 ; font-size: 1.3em
                 ; width: 32%
@@ -29,6 +32,7 @@
                 ; padding: 0.5em 0.2em
                 ; border-left: dashed 1px #aaa
                 }
+
     #info > div:first-child { border-left: none }
     
     #info div:last-child { clear: both
@@ -44,6 +48,7 @@
   _gaq.push( ['_setAccount', 'UA-214054-5']
            , ['_trackPageview']
            );
+
   (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
@@ -75,38 +80,48 @@
     function hide(id) {
       document.getElementById(id).style.display = 'none'
     }
+
     function branchLink(b) {
-      return '<a href=https://github.com/samsonjs/gitter/tree/' + b + '>' + b + '</a>'
+      return '<a href=https://github.com/samsonjs/{{name}}/tree/' + b + '>' + b + '</a>'
     }
+
     function userLink(u) {
       return '<a href=https://github.com/' + u.login + '>' + u.name + '</a>'
     }
+
     function langsByUsage(langs) {
       return Object.keys(langs).sort(function(a, b) {
         return langs[a] < langs[b] ? -1 : 1
       })
     }
+
     function updateBranches(branches) {
       html('branches', Object.keys(branches).map(branchLink).join('<br>'))
     }
+
     function updateContributors(contributors) {
       html('contributors', contributors.map(userLink).join('<br>'))
     }
+
     function updateLangs(langs) {
       html('langs', langsByUsage(langs).join('<br>'))
     }
+
     function updateN(name, things) {
       textHighlight('n' + name, things.length)
       if (things.length === 1) hide(name.charAt(0) + 'plural')
     }
+
     document.addEventListener('DOMContentLoaded', ready, false)
-    var data = createObjectStore('gitter')
+
+    var data = createObjectStore('{{name}}')
+
     function ready() {
-      var t = data.get('t-gitter')
+      var t = data.get('t-{{name}}')
       if (!t || +new Date() - t > 86400000) {
         console.log('stale ' + String(t))
-        data.set('t-gitter', +new Date())
-        GITR.repo('samsonjs/gitter')
+        data.set('t-{{name}}', +new Date())
+        GITR.repo('samsonjs/{{name}}')
           .getBranches(function(err, branches) {
             if (err) {
               text('branches', '(oops)')
@@ -161,9 +176,9 @@
 </head>
 <a class=up href=../../>&larr; samhuri.net</a>
 <p><a class=up href=../>&larr; projects</a></p>
-<a href=https://github.com/samsonjs/gitter><img id=forkme src=../forkme.png alt="Fork me on GitHub"></a>
-<h1>gitter</h1>
-<h2>a GitHub client for Node (v2 API)</h2>
+<a href=https://github.com/samsonjs/{{name}}><img id=forkme src=../forkme.png alt="Fork me on GitHub"></a>
+<h1>{{name}}</h1>
+<h2>{{description}}</h2>
 <table align=center>
   <tr>
     <td align=right><span id=nwatchers><img src=../spinner.gif></span> watcher<span id=wplural>s</span></td>

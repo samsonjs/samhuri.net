@@ -1,0 +1,6 @@
+{ "batteries" : { "description" : "a general purpose node library" }
+, "format"    : { "description" : "printf for JavaScript" }
+, "gitter"    : { "description" : "a GitHub client for Node (v2 API)" }
+, "repl-edit" : { "description" : "edit Node repl commands with your text editor" }
+, "strftime"  : { "description" : "strftime for JavaScript" }
+}

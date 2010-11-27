@@ -2,14 +2,13 @@
 <head>
   <meta charset=utf-8>
   <meta name=viewport content=width=device-width>
-  <title>batteries for node</title>
+  <title>batteries</title>
   <link rel=stylesheet href=../../style.css>
   <style>
     #forkme { position: absolute
             ; top: 0
             ; right: 0
             }
-
     #info { text-align: center
           ; margin: 0 auto
           ; padding: 1em
@@ -21,9 +20,7 @@
           ; -webkit-border-radius: 20px
           ; -moz-border-radius: 20px
           }
-
     h4 { margin: 0.5em 0 0.7em }
-
     #info > div { text-align: center
                 ; font-size: 1.3em
                 ; width: 32%
@@ -32,7 +29,6 @@
                 ; padding: 0.5em 0.2em
                 ; border-left: dashed 1px #aaa
                 }
-
     #info > div:first-child { border-left: none }
     
     #info div:last-child { clear: both
@@ -48,7 +44,6 @@
   _gaq.push( ['_setAccount', 'UA-214054-5']
            , ['_trackPageview']
            );
-
   (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
@@ -80,51 +75,43 @@
     function hide(id) {
       document.getElementById(id).style.display = 'none'
     }
-
     function branchLink(b) {
       return '<a href=https://github.com/samsonjs/batteries/tree/' + b + '>' + b + '</a>'
     }
-
     function userLink(u) {
       return '<a href=https://github.com/' + u.login + '>' + u.name + '</a>'
     }
-
     function langsByUsage(langs) {
       return Object.keys(langs).sort(function(a, b) {
         return langs[a] < langs[b] ? -1 : 1
       })
     }
-
     function updateBranches(branches) {
       html('branches', Object.keys(branches).map(branchLink).join('<br>'))
     }
-
     function updateContributors(contributors) {
       html('contributors', contributors.map(userLink).join('<br>'))
     }
-
     function updateLangs(langs) {
       html('langs', langsByUsage(langs).join('<br>'))
     }
-
     function updateN(name, things) {
       textHighlight('n' + name, things.length)
       if (things.length === 1) hide(name.charAt(0) + 'plural')
     }
-
     document.addEventListener('DOMContentLoaded', ready, false)
-
+    var data = createObjectStore('batteries')
     function ready() {
-      var t = ObjectStore.get('t-batteries')
+      var t = data.get('t-batteries')
       if (!t || +new Date() - t > 86400000) {
         console.log('stale ' + String(t))
-        ObjectStore.set('t-batteries', +new Date())
+        data.set('t-batteries', +new Date())
         GITR.repo('samsonjs/batteries')
           .getBranches(function(err, branches) {
             if (err) {
               text('branches', '(oops)')
             } else {
-              ObjectStore.set('branches', branches)
+              data.set('branches', branches)
               updateBranches(branches)
             }
           })
@@ -133,14 +120,14 @@
               text('langs', '(oops)')
               return
             }
-            ObjectStore.set('langs', langs)
+            data.set('langs', langs)
             updateLangs(langs)
           })
           .getContributors(function(err, users) {
             if (err) {
               text('contributors', '(oops)')
             } else {
-              ObjectStore.set('contributors', users)
+              data.set('contributors', users)
               updateContributors(users)
             }
           })
@@ -148,7 +135,7 @@
             if (err) {
               text('nwatchers', '?')
             } else {
-              ObjectStore.set('watchers', users)
+              data.set('watchers', users)
               updateN('watchers', users)
             }
           })
@@ -156,17 +143,17 @@
             if (err) {
               text('nforks', '?')
             } else {
-              ObjectStore.set('forks', repos)
+              data.set('forks', repos)
               updateN('forks', repos)
             }
           })
       } else {
         console.log('hit ' + t + ' (' + (+new Date() - t) + ')')
-        updateBranches(ObjectStore.get('branches'))
-        updateLangs(ObjectStore.get('langs'))
-        updateContributors(ObjectStore.get('contributors'))
-        updateN('watchers', ObjectStore.get('watchers'))
-        updateN('forks', ObjectStore.get('forks'))
+        updateBranches(data.get('branches'))
+        updateLangs(data.get('langs'))
+        updateContributors(data.get('contributors'))
+        updateN('watchers', data.get('watchers'))
+        updateN('forks', data.get('forks'))
       }
     }
   }())
@@ -176,7 +163,7 @@
 <p><a class=up href=../>&larr; projects</a></p>
 <a href=https://github.com/samsonjs/batteries><img id=forkme src=../forkme.png alt="Fork me on GitHub"></a>
 <h1>batteries</h1>
-<h2>useful stuff for node</h2>
+<h2>a general purpose node library</h2>
 <table align=center>
   <tr>
     <td align=right><span id=nwatchers><img src=../spinner.gif></span> watcher<span id=wplural>s</span></td>
