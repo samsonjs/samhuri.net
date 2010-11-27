@@ -6,6 +6,7 @@
   <link rel=stylesheet href=../style.css>
   <style>
     #gh { text-align: center }
+    #gh img { border: 0 }
     span { padding: 5px }
   </style>
   <script>
@@ -23,29 +24,42 @@
   <script src=gitter.js></script>
   <script src=store.js></script>
   <script>
-  (function() {
-    function addClass(el, name) {
-      var c = el.className || name
-      if (!c.match(new RegExp('\b' + name + '\b', 'i'))) c += ' ' + name
-    }
-    function text(id, text) {
-      document.getElementById(id).innerText = text
-    }
-    function highlight(id) {
-      document.getElementById(id).style.className = ' highlight'
-    }
-    function textHighlight(id, text) {
-      var el = document.getElementById(id)
-      el.innerText = text
-      el.className = ' highlight'
-    }
-    function updateN(name, things) {
-      textHighlight('n' + name, things.length)
-    }
+  if (typeof console === 'undefined') {
+    console = {log:function(){}}
+  }
 
+  (function() {
     document.addEventListener('DOMContentLoaded', ready, false)
 
     function ready() {
+      function addClass(el, name) {
+        var c = el.className || name
+        if (!c.match(new RegExp('\b' + name + '\b', 'i'))) c += ' ' + name
+      }
+
+      var body = document.getElementsByTagName('body')[0]
+        , text
+      if ('innerText' in body) {
+        text = function(id, text) {
+          document.getElementById(id).innerText = text
+        }
+      } else {
+        text = function(id, text) {
+          document.getElementById(id).textContent = text
+        }
+      }
+
+      function highlight(id) {
+        document.getElementById(id).style.className = ' highlight'
+      }
+      function textHighlight(id, t) {
+        text(id, t)
+        document.getElementById(id).className = ' highlight'
+      }
+      function updateN(name, things) {
+        textHighlight('n' + name, things.length)
+      }
+
       var t = ObjectStore.get('t-proj')
         , names = ['followers', 'following', 'repos', 'watched']
       if (!t || +new Date() - t > 86400000) {

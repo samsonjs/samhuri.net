@@ -24,7 +24,7 @@ a { color: #22a
   ; border-bottom: dashed 1px #22a
   }
 
-a.img { border: none }
+a.img { border: 0 }
 
 #breadcrumbs { font-size: 1.5em
              ; color: #222
@@ -35,7 +35,7 @@ a.img { border: none }
 
 #breadcrumbs a { text-shadow: none
                ; color: #222
-               ; border: none
+               ; border: 0
                ; text-decoration: underline
                }
 
@@ -56,6 +56,7 @@ li { display: inline
    ; margin: 0
    ; padding: 0
    }
+
 li:after { content: ' •' }
 li:last-child:after { content: '' }
 
@@ -80,11 +81,14 @@ li a:active { color: #000
 #forkme { position: absolute
         ; top: 0
         ; right: 0
+        ; border: 0
         }
 
-p#promote-js { margin-top: 3em
+#promote-js { margin-top: 3em
              ; text-align: center
              }
+
+#promote-js img { border: 0 }
 
 td { font-size: 1.5em
    ; line-height: 1.6em

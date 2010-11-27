@@ -9,6 +9,107 @@
 //  - authentication and write APIs
 
 (function() {
+    var inherits
+    if ('create' in Object) {
+        // util.inherits from node
+        inherits = function(ctor, superCtor) {
+            ctor.super_ = superCtor
+            ctor.prototype = Object.create(superCtor.prototype, {
+                constructor: {
+                    value: ctor,
+                    enumerable: false
+                }
+            })
+        }
+    } else {
+        inherits = function(ctor, superCtor) {
+            ctor.super_ = superCtor
+            ctor.prototype.__proto__ = superCtor.prototype
+            ctor.prototype.constructor = ctor
+        }
+    }
+
+    if (!Array.isArray) {
+        Array.isArray = function(x) {
+            return Object.prototype.toString.call(x) === '[object Array]'
+        }
+    }
+
+    // Object.defineProperty and Object.keys from Kris Kowal's es5-shim
+    // https://github.com/kriskowal/es5-shim
+
+    var has = Object.prototype.hasOwnProperty;
+    
+    // ES5 15.2.3.6
+    if (!Object.defineProperty) {
+        Object.defineProperty = function(object, property, descriptor) {
+            if (typeof descriptor == "object" && object.__defineGetter__) {
+                if (has.call(descriptor, "value")) {
+                    if (!object.__lookupGetter__(property) && !object.__lookupSetter__(property))
+                        // data property defined and no pre-existing accessors
+                        object[property] = descriptor.value;
+                    if (has.call(descriptor, "get") || has.call(descriptor, "set"))
+                        // descriptor has a value property but accessor already exists
+                        throw new TypeError("Object doesn't support this action");
+                }
+                // fail silently if "writable", "enumerable", or "configurable"
+                // are requested but not supported
+                else if (typeof descriptor.get == "function")
+                    object.__defineGetter__(property, descriptor.get);
+                if (typeof descriptor.set == "function")
+                    object.__defineSetter__(property, descriptor.set);
+            }
+            return object;
+        };
+    }
+    // ES5 15.2.3.14
+    // http://whattheheadsaid.com/2010/10/a-safer-object-keys-compatibility-implementation
+    if (!Object.keys) {
+        (function() {
+            var hasDontEnumBug = true,
+                dontEnums = [
+                    'toString',
+                    'toLocaleString',
+                    'valueOf',
+                    'hasOwnProperty',
+                    'isPrototypeOf',
+                    'propertyIsEnumerable',
+                    'constructor'
+                ],
+                dontEnumsLength = dontEnums.length;
+
+            for (var key in {"toString": null})
+                hasDontEnumBug = false;
+
+            Object.keys = function (object) {
+
+                if (
+                    typeof object !== "object" && typeof object !== "function"
+                    || object === null
+                )
+                    throw new TypeError("Object.keys called on a non-object");
+
+                var keys = [];
+                for (var name in object) {
+                    if (has.call(object, name)) {
+                        keys.push(name);
+                    }
+                }
+
+                if (hasDontEnumBug) {
+                    for (var i = 0, ii = dontEnumLength; i < ii; i++) {
+                        var dontEnum = dontEnums[i];
+                        if (has.call(o, dontEnum)) {
+                            keys.push(dontEnum);
+                        }
+                    }
+                }
+
+                return keys;
+            };
+        }())
+    }
+
     var global = this
       , isBrowser = 'document' in global
       // when running in the browser request is set later
@@ -317,16 +418,6 @@
         Object.defineProperty(obj, prop, opts)
     }
 
-    // util.inherits from node
-    function inherits(ctor, superCtor) {
-        ctor.super_ = superCtor
-        ctor.prototype = Object.create(superCtor.prototype, {
-            constructor: {
-                value: ctor,
-                enumerable: false
-            }
-        })
-    }
     // get an only property, if any
     function onlyProp(obj) {
         if (obj && typeof obj === 'object') {
