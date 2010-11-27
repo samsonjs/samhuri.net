@@ -60,17 +60,18 @@
         textHighlight('n' + name, things.length)
       }
 
-      var t = ObjectStore.get('t-proj')
+      var data = createObjectStore('proj')
+        , t = data.get('t-proj')
         , names = ['followers', 'following', 'repos', 'watched']
       if (!t || +new Date() - t > 86400000) {
         console.log('stale ' + String(t))
-        ObjectStore.set('t-proj', +new Date())
+        data.set('t-proj', +new Date())
         names.forEach(function(name) {
           GITR[name]('samsonjs', function(err, things) {
             if (err) {
               text('n' + name, '?')
             } else {
-              ObjectStore.set(name, things)
+              data.set(name, things)
               updateN(name, things)
             }
           })
@@ -78,7 +79,7 @@
       } else {
         console.log('hit ' + t + ' (' + (+new Date() - t) + ')')
         names.forEach(function(name) {
-          updateN(name, ObjectStore.get(name))
+          updateN(name, data.get(name))
         })
       }
     }
