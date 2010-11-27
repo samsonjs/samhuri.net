@@ -26,12 +26,18 @@ a { color: #22a
 
 a.img { border: none }
 
-a.up { font-size: 1.5em
-     ; text-shadow: none
-     ; color: #222
-     ; border: none
-     ; text-decoration: underline
-     }
+#breadcrumbs { font-size: 1.5em
+             ; color: #222
+             ; position: absolute
+             ; top: 0.3em
+             ; left: 0.3em
+             }
+
+#breadcrumbs a { text-shadow: none
+               ; color: #222
+               ; border: none
+               ; text-decoration: underline
+               }
 
 ul { text-align: center
    ; margin: 0 auto
@@ -66,6 +72,7 @@ li a:active { color: #000
 
 #sjs { text-align: center
      ; font-size: 1.2em
+     ; font-family: georgia
      }
 
 #sjs a { border-bottom: none }
@@ -97,8 +104,6 @@ td:nth-child(2) { padding: 0 10px }
 @media only screen and (orientation:portrait) and (device-height:1024px),
        only screen and (max-device-width:480px)
 {
-  h1 { font-size: 2em }
-
   ul { padding: 0.5em
      ; width: 70%
      ; max-width: 400px
@@ -119,7 +124,7 @@ td:nth-child(2) { padding: 0 10px }
      }
   h2 { font-size: 1em }
 
-  a.up { font-size: 0.8em }
+  #breadcrumbs { font-size: 0.8em }
 
   li { font-size: 1.2em }
 
