@@ -37,8 +37,7 @@ h4 { margin: 0.5em 0 0.7em }
                      }
 
 @media only screen and (max-device-width:480px) {
-  #info { width: 80%
-        ; max-width: 400px
+  #info { width: 70%
         ; padding: 0 1em
         }
 
@@ -47,5 +46,6 @@ h4 { margin: 0.5em 0 0.7em }
               ; max-width: 100%
               ; padding: 0.5em 0.2em 1em
               ; border-left: none
+              ; font-size: 1em
               }
 }

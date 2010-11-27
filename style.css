@@ -19,18 +19,6 @@ h2 { text-align: center
    ; padding: 0
    }
 
-ul { text-align: center
-   ; margin: 0 auto
-   ; padding: 1em
-   ; border: solid 1px #ccc
-   ; width: 90%
-   ; max-width: 950px
-   ; background-color: #fff
-   ; border-radius: 20px
-   ; -webkit-border-radius: 20px
-   ; -moz-border-radius: 20px
-   }
-
 a { color: #22a
   ; text-decoration: none
   ; border-bottom: dashed 1px #22a
@@ -44,6 +32,18 @@ a.up { font-size: 1.5em
      ; border: none
      ; text-decoration: underline
      }
+
+ul { text-align: center
+   ; margin: 0 auto
+   ; padding: 1em
+   ; border: solid 1px #ccc
+   ; width: 90%
+   ; max-width: 950px
+   ; background-color: #fff
+   ; border-radius: 20px
+   ; -webkit-border-radius: 20px
+   ; -moz-border-radius: 20px
+   }
 
 li { display: inline
    ; font-size: 2em
@@ -92,31 +92,42 @@ td:nth-child(2) { padding: 0 10px }
            }
 
 
-/* iPad (landscape) */
-
-@media only screen and (orientation:landscape) and (device-height:1024px) {
-  h1 { font-size: 2em }
-  li { font-size: 1.5em }
-  a.up { font-size: 1.2em }
-}
-
 /* iPhone and iPad */
 
 @media only screen and (orientation:portrait) and (device-height:1024px),
        only screen and (max-device-width:480px)
 {
   h1 { font-size: 2em }
-  
-  a.up { font-size: 1.2em }
-  
+
   ul { padding: 0.5em
      ; width: 70%
-     ; max-width: 900px
+     ; max-width: 400px
      }
   
   li { display: block
-     ; margin: 0.7em
+     ; margin: 0.7em 0.7em 1em
      ; font-size: 1.5em
      }
   li:after { content: '' }
+}
+
+/* iPhone */
+
+@media only screen and (max-device-width:480px) {
+  h1 { font-size: 2em
+     ; margin-top: 1em
+     }
+  h2 { font-size: 1em }
+
+  a.up { font-size: 0.8em }
+
+  li { font-size: 1.2em }
+
+  td { font-size: 1em
+     ; line-height: 1.1em
+     }
+
+  #sjs { font-size: 1em }
+
+  #forkme { display: none }  
 }
