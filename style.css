@@ -64,9 +64,20 @@ li a:active { color: #000
             ; border-bottom: dashed 1px #000
             }
 
-p#promoteJS { margin-top: 3em
-            ; text-align: center
-            }
+#sjs { text-align: center
+     ; font-size: 1.2em
+     }
+
+#sjs a { border-bottom: none }
+
+#forkme { position: absolute
+        ; top: 0
+        ; right: 0
+        }
+
+p#promote-js { margin-top: 3em
+             ; text-align: center
+             }
 
 td { font-size: 1.5em
    ; line-height: 1.6em
