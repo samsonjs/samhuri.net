@@ -1,0 +1,51 @@
+#forkme { position: absolute
+        ; top: 0
+        ; right: 0
+        }
+
+#info { text-align: center
+      ; margin: 1em auto
+      ; padding: 1em
+      ; border: solid 1px #ccc
+      ; width: 90%
+      ; max-width: 950px
+      ; background-color: #fff
+      ; border-radius: 20px
+      ; -webkit-border-radius: 20px
+      ; -moz-border-radius: 20px
+      }
+
+h4 { margin: 0.5em 0 0.7em }
+
+#info > div { text-align: center
+            ; font-size: 1.3em
+            ; width: 32%
+            ; max-width: 400px
+            ; float: left
+            ; padding: 0.5em 0.2em
+            ; border-left: dashed 1px #aaa
+            }
+
+#info > div:first-child { border-left: none }
+
+#info div:last-child { clear: both
+                     ; float: none
+                     ; border: none
+                     ; height: 0
+                     ; width: 0
+                     ; padding: 0
+                     }
+
+@media only screen and (max-device-width:480px) {
+  #info { width: 80%
+        ; max-width: 400px
+        ; padding: 0 1em
+        }
+
+  #info > div { clear: left
+              ; width: 100%
+              ; max-width: 100%
+              ; padding: 0.5em 0.2em 1em
+              ; border-left: none
+              }
+}
