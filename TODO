@@ -3,6 +3,4 @@ TODO
 
  * promote JS links on project pages (the only ones that mention javascript so far!)
 
- * integrate github finder into project pages
-
- * use LABjs instead of script tag soup
+ * link to github finder on project pages
