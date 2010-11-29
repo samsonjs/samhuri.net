@@ -6,7 +6,7 @@
   <link rel=stylesheet href=../style.css>
   <style>
     #gh { text-align: center }
-    #gh img { border: 0 }
+    #gh img { border: none }
     span { padding: 5px }
   </style>
   <script>
@@ -21,6 +21,10 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
   </script>
+  <!-- fuck ie -->
+  <!--[if lt IE 8]>
+  <script src=http://d1eqzjbvoh1rux.cloudfront.net/json2.min.js></script>
+  <![endif]-->
   <script src=gitter.js></script>
   <script src=store.js></script>
   <script>
@@ -29,7 +33,11 @@
   }
 
   (function() {
-    document.addEventListener('DOMContentLoaded', ready, false)
+    if (document.addEventListener) {
+      document.addEventListener('DOMContentLoaded', ready, false)
+    } else if (window.attachEvent) { // fuck ie
+      window.attachEvent('onload', ready)
+    }
 
     function ready() {
       function addClass(el, name) {
@@ -94,7 +102,7 @@
   <li><a href=format>format</a></li>
   <li><a href=gitter>gitter</a></li>
   <li><a href=repl-edit>repl-edit</a></li>
-  <li><a href=strftime>strftime</a></li>
+  <li class=last><a href=strftime>strftime</a></li>
 </ul>
 <p id=gh>
   <a class=img href=https://github.com/samsonjs><img src=gh.png alt=GitHub></a>

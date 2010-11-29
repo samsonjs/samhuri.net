@@ -24,7 +24,7 @@ a { color: #22a
   ; border-bottom: dashed 1px #22a
   }
 
-a.img { border: 0 }
+a.img { border: none }
 
 #breadcrumbs { font-size: 1.5em
              ; color: #222
@@ -35,7 +35,7 @@ a.img { border: 0 }
 
 #breadcrumbs a { text-shadow: none
                ; color: #222
-               ; border: 0
+               ; border: none
                ; text-decoration: underline
                }
 
@@ -46,9 +46,17 @@ ul { text-align: center
    ; width: 90%
    ; max-width: 950px
    ; background-color: #fff
-   ; border-radius: 20px
-   ; -webkit-border-radius: 20px
    ; -moz-border-radius: 20px
+   ; -webkit-border-radius: 20px
+   ; border-radius: 20px
+   
+   /* ie searches for this path relative to the referencing file,
+    * not this file as any sane implementation would do.
+    *
+    * fuck ie
+    */
+   ; behavior: url(border-radius.htc)
+   ; behavior: url(../border-radius.htc)
    }
 
 li { display: inline
@@ -59,6 +67,7 @@ li { display: inline
 
 li:after { content: ' •' }
 li:last-child:after { content: '' }
+li.last:after { content: '' } /* fuck ie */
 
 li a { padding: 5px
      ; text-shadow: #999 5px 5px 5px
@@ -80,14 +89,14 @@ li a:active { color: #000
 #forkme { position: absolute
         ; top: 0
         ; right: 0
-        ; border: 0
+        ; border: none
         }
 
 #promote-js { margin-top: 3em
              ; text-align: center
              }
 
-#promote-js img { border: 0 }
+#promote-js img { border: none }
 
 td { font-size: 1.5em
    ; line-height: 1.6em

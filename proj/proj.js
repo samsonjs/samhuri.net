@@ -7,7 +7,11 @@
   global.SJS = {
     proj: function(name) {
       var data = createObjectStore(name)
-      document.addEventListener('DOMContentLoaded', ready, false)
+      if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', ready, false)
+      } else if (window.attachEvent) {
+        window.attachEvent('onload', ready)
+      }
       function ready() {
         function addClass(el, name) {
           var c = el.className || name

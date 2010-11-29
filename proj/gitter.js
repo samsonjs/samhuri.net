@@ -9,6 +9,21 @@
 //  - authentication and write APIs
 
 (function() {
+    // fuck ie
+    var ie = (function() {
+        var undef
+          , v = 3
+          , div = document.createElement('div')
+          , all = div.getElementsByTagName('i')
+
+        while (
+          div.innerHTML = '<!--[if gt IE ' + (++v) + ']><i></i><![endif]-->',
+          all[0]
+        );
+
+        return v > 4 ? v : undef
+    }())
+
     var inherits
     if ('create' in Object) {
         // util.inherits from node
@@ -21,93 +36,24 @@
                 }
             })
         }
-    } else {
+    } else if ([].__proto__) {
         inherits = function(ctor, superCtor) {
             ctor.super_ = superCtor
             ctor.prototype.__proto__ = superCtor.prototype
             ctor.prototype.constructor = ctor
         }
-    }
-
-    if (!Array.isArray) {
-        Array.isArray = function(x) {
-            return Object.prototype.toString.call(x) === '[object Array]'
-        }
-    }
-
-    // Object.defineProperty and Object.keys from Kris Kowal's es5-shim
-    // https://github.com/kriskowal/es5-shim
-
-    var has = Object.prototype.hasOwnProperty;
-    
-    // ES5 15.2.3.6
-    if (!Object.defineProperty) {
-        Object.defineProperty = function(object, property, descriptor) {
-            if (typeof descriptor == "object" && object.__defineGetter__) {
-                if (has.call(descriptor, "value")) {
-                    if (!object.__lookupGetter__(property) && !object.__lookupSetter__(property))
-                        // data property defined and no pre-existing accessors
-                        object[property] = descriptor.value;
-                    if (has.call(descriptor, "get") || has.call(descriptor, "set"))
-                        // descriptor has a value property but accessor already exists
-                        throw new TypeError("Object doesn't support this action");
-                }
-                // fail silently if "writable", "enumerable", or "configurable"
-                // are requested but not supported
-                else if (typeof descriptor.get == "function")
-                    object.__defineGetter__(property, descriptor.get);
-                if (typeof descriptor.set == "function")
-                    object.__defineSetter__(property, descriptor.set);
+    } else { // fuck ie
+        var __hasProp = Object.prototype.hasOwnProperty
+        inherits = function(child, parent) {
+            for (var key in parent) {
+                if (__hasProp.call(parent, key)) child[key] = parent[key]
             }
-            return object;
-        };
-    }
-    // ES5 15.2.3.14
-    // http://whattheheadsaid.com/2010/10/a-safer-object-keys-compatibility-implementation
-    if (!Object.keys) {
-        (function() {
-            var hasDontEnumBug = true,
-                dontEnums = [
-                    'toString',
-                    'toLocaleString',
-                    'valueOf',
-                    'hasOwnProperty',
-                    'isPrototypeOf',
-                    'propertyIsEnumerable',
-                    'constructor'
-                ],
-                dontEnumsLength = dontEnums.length;
-
-            for (var key in {"toString": null})
-                hasDontEnumBug = false;
-
-            Object.keys = function (object) {
-
-                if (
-                    typeof object !== "object" && typeof object !== "function"
-                    || object === null
-                )
-                    throw new TypeError("Object.keys called on a non-object");
-
-                var keys = [];
-                for (var name in object) {
-                    if (has.call(object, name)) {
-                        keys.push(name);
-                    }
-                }
-
-                if (hasDontEnumBug) {
-                    for (var i = 0, ii = dontEnumLength; i < ii; i++) {
-                        var dontEnum = dontEnums[i];
-                        if (has.call(o, dontEnum)) {
-                            keys.push(dontEnum);
-                        }
-                    }
-                }
-
-                return keys;
-            };
-        }())
+            function ctor() { this.constructor = child }
+            ctor.prototype = parent.prototype
+            child.prototype = new ctor
+            child.__super__ = parent.prototype
+            return child
+        }
     }
 
     var global = this
@@ -122,13 +68,13 @@
             return new Blob(repo, sha, path, cb)
         },
         branch: function(repo, branch, cb) {
-            return new Branch(repo, branch, cb) 
+            return new Branch(repo, branch, cb)
         },
         commits: function(repo, branch, cb) {
             return new Branch(repo, branch).getCommits(cb)
         },
         commit: function(repo, sha, cb) {
-            return new Commit(repo, sha, cb) 
+            return new Commit(repo, sha, cb)
         },
         raw: function(repo, sha, cb) {
             return new Raw(repo, sha, cb)
@@ -182,6 +128,7 @@
     if (isBrowser) global.GITR = api
     else module.exports = api
 
+    if (isBrowser) shim()
 
     // Define resources //
 
@@ -210,8 +157,9 @@
              ]
     })
     Tree.prototype._processData = function(data) {
-        Resource.prototype._processData.call(this, data)
+        var result = Resource.prototype._processData.call(this, data)
         this.blobs = this.data()
+        return result
     }
 
     User = createResource('user/show/:user', {
@@ -245,7 +193,7 @@
     function createResource(route, options) {
         if (!route) throw new Error('route is required')
         options = options || {}
-    
+
         var resource = function() { Resource.apply(this, [].slice.call(arguments)) }
         inherits(resource, Resource)
 
@@ -257,14 +205,18 @@
             var dataProp = '_' + prop
               , fn = 'get' + titleCaseFirst(prop)
               , processData = function(d) {
-                    getter(this, dataProp, function() { return camelize(unpack(d))})
+                    if (ie < 9) { // fuck ie
+                        this[dataProp] = camelize(unpack(d))
+                    } else {
+                        getter(this, dataProp, function() { return camelize(unpack(d))})
+                    }
                 }
-              , result = function(resource) { return this[dataProp] }
+              , result = function(resource) { return resource[dataProp] }
             resource.prototype[fn] = function(cb, force) {
                 return this._fetch({ prop: dataProp
                                    , route: route || this._route + '/' + prop
                                    , processData: processData.bind(this)
-                                   , result: result.bind(this)
+                                   , result: result
                                    }, cb.bind(this), force)
             }
             return resource
@@ -272,7 +224,7 @@
         if (options.has) options.has.forEach(function(args) {
             resource.has.apply(resource, Array.isArray(args) ? args : [args])
         })
-    
+
         return resource
     }
 
@@ -354,10 +306,10 @@
             cb(null, options.result(this))
             return this
         }
-    
+
         // Interpolate resource params
         var path = this.resolve(options.route)
-    
+
         // Make the request
         return this._get(path, function(err, data) {
             if (err) {
@@ -437,11 +389,202 @@
 
     function titleCaseFirst(s) { return s.charAt(0).toUpperCase() + s.slice(1) }
 
-    
+
     // Browser Utilities //
 
-    if (isBrowser) (function() {
-        var update, merge, load, _jsonpCounter = 1
+    function shim() {
+        // bind from Prototype
+        if (!Function.prototype.bind) {
+            (function(){
+                function update(array, args) {
+                    var arrayLength = array.length, length = args.length
+                    while (length--) array[arrayLength + length] = args[length]
+                    return array
+                }
+                function merge(array, args) {
+                    array = [].slice.call(array, 0)
+                    return update(array, args)
+                }
+                Function.prototype.bind = function(context) {
+                    if (arguments.length < 2 && typeof arguments[0] === 'undefined') return this
+                    var __method = this, args = [].slice.call(arguments, 1)
+                    return function() {
+                        var a = merge(args, arguments)
+                        return __method.apply(context, a)
+                    }
+                }
+            }())
+        }
+
+        // a few functions from Kris Kowal's es5-shim
+        // https://github.com/kriskowal/es5-shim
+
+        var has = Object.prototype.hasOwnProperty;
+
+        // ES5 15.2.3.6
+        if (!Object.defineProperty || ie === 8) { // fuck ie
+            Object.defineProperty = function(object, property, descriptor) {
+                if (typeof descriptor == "object" && object.__defineGetter__) {
+                    if (has.call(descriptor, "value")) {
+                        if (!object.__lookupGetter__(property) && !object.__lookupSetter__(property))
+                            // data property defined and no pre-existing accessors
+                            object[property] = descriptor.value;
+                        if (has.call(descriptor, "get") || has.call(descriptor, "set"))
+                            // descriptor has a value property but accessor already exists
+                            throw new TypeError("Object doesn't support this action");
+                    }
+                    // fail silently if "writable", "enumerable", or "configurable"
+                    // are requested but not supported
+                    else if (typeof descriptor.get == "function")
+                        object.__defineGetter__(property, descriptor.get);
+                    if (typeof descriptor.set == "function")
+                        object.__defineSetter__(property, descriptor.set);
+                }
+                return object;
+            };
+        }
+
+        // ES5 15.2.3.14
+        // http://whattheheadsaid.com/2010/10/a-safer-object-keys-compatibility-implementation
+        if (!Object.keys) { // fuck ie
+            (function() {
+                var hasDontEnumBug = true,
+                    dontEnums = [
+                        'toString',
+                        'toLocaleString',
+                        'valueOf',
+                        'hasOwnProperty',
+                        'isPrototypeOf',
+                        'propertyIsEnumerable',
+                        'constructor'
+                    ],
+                    dontEnumsLength = dontEnums.length;
+
+                for (var key in {"toString": null})
+                    hasDontEnumBug = false;
+
+                Object.keys = function (object) {
+
+                    if (
+                        typeof object !== "object" && typeof object !== "function"
+                        || object === null
+                    )
+                        throw new TypeError("Object.keys called on a non-object");
+
+                    var keys = [];
+                    for (var name in object) {
+                        if (has.call(object, name)) {
+                            keys.push(name);
+                        }
+                    }
+
+                    if (hasDontEnumBug) {
+                        for (var i = 0, ii = dontEnumsLength; i < ii; i++) {
+                            var dontEnum = dontEnums[i];
+                            if (has.call(object, dontEnum)) {
+                                keys.push(dontEnum);
+                            }
+                        }
+                    }
+
+                    return keys;
+                };
+            }())
+        }
+
+        //
+        // Array
+        // =====
+        //
+
+        // ES5 15.4.3.2
+        if (!Array.isArray) {
+            Array.isArray = function(obj) {
+                return Object.prototype.toString.call(obj) == "[object Array]";
+            };
+        }
+
+        // ES5 15.4.4.18
+        if (!Array.prototype.forEach) { // fuck ie
+            Array.prototype.forEach =  function(block, thisObject) {
+                var len = this.length >>> 0;
+                for (var i = 0; i < len; i++) {
+                    if (i in this) {
+                        block.call(thisObject, this[i], i, this);
+                    }
+                }
+            };
+        }
+
+        // ES5 15.4.4.19
+        // https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/map
+        if (!Array.prototype.map) { // fuck ie
+            Array.prototype.map = function(fun /*, thisp*/) {
+                var len = this.length >>> 0;
+                if (typeof fun != "function")
+                  throw new TypeError();
+
+                var res = new Array(len);
+                var thisp = arguments[1];
+                for (var i = 0; i < len; i++) {
+                    if (i in this)
+                        res[i] = fun.call(thisp, this[i], i, this);
+                }
+
+                return res;
+            };
+        }
+
+        // ES5 15.4.4.20
+        if (!Array.prototype.filter) { // fuck ie
+            Array.prototype.filter = function (block /*, thisp */) {
+                var values = [];
+                var thisp = arguments[1];
+                for (var i = 0; i < this.length; i++)
+                    if (block.call(thisp, this[i]))
+                        values.push(this[i]);
+                return values;
+            };
+        }
+
+        // ES5 15.4.4.21
+        // https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/reduce
+        if (!Array.prototype.reduce) { // fuck ie
+            Array.prototype.reduce = function(fun /*, initial*/) {
+                var len = this.length >>> 0;
+                if (typeof fun != "function")
+                    throw new TypeError();
+
+                // no value to return if no initial value and an empty array
+                if (len == 0 && arguments.length == 1)
+                    throw new TypeError();
+
+                var i = 0;
+                if (arguments.length >= 2) {
+                    var rv = arguments[1];
+                } else {
+                    do {
+                        if (i in this) {
+                            rv = this[i++];
+                            break;
+                        }
+
+                        // if array contains no values, no initial value to return
+                        if (++i >= len)
+                            throw new TypeError();
+                    } while (true);
+                }
+
+                for (; i < len; i++) {
+                    if (i in this)
+                        rv = fun.call(null, rv, this[i], i, this);
+                }
+
+                return rv;
+            };
+        }
+
+        var load, _jsonpCounter = 1
         request = function(options, cb) { // jsonp request, quacks like mikeal's request module
             var jsonpCallbackName = '_jsonpCallback' + _jsonpCounter++
               , url = options.uri + '?callback=GITR.' + jsonpCallbackName
@@ -452,26 +595,6 @@
             load(url)
         }
 
-        // bind from Prototype (for Safari 5)
-        if (!Function.prototype.bind) {
-            update = function(array, args) {
-                var arrayLength = array.length, length = args.length
-                while (length--) array[arrayLength + length] = args[length]
-                return array
-            }
-            merge = function(array, args) {
-                array = [].slice.call(array, 0)
-                return update(array, args)
-            }
-            Function.prototype.bind = function(context) {
-                if (arguments.length < 2 && typeof arguments[0] === 'undefined') return this
-                var __method = this, args = [].slice.call(arguments, 1)
-                return function() {
-                    var a = merge(args, arguments)
-                    return __method.apply(context, a)
-                }
-            }
-        }
         // bootstrap loader from LABjs
         load = function(url) {
             var oDOC = document
@@ -512,5 +635,5 @@
                 }, false)
             }
         }
-    }())
+    }
 }())
