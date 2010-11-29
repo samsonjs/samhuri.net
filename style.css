@@ -1,6 +1,6 @@
 body { background-color: #f7f7f7
      ; color: #222
-     ; font-family: 'hoefler text', georgia, serif
+     ; font-family: 'DejaVu Serif', 'Hoefler Text', Georgia, serif
      }
 
 h1 { text-align: center
@@ -52,7 +52,7 @@ ul { text-align: center
    }
 
 li { display: inline
-   ; font-size: 2em
+   ; font-size: 1.6em
    ; margin: 0
    ; padding: 0
    }
@@ -73,7 +73,6 @@ li a:active { color: #000
 
 #sjs { text-align: center
      ; font-size: 1.2em
-     ; font-family: georgia
      }
 
 #sjs a { border-bottom: none }
