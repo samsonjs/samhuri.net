@@ -67,6 +67,8 @@ li { display: inline
 
 li:after { content: ' •' }
 li:last-child:after { content: '' }
+
+li.ie-bullet { display: none } /* fuck ie */
 li.last:after { content: '' } /* fuck ie */
 
 li a { padding: 5px

@@ -1,6 +1,6 @@
 (function() {
+  var global = this
   if (typeof localStorage !== 'undefined') {
-    var global = this
     global.createObjectStore = function(namespace) {
       function makeKey(k) {
         return '--' + namespace + '-' + (k || '')
