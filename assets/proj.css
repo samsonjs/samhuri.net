@@ -8,7 +8,8 @@
       ; -moz-border-radius: 20px
       ; -webkit-border-radius: 20px
       ; border-radius: 20px
-      ; behavior: url(../../border-radius.htc) /* fuck ie */
+      ; behavior: url(../assets/border-radius.htc)
+      ; behavior: url(../../assets/border-radius.htc)
       }
 
 h4 { margin: 0.5em 0 0.7em }
@@ -18,7 +19,7 @@ h4 { margin: 0.5em 0 0.7em }
             ; width: 31%
             ; max-width: 400px
             ; float: left
-            ; display: inline /* fuck ie */
+            ; display: inline
             ; padding: 0.5em 0.2em
             ; border-left: dashed 1px #aaa
             }

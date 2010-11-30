@@ -14,7 +14,6 @@
       , ie
 
     if (isBrowser) {
-        // fuck ie
         ie = (function() {
             var undef
               , v = 3
@@ -48,7 +47,7 @@
             ctor.prototype.__proto__ = superCtor.prototype
             ctor.prototype.constructor = ctor
         }
-    } else { // fuck ie
+    } else {
         var __hasProp = Object.prototype.hasOwnProperty
         inherits = function(child, parent) {
             for (var key in parent) {
@@ -209,7 +208,7 @@
             var dataProp = '_' + prop
               , fn = 'get' + titleCaseFirst(prop)
               , processData = function(d) {
-                    if (ie < 9) { // fuck ie
+                    if (ie < 9) {
                         this[dataProp] = camelize(unpack(d))
                     } else {
                         getter(this, dataProp, function() { return camelize(unpack(d))})
@@ -426,7 +425,7 @@
         var has = Object.prototype.hasOwnProperty;
 
         // ES5 15.2.3.6
-        if (!Object.defineProperty || ie === 8) { // fuck ie
+        if (!Object.defineProperty || ie === 8) {
             Object.defineProperty = function(object, property, descriptor) {
                 if (typeof descriptor == "object" && object.__defineGetter__) {
                     if (has.call(descriptor, "value")) {
@@ -450,7 +449,7 @@
 
         // ES5 15.2.3.14
         // http://whattheheadsaid.com/2010/10/a-safer-object-keys-compatibility-implementation
-        if (!Object.keys) { // fuck ie
+        if (!Object.keys) {
             (function() {
                 var hasDontEnumBug = true,
                     dontEnums = [
@@ -509,7 +508,7 @@
         }
 
         // ES5 15.4.4.18
-        if (!Array.prototype.forEach) { // fuck ie
+        if (!Array.prototype.forEach) {
             Array.prototype.forEach =  function(block, thisObject) {
                 var len = this.length >>> 0;
                 for (var i = 0; i < len; i++) {
@@ -522,7 +521,7 @@
 
         // ES5 15.4.4.19
         // https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/map
-        if (!Array.prototype.map) { // fuck ie
+        if (!Array.prototype.map) {
             Array.prototype.map = function(fun /*, thisp*/) {
                 var len = this.length >>> 0;
                 if (typeof fun != "function")
@@ -540,7 +539,7 @@
         }
 
         // ES5 15.4.4.20
-        if (!Array.prototype.filter) { // fuck ie
+        if (!Array.prototype.filter) {
             Array.prototype.filter = function (block /*, thisp */) {
                 var values = [];
                 var thisp = arguments[1];
@@ -553,7 +552,7 @@
 
         // ES5 15.4.4.21
         // https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/reduce
-        if (!Array.prototype.reduce) { // fuck ie
+        if (!Array.prototype.reduce) {
             Array.prototype.reduce = function(fun /*, initial*/) {
                 var len = this.length >>> 0;
                 if (typeof fun != "function")

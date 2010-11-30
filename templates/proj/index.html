@@ -18,6 +18,7 @@
   _gaq.push( ['_setAccount', 'UA-214054-5']
            , ['_trackPageview']
            );
+
   (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
@@ -30,17 +31,20 @@
   if (typeof console === 'undefined') {
     console = {log:function(){}}
   }
+
   (function() {
     if (document.addEventListener) {
       document.addEventListener('DOMContentLoaded', ready, false)
     } else if (window.attachEvent) {
       window.attachEvent('onload', ready)
     }
+
     function ready() {
       function addClass(el, name) {
         var c = el.className || name
         if (!c.match(new RegExp('\b' + name + '\b', 'i'))) c += ' ' + name
       }
+
       var body = document.getElementsByTagName('body')[0]
         , text
       if ('innerText' in body) {
@@ -52,6 +56,7 @@
           document.getElementById(id).textContent = text
         }
       }
+
       function highlight(id) {
         document.getElementById(id).style.className = ' highlight'
       }
@@ -62,6 +67,7 @@
       function updateN(name, things) {
         textHighlight('n' + name, things.length)
       }
+
       var data = createObjectStore('proj')
         , t = data.get('t-proj')
         , names = ['followers', 'following', 'repos', 'watched']
@@ -92,27 +98,11 @@
 <a href=https://github.com/samsonjs><img id=forkme src=../assets/forkme.png alt="Fork me on GitHub"></a>
 <h1>projects</h1>
 <ul id=projects>
-    <li><a href=batteries>batteries</a></li>
+  {{#names}}
+  <li><a href={{.}}>{{.}}</a></li>
   <li class=ie-bullet>&bull;</li>
-    <li><a href=bin>bin</a></li>
-  <li class=ie-bullet>&bull;</li>
-    <li><a href=cheat.el>cheat.el</a></li>
-  <li class=ie-bullet>&bull;</li>
-    <li><a href=compiler>compiler</a></li>
-  <li class=ie-bullet>&bull;</li>
-    <li><a href=config>config</a></li>
-  <li class=ie-bullet>&bull;</li>
-    <li><a href=format>format</a></li>
-  <li class=ie-bullet>&bull;</li>
-    <li><a href=gitter>gitter</a></li>
-  <li class=ie-bullet>&bull;</li>
-    <li><a href=mojo.el>mojo.el</a></li>
-  <li class=ie-bullet>&bull;</li>
-    <li><a href=repl-edit>repl-edit</a></li>
-  <li class=ie-bullet>&bull;</li>
-    <li><a href=samhuri.net>samhuri.net</a></li>
-  <li class=ie-bullet>&bull;</li>
-  <li class=last><a href=strftime>strftime</a></li>
+  {{/names}}
+  <li class=last><a href={{lastName}}>{{lastName}}</a></li>
 </ul>
 <p id=gh>
   <a class=img href=https://github.com/samsonjs><img src=../assets/gh.png alt=GitHub></a>

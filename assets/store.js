@@ -30,7 +30,7 @@
       }
     }
     global.ObjectStore = global.createObjectStore('default')
-  } else { // fuck ie
+  } else {
     // Create an in-memory store, should probably fall back to cookies
     global.createObjectStore = function() {
       var store = {}

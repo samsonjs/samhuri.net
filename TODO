@@ -1,6 +1,24 @@
 TODO
 ====
 
+ * last commit date
+
+ * svg commit graph
+
+ * favicon
+
+ * offline cache
+
+ * semantic markup (section, nav, header, footer, etc)
+
+ * css3 transitions
+
  * promote JS links on project pages (the only ones that mention javascript so far!)
 
  * link to github finder on project pages
+
+ * cache github data in ie6 and ie7 (cookies?)
+
+ * fix display issues in ie6
+
+ * more gradients? any other cool visualizations?

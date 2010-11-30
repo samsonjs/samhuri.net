@@ -49,14 +49,8 @@ ul { text-align: center
    ; -moz-border-radius: 20px
    ; -webkit-border-radius: 20px
    ; border-radius: 20px
-   
-   /* ie searches for this path relative to the referencing file,
-    * not this file as any sane implementation would do.
-    *
-    * fuck ie
-    */
-   ; behavior: url(border-radius.htc)
-   ; behavior: url(../border-radius.htc)
+   ; behavior: url(assets/border-radius.htc)
+   ; behavior: url(../assets/border-radius.htc)
    }
 
 li { display: inline
@@ -68,11 +62,10 @@ li { display: inline
 li:after { content: ' •' }
 li:last-child:after { content: '' }
 
-li.ie-bullet { display: none } /* fuck ie */
-li.last:after { content: '' } /* fuck ie */
 
 li a { padding: 5px
      ; text-shadow: #999 5px 5px 5px
+     ; -webkit-transition: all 0.5s ease-out
      }
 li a:visited { color: #227 }
 
@@ -81,6 +74,20 @@ li a:active { color: #000
             ; text-shadow: #aa7 5px 5px 5px
             ; border-bottom: dashed 1px #000
             }
+
+ul#projects { width: 40%
+            ; max-width: 400px
+            }
+
+ul#projects li { display: block
+               ; line-height: 1.8em
+               }
+
+li.ie-bullet,
+ul#projects li.ie-bullet { display: none }
+
+li.last:after,
+ul#projects li:after { content: '' }
 
 #sjs { text-align: center
      ; font-size: 1.2em
@@ -124,10 +131,11 @@ td:nth-child(2) { padding: 0 10px }
      }
   
   li { display: block
-     ; margin: 0.7em 0.7em 1em
      ; font-size: 1.5em
+     ; line-height: 1.6em
      }
-  li:after { content: '' }
+
+  li:after { content: '' }  
 }
 
 /* iPhone */
