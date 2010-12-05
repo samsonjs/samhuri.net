@@ -48,6 +48,7 @@
             ctor.prototype.constructor = ctor
         }
     } else {
+        // CoffeeScript's ultra-portable inheritance
         var __hasProp = Object.prototype.hasOwnProperty
         inherits = function(child, parent) {
             for (var key in parent) {
