@@ -6,8 +6,6 @@ var constants
   , mustache = require('mustache')
   , EEXIST
   , ENOENT
-  , _template
-  , _n = 0
 
 try {
   constants = require('constants')
@@ -18,9 +16,10 @@ EEXIST = constants.EEXIST
 ENOENT = constants.ENOENT
 
 function main() {
+  var ctx = {}
   fs.readFile(path.join(__dirname, 'templates', 'proj', 'proj', 'index.html'), function(err, html) {
     if (err) throw err
-    _template = html.toString()
+    ctx.template = html.toString()
     fs.readFile(path.join(__dirname, 'projects.json'), function(err, json) {
       if (err) throw err
       var projects = JSON.parse(json)
@@ -47,15 +46,16 @@ function main() {
       })
       
       // write project pages
+      ctx.n = 0
       names.forEach(function(name) {
-        _n += 1
-        buildProject(name, projects[name])
+        ctx.n += 1
+        buildProject(name, projects[name], ctx)
       })
     })
   })
 }
 
-function buildProject(name, project) {
+function buildProject(name, project, ctx) {
   var dir = path.join(__dirname, 'proj', name)
     , index = path.join(dir, 'index.html')
   fs.mkdir(dir, 0775, function(err) {
@@ -63,11 +63,11 @@ function buildProject(name, project) {
     fs.unlink(index, function(err) {
       if (err && err.errno !== ENOENT) throw err
       project.name = name
-      fs.writeFile(index, mustache.to_html(_template, project), function(err) {
+      fs.writeFile(index, mustache.to_html(ctx.template, project), function(err) {
         if (err) console.error('error: ', err.message)
-        _n -= 1
+        ctx.n -= 1
         console.log('* ' + name + (err ? ' (failed)' : ''))
-        if (_n === 0) console.log('done')
+        if (ctx.n === 0) console.log('done projects')
       })
     })
   })
