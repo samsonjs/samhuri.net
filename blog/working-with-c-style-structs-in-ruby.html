@@ -1,0 +1,138 @@
+<!doctype html>
+<meta charset=utf-8>
+<meta name=viewport content=width=device-width>
+<title>Working with C-style structs in Ruby :: samhuri.net</title>
+<link rel=stylesheet href=../assets/blog.css>
+<script>
+var _gaq = _gaq || [];
+_gaq.push( ['_setAccount', 'UA-214054-5']
+         , ['_trackPageview']
+         );
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<nav id=breadcrumbs><a href=../>samhuri.net</a> &rarr; <a href=index.html>blog</a></nav>
+<header>
+  <h1><a href=index.html>sjs' blog</a></h1>
+</header>
+<article>
+  <header>
+    <h1>Working with C-style structs in Ruby</h1>
+    <time>January 17, 2010</time>
+  </header>
+  <p>This is the beginning of a series on generating Mach-O object files in
+Ruby. We start small by introducing some Ruby tools that are useful when
+working with binary data. Subsequent articles will cover a subset of the
+Mach-O file format, then generating Mach object files suitable for linking
+with ld or gcc to produce working executables. A basic knowledge of Ruby and C
+are assumed. You can likely wing it on the Ruby side of things if you know any
+similar languages.</p>
+
+
+
+
+<p>First we need to read and write structured binary files with Ruby. <a
+href="http://ruby-doc.org/core/classes/Array.html#M002222">Array#pack</a> and
+<a
+href="http://ruby-doc.org/core/classes/String.html#M000760">String#unpack</a>
+get the job done at a low level, but every time I use them I have to look up
+the documentation. It would also be nice to encapsulate serializing and
+deserializing into classes describing the various binary data structures. The
+built-in <a href="http://ruby-doc.org/core/classes/Struct.html">Struct
+class</a> sounds promising but did not meet my needs, nor was it easily
+extended to meet them.</p>
+
+
+
+
+<p>Meet <a
+href="http://github.com/samsonjs/compiler/blob/master/asm/cstruct.rb#files">CStruct</a>,
+a class that you can use to describe a binary structure, somewhat similar to
+how you would do it in C. Subclassing CStruct results in a class whose
+instances can be serialized, and unserialized, with little effort. You can
+subclass descendants of CStruct to extend them with additional members.
+CStruct does not implement much more than is necessary for the compiler. For
+example there is no support for floating point. If you want to use this for
+more general purpose tasks be warned that it may require some work. Anything
+supported by Array#pack is fairly easy to add though.</p>
+
+
+
+
+<p>First a quick example and then we'll get into the CStruct class itself. In
+C you may write the following to have one struct "inherit" from another:</p>
+
+
+
+
+<p><script src="http://gist.github.com/279790.js"></script></p>
+
+
+
+
+<p>With CStruct in Ruby that translates to:</p>
+
+
+
+
+<p><script src="http://gist.github.com/279794.js"></script></p>
+
+
+
+
+<p>CStructs act like Ruby's built-in Struct to a certain extent. They are
+instantiated the same way, by passing values to #new in the same order they
+are defined in the class. You can find out the size (in bytes) of a CStruct
+instance using the #bytesize method, or of any member using #sizeof(name).</p>
+
+
+
+
+<p>The most important method (for us) is #serialize, which returns a binary
+string representing the contents of the CStruct.</p>
+
+
+
+
+<p>(I know that CStruct.new_from_bin should be called CStruct.unserialize, you
+can see where my focus was when I wrote it.)</p>
+
+
+
+
+<p>CStruct#serialize automatically creates a "pack pattern", which is an array
+of strings used to pack each member in turn. The pack pattern is mapped to the
+result of calling Array#pack on each corresponding member, and then the
+resulting strings are joined together. Serializing strings complicates matters
+so we cannot build up a pack pattern string and then serialize it in one go,
+but conceptually it's quite similar.</p>
+
+
+
+
+<p>Unserializing is the same process in reverse, and was mainly added for
+completeness and testing purposes.</p>
+
+
+
+
+<p>That's about all you need to know to use CStruct. The code needs some work
+but I decided to just go with what I have already so I can get on with the
+more interesting and fun tasks.</p>
+
+
+
+
+<p><i>Next in this series: <a
+href="basics-of-the-mach-o-file-format.html">Basics
+of the Mach-O file format</a></i><p>
+
+
+</article>
+<footer>
+  <a href=https://twitter.com/_sjs>@_sjs</a>
+</footer>
