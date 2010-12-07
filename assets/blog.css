@@ -3,11 +3,13 @@ body { background-color: #f7f7f7
      ; margin: 0
      }
 
-body > header { background-color: #a6bcdf
+body > header { display: block
+              ; background-color: #a6bcdf
               ; border-bottom: solid 1em #eee
-              ; -moz-border-bottom-left-radius: 500px 100%
-              ; -webkit-border-bottom-left-radius: 500px 100%
-              ; border-bottom-left-radius: 500px 100%
+              /* some browsers have trouble with 100% for the height so use em units :/ */
+              ; -moz-border-bottom-left-radius: 500px 7em
+              ; -webkit-border-bottom-left-radius: 500px 7em
+              ; border-bottom-left-radius: 500px 7em
               }
 
 h1 { text-align: right
