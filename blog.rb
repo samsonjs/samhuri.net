@@ -23,7 +23,7 @@ posts = Posts['published'].map do |filename|
     line = lines.shift.strip
     m = line.match(/(\w+):/)
     if m && param = m[1].downcase
-      post[param] = line.sub(Regexp.new('^' + param + ':\s*', 'i'), '').strip
+      post[param.to_sym] = line.sub(Regexp.new('^' + param + ':\s*', 'i'), '').strip
     elsif line.match(/^----\s*$/)
       lines.shift while lines.first.strip.empty?
       break
@@ -37,7 +37,8 @@ posts = Posts['published'].map do |filename|
 end
 
 posts.each_with_index do |post, i|
-  post[:html] = Mustache.render(template, { :post => post,
+  post[:html] = Mustache.render(template, { :title => post[:title],
+                                            :post => post,
                                             :previous => i < posts.length - 1 && posts[i + 1],
                                             :next => i > 0 && posts[i - 1]
                                           })
