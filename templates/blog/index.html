@@ -14,20 +14,56 @@ _gaq.push( ['_setAccount', 'UA-214054-5']
   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
+
+if (document.addEventListener) {
+  document.addEventListener('DOMContentLoaded', ready, false)
+} else if (window.attachEvent) {
+  window.attachEvent('onload', ready)
+}
+function ready() {
+  var index = document.getElementById('index')
+    , indexToggle = document.getElementById('index-toggle')
+    , hidden = true
+  indexToggle.onclick = function() {
+    hidden = !hidden
+    index.style.display = hidden ? 'none' : 'block'
+    indexToggle.innerHTML = hidden ? '&darr; show posts &darr;' : '&uarr; hide posts &uarr;'
+  }
+}
 </script>
-<nav id=breadcrumbs><a href=../>samhuri.net</a></nav>
 <header>
   <h1><a href=index.html>sjs' blog</a></h1>
 </header>
-{{#posts}}
-<article>
-  <header>
-    <h1><a href={{filename}}>{{title}}</a></h1>
-    <time>{{date}}</time>
-  </header>
-  {{{body}}}
-</article>
-{{/posts}}
+<nav id=breadcrumbs><a href=../>samhuri.net</a></nav>
+<a id=index-toggle href=#>&darr; show posts &darr;</a>
+<nav id=index>
+  <ul>
+    {{#posts}}
+    <li><a href={{filename}}>{{title}}</a> <span class=date>{{date}}</span></li>
+    {{/posts}}
+  </ul>
+</nav>
+<div id=posts>
+  {{! TODO extract a post partial used here and in post.html }}
+  {{#post}}
+  <article>
+    <header>
+      <h1><a href={{filename}}>{{title}}</a></h1>
+      <time>{{date}}</time>
+    </header>
+    {{{body}}}
+  </article>
+  {{/post}}
+</div>
+<div id=around>
+  {{#previous}}
+  <a id=prev href={{filename}}>&larr; {{title}}</a>
+  {{/previous}}
+  {{#next}}
+  <a id=next href={{filename}}>{{title}} &rarr;</a>
+  {{/next}}
+  <br style=clear:both>
+</div>
 <footer>
   <a href=https://twitter.com/_sjs>@_sjs</a>
 </footer>

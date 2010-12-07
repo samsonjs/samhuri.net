@@ -15,17 +15,31 @@ _gaq.push( ['_setAccount', 'UA-214054-5']
   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
 </script>
-<nav id=breadcrumbs><a href=../>samhuri.net</a> &rarr; <a href=index.html>blog</a></nav>
 <header>
   <h1><a href=index.html>sjs' blog</a></h1>
 </header>
-<article>
-  <header>
-    <h1>{{title}}</h1>
-    <time>{{date}}</time>
-  </header>
-  {{{body}}}
-</article>
+<nav id=breadcrumbs><a href=../>samhuri.net</a> &rarr; <a href=index.html>blog</a></nav>
+<div id=posts>
+  {{! TODO extract a post partial used here and in index.html }}
+  <article>
+    {{#post}}
+    <header>
+      <h1><a href={{filename}}>{{title}}</a></h1>
+      <time>{{date}}</time>
+    </header>
+    {{{body}}}
+    {{/post}}
+  </article>
+</div>
+<div id=around>
+  {{#previous}}
+  <a id=prev href={{filename}}>&larr; {{title}}</a>
+  {{/previous}}
+  {{#next}}
+  <a id=next href={{filename}}>{{title}} &rarr;</a>
+  {{/next}}
+  <br style=clear:both>
+</div>
 <footer>
   <a href=https://twitter.com/_sjs>@_sjs</a>
 </footer>

@@ -33,12 +33,21 @@ posts = Posts['published'].map do |filename|
   end
   post[:content] = lines.join
   post[:body] = RDiscount.new(post[:content]).to_html
-  post[:html] = Mustache.render(template, post)
   post
 end
 
+posts.each_with_index do |post, i|
+  post[:html] = Mustache.render(template, { :post => post,
+                                            :previous => i < posts.length - 1 && posts[i + 1],
+                                            :next => i > 0 && posts[i - 1]
+                                          })
+end
+
 index_template = File.read(File.join('templates', 'blog', 'index.html'))
-index_html = Mustache.render(index_template, { :posts => posts })
+index_html = Mustache.render(index_template, { :posts => posts,
+                                               :post => posts.first,
+                                               :previous => posts[1]
+                                             })
 
 File.open(File.join(destdir, 'index.html'), 'w') {|f| f.puts(index_html) }
 posts.each do |post|

@@ -14,17 +14,44 @@ _gaq.push( ['_setAccount', 'UA-214054-5']
   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
+
+if (document.addEventListener) {
+  document.addEventListener('DOMContentLoaded', ready, false)
+} else if (window.attachEvent) {
+  window.attachEvent('onload', ready)
+}
+function ready() {
+  var index = document.getElementById('index')
+    , indexToggle = document.getElementById('index-toggle')
+    , hidden = true
+  indexToggle.onclick = function() {
+    hidden = !hidden
+    index.style.display = hidden ? 'none' : 'block'
+    indexToggle.innerHTML = hidden ? '&darr; show posts &darr;' : '&uarr; hide posts &uarr;'
+  }
+}
 </script>
-<nav id=breadcrumbs><a href=../>samhuri.net</a></nav>
 <header>
   <h1><a href=index.html>sjs' blog</a></h1>
 </header>
-<article>
-  <header>
-    <h1><a href=37signals-chalk-dissected.html>37signals' Chalk Dissected</a></h1>
-    <time>November 4, 2010</time>
-  </header>
-  <p><i>Update 2010-11-05: I dove into the JavaScript a little and explained most of it. Sam Stephenson <a href="https://twitter.com/sstephenson/status/553490682216449">tweeted</a> that Chalk is written in <a href="http://jashkenas.github.com/coffee-script/">CoffeeScript</a> and compiled on the fly when served using <a href="https://github.com/sstephenson/brochure">Brochure</a>. That's hot! (for those unaware Sam Stephenson works at 37signals, and is also the man behind <a href="http://www.prototypejs.org/">Prototype</a>.)</i></p>
+<nav id=breadcrumbs><a href=../>samhuri.net</a></nav>
+<a id=index-toggle href=#>&darr; show posts &darr;</a>
+<nav id=index>
+  <ul>
+    <li><a href=37signals-chalk-dissected.html>37signals' Chalk Dissected</a> <span class=date>November 4, 2010</span></li>
+    <li><a href=a-preview-of-mach-o-file-generation.html>A preview of Mach-O file generation</a> <span class=date>January 20, 2010</span></li>
+    <li><a href=basics-of-the-mach-o-file-format.html>Basics of the Mach-O file format</a> <span class=date>January 18, 2010</span></li>
+    <li><a href=working-with-c-style-structs-in-ruby.html>Working with C-style structs in Ruby</a> <span class=date>January 17, 2010</span></li>
+    </ul>
+</nav>
+<div id=posts>
+  
+  <article>
+    <header>
+      <h1><a href=37signals-chalk-dissected.html>37signals' Chalk Dissected</a></h1>
+      <time>November 4, 2010</time>
+    </header>
+    <p><i>Update 2010-11-05: I dove into the JavaScript a little and explained most of it. Sam Stephenson <a href="https://twitter.com/sstephenson/status/553490682216449">tweeted</a> that Chalk is written in <a href="http://jashkenas.github.com/coffee-script/">CoffeeScript</a> and compiled on the fly when served using <a href="https://github.com/sstephenson/brochure">Brochure</a>. That's hot! (for those unaware Sam Stephenson works at 37signals, and is also the man behind <a href="http://www.prototypejs.org/">Prototype</a>.)</i></p>
 
 
 
@@ -266,428 +293,12 @@ addLineNumbersToAllGists();
 </script>
 
 
-</article>
-<article>
-  <header>
-    <h1><a href=a-preview-of-mach-o-file-generation.html>A preview of Mach-O file generation</a></h1>
-    <time>January 20, 2010</time>
-  </header>
-  <p>This month I got back into an x86 compiler I started last May. It lives <a
-href="https://github.com/samsonjs/compiler">on github</a>.</p>
-
-
-
-
-<p>The code is a bit of a mess but it mostly works. It generates Mach object
-files that are linked with gcc to produce executable binaries.</p>
-
-
-
-
-<p>The Big Refactoring of January 2010 has come to an end and the tests pass
-again, even if printing is broken it prints <i>something</i>, and more
-importantly compiles test/test_huge.code into something that works.</p>
-
-
-
-
-<p>After print is fixed I can clean up the code before implementing anything
-new. I wasn't sure if I'd get back into this or not and am pretty excited
-about it. I'm learning a lot from this project.</p>
-
-
-
-
-<p>If you are following the Mach-O posts you might want to look at
-asm/machofile.rb, a library for creating Mach-O files. Using it is quite
-straightforward, an example is in asm/binary.rb, in the #output method.</p>
-
-
-
-
-<p>Definitely time for bed now!</p>
-
-
-</article>
-<article>
-  <header>
-    <h1><a href=basics-of-the-mach-o-file-format.html>Basics of the Mach-O file format</a></h1>
-    <time>January 18, 2010</time>
-  </header>
-  <p><i>This post is part of a series on generating basic x86 Mach-O files
-with Ruby.  The
-<a href="working-with-c-style-structs-in-ruby.html">
-first post</a> introduced CStruct, a Ruby class used to serialize
-simple struct-like objects.</i></p>
-
-
-
-
-<p>Please note that the best way to learn about Mach-O properly is to
-read Apple's
-<a href="http://developer.apple.com/Mac/library/documentation/DeveloperTools/Conceptual/MachORuntime/Reference/reference.html#//apple_ref/doc/uid/TP40000895-CH248-SW3">
-documentation on Mach-O</a>, which is pretty good combined with the
-comments in /usr/include/mach-o/*.h.  These posts will only cover
-the basics necessary to generate a simple object file for linking with
-ld or gcc, and are not meant to be comprehensive.</p>
-
-
-
-
-<h2>Mach-O File Format Overview</h2>
-
-
-
-
-<p>A Mach-O file consists of 2 main pieces: the <b>header</b> and
-the <b>data</b>.  The header is basically a map of the file describing
-what it contains and the position of everything contained in it.  The
-data comes directly after the header and consists of a number of
-binary blobs of data, one after the other.</p>
-
-
-
-
-<p>The header contains 3 types of records: the <b>Mach header</b>,
-<b>segments</b>, and <b>sections</b>.  Each binary blob is described
-by a named section in the header.  Sections are grouped into one or
-more named segments.  The Mach header is just one part of the header
-and should not be confused with the entire header.  It contains
-information about the file as a whole, and specifies the number of
-segments as well.</p>
-
-
-
-
-<p>Take a quick look at <b>Figure 1</b> in
-<a href="http://developer.apple.com/Mac/library/documentation/DeveloperTools/Conceptual/MachORuntime/Reference/reference.html#//apple_ref/doc/uid/TP40000895-CH248-SW3">
-Apple's Mach-O overview</a>, which illustrates this quite nicely.</p>
-
-
-
-
-<p>A very basic Mach object file consists of a header followed by single
-blob of machine code.  That blob could be described by a single
-section named __text, inside a single nameless segment.  Here's a
-diagram showing the layout of such a file:</p>
-
-
-
-
-<pre>
-
-            ,---------------------------,
-  Header    |  Mach header              |
-            |    Segment 1              |
-            |      Section 1 (__text)   | --,
-            |---------------------------|   | 
-  Data      |           blob            | &lt;-'
-            '---------------------------'      
-</pre>
-
-
-
-
-<h2>The Mach Header</h2>
-
-
-
-
-<p>The Mach header contains the architecture (cpu type), the type of
-file (object in our case), and the number of segments.  There is more
-to it but that's about all we care about.  To see exactly what's in a
-Mach header fire up a shell and type <tt>otool -h /bin/zsh</tt> (on a
-Mac).</p>
-
-
-
-
-<p>Using
-<a href="working-with-c-style-structs-in-ruby.html">
-CStruct</a> we define the Mach header like so:</p>
-
-
-
-
-<script src="http://gist.github.com/280635.js"></script>
-
-
-
-
-<h2>Segments</h2>
-
-
-
-
-<p>Segments, or <b>segment commands</b>, specify where in memory the
-segment should be loaded by the OS, and the number of bytes to
-allocate for that segment.  They also specify which bytes inside the
-file are part of that segment, and how many sections it contains.</p>
-
-
-
-
-<p>One benefit to generating an object file rather than an executable is
-that we let the linker worry about some details.  One of those details
-is where in memory segments will ultimately end up.</p>
-
-
-
-
-<p>Names are optional and can be arbitrary, but the convention is to
-name segments with uppercase letters preceded by two underscores,
-e.g. __DATA or __TEXT </p>
-
-
-
-
-<p>The code exposes some more details about segment commands, but should
-be easy enough to follow.</p>
-
-
-
-
-<script src="http://gist.github.com/280642.js"></script>
-
-
-
-
-<h2>Sections</h2>
-
-
-
-
-<p>All sections within a segment are described one after the other
-directly after each segment command.  Sections define their name,
-address in memory, size, offset of section data within the file, and
-segment name.  The segment name might seem redundant but in the next
-post we'll see why this is useful information to have in the section
-header.</p>
-
-
-
-
-<p>Sections can optionally specify a map to addresses within their
-binary blob, called a <b>relocation table</b>.  This is used by the
-linker.  Since we're letting the linker work out where to place
-everything in memory the addresses inside our machine code will need
-to be updated.</p>
-
-
-
-
-<p>By convention segments are named with lowercase letters preceded by
-two underscores, e.g. __bss or __text</p>
-
-
-
-
-<p>Finally, the Ruby code describing section structs:</p>
-
-
-
-
-<script src="http://gist.github.com/280643.js"></script>
-
-
-
-
-<h2>macho.rb</h2>
-
-
-
-
-<p>As much of the Mach-O format as we need is defined in
-<a href="http://github.com/samsonjs/compiler/blob/master/asm/macho.rb">
-asm/macho.rb</a>.  The Mach header, Segment commands, sections,
-relocation tables, and symbol table structs are all there, with a few
-constants as well.</p>
-
-
-
-
-<p>I'll cover symbol tables and relocation tables in my next post.</p>
-
-
-
-
-<h2>Looking at real Mach-O files</h2>
-
-
-
-
-<p>To see the segments and sections of an object file, run
-<tt>otool -l /usr/lib/crt1.o</tt>.  <b>-l</b> is for load commands.
-If you want to see why we stick to generating object files instead of
-executables run <tt>otool -l /bin/zsh</tt>.  They are complicated
-beasts.</p>
-
-
-
-
-<p>If you want to see the actual data for a section otool provides a
-couple of ways to do this.  The first is to use
-<tt>otool -d &lt;segment&gt; &lt;section&gt;</tt> for an arbitrary
-section.  To see the contents of a well-known section, such as __text
-in the __TEXT segment, use <tt>otool -t /usr/bin/true</tt>.  You can
-also disassemble the __text section with
-<tt>otool -tv /usr/bin/true</tt>.</p>
-
-
-
-
-<p>You'll get to know otool quite well if you work with Mach-O.</p>
-
-
-
-
-<h2>Take a break</h2>
-
-
-
-
-<p>That was probably a lot to digest, and to make real sense of it you
-might need to read some of the
-<a href="http://developer.apple.com/Mac/library/documentation/DeveloperTools/Conceptual/MachORuntime/Reference/reference.html#//apple_ref/doc/uid/TP40000895-CH248-SW3">
-official documentation</a>.</p>
-
-
-
-
-<p>We're close to being able to describe a minimal Mach object file
-that can be linked, and the resulting binary executed.  By the end of
-the next post we'll be there.</p>
-
-
-
-
-<p><i>(You can almost do that with what we know now.  If you
-create a Mach file with a Mach header (ncmds=1), a single unnamed
-segment (nsects=1), and then a section named __text with a segment
-name of __TEXT, and some x86 machine code as the section data, you
-would almost have a useful Mach object file.)</i></p>
-
-
-
-
-<p>Till next time, happy hacking!</p>
-
-
-</article>
-<article>
-  <header>
-    <h1><a href=working-with-c-style-structs-in-ruby.html>Working with C-style structs in Ruby</a></h1>
-    <time>January 17, 2010</time>
-  </header>
-  <p>This is the beginning of a series on generating Mach-O object files in
-Ruby. We start small by introducing some Ruby tools that are useful when
-working with binary data. Subsequent articles will cover a subset of the
-Mach-O file format, then generating Mach object files suitable for linking
-with ld or gcc to produce working executables. A basic knowledge of Ruby and C
-are assumed. You can likely wing it on the Ruby side of things if you know any
-similar languages.</p>
-
-
-
-
-<p>First we need to read and write structured binary files with Ruby. <a
-href="http://ruby-doc.org/core/classes/Array.html#M002222">Array#pack</a> and
-<a
-href="http://ruby-doc.org/core/classes/String.html#M000760">String#unpack</a>
-get the job done at a low level, but every time I use them I have to look up
-the documentation. It would also be nice to encapsulate serializing and
-deserializing into classes describing the various binary data structures. The
-built-in <a href="http://ruby-doc.org/core/classes/Struct.html">Struct
-class</a> sounds promising but did not meet my needs, nor was it easily
-extended to meet them.</p>
-
-
-
-
-<p>Meet <a
-href="http://github.com/samsonjs/compiler/blob/master/asm/cstruct.rb#files">CStruct</a>,
-a class that you can use to describe a binary structure, somewhat similar to
-how you would do it in C. Subclassing CStruct results in a class whose
-instances can be serialized, and unserialized, with little effort. You can
-subclass descendants of CStruct to extend them with additional members.
-CStruct does not implement much more than is necessary for the compiler. For
-example there is no support for floating point. If you want to use this for
-more general purpose tasks be warned that it may require some work. Anything
-supported by Array#pack is fairly easy to add though.</p>
-
-
-
-
-<p>First a quick example and then we'll get into the CStruct class itself. In
-C you may write the following to have one struct "inherit" from another:</p>
-
-
-
-
-<p><script src="http://gist.github.com/279790.js"></script></p>
-
-
-
-
-<p>With CStruct in Ruby that translates to:</p>
-
-
-
-
-<p><script src="http://gist.github.com/279794.js"></script></p>
-
-
-
-
-<p>CStructs act like Ruby's built-in Struct to a certain extent. They are
-instantiated the same way, by passing values to #new in the same order they
-are defined in the class. You can find out the size (in bytes) of a CStruct
-instance using the #bytesize method, or of any member using #sizeof(name).</p>
-
-
-
-
-<p>The most important method (for us) is #serialize, which returns a binary
-string representing the contents of the CStruct.</p>
-
-
-
-
-<p>(I know that CStruct.new_from_bin should be called CStruct.unserialize, you
-can see where my focus was when I wrote it.)</p>
-
-
-
-
-<p>CStruct#serialize automatically creates a "pack pattern", which is an array
-of strings used to pack each member in turn. The pack pattern is mapped to the
-result of calling Array#pack on each corresponding member, and then the
-resulting strings are joined together. Serializing strings complicates matters
-so we cannot build up a pack pattern string and then serialize it in one go,
-but conceptually it's quite similar.</p>
-
-
-
-
-<p>Unserializing is the same process in reverse, and was mainly added for
-completeness and testing purposes.</p>
-
-
-
-
-<p>That's about all you need to know to use CStruct. The code needs some work
-but I decided to just go with what I have already so I can get on with the
-more interesting and fun tasks.</p>
-
-
-
-
-<p><i>Next in this series: <a
-href="basics-of-the-mach-o-file-format.html">Basics
-of the Mach-O file format</a></i><p>
-
-
-</article>
+  </article>
+  </div>
+<div id=around>
+  <a id=prev href=a-preview-of-mach-o-file-generation.html>&larr; A preview of Mach-O file generation</a>
+  <br style=clear:both>
+</div>
 <footer>
   <a href=https://twitter.com/_sjs>@_sjs</a>
 </footer>
