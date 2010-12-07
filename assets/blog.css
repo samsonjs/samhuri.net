@@ -5,6 +5,9 @@ body { background-color: #f7f7f7
 
 body > header { background-color: #a6bcdf
               ; border-bottom: solid 1em #eee
+              ; -moz-border-bottom-left-radius: 500px 100%
+              ; -webkit-border-bottom-left-radius: 500px 100%
+              ; border-bottom-left-radius: 500px 100%
               }
 
 h1 { text-align: right
@@ -21,6 +24,8 @@ h1 a { color: #f7f7f7
      ; text-shadow: #999 1px 1px 3px
      }
 
+a#sjs:hover { color: #f7f7a7 }
+
 a { color: #22c }
 
 a.img { border: none }
@@ -36,9 +41,9 @@ a.img { border: none }
                ; text-decoration: underline
                }
 
-#index-toggle { display: block
-              ; text-align: center
-              }
+.center { text-align: center
+        ; font-size: 1.2em
+        }
 
 #index { display: none
        ; width: 60%
@@ -50,6 +55,7 @@ a.img { border: none }
        ; border-radius: 10px
        ; background-color: #eee
        ; margin: 1em auto
+       ; font-size: 1.2em
        }
 
 #index ul { padding: 0 1em
@@ -64,8 +70,9 @@ a.img { border: none }
        ; width: 80%
        ; min-width: 400px
        ; max-width: 800px
-       ; margin: 0 auto
+       ; margin: 4em auto
        ; padding: 0 3em
+       ; font-size: 1.2em
        }
 
 article { color: #222
@@ -89,7 +96,12 @@ article h1 a { color: #222
              ; text-decoration: underline
              ; border-bottom: none
              ; text-shadow: #999 1px 1px 5px
+             ; -webkit-transition: text-shadow 0.4s ease-in
              }
+
+article h1 a:hover { text-shadow: #990 1px 1px 8px
+                   ; color: #222
+                   }
 
 article h2 { font-size: 1.8em
            ; font-weight: normal
@@ -104,11 +116,14 @@ article h3 { font-size: 1.6em
 
 time { color: #444 }
 
+.gist { font-size: 0.8em }
+
 #around { width: 80%
         ; min-width: 400px
         ; max-width: 800px
         ; margin: 1em auto
         ; padding: 0 3em
+        ; font-size: 1.2em
         }
 
 #prev { float: left }
