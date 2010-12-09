@@ -14,6 +14,28 @@ _gaq.push( ['_setAccount', 'UA-214054-5']
   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
+if (document.addEventListener) {
+  document.addEventListener('DOMContentLoaded', ready, false)
+} else if (window.attachEvent) {
+  window.attachEvent('onload', ready)
+}
+function ready() {
+  function html(id, h) {
+    document.getElementById(id).innerHTML = h
+  }
+
+  var discussion = document.getElementById('discussion')
+    , discussionToggle = document.getElementById('discussion-toggle')
+    , hidden = true
+  discussionToggle.onclick = function() {
+    hidden = !hidden
+    discussion.style.display = hidden ? 'none' : 'block'
+    discussionToggle.innerHTML = hidden ? '&darr; show discussion &darr;' : '&uarr; hide discussion &uarr;'
+    SJS.request({uri: 'http://bohodev.net:8000/comments/'}, function(err, body) {
+      html('comments', body)
+    })
+  }
+}
 </script>
 <header>
   <h1><a href=index.html>sjs' blog</a></h1>
@@ -68,6 +90,21 @@ straightforward, an example is in asm/binary.rb, in the #output method.</p>
   <a id=prev href=basics-of-the-mach-o-file-format.html>&larr; Basics of the Mach-O file format</a>
   <a id=next href=37signals-chalk-dissected.html>37signals' Chalk Dissected &rarr;</a>
   <br style=clear:both>
+</div>
+<div class=center><a id=discussion-toggle href=#>&darr; show discussion &darr;</a></div>
+<div id=discussion>
+  <div id=comment-form>
+  <form method=post action=http://bohodev.net:8000/comment>
+    <input name=from type=hidden value=a-preview-of-mach-o-file-generation.html>
+    <p>Name: <input name=name size=30></p>
+    <p>URL: <input name=url size=30></p>
+    <p>Thoughts: <textarea name=body cols=40 rows=5></textarea></p>
+    <p><input type=submit value=Add to discussion></p>
+  </form>
+  </div>
+  <div id=comments>
+    <img id=discussion-spinner src=../assets/spinner.gif>
+  </div>
 </div>
 <footer>
   <a href=https://twitter.com/_sjs>@_sjs</a>

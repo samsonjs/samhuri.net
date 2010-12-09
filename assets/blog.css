@@ -131,6 +131,8 @@ time { color: #444 }
 #prev { float: left }
 #next { float: right }
 
+#comments { display: none }
+
 footer { text-align: center
        ; font-size: 1.2em
        ; margin: 0
