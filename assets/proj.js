@@ -59,7 +59,7 @@
 
         function updateContributors(contributors) {
           function userLink(u) {
-            return '<a href=https://github.com/' + u.login + '>' + u.name + '</a>'
+            return '<a href=https://github.com/' + u.login + '>' + (u.name || u.login) + '</a>'
           }
           html('contributors', contributors.map(userLink).join('<br>'))
         }
