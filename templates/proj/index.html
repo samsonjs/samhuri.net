@@ -75,7 +75,7 @@
       var data = createObjectStore('proj')
         , t = data.get('t-proj')
         , names = ['followers', 'following', 'repos', 'watched']
-      if (!t || +new Date() - t > 86400000) {
+      if (!t || +new Date() - t > 3600 * 1000) {
         console.log('stale ' + String(t))
         data.set('t-proj', +new Date())
         names.forEach(function(name) {

@@ -74,7 +74,7 @@
         }
 
         var t = data.get('t-' + name)
-        if (!t || +new Date() - t > 86400000) {
+        if (!t || +new Date() - t > 3600 * 1000) {
           console.log('stale ' + String(t))
           data.set('t-' + name, +new Date())
           GITR.repo('samsonjs/' + name)
