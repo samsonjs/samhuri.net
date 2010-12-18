@@ -23,7 +23,7 @@
             while (
               div.innerHTML = '<!--[if gt IE ' + (++v) + ']><i></i><![endif]-->',
               all[0]
-            );
+            ){/* braces here to satifsy closure-compiler */};
 
             return v > 4 ? v : undef
         }())
@@ -594,7 +594,7 @@
               , url = options.uri + '?callback=GITR.' + jsonpCallbackName
             GITR[jsonpCallbackName] = function(obj) {
                 cb(null, null, obj)
-                setTimeout(function() { delete GITR[jsonpCallbackName] }, 0)
+                delete GITR[jsonpCallbackName]
             }
             load(url)
         }
