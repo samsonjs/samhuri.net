@@ -7,38 +7,22 @@
 var _gaq = _gaq || [];
 _gaq.push( ['_setAccount', 'UA-214054-5']
          , ['_trackPageview']
-         );
+         )
 
-(function() {
-  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
-{{#comments}}
-if (document.addEventListener) {
-  document.addEventListener('DOMContentLoaded', ready, false)
-} else if (window.attachEvent) {
-  window.attachEvent('onload', ready)
-}
-function ready() {
-  function html(id, h) {
-    document.getElementById(id).innerHTML = h
-  }
-
-  var discussion = document.getElementById('discussion')
-    , discussionToggle = document.getElementById('discussion-toggle')
-    , hidden = true
-  discussionToggle.onclick = function() {
-    hidden = !hidden
-    discussion.style.display = hidden ? 'none' : 'block'
-    discussionToggle.innerHTML = hidden ? '&darr; show discussion &darr;' : '&uarr; hide discussion &uarr;'
-    SJS.request({uri: 'http://bohodev.net:8000/comments/{{filename}}'}, function(err, body) {
-      html('comments', body)
-    })
-  }
-}
-{{/comments}}
+;(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s)
+})()
 </script>
+{{#comments}}
+<script src=http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js></script>
+<script>
+window.SJS = window.SJS || {}
+SJS.filename = "{{filename}}"
+</script>
+<script src=../assets/blog-all.min.js></script>
+{{/comments}}
 <header>
   <h1><a href=index.html>sjs' blog</a></h1>
 </header>
@@ -55,6 +39,7 @@ function ready() {
     {{/post}}
   </article>
 </div>
+<p class=sep>&#x0f04;</p>
 <div id=around>
   {{#previous}}
   <a id=prev href={{filename}}>&larr; {{title}}</a>
@@ -64,22 +49,35 @@ function ready() {
   {{/next}}
   <br style=clear:both>
 </div>
-<div class=center><a id=discussion-toggle href=#>&darr; show discussion &darr;</a></div>
 {{#comments}}
-<div id=discussion>
-  <div id=comment-form>
-  <form method=post action=http://bohodev.net:8000/comment>
-    <input name=from type=hidden value={{#post}}{{filename}}{{/post}}>
-    <p>Name: <input name=name size=30></p>
-    <p>URL: <input name=url size=30></p>
-    <p>Thoughts: <textarea name=body cols=40 rows=5></textarea></p>
-    <p><input type=submit value=Add to discussion></p>
-  </form>
-  </div>
+<p id=need-js align=center><strong>(discussion requires JavaScript)</strong></p>
+<div class=center id=sd-container><a id=sd href=#comment-stuff>show the discussion</a></div>
+<div id=comment-stuff>
   <div id=comments>
     <img id=discussion-spinner src=../assets/spinner.gif>
   </div>
+  <form id=comment-form>
+    <input name=post type=hidden value={{filename}}>
+    <p><input name=name type=text placeholder=name></p>
+    <p><input name=email type=text placeholder=email></p>
+    <p><input name=url type=text placeholder=url></p>
+    <p><textarea name=body placeholder=thoughts></textarea></p>
+    <p align=center><input type=submit value='so there'></p>
+  </form>
 </div>
+<script type="text/html" id="comment_tmpl">
+  <div class=comment>
+    <p>
+      <% if (url) { %>
+        <a href="<%= url %>"><%= name %></a>
+      <% } else { %>
+        <%= name %>
+      <% } %>
+      @ <%= strftime('%F %r', new Date(timestamp)) %>
+    </p>
+    <blockquote><%= html %></blockquote>
+  </div>
+</script>
 {{/comments}}
 <footer>
   <a href=https://twitter.com/_sjs>@_sjs</a>

@@ -2,10 +2,14 @@
 
 var fs = require('fs')
   , http = require('http')
+  , path = require('path')
+  , parseURL = require('url').parse
   , keys = require('keys')
+  , markdown = require('markdown')
+  , strftime = require('strftime').strftime
   , DefaultOptions = { host: 'localhost'
                      , port: 2020
-                     , postsFile: 'posts.json'
+                     , postsFile: path.join(__dirname, 'posts.json')
                      }
 
 function main() {
@@ -19,12 +23,15 @@ function main() {
           readJSON(options.postsFile, function(err, posts) {
               if (err) {
                   console.error('failed to parse posts file, is it valid JSON?')
-                  console.dir(e)
+                  console.dir(err)
                   process.exit(1)
               }
+              if (context.posts === null) {
+                  var n = posts.published.length
+                    , t = strftime('%Y-%m-%d %I:%M:%S %p')
+                  console.log('(' + t + ') ' + 'loaded discussions for ' + n + ' posts...')
+              }
               context.posts = posts.published
-              var n = context.posts.length
-              console.log((context.posts === null ? '' : 're') + 'loaded ' + n + ' posts...')
               if (typeof cb == 'function') cb()
           })
       }
@@ -56,63 +63,232 @@ function readJSON(f, cb) {
     })
 }
 
-function requestHandler(context) {
-    function addComment(data) {
-        if (missingParams(data) || context.posts.indexOf(data.post) === -1) {
-            console.log('missing params or invalid post title in ' + JSON.stringify(data, null, 2))
-            return false
+// returns a request handler that returns a string
+function createTextHandler(options) {
+    if (typeof options === 'string') {
+        options = { body: options }
+    } else {
+        options = options || {}
+    }
+    var body = options.body || ''
+      , code = options.cody || 200
+      , type = options.type || 'text/plain'
+      , n = body.length
+    return function(req, res) {
+        var headers = res.headers || {}
+        headers['content-type'] = type
+        headers['content-length'] = n
+
+//        console.log('code: ', code)
+//        console.log('headers: ', JSON.stringify(headers, null, 2))
+//        console.log('body: ', body)
+
+        res.writeHead(code, headers)
+        res.end(body)
+    }
+}
+
+// Cross-Origin Resource Sharing
+var createCorsHandler = (function() {
+    var AllowedOrigins = [ 'http://samhuri.net'
+                         , 'http://localhost:8888'
+                         ]
+
+    return function(handler) {
+        handler = handler || createTextHandler('ok')
+        return function(req, res) {
+            var origin = req.headers.origin
+            console.log('origin: ', origin)
+            console.log('index: ', AllowedOrigins.indexOf(origin))
+            if (AllowedOrigins.indexOf(origin) !== -1) {
+                res.headers = { 'Access-Control-Allow-Origin': origin
+                              , 'Access-Control-Request-Method': 'POST, GET'
+                              , 'Access-Control-Allow-Headers': 'content-type'
+                              }
+                handler(req, res)
+            } else {
+                BadRequest(req, res)
+            }
         }
-        var comments = context.db.get(data.post) || []
-        comments.push({ name: data.name
-                      , email: data.email
-                      , body: data.body
+    }
+}())
+
+var DefaultHandler = createTextHandler({ code: 404, body: 'not found' })
+  , BadRequest = createTextHandler({ code: 400, body: 'bad request' })
+  , ServerError = createTextHandler({ code: 500, body: 'server error' })
+  , _routes = {}
+
+function route(method, pattern, handler) {
+    if (typeof pattern === 'function' && !handler) {
+        handler = pattern
+        pattern = ''
+    }
+    if (!pattern || typeof pattern.exec !== 'function') {
+        pattern = new RegExp('^/' + pattern)
+    }
+    var route = { pattern: pattern, handler: handler }
+    console.log('routing ' + method, pattern)
+    if (!(method in _routes)) _routes[method] = []
+    _routes[method].push(route)
+}
+
+function resolve(method, path) {
+    var rs = _routes[method]
+      , i = rs.length
+      , m
+      , r
+    while (i--) {
+        r = rs[i]
+        m = r.pattern.exec ? r.pattern.exec(path) : path.match(r.pattern)
+        if (m) return r.handler
+    }
+    console.warn('*** using default handler, this is probably not what you want')
+    return DefaultHandler
+}
+
+function get(pattern, handler) {
+    route('GET', pattern, handler)
+}
+
+function post(pattern, handler) {
+    route('POST', pattern, handler)
+}
+
+function options(pattern, handler) {
+    route('OPTIONS', pattern, handler)
+}
+
+function handleRequest(req, res) {
+    var handler = resolve(req.method, req.url)
+    try {
+        handler(req, res)
+    } catch (e) {
+        console.error('!!! error handling ' + req.method, req.url)
+        console.dir(e)
+    }
+}
+
+function commentServer(context) {
+    function addComment(post, name, email, url, body) {
+        var comments = context.db.get(post) || []
+        comments.push({ name: name
+                      , email: email
+                      , url: url
+                      , body: body
                       , timestamp: Date.now()
                       })
-        context.db.set(data.post, comments)
-        console.log('[' + new Date() + '] add comment ' + JSON.stringify(data, null, 2))
-        return true
+        context.db.set(post, comments)
+        console.log('[' + new Date() + '] comment on ' + post)
+        console.log('name:', name)
+        console.log('email:', email)
+        console.log('url:', url)
+        console.log('body:', body)
     }
 
-    return function(req, res) {
+    function getComments(req, res) {
+        var post = parseURL(req.url).pathname.replace(/^\/comments\//, '')
+          , comments
+        if (context.posts.indexOf(post) === -1) {
+            console.warn('post not found: ' + post)
+            BadRequest(req, res)
+            return
+        }
+        comments = context.db.get(post) || []
+        res.respond({comments: comments.map(function(c) {
+            delete c.email
+            c.html = markdown.parse(c.body)
+            // FIXME discount has a race condition, sometimes gives a string
+            //       with trailing garbage.
+            while (c.html.charAt(c.html.length - 1) !== '>') {
+                console.log("!!! removing trailing garbage from discount's html")
+                c.html = c.html.slice(0, c.html.length - 1)
+            }
+            return c
+        })})
+    }
+
+    function postComment(req, res) {
         var body = ''
-          , m
-        if (req.method === 'POST' && req.url.match(/^\/comment\/?$/)) {
-            req.on('data', function(chunk) { body += chunk })
-            req.on('end', function() {
-                var data
-                try {
-                    data = JSON.parse(body)
-                } catch (x) {
-                    badRequest(res)
-                    return
-                }
-                if (!addComment(data)) {
-                    badRequest(res)
-                    return
-                }
-                res.writeHead(204)
-                res.end()
-                // TODO mail watchers about the comment
-            })
-        } else if (req.method === 'GET' && (m = req.url.match(/^\/comments\/(.*)$/))) {
-            var post = m[1]
-              , comments
-              , s
-            if (context.posts.indexOf(post) === -1) {
-                badRequest(res)
+        req.on('data', function(chunk) { body += chunk })
+        req.on('end', function() {
+            var data, post, name, email, url
+            try {
+                data = JSON.parse(body)
+            } catch (e) {
+                console.log('not json -> ' + body)
+                BadRequest(req, res)
                 return
             }
-            comments = context.db.get(post) || []
-            s = JSON.stringify({comments: comments})
-            res.writeHead(200, { 'content-type': 'appliaction/json'
-                               , 'content-length': s.length
-                               })
-            res.end(s)
-        } else {
-            console.log('unhandled request')
-            console.dir(req)
-            badRequest(res)
+            post = (data.post || '').trim()
+            name = (data.name || 'anonymous').trim()
+            email = (data.email || '').trim()
+            url = (data.url || '').trim()
+            if (!url.match(/^https?:\/\//)) url = 'http://' + url
+            body = data.body || ''
+            if (!post || !body || context.posts.indexOf(post) === -1) {
+                console.warn('mising post, body, or post not found: ' + post)
+                console.warn('body: ', body)
+                BadRequest(req, res)
+                return
+            }
+            addComment(post, name, email, url, body)
+            res.respond()
+            // TODO mail watchers about the comment
+        })
+    }
+
+    function countComments(req, res) {
+        var post = parseURL(req.url).pathname.replace(/^\/count\//, '')
+          , comments
+        if (context.posts.indexOf(post) === -1) {
+            console.warn('post not found: ' + post)
+            BadRequest(req, res)
+            return
         }
+        comments = context.db.get(post) || []
+        res.respond({count: comments.length})
+    }
+
+    return { get: getComments
+           , count: countComments
+           , post: postComment
+           }
+}
+
+function requestHandler(context) {
+    var comments = commentServer(context)
+    get(/comments\//, createCorsHandler(comments.get))
+    get(/count\//, createCorsHandler(comments.count))
+    post(/comment\/?/, createCorsHandler(comments.post))
+    options(createCorsHandler())
+
+    return function(req, res) {
+        console.log(req.method + ' ' + req.url)
+        res.respond = function(obj) {
+            var s = ''
+            var headers = res.headers || {}
+            if (obj) {
+                try {
+                    s = JSON.stringify(obj)
+                } catch (e) {
+                    ServerError(req, res)
+                    return
+                }
+                headers['content-type'] = 'application/json'
+            }
+            headers['content-length'] = s.length
+
+            /*
+            console.log('code: ', s ? 200 : 204)
+            process.stdout.write('headers: ')
+            console.dir(headers)
+            console.log('body: ', s)
+            */
+
+            res.writeHead(s ? 200 : 204, headers)
+            res.end(s)
+        }
+        handleRequest(req, res)
     }
 }
 
@@ -149,14 +325,6 @@ function parseArgs(defaults) {
         }
     })
     return options
-}
-
-function badRequest(res) {
-    var s = 'bad request'
-    res.writeHead(400, { 'content-type': 'text/plain'
-                       , 'content-length': s.length
-                       })
-    res.end(s)
 }
 
 var missingParams = (function() {

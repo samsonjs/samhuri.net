@@ -46,6 +46,7 @@ posts.each_with_index do |post, i|
                                             :post => post,
                                             :previous => i < posts.length - 1 && posts[i + 1],
                                             :next => i > 0 && posts[i - 1],
+                                            :filename => post[:filename],
                                             :comments => post[:comments]
                                           })
 end
@@ -54,7 +55,9 @@ end
 index_template = File.read(File.join('templates', 'blog', 'index.html'))
 index_html = Mustache.render(index_template, { :posts => posts,
                                                :post => posts.first,
-                                               :previous => posts[1]
+                                               :previous => posts[1],
+                                               :filename => posts.first[:filename],
+                                               :comments => posts.first[:comments]
                                              })
 
 # write landing page

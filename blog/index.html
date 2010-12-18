@@ -3,34 +3,34 @@
 <meta name=viewport content=width=device-width>
 <title>blog :: samhuri.net</title>
 <link rel=stylesheet href=../assets/blog.css>
+<script src=http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js></script>
 <script>
 var _gaq = _gaq || [];
 _gaq.push( ['_setAccount', 'UA-214054-5']
          , ['_trackPageview']
          );
 
-(function() {
+;(function() {
   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
 
-if (document.addEventListener) {
-  document.addEventListener('DOMContentLoaded', ready, false)
-} else if (window.attachEvent) {
-  window.attachEvent('onload', ready)
-}
-function ready() {
-  var index = document.getElementById('index')
-    , indexToggle = document.getElementById('index-toggle')
-    , hidden = true
-  indexToggle.onclick = function() {
+jQuery(function($) {
+  var hidden = true
+    , index = $('#index')
+  $('#index-toggle').click(function() {
+    index.toggle()
     hidden = !hidden
-    index.style.display = hidden ? 'none' : 'block'
-    indexToggle.innerHTML = hidden ? '&darr; show posts &darr;' : '&uarr; hide posts &uarr;'
-  }
-}
+    $(this).html(hidden ? '&darr; show posts &darr;' : '&uarr; hide posts &uarr;')
+  })
+})
 </script>
+<script>
+window.SJS = window.SJS || {}
+SJS.filename = "37signals-chalk-dissected.html"
+</script>
+<script src=../assets/blog-all.min.js></script>
 <header>
   <h1><a href=index.html>sjs' blog</a></h1>
 </header>
@@ -293,12 +293,41 @@ addLineNumbersToAllGists();
 </script>
 
 
-  </article>
-  </div>
+    </article>
+</div>
+<p class=sep>&#x0f04;</p>
 <div id=around>
   <a id=prev href=a-preview-of-mach-o-file-generation.html>&larr; A preview of Mach-O file generation</a>
   <br style=clear:both>
 </div>
+<p id=need-js align=center><strong>(discussion requires JavaScript)</strong></p>
+<div class=center id=sd-container><a id=sd href=#comment-stuff>show the discussion</a></div>
+<div id=comment-stuff>
+  <div id=comments>
+    <img id=discussion-spinner src=../assets/spinner.gif>
+  </div>
+  <form id=comment-form>
+    <input name=post type=hidden value=37signals-chalk-dissected.html>
+    <p><input name=name type=text placeholder=name></p>
+    <p><input name=email type=text placeholder=email></p>
+    <p><input name=url type=text placeholder=url></p>
+    <p><textarea name=body placeholder=thoughts></textarea></p>
+    <p align=center><input type=submit value='so there'></p>
+  </form>
+</div>
+<script type="text/html" id="comment_tmpl">
+  <div class=comment>
+    <p>
+      <% if (url) { %>
+        <a href="<%= url %>"><%= name %></a>
+      <% } else { %>
+        <%= name %>
+      <% } %>
+      @ <%= strftime('%F %r', new Date(timestamp)) %>
+    </p>
+    <blockquote><%= html %></blockquote>
+  </div>
+</script>
 <footer>
   <a href=https://twitter.com/_sjs>@_sjs</a>
 </footer>
