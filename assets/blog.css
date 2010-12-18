@@ -71,15 +71,15 @@ a.img { border: none }
 #posts { border-left: solid 0.15em #999
        ; width: 80%
        ; min-width: 400px
-       ; max-width: 800px
+       ; max-width: 680px
        ; margin: 4em auto 2em
-       ; padding: 0 3em
+       ; padding: 0 5%
        ; font-size: 1.2em
+       ; line-height: 1.4em
        }
 
 article { color: #222
         ; padding-bottom: 1em
-        ; line-height: 1.2em
         }
 
 article:last-child { padding-bottom: 0
@@ -88,6 +88,7 @@ article:last-child { padding-bottom: 0
 
 article h1 { text-align: left
            ; font-size: 2em
+	   ; line-height: 1.1em
            ; font-weight: normal
            ; color: #222
            ; margin: 1em 0
@@ -166,6 +167,8 @@ input[type=submit]:active,
                ; margin: 0
                ; padding: 2em 0
                }
+
+#comments-spinner { text-align: center }
 
 #comments { width: 70%
 	  ; max-width: 400px

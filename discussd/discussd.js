@@ -223,7 +223,7 @@ function commentServer(context) {
             name = (data.name || 'anonymous').trim()
             email = (data.email || '').trim()
             url = (data.url || '').trim()
-            if (!url.match(/^https?:\/\//)) url = 'http://' + url
+            if (url && !url.match(/^https?:\/\//)) url = 'http://' + url
             body = data.body || ''
             if (!post || !body || context.posts.indexOf(post) === -1) {
                 console.warn('mising post, body, or post not found: ' + post)

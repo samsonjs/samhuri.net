@@ -55,6 +55,17 @@
 
     $('#comment-form').submit(function() {
       var comment = $(this).serializeObject()
+      comment.name = (comment.name || '').trim() || 'anonymous'
+      comment.url = (comment.url || '').trim()
+      if (comment.url && !comment.url.match(/^https?:\/\//)) {
+          comment.url = 'http://' + comment.url
+      }
+      comment.body = comment.body || ''
+      if (!comment.body) {
+          alert("is that all you have to say?")
+          return false
+      }
+
       var options = { method: 'POST'
                     , uri: postCommentURL()
                     , body: JSON.stringify(comment)
@@ -63,13 +74,20 @@
         if (err) {
           console.dir(err)
           alert('derp')
-          return
+          return false
         }
 
         // FIXME check for error, how do we get the returned status code?
 
+        $('#comment-form').get(0).reset()
+
         comment.timestamp = +new Date()
         comment.html = showdown.makeHtml(comment.body)
+        comment.name = (comment.name || '').trim() || 'anonymous'
+        comment.url = (comment.url || '').trim()
+        if (comment.url && !comment.url.match(/^https?:\/\//)) {
+            comment.url = 'http://' + comment.url
+        }
         $('#comments').append(tmpl('comment_tmpl', comment))
       })
       return false
