@@ -2,4 +2,7 @@
 .DS_Store
 _blog
 assets/*.min.js
+assets/*.min.css
 discussd/discuss.dirty
+blog
+proj
