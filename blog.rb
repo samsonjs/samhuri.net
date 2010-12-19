@@ -68,7 +68,7 @@ class Blag
   end
 
   def generate_rss
-    File.open(rss_file, 'w') { |f| f.puts(rss.to_s) }
+    File.open(rss_file, 'w') { |f| f.puts(rss.target!) }
   end
 
   def posts
@@ -99,8 +99,10 @@ class Blag
   end
 
   def rss
+    template = File.read(File.join('templates', 'blog', 'post.rss.html'))
     xml = Builder::XmlMarkup.new
     xml.instruct! :xml, :version => '1.0'
+    xml.instruct! 'xml-stylesheet', :href => 'http://samhuri.net/assets/blog.css', :type => 'text/css'
     xml.rss :version => '2.0' do
       xml.channel do
         xml.title @title
@@ -111,8 +113,9 @@ class Blag
         posts.each do |post|
           xml.item do
             xml.title post[:title]
-            xml.description post[:subtitle]
+            xml.description Mustache.render(template, {:post => post})
             xml.pubDate post[:rfc822]
+            xml.author post[:author]
             xml.link post[:url]
             xml.guid post[:url]
           end

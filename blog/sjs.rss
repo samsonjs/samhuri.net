@@ -1,1 +1,807 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>sjs' blog</title><description>ramblings and musings</description><link>http://samhuri.net/blog</link><pubDate>Thu, 04 Nov 2010 00:00:00 -0700</pubDate><item><title>37signals' Chalk Dissected</title><description></description><pubDate>Thu, 04 Nov 2010 00:00:00 -0700</pubDate><link>http://samhuri.net/blog/2010-11-04_37signals-chalk-dissected.html</link><guid>http://samhuri.net/blog/2010-11-04_37signals-chalk-dissected.html</guid></item><item><title>A preview of Mach-O file generation</title><description></description><pubDate>Wed, 20 Jan 2010 00:00:00 -0800</pubDate><link>http://samhuri.net/blog/2010-01-20_a-preview-of-mach-o-file-generation.html</link><guid>http://samhuri.net/blog/2010-01-20_a-preview-of-mach-o-file-generation.html</guid></item><item><title>Basics of the Mach-O file format</title><description></description><pubDate>Mon, 18 Jan 2010 00:00:00 -0800</pubDate><link>http://samhuri.net/blog/2010-01-18_basics-of-the-mach-o-file-format.html</link><guid>http://samhuri.net/blog/2010-01-18_basics-of-the-mach-o-file-format.html</guid></item><item><title>Working with C-style structs in Ruby</title><description></description><pubDate>Sun, 17 Jan 2010 00:00:00 -0800</pubDate><link>http://samhuri.net/blog/2010-01-17_working-with-c-style-structs-in-ruby.html</link><guid>http://samhuri.net/blog/2010-01-17_working-with-c-style-structs-in-ruby.html</guid></item><item><title>Using Emacs to Develop Mojo Apps for WebOS</title><description></description><pubDate>Sat, 21 Nov 2009 00:00:00 -0800</pubDate><link>http://samhuri.net/blog/2009-11-21_using-emacs-to-develop-mojo-apps-for-webos.html</link><guid>http://samhuri.net/blog/2009-11-21_using-emacs-to-develop-mojo-apps-for-webos.html</guid></item></channel></rss><to_s/>
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/css" href="http://samhuri.net/assets/blog.css"?><rss version="2.0"><channel><title>sjs' blog</title><description>ramblings and musings</description><link>http://samhuri.net/blog</link><pubDate>Thu, 04 Nov 2010 00:00:00 -0700</pubDate><item><title>37signals' Chalk Dissected</title><description>&lt;div id=posts&gt;
+  &lt;article&gt;
+    &lt;header&gt;
+      &lt;h1&gt;&lt;a href=2010-11-04_37signals-chalk-dissected.html&gt;37signals' Chalk Dissected&lt;/a&gt;&lt;/h1&gt;
+      &lt;time&gt;November 4, 2010&lt;/time&gt;
+    &lt;/header&gt;
+    &lt;p&gt;&lt;i&gt;Update 2010-11-05: I dove into the JavaScript a little and explained most of it. Sam Stephenson &lt;a href="https://twitter.com/sstephenson/status/553490682216449"&gt;tweeted&lt;/a&gt; that Chalk is written in &lt;a href="http://jashkenas.github.com/coffee-script/"&gt;CoffeeScript&lt;/a&gt; and compiled on the fly when served using &lt;a href="https://github.com/sstephenson/brochure"&gt;Brochure&lt;/a&gt;. That's hot! (for those unaware Sam Stephenson works at 37signals, and is also the man behind &lt;a href="http://www.prototypejs.org/"&gt;Prototype&lt;/a&gt;.)&lt;/i&gt;&lt;/p&gt;
+
+
+
+
+&lt;p&gt;&lt;a href="http://37signals.com/"&gt;37signals&lt;/a&gt; recently released a blackboard web app for iPad called &lt;a href="http://chalk.37signals.com/"&gt;Chalk&lt;/a&gt;.&lt;/p&gt;
+
+
+
+
+&lt;p&gt;It includes &lt;a href="http://mir.aculo.us/"&gt;Thomas Fuchs&lt;/a&gt; new mobile JS framework &lt;a href="https://github.com/madrobby/zepto"&gt;Zepto&lt;/a&gt;, a few images, iOS SpringBoard icon, and of course HTML, CSS, and JavaScript. It weighs in at about 244k including 216k of images. HTML, CSS, and JavaScript are not minified (except Zepto), but they are gzipped. Because the image-to-text ratio is high gzip can only shave off 12k. There is absolutely nothing there that isn't required though. The code and resources are very tight, readable, and beautiful.&lt;/p&gt;
+
+
+
+
+&lt;p&gt;The manifest is a nice summary of the contents, and allows browsers to cache the app for offline use. Combine this with mobile Safari's "Add to Home Screen" button and you have yourself a free chalkboard app that works offline.&lt;/p&gt;
+
+
+
+
+&lt;pre&gt;&lt;code&gt;CACHE MANIFEST
+
+/
+/zepto.min.js
+/chalk.js
+/images/background.jpg
+/images/chalk.png
+/images/chalk-sprites.png
+/images/chalk-tile-erase.jpg
+/images/chalk-tile-red.png
+/images/chalk-tile-white.png
+/stylesheets/chalk.css
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+
+&lt;p&gt;Not much there, just 10 requests to fetch the whole thing. 11 including the manifest. In we go.&lt;/p&gt;
+
+
+
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+
+&lt;h2&gt;HTML&lt;/h2&gt;
+
+
+
+
+&lt;p&gt;2k, 61 lines. 10 of which are Google Analytics JavaScript. Let's glance at some of it.&lt;p&gt;
+
+&lt;script src="https://gist.github.com/663655.js?file=chalk.html"&gt;&lt;/script&gt;
+
+&lt;p&gt;Standard html5 doctype, and a manifest for &lt;a href="http://diveintohtml5.org/offline.html"&gt;application caching&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The rest of the HTML is mainly structural. There is not a single text node in the entire tree (excluding whitespace). The chalkboard is a canvas element and an image element used to render the canvas contents as an image for sharing. The other elements are just sprites and buttons. There are div elements for the light switch and shade (a dimmer on each side), share button, instructions on sharing, close button, ledge, chalk, eraser and corresponding indicators. Phew, that was a mouthful. (oblig: "that's what she said!")&lt;/p&gt;
+
+&lt;p&gt;The interesting thing about the HTML is that without any JavaScript or CSS the document would be a completely blank white page (except for a strange looking share button w/ no title). Talk about progressive enhancement. Here's a look at the HTML:&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/663642.js?file=chalk.html"&gt;&lt;/script&gt;
+
+&lt;p&gt;Onward.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h2&gt;Zepto&lt;/h2&gt;
+
+&lt;p&gt;Zepto is a &lt;i&gt;tiny&lt;/i&gt;, modern JS framework for mobile WebKit browsers such as those found on iPhone and Android handsets. I'm not going to cover it here but I'll mention that it's similar in feel to jQuery. In fact it tries to mimic jQuery very closely to make migrations from Zepto to jQuery easy, and vice versa. The reason it weighs in at just under 6k (2k gzipped) is that it doesn't overreach or have to support legacy crap like IE6. It was started by Thomas Fuchs so you know it's good.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h2&gt;Display (CSS &amp;amp; Images)&lt;/h2&gt;
+
+&lt;p&gt;6.6k, 385 lines. This is basically half of the text portion, excluding Zepto. There are 6 images including one called chalk-sprites.png. Interesting. Let's look at the background first though.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h3&gt;Background&lt;/h3&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;div align="center"&gt;
+&lt;a href="http://samhuri.net/Chalk/images/background.jpg"&gt;&lt;img height="473" src="http://samhuri.net/Chalk/images/background.jpg" style="border: 0;" width="512" /&gt;&lt;/a&gt;&lt;br /&gt;
+background.jpg 1024x946px&lt;/div&gt;
+
+&lt;p&gt;The background is the blackboard itself, and is almost square at 1024x946. The cork border and light switch are there too. This is set as the background-image of the html element and is positioned at a negative x or y in order to centre it properly. &lt;a href="https://developer.mozilla.org/En/CSS/Media_queries"&gt;CSS media queries&lt;/a&gt; are used to detect the screen's orientation. This way the same image is used for both orientations, clever.&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/663656.js?file=chalk-01.css"&gt;
+&lt;/script&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h3&gt;Chalkboard&lt;/h3&gt;
+
+&lt;p&gt;Just a canvas element positioned over the chalkboard using media queries. There's also an image element called "output" used to render an image for sharing.&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/663675.js?file=chalk-chalkboard.css"&gt;
+&lt;/script&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h3&gt;Sprites&lt;/h3&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;div align="center" id="sprites"&gt;
+&lt;img height="534" src="http://samhuri.net/Chalk/images/chalk-sprites.png" width="502" /&gt;&lt;br /&gt;
+chalk-sprites.png &lt;/div&gt;
+
+&lt;p&gt;Sprites are used for all the other elements: ledge, chalk, eraser, tool indicator, share button, instructions, and close button (to leave the sharing mode). Positioned using CSS, standard stuff. There is white text alongside those green arrows. If you want to see it we'll have to &lt;a href="#" onclick="document.getElementById('sprites').style.backgroundColor = '#000'; return false"&gt;change the background to black&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h3&gt;Light Switch &amp;amp; Shade&lt;/h3&gt;
+
+&lt;p&gt;When you touch the light switch on the left side of the chalkboard - only visible in landscape orientation - the cork border dims and the ledge and share button disappear, leaving the chalkboard under the spotlight all classy like. The shade consists of two "dimmer" div elements inside a shade div, which is hidden by default.&lt;/p&gt;
+
+&lt;p&gt;The dimmers background color is black at 67% opacity. The shade element fades in using -webkit-transition: on its visibility property while the dimmers use CSS3 transitions on their background. The dimmers are positioned using media queries as well, one on each side of the board. Interestingly their parent shade has a height and width of 0. Rather than each having a unique id they just have the class "dim" and the :nth-child pseudo-class selector is used to position them independently.&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/663664.js?file=chalk-02.css"&gt;
+&lt;/script&gt;
+
+&lt;p&gt;If you took a look at the HTML before you'll have noticed there's no shade class defined on the body element. Looks like they're using JavaScript to add the shade class to body, triggering the transitions to the visible shades and setting the dimmers backgrounds to black at the same time, causing the fading effect. The shade fades in while the ledge and share button fade out.&lt;/p&gt;
+
+&lt;p&gt;The light switch itself is displayed only in landscape orientation, again using a media query.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h3&gt;Tools&lt;/h3&gt;
+
+&lt;p&gt;There are 2 layers to the tools on the ledge. There are the images of the tools and their indicators, but also an anchor element for each tool that acts as targets to select them. When tools are select the indicators fade in and out using CSS3 transitions on opacity by adding and removing the class "active" on the tool.&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/663693.js?file=chalk-indicators.css"&gt;
+&lt;/script&gt;
+
+&lt;p&gt;There are pattern images for each colour of chalk, and one for the the eraser. The eraser "pattern" is the entire blackboard so erasing it doesn't look ugly. I love that kind of attention to detail.&lt;p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h3&gt;Sharing&lt;/h3&gt;
+
+&lt;p&gt;The shade effect that happens when you hit the share button is similar to the shade effect used for the light switch.  It's a bit more complex as the sharing instructions are positioned differently in portrait and landscape orientations, but there's nothing really new in there (that I can see).&lt;/p&gt;
+
+&lt;p&gt;The rest of the CSS is largely presentational stuff like removing margins and padding, and positioning using lots of media queries. You can see it all at &lt;a href="http://chalk.37signals.com/stylesheets/chalk.css"&gt;chalk.37signals.com/stylesheets/chalk.css&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h2&gt;JavaScript (and CoffeeScript)&lt;/h2&gt;
+
+&lt;p&gt;5.5k in about 170 lines. That's just half the size of the CSS.&lt;/p&gt;
+
+&lt;p&gt;&lt;i&gt;Sam Stephenson &lt;a href="https://gist.github.com/664351"&gt;shared the original CoffeeScript source&lt;/a&gt; with us. It's about 150 lines, and is a bit easier to read as CS is far cleaner than JS.&lt;/i&gt;&lt;/p&gt;
+
+&lt;p&gt;The bulk of the magic is done w/ hardware accelerated CSS3 rather than slow JS animation using setInterval and setTimeout to change properties. That sort of thing isn't novel anymore anyway. The fact that JS is really only used for drawing and toggling CSS classes is pretty awesome!&lt;/p&gt;
+
+&lt;p&gt;The entire contents of the JS reside inside the DOMContentLoaded event handler attached to window.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h3&gt;Initialization&lt;/h3&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;script src="https://gist.github.com/664206.js?file=chalk-init.js"&gt;&lt;/script&gt;
+
+&lt;p&gt;First we get a handle on all the elements and the canvas' 2d drawing context. I almost want to say views and controls as it really feels just like hooking up a controller and view in a desktop GUI app. Sometimes the line between dynamic web page and web app are blurred, not so here. Chalk is 100% app.&lt;/p&gt;
+
+&lt;p&gt;The canvas' dimensions and pen are initialized in lines 13 - 19, and then the chalkboard background is drawn onto the canvas using the &lt;code&gt;drawImage()&lt;/code&gt; method.&lt;/p&gt;
+
+&lt;p&gt;The canvas offsets are cached for calculations, and are updated when the window fires the "orientationChange" event. Next up tools (a.k.a. pens) are created and initialized.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h3&gt;Tools&lt;/h3&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;script src="https://gist.github.com/664214.js?file=chalk-tools.js"&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;code&gt;createPattern(name, callback)&lt;/code&gt; loads one of the pattern images, chalk-tile-*, and then creates a pattern in the drawing context and passes it to the given callback.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;setStroke(pattern, width)&lt;/code&gt; effectively sets the pen used for drawing, described as a pattern &amp; stroke width. The patterns are initialized and the white pen is passed to setStroke since it's the default tool.&lt;/p&gt;
+
+&lt;p&gt;The last part defines the 3 tools, note that the active tool "white_chalk" is at the end. Also note that the tool names are the ids of the target elements in the ledge. &lt;code&gt;activateTool(tool)&lt;/code&gt; accepts a tool name. The tool to activate is moved to the end of the tools array on lines 31-32, activeTool is set to the given tool as well on line 32. The reason for moving the active tool to the end of the array is revealed in the for loop on line 34, the order of the tools array determines their z-index ordering (highest number is in front). Then the 'active' CSS class is added to the active tool to show the indicator, and then the pen is set by assigning a pen to the context's &lt;code&gt;strokeStyle&lt;/code&gt; property.&lt;/p&gt;
+
+&lt;p&gt;Finally the white_chalk tool is activated and the click event for the tool targets is setup.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h3&gt;Drawing&lt;/h3&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;script src="https://gist.github.com/664235.js?file=chalk-drawing.js"&gt;&lt;/script&gt;
+
+&lt;p&gt;Drawing is done by listening for touch events on the canvas element. An array of points to draw is initialized to a 1-element array containing &lt;code&gt;null&lt;/code&gt;. Null values make the draw function break up the line being drawn by skipping the next point in the array. x and y coords are initialized in touchstart, points are appended to the points array in touchmove, and the touchend handler appends two points and null to the points array to end the line. I'm not sure why &lt;code&gt;[x, y]&lt;/code&gt; is used as the points in the touchend handler rather than coords from the event. Please leave a comment if you know why!&lt;/p&gt;
+
+&lt;p&gt;The draw function is called for each point in the points array at 30ms intervals. A line is started by calling &lt;code&gt;context.beginPath()&lt;/code&gt;, each point is drawn, and then the line is ended with &lt;code&gt;context.stroke()&lt;/code&gt;. &lt;strike&gt;The 2nd condition of the while loop ensures that we don't draw for too long, as bad things would happen if the function were executed a 2nd time while it was already running.&lt;/strike&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Sam Stephenson was kind enough to clarify these points. &lt;a href="#Blog1_cmt-1187434093983456531"&gt;See his comment below&lt;/a&gt; the post for clarification on using [x, y] in the touchend handler and the 10ms limit when drawing points.&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h3&gt;Light Switch &amp;amp; Shade&lt;/h3&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;script src="https://gist.github.com/664260.js?file=chalk-shade.js"&gt;&lt;/script&gt;
+
+&lt;p&gt;When the light switch is touched (or clicked) the shade class on the body element is toggled. Nothing to it.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h3&gt;Sharing&lt;/h3&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;script src="https://gist.github.com/664263.js?file=chalk-share.js"&gt;&lt;/script&gt;
+
+&lt;p&gt;The share window is opened after a 10ms delay, just enough time for any drawing to be completed before rendering the image. The image is created by assigning the result of canvas' &lt;code&gt;toDataURL()&lt;/code&gt; method to the output image element's src attribute.&lt;/p&gt;
+
+&lt;p&gt;When the share window is closed the output image element gets its src set to the sprites image. &lt;strike&gt;I'm not sure why that was done.&lt;/strike&gt; &lt;i&gt;As Sam mentions in &lt;a href="#Blog1_cmt-118743409398345653"&gt;his comment below&lt;/a&gt;, this is done to reclaim the memory used by the rendered image.&lt;/i&gt;&lt;/p&gt;
+
+&lt;p&gt;The rest of the code there just sets up event handlers and toggles CSS classes.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h2&gt;That's it!&lt;/h2&gt;
+
+&lt;p&gt;That about covers it. Don't have an iPad? &lt;a href="http://samhuri.net/Chalk/index.html"&gt;Play around with it anyway&lt;/a&gt;, but be warned that you can't draw anything. You can select chalk and the eraser and hit the light switch. I instinctively tried touching my MacBook's display but alas it doesn't magically respond to touches, lame.&lt;/p&gt;
+
+&lt;p&gt;Have fun drawing. Thanks to 37signals for a beautiful (and useful) example of a few modern web technologies.&lt;/p&gt;
+
+&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;function addLineNumbersToAllGists() {
+  $('.gist').each( function() {
+      _addLineNumbersToGist('#' + $(this).attr('id'));
+  });
+}
+
+function addLineNumbersToGist(id) {
+  _addLineNumbersToGist('#gist-' + id);
+}
+
+function _addLineNumbersToGist(css_selector) {
+  $(document).ready( function() {
+    $(css_selector + ' .line').each(function(i, e) {
+      $(this).prepend(
+        $('&lt;div/&gt;').css({
+          'float' : 'left',
+          'width': '30px',
+          'font-weight' : 'bold',
+          'color': '#808080'
+        }).text(++i)
+      );
+    });
+  });
+}
+
+addLineNumbersToAllGists();
+&lt;/script&gt;
+
+
+    &lt;/article&gt;
+&lt;/div&gt;
+&lt;p class=sep&gt;&amp;#x0f04;&lt;/p&gt;
+</description><pubDate>Thu, 04 Nov 2010 00:00:00 -0700</pubDate><author>sjs</author><link>http://samhuri.net/blog/2010-11-04_37signals-chalk-dissected.html</link><guid>http://samhuri.net/blog/2010-11-04_37signals-chalk-dissected.html</guid></item><item><title>A preview of Mach-O file generation</title><description>&lt;div id=posts&gt;
+  &lt;article&gt;
+    &lt;header&gt;
+      &lt;h1&gt;&lt;a href=2010-01-20_a-preview-of-mach-o-file-generation.html&gt;A preview of Mach-O file generation&lt;/a&gt;&lt;/h1&gt;
+      &lt;time&gt;January 20, 2010&lt;/time&gt;
+    &lt;/header&gt;
+    &lt;p&gt;This month I got back into an x86 compiler I started last May. It lives &lt;a
+href="https://github.com/samsonjs/compiler"&gt;on github&lt;/a&gt;.&lt;/p&gt;
+
+
+
+
+&lt;p&gt;The code is a bit of a mess but it mostly works. It generates Mach object
+files that are linked with gcc to produce executable binaries.&lt;/p&gt;
+
+
+
+
+&lt;p&gt;The Big Refactoring of January 2010 has come to an end and the tests pass
+again, even if printing is broken it prints &lt;i&gt;something&lt;/i&gt;, and more
+importantly compiles test/test_huge.code into something that works.&lt;/p&gt;
+
+
+
+
+&lt;p&gt;After print is fixed I can clean up the code before implementing anything
+new. I wasn't sure if I'd get back into this or not and am pretty excited
+about it. I'm learning a lot from this project.&lt;/p&gt;
+
+
+
+
+&lt;p&gt;If you are following the Mach-O posts you might want to look at
+asm/machofile.rb, a library for creating Mach-O files. Using it is quite
+straightforward, an example is in asm/binary.rb, in the #output method.&lt;/p&gt;
+
+
+
+
+&lt;p&gt;Definitely time for bed now!&lt;/p&gt;
+
+
+    &lt;/article&gt;
+&lt;/div&gt;
+&lt;p class=sep&gt;&amp;#x0f04;&lt;/p&gt;
+</description><pubDate>Wed, 20 Jan 2010 00:00:00 -0800</pubDate><author>sjs</author><link>http://samhuri.net/blog/2010-01-20_a-preview-of-mach-o-file-generation.html</link><guid>http://samhuri.net/blog/2010-01-20_a-preview-of-mach-o-file-generation.html</guid></item><item><title>Basics of the Mach-O file format</title><description>&lt;div id=posts&gt;
+  &lt;article&gt;
+    &lt;header&gt;
+      &lt;h1&gt;&lt;a href=2010-01-18_basics-of-the-mach-o-file-format.html&gt;Basics of the Mach-O file format&lt;/a&gt;&lt;/h1&gt;
+      &lt;time&gt;January 18, 2010&lt;/time&gt;
+    &lt;/header&gt;
+    &lt;p&gt;&lt;i&gt;This post is part of a series on generating basic x86 Mach-O files
+with Ruby.  The
+&lt;a href="working-with-c-style-structs-in-ruby.html"&gt;
+first post&lt;/a&gt; introduced CStruct, a Ruby class used to serialize
+simple struct-like objects.&lt;/i&gt;&lt;/p&gt;
+
+
+
+
+&lt;p&gt;Please note that the best way to learn about Mach-O properly is to
+read Apple's
+&lt;a href="http://developer.apple.com/Mac/library/documentation/DeveloperTools/Conceptual/MachORuntime/Reference/reference.html#//apple_ref/doc/uid/TP40000895-CH248-SW3"&gt;
+documentation on Mach-O&lt;/a&gt;, which is pretty good combined with the
+comments in /usr/include/mach-o/*.h.  These posts will only cover
+the basics necessary to generate a simple object file for linking with
+ld or gcc, and are not meant to be comprehensive.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;Mach-O File Format Overview&lt;/h2&gt;
+
+
+
+
+&lt;p&gt;A Mach-O file consists of 2 main pieces: the &lt;b&gt;header&lt;/b&gt; and
+the &lt;b&gt;data&lt;/b&gt;.  The header is basically a map of the file describing
+what it contains and the position of everything contained in it.  The
+data comes directly after the header and consists of a number of
+binary blobs of data, one after the other.&lt;/p&gt;
+
+
+
+
+&lt;p&gt;The header contains 3 types of records: the &lt;b&gt;Mach header&lt;/b&gt;,
+&lt;b&gt;segments&lt;/b&gt;, and &lt;b&gt;sections&lt;/b&gt;.  Each binary blob is described
+by a named section in the header.  Sections are grouped into one or
+more named segments.  The Mach header is just one part of the header
+and should not be confused with the entire header.  It contains
+information about the file as a whole, and specifies the number of
+segments as well.&lt;/p&gt;
+
+
+
+
+&lt;p&gt;Take a quick look at &lt;b&gt;Figure 1&lt;/b&gt; in
+&lt;a href="http://developer.apple.com/Mac/library/documentation/DeveloperTools/Conceptual/MachORuntime/Reference/reference.html#//apple_ref/doc/uid/TP40000895-CH248-SW3"&gt;
+Apple's Mach-O overview&lt;/a&gt;, which illustrates this quite nicely.&lt;/p&gt;
+
+
+
+
+&lt;p&gt;A very basic Mach object file consists of a header followed by single
+blob of machine code.  That blob could be described by a single
+section named __text, inside a single nameless segment.  Here's a
+diagram showing the layout of such a file:&lt;/p&gt;
+
+
+
+
+&lt;pre&gt;
+
+            ,---------------------------,
+  Header    |  Mach header              |
+            |    Segment 1              |
+            |      Section 1 (__text)   | --,
+            |---------------------------|   | 
+  Data      |           blob            | &amp;lt;-'
+            '---------------------------'      
+&lt;/pre&gt;
+
+
+
+
+&lt;h2&gt;The Mach Header&lt;/h2&gt;
+
+
+
+
+&lt;p&gt;The Mach header contains the architecture (cpu type), the type of
+file (object in our case), and the number of segments.  There is more
+to it but that's about all we care about.  To see exactly what's in a
+Mach header fire up a shell and type &lt;tt&gt;otool -h /bin/zsh&lt;/tt&gt; (on a
+Mac).&lt;/p&gt;
+
+
+
+
+&lt;p&gt;Using
+&lt;a href="working-with-c-style-structs-in-ruby.html"&gt;
+CStruct&lt;/a&gt; we define the Mach header like so:&lt;/p&gt;
+
+
+
+
+&lt;script src="http://gist.github.com/280635.js"&gt;&lt;/script&gt;
+
+
+
+
+&lt;h2&gt;Segments&lt;/h2&gt;
+
+
+
+
+&lt;p&gt;Segments, or &lt;b&gt;segment commands&lt;/b&gt;, specify where in memory the
+segment should be loaded by the OS, and the number of bytes to
+allocate for that segment.  They also specify which bytes inside the
+file are part of that segment, and how many sections it contains.&lt;/p&gt;
+
+
+
+
+&lt;p&gt;One benefit to generating an object file rather than an executable is
+that we let the linker worry about some details.  One of those details
+is where in memory segments will ultimately end up.&lt;/p&gt;
+
+
+
+
+&lt;p&gt;Names are optional and can be arbitrary, but the convention is to
+name segments with uppercase letters preceded by two underscores,
+e.g. __DATA or __TEXT &lt;/p&gt;
+
+
+
+
+&lt;p&gt;The code exposes some more details about segment commands, but should
+be easy enough to follow.&lt;/p&gt;
+
+
+
+
+&lt;script src="http://gist.github.com/280642.js"&gt;&lt;/script&gt;
+
+
+
+
+&lt;h2&gt;Sections&lt;/h2&gt;
+
+
+
+
+&lt;p&gt;All sections within a segment are described one after the other
+directly after each segment command.  Sections define their name,
+address in memory, size, offset of section data within the file, and
+segment name.  The segment name might seem redundant but in the next
+post we'll see why this is useful information to have in the section
+header.&lt;/p&gt;
+
+
+
+
+&lt;p&gt;Sections can optionally specify a map to addresses within their
+binary blob, called a &lt;b&gt;relocation table&lt;/b&gt;.  This is used by the
+linker.  Since we're letting the linker work out where to place
+everything in memory the addresses inside our machine code will need
+to be updated.&lt;/p&gt;
+
+
+
+
+&lt;p&gt;By convention segments are named with lowercase letters preceded by
+two underscores, e.g. __bss or __text&lt;/p&gt;
+
+
+
+
+&lt;p&gt;Finally, the Ruby code describing section structs:&lt;/p&gt;
+
+
+
+
+&lt;script src="http://gist.github.com/280643.js"&gt;&lt;/script&gt;
+
+
+
+
+&lt;h2&gt;macho.rb&lt;/h2&gt;
+
+
+
+
+&lt;p&gt;As much of the Mach-O format as we need is defined in
+&lt;a href="http://github.com/samsonjs/compiler/blob/master/asm/macho.rb"&gt;
+asm/macho.rb&lt;/a&gt;.  The Mach header, Segment commands, sections,
+relocation tables, and symbol table structs are all there, with a few
+constants as well.&lt;/p&gt;
+
+
+
+
+&lt;p&gt;I'll cover symbol tables and relocation tables in my next post.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;Looking at real Mach-O files&lt;/h2&gt;
+
+
+
+
+&lt;p&gt;To see the segments and sections of an object file, run
+&lt;tt&gt;otool -l /usr/lib/crt1.o&lt;/tt&gt;.  &lt;b&gt;-l&lt;/b&gt; is for load commands.
+If you want to see why we stick to generating object files instead of
+executables run &lt;tt&gt;otool -l /bin/zsh&lt;/tt&gt;.  They are complicated
+beasts.&lt;/p&gt;
+
+
+
+
+&lt;p&gt;If you want to see the actual data for a section otool provides a
+couple of ways to do this.  The first is to use
+&lt;tt&gt;otool -d &amp;lt;segment&amp;gt; &amp;lt;section&amp;gt;&lt;/tt&gt; for an arbitrary
+section.  To see the contents of a well-known section, such as __text
+in the __TEXT segment, use &lt;tt&gt;otool -t /usr/bin/true&lt;/tt&gt;.  You can
+also disassemble the __text section with
+&lt;tt&gt;otool -tv /usr/bin/true&lt;/tt&gt;.&lt;/p&gt;
+
+
+
+
+&lt;p&gt;You'll get to know otool quite well if you work with Mach-O.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;Take a break&lt;/h2&gt;
+
+
+
+
+&lt;p&gt;That was probably a lot to digest, and to make real sense of it you
+might need to read some of the
+&lt;a href="http://developer.apple.com/Mac/library/documentation/DeveloperTools/Conceptual/MachORuntime/Reference/reference.html#//apple_ref/doc/uid/TP40000895-CH248-SW3"&gt;
+official documentation&lt;/a&gt;.&lt;/p&gt;
+
+
+
+
+&lt;p&gt;We're close to being able to describe a minimal Mach object file
+that can be linked, and the resulting binary executed.  By the end of
+the next post we'll be there.&lt;/p&gt;
+
+
+
+
+&lt;p&gt;&lt;i&gt;(You can almost do that with what we know now.  If you
+create a Mach file with a Mach header (ncmds=1), a single unnamed
+segment (nsects=1), and then a section named __text with a segment
+name of __TEXT, and some x86 machine code as the section data, you
+would almost have a useful Mach object file.)&lt;/i&gt;&lt;/p&gt;
+
+
+
+
+&lt;p&gt;Till next time, happy hacking!&lt;/p&gt;
+
+
+    &lt;/article&gt;
+&lt;/div&gt;
+&lt;p class=sep&gt;&amp;#x0f04;&lt;/p&gt;
+</description><pubDate>Mon, 18 Jan 2010 00:00:00 -0800</pubDate><author>sjs</author><link>http://samhuri.net/blog/2010-01-18_basics-of-the-mach-o-file-format.html</link><guid>http://samhuri.net/blog/2010-01-18_basics-of-the-mach-o-file-format.html</guid></item><item><title>Working with C-style structs in Ruby</title><description>&lt;div id=posts&gt;
+  &lt;article&gt;
+    &lt;header&gt;
+      &lt;h1&gt;&lt;a href=2010-01-17_working-with-c-style-structs-in-ruby.html&gt;Working with C-style structs in Ruby&lt;/a&gt;&lt;/h1&gt;
+      &lt;time&gt;January 17, 2010&lt;/time&gt;
+    &lt;/header&gt;
+    &lt;p&gt;This is the beginning of a series on generating Mach-O object files in
+Ruby. We start small by introducing some Ruby tools that are useful when
+working with binary data. Subsequent articles will cover a subset of the
+Mach-O file format, then generating Mach object files suitable for linking
+with ld or gcc to produce working executables. A basic knowledge of Ruby and C
+are assumed. You can likely wing it on the Ruby side of things if you know any
+similar languages.&lt;/p&gt;
+
+
+
+
+&lt;p&gt;First we need to read and write structured binary files with Ruby. &lt;a
+href="http://ruby-doc.org/core/classes/Array.html#M002222"&gt;Array#pack&lt;/a&gt; and
+&lt;a
+href="http://ruby-doc.org/core/classes/String.html#M000760"&gt;String#unpack&lt;/a&gt;
+get the job done at a low level, but every time I use them I have to look up
+the documentation. It would also be nice to encapsulate serializing and
+deserializing into classes describing the various binary data structures. The
+built-in &lt;a href="http://ruby-doc.org/core/classes/Struct.html"&gt;Struct
+class&lt;/a&gt; sounds promising but did not meet my needs, nor was it easily
+extended to meet them.&lt;/p&gt;
+
+
+
+
+&lt;p&gt;Meet &lt;a
+href="http://github.com/samsonjs/compiler/blob/master/asm/cstruct.rb#files"&gt;CStruct&lt;/a&gt;,
+a class that you can use to describe a binary structure, somewhat similar to
+how you would do it in C. Subclassing CStruct results in a class whose
+instances can be serialized, and unserialized, with little effort. You can
+subclass descendants of CStruct to extend them with additional members.
+CStruct does not implement much more than is necessary for the compiler. For
+example there is no support for floating point. If you want to use this for
+more general purpose tasks be warned that it may require some work. Anything
+supported by Array#pack is fairly easy to add though.&lt;/p&gt;
+
+
+
+
+&lt;p&gt;First a quick example and then we'll get into the CStruct class itself. In
+C you may write the following to have one struct "inherit" from another:&lt;/p&gt;
+
+
+
+
+&lt;p&gt;&lt;script src="http://gist.github.com/279790.js"&gt;&lt;/script&gt;&lt;/p&gt;
+
+
+
+
+&lt;p&gt;With CStruct in Ruby that translates to:&lt;/p&gt;
+
+
+
+
+&lt;p&gt;&lt;script src="http://gist.github.com/279794.js"&gt;&lt;/script&gt;&lt;/p&gt;
+
+
+
+
+&lt;p&gt;CStructs act like Ruby's built-in Struct to a certain extent. They are
+instantiated the same way, by passing values to #new in the same order they
+are defined in the class. You can find out the size (in bytes) of a CStruct
+instance using the #bytesize method, or of any member using #sizeof(name).&lt;/p&gt;
+
+
+
+
+&lt;p&gt;The most important method (for us) is #serialize, which returns a binary
+string representing the contents of the CStruct.&lt;/p&gt;
+
+
+
+
+&lt;p&gt;(I know that CStruct.new_from_bin should be called CStruct.unserialize, you
+can see where my focus was when I wrote it.)&lt;/p&gt;
+
+
+
+
+&lt;p&gt;CStruct#serialize automatically creates a "pack pattern", which is an array
+of strings used to pack each member in turn. The pack pattern is mapped to the
+result of calling Array#pack on each corresponding member, and then the
+resulting strings are joined together. Serializing strings complicates matters
+so we cannot build up a pack pattern string and then serialize it in one go,
+but conceptually it's quite similar.&lt;/p&gt;
+
+
+
+
+&lt;p&gt;Unserializing is the same process in reverse, and was mainly added for
+completeness and testing purposes.&lt;/p&gt;
+
+
+
+
+&lt;p&gt;That's about all you need to know to use CStruct. The code needs some work
+but I decided to just go with what I have already so I can get on with the
+more interesting and fun tasks.&lt;/p&gt;
+
+
+
+
+&lt;p&gt;&lt;i&gt;Next in this series: &lt;a
+href="basics-of-the-mach-o-file-format.html"&gt;Basics
+of the Mach-O file format&lt;/a&gt;&lt;/i&gt;&lt;p&gt;
+
+
+    &lt;/article&gt;
+&lt;/div&gt;
+&lt;p class=sep&gt;&amp;#x0f04;&lt;/p&gt;
+</description><pubDate>Sun, 17 Jan 2010 00:00:00 -0800</pubDate><author>sjs</author><link>http://samhuri.net/blog/2010-01-17_working-with-c-style-structs-in-ruby.html</link><guid>http://samhuri.net/blog/2010-01-17_working-with-c-style-structs-in-ruby.html</guid></item><item><title>Using Emacs to Develop Mojo Apps for WebOS</title><description>&lt;div id=posts&gt;
+  &lt;article&gt;
+    &lt;header&gt;
+      &lt;h1&gt;&lt;a href=2009-11-21_using-emacs-to-develop-mojo-apps-for-webos.html&gt;Using Emacs to Develop Mojo Apps for WebOS&lt;/a&gt;&lt;/h1&gt;
+      &lt;time&gt;November 21, 2009&lt;/time&gt;
+    &lt;/header&gt;
+    &lt;p&gt;
+  The latest technology I've been learning is Palm's SDK for webOS,
+  Mojo. My first impression is that it's a great platform and
+  Palm could do a great job of 2.0 if they cut down on some of the
+  verbosity of gluing together the UI. I have learned to like
+  JavaScript over the years as I learned that despite its
+  warts &lt;a href="http://ca.video.yahoo.com/watch/630959/2974197"&gt;there
+  are good parts&lt;/a&gt; too. If you squint just right you can
+  see that it's scheme with Algol syntax. HTML and CSS are what
+  they are, but with WebKit running the show and only a single engine
+  to target it's not that bad. I've gone from Eclipse to Emacs
+  for the coding itself and highly recommend Emacs for Mojo
+  development. There is nothing that I miss from the Eclipse or
+  Komodo Edit thanks to the fact that Mojo uses open languages and
+  standards.
+&lt;/p&gt;
+
+
+
+
+&lt;p&gt;
+  As far as actual development goes the Mojo documentation steers you
+  towards a combination of Eclipse, Palm's Mojo plugin for Eclipse,
+  and the Aptana Studio plugin. My editor of choice is Emacs but
+  I decided to give it a spin just to get started quickly, how bad
+  could it be? I'm not going to get into details but I will say that I
+  don't think I'll ever use Eclipse for anything; it's far too
+  sluggish and provides no compelling features for the languages
+  that I use. I tried Komodo Edit and it was significantly
+  better but still not for me. Emacs is great for editing HTML,
+  JavaScript, and CSS so all I really missed from the IDEs were the
+  shortcuts to package, install, and launch apps in the
+  emulator. I headed over to
+  the &lt;a href="http://www.emacswiki.org/"&gt;Emacs Wiki&lt;/a&gt; and
+  downloaded Jonathan
+  Arkell's &lt;a href="http://www.emacswiki.org/emacs/MojoSdk"&gt;Mojo
+  support for Emacs&lt;/a&gt; which provided a great base to get
+  started with. There are wrappers around (all?) of the Palm SDK
+  commands but it needed a bit of work to make it just do what I
+  wanted with as little input and thought as possible.
+&lt;/p&gt;
+
+
+
+
+&lt;p&gt;
+  A couple of of Lisp hacking sessions later and I'm happy enough with
+  mojo.el to bump the version to v0.9. I've checked off what I
+  feel are the most important checkpoints on
+  the &lt;a href="http://www.webos-internals.org/wiki/Comparison_of_Editors"&gt;webOS
+  Internals comparison of editors&lt;/a&gt; and the framework is in
+  place to make implementing most of the remaining commands very
+  trivial. I might take a bit of time today to flesh things out
+  just to check more points off so people feel more confident that
+  it's a fully featured environment, because it certainly is.
+&lt;/p&gt;
+
+
+
+
+&lt;p&gt;
+  It now requires json.el in order to parse appinfo.json. json.el
+  might be included with Emacs if you have a very recent version,
+  otherwise you can google for it or get it from
+  my &lt;a href="https://github.com/samsonjs/config/tree/master/emacs.d"&gt;config
+  file repo on github&lt;/a&gt; where you can also find my latest
+  version of mojo.el. You still just (require 'mojo) in your
+  .emacs file.
+&lt;/p&gt;
+
+
+
+
+&lt;p&gt;
+  The wrappers around Palm SDK commands now search upwards for the
+  Mojo project root directory (from the default-directory for
+  current-buffer) and parse appinfo.json to give you sane defaults for
+  mojo-package, mojo-install, mojo-launch, mojo-delete, and
+  mojo-inspect. You can list installed apps and when entering app
+  ids there is completion and history, as you have come to expect in
+  Emacs. The most useful command for development is
+  mojo-package-install-and-inspect which does exactly what it says:
+  packages, installs, and launches the application for
+  inspection. No interaction is required as long as you are
+  editing a buffer inside your Mojo project.
+&lt;/p&gt;
+
+
+
+
+&lt;p&gt;
+  If you read the install instructions in mojo.el and decide to setup
+  some keybindings then you will have single-task commands for
+  packaging, installing, launching, or all three steps at once.
+&lt;/p&gt;
+
+
+
+
+&lt;p&gt;
+  Please give me some feedback if you try this out. I've
+  developed it on Mac OS X and Jonathan on Windows so please try it on
+  Linux and send me a patch or even better a pull request on github if
+  it needs some work. There is room for improvement.  The next feature
+  on my radar before I would consider it worthy of a v1.0 tag is
+  intelligent switching to corresponding buffers,
+  e.g. mojo-switch-to-view, mojo-switch-to-assistant, things like
+  that.  Basically things I miss from the Rails package for Emacs.
+&lt;/p&gt;
+
+
+
+
+&lt;p&gt;Happy hacking!&lt;/p&gt;
+
+
+    &lt;/article&gt;
+&lt;/div&gt;
+&lt;p class=sep&gt;&amp;#x0f04;&lt;/p&gt;
+</description><pubDate>Sat, 21 Nov 2009 00:00:00 -0800</pubDate><author>sjs</author><link>http://samhuri.net/blog/2009-11-21_using-emacs-to-develop-mojo-apps-for-webos.html</link><guid>http://samhuri.net/blog/2009-11-21_using-emacs-to-develop-mojo-apps-for-webos.html</guid></item></channel></rss>
