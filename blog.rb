@@ -1,69 +1,144 @@
 #!/usr/bin/env ruby
 
+require 'time'
 require 'rubygems'
+require 'builder'
 require 'json'
-require 'rdiscount'
 require 'mustache'
+require 'rdiscount'
 
-srcdir = ARGV.shift.to_s
-destdir = ARGV.shift.to_s
-
-unless File.directory?(srcdir) && File.directory?(destdir)
-  puts 'usage: blog.rb <source dir> <dest dir>'
-  exit 1
+def main
+  srcdir = ARGV.shift.to_s
+  destdir = ARGV.shift.to_s
+  unless File.directory?(srcdir) && File.directory?(destdir)
+    puts 'usage: blog.rb <source dir> <dest dir>'
+    exit 1
+  end
+  Blag.go! srcdir, destdir  
 end
 
-template = File.read(File.join('templates', 'blog', 'post.html'))
+class Blag
+  def self.go! src, dest
+    self.new(src, dest).generate!
+  end
 
-# read posts
-posts_file = File.join(srcdir, 'posts.json')
-Posts = JSON.parse(File.read(posts_file))
-posts = Posts['published'].map do |filename|
-  lines = File.readlines(File.join(srcdir, filename))
-  post = { :filename => filename }
-  loop do
-    line = lines.shift.strip
-    m = line.match(/(\w+):/)
-    if m && param = m[1].downcase
-      post[param.to_sym] = line.sub(Regexp.new('^' + param + ':\s*', 'i'), '').strip
-    elsif line.match(/^----\s*$/)
-      lines.shift while lines.first.strip.empty?
-      break
-    else
-      puts "ignoring unknown header: #{line}"
+  def initialize src, dest
+    @src = src
+    @dest = dest
+    read_blog
+  end
+
+  def generate!
+    generate_posts
+    generate_index
+    generate_rss
+    generate_posts_json
+  end
+
+  def generate_index
+    template = File.read(File.join('templates', 'blog', 'index.html'))
+    # generate landing page
+    index_template = File.read(File.join('templates', 'blog', 'index.html'))
+    index_html = Mustache.render(index_template, { :posts => posts,
+                                                   :post => posts.first,
+                                                   :previous => posts[1],
+                                                   :filename => posts.first[:filename],
+                                                   :comments => posts.first[:comments]
+                                 })
+    File.open(File.join(@dest, 'index.html'), 'w') {|f| f.puts(index_html) }
+  end
+
+  def generate_posts
+    template = File.read(File.join('templates', 'blog', 'post.html'))
+    posts.each_with_index do |post, i|
+      post[:html] = Mustache.render(template, { :title => post[:title],
+                                                :post => post,
+                                                :previous => i < posts.length - 1 && posts[i + 1],
+                                                :next => i > 0 && posts[i - 1],
+                                                :filename => post[:filename],
+                                                :comments => post[:comments]
+                                              })
+      File.open(File.join(@dest, post[:filename]), 'w') {|f| f.puts(post[:html]) }
     end
   end
-  post[:content] = lines.join
-  post[:body] = RDiscount.new(post[:content]).to_html
-  # comments on by default
-  post[:comments] = true if post[:comments].nil?
-  post
+
+  def generate_posts_json
+    json = JSON.generate({ :published => posts.map {|p| p[:filename]} })
+    File.open(File.join(@dest, 'posts.json'), 'w') { |f| f.puts(json) }
+  end
+
+  def generate_rss
+    File.open(File.join(@dest, 'rss'), 'w') { |f| f.puts(rss.to_s) }
+  end
+
+  def posts
+    prefix = File.join(@src, 'published') + '/'
+    @posts ||= Dir[File.join(prefix, '*')].sort.reverse.map do |filename|
+      lines = File.readlines(filename)
+      post = { :filename => filename.sub(prefix, '') }
+      loop do
+        line = lines.shift.strip
+        m = line.match(/(\w+):/)
+        if m && param = m[1].downcase
+          post[param.to_sym] = line.sub(Regexp.new('^' + param + ':\s*', 'i'), '').strip
+        elsif line.match(/^----\s*$/)
+          lines.shift while lines.first.strip.empty?
+          break
+        else
+          puts "ignoring unknown header: #{line}"
+        end
+      end
+      post[:content] = lines.join
+      post[:body] = RDiscount.new(post[:content]).to_html
+      post[:rfc822] = Time.parse(post[:date]).rfc822
+      post[:url] = @url + '/' + post[:filename]
+      # comments on by default
+      post[:comments] = true if post[:comments].nil?
+      post
+    end
+  end
+
+  def rss
+    xml = Builder::XmlMarkup.new
+    xml.instruct! :xml, :version => '1.0'
+    xml.rss :version => '2.0' do
+      xml.channel do
+        xml.title @title
+        xml.description @subtitle
+        xml.link @url
+        xml.pubDate @posts.first[:rfc822]
+
+        posts.each do |post|
+          xml.item do
+            xml.title post[:title]
+            xml.description post[:subtitle]
+            xml.pubDate post[:rfc822]
+            xml.link post[:url]
+            xml.guid post[:url]
+          end
+        end
+      end
+    end
+    xml
+  end
+
+  private
+
+  def blog_file
+    File.join(@src, 'blog.json')
+  end
+
+  def read_blog
+    blog = JSON.parse(File.read(blog_file))
+    @title = blog['title']
+    @subtitle = blog['subtitle']
+    @url = blog['url']
+  end
+
+  def rss_file
+    File.join(@dest, 'rss')
+  end
+
 end
 
-# generate posts
-posts.each_with_index do |post, i|
-  post[:html] = Mustache.render(template, { :title => post[:title],
-                                            :post => post,
-                                            :previous => i < posts.length - 1 && posts[i + 1],
-                                            :next => i > 0 && posts[i - 1],
-                                            :filename => post[:filename],
-                                            :comments => post[:comments]
-                                          })
-end
-
-# generate landing page
-index_template = File.read(File.join('templates', 'blog', 'index.html'))
-index_html = Mustache.render(index_template, { :posts => posts,
-                                               :post => posts.first,
-                                               :previous => posts[1],
-                                               :filename => posts.first[:filename],
-                                               :comments => posts.first[:comments]
-                                             })
-
-# write landing page
-File.open(File.join(destdir, 'index.html'), 'w') {|f| f.puts(index_html) }
-
-# write posts
-posts.each do |post|
-  File.open(File.join(destdir, post[:filename]), 'w') {|f| f.puts(post[:html]) }
-end
+main if $0 == __FILE__

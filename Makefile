@@ -6,14 +6,14 @@ MIN_JAVASCRIPTS=assets/blog.min.js assets/gitter.min.js assets/jquery-serializeO
 		assets/request.min.js assets/showdown.min.js assets/storage-polyfill.min.js assets/store.min.js \
 		assets/strftime.min.js assets/tmpl.min.js
 
-POSTS=$(shell echo _blog/*.html)
+POSTS=$(shell echo _blog/published/*.html)
 
 all: proj blog combine
 
 proj: projects.json templates/proj/index.html templates/proj/proj/index.html
 	./build.js
 
-blog: _blog/posts.json templates/blog/index.html templates/blog/post.html $(POSTS)
+blog: _blog/blog.json templates/blog/index.html templates/blog/post.html $(POSTS)
 	@echo
 	./blog.rb _blog blog
 
@@ -36,10 +36,11 @@ publish: publish_blog publish_proj index.html
 	publish assets
 	publish blog
 	publish proj
+	scp blog/posts.json bohodev.net:discussd/posts.json
 
 clean:
 	rm -rf proj/*
 	rm -rf blog/*
 	rm assets/*.min.js
 
-.PHONY: blog
+.PHONY: proj
