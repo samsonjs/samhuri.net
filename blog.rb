@@ -68,7 +68,7 @@ class Blag
   end
 
   def generate_rss
-    File.open(File.join(@dest, 'rss'), 'w') { |f| f.puts(rss.to_s) }
+    File.open(rss_file, 'w') { |f| f.puts(rss.to_s) }
   end
 
   def posts
@@ -136,7 +136,7 @@ class Blag
   end
 
   def rss_file
-    File.join(@dest, 'rss')
+    File.join(@dest, 'sjs.rss')
   end
 
 end
