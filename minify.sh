@@ -9,3 +9,11 @@ for js (assets/*.js~*.min.js) {
 	closure-compiler < $js >| $target
     fi
 }
+
+for css (assets/*.css~*.min.css) {
+    target=${css%.css}.min.css
+    if [ ! -f $target ] || [ $css -nt $target ]; then
+	echo "$css -> $target"
+	yui-compressor $css $target
+    fi
+}

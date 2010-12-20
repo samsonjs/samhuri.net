@@ -44,4 +44,4 @@ clean:
 	rm -rf blog/*
 	rm assets/*.min.js
 
-.PHONY: proj
+.PHONY: proj blog
