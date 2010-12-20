@@ -18,14 +18,19 @@
           }
         },
         get: function(key) {
-          var val = localStorage.getItem(makeKey(key))
-          return typeof val === 'string' ? JSON.parse(val) : val
+          var val = localStorage[makeKey(key)]
+          try {
+              while (typeof val === 'string') val = JSON.parse(val)
+          } catch (e) {
+              //console.log('string?')
+          }
+          return val
         },
         set: function(key, val) {
-          localStorage.setItem(makeKey(key), JSON.stringify(val))
+          localStorage[makeKey(key)] = typeof val === 'string' ? val : JSON.stringify(val)
         },
         remove: function(key) {
-          localStorage.removeItem(makeKey(key))
+          delete localStorage[makeKey(key)]
         }
       }
     }
