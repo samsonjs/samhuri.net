@@ -23,18 +23,11 @@
   <![endif]-->
   <script src=../../assets/proj-all.min.js></script>
   <script src=http://ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js></script>
-  <script src=../../GithubFinder/javascripts/util.js></script>
-  <script src=../../GithubFinder/javascripts/vendors/jsonp.js></script>
-  <script src=../../GithubFinder/javascripts/gh.js></script>
-  <script src=../../GithubFinder/javascripts/p.js></script>  
-  <script src=../../GithubFinder/javascripts/f.js></script>
-  <script src=../../GithubFinder/javascripts/plugins/base.js></script>
-  <script src=../../GithubFinder/javascripts/keyboard.js></script>
-  <script src=../../GithubFinder/javascripts/plugins/code_highlighter.js></script>
-  <script src=../../GithubFinder/javascripts/vendors/code_highlighter.js></script>
+  <script src=../../assets/ghfinder.js></script>
+  <script src=../../assets/code_highlighter.js></script>
   <script>
     (function() {
-      SJS.proj('compiler')
+      SJS.proj('{{name}}')
 
       if (document.addEventListener) {
         document.addEventListener('DOMContentLoaded', ready, false)
@@ -45,8 +38,7 @@
         var bl = document.getElementById('browse-link')
         bl.onclick = function() {
           document.getElementById('browse').style.display = 'none'
-          GH.setProxy('http://samhuri.net/GithubFinder/proxy.php?url=')
-          var f = new F({ user_id: 'samsonjs', repository: 'compiler', id: 'gh-finder' })
+          window.f = new Finder({ user_id: 'samsonjs', repository: 'compiler', id: 'gh-finder' })
           return false
         }
       }
