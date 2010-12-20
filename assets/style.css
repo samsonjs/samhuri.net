@@ -37,38 +37,38 @@ a.img { border: none }
                ; text-decoration: underline
                }
 
-ul { text-align: center
-   ; margin: 0 auto
-   ; padding: 1em
-   ; border: solid 1px #ccc
-   ; width: 90%
-   ; max-width: 950px
-   ; background-color: #fff
-   ; -moz-border-radius: 20px
-   ; -webkit-border-radius: 20px
-   ; border-radius: 20px
-   ; behavior: url(assets/border-radius.htc)
-   ; behavior: url(../assets/border-radius.htc)
-   }
+ul.nav { text-align: center
+       ; margin: 0 auto
+       ; padding: 1em
+       ; border: solid 1px #ccc
+       ; width: 90%
+       ; max-width: 950px
+       ; background-color: #fff
+       ; -moz-border-radius: 20px
+       ; -webkit-border-radius: 20px
+       ; border-radius: 20px
+       ; behavior: url(assets/border-radius.htc)
+       ; behavior: url(../assets/border-radius.htc)
+       }
 
-li { display: inline
-   ; font-size: 1.6em
-   ; margin: 0
-   ; padding: 0
-   }
+ul.nav li { display: inline
+          ; font-size: 1.6em
+          ; margin: 0
+          ; padding: 0
+          }
 
-li:after { content: ' •' }
-li:last-child:after { content: '' }
+ul.nav li:after { content: ' •' }
+ul.nav li:last-child:after { content: '' }
 
 
-li a { padding: 5px
-     ; text-shadow: #999 5px 5px 5px
-     ; -webkit-transition: all 0.5s ease-out
-     }
-li a:visited { color: #227 }
+ul.nav li a { padding: 5px
+            ; text-shadow: #999 5px 5px 5px
+            ; -webkit-transition: all 0.5s ease-out
+            }
+ul.nav li a:visited { color: #227 }
 
-li a:hover,
-li a:active { color: #000
+ul.nav li a:hover,
+ul.nav li a:active { color: #000
             ; text-shadow: #aa7 5px 5px 5px
             ; border-bottom: dashed 1px #000
             }
@@ -81,10 +81,10 @@ ul#projects li { display: block
                ; line-height: 1.8em
                }
 
-li.ie-bullet,
+ul.nav li.ie-bullet,
 ul#projects li.ie-bullet { display: none }
 
-li.last:after,
+ul.nav li.last:after,
 ul#projects li:after { content: '' }
 
 footer { text-align: center
@@ -124,17 +124,17 @@ td:nth-child(2) { padding: 0 10px }
 @media only screen and (orientation:portrait) and (device-height:1024px),
        only screen and (max-device-width:480px)
 {
-  ul { padding: 0.5em
-     ; width: 70%
-     ; max-width: 400px
-     }
+  ul.nav ul { padding: 0.5em
+            ; width: 70%
+            ; max-width: 400px
+            }
   
-  li { display: block
-     ; font-size: 1.5em
-     ; line-height: 1.6em
-     }
+  ul.nav li { display: block
+            ; font-size: 1.5em
+            ; line-height: 1.6em
+            }
 
-  li:after { content: '' }  
+  ul.nav li:after { content: '' }  
 }
 
 /* iPhone */
@@ -147,7 +147,7 @@ td:nth-child(2) { padding: 0 10px }
 
   #breadcrumbs { font-size: 0.8em }
 
-  li { font-size: 1.2em }
+  ul.nav li { font-size: 1.2em }
 
   td { font-size: 1em
      ; line-height: 1.1em

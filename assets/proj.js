@@ -6,6 +6,7 @@
   var global = this
   global.SJS = {
     proj: function(name) {
+      SJS.projName = name
       var data = createObjectStore(name)
       if (document.addEventListener) {
         document.addEventListener('DOMContentLoaded', ready, false)
