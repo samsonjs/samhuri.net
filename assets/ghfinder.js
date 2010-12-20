@@ -1,263 +1,5 @@
 ;(function() {
 
-///// TEMPORARY, REMOVE ALONG WITH PROTOTYPE ///////
-  window.JSP = Class.create(Ajax.Base, (function() {
-  var id = 0, head = document.getElementsByTagName('head')[0];
-  return {
-    initialize: function($super, url, options) {
-      $super(options);
-      this.options.url = url;
-      this.options.callbackParamName = this.options.callbackParamName || 'callback';
-      this.options.timeout = this.options.timeout || 10000; // Default timeout: 10 seconds
-      this.options.invokeImmediately = (!Object.isUndefined(this.options.invokeImmediately)) ? this.options.invokeImmediately : true ;
-      this.responseJSON = {};
-      if (this.options.invokeImmediately) {
-        this.request();
-      }
-
-      Ajax.Responders.dispatch('onCreate', this);
-    },
-
-    /**
-     *  Ajax.JSONRequest#_cleanup() -> "undefined"
-     *
-     *  Cleans up after the request
-     **/
-    _cleanup: function() {
-      if (this.timeout) {
-        clearTimeout(this.timeout);
-        this.timeout = null;
-      }
-      if (this.script && Object.isElement(this.script)) {
-        this.script.remove();
-        this.script = null;
-      }
-    },
-
-    /**
-     *  Ajax.JSONRequest#request() -> "undefined"
-     *
-     *  Invokes the JSON-P request lifecycle
-     **/
-    request: function() {
-      // Define local vars
-      var key = this.options.callbackParamName,
-        name = '_prototypeJSONPCallback_' + (id++);
-
-      // Add callback as a parameter and build request URL
-      this.options.parameters[key] = name;
-      var url = this.options.url + ((this.options.url.include('?') ? '&' : '?') + Object.toQueryString(this.options.parameters));
-
-      // Define callback function
-      window[name] = function(response) {
-        this._cleanup(); // Garbage collection
-        window[name] = undefined;
-
-
-        if( typeof(response) == 'Object' )
-          this.responseJSON = response;
-        else
-          this.responseText = response;
-
-        try {
-          Ajax.Responders.dispatch('onComplete', this, response);
-
-          if (Object.isFunction(this.options.onComplete)) {
-            this.options.onComplete.call(this, this);
-          }
-
-          if (Object.isFunction(this.options.onSuccess)) {
-            this.options.onSuccess.call(this,this);
-          }
-        } catch( ex ) {
-          Ajax.Responders.dispatch('onException', this, ex);
-          throw ex;
-        }
-
-      }.bind(this);
-
-      this.script = new Element('script', { type: 'text/javascript', src: url });
-
-      if (Object.isFunction(this.options.onCreate)) {
-        this.options.onCreate.call(this, this);
-      }
-
-
-      head.appendChild(this.script);
-
-      this.timeout = setTimeout(function() {
-        this._cleanup();
-        window[name] = Prototype.emptyFunction;
-        if (Object.isFunction(this.options.onFailure)) {
-          this.options.onFailure.call(this, this);
-        }
-      }.bind(this), this.options.timeout);
-    }
-  };
-})());
-window.GH = {
-  hash: {}
-  // ,proxy: 'http://alexle.net/experiments/githubfinder/proxy.php?url='
-  ,proxy: './proxy.php?url='
-  // ,proxy: ''
-  ,api: 'http://github.com/api/v2/json'
-
-  /* set the proxy.php url and switch to the correct AR (AjaxRequest) */
-  ,setProxy: function(p) {
-    this.proxy = p;
-    // window.AR = p.indexOf('./') == 0 ? Ajax.Request : JSP;
-    window.AR = JSP;
-  }
-
-  ,Commits: {
-    _cache: []
-    /* list all commits for a specific branch */
-    ,listBranch: function(u, r, b, o ) {
-      var onData = o.onData,
-          url = GH.api + '/commits/list/' + u + '/' + r + '/' + b;
-      o.onSuccess = function(res) {
-        onData( res.responseText );
-      }
-      new JSP( url, o );
-    }
-
-    ,list: function( u, r, b, path, o ) {
-      var self = this,
-          url = GH.api + '/commits/list/' + u + '/' + r + '/' + b + path,
-          onData = o.onData;
-
-      o.onSuccess = function(res) {
-        var cs = res.responseText.commits;
-        // if(!cs) { alert('not found'); return;}
-        /* cache the commits */
-        self._cache[ url ] = cs;
-        onData( cs );
-      }
-
-      /* hit the cache first */
-      if( this._cache[ url ] ) {
-        onData( this._cache[ url ] );
-        return;
-      }
-
-      new JSP( url, o );
-    }
-
-    ,show: function( u, r, sha, o ) {
-      var self = this,
-          url = GH.api + '/commits/show/' + u + '/' + r + '/' + sha,
-          onData = o.onData;
-
-      o.onSuccess = function(res) {
-        var c = res.responseText.commit;
-        /* cache */
-        self._cache[ sha ] = c;
-        onData( c );
-      }
-
-      /* hit the cache first */
-      if( this._cache[ sha ] ) {
-        onData( this._cache[ sha ] );
-        return;
-      }
-
-      new JSP( url, o );
-    }
-  }
-
-  ,Tree: {
-    _cache: {}
-    ,show: function( u, r, b, tree_sha, o  ) {
-      var self = this,
-          url = GH.api + '/tree/show/' + u +'/' + r +'/' + tree_sha,
-          onData = o.onData;
-
-      o.onSuccess = function(res) {
-        var tree = res.responseText.tree;
-        // if(!tree) { alert('not found'); return;}
-        tree = tree.sort(function(a,b){
-          // blobs always lose to tree
-          if( a.type == 'blob' && b.type == 'tree' )
-            return 1;
-          if( a.type == 'tree' && b.type == 'blob' )
-            return -1;
-          return a.name > b.name ? 1 : ( a.name < b.name ? - 1 : 0 );
-        });
-
-        /* add the index to the item */
-        for( var i = 0, len = tree.length; i < len; i++ ) {
-          tree[i].index = i;
-        }
-
-        /* cache the tree so that we don't have to re-request every time */
-        self._cache[ tree_sha ] = tree;
-
-        onData(tree);
-      }
-
-
-      /* hit the cache first */
-      if( this._cache[ tree_sha ] ) {
-        onData( this._cache[ tree_sha ] );
-        return;
-      }
-
-      new JSP( url, o);
-    }
-  }
-
-  ,Blob: {
-    show: function( u, r, sha, o ) {
-      var url = GH.api + '/blob/show/' + u + '/' + r + '/' + sha;
-      new AR( GH.proxy + url, o );
-    }
-
-    /**
-     * u,r,b: user, repo, branch
-     * fn: filename
-     * o: the options, with callback
-     */
-    ,loadPage: function(u,r,b,fn, o) {
-      var url = 'http://github.com/' + u + '/' + r + '/blob/' + b +'/' + fn;
-      new AR( GH.proxy + url, o );
-    }
-  }
-
-  ,Repo: {
-    show: function( u, r, o ) {
-      var url = GH.api + '/repos/show/' + u + '/' + r,
-          onData = o.onData;
-
-      o.onSuccess = function(res) {
-        onData(res.responseText.repository);
-      }
-      new JSP( url, o );
-    }
-
-    ,listBranches: function( u, r, o ) {
-      var url = GH.api + '/repos/show/' + u + '/' + r + '/branches',
-          onData = o.onData;
-      o.onSuccess = function(res) {
-        var branches = res.responseText.branches;
-        onData(branches);
-      }
-      new JSP( url, o );
-    }
-  }
-
-  ,Raw: {
-    loadBlobAtCommit: function( u, r, commitId, path, options ) {
-      //http://github.com/:user_id/:repo/raw/:commit_id/:path
-      // http://github.com/mojombo/grit/raw/c0f0b4f7a62d2e563b48d0dc5cd9eb3c21e3b4c2/lib/grit.rb
-      url = 'https://github.com/' + u + '/' + r + '/raw/' + commitId + path;
-      new AR( GH.proxy + url, options );
-    }
-  }
-};
-GH.setProxy('http://samhuri.net/GithubFinder/proxy.php?url=')
-///// TEMPORARY, REMOVE ALONG WITH PROTOTYPE ///////
-
-
   /* Panel */
 
   window.Panel = function(finder, options) {
@@ -315,6 +57,15 @@ GH.setProxy('http://samhuri.net/GithubFinder/proxy.php?url=')
     return ps;
   }
 
+  var _loading = 0
+  function loading() {
+    if (_loading === 0) { $('in').className = 'on' }
+    _loading += 1
+  }
+  function loaded() {
+    _loading -= 1
+    if (_loading === 0) { $('in').className = 'off' }
+  }
 
   /* Finder */
 
@@ -323,7 +74,7 @@ GH.setProxy('http://samhuri.net/GithubFinder/proxy.php?url=')
   window.Finder = function(options){
     options = Object.extend( {
       user_id:      'samsonjs'
-      ,repository:  SJS.projName
+      ,project:  SJS.projName
       ,branch:      'master'
     }, options || {} );
 
@@ -331,19 +82,12 @@ GH.setProxy('http://samhuri.net/GithubFinder/proxy.php?url=')
     this.shas = {};
 
     this.user_id = options.user_id;
-    this.repository = options.repository;
     this.branch = options.branch;
     this.id = options.id;
+    this.project = options.project
+    this.repo = this.user_id + '/' + this.project
 
-    this.render(this.id);
-
-    this.repo = null;
-
-    /* Prototype RC2 */
-    // document.on('click','a[data-sha]', function( event, element ){
-    //   this.click( element.readAttribute('data-sha'), element );
-    //   element.blur();
-    // }.bind(this) );
+    this.render(this.id)
 
     document.observe('click', function(e) {
       e = e.findElement();
@@ -351,14 +95,6 @@ GH.setProxy('http://samhuri.net/GithubFinder/proxy.php?url=')
       this.click( e.readAttribute('data-sha'), e );
       e.blur();
     }.bind(this));
-
-    var idc = $('in'),
-    hide = function() { if( Ajax.activeRequestCount == 0 ) idc.className = 'off' };
-    Ajax.Responders.register( {
-      onException: function(r,x) { console.log(x); hide() }
-      ,onComplete: hide
-      ,onCreate: function() { idc.className = 'on' }
-    });
 
     /* init plugins */
     if( FP )
@@ -421,62 +157,36 @@ GH.setProxy('http://samhuri.net/GithubFinder/proxy.php?url=')
   }
 
   /* openRepo */
-  Finder.prototype.openRepo = function(repo) {
+  Finder.prototype.openRepo = function() {
     this.reset()
 
-    var u,r,b;
-    if( !repo ) {
-      /* check URL params */
-      var p = urlParams();
-      if( p["user_id"] && p["repo"] ) {
-        u = this.user_id    = p["user_id"];
-        r = this.repository = p["repo"]
-        b = this.branch     = p["branch"] || 'master';
-      } else {
-        // debugger
-        /* if user just come from a github repo ... */
-        var m         = (new RegExp("^http://github.com/(.+)","i")).exec(document.referrer),
-        path      = m ? m[1].split('/') : [];
+    $('r').innerHTML = this.repo
 
-        if( path[0] && path[1] ) {
-          u = this.user_id    = path[0];
-          r = this.repository = path[1];
-          b = this.branch     = path[3] || 'master';
-        } else {   /* default to app settings */
-          u = this.user_id;
-          r = this.repository;
-          b = this.branch;
-        }
-      }
-    } else {
-      /* User hits the "Go" button:  grabbing the user/repo */
-      repo = repo.split('/');
-      if( repo.length < 2 ) { alert('invalid repository!'); return; }
-
-      u = this.user_id    = repo[0];
-      r = this.repository = repo[1];
-      b = this.branch     = ($('brs') ? $F('brs') : b) || 'master';
-    }
-
-
-    $('r').innerHTML = u + '/' + r;
+    var self = this
 
     /* Load the master branch */
-    GH.Commits.listBranch( u, r, b, {
-      onData: function(cs) {
-        // if(!cs.commits) { alert('repo not found'); return; }
-        var tree_sha = cs.commits[0].tree;
-        this.renderPanel(tree_sha);
-      }.bind(this)
-    });
+    loading()
+    GITR.commits( this.repo, this.branch, function(err, cs) {
+      loaded()
+      if (err) {
+        console.log('GITR.commits failed: ' + err)
+        return
+      }
+      var tree_sha = cs[0].tree
+      self.renderPanel(tree_sha)
+    })
 
     /* Show branches info */
-    GH.Repo.listBranches( u, r, {
-      onData: function(bes) {
-        this.bes = $H(bes);
-        this.renderBranches();
-      }.bind(this)
-    });
+    loading()
+    GITR.branches( this.repo, function(err, bes) {
+      loaded()
+      if (err) {
+        console.log('GITR.branches failed: ' + err)
+        return
+      }
+      self.bes = $H(bes) // FIXME
+      self.renderBranches()
+    })
 
   }
 
@@ -506,7 +216,8 @@ GH.setProxy('http://samhuri.net/GithubFinder/proxy.php?url=')
     // html.push('</select>');
     $('brs_w').innerHTML = h + '</select>';
     document.getElementById('brs').observe('change', function() {
-      this.browse();
+      this.openRepo()
+      return false
     }.bind(this))
   }
 
@@ -520,8 +231,8 @@ GH.setProxy('http://samhuri.net/GithubFinder/proxy.php?url=')
   }
 
   Finder.prototype._resizePanelsWrapper = function() {
-    var w = (this.ps.length * 201);
     this.psW.style.width = w + 'px';
+    var w = (this.ps.length * 241)
 
     /* scroll to the last panel */
     this.bW.scrollLeft = w;
@@ -529,21 +240,33 @@ GH.setProxy('http://samhuri.net/GithubFinder/proxy.php?url=')
 
   /* request the content of the tree and render the panel */
   Finder.prototype.open = function( tree_sha, item ) {
-    GH.Tree.show( this.user_id, this.repository, this.branch, tree_sha, {
-      onData: function(tree) { // tree is already sorted
-        /* add all items to cache */
-        for( var i = 0, len = tree.length; i < len; i++ )
-          this.shas[ tree[i].sha ] = tree[i];
+    var self = this
+    GITR.tree( this.repo, tree_sha, function(err, tree) {
+      var blobs = tree.blobs.sort(function(a, b) {
+        // blobs always lose to tree
+        if ( a.type == 'blob' && b.type == 'tree' )
+          return 1
+        if ( a.type == 'tree' && b.type == 'blob' )
+          return -1
+        return a.name > b.name ? 1 : ( a.name < b.name ? - 1 : 0 )
+      })
+      /* add the index to the item */
+      for ( var i = 0, len = blobs.length, b = blobs[i]; i < len; i++, b = blobs[i] ) {
+        b.index = i
+        b.repo = self.repo
+        b.tree = tree.sha
 
-        var name = item ? item.name : '' ;
-        // debugger
-        var p = new Panel( this, { tree: tree, index: this.ps.length, name: name, tree_sha: tree_sha, item: item } );
-        this.ps.push( p );
+        /* add item to cache */
+        self.shas[ b.sha ] = b
+      }
 
-        this._resizePanelsWrapper();
+      var name = item ? item.name : ''
+      // debugger
+      var p = new Panel( self, { tree: blobs, index: self.ps.length, name: name, tree_sha: tree_sha, item: item } )
+      self.ps.push( p )
 
-      }.bind(this)
-    });
+      self._resizePanelsWrapper()
+    })
   }
 
   /**
@@ -552,8 +275,6 @@ GH.setProxy('http://samhuri.net/GithubFinder/proxy.php?url=')
    * @kb: is this trigged by the keyboard
    */
   Finder.prototype.click = function(sha, e, kb) {
-    // console.log("kb" + kb);
-    // debugger
     var it = this.shas[ sha ],
     ix = +(e.up('.panel')).readAttribute('data-index'),
     path = "";
@@ -563,10 +284,11 @@ GH.setProxy('http://samhuri.net/GithubFinder/proxy.php?url=')
     e.up('ul').select('li.cur').invoke('removeClassName','cur');
     var p = e.up('div.panel'),
     li = e.up('li').addClassName('cur'),
-    posTop = li.positionedOffset().top + li.offsetHeight - p.offsetHeight;
-    if( posTop > p.scrollTop) {
-      //p.scrollTop = posTop ;
-    }
+// FIXME broken, presumably by style changes
+//    posTop = li.positionedOffset().top + li.offsetHeight - p.offsetHeight
+//    if ( posTop > p.scrollTop) {
+//      p.scrollTop = posTop
+//    }
 
 
     /* current index */
@@ -582,6 +304,7 @@ GH.setProxy('http://samhuri.net/GithubFinder/proxy.php?url=')
 
     /* set a small delay here incase user switches really fast (e.g. keyboard navigation ) */
     this._p = setTimeout( function(){
+    var self = this
 
       if( it.type == 'tree' ) {
         this.renderPanel( it.sha, ix, it );
@@ -589,21 +312,19 @@ GH.setProxy('http://samhuri.net/GithubFinder/proxy.php?url=')
         $('f_c_w').hide();
       } else {
 
-        $('f_c_w').show();
-        if( /text/.test(it.mime_type) ) {
-          $('in').className = 'on';
-          GH.Blob.show( this.user_id, this.repository, it.sha, { onSuccess: function(r) {
-            this.previewTextFile(r.responseText, it);
-              }.bind(this)} );
+        $('f_c_w').show()
+        if ( /text/.test(it.mimeType) ) {
+          loading()
+          GITR.blob( it.repo, it.tree, it.name, function(err, blob) {
+            loaded()
+            if (err) {
+              console.log('GITR.raw failed, ' + err)
+              return
+            }
+            self.previewTextFile(blob.data('data'), it)
+          })
         }
       }
-
-      /* showPreview */
-      var p = function() {
-        $('f_c_w').show();
-        $('f_h').innerHTML = path;
-      }
-
     }.bind(this), (kb ? 350 : 10)); // time out
 
     return false
@@ -655,7 +376,6 @@ GH.setProxy('http://samhuri.net/GithubFinder/proxy.php?url=')
       '</div>'
     ];
 
-    $('in').className = 'off';
     $('f').update( html.join('') ).show();
 
     /* HACK!! */

@@ -73,7 +73,7 @@ h4 { margin: 0.5em 0 0.7em }
 #gh-finder .p { padding: 10px; }
 #gh-finder img { border: 0px}
 
-#finder { width: 100%; overflow: hidden; height: 343px }
+#finder { width: 100%; overflow: hidden; height: 363px }
 
 #r_w { width: 100%; background-color: #EEE; border-bottom: 1px solid #CCC }
 .tbb { border-bottom: 3px solid #CCC;} /* thick bottom border */
@@ -87,9 +87,8 @@ h4 { margin: 0.5em 0 0.7em }
 #in { color: transparent; padding: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px }
 #in.on { background-color: #4F4A45; color: white }
 
-#b_w { overflow: hidden; overflow-x: auto; height: 300px }
-.panel { float: left; width: 200px; border-right: 1px solid #CCC; overflow: hidden; overflow-y: auto;
-height: 300px }
+#b_w { overflow: hidden; overflow-x: auto; height: 320px }
+.panel { float: left; width: 240px; border-right: 1px solid #CCC; overflow: scroll; height: 320px }
 
 .files { padding: 0; margin: 0; font-size: 1.3em }
 .files li { list-style:none outside none; border-bottom: 1px solid #CCC; background-color: #F8F8F8; }
