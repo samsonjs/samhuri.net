@@ -1,6 +1,6 @@
 /* Panel */
 window.P = Class.create({
-  initialize: function(f, options) { 
+  initialize: function(f, options) {
     this.f        = f;
     this.tree     = options.tree  || [];
     this.index    = options.index || 0 ;
@@ -9,16 +9,16 @@ window.P = Class.create({
 
     this.r();
   }
-  
+
   ,dispose: function() {
     $('p' + this.index ).remove();
     this.p = null;
   }
-  
+
   ,r: function() {
     this.f.psW.insert({ bottom: this.h() });
   }
-  
+
   ,h: function() {
     var it, css, recent, ix=this.index, t=this.tree,bH = this.f.bW.offsetHeight,
         h = '<ul class=files>';
@@ -26,12 +26,12 @@ window.P = Class.create({
     for( var i = 0; i < t.length; i++ ) {
       it = t[i];
 
-      h += '<li class=' + it.type + '>' + 
+      h += '<li class=' + it.type + '>' +
               '<span class="ico">' +
-                '<a href="#" data-sha="' + it.sha + '" data-name="' + it.name + '" onclick="return false">' + 
+                '<a href="#" data-sha="' + it.sha + '" data-name="' + it.name + '" onclick="return false">' +
                   it.name +
-                '</a>' +              
-              '</span>'+  
+                '</a>' +
+              '</span>'+
             '</li>';
     }
     h += '</ul>';

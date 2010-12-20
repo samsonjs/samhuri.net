@@ -2,67 +2,67 @@
 // ;"ALEXLE";
 window.F = Class.create({
   initialize: function(options){
-    options = Object.extend( { 
+    options = Object.extend( {
       user_id:      'samsonjs'
       ,repository:  SJS.projName
       ,branch:      'master'
     }, options || {} );
-    
+
     this.ps   = [];
     this.shas = {};
-    
+
     this.u    = options.user_id;
     this.r    = options.repository;
     this.b    = options.branch;
     this.id   = options.id;
 
     this.render(this.id);
-    
+
     this.repo = null;
 
     /* Prototype RC2 */
-    // document.on('click','a[data-sha]', function( event, element ){ 
+    // document.on('click','a[data-sha]', function( event, element ){
     //   this.click( element.readAttribute('data-sha'), element );
     //   element.blur();
     // }.bind(this) );
-    
-    document.observe('click', function(e) { 
+
+    document.observe('click', function(e) {
       e = e.findElement();
       if( !e.readAttribute('data-sha') ) return;
       this.click( e.readAttribute('data-sha'), e );
       e.blur();
     }.bind(this));
-    
+
     var idc = $('in'),
         s = function() { idc.className = 'on' },
         h = function() { if( Ajax.activeRequestCount == 0 ) idc.className = 'off' };
-    Ajax.Responders.register( { 
+    Ajax.Responders.register( {
       onException: function(r,x) { console.log(x);h() }
       ,onComplete: h
       ,onCreate: s
     });
-    
+
     /* init plugins */
     if( FP )
       for( var i = 0; i < FP.length; i++ )
         new FP[i](this);
-    
+
     /* extractURL:  if user assigns user_id, repo, branch */
     this.xU();
     this.oR(); // open repo
   }
-  
-  
+
+
   ,xU: function() {
 
   }
-  
-  ,render: function(selector) { 
+
+  ,render: function(selector) {
     $(selector || document.body).insert(this.h());
     this.psW  = $('ps_w');
     this.bW = $('b_w');
   }
-    
+
   ,h: function() {
     return [
       '<div id=content>',
@@ -79,31 +79,31 @@ window.F = Class.create({
             '</table>',
           '</div>',  // .p
         '</div>',   // #r_w
-      
-        '<div id=b_w>', // browser wrapper 
+
+        '<div id=b_w>', // browser wrapper
           '<div id=ps_w style="width:200px"></div>',
         '</div>',
 
         // '<div class=clear></div>',
-      '</div>', // #finder 
+      '</div>', // #finder
 
       '<div id=f_c_w style="display:none">',                 // file content wrapper
         '<div class=p>',
           '<div id=f_h class=big></div>',
         '</div>',
-        
+
         '<div id=f_c>',                 // file content
           '<div class=p>',                 // padding
             '<div id=f_w>',             // file wrapper
-              '<div id=f></div>',       // file 
+              '<div id=f></div>',       // file
             '</div>',
             '<div id=diffoutput></div>',
           '</div>', // padding
         '</div>',
-        
+
         '<div class=clear></div>',
       '</div>',  // #f_c_w
-      
+
         '<div id=footer><b><a href=http://github.com/sr3d/GithubFinder>GithubFinder</a></b></div>',
       '</div>' // # content
     ].join(' ');
@@ -112,7 +112,7 @@ window.F = Class.create({
   /* openRepo */
   ,oR: function(repo) {
     this.reset()
-    
+
     var u,r,b;
     if( !repo ) {
       /* check URL params */
@@ -126,7 +126,7 @@ window.F = Class.create({
         /* if user just come from a github repo ... */
         var m         = (new RegExp("^http://github.com/(.+)","i")).exec(document.referrer),
             path      = m ? m[1].split('/') : [];
-        
+
         if( path[0] && path[1] ) {
           u = this.u = path[0];
           r = this.r = path[1];
@@ -141,53 +141,53 @@ window.F = Class.create({
       /* User hits the "Go" button:  grabbing the user/repo */
       repo = repo.split('/');
       if( repo.length < 2 ) { alert('invalid repository!'); return; }
-      
+
       u = this.u    = repo[0];
       r = this.r    = repo[1];
       b = this.b    = ($('brs') ? $F('brs') : b) || 'master';
     }
-    
- 
+
+
     $('r').innerHTML = u + '/' + r;
- 
+
     /* Load the master branch */
-    GH.Commits.listBranch( u, r, b, { 
+    GH.Commits.listBranch( u, r, b, {
       onData: function(cs) {
         // if(!cs.commits) { alert('repo not found'); return; }
         var tree_sha = cs.commits[0].tree;
         this.renderPanel(tree_sha);
       }.bind(this)
     });
-    
+
     /* Show branches info */
-    GH.Repo.listBranches( u, r, { 
+    GH.Repo.listBranches( u, r, {
       onData: function(bes) {
         this.bes = $H(bes);
         this.rBs();
       }.bind(this)
     });
-    
+
   }
-  
+
   ,reset: function() {
     $('f_c_w').hide();
     this.cI = -1;
     this.pI = 0;
-    
+
     while(this.ps.length > 0)
       (this.ps.pop()).dispose();
   }
-  
+
   ,browse: function() {
     this.oR( $('r').innerHTML );
     return false;
   }
-  
+
   /* render branches */
   ,rBs: function() {
     var h = '<select id=brs>';
-    this.bes.each(function(b) { 
-      h += 
+    this.bes.each(function(b) {
+      h +=
         '<option ' + (this.b == b.key ? ' selected=""' : ' ' ) + '>' +
           b.key +
         '</option>';
@@ -199,7 +199,7 @@ window.F = Class.create({
     }.bind(this))
   }
 
-  ,renderPanel: function( sh, ix, it ) { 
+  ,renderPanel: function( sh, ix, it ) {
     ix = ix || 0;
     /* clear previously opened panels */
     for( var i = this.ps.length - 1; i > ix; i-- ) {
@@ -207,19 +207,19 @@ window.F = Class.create({
     }
     this.open( sh, it );
   }
-  
+
   ,_resizePanelsWrapper: function() {
     var w = (this.ps.length * 201);
     this.psW.style.width = w + 'px';
-    
-    /* scroll to the last panel */    
+
+    /* scroll to the last panel */
     this.bW.scrollLeft = w;
   }
 
   /* request the content of the tree and render the panel */
   ,open: function( tree_sha, item ) {
     GH.Tree.show( this.u, this.r, this.b, tree_sha, {
-      onData: function(tree) { // tree is already sorted 
+      onData: function(tree) { // tree is already sorted
         /* add all items to cache */
         for( var i = 0, len = tree.length; i < len; i++ )
           this.shas[ tree[i].sha ] = tree[i];
@@ -228,13 +228,13 @@ window.F = Class.create({
         // debugger
         var p = new P( this, { tree: tree, index: this.ps.length, name: name, tree_sha: tree_sha, item: item } );
         this.ps.push( p );
-        
+
         this._resizePanelsWrapper();
-        
+
       }.bind(this)
     });
   }
-  
+
   /**
    * @sha: the sha of the object
    * @e:  the source element
@@ -256,7 +256,7 @@ window.F = Class.create({
     if( posTop > p.scrollTop) {
       //p.scrollTop = posTop ;
     }
-      
+
 
     /* current index */
     this.cI = it.index;
@@ -264,25 +264,25 @@ window.F = Class.create({
 
     /* remember the current selected item */
     this.ps[ ix ].cI = it.index;
-    
+
 
     /* don't be trigger happy: ptm = preview timer  */
     if(this._p) clearTimeout( this._p );
 
     /* set a small delay here incase user switches really fast (e.g. keyboard navigation ) */
     this._p = setTimeout( function(){
-      
+
       if( it.type == 'tree' ) {
         this.renderPanel( it.sha, ix, it );
-        // don't show file preview panel 
+        // don't show file preview panel
         $('f_c_w').hide();
       } else {
-        
+
         $('f_c_w').show();
         if( /text/.test(it.mime_type) ) {
           $('in').className = 'on';
           GH.Blob.show( this.u, this.r, it.sha, { onSuccess: function(r) {
-            this.previewTextFile(r.responseText, it);  
+            this.previewTextFile(r.responseText, it);
           }.bind(this)} );
         }
       }
@@ -293,12 +293,12 @@ window.F = Class.create({
         $('f_c_w').show();
         $('f_h').innerHTML = path;
       }
-      
+
     }.bind(this), (kb ? 350 : 10)); // time out
-    
+
     return false
   }
-  
+
 
   ,previewTextFile: function( text, it ) {
     text = text.replace(/\r\n/, "\n").split(/\n/);
@@ -348,13 +348,13 @@ window.F = Class.create({
     $('diffoutput').hide();
     $('in').className = 'off';
     $('f').update( html.join('') ).show();
-    
+
     /* HACK!! */
-    $('theme').observe('change', function() { 
+    $('theme').observe('change', function() {
       window.f.theme = $F('theme');
       $('code').removeClassName('Light').removeClassName('Dark').addClassName(window.f.theme);
     });
   }
-  
+
   ,diff:function(){ alert('Diff is disabled.'); }
 });
