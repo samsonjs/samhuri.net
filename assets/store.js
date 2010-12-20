@@ -1,4 +1,4 @@
-(function() {
+;(function() {
   var global = this
   if (typeof localStorage !== 'undefined') {
     global.createObjectStore = function(namespace) {
@@ -29,7 +29,7 @@
         }
       }
     }
-    global.ObjectStore = global.createObjectStore('default')
+    global.ObjectStore = createObjectStore('default')
   } else {
     // Create an in-memory store, should probably fall back to cookies
     global.createObjectStore = function() {
@@ -43,4 +43,4 @@
     }
     global.ObjectStore = createObjectStore()
   }
-}())
+}());

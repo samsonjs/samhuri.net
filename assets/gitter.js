@@ -8,7 +8,7 @@
 // TODO:
 //  - authentication and write APIs
 
-(function() {
+;(function() {
     var global = this
       , isBrowser = 'document' in global
       , ie
@@ -640,4 +640,4 @@
             }
         }
     }
-}())
+}());

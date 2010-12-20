@@ -1,7 +1,9 @@
 TODO
 ====
 
- * use LABjs
+ * promote JS links on project pages (the only ones that mention javascript so far!)
+
+ * link to github finder on project pages
 
  * last commit date
 
@@ -9,12 +11,6 @@ TODO
 
  * favicon
 
- * offline cache
+ * fix display issues in ie6
 
  * semantic markup (section, nav, header, footer, etc)
-
- * promote JS links on project pages (the only ones that mention javascript so far!)
-
- * link to github finder on project pages
-
- * fix display issues in ie6
