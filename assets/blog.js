@@ -1,11 +1,17 @@
 ;(function() {
+    if (typeof console === 'undefined')
+        window.console = {}
+    if (typeof console.log !== 'function')
+        window.console.log = function(){}
+    if (typeof console.dir !== 'function')
+        window.console.dir = function(){}
+
     var server = 'http://bohodev.net:8000/'
       , getCommentsURL = function(post) { return server + 'comments/' + post }
       , postCommentURL = function() { return server + 'comment' }
       , countCommentsURL = function(post) { return server + 'count/' + post }
 
     function getComments() {
-      console.log('*** getComments()')
       SJS.request({uri: getCommentsURL(SJS.filename)}, function(err, request, body) {
         if (err) {
           $('#comments').text('derp')
@@ -17,7 +23,7 @@
         try {
           data = JSON.parse(body)
         } catch (e) {
-          console && console.log && console.log('not json -> ' + body)
+          console.log('not json -> ' + body)
         }
         comments = data.comments
         if (comments.length) {
@@ -38,7 +44,7 @@
       try {
         data = JSON.parse(body)
       } catch (e) {
-        console && console.log && console.log('not json -> ' + body)
+        console.log('not json -> ' + body)
       }
       n = data.count
       $('#sd').text(n > 0 ? 'show the discussion (' + n + ')' : 'start the discussion')

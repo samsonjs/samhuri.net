@@ -1,12 +1,13 @@
 body { background-color: #f7f7f7
      ; font-family: 'DejaVu Serif', 'xHoefler Text', Georgia, serif
      ; margin: 0
+     ; padding: 0
      }
 
 body > header { display: block
               ; background-color: #a6bcdf
               ; border-bottom: solid 1em #eee
-              /* some browsers have trouble with 100% for the height so use em units :/ */
+                /* some browsers have trouble with 100% for the height so use em units :/ */
               ; -moz-border-bottom-left-radius: 500px 7em
               ; -webkit-border-bottom-left-radius: 500px 7em
               ; border-bottom-left-radius: 500px 7em
@@ -224,23 +225,3 @@ footer a { border-bottom: none
          ; font-size: 1.3em
          ; text-decoration: none
          }
-
-/* iPhone */
-
-@media only screen and (max-device-width:480px) {
-  h1 { font-size: 2em
-     ; margin-top: 1em
-     }
-  h2 { font-size: 1em }
-
-  #breadcrumbs { font-size: 0.8em }
-
-  article { width: 80%
-          ; min-width: 100px
-          ; max-width: 800px
-          ; padding-left: 1em
-          ; padding-bottom: 3em
-          }
-
-  footer { font-size: 1em }
-}

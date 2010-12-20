@@ -1,0 +1,145 @@
+/* iPhone and iPad */
+
+@media only screen and (orientation:portrait) and (device-height:1024px),
+       only screen and (max-device-width:480px)
+{
+  ul.nav { padding: 0.5em
+         ; width: 80%
+         ; max-width: 400px
+         }
+  
+  ul.nav li { display: block
+            ; font-size: 1.5em
+            ; line-height: 1.6em
+            }
+
+  ul.nav li:after { content: '' }
+
+  ul#projects { width: 60%
+              ; max-width: 600px
+              }
+
+  ul#projects li { display: block
+                 ; line-height: 1.8em
+                 }
+
+  #browse { display: none }
+}
+
+/* iPhone */
+
+@media only screen and (max-device-width:480px) {
+  /* common */
+
+  h1 { font-size: 2em
+     ; margin-top: 1em
+     }
+  h2 { font-size: 1em }
+
+  #breadcrumbs { font-size: 0.8em }
+
+  #forkme { display: none }  
+
+  ul.nav li { font-size: 1.2em }
+
+  td { font-size: 1em
+     ; line-height: 1.1em
+     }
+
+  footer { font-size: 1em }
+
+  /* blog*/
+  #blog > header { border-bottom: solid 2px #eee
+                  /* some browsers have trouble with 100% for the height so use em units :/ */
+                ; -moz-border-bottom-left-radius: 200px 4em
+                ; -webkit-border-bottom-left-radius: 200px 4em
+                ; border-bottom-left-radius: 200px 4em
+                }
+
+  #blog > header > h1 { margin-top: 0 }
+
+  #blog img { max-width: 100% }
+
+  nav#index { width: 90%
+            ; margin: 0.3em auto
+            ; padding-bottom: 0.3em
+            }
+
+  nav#index ul { font-size: 0.8em }
+
+  nav#index li > span { display: none }
+
+  #blog article h1 { font-size: 1.2em }
+
+  #posts { min-width: 300px
+         ; max-width: 900px
+         ; margin: 0
+         ; padding: 0
+         ; border-left: none
+         ; padding-left: 10px
+         }
+
+  article { width: 100%
+          ; min-width: 100px
+          ; max-width: 800px
+          ; font-size: 0.8em
+          ; margin: 0
+          ; padding: 0
+          }
+
+  time { font-size: 1.1em }
+
+  .sep { font-size: 1em }
+
+  #around { min-width: 300px
+          ; max-width: 900px
+          ; margin: 0 auto
+          ; padding: 0 0.2em
+          }
+
+  #prev, #next { padding: 0.3em 0
+               ; font-size: 0.95em
+               }
+
+  #comment-stuff { padding: 0
+                 ; margin-top: 2em
+                 }
+
+  #comments { width: 100% }
+
+  #comment-form { width: 90%
+                ; margin: 0 auto
+                }
+
+  input[type=text],
+  textarea { font-size: 1.2em
+           ; width: 95%
+           }
+
+  input[type=submit] { font-size: 1em }
+
+  /* proj */
+  #info { width: 70%
+        ; padding: 0 1em
+        }
+
+  #info > div { clear: left
+              ; width: 100%
+              ; max-width: 100%
+              ; padding: 0.5em 0.2em 1em
+              ; border-left: none
+              ; font-size: 1em
+              }
+}
+
+/* iPhone and iPad landscape */
+
+@media only screen and (orientation: landscape) {
+  body { font-size: 0.7em }
+}
+
+
+/* iPad portrait */
+@media only screen and (orientation:portrait) and (device-height:1024px) {
+  article > header > h1 { font-size: 1.8em }
+}

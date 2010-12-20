@@ -43,20 +43,6 @@ h4 { margin: 0.5em 0 0.7em }
 
 #info > br.clear { clear: both }
 
-@media only screen and (max-device-width:480px) {
-  #info { width: 70%
-        ; padding: 0 1em
-        }
-
-  #info > div { clear: left
-              ; width: 100%
-              ; max-width: 100%
-              ; padding: 0.5em 0.2em 1em
-              ; border-left: none
-              ; font-size: 1em
-              }
-}
-
 #contributors-box a { line-height: 1.8em }
 
 
