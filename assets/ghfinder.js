@@ -3,30 +3,30 @@
   /* Panel */
 
   window.Panel = function(finder, options) {
-    this.finder   = finder;
-    this.tree     = options.tree  || [];
-    this.index    = options.index || 0 ;
-    this.name     = options.name;
-    this.item     = options.item;
+    this.finder   = finder
+    this.tree     = options.tree  || []
+    this.index    = options.index || 0
+    this.name     = options.name
+    this.item     = options.item
 
-    this.render();
+    this.render()
   }
 
   Panel.prototype.dispose = function() {
-    $('p' + this.index ).remove();
-    this.p = null;
+    $('p' + this.index ).remove()
+    this.p = null
   }
 
   Panel.prototype.render = function() {
-    this.finder.psW.insert({ bottom: this.html() });
+    this.finder.psW.insert({ bottom: this.html() })
   }
 
   Panel.prototype.html = function() {
         var it, css, recent, ix=this.index, t=this.tree,bH = this.finder.bW.offsetHeight,
-    h = '<ul class=files>';
+    h = '<ul class=files>'
 
     for( var i = 0; i < t.length; i++ ) {
-      it = t[i];
+      it = t[i]
 
       h += '<li class=' + it.type + '>' +
         '<span class="ico">' +
@@ -34,27 +34,27 @@
         it.name +
         '</a>' +
         '</span>'+
-        '</li>';
+        '</li>'
     }
-    h += '</ul>';
-    return '<div id=p' + ix + ' data-index=' + ix +' class=panel style="height:' + bH +'px">' + h + '</div>';
+    h += '</ul>'
+    return '<div id=p' + ix + ' data-index=' + ix +' class=panel style="height:' + bH +'px">' + h + '</div>'
   }
 
   /* parse URL Params as a hash with key are lowered case.  (Doesn't handle duplicated key). */
   var urlParams = function() {
     var ps = [], pair, pairs,
-    url = window.location.href.split('?');
+    url = window.location.href.split('?')
 
-    if( url.length == 1 ) return ps;
+    if( url.length == 1 ) return ps
 
-    url = url[1].split('#')[0];
+    url = url[1].split('#')[0]
 
-    pairs = url.split('&');
+    pairs = url.split('&')
     for( var i = 0; i < pairs.length; i++ ) {
-      pair = pairs[i].split('=');
-      ps[ pair[0].toLowerCase() ] = pair[1];
+      pair = pairs[i].split('=')
+      ps[ pair[0].toLowerCase() ] = pair[1]
     }
-    return ps;
+    return ps
   }
 
   var _loading = 0
@@ -69,46 +69,46 @@
 
   /* Finder */
 
-  window.FP = []; // this array contains the list of all registered plugins
+  window.FP = [] // this array contains the list of all registered plugins
 
   window.Finder = function(options){
     options = Object.extend( {
       user_id:      'samsonjs'
       ,project:  SJS.projName
       ,branch:      'master'
-    }, options || {} );
+    }, options || {} )
 
-    this.ps   = [];
-    this.shas = {};
+    this.ps   = []
+    this.shas = {}
 
-    this.user_id = options.user_id;
-    this.branch = options.branch;
-    this.id = options.id;
+    this.user_id = options.user_id
     this.project = options.project
     this.repo = this.user_id + '/' + this.project
+    this.branch = options.branch
+    this.id = options.id
 
     this.render(this.id)
 
     document.observe('click', function(e) {
-      e = e.findElement();
-      if( !e.readAttribute('data-sha') ) return;
-      this.click( e.readAttribute('data-sha'), e );
-      e.blur();
-    }.bind(this));
+      e = e.findElement()
+      if( !e.readAttribute('data-sha') ) return
+      this.click( e.readAttribute('data-sha'), e )
+      e.blur()
+    }.bind(this))
 
     /* init plugins */
     if( FP )
       for( var i = 0; i < FP.length; i++ )
-        new FP[i](this);
+        new FP[i](this)
 
-    this.openRepo();
+    this.openRepo()
   }
 
 
   Finder.prototype.render = function(selector) {
-    $(selector || document.body).insert(this.html());
-    this.psW  = $('ps_w');
-    this.bW = $('b_w');
+    $(selector || document.body).insert(this.html())
+    this.psW  = $('ps_w')
+    this.bW = $('b_w')
   }
 
   Finder.prototype.html = function() {
@@ -153,7 +153,7 @@
 
       '<div id=footer><b><a href=http://github.com/sr3d/GithubFinder>GithubFinder</a></b></div>',
       '</div>' // # content
-        ].join(' ');
+        ].join(' ')
   }
 
   /* openRepo */
@@ -191,30 +191,24 @@
   }
 
   Finder.prototype.reset = function() {
-    $('f_c_w').hide();
-    this.cI = -1;
-    this.pI = 0;
+    $('f_c_w').hide()
+    this.cI = -1
+    this.pI = 0
 
-    while(this.ps.length > 0)
-      (this.ps.pop()).dispose();
-  }
-
-  Finder.prototype.browse = function() {
-    this.openRepo( $('r').innerHTML );
-    return false;
+    while (this.ps.length > 0)
+      (this.ps.pop()).dispose()
   }
 
   /* render branches */
   Finder.prototype.renderBranches = function() {
-    var h = '<select id=brs>';
+    var h = '<select id=brs>'
     this.bes.each(function(b) {
       h +=
       '<option ' + (this.branch == b.key ? ' selected=""' : ' ' ) + '>' +
         b.key +
-        '</option>';
-    }.bind(this));
-    // html.push('</select>');
-    $('brs_w').innerHTML = h + '</select>';
+        '</option>'
+    }.bind(this))
+    $('brs_w').innerHTML = h + '</select>'
     document.getElementById('brs').observe('change', function() {
       this.openRepo()
       return false
@@ -222,20 +216,20 @@
   }
 
   Finder.prototype.renderPanel = function( sh, ix, it ) {
-    ix = ix || 0;
+    ix = ix || 0
     /* clear previously opened panels */
     for( var i = this.ps.length - 1; i > ix; i-- ) {
-      (this.ps.pop()).dispose();
+      (this.ps.pop()).dispose()
     }
-    this.open( sh, it );
+    this.open( sh, it )
   }
 
   Finder.prototype._resizePanelsWrapper = function() {
-    this.psW.style.width = w + 'px';
     var w = (this.ps.length * 241)
+    this.psW.style.width = w + 'px'
 
     /* scroll to the last panel */
-    this.bW.scrollLeft = w;
+    this.bW.scrollLeft = w
   }
 
   /* request the content of the tree and render the panel */
@@ -275,15 +269,14 @@
    * @kb: is this trigged by the keyboard
    */
   Finder.prototype.click = function(sha, e, kb) {
-    var it = this.shas[ sha ],
-    ix = +(e.up('.panel')).readAttribute('data-index'),
-    path = "";
+    var it = this.shas[ sha ]
+      , ix = +(e.up('.panel')).readAttribute('data-index')
 
 
     /* set selection cursor && focus the item */
-    e.up('ul').select('li.cur').invoke('removeClassName','cur');
-    var p = e.up('div.panel'),
-    li = e.up('li').addClassName('cur'),
+    e.up('ul').select('li.cur').invoke('removeClassName','cur')
+    var p = e.up('div.panel')
+      , li = e.up('li').addClassName('cur')
 // FIXME broken, presumably by style changes
 //    posTop = li.positionedOffset().top + li.offsetHeight - p.offsetHeight
 //    if ( posTop > p.scrollTop) {
@@ -292,24 +285,23 @@
 
 
     /* current index */
-    this.cI = it.index;
-    this.pI = ix; // current panel index;
+    this.cI = it.index
+    this.pI = ix // current panel index
 
     /* remember the current selected item */
-    this.ps[ ix ].cI = it.index;
-
+    this.ps[ ix ].cI = it.index
 
     /* don't be trigger happy: ptm = preview timer  */
-    if(this._p) clearTimeout( this._p );
+    if (this._p) clearTimeout( this._p )
 
     /* set a small delay here incase user switches really fast (e.g. keyboard navigation ) */
-    this._p = setTimeout( function(){
     var self = this
+    this._p = setTimeout( function() {
 
-      if( it.type == 'tree' ) {
-        this.renderPanel( it.sha, ix, it );
+      if ( it.type == 'tree' ) {
+        self.renderPanel( it.sha, ix, it )
         // don't show file preview panel
-        $('f_c_w').hide();
+        $('f_c_w').hide()
       } else {
 
         $('f_c_w').show()
@@ -325,27 +317,27 @@
           })
         }
       }
-    }.bind(this), (kb ? 350 : 10)); // time out
+    }.bind(this), (kb ? 350 : 10)) // time out
 
     return false
   }
 
 
   Finder.prototype.previewTextFile = function( text, it ) {
-        text = text.replace(/\r\n/, "\n").split(/\n/);
+    text = text.replace(/\r\n/, "\n").split(/\n/)
 
     var ln = [],
-    l = [],
-    sloc = 0;
+        l = [],
+        sloc = 0
     for( var i = 0, len = text.length; i < len; i++ ) {
-      ln.push( '<span>' + (i + 1) + "</span>\n");
+      ln.push( '<span>' + (i + 1) + "</span>\n")
 
-      l.push( text[i] ? text[i].replace(/&/g, '&amp;').replace(/</g, '&lt;') : "" );
+      l.push( text[i] ? text[i].replace(/&/g, '&amp;').replace(/</g, '&lt;') : "" )
       // count actual loc
-      sloc += text[i] ? 1 : 0;
+      sloc += text[i] ? 1 : 0
     }
 
-    if (typeof f.theme === 'undefined') f.theme = 'Light';
+    if (typeof f.theme === 'undefined') f.theme = 'Light'
 
     var html = [
       '<div class=meta>',
@@ -374,15 +366,15 @@
       '</td>',
       '</tr>',
       '</div>'
-    ];
+    ]
 
-    $('f').update( html.join('') ).show();
+    $('f').update( html.join('') ).show()
 
     /* HACK!! */
     $('theme').observe('change', function() {
-      window.f.theme = $F('theme');
-      $('code').removeClassName('Light').removeClassName('Dark').addClassName(window.f.theme);
-    });
+      window.f.theme = $F('theme')
+      $('code').removeClassName('Light').removeClassName('Dark').addClassName(window.f.theme)
+    })
   }
 
 
@@ -390,96 +382,94 @@
 
   var Keyboard = function(f) {
     document.observe('keydown', function(e) {
-      if(e.findElement().tagName == 'INPUT') return; //  user has focus in something, bail out.
+      if(e.findElement().tagName == 'INPUT') return //  user has focus in something, bail out.
 
-      // var k = e.which ? e.which : e.keyCode; // keycode
       var k = e.which || e.keyCode; // keycode
 
       var cI = f.cI,
-      pI = f.pI;
+          pI = f.pI
 
-      var p = f.ps[pI];     // panel
-      var t = p.tree;       // the panel's tree
+      var p = f.ps[pI]     // panel
+      var t = p.tree       // the panel's tree
 
 
       var d = function() {
         if( t[ ++cI ] ) {
-          var item = t[cI];
+          var item = t[cI]
           // debugger
-          f.click( item.sha, $$('#p' + pI + ' a')[cI], true );
+          f.click( item.sha, $$('#p' + pI + ' a')[cI], true )
         } else {
-          cI--;
+          cI--
         }
-      };
+      }
 
       var u = function() {
         if( t[ --cI ] ) {
-          var item = t[cI];
-          f.click( item.sha, $$('#p' + pI + ' a')[cI], true );
+          var item = t[cI]
+          f.click( item.sha, $$('#p' + pI + ' a')[cI], true )
         } else {
-          cI++;
+          cI++
         }
       }
 
       var l = function() {
         if( f.ps[--pI] ) {
           // debugger
-          t = f.ps[pI].tree;
+          t = f.ps[pI].tree
           // get index of the previously selected item
-          cI = f.ps[pI].cI;
+          cI = f.ps[pI].cI
           // var item = f.ps[pI];
-          f.click( t[cI].sha, $$('#p' + pI + ' a')[cI], true );
+          f.click( t[cI].sha, $$('#p' + pI + ' a')[cI], true )
 
         } else {
-          pI++; // undo
+          pI++ // undo
         }
       }
 
 
       var r = function() {
-        if( !t[cI] || t[cI].type != 'tree' ) return;
+        if( !t[cI] || t[cI].type != 'tree' ) return
 
         if( f.ps[++pI] ) {
-          t = f.ps[pI].tree;
-          cI = -1;
-          d(); // down!
+          t = f.ps[pI].tree
+          cI = -1
+          d() // down!
 
         } else {
-          pI--; // undo
+          pI-- // undo
         }
       }
 
-      // k == 40 ? d() : ( k == 39 ? r() : ( k == 38 ? u() : ( k == 37 ? l() : '';
+      // k == 40 ? d() : ( k == 39 ? r() : ( k == 38 ? u() : ( k == 37 ? l() : ''
       switch( k ) {
        case 40: // key down
-        d();
-        break;
+        d()
+        break
 
        case 38: // up
-        u();
-        break;
+        u()
+        break
 
        case 37: //left
-        l();
+        l()
         break
 
        case 39: // right
-        r();
-        break;
+        r()
+        break
+
       default:
-        break;
+        break
       }
 
 
-      // console.log("keypress");
+      if ( k >= 37 && k <= 40)
+        e.stop()
 
-      if( k >= 37 && k <= 40)
-        e.stop();
-
-    });
+    })
   }
 
   /* add the plugin to the plugins list */
-  FP.push(Keyboard);
+  FP.push(Keyboard)
 
 }());
