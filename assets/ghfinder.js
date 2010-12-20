@@ -73,8 +73,8 @@
 
   window.Finder = function(options){
     options = Object.extend( {
-      user_id:      'samsonjs'
-      ,project:  SJS.projName
+       user_id:     'samsonjs'
+      ,project:     'samhuri.net'
       ,branch:      'master'
     }, options || {} )
 
