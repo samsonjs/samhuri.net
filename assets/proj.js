@@ -1,8 +1,8 @@
-(function() {
+;(function() {
   if (typeof console === 'undefined') {
     console = {log:function(){}}
   }
-  
+
   var global = this
   global.SJS = {
     proj: function(name) {
@@ -50,22 +50,26 @@
           })
         }
 
+        function listify(things) {
+          return '<ul><li>' + things.join('</li><li>') + '</li></ul>'
+        }
+
         function updateBranches(name, branches) {
           function branchLink(b) {
             return '<a href=https://github.com/samsonjs/' + name + '/tree/' + b + '>' + b + '</a>'
           }
-          html('branches', Object.keys(branches).map(branchLink).join('<br>'))
+          html('branches', listify(Object.keys(branches).map(branchLink)))
         }
 
         function updateContributors(contributors) {
           function userLink(u) {
             return '<a href=https://github.com/' + u.login + '>' + (u.name || u.login) + '</a>'
           }
-          html('contributors', contributors.map(userLink).join('<br>'))
+          html('contributors', listify(contributors.map(userLink)))
         }
 
         function updateLangs(langs) {
-          html('langs', langsByUsage(langs).join('<br>'))
+          html('langs', listify(langsByUsage(langs)))
         }
 
         function updateN(name, things) {
@@ -129,4 +133,4 @@
       }
     }
   }
-}())
+}());
