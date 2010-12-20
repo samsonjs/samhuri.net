@@ -14,10 +14,18 @@ def main
     puts 'usage: blog.rb <source dir> <dest dir>'
     exit 1
   end
-  Blag.go! srcdir, destdir  
+  b = Blag.new srcdir, destdir
+  puts 'title: ' + b.title
+  puts 'subtitle: ' + b.subtitle
+  puts 'url: ' + b.url
+  puts "#{b.posts.size} posts"
+  b.generate!
+  puts 'done blog'
 end
 
 class Blag
+  attr_accessor :title, :subtitle, :url
+
   def self.go! src, dest
     self.new(src, dest).generate!
   end
