@@ -80,7 +80,8 @@
         commit: function(repo, sha, cb) {
             return new Commit(repo, sha, cb)
         },
-        raw: function(repo, sha, cb) {
+        // raw doesn't work with jsonp in the browser ... cors?
+        raw: isBrowser ? undefined : function(repo, sha, cb) {
             return new Raw(repo, sha, cb)
         },
         repo: function(repo, cb) {
@@ -143,7 +144,8 @@
         has: [ ['commits', 'commits/list/:repo/:branch'] ]
     })
     Commit = createResource('commits/show/:repo/:sha')
-    Raw = createResource('blob/show/:repo/:sha')
+    // raw doesn't work with jsonp ... cors?
+    if (!isBrowser) Raw = createResource('blob/show/:repo/:sha')
     Repo = createResource('repos/show/:repo', {
         has: [ 'branches'
              , 'collaborators'

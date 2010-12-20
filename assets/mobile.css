@@ -1,7 +1,7 @@
 /* iPhone and iPad */
 
 @media only screen and (orientation:portrait) and (device-height:1024px),
-       only screen and (max-device-width:480px)
+       only screen and (device-width:320px)
 {
   ul.nav { padding: 0.5em
          ; width: 80%
@@ -134,7 +134,8 @@
 
 /* iPhone and iPad landscape */
 
-@media only screen and (orientation: landscape) {
+@media only screen and (orientation: landscape) and (device-width:768px),
+       only screen and (orientation: landscape) and (device-width:320px) {
   body { font-size: 0.7em }
 }
 

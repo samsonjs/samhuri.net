@@ -69,6 +69,7 @@
       comment.body = comment.body || ''
       if (!comment.body) {
           alert("is that all you have to say?")
+          document.getElementById('thoughts').focus()
           return false
       }
 
