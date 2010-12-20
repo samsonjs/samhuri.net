@@ -33,6 +33,7 @@ publish_proj: proj combine
 
 publish: publish_blog publish_proj index.html
 	publish index.html
+	publish .htaccess
 	publish assets
 	publish blog
 	publish proj
