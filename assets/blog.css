@@ -1,55 +1,23 @@
-body { background-color: #f7f7f7
-     ; font-family: 'DejaVu Serif', 'xHoefler Text', Georgia, serif
-     ; margin: 0
+body { margin: 0
      ; padding: 0
      }
 
-body > header { display: block
-              ; background-color: #a6bcdf
-              ; border-bottom: solid 1em #eee
-                /* some browsers have trouble with 100% for the height so use em units :/ */
-              ; -moz-border-bottom-left-radius: 500px 7em
-              ; -webkit-border-bottom-left-radius: 500px 7em
-              ; border-bottom-left-radius: 500px 7em
-              }
-
-h1 { text-align: right
-   ; font-size: 4em
-   ; font-weight: normal
-   ; margin: 0
+h1 { margin: 0
    ; padding: 0.2em
    ; color: #9ab
    }
 
-h1 a { color: #f7f7f7
-     ; border-bottom: none
-     ; text-decoration: none
-     ; text-shadow: #999 1px 1px 3px
-     }
-
-a#sjs:hover { color: #f7f7a7 }
-
-a { color: #22c }
-
-a.img { border: none }
-
-#breadcrumbs { font-size: 1.5em
-             ; color: #444
-             ; margin: 0.3em
+#breadcrumbs { margin: 0.3em
+             ; position: relative
              }
-
-#breadcrumbs a { text-shadow: none
-               ; color: #444
-               ; border: none
-               ; text-decoration: underline
-               }
 
 .center { text-align: center
         ; font-size: 1.2em
         }
 
-#index { display: none
-       ; width: 80%
+.hidden { display: none }
+
+#index { width: 80%
        ; min-width: 200px
        ; max-width: 800px
        ; border: solid 1px #999
@@ -69,15 +37,15 @@ a.img { border: none }
 
 .date { float: right }
 
-#posts { border-left: solid 0.15em #999
-       ; width: 80%
-       ; min-width: 400px
-       ; max-width: 680px
-       ; margin: 4em auto 2em
-       ; padding: 0 5%
-       ; font-size: 1.2em
-       ; line-height: 1.4em
-       }
+div#posts { border-left: solid 0.15em #999
+          ; width: 80%
+          ; min-width: 400px
+          ; max-width: 680px
+          ; margin: 4em auto 2em
+          ; padding: 0 5%
+          ; font-size: 1.2em
+          ; line-height: 1.4em
+          }
 
 article { color: #222
         ; padding-bottom: 1em
@@ -89,7 +57,7 @@ article:last-child { padding-bottom: 0
 
 article h1 { text-align: left
            ; font-size: 2em
-	   ; line-height: 1.1em
+           ; line-height: 1.1em
            ; font-weight: normal
            ; color: #222
            ; margin: 1em 0
@@ -121,6 +89,18 @@ article h3 { font-size: 1.6em
 time { color: #444
      ; font-size: 1.2em
      }
+
+ul#tags { width: 100%
+        ; padding-top: 1em
+        ; border-top: solid 1px #ccc
+        ; text-align: center
+        }
+
+ul#tags li { display: inline
+           ; padding: 0.3em 1em
+           }
+
+ul#tags a { color: #999 }
 
 .gist { font-size: 0.8em }
 
@@ -208,12 +188,19 @@ textarea:focus { border: solid 1px #333 }
 textarea { height: 100px }
 
 input[type=submit] { font-size: 1.1em
-		   ; cursor: pointer
-		   }
+                   ; cursor: pointer
+                   }
 
-footer { text-align: center
-       ; font-size: 1.2em
-       ; margin: 0
+#tag-groups { width: 82.5%
+            ; margin: 0 auto
+            }
+
+ul.tags { width: 27%
+        ; float: left
+        ; margin: 1em 1.25% 3em
+        }
+
+footer { margin: 0
        ; padding: 1em 0
        ; background-color: #cdf
        ; border-top: solid 1px #bbb

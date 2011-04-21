@@ -4,8 +4,8 @@
   <meta name=viewport content=width=device-width>
   <title>projects :: samhuri.net</title> 
   <link rel=icon type=image/gif href=../assets/s.gif>
-  <link rel=stylesheet href=../assets/style.min.css>
-  <link rel=stylesheet media=screen href=../assets/mobile.css>
+  <link rel=stylesheet href=../assets/proj-index-all.min.css>
+  <link rel=stylesheet media=screen href=../assets/mobile.min.css>
   <!--[if IE 6]>
   <link rel=stylesheet href=../assets/ie6.min.css>
   <![endif]-->
@@ -19,99 +19,19 @@
     #gh img { border: none }
     span { padding: 5px }
   </style>
-  <script>
-  var _gaq = _gaq || [];
-  _gaq.push( ['_setAccount', 'UA-214054-5']
-           , ['_trackPageview']
-           );
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-  </script>
-  <script src=../assets/gitter.min.js></script>
-  <script src=../assets/store.min.js></script>
-  <script>
-  if (typeof console === 'undefined') {
-    console = {log:function(){}}
-  }
-
-  (function() {
-    if (document.addEventListener) {
-      document.addEventListener('DOMContentLoaded', ready, false)
-    } else if (window.attachEvent) {
-      window.attachEvent('onload', ready)
-    }
-
-    function ready() {
-      function addClass(el, name) {
-        var c = el.className || name
-        if (!c.match(new RegExp('\b' + name + '\b', 'i'))) c += ' ' + name
-      }
-
-      var body = document.getElementsByTagName('body')[0]
-        , text
-      if ('innerText' in body) {
-        text = function(id, text) {
-          document.getElementById(id).innerText = text
-        }
-      } else {
-        text = function(id, text) {
-          document.getElementById(id).textContent = text
-        }
-      }
-
-      function highlight(id) {
-        document.getElementById(id).style.className = ' highlight'
-      }
-      function textHighlight(id, t) {
-        text(id, t)
-        document.getElementById(id).className = ' highlight'
-      }
-      function updateN(name, things) {
-        textHighlight('n' + name, things.length)
-      }
-
-      var data = createObjectStore('proj')
-        , t = data.get('t-proj')
-        , names = ['followers', 'following', 'repos', 'watched']
-      if (!t || +new Date() - t > 3600 * 1000) {
-        console.log('stale ' + String(t))
-        data.set('t-proj', +new Date())
-        names.forEach(function(name) {
-          GITR[name]('samsonjs', function(err, things) {
-            if (err) {
-              text('n' + name, '?')
-            } else {
-              data.set(name, things)
-              updateN(name, things)
-            }
-          })
-        })
-      } else {
-        console.log('hit ' + t + ' (' + (+new Date() - t) + ')')
-        names.forEach(function(name) {
-          updateN(name, data.get(name))
-        })
-      }
-    }
-  }())
-  </script>
 </head>
 <nav id=breadcrumbs><a href=../>samhuri.net</a></nav>
 <a href=https://github.com/samsonjs><img id=forkme src=../assets/forkme.png alt="Fork me on GitHub"></a>
 <header>
   <h1>projects</h1>
 </header>
-<ul class=nav id=projects>
-  {{#names}}
-  <li><a href={{.}}>{{.}}</a></li>
-  <li class=ie-bullet>&bull;</li>
-  {{/names}}
-  <li class=last><a href={{lastName}}>{{lastName}}</a></li>
-</ul>
+<nav>
+  <ul class=nav id=projects>
+    {{#names}}
+    <li><a href={{.}}>{{.}}</a></li>
+    {{/names}}
+  </ul>
+</nav>
 <p id=gh>
   <a class=img href=https://github.com/samsonjs><img src=../assets/gh.png alt=GitHub></a>
 </p>
@@ -133,3 +53,82 @@
 <p id=promote-js>
   <a class=img href=https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function title='JS Function arity'><img src=../assets/promotejsh.gif height=150 width=180 alt='JS Function arity'/></a>
 </p>
+<script>
+var _gaq = _gaq || [];
+_gaq.push( ['_setAccount', 'UA-214054-5']
+         , ['_trackPageview']
+         );
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<script src=../assets/proj-index-all.min.js></script>
+<script>
+if (typeof console === 'undefined') {
+  console = {log:function(){}}
+}
+
+(function() {
+  if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', ready, false)
+  } else if (window.attachEvent) {
+    window.attachEvent('onload', ready)
+  }
+
+  function ready() {
+    function addClass(el, name) {
+      var c = el.className || name
+      if (!c.match(new RegExp('\b' + name + '\b', 'i'))) c += ' ' + name
+    }
+
+    var body = document.getElementsByTagName('body')[0]
+      , text
+    if ('innerText' in body) {
+      text = function(id, text) {
+        document.getElementById(id).innerText = text
+      }
+    } else {
+      text = function(id, text) {
+        document.getElementById(id).textContent = text
+      }
+    }
+
+    function highlight(id) {
+      document.getElementById(id).style.className = ' highlight'
+    }
+    function textHighlight(id, t) {
+      text(id, t)
+      document.getElementById(id).className = ' highlight'
+    }
+    function updateN(name, things) {
+      textHighlight('n' + name, things.length)
+    }
+
+    var data = createObjectStore('proj')
+      , t = data.get('t-proj')
+      , names = ['followers', 'following', 'repos', 'watched']
+    if (!t || +new Date() - t > 3600 * 1000) {
+      console.log('stale ' + String(t))
+      data.set('t-proj', +new Date())
+      names.forEach(function(name) {
+        GITR[name]('samsonjs', function(err, things) {
+          if (err) {
+            text('n' + name, '?')
+          } else {
+            data.set(name, things)
+            updateN(name, things)
+          }
+        })
+      })
+    } else {
+      console.log('hit ' + t + ' (' + (+new Date() - t) + ')')
+      names.forEach(function(name) {
+        updateN(name, data.get(name))
+      })
+    }
+  }
+}())
+</script>

@@ -17,10 +17,7 @@ h2 { text-align: center
    ; padding: 0
    }
 
-a { color: #22a
-  ; text-decoration: none
-  ; border-bottom: dashed 1px #22a
-  }
+a { color: #0E539C }
 
 a.img { border: none }
 
@@ -33,16 +30,19 @@ a.img { border: none }
 
 #breadcrumbs a { text-shadow: none
                ; color: #222
-               ; border: none
-               ; text-decoration: underline
                }
 
+#forkme { position: absolute
+        ; top: 0
+        ; right: 0
+        ; border: none
+        }
+
 ul.nav { text-align: center
+       ; max-width: 400px
        ; margin: 0 auto
        ; padding: 1em
        ; border: solid 1px #ccc
-       ; width: 90%
-       ; max-width: 950px
        ; background-color: #fff
        ; -moz-border-radius: 20px
        ; -webkit-border-radius: 20px
@@ -51,41 +51,27 @@ ul.nav { text-align: center
        ; behavior: url(../assets/border-radius.htc)
        }
 
-ul.nav li { display: inline
+ul.nav li { display: block
           ; font-size: 1.6em
+          ; line-height: 1.8em
           ; margin: 0
           ; padding: 0
           }
 
-ul.nav li:after { content: ' •' }
-ul.nav li:last-child:after { content: '' }
-
-
 ul.nav li a { padding: 5px
+            ; text-decoration: none
+            ; border-bottom: dashed 1px #0E539C
             ; text-shadow: #999 5px 5px 5px
             ; -webkit-transition: all 0.5s ease-out
             }
 ul.nav li a:visited { color: #227 }
 
 ul.nav li a:hover,
-ul.nav li a:active { color: #000
-            ; text-shadow: #aa7 5px 5px 5px
-            ; border-bottom: dashed 1px #000
-            }
+ul.nav li a:active { text-shadow: #aa7 5px 5px 5px
+                   ; border-bottom: dashed 1px #000
+                   }
 
-ul#projects { width: 40%
-            ; max-width: 400px
-            }
-
-ul#projects li { display: block
-               ; line-height: 1.8em
-               }
-
-ul.nav li.ie-bullet,
-ul#projects li.ie-bullet { display: none }
-
-ul.nav li.last:after,
-ul#projects li:after { content: '' }
+ul.nav li a:active { text-shadow: none }
 
 footer { text-align: center
        ; font-size: 1.2em
@@ -94,26 +80,8 @@ footer { text-align: center
 
 footer a { border-bottom: none }
 
-#forkme { position: absolute
-        ; top: 0
-        ; right: 0
-        ; border: none
-        }
-
 #promote-js { margin-top: 3em
              ; text-align: center
              }
 
 #promote-js img { border: none }
-
-td { font-size: 1.5em
-   ; line-height: 1.6em
-   }
-
-td:nth-child(2) { padding: 0 10px }
-
-
-.highlight { background-image: -webkit-gradient(radial, 50% 50%, 5, 50% 50%, 15, from(#ffa), to(#f7f7f7))
-           ; background-image: -moz-radial-gradient(center 45deg, circle contain, #ffa 0%, #f7f7f7 100%)
-           ; font-size: 1.2em
-           }

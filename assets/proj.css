@@ -1,8 +1,3 @@
-#browse { text-align: center
-        ; font-size: 1.4em
-        ; margin: 1.6em
-        }
-
 #info { text-align: center
       ; margin: 1em auto
       ; padding: 1em
@@ -45,6 +40,11 @@ h4 { margin: 0.5em 0 0.7em }
 
 #contributors-box a { line-height: 1.8em }
 
+#browse { text-align: center
+        ; font-size: 1.4em
+        ; margin: 1.6em
+        }
+
 
 /*
  * Github Finder
@@ -53,7 +53,7 @@ h4 { margin: 0.5em 0 0.7em }
 
 #gh-finder { font-size: 12px; font-family: Helvetica, Verdana, sans-serif; margin: 3em auto 1em; padding: 0; width: 92% }
 #gh-finder .clear { clear:both }
-#gh-finder a { color: #22a; text-decoration: none; border-bottom: none }
+#gh-finder a { color: #0E539C; text-decoration: none; border-bottom: none }
 #gh-finder a:active { outline: none }
 #gh-finder :focus { -moz-outline-style: none; outline: none;}
 #gh-finder .p { padding: 10px; }

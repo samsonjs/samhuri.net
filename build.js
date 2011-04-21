@@ -33,9 +33,7 @@ function main() {
           if (err && err.errno !== EEXIST) throw err
           fs.unlink(index, function(err) {
             if (err && err.errno !== ENOENT) throw err
-            var vals = { names: names.slice(0, -1)
-                       , lastName: names[names.length-1]
-                       }
+            var vals = { names: names }
               , html = mustache.to_html(tpl.toString(), vals)
             fs.writeFile(index, html, function(err) {
               if (err) throw err

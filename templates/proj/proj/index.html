@@ -5,44 +5,7 @@
   <title>{{name}} :: samhuri.net</title>
   <link rel=icon type=image/gif href=../../assets/s.gif>
   <link rel=stylesheet href=../../assets/proj-all.min.css>
-  <link rel=stylesheet media=screen href=../../assets/mobile.css>
-  <script>
-  var _gaq = _gaq || [];
-  _gaq.push( ['_setAccount', 'UA-214054-5']
-           , ['_trackPageview']
-           );
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-  </script>
-  <!--[if lt IE 8]>
-  <script src=http://d1eqzjbvoh1rux.cloudfront.net/json2.min.js></script>
-  <script src=../../assets/storage-polyfill.min.js></script>
-  <![endif]-->
-  <script src=http://ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js></script>
-  <script src=../../assets/proj-all.min.js></script>
-  <script>
-    (function() {
-      SJS.proj('{{name}}')
-
-      if (document.addEventListener) {
-        document.addEventListener('DOMContentLoaded', ready, false)
-      } else if (window.attachEvent) {
-        window.attachEvent('onload', ready)
-      }
-      function ready() {
-        var bl = document.getElementById('browse-link')
-        bl.onclick = function() {
-          document.getElementById('browse').style.display = 'none'
-          window.f = new Finder({ user_id: 'samsonjs', repository: 'compiler', id: 'gh-finder' })
-          return false
-        }
-      }
-    }())
-  </script>
+  <link rel=stylesheet media=screen href=../../assets/mobile.min.css>
 </head>
 <nav id=breadcrumbs><a href=../../>samhuri.net</a> &rarr; <a href=../>projects</a></nav>
 <a href=https://github.com/samsonjs/{{name}}><img id=forkme src=../../assets/forkme.png alt="Fork me on GitHub"></a>
@@ -75,3 +38,40 @@
 <footer>
   <a href=https://twitter.com/_sjs>@_sjs</a>
 </footer>
+<script>
+var _gaq = _gaq || [];
+_gaq.push( ['_setAccount', 'UA-214054-5']
+         , ['_trackPageview']
+         );
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<!--[if lt IE 8]>
+<script src=http://d1eqzjbvoh1rux.cloudfront.net/json2.min.js></script>
+<script src=../../assets/storage-polyfill.min.js></script>
+<![endif]-->
+<script src=http://ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js></script>
+<script src=../../assets/proj-all.min.js></script>
+<script>
+  (function() {
+    SJS.proj('{{name}}')
+
+    if (document.addEventListener) {
+      document.addEventListener('DOMContentLoaded', ready, false)
+    } else if (window.attachEvent) {
+      window.attachEvent('onload', ready)
+    }
+    function ready() {
+      var bl = document.getElementById('browse-link')
+      bl.onclick = function() {
+        document.getElementById('browse').style.display = 'none'
+        window.f = new Finder({ user_id: 'samsonjs', project: '{{name}}', id: 'gh-finder' })
+        return false
+      }
+    }
+  }())
+</script>

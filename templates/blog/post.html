@@ -1,47 +1,19 @@
 <!doctype html>
 <meta charset=utf-8>
-<meta name=viewport content=width=device-width>
+<meta name=viewport content='width=device-width'>
 <title>{{title}} :: samhuri.net</title>
+<meta name=keywords content="{{keywords}}">
 <link rel=icon type=image/gif href=../assets/s.gif>
-<link rel=stylesheet href=../assets/blog.min.css>
-<link rel=stylesheet media=screen href=../assets/mobile.css>
+<link rel=stylesheet href=../assets/blog-all.min.css>
+<link rel=stylesheet media=screen href=../assets/mobile.min.css>
 <link rel=alternate type=application/rss+xml href=http://samhuri.net/blog/sjs.rss title="sjs' blog">
-<script>
-var _gaq = _gaq || [];
-_gaq.push( ['_setAccount', 'UA-214054-5']
-         , ['_trackPageview']
-         )
-
-;(function() {
-  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true
-  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s)
-})()
-</script>
-{{#comments}}
-<script src=http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js></script>
-<script>
-window.SJS = window.SJS || {}
-SJS.filename = "{{filename}}"
-</script>
-<script src=../assets/blog-all.min.js></script>
-{{/comments}}
 <body id=blog>
 <header>
   <h1><a href=index.html>sjs' blog</a></h1>
 </header>
 <nav id=breadcrumbs><a href=../>samhuri.net</a> &rarr; <a href=index.html>blog</a></nav>
 <div id=posts>
-  {{! TODO extract a post partial used here and in index.html }}
-  <article>
-    {{#post}}
-    <header>
-      <h1><a href={{filename}}>{{title}}</a></h1>
-      <time>{{date}}</time>
-    </header>
-    {{{body}}}
-    {{/post}}
-  </article>
+  {{{article}}}
 </div>
 <p class=sep>&#x0f04;</p>
 <div id=around>
@@ -86,4 +58,24 @@ SJS.filename = "{{filename}}"
 <footer>
   <a href=https://twitter.com/_sjs>@_sjs</a>
 </footer>
+<script>
+var _gaq = _gaq || [];
+_gaq.push( ['_setAccount', 'UA-214054-5']
+         , ['_trackPageview']
+         )
+
+;(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s)
+})()
+</script>
+{{#comments}}
+<script src=http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js></script>
+<script>
+window.SJS = window.SJS || {}
+SJS.filename = "{{filename}}"
+</script>
+<script src=../assets/blog-all.min.js></script>
+{{/comments}}
 </body>
