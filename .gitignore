@@ -6,3 +6,4 @@ assets/*.min.css
 discussd/discuss.dirty
 blog
 proj
+node_modules
