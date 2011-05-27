@@ -1,20 +1,21 @@
 { "name" : "samhuri.net"
 , "description" : "samhuri.net"
-, "version" : "1.0"
+, "version" : "1.0.0"
 , "homepage" : "http://samhuri.net/proj/samhuri.net"
-, "author" : "Sami Samhuri <sami.samhuri@gmail.com>"
+, "author" : "Sami Samhuri <sami@samhuri.net>"
 , "repository" :
   { "type" : "git"
   , "url" : "https://github.com/samsonjs/samhuri.net.git"
   }
 , "bugs" :
-  { "mail" : "sami.samhuri+samhuri.net@gmail.com"
+  { "mail" : "sami@samhuri.net"
   , "web" : "https://github.com/samsonjs/samhuri.net/issues"
   }
 , "dependencies" : 
   { "keys" : "0.1.x"
   , "markdown" : "0.1.x"
   , "strftime" : "0.3.x"
+  , "mustache" : "0.3.x"
   }
 , "bin" : { "discussd" : "./discussd/discussd.js" }
 , "engines" : { "node" : ">=0.2.0" }
