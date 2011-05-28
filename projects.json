@@ -5,7 +5,6 @@
 , "config"       : { "description" : "important dot files (zsh, emacs, vim, screen)" }
 , "format"       : { "description" : "printf for JavaScript" }
 , "gitter"       : { "description" : "a GitHub client for Node (v2 API)" }
-, "json-diff"    : { "description" : "show the differences between JSON-encoded objects" }
 , "lake"         : { "description" : "A simple implementation of Scheme in C" }
 , "mojo.el"      : { "description" : "turn emacs into a sweet mojo editor" }
 , "NorthWatcher" : { "description" : "cron for filesystem changes" }
