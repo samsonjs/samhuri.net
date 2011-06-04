@@ -37,8 +37,7 @@ h1 { margin: 0
 
 .date { float: right }
 
-div#posts { border-left: solid 0.15em #999
-          ; width: 80%
+div#posts { width: 80%
           ; min-width: 400px
           ; max-width: 680px
           ; margin: 4em auto 2em
@@ -198,6 +197,7 @@ input[type=submit] { font-size: 1.1em
 ul.tags { width: 27%
         ; float: left
         ; margin: 1em 1.25% 3em
+        ; padding-left: 0
         }
 
 footer { margin: 0
