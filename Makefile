@@ -30,18 +30,17 @@ combine: minify $(MIN_JAVASCRIPTS) $(MIN_STYLESHEETS)
 	./combine.sh
 
 publish_blog: blog combine
+	publish assets
 	publish blog
+	scp blog/posts.json bohodev.net:discussd/posts.json
 
 publish_proj: proj combine
+	publish assets
 	publish proj
 
 publish: publish_blog publish_proj index.html
 	publish index.html
 	publish .htaccess
-	publish assets
-	publish blog
-	publish proj
-	scp blog/posts.json bohodev.net:discussd/posts.json
 
 clean:
 	rm -rf proj/*
