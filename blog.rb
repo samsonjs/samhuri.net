@@ -123,7 +123,7 @@ class Blag
     prefix = File.join(@src, 'published') + '/'
     @posts ||= Dir[File.join(prefix, '*')].sort.reverse.map do |filename|
       lines = File.readlines(filename)
-      post = { :filename => filename.sub(prefix, '') }
+      post = { :filename => filename.sub(prefix, '').sub(/\.m(ark)?d(own)?$/i, '.html') }
       loop do
         line = lines.shift.strip
         m = line.match(/(\w+):/)
