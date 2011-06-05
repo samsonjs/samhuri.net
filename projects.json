@@ -11,4 +11,5 @@
 , "repl-edit"    : { "description" : "edit Node repl commands with your text editor" }
 , "samhuri.net"  : { "description" : "this site" }
 , "strftime"     : { "description" : "strftime for JavaScript" }
+, "ThePusher"    : { "description" : "Github post receive hook router" }
 }
