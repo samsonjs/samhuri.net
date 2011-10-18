@@ -1,10 +1,10 @@
 JAVASCRIPTS=assets/blog.js assets/gitter.js assets/jquery-serializeObject.js assets/proj.js \
 	    assets/request.js assets/showdown.js assets/storage-polyfill.js assets/store.js \
-	    assets/strftime.js assets/tmpl.js assets/ghfinder.js assets/code_highlighter.js
+	    assets/strftime.js assets/tmpl.js assets/code_highlighter.js
 
 MIN_JAVASCRIPTS=assets/blog.min.js assets/gitter.min.js assets/jquery-serializeObject.min.js assets/proj.min.js \
 		assets/request.min.js assets/showdown.min.js assets/storage-polyfill.min.js assets/store.min.js \
-		assets/strftime.min.js assets/tmpl.min.js assets/ghfinder.min.js assets/code_highlighter.min.js
+		assets/strftime.min.js assets/tmpl.min.js assets/code_highlighter.min.js
 
 STYLESHEETS=assets/style.css assets/blog.css assets/proj.css
 

@@ -12,8 +12,8 @@ echo "gitter.store -> assets/proj-index-all.min.js"
 cat assets/{gitter,store}.min.js >|assets/proj-index-all.min.js
 
 # projects
-echo "gitter.store,proj,ghfinder,code_highlighter -> assets/proj-all.min.js"
-cat assets/{gitter,store,proj,ghfinder,code_highlighter}.min.js >|assets/proj-all.min.js
+echo "gitter.store,proj,code_highlighter -> assets/proj-all.min.js"
+cat assets/{gitter,store,proj,code_highlighter}.min.js >|assets/proj-all.min.js
 
 
 ### css ###
