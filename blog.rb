@@ -186,7 +186,7 @@ class Blag
   end
 
   def post_rss_template
-    @post_rss_template ||= File.read(File.join('templates', 'blog', 'post.rss.html'))
+     @post_rss_template ||= File.read(File.join('templates', 'blog', 'post.rss.html'))
   end
 
   def read_blog
