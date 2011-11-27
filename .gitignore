@@ -1,4 +1,3 @@
-*.tmproj
 .DS_Store
 _blog
 assets/*.min.js
