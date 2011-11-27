@@ -1,6 +1,6 @@
 body { background-color: #f7f7f7
      ; color: #222
-     ; font-family: 'DejaVu Serif', 'Hoefler Text', Georgia, serif
+     ; font-family: 'Hoefler Text', Georgia, 'Roboto', serif
      }
 
 h1 { text-align: center
@@ -62,7 +62,6 @@ ul.nav li a { padding: 5px
             ; text-decoration: none
             ; border-bottom: dashed 1px #0E539C
             ; text-shadow: #999 5px 5px 5px
-            ; -webkit-transition: all 0.5s ease-out
             }
 ul.nav li a:visited { color: #227 }
 

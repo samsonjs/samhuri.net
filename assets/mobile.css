@@ -1,13 +1,15 @@
 /* iPhone and iPad */
 
-@media only screen and (orientation:portrait) and (device-height:1024px),
-       only screen and (device-width:320px)
+@media only screen and (orientation: portrait) and (min-device-width: 768px) and (max-device-width: 1024px),
+       only screen and (min-device-width: 320px) and (max-device-width: 480px),
+			 only screen and (min-device-pixel-ratio: 1.5),
+			 only screen and (max-device-width: 800px)
 {
   ul.nav { padding: 0.5em
          ; width: 60%
          ; max-width: 600px
          }
-  
+
   ul.nav li { display: block
             ; font-size: 1.5em
             ; line-height: 1.8em
@@ -18,9 +20,10 @@
   #browse { display: none }
 }
 
-/* iPhone */
-
-@media only screen and (max-device-width:480px) {
+@media only screen and (max-device-width: 480px), /* iPhone */
+       only screen and (min-device-pixel-ratio: 1.5), /* iPhone (retina) */
+			 only screen and (max-device-width: 800px) /* Nexus One */
+{
   /* common */
 
   h1 { font-size: 2em
@@ -30,9 +33,13 @@
 
   #breadcrumbs { font-size: 0.8em }
 
-  #forkme { display: none }  
+	#show-posts { margin-top: 1em
+		          ; font-size: 0.8em
+		          }
 
-  ul.nav li { font-size: 1.2em }
+  #forkme { display: none }
+
+  ul.nav li { font-size: 1.4em }
 
   td { font-size: 1em
      ; line-height: 1.1em
@@ -45,17 +52,23 @@
   #blog img { max-width: 100% }
 
   nav#index { width: 90%
+	          ; min-width: auto
+	          ; max-width: auto
             ; margin: 0.3em auto
             ; padding-bottom: 0.3em
             }
 
-  nav#index ul { font-size: 0.8em }
+  nav#index ul { font-size: 0.8em
+	             ; padding-left: 2em
+	             }
 
-  nav#index li > span { display: none }
+  nav#index li { list-style-type: disc }
+  nav#index li > span.date { display: none }
 
   #blog article h1 { font-size: 1.2em }
 
-  div#posts { margin: 0
+  div#posts { width: 100%
+	          ; margin: 0
             ; padding: 0
             ; border-left: none
             ; padding-left: 10px
@@ -66,19 +79,22 @@
           ; font-size: 0.8em
           }
 
-  ul#tags { margin: 0
+  .tags { margin: 0
           ; padding: 0
-          ; display: none
+					; display: none
           }
 
-  ul#tags li { padding: 0.2em 0.3em }
+  .tags li { padding: 0.2em 0.3em }
   
   time { font-size: 1.1em }
 
+	pre, .gist { font-size: 0.8em }
+
   .sep { font-size: 1em }
 
-  #around { min-width: 300px
-          ; max-width: 400px
+  #around { width: 100%
+	        ; min-width: auto
+          ; max-width: auto
           ; margin: 0 auto
           ; padding: 0 0.2em
           }
@@ -116,17 +132,24 @@
               ; border-left: none
               ; font-size: 1em
               }
+
+	#stats { font-size: 0.8em }
+
 }
 
 /* iPhone and iPad landscape */
 
-@media only screen and (orientation: landscape) and (device-width:768px),
-       only screen and (orientation: landscape) and (device-width:320px) {
+@media only screen and (orientation: landscape) and (min-device-width: 768px) and (max-device-width: 1024px),
+       only screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 480px),
+       only screen and (orientation: landscape) and (min-device-pixel-ratio: 1.5),
+			 only screen and (orientation: landscape) and (max-device-width: 800px)
+{
   body { font-size: 0.7em }
 }
 
 
 /* iPad portrait */
-@media only screen and (orientation:portrait) and (device-height:1024px) {
+@media only screen and (orientation: portrait) and (min-device-width: 768px) and (max-device-width: 1024px)
+{
   article > header > h1 { font-size: 1.8em }
 }
