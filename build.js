@@ -45,18 +45,22 @@ function main() {
 function buildProject(name, project, ctx) {
   var dir = path.join(__dirname, 'proj', name)
     , index = path.join(dir, 'index.html')
-  fs.statSync(dir)
-  fs.mkdir(dir, 0775, function(err) {
-    if (err && err.code !== 'EEXIST') throw err
-    fs.unlink(index, function(err) {
-      if (err && err.code !== 'ENOENT') throw err
-      project.name = name
-      fs.writeFile(index, mustache.to_html(ctx.template, project), function(err) {
-        if (err) console.error('error: ', err.message)
-        ctx.n -= 1
-        console.log('* ' + name + (err ? ' (failed)' : ''))
-        if (ctx.n === 0) console.log('done projects')
-      })
+
+  try {
+    fs.statSync(dir)
+  }
+  catch (e) {
+    fs.mkdirSync(dir, 0775)
+  }
+
+  fs.unlink(index, function(err) {
+    if (err && err.code !== 'ENOENT') throw err
+    project.name = name
+    fs.writeFile(index, mustache.to_html(ctx.template, project), function(err) {
+      if (err) console.error('error: ', err.message)
+      ctx.n -= 1
+      console.log('* ' + name + (err ? ' (failed)' : ''))
+      if (ctx.n === 0) console.log('done projects')
     })
   })
 }
