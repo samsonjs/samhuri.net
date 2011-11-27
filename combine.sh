@@ -8,12 +8,12 @@ echo "request,showdown,strftime,tmpl,jquery-serializeObject,blog -> assets/blog-
 cat assets/{request,showdown,strftime,tmpl,jquery-serializeObject,blog}.min.js >|assets/blog-all.min.js
 
 # project index
-echo "gitter.store -> assets/proj-index-all.min.js"
+echo "gitter,store -> assets/proj-index-all.min.js"
 cat assets/{gitter,store}.min.js >|assets/proj-index-all.min.js
 
 # projects
-echo "gitter.store,proj,code_highlighter -> assets/proj-all.min.js"
-cat assets/{gitter,store,proj,code_highlighter}.min.js >|assets/proj-all.min.js
+echo "gitter,store,proj -> assets/proj-all.min.js"
+cat assets/{gitter,store,proj}.min.js >|assets/proj-all.min.js
 
 
 ### css ###

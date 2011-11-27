@@ -59,21 +59,5 @@ _gaq.push( ['_setAccount', 'UA-214054-5']
 <script src="http://ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js"></script>
 <script src="../../assets/proj-all.min.js"></script>
 <script>
-  (function() {
-    SJS.proj('{{name}}')
-
-    if (document.addEventListener) {
-      document.addEventListener('DOMContentLoaded', ready, false)
-    } else if (window.attachEvent) {
-      window.attachEvent('onload', ready)
-    }
-    function ready() {
-      var bl = document.getElementById('browse-link')
-      bl.onclick = function() {
-        document.getElementById('browse').style.display = 'none'
-        window.f = new Finder({ user_id: 'samsonjs', project: '{{name}}', id: 'gh-finder' })
-        return false
-      }
-    }
-  }())
+SJS.proj('{{name}}')
 </script>
