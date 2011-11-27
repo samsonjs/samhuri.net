@@ -1,19 +1,8 @@
 #!/usr/bin/env node
 
-var constants
-  , fs = require('fs')
+var fs = require('fs')
   , path = require('path')
   , mustache = require('mustache')
-  , EEXIST
-  , ENOENT
-
-try {
-  constants = require('constants')
-} catch (e) {
-  constants = process
-}
-EEXIST = constants.EEXIST
-ENOENT = constants.ENOENT
 
 function main() {
   var ctx = {}
@@ -30,9 +19,9 @@ function main() {
       fs.readFile(path.join(__dirname, 'templates', 'proj', 'index.html'), function(err, tpl) {
         if (err) throw err
         fs.mkdir(path.join(__dirname, 'proj'), 0775, function(err) {
-          if (err && err.errno !== EEXIST) throw err
+          if (err && err.code !== 'EEXIST') throw err
           fs.unlink(index, function(err) {
-            if (err && err.errno !== ENOENT) throw err
+            if (err && err.code !== 'ENOENT') throw err
             var vals = { names: names }
               , html = mustache.to_html(tpl.toString(), vals)
             fs.writeFile(index, html, function(err) {
@@ -56,10 +45,11 @@ function main() {
 function buildProject(name, project, ctx) {
   var dir = path.join(__dirname, 'proj', name)
     , index = path.join(dir, 'index.html')
+  fs.statSync(dir)
   fs.mkdir(dir, 0775, function(err) {
-    if (err && err.errno !== EEXIST) throw err
+    if (err && err.code !== 'EEXIST') throw err
     fs.unlink(index, function(err) {
-      if (err && err.errno !== ENOENT) throw err
+      if (err && err.code !== 'ENOENT') throw err
       project.name = name
       fs.writeFile(index, mustache.to_html(ctx.template, project), function(err) {
         if (err) console.error('error: ', err.message)
