@@ -123,7 +123,7 @@
       result.push(str.slice(lastidx));
       return result.join("")
     }
-  })();
+  }());
 
   var CodeHighlighter = { styleSets : new Array };
 

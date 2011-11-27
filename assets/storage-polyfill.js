@@ -89,4 +89,4 @@ var Storage = function (type) {
 if (!window.localStorage) window.localStorage = new Storage('local');
 if (!window.sessionStorage) window.sessionStorage = new Storage('session');
 
-})();
+}());
