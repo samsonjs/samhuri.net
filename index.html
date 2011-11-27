@@ -1,48 +1,55 @@
 <!doctype html>
+<html lang="en">
 <head>
-  <meta charset=utf-8>
-  <meta name=viewport content=width=device-width>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
   <title>samhuri.net</title>
-  <link rel=icon type=image/gif href=assets/s.gif>
-  <link rel=stylesheet href=assets/style.min.css>
+  <link rel="icon" type="image/gif" href="assets/s.gif">
+  <link rel="stylesheet" href="assets/style.css">
   <!-- minifying CSS breaks the @media queries for iPhone and iPad, hrmph -->
-  <link rel=stylesheet media=screen href=assets/mobile.min.css>
+  <link rel="stylesheet" media="screen" href="assets/mobile.min.css">
   <!--[if lt IE 7]>
-  <link rel=stylesheet href=assets/ie6.min.css>
+  <link rel="stylesheet" href="assets/ie6.min.css">
   <![endif]-->
   <!--[if lt IE 8]>
-  <link rel=stylesheet href=assets/ie7.min.css>
+  <link rel="stylesheet" href="assets/ie7.min.css">
   <![endif]-->
 </head>
+<body>
 <header>
   <h1>samhuri.net</h1>
 </header>
-<a href=https://github.com/samsonjs/samhuri.net><img id=forkme src=assets/forkme.png alt="Fork me on GitHub"></a>
+<a href="https://github.com/samsonjs/samhuri.net"><img id="forkme" src="assets/forkme.png" alt="Fork me on GitHub"></a>
 <nav>
-  <ul class=nav id=main>
-    <li><a href=proj>projects</a></li>
-    <li><a href=blog>blog</a></li>
-    <li><a href=json-diff>json-diff</a></li>
+  <ul class="nav" id="main">
+    <li><a href="proj">projects</a></li>
+    <li><a href="blog">blog</a></li>
+    <li><a href="json-diff">json-diff</a></li>
   </ul>
 </nav>
 <footer>
-  <p><a href=https://twitter.com/_sjs>@_sjs</a></p>
+  <p><a href="https://twitter.com/_sjs">@_sjs</a></p>
   <p><a href="mailto:sami.samhuri@gmail.com">sami.samhuri@gmail.com</a></p>
 </footer>
-<p id=promote-js>
-  <a class=img href=https://developer.mozilla.org/en/JavaScript/Guide title='JS Tutorial, JavaScript Tutorial, JavaScript Guide, Learn JavaScript JS, How To Learn JS, Learning JavaScript'><img src=assets/promotejshs.png height=150 width=180 alt='JS Tutorial, JavaScript Tutorial, JavaScript Guide, Learn JavaScript JS, How To Learn JS, Learning JavaScript'></a>
+<p id="promote-js">
+  <a class="img" href="https://developer.mozilla.org/en/JavaScript/Guide" title="JS Tutorial, JavaScript Tutorial, JavaScript Guide, Learn JavaScript JS, How To Learn JS, Learning JavaScript"><img src="assets/promotejshs.png" height="150" width="180" alt="JS Tutorial, JavaScript Tutorial, JavaScript Guide, Learn JavaScript JS, How To Learn JS, Learning JavaScript"></a>
 </p>
 
 <script>
-var _gaq = _gaq || [];
+var _gaq = _gaq || []
 _gaq.push( ['_setAccount', 'UA-214054-5']
          , ['_trackPageview']
          , ['_trackPageLoadTime']
-         );
+         )
 
-(function() {
-  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
+;(function() {
+  var ga = document.createElement('script')
+  ga.type = 'text/javascript'
+  ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'
+  var s = document.getElementsByTagName('script')[0]
+  s.parentNode.insertBefore(ga, s)
+}())
 </script>
+</body>
+</html>
