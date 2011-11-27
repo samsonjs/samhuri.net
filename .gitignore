@@ -4,6 +4,8 @@ _blog
 assets/*.min.js
 assets/*.min.css
 discussd/discuss.dirty
-^blog$
+blog
+!templates/blog
 proj
+!templates/proj
 node_modules
