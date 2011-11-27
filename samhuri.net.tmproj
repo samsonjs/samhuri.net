@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>build.js</string>
+	<string>Makefile</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -31,6 +31,34 @@
 				<integer>0</integer>
 				<key>line</key>
 				<integer>13</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>Gemfile</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>3</integer>
+				<key>line</key>
+				<integer>2</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>Makefile</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>34</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -144,12 +172,28 @@
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>108</integer>
+				<integer>9</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>80</integer>
+			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>5</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>9</integer>
+			</dict>
 		</dict>
 		<key>build.js</key>
 		<dict>
@@ -158,12 +202,12 @@
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>55</integer>
+				<integer>36</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>13</integer>
+			<integer>0</integer>
 		</dict>
 		<key>combine.sh</key>
 		<dict>
@@ -298,12 +342,14 @@
 	<array>
 		<string>assets/mobile.css</string>
 		<string>build.js</string>
+		<string>Makefile</string>
 		<string>projects.json</string>
 		<string>index.html</string>
 		<string>assets/style.css</string>
 		<string>templates/blog/article.mustache</string>
 		<string>assets/blog.css</string>
 		<string>blog.rb</string>
+		<string>Gemfile</string>
 		<string>templates/blog/post.html</string>
 		<string>assets/iepngfix.htc</string>
 		<string>templates/proj/index.html</string>
