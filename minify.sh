@@ -6,7 +6,7 @@ for js (assets/*.js~*.min.js) {
     target=${js%.js}.min.js
     if [ ! -f $target ] || [ $js -nt $target ]; then
 	echo "$js -> $target"
-	closure-compiler < $js >| $target
+	closure < $js >| $target
     fi
 }
 
