@@ -2,6 +2,7 @@
 
 require 'time'
 require 'rubygems'
+require 'bundler/setup'
 require 'builder'
 require 'json'
 require 'mustache'

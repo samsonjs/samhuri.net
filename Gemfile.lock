@@ -1,0 +1,16 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    builder (3.0.0)
+    json (1.6.1)
+    mustache (0.99.4)
+    rdiscount (1.6.8)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  builder
+  json
+  mustache
+  rdiscount
