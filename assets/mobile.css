@@ -79,13 +79,6 @@
           ; font-size: 0.8em
           }
 
-  .tags { margin: 0
-          ; padding: 0
-					; display: none
-          }
-
-  .tags li { padding: 0.2em 0.3em }
-  
   time { font-size: 1.1em }
 
 	pre, .gist { font-size: 0.8em }

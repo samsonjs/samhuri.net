@@ -86,19 +86,6 @@ time { color: #444
      ; font-size: 1.2em
      }
 
-.tags { width: 100%
-        ; padding-top: 1em
-        ; border-top: solid 1px #ccc
-        ; text-align: center
-				; display: none
-        }
-
-.tags li { display: inline
-           ; padding: 0.3em 1em
-           }
-
-.tags a { color: #999 }
-
 .gist { font-size: 0.8em }
 
 #around { width: 80%
@@ -191,12 +178,6 @@ input[type=submit] { font-size: 1.1em
 #tag-groups { width: 82.5%
             ; margin: 0 auto
             }
-
-ul.tags { width: 27%
-        ; float: left
-        ; margin: 1em 1.25% 3em
-        ; padding-left: 0
-        }
 
 footer { margin: 0
        ; padding: 1em 0

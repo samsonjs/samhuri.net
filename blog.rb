@@ -21,7 +21,6 @@ def main
   puts 'subtitle: ' + b.subtitle
   puts 'url: ' + b.url
   puts "#{b.posts.size} posts"
-  puts "#{b.tag_names.size} tags"
   b.generate!
   puts 'done blog'
 end
@@ -42,7 +41,6 @@ class Blag
   def generate!
     generate_posts
     generate_index
-    generate_tags
     generate_rss
     generate_posts_json
   end
@@ -85,38 +83,6 @@ class Blag
   def generate_rss
     # posts rss
     File.open(rss_file, 'w') { |f| f.puts(rss.target!) }
-
-    # tags rss
-    Dir.mkdir(tags_dir) unless File.exists?(tags_dir)
-    tag_names.each do |tag|
-      Dir.mkdir(tag_dir(tag)) unless File.exists?(tag_dir(tag))
-      File.open(rss_tag_file(tag), 'w') { |f| f.puts(rss_for_tag(tag).target!) }
-    end
-  end
-
-  def generate_tags
-    Dir.mkdir(tags_dir) unless File.exists?(tags_dir)
-
-    # tag index
-    File.open(tag_index_file, 'w') do |f|
-      groups = chunk(tag_names).map do |ns|
-        { :tags => ns.map do |t|
-            { :name => t }
-          end
-        }
-      end
-      values = { :tag_groups => groups }
-      f.puts(Mustache.render(tags_template, values))
-    end
-
-    # tag pages
-    tag_names.each do |tag|
-      posts = tags[tag]
-      Dir.mkdir(tag_dir(tag)) unless File.exists?(tag_dir(tag))
-      File.open(tag_html_file(tag), 'w') do |f|
-        f.puts(Mustache.render(tag_template, { :tag => tag, :posts => posts }))
-      end
-    end
   end
 
   def posts
@@ -150,29 +116,6 @@ class Blag
 
   def rss
     rss_for_posts
-  end
-
-  def rss_for_tag(tag)
-    rss_for_posts :title => tag + ' :: ' + @title,
-                  :subtitle => tag,
-                  :url => tag_url(tag),
-                  :posts => tags[tag]
-  end
-
-  def tag_names
-    @tag_names ||= tags.keys.sort
-  end
-
-  def tags
-    return @tags if @tags
-    @tags = {}
-    posts.each do |post|
-      post[:tags].each do |tag|
-        @tags[tag] ||= []
-        @tags[tag] << post
-      end
-    end
-    @tags
   end
 
   private
@@ -231,56 +174,6 @@ class Blag
     xml
   end
 
-  def rss_tag_file(tag)
-    File.join(@dest, 'tags', tag, 'index.rss')
-  end
-
-  def rss_tags_file(tag)
-    File.join(@dest, 'tags.rss')
-  end
-
-  def tag_dir(tag)
-    File.join(@dest, 'tags', tag)
-  end
-
-  def tags_dir
-    @tag_dir ||= File.join(@dest, 'tags')
-  end
-
-  def tag_html_file(tag)
-    File.join(@dest, 'tags', tag, 'index.html')
-  end
-
-  def tag_index_file
-    File.join(@dest, 'tags', 'index.html')
-  end
-
-  def tag_template
-    @tag_template ||= File.read(File.join('templates', 'blog', 'tags', 'tag.html'))
-  end
-
-  def tags_template
-    @tags_template ||= File.read(File.join('templates', 'blog', 'tags', 'index.html'))
-  end
-
-  def tag_url(tag)
-    @url + '/tags/' + tag
-  end
-
-  def chunk(array, pieces=3)
-    len = array.length;
-    mid = (len/pieces)
-    chunks = []
-    start = 0
-    1.upto(pieces) do |i|
-      last = start+mid
-      last = last-1 unless len%pieces >= i
-      chunks << array[start..last] || []
-      start = last+1
-    end
-    chunks
-  end
-  
 end
 
 main if $0 == __FILE__
