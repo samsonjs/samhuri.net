@@ -108,16 +108,17 @@ class Blag
         end
       end
       post[:url] = @url + '/' + post[:filename]
+      post[:timestamp] = post[:timestamp].to_i
       post[:content] = lines.join
       template = post[:link] ? link_rss_template : post_rss_template
       post[:rss_html] = Mustache.render(template, {:post => post})
       post[:body] = RDiscount.new(post[:content]).to_html
-      post[:rfc822] = Time.parse(post[:date]).rfc822
+      post[:rfc822] = Time.at(post[:timestamp]).rfc822
       post[:tags] = (post[:tags] || '').split(/\s*,\s*/).map(&:strip)
       # comments on by default
       post[:comments] = true if post[:comments].nil?
       post
-    end
+    end.sort { |a, b| b[:timestamp] <=> a[:timestamp] }
   end
 
   def rss
