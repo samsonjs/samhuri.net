@@ -18,7 +18,7 @@ h1 { margin: 0
 .hidden { display: none }
 
 #index { width: 80%
-       ; min-width: 200px
+       ; min-width: 300px
        ; max-width: 800px
        ; border: solid 1px #999
        ; -moz-border-radius: 10px
@@ -37,7 +37,7 @@ h1 { margin: 0
 
 article { width: 80%
         ; min-width: 400px
-        ; max-width: 680px
+        ; max-width: 1000px
         ; margin: 2em auto 1em
         ; font-size: 1.2em
         ; line-height: 1.4em
@@ -55,12 +55,12 @@ article h1 { text-align: left
 article h1 a { color: #222
              ; text-decoration: underline
              ; border-bottom: none
-             ; text-shadow: #999 1px 1px 5px
+             ; text-shadow: #ccc 1px 1px 5px
              ; -webkit-transition: text-shadow 0.4s ease-in
              }
 
-article h1 a:hover { text-shadow: #990 1px 1px 8px
-                   ; color: #222
+article h1 a:hover { text-shadow: #cc0 1px 1px 8px
+                   ; color: #000
                    }
 
 article h2 { font-size: 1.8em
@@ -90,6 +90,7 @@ time { color: #444
 
 #prev { float: left }
 #next { float: right }
+#around br { clear: both }
 
 .sep { text-align: center
      ; font-size: 2em
