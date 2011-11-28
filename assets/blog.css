@@ -94,6 +94,7 @@ time { color: #444
 .sep { text-align: center
      ; font-size: 2em
      ; color: #666
+     ; display: none
      }
 
 /* show discussion */
