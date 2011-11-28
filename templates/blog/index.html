@@ -16,20 +16,17 @@
 <nav id="index" class="hidden">
   <ul>
     {{#posts}}
-    <li><a href="{{filename}}">{{title}}</a> <span class="date">{{date}}</span></li>
+    <li><a href="{{url}}">{{title}}</a> <span class="date">{{date}}</span></li>
     {{/posts}}
   </ul>
 </nav>
-<div id="posts">
-  {{{article}}}
-</div>
-<p class="sep">&#x0f04;</p>
+{{{article}}}
 <div id="around">
   {{#previous}}
-  <a id="prev" href="{{filename}}">&larr; {{title}}</a>
+  <a id="prev" href="{{url}}">&larr; {{title}}</a>
   {{/previous}}
   {{#next}}
-  <a id="next" href="{{filename}}">{{title}} &rarr;</a>
+  <a id="next" href="{{url}}">{{title}} &rarr;</a>
   {{/next}}
   <br style="clear:both">
 </div>

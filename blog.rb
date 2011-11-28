@@ -49,29 +49,33 @@ class Blag
   def generate_index
     # generate landing page
     index_template = File.read(File.join('templates', 'blog', 'index.html'))
+    post = posts.first
+    template = post[:link] ? link_template : post_template
     values = { :posts => posts,
-               :post => posts.first,
-               :article => Mustache.render(article_template, posts.first),
+               :post => post,
+               :article => Mustache.render(template, post),
                :previous => posts[1],
-               :filename => posts.first[:filename],
-               :comments => posts.first[:comments]
+               :filename => post[:filename],
+               :comments => post[:comments]
              }
     index_html = Mustache.render(index_template, values)
     File.open(File.join(@dest, 'index.html'), 'w') {|f| f.puts(index_html) }
   end
 
   def generate_posts
-    template = File.read(File.join('templates', 'blog', 'post.html'))
+    page_template = File.read(File.join('templates', 'blog', 'post.html'))
     posts.each_with_index do |post, i|
+      template = post[:link] ? link_template : post_template
       values = { :title => post[:title],
-                 :article => Mustache.render(article_template, post),
+                 :link => post[:link],
+                 :article => Mustache.render(template, post),
                  :previous => i < posts.length - 1 && posts[i + 1],
                  :next => i > 0 && posts[i - 1],
                  :filename => post[:filename],
                  :comments => post[:comments],
                  :keywords => (DefaultKeywords + post[:tags]).join(',')
                }
-      post[:html] = Mustache.render(template, values)
+      post[:html] = Mustache.render(page_template, values)
       File.open(File.join(@dest, post[:filename]), 'w') {|f| f.puts(post[:html]) }
     end
   end
@@ -93,7 +97,7 @@ class Blag
       post = { :filename => filename.sub(prefix, '').sub(/\.m(ark)?d(own)?$/i, '.html') }
       loop do
         line = lines.shift.strip
-        m = line.match(/(\w+):/)
+        m = line.match(/^(\w+):/)
         if m && param = m[1].downcase
           post[param.to_sym] = line.sub(Regexp.new('^' + param + ':\s*', 'i'), '').strip
         elsif line.match(/^----\s*$/)
@@ -103,12 +107,13 @@ class Blag
           puts "ignoring unknown header: #{line}"
         end
       end
+      post[:url] = @url + '/' + post[:filename]
       post[:content] = lines.join
-      post[:rss_html] = Mustache.render(post_rss_template, {:post => post})
+      template = post[:link] ? link_rss_template : post_rss_template
+      post[:rss_html] = Mustache.render(template, {:post => post})
       post[:body] = RDiscount.new(post[:content]).to_html
       post[:rfc822] = Time.parse(post[:date]).rfc822
       post[:tags] = (post[:tags] || '').split(/\s*,\s*/).map(&:strip)
-      post[:url] = @url + '/' + post[:filename]
       # comments on by default
       post[:comments] = true if post[:comments].nil?
       post
@@ -121,8 +126,12 @@ class Blag
 
   private
 
-  def article_template
-    @article_template ||= File.read(File.join('templates', 'blog', 'article.mustache'))
+  def post_template
+    @article_template ||= File.read(File.join('templates', 'blog', 'post.mustache'))
+  end
+
+  def link_template
+    @article_template ||= File.read(File.join('templates', 'blog', 'link.mustache'))
   end
 
   def blog_file
@@ -131,6 +140,10 @@ class Blag
 
   def post_rss_template
      @post_rss_template ||= File.read(File.join('templates', 'blog', 'post.rss.html'))
+  end
+
+  def link_rss_template
+     @link_rss_template ||= File.read(File.join('templates', 'blog', 'link.rss.html'))
   end
 
   def read_blog
@@ -166,7 +179,7 @@ class Blag
             xml.description post[:rss_html]
             xml.pubDate post[:rfc822]
             xml.author post[:author]
-            xml.link post[:url]
+            xml.link post[:link] || post[:url]
             xml.guid post[:url]
           end
         end
