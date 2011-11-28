@@ -127,11 +127,11 @@ class Blag
   private
 
   def post_template
-    @article_template ||= File.read(File.join('templates', 'blog', 'post.mustache'))
+    @post_template ||= File.read(File.join('templates', 'blog', 'post.mustache'))
   end
 
   def link_template
-    @article_template ||= File.read(File.join('templates', 'blog', 'link.mustache'))
+    @link_template ||= File.read(File.join('templates', 'blog', 'link.mustache'))
   end
 
   def blog_file
