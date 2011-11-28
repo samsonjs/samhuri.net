@@ -61,16 +61,19 @@
 
   #index li > span.date { display: none }
 
+  #blog #article h1,
   #blog article h1 { font-size: 1.6em
                    ; margin-top: 0
                    }
 
+  #article,
   article { min-width: 310px
           ; margin: 0
           ; padding: 1em 0.4em
           ; font-size: 0.8em
           }
 
+  .time,
   time { font-size: 1.1em }
 
   pre, .gist { font-size: 0.8em }
