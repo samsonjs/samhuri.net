@@ -170,7 +170,7 @@ class Blag
     xml.instruct! 'xml-stylesheet', :href => 'http://samhuri.net/assets/blog-all.min.css', :type => 'text/css'
     xml.rss :version => '2.0' do
       xml.channel do
-        xml.title title
+        xml.title post[:link] ? "&rarr; #{title}" : title
         xml.description subtitle
         xml.link url
         xml.pubDate posts.first[:rfc822]
