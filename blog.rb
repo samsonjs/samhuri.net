@@ -44,6 +44,7 @@ class Blag
     generate_index
     generate_rss
     generate_posts_json
+    generate_archive
   end
 
   def generate_index
@@ -51,8 +52,7 @@ class Blag
     index_template = File.read(File.join('templates', 'blog', 'index.html'))
     post = posts.first
     template = post[:link] ? link_template : post_template
-    values = { :posts => posts,
-               :post => post,
+    values = { :post => post,
                :article => Mustache.render(template, post),
                :previous => posts[1],
                :filename => post[:filename],
@@ -66,8 +66,7 @@ class Blag
     page_template = File.read(File.join('templates', 'blog', 'post.html'))
     posts.each_with_index do |post, i|
       template = post[:link] ? link_template : post_template
-      values = { :posts => posts,
-                 :title => post[:title],
+      values = { :title => post[:title],
                  :link => post[:link],
                  :article => Mustache.render(template, post),
                  :previous => i < posts.length - 1 && posts[i + 1],
@@ -84,6 +83,12 @@ class Blag
   def generate_posts_json
     json = JSON.generate({ :published => posts.map {|p| p[:filename]} })
     File.open(File.join(@dest, 'posts.json'), 'w') { |f| f.puts(json) }
+  end
+
+  def generate_archive
+    archive_template = File.read(File.join('templates', 'blog', 'archive.html'))
+    html = Mustache.render(archive_template, :posts => posts)
+    File.open(File.join(@dest, 'archive.html'), 'w') { |f| f.puts(html) }
   end
 
   def generate_rss
@@ -170,14 +175,14 @@ class Blag
     xml.instruct! 'xml-stylesheet', :href => 'http://samhuri.net/assets/blog-all.min.css', :type => 'text/css'
     xml.rss :version => '2.0' do
       xml.channel do
-        xml.title post[:link] ? "&rarr; #{title}" : title
+        xml.title title
         xml.description subtitle
         xml.link url
         xml.pubDate posts.first[:rfc822]
 
         posts.each do |post|
           xml.item do
-            xml.title post[:title]
+            xml.title post[:link] ? "&rarr; #{post[:title]}" : post[:title]
             xml.description post[:rss_html]
             xml.pubDate post[:rfc822]
             xml.author post[:author]

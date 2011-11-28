@@ -1,5 +1,5 @@
 body { margin: 0
-     ; padding: 0
+     ; padding: 0 0 3em
      }
 
 h1 { margin: 0
@@ -17,6 +17,8 @@ h1 { margin: 0
 
 .hidden { display: none }
 
+#archive { text-align: center }
+
 #index { width: 80%
        ; min-width: 300px
        ; max-width: 800px
@@ -26,12 +28,11 @@ h1 { margin: 0
        ; border-radius: 10px
        ; background-color: #eee
        ; margin: 1em auto
+       ; padding: 1em
        ; font-size: 1.2em
+       ; line-height: 1.5em
+       ; list-style-type: none
        }
-
-#index ul { padding: 0 1em
-          ; list-style-type: none
-          }
 
 .date { float: right }
 
@@ -65,6 +66,7 @@ article h1 a:hover { text-shadow: #cc0 1px 1px 8px
 
 article h2 { font-size: 1.8em
            ; font-weight: normal
+           ; text-align: left
            ; margin: 1em 0
            ; padding: 0
            ; color: #222
@@ -78,25 +80,9 @@ time { color: #444
      ; font-size: 1.2em
      }
 
+#permalink { font-size: 1em }
+
 .gist { font-size: 0.8em }
-
-#around { width: 80%
-        ; min-width: 400px
-        ; max-width: 800px
-        ; margin: 1em auto
-        ; padding: 0 3em 1em
-        ; font-size: 1.2em
-        }
-
-#prev { float: left }
-#next { float: right }
-#around br { clear: both }
-
-.sep { text-align: center
-     ; font-size: 2em
-     ; color: #666
-     ; display: none
-     }
 
 /* show discussion */
 #sd-container { margin: 3em 0 }
@@ -174,14 +160,19 @@ input[type=submit] { font-size: 1.1em
             }
 
 footer { margin: 0
-       ; padding: 1em 0
-       ; background-color: #cdf
+       ; padding: 0.2em 0
+       ; background-color: #def
        ; border-top: solid 1px #bbb
        ; clear: both
+       ; position: fixed
+       ; width: 100%
+       ; bottom: 0
        }
+
+footer p { margin: 0.5em }
 
 footer a { border-bottom: none
          ; color: #25c
-         ; font-size: 1.3em
+         ; font-size: 1.2em
          ; text-decoration: none
          }

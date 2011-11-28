@@ -9,28 +9,12 @@
 <link rel="stylesheet" media="screen" href="../assets/mobile.min.css">
 <link rel="alternate" type="application/rss+xml" href="http://samhuri.net/blog/sjs.rss" title="sjs' blog">
 <body id="blog">
-<nav id="breadcrumbs"><a href="../">samhuri.net</a> &bull; <a href="index.html">blog</a></nav>
+<nav id="breadcrumbs"><a href="../">samhuri.net</a></nav>
 <header>
   <h1><a href="index.html">sjs' blog</a></h1>
 </header>
-<div id="show-posts" class="center"><a id="index-toggle" href="#">&darr; show posts &darr;</a></div>
-<nav id="index" class="hidden">
-  <ul>
-    {{#posts}}
-    <li><a href="{{url}}">{{title}}</a> <span class="date">{{date}}</span></li>
-    {{/posts}}
-  </ul>
-</nav>
+<nav id="archive"><a href="archive.html">archive</a></nav>
 {{{article}}}
-<div id="around">
-  {{#previous}}
-  <a id="prev" href="{{filename}}">&larr; {{title}}</a>
-  {{/previous}}
-  {{#next}}
-  <a id="next" href="{{filename}}">{{title}} &rarr;</a>
-  {{/next}}
-  <br>
-</div>
 {{#comments}}
 <p id="need-js" align="center"><strong>(discussion requires JavaScript)</strong></p>
 <div class="center" id="sd-container"><a id="sd" href="#comment-stuff">show the discussion</a></div>

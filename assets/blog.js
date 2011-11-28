@@ -37,15 +37,6 @@
 
   jQuery(function($) {
 
-    var hidden = true
-      , index = $('#index')
-
-    $('#index-toggle').click(function() {
-      index.toggle()
-      hidden = !hidden
-      $(this).html(hidden ? '&darr; show posts &darr;' : '&uarr; hide posts &uarr;')
-    })
-
     $('#need-js').remove()
 
     SJS.request({uri: countCommentsURL(SJS.filename)}, function(err, request, body) {
@@ -65,7 +56,6 @@
       $('#sd-container').remove()
       $('#comment-stuff').slideDown(1.5, function() { this.scrollIntoView(true) })
       getComments()
-      return false
     })
 
     var showdown = new Showdown.converter()

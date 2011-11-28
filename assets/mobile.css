@@ -23,6 +23,8 @@
 {
   /* common */
 
+  body { padding-bottom: 0 }
+
   h1 { font-size: 2em
      ; margin-top: 1em
      }
@@ -50,18 +52,14 @@
 
   #blog img { max-width: 100% }
 
-  nav#index { width: 90%
-            ; min-width: 310px
-            ; margin: 0.3em auto
-            ; padding-bottom: 0.3em
-            }
+  #index { width: 90%
+         ; min-width: 200px
+         ; margin: 0.3em auto 1em
+         ; padding: 0.5em
+         ; font-size: 1em
+         }
 
-  nav#index ul { font-size: 0.8em
-               ; padding-left: 2em
-               }
-
-  nav#index li { list-style-type: disc }
-  nav#index li > span.date { display: none }
+  #index li > span.date { display: none }
 
   #blog article h1 { font-size: 1.6em
                    ; margin-top: 0
@@ -76,18 +74,6 @@
   time { font-size: 1.1em }
 
   pre, .gist { font-size: 0.8em }
-
-  .sep { font-size: 1em }
-
-  #around { min-width: 310px
-          ; margin: 0
-          ; padding: 0 0.2em
-          ; font-size: 0.8em
-          }
-
-  #prev, #next { padding: 0.3em 0
-               ; font-size: 0.95em
-               }
 
   #comment-stuff { padding: 0
                  ; margin-top: 2em
@@ -123,6 +109,7 @@
 
   footer { margin: 0
          ; padding: 0.5em 0
+         ; position: relative
          }
 
 }
