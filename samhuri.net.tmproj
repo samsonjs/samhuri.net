@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>Makefile</string>
+	<string>blog.rb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -37,20 +37,6 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>Gemfile</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>3</integer>
-				<key>line</key>
-				<integer>2</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
 		<key>Makefile</key>
 		<dict>
 			<key>caret</key>
@@ -72,12 +58,12 @@
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>181</integer>
+				<integer>46</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>138</integer>
+			<integer>9</integer>
 		</dict>
 		<key>assets/code_highlighter.js</key>
 		<dict>
@@ -123,20 +109,6 @@
 				<integer>156</integer>
 			</dict>
 		</dict>
-		<key>assets/mobile.css</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>81</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>93</integer>
-		</dict>
 		<key>assets/proj.css</key>
 		<dict>
 			<key>caret</key>
@@ -158,7 +130,7 @@
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>2</integer>
+				<integer>9</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -172,28 +144,12 @@
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>9</integer>
+				<integer>53</integer>
 			</dict>
-			<key>columnSelection</key>
-			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>5</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>9</integer>
-			</dict>
+			<integer>25</integer>
 		</dict>
 		<key>build.js</key>
 		<dict>
@@ -217,6 +173,20 @@
 				<integer>29</integer>
 				<key>line</key>
 				<integer>15</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>ideas.txt</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>7</integer>
+				<key>line</key>
+				<integer>1</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -251,28 +221,14 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>templates/blog/article.mustache</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>7</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
 		<key>templates/blog/index.html</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>54</integer>
 				<key>line</key>
-				<integer>7</integer>
+				<integer>40</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -286,12 +242,12 @@
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>25</integer>
+				<integer>24</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>20</integer>
+			<integer>0</integer>
 		</dict>
 		<key>templates/proj/index.html</key>
 		<dict>
@@ -340,17 +296,13 @@
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>assets/mobile.css</string>
 		<string>build.js</string>
 		<string>Makefile</string>
 		<string>projects.json</string>
 		<string>index.html</string>
 		<string>assets/style.css</string>
-		<string>templates/blog/article.mustache</string>
 		<string>assets/blog.css</string>
 		<string>blog.rb</string>
-		<string>Gemfile</string>
-		<string>templates/blog/post.html</string>
 		<string>assets/iepngfix.htc</string>
 		<string>templates/proj/index.html</string>
 		<string>templates/proj/proj/index.html</string>
@@ -358,11 +310,12 @@
 		<string>combine.sh</string>
 		<string>assets/code_highlighter.js</string>
 		<string>templates/blog/index.html</string>
+		<string>templates/blog/post.html</string>
 		<string>.htaccess</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<false/>
 	<key>windowFrame</key>
-	<string>{{0, 4}, {840, 1024}}</string>
+	<string>{{0, 4}, {1120, 1024}}</string>
 </dict>
 </plist>
