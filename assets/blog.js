@@ -36,6 +36,7 @@
   }
   jQuery(function($) {
     $('#need-js').remove()
+    console.dir($('#need-js'))
 
     SJS.request({uri: countCommentsURL(SJS.filename)}, function(err, request, body) {
       if (err) return

@@ -1,9 +1,8 @@
-/* iPhone and iPad */
+/* phones and iPad */
 
 @media only screen and (orientation: portrait) and (min-device-width: 768px) and (max-device-width: 1024px),
        only screen and (min-device-width: 320px) and (max-device-width: 480px),
-			 only screen and (min-device-pixel-ratio: 1.5),
-			 only screen and (max-device-width: 800px)
+       only screen and (max-device-width: 800px)
 {
   ul.nav { padding: 0.5em
          ; width: 60%
@@ -20,9 +19,9 @@
   #browse { display: none }
 }
 
-@media only screen and (max-device-width: 480px), /* iPhone */
-       only screen and (min-device-pixel-ratio: 1.5), /* iPhone (retina) */
-			 only screen and (max-device-width: 800px) /* Nexus One */
+/* phones */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px),
+       handheld and (max-device-width: 800px)
 {
   /* common */
 
@@ -33,9 +32,9 @@
 
   #breadcrumbs { font-size: 0.8em }
 
-	#show-posts { margin-top: 1em
-		          ; font-size: 0.8em
-		          }
+  #show-posts { margin-top: 1em
+              ; font-size: 0.8em
+              }
 
   #forkme { display: none }
 
@@ -52,15 +51,15 @@
   #blog img { max-width: 100% }
 
   nav#index { width: 90%
-	          ; min-width: auto
-	          ; max-width: auto
+            ; min-width: auto
+            ; max-width: auto
             ; margin: 0.3em auto
             ; padding-bottom: 0.3em
             }
 
   nav#index ul { font-size: 0.8em
-	             ; padding-left: 2em
-	             }
+               ; padding-left: 2em
+               }
 
   nav#index li { list-style-type: disc }
   nav#index li > span.date { display: none }
@@ -76,12 +75,12 @@
 
   time { font-size: 1.1em }
 
-	pre, .gist { font-size: 0.8em }
+  pre, .gist { font-size: 0.8em }
 
   .sep { font-size: 1em }
 
   #around { width: 100%
-	        ; min-width: auto
+          ; min-width: auto
           ; max-width: auto
           ; margin: 0 auto
           ; padding: 0 0.2em
@@ -121,16 +120,15 @@
               ; font-size: 1em
               }
 
-	#stats { font-size: 0.8em }
+  #stats { font-size: 0.8em }
 
 }
 
-/* iPhone and iPad landscape */
+/* landscape */
 
 @media only screen and (orientation: landscape) and (min-device-width: 768px) and (max-device-width: 1024px),
        only screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 480px),
-       only screen and (orientation: landscape) and (min-device-pixel-ratio: 1.5),
-			 only screen and (orientation: landscape) and (max-device-width: 800px)
+          handheld and (orientation: landscape) and (max-device-width: 800px)
 {
   body { font-size: 0.7em }
 }

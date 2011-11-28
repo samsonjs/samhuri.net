@@ -116,9 +116,9 @@ input[type=submit],
 
 input[type=submit]:active,
 #sd:active { margin: 2px 0 0 2px
-	   ; color: #000
-	   ; background-color: #ffc
-	   }
+     ; color: #000
+     ; background-color: #ffc
+     }
 
 #comment-stuff { display: none
                ; color: #efefef
@@ -129,19 +129,19 @@ input[type=submit]:active,
 #comments-spinner { text-align: center }
 
 #comments { width: 70%
-	  ; max-width: 600px
-	  ; margin: 0 auto
-	  }
+    ; max-width: 600px
+    ; margin: 0 auto
+    }
 
 .comment { color: #555
-	 ; border-top: solid 2px #ccc
-	 ; padding-bottom: 2em
-	 ; margin-bottom: 2em
-	 }
+   ; border-top: solid 2px #ccc
+   ; padding-bottom: 2em
+   ; margin-bottom: 2em
+   }
 
 .comment big { font-size: 2em
-	     ; font-family: Georgia, serif
-	     }
+       ; font-family: Georgia, serif
+       }
 
 #comment-form { width: 400px
               ; margin: 2em auto 0
@@ -149,7 +149,7 @@ input[type=submit]:active,
 
 input[type=text],
 textarea { font-size: 1.4em
-	 ; color: #333
+         ; color: #333
          ; width: 100%
          ; padding: 0.2em
          ; border: solid 1px #999
