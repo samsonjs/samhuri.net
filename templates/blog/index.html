@@ -79,16 +79,6 @@ _gaq.push( ['_setAccount', 'UA-214054-5']
   var s = document.getElementsByTagName('script')[0]
   s.parentNode.insertBefore(ga, s)
 }())
-
-jQuery(function($) {
-  var hidden = true
-    , index = $('#index')
-  $('#index-toggle').click(function() {
-    index.toggle()
-    hidden = !hidden
-    $(this).html(hidden ? '&darr; show posts &darr;' : '&uarr; hide posts &uarr;')
-  })
-})
 </script>
 {{#comments}}
 <script>

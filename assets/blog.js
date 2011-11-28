@@ -1,42 +1,52 @@
 ;(function() {
-    if (typeof console === 'undefined')
-        window.console = {}
-    if (typeof console.log !== 'function')
-        window.console.log = function(){}
-    if (typeof console.dir !== 'function')
-        window.console.dir = function(){}
+  if (typeof console === 'undefined')
+      window.console = {}
+  if (typeof console.log !== 'function')
+      window.console.log = function(){}
+  if (typeof console.dir !== 'function')
+      window.console.dir = function(){}
 
-    var server = 'http://bohodev.net:8000/'
-      , getCommentsURL = function(post) { return server + 'comments/' + post }
-      , postCommentURL = function() { return server + 'comment' }
-      , countCommentsURL = function(post) { return server + 'count/' + post }
+  var server = 'http://bohodev.net:8000/'
+    , getCommentsURL = function(post) { return server + 'comments/' + post }
+    , postCommentURL = function() { return server + 'comment' }
+    , countCommentsURL = function(post) { return server + 'count/' + post }
 
-    function getComments() {
-      SJS.request({uri: getCommentsURL(SJS.filename)}, function(err, request, body) {
-        if (err) {
-          $('#comments').text('derp')
-          return
-        }
-        var data
-          , comments
-          , h = ''
-        try {
-          data = JSON.parse(body)
-        } catch (e) {
-          console.log('not json -> ' + body)
-        }
-        comments = data.comments
-        if (comments.length) {
-          h = data.comments.map(function(c) {
-            return tmpl('comment_tmpl', c)
-          }).join('')
-        }
-        $('#comments').html(h)
+  function getComments() {
+    SJS.request({uri: getCommentsURL(SJS.filename)}, function(err, request, body) {
+      if (err) {
+        $('#comments').text('derp')
+        return
+      }
+      var data
+        , comments
+        , h = ''
+      try {
+        data = JSON.parse(body)
+      } catch (e) {
+        console.log('not json -> ' + body)
+      }
+      comments = data.comments
+      if (comments.length) {
+        h = data.comments.map(function(c) {
+          return tmpl('comment_tmpl', c)
+        }).join('')
+      }
+      $('#comments').html(h)
     })
   }
+
   jQuery(function($) {
+
+    var hidden = true
+      , index = $('#index')
+
+    $('#index-toggle').click(function() {
+      index.toggle()
+      hidden = !hidden
+      $(this).html(hidden ? '&darr; show posts &darr;' : '&uarr; hide posts &uarr;')
+    })
+
     $('#need-js').remove()
-    console.dir($('#need-js'))
 
     SJS.request({uri: countCommentsURL(SJS.filename)}, function(err, request, body) {
       if (err) return

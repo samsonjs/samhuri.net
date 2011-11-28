@@ -66,7 +66,8 @@ class Blag
     page_template = File.read(File.join('templates', 'blog', 'post.html'))
     posts.each_with_index do |post, i|
       template = post[:link] ? link_template : post_template
-      values = { :title => post[:title],
+      values = { :posts => posts,
+                 :title => post[:title],
                  :link => post[:link],
                  :article => Mustache.render(template, post),
                  :previous => i < posts.length - 1 && posts[i + 1],
