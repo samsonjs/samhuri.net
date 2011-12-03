@@ -100,7 +100,6 @@ class Blag
 
   def copy_assets
     Dir[File.join(@src, 'css', '*.css')].each do |stylesheet|
-      puts stylesheet
       FileUtils.cp(stylesheet, @css_dest)
     end
   end
