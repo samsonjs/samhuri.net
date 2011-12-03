@@ -1,5 +1,5 @@
 JAVASCRIPTS=$(shell echo assets/js/*.js)
-STYLESHEETS=$(shell echo assets/css/*.css) $(shell echo _blog/styles/*.css)
+STYLESHEETS=$(shell echo assets/css/*.css)
 POSTS=$(shell echo _blog/published/*.html) $(shell echo _blog/published/*.md)
 
 all: proj blog combine
