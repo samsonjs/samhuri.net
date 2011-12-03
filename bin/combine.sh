@@ -22,8 +22,8 @@ echo "style,blog -> blog-all.min.css"
 cat public/css/{style,blog}.min.css >|public/css/blog-all.min.css
 
 # project index
-echo "style,proj-common,proj-index -> proj-index-all.min.css"
-cat public/css/{style,proj-common,proj-index}.min.css >|public/css/proj-index-all.min.css
+echo "style,proj-common -> proj-index-all.min.css"
+cat public/css/{style,proj-common}.min.css >|public/css/proj-index-all.min.css
 
 # projects
 echo "style,proj-common,proj -> proj-all.min.css"
