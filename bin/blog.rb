@@ -56,6 +56,7 @@ class Blag
     index_template = File.read(File.join('templates', 'blog', 'index.html'))
     post = posts.first
     values = { :post => post,
+               :styles => post[:styles],
                :article => html(post),
                :previous => posts[1],
                :filename => post[:filename],
@@ -70,6 +71,7 @@ class Blag
     posts.each_with_index do |post, i|
       values = { :title => post[:title],
                  :link => post[:link],
+                 :styles => post[:styles],
                  :article => html(post),
                  :previous => i < posts.length - 1 && posts[i + 1],
                  :next => i > 0 && posts[i - 1],
@@ -100,7 +102,7 @@ class Blag
 
   def copy_assets
     Dir[File.join(@src, 'css', '*.css')].each do |stylesheet|
-      FileUtils.cp(stylesheet, @css_dest)
+      `yui-compressor #{stylesheet} #{File.join(@css_dest, File.basename(stylesheet).sub('.css', '.min.css'))}`
     end
   end
 
@@ -185,13 +187,13 @@ class Blag
     title = options[:title] || @title
     subtitle = options[:subtitle] || @subtitle
     url = options[:url] || @url
-    posts ||= options[:posts] || self.posts[0, 10]
+    rss_posts ||= options[:posts] || posts[0, 10]
 
     xml = Builder::XmlMarkup.new
     xml.instruct! :xml, :version => '1.0'
     xml.instruct! 'xml-stylesheet', :href => 'http://samhuri.net/css/blog-all.min.css', :type => 'text/css'
 
-    posts.each do |post|
+    rss_posts.each do |post|
       post[:styles].each do |style|
         xml.instruct! 'xml-stylesheet', :href => "http://samhuri.net/css/#{style}.min.css", :type => 'text/css'
       end
@@ -204,7 +206,7 @@ class Blag
         xml.link url
         xml.pubDate posts.first[:rfc822]
 
-        posts.each do |post|
+        rss_posts.each do |post|
           xml.item do
             xml.title post[:link] ? "#{post[:title]} &rarr;" : post[:title]
             xml.description rss_html(post)
