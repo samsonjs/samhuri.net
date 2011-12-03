@@ -9,6 +9,13 @@ var fs = require('fs')
   , templateDir = path.join(rootDir, 'templates', 'proj')
   , targetDir = path.join(rootDir, process.argv[3])
 
+try {
+  fs.mkdirSync(targetDir, 0775)
+}
+catch (e) {
+  if (e.code != 'EEXIST') throw e
+}
+
 function main() {
   var ctx = {}
   fs.readFile(path.join(templateDir, 'project.html'), function(err, html) {
@@ -52,10 +59,10 @@ function buildProject(name, project, ctx) {
     , index = path.join(dir, 'index.html')
 
   try {
-    fs.statSync(dir)
+    fs.mkdirSync(dir, 0775)
   }
   catch (e) {
-    fs.mkdirSync(dir, 0775)
+    if (e.code != 'EEXIST') throw e
   }
 
   fs.unlink(index, function(err) {

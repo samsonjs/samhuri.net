@@ -13,7 +13,8 @@ DefaultKeywords = ['sjs', 'sami samhuri', 'sami', 'samhuri', 'samhuri.net', 'blo
 def main
   srcdir = ARGV.shift.to_s
   destdir = ARGV.shift.to_s
-  unless File.directory?(srcdir) && File.directory?(destdir)
+  Dir.mkdir(destdir) unless File.exists?(destdir)
+  unless File.directory?(srcdir)
     puts 'usage: blog.rb <source dir> <dest dir>'
     exit 1
   end
