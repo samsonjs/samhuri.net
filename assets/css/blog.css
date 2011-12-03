@@ -161,7 +161,7 @@ input[type=submit] { font-size: 1.1em
                    }
 
 pre { background-color: #eeeef3
-    ; margin: 1em
+    ; margin: 0.5em 1em 1em
     ; padding: 0.5em
     ; border: dashed 1px #ccc
     }
