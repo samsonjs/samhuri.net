@@ -37,6 +37,8 @@ class Blag
   def initialize src, dest
     @src = src
     @dest = dest
+    @blog_dest = File.join(dest, 'blog')
+    @css_dest = File.join(dest, 'css')
     read_blog
   end
 
@@ -46,6 +48,7 @@ class Blag
     generate_rss
     generate_posts_json
     generate_archive
+    copy_assets
   end
 
   def generate_index
@@ -53,13 +56,13 @@ class Blag
     index_template = File.read(File.join('templates', 'blog', 'index.html'))
     post = posts.first
     values = { :post => post,
-               :article => Mustache.render(template(post[:type]), post),
+               :article => html(post),
                :previous => posts[1],
                :filename => post[:filename],
                :comments => post[:comments]
              }
     index_html = Mustache.render(index_template, values)
-    File.open(File.join(@dest, 'index.html'), 'w') {|f| f.puts(index_html) }
+    File.open(File.join(@blog_dest, 'index.html'), 'w') {|f| f.puts(index_html) }
   end
 
   def generate_posts
@@ -67,7 +70,7 @@ class Blag
     posts.each_with_index do |post, i|
       values = { :title => post[:title],
                  :link => post[:link],
-                 :article => Mustache.render(template(post[:type]), post),
+                 :article => html(post),
                  :previous => i < posts.length - 1 && posts[i + 1],
                  :next => i > 0 && posts[i - 1],
                  :filename => post[:filename],
@@ -75,24 +78,30 @@ class Blag
                  :keywords => (DefaultKeywords + post[:tags]).join(',')
                }
       post[:html] = Mustache.render(page_template, values)
-      File.open(File.join(@dest, post[:filename]), 'w') {|f| f.puts(post[:html]) }
+      File.open(File.join(@blog_dest, post[:filename]), 'w') {|f| f.puts(post[:html]) }
     end
   end
 
   def generate_posts_json
     json = JSON.generate({ :published => posts.map {|p| p[:filename]} })
-    File.open(File.join(@dest, 'posts.json'), 'w') { |f| f.puts(json) }
+    File.open(File.join(@blog_dest, 'posts.json'), 'w') { |f| f.puts(json) }
   end
 
   def generate_archive
     archive_template = File.read(File.join('templates', 'blog', 'archive.html'))
     html = Mustache.render(archive_template, :posts => posts)
-    File.open(File.join(@dest, 'archive.html'), 'w') { |f| f.puts(html) }
+    File.open(File.join(@blog_dest, 'archive.html'), 'w') { |f| f.puts(html) }
   end
 
   def generate_rss
     # posts rss
-    File.open(rss_file, 'w') { |f| f.puts(rss.target!) }
+    File.open(rss_file, 'w') { |f| f.puts(rss_for_posts.target!) }
+  end
+
+  def copy_assets
+    Dir[File.join(@src, 'css', '*.css')].each do |stylesheet|
+      FileUtils.cp(stylesheet, @css_dest)
+    end
   end
 
   def posts
@@ -112,25 +121,37 @@ class Blag
           puts "ignoring unknown header: #{line}"
         end
       end
+      post[:styles] = (post[:styles] || '').split(/\s*,\s*/)
+      post[:tags] = (post[:tags] || '').split(/\s*,\s*/)
       post[:url] = @url + '/' + post[:filename]
       post[:timestamp] = post[:timestamp].to_i
       post[:content] = lines.join
       post[:body] = RDiscount.new(post[:content]).to_html
       post[:type] = post[:link] ? :link : :post
-      post[:rss_html] = Mustache.render(rss_template(post[:type]), {:post => post})
       post[:rfc822] = Time.at(post[:timestamp]).rfc822
-      post[:tags] = (post[:tags] || '').split(/\s*,\s*/).map(&:strip)
       # comments on by default
       post[:comments] = true if post[:comments].nil?
       post
     end.sort { |a, b| b[:timestamp] <=> a[:timestamp] }
   end
 
-  def rss
-    rss_for_posts
-  end
 
   private
+
+  def blog_file
+    File.join(@src, 'blog.json')
+  end
+
+  def read_blog
+    blog = JSON.parse(File.read(blog_file))
+    @title = blog['title']
+    @subtitle = blog['subtitle']
+    @url = blog['url']
+  end
+
+  def html(post)
+    Mustache.render(template(post[:type]), post)
+  end
 
   def template(type)
     if type == :post
@@ -140,10 +161,6 @@ class Blag
     else
       raise 'unknown post type: ' + type
     end
-  end
-
-  def blog_file
-    File.join(@src, 'blog.json')
   end
 
   def rss_template(type)
@@ -156,17 +173,14 @@ class Blag
     end
   end
 
-  def read_blog
-    blog = JSON.parse(File.read(blog_file))
-    @title = blog['title']
-    @subtitle = blog['subtitle']
-    @url = blog['url']
-  end
-
   def rss_file
-    File.join(@dest, 'sjs.rss')
+    File.join(@blog_dest, 'sjs.rss')
   end
 
+  def rss_html(post)
+    Mustache.render(rss_template(post[:type]), { :post => post })
+  end
+  
   def rss_for_posts(options = {})
     title = options[:title] || @title
     subtitle = options[:subtitle] || @subtitle
@@ -176,6 +190,11 @@ class Blag
     xml = Builder::XmlMarkup.new
     xml.instruct! :xml, :version => '1.0'
     xml.instruct! 'xml-stylesheet', :href => 'http://samhuri.net/css/blog-all.min.css', :type => 'text/css'
+
+    post[:styles].each do |style|
+      xml.instruct! 'xml-stylesheet', :href => "http://samhuri.net/css/#{style}.min.css", :type => 'text/css'
+    end
+
     xml.rss :version => '2.0' do
       xml.channel do
         xml.title title
@@ -186,7 +205,7 @@ class Blag
         posts.each do |post|
           xml.item do
             xml.title post[:link] ? "#{post[:title]} &rarr;" : post[:title]
-            xml.description post[:rss_html]
+            xml.description rss_html(post)
             xml.pubDate post[:rfc822]
             xml.author post[:author]
             xml.link post[:link] || post[:url]

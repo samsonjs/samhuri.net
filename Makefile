@@ -1,5 +1,5 @@
 JAVASCRIPTS=$(shell echo assets/js/*.js)
-STYLESHEETS=$(shell echo assets/css/*.css)
+STYLESHEETS=$(shell echo assets/css/*.css) $(shell echo _blog/styles/*.css)
 POSTS=$(shell echo _blog/published/*.html) $(shell echo _blog/published/*.md)
 
 all: proj blog combine
@@ -10,7 +10,7 @@ proj: projects.json templates/proj/index.html templates/proj/project.html
 
 blog: _blog/blog.json templates/blog/index.html templates/blog/post.html $(POSTS)
 	@echo
-	./bin/blog.rb _blog public/blog
+	./bin/blog.rb _blog public
 
 minify: $(JAVASCRIPTS) $(STYLESHEETS)
 	@echo
