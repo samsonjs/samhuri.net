@@ -1,51 +1,51 @@
-JAVASCRIPTS=assets/blog.js assets/gitter.js assets/jquery-serializeObject.js assets/proj.js \
-	    assets/request.js assets/showdown.js assets/storage-polyfill.js assets/store.js \
-	    assets/strftime.js assets/tmpl.js
-
-MIN_JAVASCRIPTS=assets/blog.min.js assets/gitter.min.js assets/jquery-serializeObject.min.js assets/proj.min.js \
-		assets/request.min.js assets/showdown.min.js assets/storage-polyfill.min.js assets/store.min.js \
-		assets/strftime.min.js assets/tmpl.min.js
-
-STYLESHEETS=assets/style.css assets/blog.css assets/proj.css
-
-MIN_STYLESHEETS=assets/style.min.css assets/blog.min.css assets/proj.min.css
-
-POSTS=$(shell echo _blog/published/*.html)
+JAVASCRIPTS=$(shell echo assets/js/*.js)
+STYLESHEETS=$(shell echo assets/css/*.css)
+POSTS=$(shell echo _blog/published/*.html) $(shell echo _blog/published/*.md)
 
 all: proj blog combine
 
-proj: projects.json templates/proj/index.html templates/proj/proj/index.html
-	./build.js
+proj: projects.json templates/proj/index.html templates/proj/project.html
+	@echo
+	./bin/projects.js projects.json public/proj
 
 blog: _blog/blog.json templates/blog/index.html templates/blog/post.html $(POSTS)
 	@echo
-	./blog.rb _blog blog
+	./bin/blog.rb _blog public/blog
 
 minify: $(JAVASCRIPTS) $(STYLESHEETS)
 	@echo
-	./minify.sh
+	./bin/minify.sh
 
-combine: minify $(MIN_JAVASCRIPTS) $(MIN_STYLESHEETS)
+combine: minify $(JAVASCRIPTS) $(STYLESHEETS)
 	@echo
-	./combine.sh
+	./bin/combine.sh
 
-publish_blog: blog combine
-	publish assets
-	publish blog
-	scp blog/posts.json bohodev.net:discussd/posts.json
+publish_assets: combine
+	@echo
+	./bin/publish.sh --delete public/css public/images public/js
 
-publish_proj: proj combine
-	publish assets
-	publish proj
+publish_blog: blog publish_assets
+	@echo
+	./bin/publish.sh --delete public/blog
+	scp public/blog/posts.json bohodev.net:discussd/posts.json
 
-publish: publish_blog publish_proj index.html
-	publish index.html
-	publish .htaccess
+publish_proj: proj publish_assets
+	@echo
+	./bin/publish.sh --delete proj
+
+publish_index: public/index.html
+	@echo
+	./bin/publish.sh public/index.html
+
+publish: publish_index publish_blog publish_proj
+	@echo
+	./bin/publish.sh public/.htaccess
+	./bin/publish.sh public/favicon.ico
 
 clean:
-	rm -rf proj/*
-	rm -rf blog/*
-	rm assets/*.min.js
-	rm assets/*.min.css
+	rm -rf public/proj/*
+	rm -rf public/blog/*
+	rm public/css/*.css
+	rm public/js/*.js
 
 .PHONY: proj blog

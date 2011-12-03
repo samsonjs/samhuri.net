@@ -4,21 +4,26 @@ var fs = require('fs')
   , path = require('path')
   , mustache = require('mustache')
 
+  , rootDir = path.join(__dirname, '..')
+  , projectFile = path.join(rootDir, process.argv[2])
+  , templateDir = path.join(rootDir, 'templates', 'proj')
+  , targetDir = path.join(rootDir, process.argv[3])
+
 function main() {
   var ctx = {}
-  fs.readFile(path.join(__dirname, 'templates', 'proj', 'proj', 'index.html'), function(err, html) {
+  fs.readFile(path.join(templateDir, 'project.html'), function(err, html) {
     if (err) throw err
     ctx.template = html.toString()
-    fs.readFile(path.join(__dirname, 'projects.json'), function(err, json) {
+    fs.readFile(projectFile, function(err, json) {
       if (err) throw err
       var projects = JSON.parse(json)
         , names = Object.keys(projects)
-        , index = path.join(__dirname, 'proj', 'index.html')
+        , index = path.join(targetDir, 'index.html')
       
       // write project index
-      fs.readFile(path.join(__dirname, 'templates', 'proj', 'index.html'), function(err, tpl) {
+      fs.readFile(path.join(templateDir, 'index.html'), function(err, tpl) {
         if (err) throw err
-        fs.mkdir(path.join(__dirname, 'proj'), 0775, function(err) {
+        fs.mkdir(targetDir, 0775, function(err) {
           if (err && err.code !== 'EEXIST') throw err
           fs.unlink(index, function(err) {
             if (err && err.code !== 'ENOENT') throw err
@@ -43,7 +48,7 @@ function main() {
 }
 
 function buildProject(name, project, ctx) {
-  var dir = path.join(__dirname, 'proj', name)
+  var dir = path.join(targetDir, name)
     , index = path.join(dir, 'index.html')
 
   try {

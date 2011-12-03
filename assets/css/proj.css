@@ -8,8 +8,8 @@
       ; -moz-border-radius: 20px
       ; -webkit-border-radius: 20px
       ; border-radius: 20px
-      ; behavior: url(../assets/border-radius.htc)
-      ; behavior: url(../../assets/border-radius.htc)
+      ; behavior: url(../js/border-radius.htc)
+      ; behavior: url(../../js/border-radius.htc)
       }
 
 h4 { margin: 0.5em 0 0.7em }

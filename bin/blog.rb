@@ -174,7 +174,7 @@ class Blag
 
     xml = Builder::XmlMarkup.new
     xml.instruct! :xml, :version => '1.0'
-    xml.instruct! 'xml-stylesheet', :href => 'http://samhuri.net/assets/blog-all.min.css', :type => 'text/css'
+    xml.instruct! 'xml-stylesheet', :href => 'http://samhuri.net/css/blog-all.min.css', :type => 'text/css'
     xml.rss :version => '2.0' do
       xml.channel do
         xml.title title

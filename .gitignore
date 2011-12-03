@@ -1,10 +1,7 @@
-.DS_Store
 _blog
-assets/*.min.js
-assets/*.min.css
+public/js/*.js
+public/css/*.css
 discussd/discuss.dirty
-blog
-!templates/blog
-proj
-!templates/proj
+public/blog
+public/proj
 node_modules
