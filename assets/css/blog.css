@@ -1,7 +1,5 @@
 body { margin: 0
      ; padding: 0 0 4em
-     ; position: relative
-     ; min-height: 100%
      }
 
 h1 { margin: 0
@@ -172,8 +170,6 @@ footer { margin: 0
        ; border-top: solid 1px #bbb
        ; clear: both
        ; width: 100%
-       ; position: absolute
-       ; bottom: 0
        }
 
 footer p { margin: 0.5em }
