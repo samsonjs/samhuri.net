@@ -160,7 +160,11 @@ input[type=submit] { font-size: 1.1em
                    ; cursor: pointer
                    }
 
-pre { background-color: #eeeef3 }
+pre { background-color: #eeeef3
+    ; margin: 1em
+    ; padding: 0.5em
+    ; border: dashed 1px #ccc
+    }
 
 footer { margin: 0
        ; padding: 0.2em 0
