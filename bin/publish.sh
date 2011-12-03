@@ -27,7 +27,7 @@ if [[ $# -eq 0 ]]; then
     if [[ "$delete" != "" ]]; then
         bail "no paths given, cowardly refusing to publish everything with --delete"
     fi
-    $prefix rsync -aKv $delete public/* "$publish_host":"${publish_dir}${subdir}"
+    $prefix rsync -aKv $delete public/* "$publish_host":"${publish_dir}"
 else
-    $prefix rsync -aKv $delete "$@" "$publish_host":"${publish_dir}${subdir}"
+    $prefix rsync -aKv $delete "$@" "$publish_host":"${publish_dir}"
 fi
