@@ -51,9 +51,8 @@ class Blag
     # generate landing page
     index_template = File.read(File.join('templates', 'blog', 'index.html'))
     post = posts.first
-    template = post[:link] ? link_template : post_template
     values = { :post => post,
-               :article => Mustache.render(template, post),
+               :article => Mustache.render(template(post[:type]), post),
                :previous => posts[1],
                :filename => post[:filename],
                :comments => post[:comments]
@@ -65,10 +64,9 @@ class Blag
   def generate_posts
     page_template = File.read(File.join('templates', 'blog', 'post.html'))
     posts.each_with_index do |post, i|
-      template = post[:link] ? link_template : post_template
       values = { :title => post[:title],
                  :link => post[:link],
-                 :article => Mustache.render(template, post),
+                 :article => Mustache.render(template(post[:type]), post),
                  :previous => i < posts.length - 1 && posts[i + 1],
                  :next => i > 0 && posts[i - 1],
                  :filename => post[:filename],
@@ -116,9 +114,9 @@ class Blag
       post[:url] = @url + '/' + post[:filename]
       post[:timestamp] = post[:timestamp].to_i
       post[:content] = lines.join
-      template = post[:link] ? link_rss_template : post_rss_template
-      post[:rss_html] = Mustache.render(template, {:post => post})
       post[:body] = RDiscount.new(post[:content]).to_html
+      post[:type] = post[:link] ? :link : :post
+      post[:rss_html] = Mustache.render(rss_template(post[:type]), {:post => post})
       post[:rfc822] = Time.at(post[:timestamp]).rfc822
       post[:tags] = (post[:tags] || '').split(/\s*,\s*/).map(&:strip)
       # comments on by default
@@ -133,24 +131,28 @@ class Blag
 
   private
 
-  def post_template
-    @post_template ||= File.read(File.join('templates', 'blog', 'post.mustache'))
-  end
-
-  def link_template
-    @link_template ||= File.read(File.join('templates', 'blog', 'link.mustache'))
+  def template(type)
+    if type == :post
+      @post_template ||= File.read(File.join('templates', 'blog', 'post.mustache'))
+    elsif type == :link
+      @link_template ||= File.read(File.join('templates', 'blog', 'link.mustache'))
+    else
+      raise 'unknown post type: ' + type
+    end
   end
 
   def blog_file
     File.join(@src, 'blog.json')
   end
 
-  def post_rss_template
-     @post_rss_template ||= File.read(File.join('templates', 'blog', 'post.rss.html'))
-  end
-
-  def link_rss_template
-     @link_rss_template ||= File.read(File.join('templates', 'blog', 'link.rss.html'))
+  def rss_template(type)
+    if type == :post
+      @post_rss_template ||= File.read(File.join('templates', 'blog', 'post.rss.html'))
+    elsif type == :link
+      @link_rss_template ||= File.read(File.join('templates', 'blog', 'link.rss.html'))
+    else
+      raise 'unknown post type: ' + type
+    end
   end
 
   def read_blog
@@ -168,7 +170,7 @@ class Blag
     title = options[:title] || @title
     subtitle = options[:subtitle] || @subtitle
     url = options[:url] || @url
-    posts ||= options[:posts] || method(:posts).call
+    posts ||= options[:posts] || self.posts[0, 10]
 
     xml = Builder::XmlMarkup.new
     xml.instruct! :xml, :version => '1.0'
@@ -182,7 +184,7 @@ class Blag
 
         posts.each do |post|
           xml.item do
-            xml.title post[:link] ? "&rarr; #{post[:title]}" : post[:title]
+            xml.title post[:link] ? "#{post[:title]} &rarr;" : post[:title]
             xml.description post[:rss_html]
             xml.pubDate post[:rfc822]
             xml.author post[:author]

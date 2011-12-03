@@ -1,10 +1,7 @@
 <div id="article">
   {{#post}}
-  <header>
-    <h1><a href="{{link}}">&rarr; {{title}}</a></h1>
-    <p class="time">{{date}}</p>
-  </header>
-  {{{html}}}
+  <p class="time">{{date}}</p>
+  {{{body}}}
   <p><a class="permalink" href="{{url}}">&infin;</a></p>
   {{/post}}
 </div>
