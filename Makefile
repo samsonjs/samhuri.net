@@ -31,7 +31,7 @@ publish_blog: blog publish_assets
 
 publish_proj: proj publish_assets
 	@echo
-	./bin/publish.sh --delete proj
+	./bin/publish.sh --delete public/proj
 
 publish_index: public/index.html
 	@echo
