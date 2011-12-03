@@ -100,6 +100,7 @@ class Blag
 
   def copy_assets
     Dir[File.join(@src, 'css', '*.css')].each do |stylesheet|
+      puts stylesheet
       FileUtils.cp(stylesheet, @css_dest)
     end
   end
@@ -191,8 +192,10 @@ class Blag
     xml.instruct! :xml, :version => '1.0'
     xml.instruct! 'xml-stylesheet', :href => 'http://samhuri.net/css/blog-all.min.css', :type => 'text/css'
 
-    post[:styles].each do |style|
-      xml.instruct! 'xml-stylesheet', :href => "http://samhuri.net/css/#{style}.min.css", :type => 'text/css'
+    posts.each do |post|
+      post[:styles].each do |style|
+        xml.instruct! 'xml-stylesheet', :href => "http://samhuri.net/css/#{style}.min.css", :type => 'text/css'
+      end
     end
 
     xml.rss :version => '2.0' do
