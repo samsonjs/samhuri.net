@@ -46,18 +46,20 @@
      ; line-height: 1.1em
      }
 
-  footer { font-size: 1em }
-
   #blog img { max-width: 100% }
 
   #index { width: 90%
          ; min-width: 200px
-         ; margin: 0.3em auto 1em
+         ; margin: 0.3em auto 3em
          ; padding: 0.5em
          ; font-size: 1em
          }
 
-  #index li > span.date { display: none }
+  #index li > span.date { display: block
+                        ; float: none
+                        ; color: #666
+                        ; font-size: 0.8em
+                        }
 
   #blog #article h1,
   #blog article h1 { font-size: 1.6em
@@ -110,6 +112,7 @@
 
   footer { margin: 0
          ; padding: 0.5em 0
+         ; font-size: 1em
          }
 
 }
