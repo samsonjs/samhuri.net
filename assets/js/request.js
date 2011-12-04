@@ -1,8 +1,8 @@
 ;(function() {
-    if (typeof SJS === 'undefined') SJS = {}
+    if (typeof window.SJS === 'undefined') window.SJS = {}
 
     // cors xhr request, quacks like mikeal's request module
-    SJS.request = function(options, cb) {
+    window.SJS.request = function(options, cb) {
         var url = options.uri
           , method = options.method || 'GET'
           , headers = options.headers || {}
@@ -12,7 +12,7 @@
         // withCredentials => cors
         if ('withCredentials' in xhr) {
             xhr.open(method, url, true)
-        } else if (typeof XDomainRequest === 'functon') {
+        } else if (typeof XDomainRequest === 'function') {
             xhr = new XDomainRequest()
             xhr.open(method, url)
         } else {
@@ -23,8 +23,13 @@
             xhr.setRequestHeader(k, headers[k])
         }
         xhr.onload = function() {
-            var response = xhr.responseText
-            cb(null, xhr, response)
+            if (xhr.status === 200) {
+              cb(null, xhr, xhr.responseText)
+            }
+            else {
+              console.log('xhr error ' + xhr.status + ': ' + xhr.responseText)
+              cb(new Error('error: ' + xhr.status))
+            }
         }
         xhr.send(body)
     }
