@@ -123,13 +123,14 @@ class Blag
           puts "ignoring unknown header: #{line}"
         end
       end
+      post[:type] = post[:link] ? :link : :post
+      post[:title] += " →" if post[:type] == :link
       post[:styles] = (post[:styles] || '').split(/\s*,\s*/)
       post[:tags] = (post[:tags] || '').split(/\s*,\s*/)
       post[:url] = @url + '/' + post[:filename]
       post[:timestamp] = post[:timestamp].to_i
       post[:content] = lines.join
       post[:body] = RDiscount.new(post[:content]).to_html
-      post[:type] = post[:link] ? :link : :post
       post[:rfc822] = Time.at(post[:timestamp]).rfc822
       # comments on by default
       post[:comments] = true if post[:comments].nil?
@@ -208,7 +209,7 @@ class Blag
 
         rss_posts.each do |post|
           xml.item do
-            xml.title post[:link] ? "#{post[:title]} &rarr;" : post[:title]
+            xml.title post[:title]
             xml.description rss_html(post)
             xml.pubDate post[:rfc822]
             xml.author post[:author]
