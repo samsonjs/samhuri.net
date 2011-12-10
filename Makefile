@@ -28,6 +28,8 @@ publish_blog: blog publish_assets
 	@echo
 	./bin/publish.sh --delete public/blog
 	scp public/blog/posts.json bohodev.net:discussd/posts.json
+	scp discussd/discussd.js bohodev.net:discussd/discussd.js
+	ssh bohodev.net restart-discussd.sh
 
 publish_proj: proj publish_assets
 	@echo
