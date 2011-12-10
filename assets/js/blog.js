@@ -47,7 +47,8 @@
       if (typeof cb === 'function') cb(err)
       else {
         $('#comment-stuff').slideDown(1.5, function() {
-          this.scrollIntoView(true)
+          if (typeof cb === 'function') cb()
+          else this.scrollIntoView(true)
         })
       }
     })
