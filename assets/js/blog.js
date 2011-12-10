@@ -43,8 +43,8 @@
     getComments(function(err) {
       if (err) {
         $('#comments').text('derp')
+        if (typeof cb === 'function') cb(err)
       }
-      if (typeof cb === 'function') cb(err)
       else {
         $('#comment-stuff').slideDown(1.5, function() {
           if (typeof cb === 'function') cb()
