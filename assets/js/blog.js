@@ -11,10 +11,10 @@
     , postCommentURL = function() { return server + 'comment' }
     , countCommentsURL = function(post) { return server + 'count/' + post }
 
-  function getComments() {
+  function getComments(cb) {
     SJS.request({uri: getCommentsURL(SJS.filename)}, function(err, request, body) {
       if (err) {
-        $('#comments').text('derp')
+        if (typeof cb === 'function') cb(err)
         return
       }
       var data
@@ -22,16 +22,34 @@
         , h = ''
       try {
         data = JSON.parse(body)
-      } catch (e) {
+      }
+      catch (e) {
         console.log('not json -> ' + body)
+        return
       }
       comments = data.comments
-      if (comments.length) {
+      if (comments && comments.length) {
         h = data.comments.map(function(c) {
           return tmpl('comment_tmpl', c)
         }).join('')
+        $('#comments').html(h)
       }
-      $('#comments').html(h)
+      if (typeof cb === 'function') cb()
+    })
+  }
+
+  function showComments(cb) {
+    $('#sd-container').remove()
+    getComments(function(err) {
+      if (err) {
+        $('#comments').text('derp')
+      }
+      if (typeof cb === 'function') cb(err)
+      else {
+        $('#comment-stuff').slideDown(1.5, function() {
+          this.scrollIntoView(true)
+        })
+      }
     })
   }
 
@@ -45,18 +63,28 @@
         , n
       try {
         data = JSON.parse(body)
-      } catch (e) {
+      }
+      catch (e) {
         console.log('not json -> ' + body)
+        return
       }
       n = data.count
       $('#sd').text(n > 0 ? 'show the discussion (' + n + ')' : 'start the discussion')
     })
 
-    $('#sd').click(function() {
-      $('#sd-container').remove()
-      $('#comment-stuff').slideDown(1.5, function() { this.scrollIntoView(true) })
-      getComments()
-    })
+    // jump to comment if linked directly
+    var hash = window.location.hash || ''
+    if (/^#comment-\d+/.test(hash)) {
+      alert(hash)
+      showComments(function (err) {
+        if (!err) {
+          window.location.hash = ''
+          window.location.hash = hash
+        }
+      })
+    }
+
+    $('#sd').click(showComments)
 
     var showdown = new Showdown.converter()
 
@@ -73,6 +101,7 @@
           document.getElementById('thoughts').focus()
           return false
       }
+      comment.timestamp = +comment.timestamp
 
       var options = { method: 'POST'
                     , uri: postCommentURL()

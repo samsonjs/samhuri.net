@@ -194,6 +194,9 @@ function commentServer(context) {
             return
         }
         comments = context.db.get(post) || []
+        comments.forEach(function(c, i) {
+          c.id = c.id || (i + 1)
+        })
         res.respond({comments: comments.map(function(c) {
             delete c.email
             c.html = markdown.parse(c.body)
