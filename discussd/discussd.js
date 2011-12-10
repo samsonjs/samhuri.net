@@ -90,9 +90,7 @@ function createTextHandler(options) {
 
 // Cross-Origin Resource Sharing
 var createCorsHandler = (function() {
-    var AllowedOrigins = [ 'http://samhuri.net'
-                         , 'http://localhost:8888'
-                         ]
+    var AllowedOrigins = [ 'http://samhuri.net' ]
 
     return function(handler) {
         handler = handler || createTextHandler('ok')
@@ -169,16 +167,17 @@ function handleRequest(req, res) {
 }
 
 function commentServer(context) {
-    function addComment(post, name, email, url, body) {
+    function addComment(post, name, email, url, body, timestamp) {
         var comments = context.db.get(post) || []
-        comments.push({ name: name
+        comments.push({ id: comments.length + 1
+                      , name: name
                       , email: email
                       , url: url
                       , body: body
-                      , timestamp: Date.now()
+                      , timestamp: timestamp || Date.now()
                       })
         context.db.set(post, comments)
-        console.log('[' + new Date() + '] comment on ' + post)
+        console.log('[' + timestamp + '] comment on ' + post)
         console.log('name:', name)
         console.log('email:', email)
         console.log('url:', url)
@@ -214,7 +213,7 @@ function commentServer(context) {
         var body = ''
         req.on('data', function(chunk) { body += chunk })
         req.on('end', function() {
-            var data, post, name, email, url
+            var data, post, name, email, url, timestamp
             try {
                 data = JSON.parse(body)
             } catch (e) {
@@ -234,9 +233,9 @@ function commentServer(context) {
                 BadRequest(req, res)
                 return
             }
-            addComment(post, name, email, url, body)
+            timestamp = +data.timestamp || Date.now()
+            addComment(post, name, email, url, body, timestamp)
             res.respond()
-            // TODO mail watchers about the comment
         })
     }
 
@@ -283,9 +282,8 @@ function requestHandler(context) {
 
             /*
             console.log('code: ', s ? 200 : 204)
-            process.stdout.write('headers: ')
-            console.dir(headers)
-            console.log('body: ', s)
+            console.log('headers:', headers)
+            console.log('body:', s)
             */
 
             res.writeHead(s ? 200 : 204, headers)
