@@ -43,7 +43,7 @@
       <% } else { %>
         <%= name %>
       <% } %>
-      @ <%= strftime('%F %r', new Date(timestamp)) %>
+      @ <%= strftime('%F %I:%M %p', new Date(timestamp)) %>
     </p>
     <blockquote><%= html %></blockquote>
   </div>

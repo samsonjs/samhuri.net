@@ -86,6 +86,7 @@
     $('#sd').click(showComments)
 
     var showdown = new Showdown.converter()
+      , tzOffset = -new Date().getTimezoneOffset() * 60 * 1000
 
     $('#comment-form').submit(function() {
       var comment = $(this).serializeObject()
@@ -100,7 +101,7 @@
           document.getElementById('thoughts').focus()
           return false
       }
-      comment.timestamp = +comment.timestamp
+      comment.timestamp = +comment.timestamp + tzOffset
 
       var options = { method: 'POST'
                     , uri: postCommentURL()
