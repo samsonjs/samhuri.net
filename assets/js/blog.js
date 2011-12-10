@@ -75,7 +75,6 @@
     // jump to comment if linked directly
     var hash = window.location.hash || ''
     if (/^#comment-\d+/.test(hash)) {
-      alert(hash)
       showComments(function (err) {
         if (!err) {
           window.location.hash = ''
