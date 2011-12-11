@@ -23,11 +23,11 @@ combine: minify $(JAVASCRIPTS) $(STYLESHEETS)
 publish_assets: combine
 	@echo
 	./bin/publish.sh --delete public/css public/images public/js
+	./bin/publish.sh public/f
 
 publish_blog: blog publish_assets
 	@echo
 	./bin/publish.sh --delete public/blog
-	./bin/publish.sh public/f
 	scp public/blog/posts.json bohodev.net:discussd/posts.json
 	scp discussd/discussd.js bohodev.net:discussd/discussd.js
 	scp public/s42/.htaccess samhuri.net:s42.ca/.htaccess
