@@ -29,6 +29,7 @@ publish_blog: blog publish_assets
 	./bin/publish.sh --delete public/blog
 	scp public/blog/posts.json bohodev.net:discussd/posts.json
 	scp discussd/discussd.js bohodev.net:discussd/discussd.js
+	scp public/s42/.htaccess samhuri.net:s42.ca/.htaccess
 	ssh bohodev.net restart-discussd.sh
 
 publish_proj: proj publish_assets

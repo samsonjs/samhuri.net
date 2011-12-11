@@ -11,6 +11,9 @@ require 'rdiscount'
 
 DefaultKeywords = ['sjs', 'sami samhuri', 'sami', 'samhuri', 'samhuri.net', 'blog']
 
+ShortURLCodeSet = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+ShortURLBase = ShortURLCodeSet.length.to_f
+
 def main
   srcdir = ARGV.shift.to_s
   destdir = ARGV.shift.to_s
@@ -49,6 +52,7 @@ class Blag
     generate_rss
     generate_posts_json
     generate_archive
+    generate_short_urls
     copy_assets
   end
 
@@ -99,6 +103,17 @@ class Blag
   def generate_rss
     # posts rss
     File.open(rss_file, 'w') { |f| f.puts(rss_for_posts.target!) }
+  end
+
+  def generate_short_urls
+    htaccess = ['RewriteEngine on', 'RewriteRule ^$ http://samhuri.net [R=301,L]']
+    posts.reverse.each_with_index do |post, i|
+      code = shorten(i + 1)
+      htaccess << "RewriteRule ^#{code}$ #{post[:url]} [R=301,L]"
+    end
+    File.open(File.join(@dest, 's4,', '.htaccess'), 'w') do |f|
+      f.puts(htaccess)
+    end
   end
 
   def copy_assets
@@ -221,6 +236,15 @@ class Blag
       end
     end
     xml
+  end
+
+  def shorten(n)
+    short = ''
+    while n > 0
+      short = ShortURLCodeSet[n % ShortURLBase, 1] + short
+      n = (n / ShortURLBase).floor
+    end
+    short
   end
 
 end
