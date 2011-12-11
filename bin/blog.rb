@@ -111,7 +111,7 @@ class Blag
       code = shorten(i + 1)
       htaccess << "RewriteRule ^#{code}$ #{post[:url]} [R=301,L]"
     end
-    File.open(File.join(@dest, 's4,', '.htaccess'), 'w') do |f|
+    File.open(File.join(@dest, 's42', '.htaccess'), 'w') do |f|
       f.puts(htaccess)
     end
   end
@@ -125,7 +125,7 @@ class Blag
       FileUtils.copy(file, File.join(@dest, 'f', File.basename(file)))
     end
     Dir[File.join(@src, 'images', '*')].each do |file|
-      FileUtils.copy(file, File.join(@dest, 'images', File.basename(file)))
+      FileUtils.copy(file, File.join(@dest, 'images', 'blog', File.basename(file)))
     end
   end
 
