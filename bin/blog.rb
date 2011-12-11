@@ -146,7 +146,7 @@ class Blag
       post[:url] = @url + '/' + post[:filename]
       post[:timestamp] = post[:timestamp].to_i
       post[:content] = lines.join
-      post[:body] = RDiscount.new(post[:content]).to_html
+      post[:body] = RDiscount.new(post[:content], :smart).to_html
       post[:rfc822] = Time.at(post[:timestamp]).rfc822
       # comments on by default
       post[:comments] = true if post[:comments].nil?
