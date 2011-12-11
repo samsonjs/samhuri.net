@@ -118,7 +118,14 @@ class Blag
 
   def copy_assets
     Dir[File.join(@src, 'css', '*.css')].each do |stylesheet|
-      `yui-compressor #{stylesheet} #{File.join(@css_dest, File.basename(stylesheet).sub('.css', '.min.css'))}`
+      minified = File.join(@css_dest, File.basename(stylesheet).sub('.css', '.min.css'))
+      `yui-compressor #{stylesheet} #{minified}`
+    end
+    Dir[File.join(@src, 'files', '*')].each do |file|
+      FileUtils.copy(file, File.join(@dest, 'f', File.basename(file)))
+    end
+    Dir[File.join(@src, 'images', '*')].each do |file|
+      FileUtils.copy(file, File.join(@dest, 'images', File.basename(file)))
     end
   end
 
