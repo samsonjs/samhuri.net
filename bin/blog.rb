@@ -156,7 +156,7 @@ class Blag
       post[:body] = RDiscount.new(post[:content], :smart).to_html
       post[:rfc822] = Time.at(post[:timestamp]).rfc822
       # comments on by default
-      post[:comments] = true if post[:comments].nil?
+      post[:comments] = true if post[:comments] == 'on' || post[:comments].nil?
       post
     end.sort { |a, b| b[:timestamp] <=> a[:timestamp] }
   end
