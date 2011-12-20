@@ -74,6 +74,7 @@ class Blag
   def generate_posts
     page_template = File.read(File.join('templates', 'blog', 'post.html'))
     posts.each_with_index do |post, i|
+      puts "comments: #{post[:comments].inspect}"
       values = { :title => post[:title],
                  :link => post[:link],
                  :styles => post[:styles],
@@ -156,7 +157,7 @@ class Blag
       post[:body] = RDiscount.new(post[:content], :smart).to_html
       post[:rfc822] = Time.at(post[:timestamp]).rfc822
       # comments on by default
-      post[:comments] = true if post[:comments] == 'on' || post[:comments].nil?
+      post[:comments] = (post[:comments] == 'on' || post[:comments].nil?)
       post
     end.sort { |a, b| b[:timestamp] <=> a[:timestamp] }
   end
