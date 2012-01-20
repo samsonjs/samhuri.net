@@ -10,6 +10,7 @@ proj: projects.json templates/proj/index.html templates/proj/project.html
 
 blog: _blog/blog.json templates/blog/index.html templates/blog/post.html $(POSTS)
 	@echo
+	cd _blog && git pull
 	./bin/blog.rb _blog public
 
 minify: $(JAVASCRIPTS) $(STYLESHEETS)
