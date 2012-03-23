@@ -61,7 +61,7 @@ article h1 a { color: #222
              }
 
 #article h1 a:hover,
-article h1 a:hover { text-shadow: #cc0 1px 1px 8px
+article h1 a:hover { text-shadow: 1px 1px 6px #ffc
                    ; color: #000
                    }
 
@@ -165,12 +165,11 @@ pre { background-color: #eeeef3
     ; border: dashed 1px #ccc
     }
 
-footer { margin: 0
+footer { margin: 0 auto
        ; padding: 0.2em 0
-       ; background-color: #def
-       ; border-top: solid 1px #bbb
+       ; border-top: solid 1px #ddd
        ; clear: both
-       ; width: 100%
+       ; width: 80%
        }
 
 footer p { margin: 0.5em }
