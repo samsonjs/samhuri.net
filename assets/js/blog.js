@@ -41,6 +41,7 @@
   function showComments(cb) {
     $('#sd-container').remove()
     getComments(function(err) {
+      $('#comments-spinner').hide()
       if (err) {
         $('#comments').text('derp')
         if (typeof cb === 'function') cb(err)
@@ -102,7 +103,7 @@
           document.getElementById('thoughts').focus()
           return false
       }
-      comment.timestamp = +comment.timestamp + tzOffset
+      comment.timestamp = +new Date() + tzOffset
 
       var options = { method: 'POST'
                     , uri: postCommentURL()
@@ -114,8 +115,6 @@
           alert('derp')
           return false
         }
-
-        // FIXME check for error, how do we get the returned status code?
 
         $('#comment-form').get(0).reset()
 

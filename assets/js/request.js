@@ -23,7 +23,7 @@
             xhr.setRequestHeader(k, headers[k])
         }
         xhr.onload = function() {
-            if (xhr.status === 200) {
+            if (xhr.status === 200 || xhr.status === 204) {
               cb(null, xhr, xhr.responseText)
             }
             else {

@@ -2,7 +2,7 @@
 /// http://github.com/samsonjs/gitter
 /// @_sjs
 ///
-/// Copyright 2010 Sami Samhuri <sami.samhuri@gmail.com>
+/// Copyright 2010 Sami Samhuri <sami@samhuri.net>
 /// MIT License
 
 // TODO:

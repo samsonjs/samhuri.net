@@ -36,14 +36,14 @@
 </div>
 <script type="text/html" id="comment_tmpl">
   <div class="comment">
-    <a name="comment-<%= id %>" id="comment-<%= id %>">
+    <a name="comment-<%= id %>" id="comment-<%= id %>"></a>
     <p>
       <% if (url) { %>
         <a href="<%= url %>"><%= name %></a>
       <% } else { %>
         <%= name %>
       <% } %>
-      @ <%= strftime('%F %I:%M %p', new Date(timestamp)) %>
+      @ <a href="#comment-<%= id %>"><%= strftime('%F %I:%M %p', new Date(timestamp)) %></a>
     </p>
     <blockquote><%= html %></blockquote>
   </div>
