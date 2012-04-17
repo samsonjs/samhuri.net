@@ -1,0 +1,47 @@
+
+/* Fluid widths */
+
+body
+{ width: 100%
+; min-width: 0
+; font-size: 80%
+}
+
+#masthead
+{ width: 100% }
+
+#masthead .grid_24
+{ text-align: center }
+
+#header .container_24,
+#footer .container_24
+#masthead .container_24,         /* doesn't seem to work */
+#content .container_24,          /* doesn't seem to work */
+#content .container_24 .grid_15, /* doesn't seem to work */
+.sidebar,                        /* doesn't seem to work */
+{ width: 97% }
+
+#masthead .grid_24 { width: 97% }
+#masthead .grid_24 .grid_7 { width: 100%; margin-bottom: 1em }
+#masthead .grid_24 .grid_11 { width: 95% }
+#masthead .hosts { width: 100%; padding-right: 10px }
+
+#masthead .hosts .host
+{ width: 44%
+; display: inline-block
+; float: none
+; clear: left
+}
+
+#episode { min-height: 0 }
+#episode h2 { font-size: 1.4em }
+h5, #episode h5 { font-size: 0.8em; line-height: 1.2em }
+
+#episode p,
+#episode #sponsors
+{ font-size: 0.7em; line-height: 1.3em }
+
+#episode #episode_links { font-size: 0.7em; line-height: 1.2em }
+
+.player { width: 100% }
+.player .transport { width: 65% }
