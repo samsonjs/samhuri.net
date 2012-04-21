@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>templates/blog/post.html</string>
+	<string>bin/blog.rb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -58,7 +58,7 @@
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>21</integer>
+				<integer>33</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -168,14 +168,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>44</integer>
 				<key>line</key>
-				<integer>113</integer>
+				<integer>101</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>98</integer>
+			<integer>79</integer>
 		</dict>
 		<key>bin/combine.sh</key>
 		<dict>
@@ -263,6 +263,20 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>public/.htaccess</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>21</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>public/discussions.html</key>
 		<dict>
 			<key>caret</key>
@@ -314,21 +328,21 @@
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>17</integer>
+				<integer>93</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
+			<integer>31</integer>
 		</dict>
 		<key>templates/blog/archive.html</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>64</integer>
 				<key>line</key>
-				<integer>12</integer>
+				<integer>19</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -342,7 +356,21 @@
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>3</integer>
+				<integer>22</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>templates/blog/link.mustache</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>37</integer>
+				<key>line</key>
+				<integer>6</integer>
 			</dict>
 			<key>columnSelection</key>
 			<false/>
@@ -353,31 +381,17 @@
 			<key>selectFrom</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>32</integer>
 				<key>line</key>
-				<integer>2</integer>
+				<integer>6</integer>
 			</dict>
 			<key>selectTo</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>37</integer>
 				<key>line</key>
-				<integer>3</integer>
+				<integer>6</integer>
 			</dict>
-		</dict>
-		<key>templates/blog/link.mustache</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>36</integer>
-				<key>line</key>
-				<integer>2</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
 		</dict>
 		<key>templates/blog/link.rss.html</key>
 		<dict>
@@ -400,7 +414,7 @@
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>15</integer>
+				<integer>32</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -412,9 +426,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>31</integer>
 				<key>line</key>
-				<integer>7</integer>
+				<integer>2</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -467,6 +481,7 @@
 		<string>bin/projects.js</string>
 		<string>assets/js/request.js</string>
 		<string>templates/blog/post.html</string>
+		<string>public/.htaccess</string>
 		<string>assets/js/strftime.js</string>
 		<string>templates/blog/link.rss.html</string>
 		<string>templates/blog/link.mustache</string>
@@ -477,12 +492,11 @@
 		<string>TODO</string>
 		<string>templates/blog/index.html</string>
 		<string>Makefile</string>
-		<string>public/s42/.htaccess</string>
 		<string>bin/combine.sh</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<false/>
 	<key>windowFrame</key>
-	<string>{{958, 0}, {958, 1178}}</string>
+	<string>{{0, 4}, {1277, 1174}}</string>
 </dict>
 </plist>

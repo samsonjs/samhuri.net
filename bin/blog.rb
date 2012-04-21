@@ -65,6 +65,7 @@ class Blag
                :article => html(post),
                :previous => posts[1],
                :filename => post[:filename],
+               :url => post[:relative_url],
                :comments => post[:comments]
              }
     index_html = Mustache.render(index_template, values)
@@ -81,6 +82,7 @@ class Blag
                  :previous => i < posts.length - 1 && posts[i + 1],
                  :next => i > 0 && posts[i - 1],
                  :filename => post[:filename],
+                 :url => post[:relative_url],
                  :comments => post[:comments],
                  :keywords => (DefaultKeywords + post[:tags]).join(',')
                }
@@ -97,7 +99,7 @@ class Blag
   def generate_archive
     archive_template = File.read(File.join('templates', 'blog', 'archive.html'))
     html = Mustache.render(archive_template, :posts => posts)
-    File.open(File.join(@blog_dest, 'archive.html'), 'w') { |f| f.puts(html) }
+    File.open(File.join(@blog_dest, 'archive'), 'w') { |f| f.puts(html) }
   end
 
   def generate_rss
@@ -133,7 +135,7 @@ class Blag
     prefix = File.join(@src, 'published') + '/'
     @posts ||= Dir[File.join(prefix, '*')].sort.reverse.map do |filename|
       lines = File.readlines(filename)
-      post = { :filename => filename.sub(prefix, '').sub(/\.m(ark)?d(own)?$/i, '.html') }
+      post = { :filename => filename.sub(prefix, '').sub(/\.(html|m(ark)?d(own)?)$/i, '') }
       loop do
         line = lines.shift.strip
         m = line.match(/^(\w+):/)
@@ -150,7 +152,8 @@ class Blag
       post[:title] += " →" if post[:type] == :link
       post[:styles] = (post[:styles] || '').split(/\s*,\s*/)
       post[:tags] = (post[:tags] || '').split(/\s*,\s*/)
-      post[:url] = @url + '/' + post[:filename]
+      post[:relative_url] = post[:filename].sub(/\.html$/, '')
+      post[:url] = @url + '/' + post[:relative_url]
       post[:timestamp] = post[:timestamp].to_i
       post[:content] = lines.join
       post[:body] = RDiscount.new(post[:content], :smart).to_html

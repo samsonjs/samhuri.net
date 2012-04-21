@@ -13,11 +13,11 @@
 <body id="blog">
 <nav id="breadcrumbs"><a href="../">samhuri.net</a></nav>
 <header>
-  <h1><a href="index.html">sjs' blog</a></h1>
+  <h1><a href="../blog">sjs' blog</a></h1>
 </header>
 <ul id="index">
   {{#posts}}
-  <li><a href="{{filename}}">{{title}}</a> <span class="date">{{date}}</span></li>
+  <li><span class="date">{{date}}</span> <a href="{{relative_url}}">{{title}}</a></li>
   {{/posts}}
 </ul>
 <footer>

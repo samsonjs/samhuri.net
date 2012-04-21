@@ -1,5 +1,11 @@
+DefaultType text/html
 AddType application/rss+xml rss
 AddOutputFilterByType DEFLATE application/rss+xml text/css application/javascript text/html
+
+RewriteEngine on
+
+RewriteCond %{REQUEST_URI} ^.*\.html$
+RewriteRule ^(.*)\.html$ /$1 [R=301,L,NS]
 
 # # Turn on Expires and set default expires to 3 days
 # ExpiresActive On
