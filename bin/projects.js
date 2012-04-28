@@ -23,10 +23,9 @@ function main() {
     ctx.template = html.toString()
     fs.readFile(projectFile, function(err, json) {
       if (err) throw err
-      var projects = JSON.parse(json)
-        , names = Object.keys(projects)
+      var projects = JSON.parse(json).projects
         , index = path.join(targetDir, 'index.html')
-      
+
       // write project index
       fs.readFile(path.join(templateDir, 'index.html'), function(err, tpl) {
         if (err) throw err
@@ -34,7 +33,7 @@ function main() {
           if (err && err.code !== 'EEXIST') throw err
           fs.unlink(index, function(err) {
             if (err && err.code !== 'ENOENT') throw err
-            var vals = { names: names }
+            var vals = { projects: projects }
               , html = mustache.to_html(tpl.toString(), vals)
             fs.writeFile(index, html, function(err) {
               if (err) throw err
@@ -46,9 +45,9 @@ function main() {
       
       // write project pages
       ctx.n = 0
-      names.forEach(function(name) {
+      projects.forEach(function(project) {
         ctx.n += 1
-        buildProject(name, projects[name], ctx)
+        buildProject(project.name, project, ctx)
       })
     })
   })

@@ -20,6 +20,13 @@
     #gh img { border: none }
     span { padding: 5px }
     #forkme { display: none }
+    #projects li p { margin: 0 }
+    #projects li p.description
+    { font-size: 0.6em
+    ; line-height: 1em
+    ; color: #444
+    ; margin-bottom: 0.5em
+    }
   </style>
 </head>
 <body>
@@ -28,13 +35,6 @@
 <header>
   <h1>projects</h1>
 </header>
-<nav>
-  <ul class="nav" id="projects">
-    {{#names}}
-    <li><a href="{{.}}">{{.}}</a></li>
-    {{/names}}
-  </ul>
-</nav>
 <p id="gh">
   <a class="img" href="https://github.com/samsonjs"><img src="../images/dr-octocat-448x448.png" width="224" height="224" alt="GitHub"></a>
 </p>
@@ -50,6 +50,16 @@
     <td align="left">following <span id="nfollowing"><img src="../images/spinner@2x.gif" width="16" height="16"></span></td>
   </tr>
 </table>
+<nav>
+  <ul class="nav" id="projects">
+    {{#projects}}
+    <li>
+      <p class="title"><a href="{{name}}">{{name}}</a></p>
+      <p class="description">{{description}}</p>
+    </li>
+    {{/projects}}
+  </ul>
+</nav>
 <footer>
   <p>You can <a href="https://twitter.com/_sjs">find me on twitter</a>.</p>
   <p><a href="mailto:sami@samhuri.net">sami@samhuri.net</a></p>

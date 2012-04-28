@@ -1,15 +1,45 @@
-{ "batteries"    : { "description" : "a general purpose node library" }
-, "bin"          : { "description" : "~/bin" }
-, "cheat.el"     : { "description" : "cheat from emacs" }
-, "compiler"     : { "description" : "an x86 compiler written in ruby" }
-, "config"       : { "description" : "important dot files (zsh, emacs, vim, screen)" }
-, "format"       : { "description" : "printf for JavaScript" }
-, "gitter"       : { "description" : "a GitHub client for Node (v2 API)" }
-, "lake"         : { "description" : "A simple implementation of Scheme in C" }
-, "mojo.el"      : { "description" : "turn emacs into a sweet mojo editor" }
-, "NorthWatcher" : { "description" : "cron for filesystem changes" }
-, "repl-edit"    : { "description" : "edit Node repl commands with your text editor" }
-, "samhuri.net"  : { "description" : "this site" }
-, "strftime"     : { "description" : "strftime for JavaScript" }
-, "ThePusher"    : { "description" : "Github post receive hook router" }
+{ "projects" :
+  [ { "name" : "batteries"
+    , "description" : "a general purpose node library"
+    }
+  , { "name" : "bin"
+    , "description" : "~/bin"
+    }
+  , { "name" : "cheat.el"
+    , "description" : "cheat from emacs"
+    }
+  , { "name" : "compiler"
+    , "description" : "an x86 compiler written in ruby"
+    }
+  , { "name" : "config"
+    , "description" : "important dot files (zsh, emacs, vim, screen)"
+    }
+  , { "name" : "format"
+    , "description" : "printf for JavaScript"
+    }
+  , { "name" : "gitter"
+    , "description" : "a GitHub client for Node (v2 API)"
+    }
+  , { "name" : "lake"
+    , "description" : "A simple implementation of Scheme in C"
+    }
+  , { "name" : "mojo.el"
+    , "description" : "turn emacs into a sweet mojo editor"
+    }
+  , { "name" : "NorthWatcher"
+    , "description" : "cron for filesystem changes"
+    }
+  , { "name" : "repl-edit"
+    , "description" : "edit Node repl commands with your text editor"
+    }
+  , { "name" : "samhuri.net"
+    , "description" : "this site"
+    }
+  , { "name" : "strftime"
+    , "description" : "strftime for JavaScript"
+    }
+  , { "name" : "ThePusher"
+    , "description" : "Github post receive hook router"
+    }
+  ]
 }
