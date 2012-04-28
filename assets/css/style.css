@@ -60,14 +60,14 @@ ul.nav li { display: block
 
 ul.nav li a { padding: 5px
             ; text-decoration: none
-            ; border-bottom: dashed 1px #0E539C
-            ; text-shadow: #999 5px 5px 5px
+            ; border-bottom: solid 1px #fff
+            ; text-shadow: #ccc 2px 2px 3px
             }
 ul.nav li a:visited { color: #227 }
 
 ul.nav li a:hover,
-ul.nav li a:active { text-shadow: #aa7 5px 5px 5px
-                   ; border-bottom: dashed 1px #000
+ul.nav li a:active { text-shadow: #cca 2px 2px 3px
+                   ; border-bottom: solid 1px #aaa
                    }
 
 ul.nav li a:active { text-shadow: none }
