@@ -57,9 +57,9 @@
 
         function updateBranches(name, branches) {
           function branchLink(b) {
-            return '<a href=https://github.com/samsonjs/' + name + '/tree/' + b + '>' + b + '</a>'
+            return '<a href=https://github.com/samsonjs/' + name + '/tree/' + b.name + '>' + b.name + '</a>'
           }
-          html('branches', listify(Object.keys(branches).map(branchLink)))
+          html('branches', listify(branches.map(branchLink)))
         }
 
         function updateContributors(contributors) {
@@ -82,8 +82,8 @@
         if (!t || +new Date() - t > 3600 * 1000) {
           console.log('stale ' + String(t))
           data.set('t-' + name, +new Date())
-          GITR.repo('samsonjs/' + name)
-            .getBranches(function(err, branches) {
+          GITR.repo('samsonjs', name)
+            .fetchBranches(function(err, branches) {
               if (err) {
                 text('branches', '(oops)')
               } else {
@@ -91,7 +91,7 @@
                 updateBranches(name, branches)
               }
             })
-            .getLanguages(function(err, langs) {
+            .fetchLanguages(function(err, langs) {
               if (err) {
                 text('langs', '(oops)')
                 return
@@ -99,7 +99,7 @@
               data.set('langs', langs)
               updateLangs(langs)
             })
-            .getContributors(function(err, users) {
+            .fetchContributors(function(err, users) {
               if (err) {
                 text('contributors', '(oops)')
               } else {
@@ -107,7 +107,7 @@
                 updateContributors(users)
               }
             })
-            .getWatchers(function(err, users) {
+            .fetchWatchers(function(err, users) {
               if (err) {
                 text('nwatchers', '?')
               } else {
@@ -115,7 +115,7 @@
                 updateN('watchers', users)
               }
             })
-            .getNetwork(function(err, repos) {
+            .fetchForks(function(err, repos) {
               if (err) {
                 text('nforks', '?')
               } else {

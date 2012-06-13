@@ -40,12 +40,12 @@
 </p>
 <table align="center" id="stats">
   <tr>
-    <td align="right"><span id="nrepos"><img src="../images/spinner@2x.gif" width="16" height="16"></span> projects</td>
+    <td align="right"><span id="npublicRepos"><img src="../images/spinner@2x.gif" width="16" height="16"></span> projects</td>
     <td>&mdash;</td>
     <td align="left"><span id="nfollowers"><img src="../images/spinner@2x.gif" width="16" height="16"></span> followers</td>
   </tr>
   <tr>
-    <td align="right">watching <span id="nwatched"><img src="../images/spinner@2x.gif" width="16" height="16"></span>
+    <td align="right"><span id="npublicGists"><img src="../images/spinner@2x.gif" width="16" height="16"> gists</span>
     <td>&mdash;</td>
     <td align="left">following <span id="nfollowing"><img src="../images/spinner@2x.gif" width="16" height="16"></span></td>
   </tr>
@@ -122,30 +122,32 @@ if (typeof console === 'undefined') {
       document.getElementById(id).className = ' highlight'
     }
     function updateN(name, things) {
-      textHighlight('n' + name, things.length)
+      textHighlight('n' + name, things)
     }
 
     var data = createObjectStore('proj')
       , t = data.get('t-proj')
-      , names = ['followers', 'following', 'repos', 'watched']
+      , user = GITR.user('samsonjs')
+      , names = ['followers', 'following', 'publicRepos', 'publicGists']
     if (!t || +new Date() - t > 3600 * 1000) {
       console.log('stale ' + String(t))
       data.set('t-proj', +new Date())
-      names.forEach(function(name) {
-        GITR[name]('samsonjs', function(err, things) {
+      user.fetch(function(err, user) {
+        if (user) {
+          data.set('user', user)
+        }
+        names.forEach(function(name) {
           if (err) {
-            text('n' + name, '?')
-          } else {
-            data.set(name, things)
-            updateN(name, things)
+            updateN(name, '?')
+          }
+          else {
+            updateN(name, user[name])
           }
         })
       })
     } else {
       console.log('hit ' + t + ' (' + (+new Date() - t) + ')')
-      names.forEach(function(name) {
-        updateN(name, data.get(name))
-      })
+      names.forEach(function(name) { updateN(name, data.get('user')[name]) })
     }
   }
 }())
