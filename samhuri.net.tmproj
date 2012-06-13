@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>assets/css/style.css</string>
+	<string>assets/js/proj.js</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -98,28 +98,72 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>31</integer>
+				<integer>47</integer>
 				<key>line</key>
-				<integer>52</integer>
+				<integer>112</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>40</integer>
+			<integer>63</integer>
+		</dict>
+		<key>assets/css/proj-common.css</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>90</integer>
+				<key>line</key>
+				<integer>6</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>assets/css/proj.css</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>29</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
 		</dict>
 		<key>assets/css/style.css</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>31</integer>
+				<integer>6</integer>
 				<key>line</key>
-				<integer>63</integer>
+				<integer>40</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>1</integer>
+			<integer>13</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>40</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>6</integer>
+				<key>line</key>
+				<integer>40</integer>
+			</dict>
 		</dict>
 		<key>assets/js/blog.js</key>
 		<dict>
@@ -134,6 +178,50 @@
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
+		</dict>
+		<key>assets/js/gitter.js</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>6</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>assets/js/proj.js</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>15</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>10</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>15</integer>
+			</dict>
 		</dict>
 		<key>assets/js/request.js</key>
 		<dict>
@@ -212,9 +300,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>42</integer>
 				<key>line</key>
-				<integer>0</integer>
+				<integer>49</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -257,6 +345,20 @@
 				<integer>8</integer>
 				<key>line</key>
 				<integer>11</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>projects.json</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>3</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -442,12 +544,12 @@
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>144</integer>
+				<integer>0</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>71</integer>
+			<integer>15</integer>
 		</dict>
 		<key>templates/proj/project.html</key>
 		<dict>
@@ -471,6 +573,7 @@
 		<string>templates/blog/archive.html</string>
 		<string>assets/css/style.css</string>
 		<string>assets/css/mobile.css</string>
+		<string>assets/js/gitter.js</string>
 		<string>Gemfile</string>
 		<string>.gitignore</string>
 		<string>assets/js/blog.js</string>
@@ -479,6 +582,9 @@
 		<string>discussd/package.json</string>
 		<string>package.json</string>
 		<string>bin/projects.js</string>
+		<string>assets/css/proj.css</string>
+		<string>assets/css/proj-common.css</string>
+		<string>projects.json</string>
 		<string>assets/js/request.js</string>
 		<string>templates/blog/post.html</string>
 		<string>public/.htaccess</string>
@@ -487,6 +593,7 @@
 		<string>templates/blog/link.mustache</string>
 		<string>templates/blog/post.mustache</string>
 		<string>templates/proj/index.html</string>
+		<string>assets/js/proj.js</string>
 		<string>public/index.html</string>
 		<string>templates/proj/project.html</string>
 		<string>TODO</string>
