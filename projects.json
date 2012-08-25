@@ -18,7 +18,7 @@
     , "description" : "printf for JavaScript"
     }
   , { "name" : "gitter"
-    , "description" : "a GitHub client for Node (v2 API)"
+    , "description" : "a GitHub client for Node (v3 API)"
     }
   , { "name" : "lake"
     , "description" : "A simple implementation of Scheme in C"
