@@ -1,4 +1,5 @@
 DefaultType text/html
+AddType audio/mp4 m4r
 AddType application/rss+xml rss
 AddOutputFilterByType DEFLATE application/rss+xml text/css application/javascript text/html
 
