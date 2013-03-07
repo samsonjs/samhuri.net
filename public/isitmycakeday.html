@@ -1,0 +1,55 @@
+<!doctype html>
+<title>is it my cake day?</title>
+<style>
+h1, h3, p, footer { text-align: center }
+</style>
+<h1>is it my cake day?</h1>
+<p>
+  reddit name:
+  <input id=user placeholder=spez>
+</p>
+<h3 id=answer></h3>
+<footer>made by <a href=http://reddit.com/user/sjs>sjs</a></footer>
+<script>
+(function() {
+  $user = null, $answer = null;
+  document.addEventListener('DOMContentLoaded', function() {
+    $user = document.getElementById('user');
+    $answer = document.getElementById('answer');
+    $user.addEventListener('change', setRequestTimer);
+    $user.addEventListener('keyup', setRequestTimer);
+  });
+  var timer;
+  function setRequestTimer() {
+    $answer.innerText = '';
+    if (!timer) {
+      timer = setTimeout(checkForCakeDay, 300);
+    }
+  }
+  function checkForCakeDay() {
+    timer = null;
+    var user = encodeURIComponent($user.value);
+    var r = document.createElement('script');
+    r.async = true;
+    r.src = 'http://reddit.com/user/' + user + '/about.json?jsonp=redditCb';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(r, s);
+  }
+  window.redditCb = function(res) {
+    try {
+      var d = new Date(res.data.created_utc * 1000);
+      var now = new Date();
+      var isCakeDay = d.getMonth() == now.getMonth() && d.getDate() == now.getDate();
+      var n = now.getFullYear() - d.getFullYear();
+      var ord = 'th';
+      if (n % 10 == 1 && n % 100 != 11) ord = 'st';
+      if (n % 10 == 2 && n % 100 != 12) ord = 'nd';
+      if (n % 10 == 3 && n % 100 != 13) ord = 'rd';
+      $answer.innerText = isCakeDay ? 'happy ' + n + ord + ' cake day!' : 'nope';
+    } catch (e) {
+      $answer.innerText = 'maybe';
+      console.log(e);
+    }
+  };
+}());
+</script>
