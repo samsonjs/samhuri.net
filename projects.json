@@ -1,12 +1,9 @@
 { "projects" :
-  [ { "name" : "batteries"
-    , "description" : "a general purpose node library"
+  [ { "name" : "strftime"
+    , "description" : "strftime for JavaScript"
     }
   , { "name" : "bin"
     , "description" : "~/bin"
-    }
-  , { "name" : "cheat.el"
-    , "description" : "cheat from emacs"
     }
   , { "name" : "compiler"
     , "description" : "an x86 compiler written in ruby"
@@ -20,6 +17,12 @@
   , { "name" : "gitter"
     , "description" : "a GitHub client for Node (v3 API)"
     }
+  , { "name" : "samhuri.net"
+    , "description" : "this site"
+    }
+  , { "name" : "ThePusher"
+    , "description" : "Github post receive hook router"
+    }
   , { "name" : "lake"
     , "description" : "A simple implementation of Scheme in C"
     }
@@ -29,17 +32,14 @@
   , { "name" : "NorthWatcher"
     , "description" : "cron for filesystem changes"
     }
+  , { "name" : "batteries"
+    , "description" : "a general purpose node library"
+    }
   , { "name" : "repl-edit"
     , "description" : "edit Node repl commands with your text editor"
     }
-  , { "name" : "samhuri.net"
-    , "description" : "this site"
-    }
-  , { "name" : "strftime"
-    , "description" : "strftime for JavaScript"
-    }
-  , { "name" : "ThePusher"
-    , "description" : "Github post receive hook router"
+  , { "name" : "cheat.el"
+    , "description" : "cheat from emacs"
     }
   ]
 }
