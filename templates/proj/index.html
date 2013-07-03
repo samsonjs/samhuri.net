@@ -1,9 +1,9 @@
-<!doctype html> 
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>projects :: samhuri.net</title> 
+  <title>projects :: samhuri.net</title>
   <link rel="icon" type="image/gif" href="../images/s.gif">
   <link rel="stylesheet" href="../css/proj-index-all.min.css">
   <link rel="stylesheet" media="screen" href="../css/mobile.min.css">
@@ -27,6 +27,7 @@
     ; color: #444
     ; margin-bottom: 0.5em
     }
+    #stats a { text-decoration: none }
   </style>
 </head>
 <body>
@@ -40,14 +41,30 @@
 </p>
 <table align="center" id="stats">
   <tr>
-    <td align="right"><span id="npublicRepos"><img src="../images/spinner@2x.gif" width="16" height="16"></span> projects</td>
+    <td align="right">
+      <a href="https://github.com/samsonjs">
+        <span id="npublicRepos"></span> projects
+      </a>
+    </td>
     <td>&mdash;</td>
-    <td align="left"><span id="nfollowers"><img src="../images/spinner@2x.gif" width="16" height="16"></span> followers</td>
+    <td align="left">
+      <a href="https://github.com/samsonjs/followers">
+        <span id="nfollowers"></span> followers
+      </a>
+    </td>
   </tr>
   <tr>
-    <td align="right"><span id="npublicGists"><img src="../images/spinner@2x.gif" width="16" height="16"></span> gists</td>
+    <td align="right">
+      <a href="https://gist.github.com/samsonjs">
+        <span id="npublicGists"></span> gists
+      </a>
+    </td>
     <td>&mdash;</td>
-    <td align="left">following <span id="nfollowing"><img src="../images/spinner@2x.gif" width="16" height="16"></span></td>
+    <td align="left">
+      <a href="https://github.com/samsonjs/following">
+        following <span id="nfollowing"></span>
+      </a>
+    </td>
   </tr>
 </table>
 <nav>
