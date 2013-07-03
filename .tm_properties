@@ -1,1 +1,1 @@
-exclude = "{$exclude,_blog}"
+exclude = "{$exclude,_blog,blog,public/proj,public/blog,*.min.js}"
