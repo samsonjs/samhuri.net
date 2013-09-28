@@ -1,7 +1,7 @@
 DefaultType text/html
 AddType audio/mp4 m4r
 AddType application/rss+xml rss
-AddOutputFilterByType DEFLATE application/rss+xml text/css application/javascript text/html
+AddOutputFilterByType DEFLATE text/plain application/rss+xml text/css application/javascript text/html
 
 # Turn on Expires and set default expires to 3 days
 ExpiresActive On
