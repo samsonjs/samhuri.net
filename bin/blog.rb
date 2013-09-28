@@ -118,6 +118,15 @@ class Blag
     end
   end
 
+  def shorten(n)
+    short = ''
+    while n > 0
+      short = ShortURLCodeSet[n % ShortURLBase, 1] + short
+      n = (n / ShortURLBase).floor
+    end
+    short
+  end
+
   def copy_assets
     Dir[File.join(@src, 'css', '*.css')].each do |stylesheet|
       minified = File.join(@css_dest, File.basename(stylesheet).sub('.css', '.min.css'))
@@ -209,7 +218,7 @@ class Blag
   def rss_html(post)
     Mustache.render(rss_template(post[:type]), { :post => post })
   end
-  
+
   def rss_for_posts(options = {})
     title = options[:title] || @title
     subtitle = options[:subtitle] || @subtitle
@@ -246,15 +255,6 @@ class Blag
       end
     end
     xml
-  end
-
-  def shorten(n)
-    short = ''
-    while n > 0
-      short = ShortURLCodeSet[n % ShortURLBase, 1] + short
-      n = (n / ShortURLBase).floor
-    end
-    short
   end
 
 end
