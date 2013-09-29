@@ -13,8 +13,6 @@ h1 { margin: 0
 
 .hidden { display: none }
 
-#archive { text-align: center }
-
 #index { width: 80%
        ; min-width: 300px
        ; max-width: 800px
@@ -36,7 +34,7 @@ h1 { margin: 0
 article { width: 80%
         ; min-width: 400px
         ; max-width: 800px
-        ; margin: 2em auto 1em
+        ; margin: 0.6em auto
         ; font-size: 1.2em
         ; line-height: 1.4em
         ; color: #222
@@ -45,10 +43,10 @@ article { width: 80%
 #article h1,
 article h1 { text-align: left
            ; font-size: 2em
-           ; font-weight: normal
            ; line-height: 1.2em
+           ; font-weight: normal
            ; color: #222
-           ; margin: 1em 0
+           ; margin: 0
            ; padding-left: 0
            }
 
@@ -131,7 +129,7 @@ input[type=submit]:active,
    }
 
 .comment big { font-size: 2em
-       ; font-family: Georgia, serif
+       ; font-family: Verdana, sans-serif
        }
 
 #comment-form { width: 400px

@@ -24,13 +24,11 @@
   /* common */
 
   h1 { font-size: 2em
-     ; margin-top: 1em
+     ; margin-top: 0.5em
      }
-  h2 { font-size: 1.3em }
+  h2 { font-size: 1.3em; line-height: 1.5em }
 
-  #blog h1 { margin-top: 0 }
-
-  #breadcrumbs { font-size: 0.8em }
+  .navbar { font-size: 0.8em }
 
   #show-posts { margin-top: 1em
               ; font-size: 0.8em
@@ -65,6 +63,7 @@
 
   #blog #article h1,
   #blog article h1 { font-size: 1.6em
+                   ; line-height: 1.8em
                    ; margin-top: 0
                    }
 
@@ -76,7 +75,7 @@
           }
 
   .time,
-  time { font-size: 1.1em }
+  time { font-size: 1.0em }
 
   pre, .gist { font-size: 0.8em }
 
@@ -125,7 +124,7 @@
        only screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 480px),
           handheld and (orientation: landscape) and (max-device-width: 800px)
 {
-  body { font-size: 0.7em }
+  body { font-size: 0.8em }
 }
 
 

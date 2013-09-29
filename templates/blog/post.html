@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>{{title}} :: sjs' blog</title>
+  <title>{{title}} - sjs's blog</title>
   <meta name="keywords" content="{{keywords}}">
   <link rel="icon" type="image/gif" href="../images/s.gif">
   <link rel="stylesheet" href="../css/blog-all.min.css">
@@ -11,72 +11,76 @@
   {{#styles}}
   <link rel="stylesheet" href="../css/{{.}}.min.css">
   {{/styles}}
-  <link rel="alternate" type="application/rss+xml" href="http://samhuri.net/blog/sjs.rss" title="sjs' blog">
+  <link rel="alternate" type="application/rss+xml" href="http://samhuri.net/blog/sjs.rss" title="sjs's blog">
 </head>
 <body id="blog">
-<nav id="breadcrumbs"><a href="../">samhuri.net</a></nav>
-<header>
-  <h1><a href="../blog">sjs' blog</a></h1>
-</header>
-<nav id="archive"><a href="archive">archive</a></nav>
-{{{article}}}
-{{#comments}}
-<p id="need-js" align="center"><strong>(discussion requires JavaScript)</strong></p>
-<div class="center" id="sd-container"><a id="sd" href="#comment-stuff">show the discussion</a></div>
-<div id="comment-stuff">
-  <div id="comments">
-    <div id="comments-spinner"><img src="../images/spinner@2x.gif" width="16" height="16"></div>
-  </div>
-  <form id="comment-form">
-    <input name="post" type="hidden" value="{{filename}}">
-    <p><input name="name" type="text" placeholder="name"></p>
-    <p><input name="email" type="text" placeholder="email"></p>
-    <p><input name="url" type="text" placeholder="url"></p>
-    <p><textarea id="thoughts" name="body" placeholder="thoughts"></textarea></p>
-    <p align="center"><input type="submit" value="so there"></p>
-  </form>
-</div>
-<script type="text/html" id="comment_tmpl">
-  <div class="comment">
-    <a name="comment-<%= id %>" id="comment-<%= id %>"></a>
-    <p>
-      <% if (url) { %>
-        <a href="<%= url %>"><%= name %></a>
-      <% } else { %>
-        <%= name %>
-      <% } %>
-      @ <a href="#comment-<%= id %>"><%= strftime('%F %I:%M %p', new Date(timestamp)) %></a>
-    </p>
-    <blockquote><%= html %></blockquote>
-  </div>
-</script>
-{{/comments}}
-<footer>
-  <p>You can <a href="https://twitter.com/_sjs">find me on twitter</a>.</p>
-  <p><a href="mailto:sami@samhuri.net">sami@samhuri.net</a></p>
-</footer>
-<script>
-var _gaq = _gaq || []
-_gaq.push( ['_setAccount', 'UA-214054-5']
-         , ['_trackPageview']
-         )
+  <nav class="navbar" id="breadcrumbs"><a href="../">samhuri.net</a></nav>
+  <nav class="navbar" id="title"><a href="../blog">sjs's blog</a></nav>
+  <nav class="navbar" id="archive"><a href="archive">archive</a></nav>
 
-;(function() {
-  var ga = document.createElement('script')
-  ga.type = 'text/javascript'
-  ga.async = true
-  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'
-  var s = document.getElementsByTagName('script')[0]
-  s.parentNode.insertBefore(ga, s)
-}())
-</script>
-{{#comments}}
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-<script>
-window.SJS = window.SJS || {}
-window.SJS.filename = "{{filename}}"
-</script>
-<script src="../js/blog-all.min.js"></script>
-{{/comments}}
+  {{{article}}}
+
+  {{#comments}}
+    <p id="need-js" align="center"><strong>(discussion requires JavaScript)</strong></p>
+    <div class="center" id="sd-container"><a id="sd" href="#comment-stuff">show the discussion</a></div>
+    <div id="comment-stuff">
+      <div id="comments">
+        <div id="comments-spinner"><img src="../images/spinner@2x.gif" width="16" height="16"></div>
+      </div>
+      <form id="comment-form">
+        <input name="post" type="hidden" value="{{filename}}">
+        <p><input name="name" type="text" placeholder="name"></p>
+        <p><input name="email" type="text" placeholder="email"></p>
+        <p><input name="url" type="text" placeholder="url"></p>
+        <p><textarea id="thoughts" name="body" placeholder="thoughts"></textarea></p>
+        <p align="center"><input type="submit" value="so there"></p>
+      </form>
+    </div>
+    <script type="text/html" id="comment_tmpl">
+      <div class="comment">
+        <a name="comment-<%= id %>" id="comment-<%= id %>"></a>
+        <p>
+          <% if (url) { %>
+            <a href="<%= url %>"><%= name %></a>
+          <% } else { %>
+            <%= name %>
+          <% } %>
+          @ <a href="#comment-<%= id %>"><%= strftime('%F %I:%M %p', new Date(timestamp)) %></a>
+        </p>
+        <blockquote><%= html %></blockquote>
+      </div>
+    </script>
+  {{/comments}}
+
+  <footer>
+    <p>You can <a href="https://twitter.com/_sjs">find me on twitter</a>.</p>
+    <p><a href="mailto:sami@samhuri.net">sami@samhuri.net</a></p>
+  </footer>
+
+  <script>
+    var _gaq = _gaq || []
+    _gaq.push( ['_setAccount', 'UA-214054-5']
+             , ['_trackPageview']
+             )
+
+    ;(function() {
+      var ga = document.createElement('script')
+      ga.type = 'text/javascript'
+      ga.async = true
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'
+      var s = document.getElementsByTagName('script')[0]
+      s.parentNode.insertBefore(ga, s)
+    }())
+  </script>
+
+  {{#comments}}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script>
+      window.SJS = window.SJS || {}
+      window.SJS.filename = "{{filename}}"
+    </script>
+    <script src="../js/blog-all.min.js"></script>
+  {{/comments}}
+
 </body>
 </html>
