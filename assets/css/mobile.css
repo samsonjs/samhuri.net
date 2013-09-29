@@ -28,7 +28,9 @@
      }
   h2 { font-size: 1.3em; line-height: 1.2em }
 
-  .navbar { font-size: 0.8em }
+  .navbar { font-size: 0.9em }
+  .navbar { width: 32% }
+  #breadcrumbs { margin-left: 5px }
 
   #show-posts { margin-top: 1em
               ; font-size: 0.8em

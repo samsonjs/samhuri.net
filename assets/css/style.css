@@ -22,15 +22,19 @@ a { color: #0E539C }
 
 a.img { border: none }
 
-.navbar { font-size: 1.5em; line-height: 1.8em; padding: 0 0.2em }
+.navbar { display: inline-block
+        ; width: 33%
+        ; font-size: 1.5em
+        ; line-height: 1.8em
+        ; margin: 0
+        ; padding: 0
+        }
+
 .navbar a { text-shadow: none }
 
-#breadcrumbs { float: left }
 #breadcrumbs a { color: #222 }
-
-#archive { float: right }
-
 #title { text-align: center }
+#archive { text-align: right }
 
 #forkme { position: absolute
         ; top: 0
