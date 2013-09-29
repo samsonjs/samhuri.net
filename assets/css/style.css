@@ -23,17 +23,14 @@ a { color: #0E539C }
 a.img { border: none }
 
 .navbar { font-size: 1.5em; line-height: 1.8em; padding: 0 0.2em }
+.navbar a { text-shadow: none }
 
 #breadcrumbs { float: left }
-#breadcrumbs a { text-shadow: none
-               ; color: #222
-               }
-
-#title { font-size: 1.6em; text-align: center }
-#title a { text-shadow: none }
+#breadcrumbs a { color: #222 }
 
 #archive { float: right }
-#archive a { text-shadow: none }
+
+#title { text-align: center }
 
 #forkme { position: absolute
         ; top: 0

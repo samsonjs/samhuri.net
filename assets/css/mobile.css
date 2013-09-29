@@ -26,7 +26,7 @@
   h1 { font-size: 2em
      ; margin-top: 0.5em
      }
-  h2 { font-size: 1.3em; line-height: 1.5em }
+  h2 { font-size: 1.3em; line-height: 1.2em }
 
   .navbar { font-size: 0.8em }
 
@@ -63,14 +63,16 @@
 
   #blog #article h1,
   #blog article h1 { font-size: 1.6em
-                   ; line-height: 1.8em
+                   ; line-height: 1.2em
                    ; margin-top: 0
                    }
+
+  #blog article h2 { font-size: 1.4em }
 
   #article,
   article { min-width: 310px
           ; margin: 0
-          ; padding: 1em 0.4em
+          ; padding: 0.6em 0.4em
           ; font-size: 0.8em
           }
 
@@ -114,6 +116,7 @@
   footer { margin: 0
          ; padding: 0.5em 0
          ; font-size: 1em
+         ; width: 100%
          }
 
 }
