@@ -4,7 +4,4 @@ td { font-size: 1.5em
 
 td:nth-child(2) { padding: 0 10px }
 
-.highlight { background-image: -webkit-gradient(radial, 50% 50%, 5, 50% 50%, 15, from(#ffc), to(#f7f7f7))
-           ; background-image: -moz-radial-gradient(center 45deg, circle contain, #ffa 0%, #f7f7f7 100%)
-           ; font-size: 1.2em
-           }
+.highlight { font-size: 1.2em }
