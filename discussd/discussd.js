@@ -167,6 +167,11 @@ function handleRequest(req, res) {
 }
 
 function commentServer(context) {
+    return { get: getComments
+           , count: countComments
+           , post: postComment
+           }
+
     function addComment(post, name, email, url, body, timestamp) {
         var comments = context.db.get(post) || []
         comments.push({ id: comments.length + 1
@@ -250,11 +255,6 @@ function commentServer(context) {
         comments = context.db.get(post) || []
         res.respond({count: comments.length})
     }
-
-    return { get: getComments
-           , count: countComments
-           , post: postComment
-           }
 }
 
 function requestHandler(context) {
