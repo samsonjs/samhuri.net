@@ -1,22 +1,6 @@
 TODO
 ====
 
- * bookmarklet for posting to blog
+ * remove comments
 
- * comment admin
-
- * comment notification
-
- * promote JS links on project pages (the only ones that mention javascript so far!)
-
- * last commit date
-
- * svg commit graph
-
- * semantic markup (section, nav, header, footer, etc)
-
- * rss -> atom
-
- * announce posts on twitter
-
- * finish recovering old posts and comments
+ * use harp
