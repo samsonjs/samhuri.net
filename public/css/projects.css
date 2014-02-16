@@ -1,0 +1,51 @@
+td { font-size: 1.5em
+   ; line-height: 1.6em
+   }
+
+td:nth-child(2) { padding: 0 10px }
+
+.highlight { font-size: 1.2em }
+
+#stats a { text-decoration: none }
+
+#info { text-align: center
+      ; margin: 1em auto
+      ; padding: 1em
+      ; border: solid 1px #ccc
+      ; width: 90%
+      ; max-width: 950px
+      ; background-color: #fff
+      ; -moz-border-radius: 20px
+      ; -webkit-border-radius: 20px
+      ; border-radius: 20px
+      ; behavior: url(../js/border-radius.htc)
+      ; behavior: url(../../js/border-radius.htc)
+      }
+
+h4 { margin: 0.5em 0 0.7em }
+
+#info > div { text-align: center
+            ; font-size: 1.3em
+            ; width: 31%
+            ; max-width: 400px
+            ; float: left
+            ; display: inline
+            ; padding: 0.5em 0.2em
+            ; border-left: dashed 1px #aaa
+            }
+
+#info > div:first-child { border-left: none }
+
+#info ul { list-style-type: none
+   ; text-align: center
+   ; padding: 0
+   ; margin: 0
+   }
+
+#info li { padding: 0.2em 0
+   ; margin: 0
+   }
+
+#info > br.clear { clear: both }
+
+#contributors-box a { line-height: 1.8em }

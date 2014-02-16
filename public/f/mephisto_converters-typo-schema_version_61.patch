@@ -1,0 +1,81 @@
+diff -Nupr mephisto_converters/lib/converters/typo/article.rb mephisto_converters-schema_61/lib/converters/typo/article.rb
+--- mephisto_converters/lib/converters/typo/article.rb	2006-11-23 10:57:06.000000000 -0800
++++ mephisto_converters-schema_61/lib/converters/typo/article.rb	2007-05-26 01:54:19.000000000 -0700
+@@ -1,7 +1,8 @@
+ module Typo
+   class Article < Content
+-    has_many :comments, :dependent => true, :order => "created_at ASC", :class_name => 'Typo::Comment'
++    has_many :comments, :dependent => :destroy, :order => "created_at ASC", :class_name => 'Typo::Comment'
+     has_and_belongs_to_many :tags, :class_name => 'Typo::Tag'
+-    has_and_belongs_to_many :categories, :class_name => 'Typo::Category'
++    has_many :categorizations, :class_name => 'Typo::Categorization'
++    has_many :categories, :class_name => 'Typo::Category', :through => :categorizations
+   end
+ end
+diff -Nupr mephisto_converters/lib/converters/typo/categorization.rb mephisto_converters-schema_61/lib/converters/typo/categorization.rb
+--- mephisto_converters/lib/converters/typo/categorization.rb	1969-12-31 16:00:00.000000000 -0800
++++ mephisto_converters-schema_61/lib/converters/typo/categorization.rb	2007-05-26 01:44:19.000000000 -0700
+@@ -0,0 +1,7 @@
++module Typo
++  class Categorization < ActiveRecord::Base
++    establish_connection configurations['typo']
++    belongs_to :article, :class_name => 'Typo::Article'
++    belongs_to :category, :class_name => 'Typo::Category'
++  end
++end
+diff -Nupr mephisto_converters/lib/converters/typo/category.rb mephisto_converters-schema_61/lib/converters/typo/category.rb
+--- mephisto_converters/lib/converters/typo/category.rb	2006-11-23 10:57:06.000000000 -0800
++++ mephisto_converters-schema_61/lib/converters/typo/category.rb	2007-05-26 01:42:02.000000000 -0700
+@@ -1,6 +1,7 @@
+ module Typo
+   class Category < ActiveRecord::Base
+     establish_connection configurations['typo']
+-    has_and_belongs_to_many :articles, :class_name => 'Typo::Article'
++    has_many :categorizations, :class_name => 'Typo::Categorization'
++    has_many :articles, :class_name => 'Typo::Article', :through => :categorizations
+   end
+ end
+diff -Nupr mephisto_converters/lib/converters/typo/comment.rb mephisto_converters-schema_61/lib/converters/typo/comment.rb
+--- mephisto_converters/lib/converters/typo/comment.rb	2006-11-23 10:57:06.000000000 -0800
++++ mephisto_converters-schema_61/lib/converters/typo/comment.rb	2007-05-26 01:54:30.000000000 -0700
+@@ -1,5 +1,7 @@
+ module Typo
+-  class Comment < Content
+-#    belongs_to :article, :foreign_key => 'parentid', :class_name => 'Typo::Comment'
++  class Comment < Feedback
++    establish_connection configurations['typo']
++    belongs_to :article, :class_name => 'Typo::Article'
++    belongs_to :user, :class_name => 'Typo::User'
+   end
+ end
+diff -Nupr mephisto_converters/lib/converters/typo/feedback.rb mephisto_converters-schema_61/lib/converters/typo/feedback.rb
+--- mephisto_converters/lib/converters/typo/feedback.rb	1969-12-31 16:00:00.000000000 -0800
++++ mephisto_converters-schema_61/lib/converters/typo/feedback.rb	2007-05-26 01:55:28.000000000 -0700
+@@ -0,0 +1,6 @@
++module Typo
++  class Feedback < Content
++    set_table_name 'feedback'
++    establish_connection configurations['typo']
++  end
++end
+diff -Nupr mephisto_converters/lib/converters/typo.rb mephisto_converters-schema_61/lib/converters/typo.rb
+--- mephisto_converters/lib/converters/typo.rb	2006-11-23 10:57:06.000000000 -0800
++++ mephisto_converters-schema_61/lib/converters/typo.rb	2007-05-26 01:53:14.000000000 -0700
+@@ -1,8 +1,10 @@
+ require 'converters/typo/content'
+ require 'converters/typo/page'
+ require 'converters/typo/article'
++require 'converters/typo/feedback'
+ require 'converters/typo/comment'
+ require 'converters/typo/category'
++require 'converters/typo/categorization'
+ require 'converters/typo/user'
+ require 'converters/typo/tag'
+ 
+@@ -77,4 +79,4 @@ class TypoConverter < BaseConverter
+       memo << (sections[::Section.permalink_for(cat.name)] || site.sections.create(:name => cat.name)).id
+     end
+   end
+-end
+\ No newline at end of file
++end

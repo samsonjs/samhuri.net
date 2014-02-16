@@ -1,0 +1,140 @@
+/* phones and iPad */
+
+@media only screen and (orientation: portrait) and (min-device-width: 768px) and (max-device-width: 1024px),
+       only screen and (min-device-width: 320px) and (max-device-width: 480px),
+       only screen and (max-device-width: 800px)
+{
+  ul.nav { padding: 0.5em
+         ; width: 60%
+         ; max-width: 600px
+         }
+
+  ul.nav li { display: block
+            ; font-size: 1.5em
+            ; line-height: 1.8em
+            }
+
+  ul.nav li:after { content: '' }
+}
+
+/* phones */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px),
+       handheld and (max-device-width: 800px)
+{
+  /* common */
+
+  h1 { font-size: 2em
+     ; margin-top: 0.5em
+     }
+  h2 { font-size: 1.3em; line-height: 1.2em }
+
+  .navbar { font-size: 0.9em }
+  .navbar { width: 32% }
+  #breadcrumbs { margin-left: 5px }
+
+  #show-posts { margin-top: 1em
+              ; font-size: 0.8em
+              }
+
+  #forkme { display: none }
+
+  ul.nav { width: 80% }
+
+  ul.nav li { font-size: 1.4em
+            ; line-height: 1.6em
+            }
+
+  td { font-size: 1em
+     ; line-height: 1.1em
+     }
+
+  img { max-width: 100% }
+
+  #index { width: 90%
+         ; min-width: 200px
+         ; margin: 0.3em auto 1em
+         ; padding: 0.5em
+         ; font-size: 1em
+         }
+
+  #index li > span.date { display: block
+                        ; float: none
+                        ; color: #666
+                        ; font-size: 0.8em
+                        }
+
+  #article h1,
+  article h1 { font-size: 1.6em
+             ; line-height: 1.2em
+             ; margin-top: 0
+             }
+
+  article h2 { font-size: 1.4em }
+
+  #article,
+  article { min-width: 310px
+          ; margin: 0
+          ; padding: 0.6em 0.4em
+          ; font-size: 0.8em
+          }
+
+  .time,
+  time { font-size: 1.0em }
+
+  pre, .gist { font-size: 0.8em }
+
+  #comment-stuff { padding: 0
+                 ; margin-top: 2em
+                 }
+
+  #comments { width: 100% }
+
+  #comment-form { width: 90%
+                ; margin: 0 auto
+                }
+
+  input[type=text],
+  textarea { font-size: 1.2em
+           ; width: 95%
+           }
+
+  input[type=submit] { font-size: 1em }
+
+  /* proj */
+  #info { width: 70%
+        ; padding: 0 1em
+        }
+
+  #info > div { clear: left
+              ; width: 100%
+              ; max-width: 100%
+              ; padding: 0.5em 0.2em 1em
+              ; border-left: none
+              ; font-size: 1em
+              }
+
+  #stats { font-size: 1em; margin-bottom: 0.5em }
+
+  footer { margin: 0
+         ; padding: 0.5em 0
+         ; font-size: 1em
+         ; width: 100%
+         }
+
+}
+
+/* landscape */
+
+@media only screen and (orientation: landscape) and (min-device-width: 768px) and (max-device-width: 1024px),
+       only screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 480px),
+          handheld and (orientation: landscape) and (max-device-width: 800px)
+{
+  body { font-size: 0.8em }
+}
+
+
+/* iPad portrait */
+@media only screen and (orientation: portrait) and (min-device-width: 768px) and (max-device-width: 1024px)
+{
+  article > header > h1 { font-size: 1.8em }
+}

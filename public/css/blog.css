@@ -1,0 +1,179 @@
+body { margin: 0
+     ; padding: 0
+     }
+
+h1 { margin: 0
+   ; padding: 0.2em
+   ; color: #9ab
+   }
+
+.center { text-align: center
+        ; font-size: 1.2em
+        }
+
+.hidden { display: none }
+
+#index { width: 80%
+       ; min-width: 300px
+       ; max-width: 800px
+       ; border: solid 1px #999
+       ; -moz-border-radius: 10px
+       ; -webkit-border-radius: 10px
+       ; border-radius: 10px
+       ; background-color: #eee
+       ; margin: 1em auto
+       ; padding: 1em
+       ; font-size: 1.2em
+       ; line-height: 1.5em
+       ; list-style-type: none
+       }
+
+.date { float: right }
+
+#article,
+article { width: 80%
+        ; min-width: 400px
+        ; max-width: 800px
+        ; margin: 0.6em auto
+        ; font-size: 1.2em
+        ; line-height: 1.4em
+        ; color: #222
+        }
+
+#article h1,
+article h1 { text-align: left
+           ; font-size: 2em
+           ; line-height: 1.2em
+           ; font-weight: normal
+           ; color: #222
+           ; margin: 0
+           ; padding-left: 0
+           }
+
+#article h1 a,
+article h1 a { color: #222
+             ; text-decoration: underline
+             ; border-bottom: none
+             ; text-shadow: #ccc 1px 1px 5px
+             ; -webkit-transition: text-shadow 0.4s ease-in
+             }
+
+#article h1 a:hover,
+article h1 a:hover { text-shadow: 1px 1px 6px #ffc
+                   ; color: #000
+                   }
+
+#article h2,
+article h2 { font-size: 1.8em
+           ; font-weight: normal
+           ; text-align: left
+           ; margin: 1em 0
+           ; padding: 0
+           ; color: #222
+           }
+
+#article h3,
+article h3 { font-size: 1.6em
+           ; font-weight: normal
+           }
+
+.time,
+time { color: #444
+     ; font-size: 1.2em
+     }
+
+.permalink { font-size: 1em }
+
+.gist { font-size: 0.8em }
+
+/* show discussion */
+#sd-container { margin: 3em 0 }
+
+input[type=submit],
+#sd { border: solid 1px #999
+    ; border-right-color: #333
+    ; border-bottom-color: #333
+    ; padding: 0.4em 1em
+    ; color: #444
+    ; background-color: #ececec
+    ; -moz-border-radius: 5px
+    ; -webkit-border-radius: 5px
+    ; border-radius: 5px
+    ; text-decoration: none
+    ; margin: 0 2px 2px 0
+    }
+
+input[type=submit]:active,
+#sd:active { margin: 2px 0 0 2px
+     ; color: #000
+     ; background-color: #ffc
+     }
+
+#comment-stuff { display: none
+               ; color: #efefef
+               ; margin: 0
+               ; padding: 2em 0
+               }
+
+#comments-spinner { text-align: center }
+
+#comments { width: 70%
+    ; max-width: 600px
+    ; margin: 0 auto
+    }
+
+.comment { color: #555
+   ; border-top: solid 2px #ccc
+   ; padding-bottom: 2em
+   ; margin-bottom: 2em
+   }
+
+.comment big { font-size: 2em
+       ; font-family: Verdana, sans-serif
+       }
+
+#comment-form { width: 400px
+              ; margin: 2em auto 0
+              }
+
+input[type=text],
+textarea { font-size: 1.4em
+         ; color: #333
+         ; width: 100%
+         ; padding: 0.2em
+         ; border: solid 1px #999
+         ; -moz-border-radius: 5px
+         ; -webkit-border-radius: 5px
+         ; border-radius: 5px
+         ; font-family: verdana, sans-serif
+         }
+
+input:focus[type=text],
+textarea:focus { border: solid 1px #333 }
+
+textarea { height: 100px }
+
+input[type=submit] { font-size: 1.1em
+                   ; cursor: pointer
+                   }
+
+pre { background-color: #eeeef3
+    ; margin: 0.5em 1em 1em
+    ; padding: 0.5em
+    ; border: dashed 1px #ccc
+    }
+
+footer { margin: 0 auto
+       ; padding: 0.2em 0
+       ; border-top: solid 1px #ddd
+       ; clear: both
+       ; width: 80%
+       }
+
+footer p { margin: 0.5em }
+
+footer a { border-bottom: none
+         ; color: #25c
+         ; font-size: 1.2em
+         ; text-decoration: none
+         }

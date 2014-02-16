@@ -1,11 +1,1 @@
 .bundle
-_blog
-public/js/*.js
-public/css/*.css
-discussd/discuss.dirty
-public/blog
-public/proj
-node_modules
-public/s42/.htaccess
-public/images/blog
-public/f
