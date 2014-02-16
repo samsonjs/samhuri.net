@@ -1,12 +1,12 @@
 #!/bin/bash
 
+# exit on errors
+set -e
+
 bail() {
     echo fail: $*
     exit 1
 }
-
-# exit on errors
-set -e
 
 publish_host=samhuri.net
 publish_dir=samhuri.net/public/

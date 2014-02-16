@@ -1,0 +1,9 @@
+<% var post = public._data.latest %>
+
+<article>
+  <header>
+    <h1><a href="<%= post.url %>"><%= post.title %></a></h1>
+    <time><%= post.date %></time>
+  </header>
+  <%- post.body %>
+</article>

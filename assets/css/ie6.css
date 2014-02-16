@@ -1,7 +1,0 @@
-ul { behavior: none
-   ; padding-bottom: 25px
-   }
-
-img { behavior: url(../js/iepngfix.htc)
-    ; behavior: url(../../js/iepngfix.htc)
-    }

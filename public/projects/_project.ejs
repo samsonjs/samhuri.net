@@ -1,0 +1,44 @@
+  <link rel="stylesheet" href="/css/projects.css">
+
+  <a href="https://github.com/samsonjs/<%= title %>"><img id="forkme" src="/images/forkme@2x.png" width="140" height="140" alt="Fork me on GitHub"></a>
+  <h1><%= title %></h1>
+  <h2><%= description %></h2>
+  <table align="center" id="stats">
+    <tr>
+      <td align="right">
+        <span id="nwatchers"></span> watcher<span id="wplural">s</span>
+      </td>
+      <td>&mdash;</td>
+      <td align="left">
+        <a href="https://github.com/samsonjs/<%= title %>/network/members">
+          <span id="nforks"></span> fork<span id="fplural">s</span>
+        </a>
+      </td>
+    </tr>
+  </table>
+  <div id="info">
+    <div>
+      <h4>branches</h4>
+      <span id="branches"></span>
+    </div>
+    <div>
+      <h4>languages</h4>
+      <span id="langs"></span>
+    </div>
+    <div id="contributors-box">
+      <h4>contributors</h4>
+      <span id="contributors"></span>
+    </div>
+    <br class="clear">
+  </div>
+  <!--[if lt IE 8]>
+  <script src="http://d1eqzjbvoh1rux.cloudfront.net/json2.min.js"></script>
+  <script src="/js/storage-polyfill.js"></script>
+  <![endif]-->
+  <script src="http://ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js"></script>
+  <script src="/js/gitter.js"></script>
+  <script src="/js/store.js"></script>
+  <script src="/js/projects.js"></script>
+  <script>
+    SJS.proj('<%= title %>')
+  </script>

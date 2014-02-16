@@ -1,0 +1,623 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0124)http://sami.samhuri.net/articles/2006/02/18/textmate-snippets-for-rails-migrations -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Some TextMate snippets for Rails Migrations - samhuri.net</title>
+  
+  <meta content="48.472,-123.3683" name="ICBM">
+  <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://sami.samhuri.net/xml/rsd">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://sami.samhuri.net/xml/rss20/article/10/feed.xml">
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="http://sami.samhuri.net/xml/atom10/article/10/feed.xml">
+  <script src="./Some TextMate snippets for Rails Migrations - samhuri.net_files/cookies.js" type="text/javascript"></script><style type="text/css" style="display: none !important;">object:not([type]),object[classid$=":D27CDB6E-AE6D-11cf-96B8-444553540000"],object[classid$=":d27cdb6e-ae6d-11cf-96b8-444553540000"],object[codebase*="swflash.cab"],object[data*=".swf"],object[type="application/x-shockwave-flash"],object[src*=".swf"],object[codetype="application/x-shockwave-flash"],embed[type="application/x-shockwave-flash"],embed[src*=".swf"],embed[allowscriptaccess],embed[flashvars],embed[wmode],object[classid$=":166B1BCA-3F9C-11CF-8075-444553540000"],object[codebase*="sw.cab"],object[data*=".dcr"],object[type="application/x-director"],object[src*=".dcr"],embed[type="application/x-director"],embed[src*=".dcr"],object[classid$=":15B782AF-55D8-11D1-B477-006097098764"],object[codebase*="awswaxf.cab"],object[data*=".aam"],object[type="application/x-authorware-map"],object[src*=".aam"],embed[type="application/x-authorware-map"],embed[src*=".aam"],object[classid$="32C73088-76AE-40F7-AC40-81F62CB2C1DA"],object[type="application/ag-plugin"],object[type="application/x-silverlight"],object[type="application/x-silverlight-2"],object[source*=".xaml"],object[sourceelement*="xaml"],embed[type="application/ag-plugin"],embed[source*=".xaml"]{display: none !important;}</style>
+  <script src="./Some TextMate snippets for Rails Migrations - samhuri.net_files/prototype.js" type="text/javascript"></script>
+  <script src="./Some TextMate snippets for Rails Migrations - samhuri.net_files/effects.js" type="text/javascript"></script>
+  <script src="./Some TextMate snippets for Rails Migrations - samhuri.net_files/typo.js" type="text/javascript"></script>
+  
+  <script type="text/javascript"></script>
+  <link href="./Some TextMate snippets for Rails Migrations - samhuri.net_files/island.css" media="all" rel="Stylesheet" type="text/css">
+  <link href="./Some TextMate snippets for Rails Migrations - samhuri.net_files/user-styles.css" media="all" rel="Stylesheet" type="text/css">
+  <link href="./Some TextMate snippets for Rails Migrations - samhuri.net_files/print.css" media="print" rel="Stylesheet" type="text/css">
+</head>
+
+<body><div id="wm-ipp" style="position: relative; padding-top: 0px; padding-right: 5px; padding-bottom: 0px; padding-left: 5px; min-height: 70px; min-width: 800px; z-index: 9000; display: block; ">
+<div id="wm-ipp-inside" style="position:fixed;padding:0!important;margin:0!important;width:97%;min-width:780px;border:5px solid #000;border-top:none;background-image:url(http://staticweb.archive.org/images/toolbar/wm_tb_bk_trns.png);text-align:center;-moz-box-shadow:1px 1px 3px #333;-webkit-box-shadow:1px 1px 3px #333;box-shadow:1px 1px 3px #333;font-size:11px!important;font-family:&#39;Lucida Grande&#39;,&#39;Arial&#39;,sans-serif!important;">
+   <table style="border-collapse:collapse;margin:0;padding:0;width:100%;"><tbody><tr>
+   <td style="padding:10px;vertical-align:top;min-width:110px;">
+   <a href="http://wayback.archive.org/web/" title="Wayback Machine home page" style="background-color:transparent;border:none;"><img src="./Some TextMate snippets for Rails Migrations - samhuri.net_files/wayback-toolbar-logo.png" alt="Wayback Machine" width="110" height="39" border="0"></a>
+   </td>
+   <td style="padding:0!important;text-align:center;vertical-align:top;width:100%;">
+
+       <table style="border-collapse:collapse;margin:0 auto;padding:0;width:570px;"><tbody><tr>
+       <td style="padding:3px 0;" colspan="2">
+       <form target="_top" method="get" action="http://wayback.archive.org/web/form-submit.jsp" name="wmtb" id="wmtb" style="margin:0!important;padding:0!important;"><input type="text" name="url" id="wmtbURL" value="http://sami.samhuri.net/articles/2006/02/18/textmate-snippets-for-rails-migrations" style="width:400px;font-size:11px;font-family:&#39;Lucida Grande&#39;,&#39;Arial&#39;,sans-serif;" onfocus="javascript:this.focus();this.select();"><input type="hidden" name="type" value="replay"><input type="hidden" name="date" value="20060615034816"><input type="submit" value="Go" style="font-size:11px;font-family:&#39;Lucida Grande&#39;,&#39;Arial&#39;,sans-serif;margin-left:5px;"><span id="wm_tb_options" style="display:block;"></span></form>
+       </td>
+       <td style="vertical-align:bottom;padding:5px 0 0 0!important;" rowspan="2">
+           <table style="border-collapse:collapse;width:110px;color:#99a;font-family:&#39;Helvetica&#39;,&#39;Lucida Grande&#39;,&#39;Arial&#39;,sans-serif;"><tbody>
+			
+           <!-- NEXT/PREV MONTH NAV AND MONTH INDICATOR -->
+           <tr style="width:110px;height:16px;font-size:10px!important;">
+           	<td style="padding-right:9px;font-size:11px!important;font-weight:bold;text-transform:uppercase;text-align:right;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+		                <a href="http://sami.samhuri.net/articles/2006/02/18/textmate-snippets-for-rails-migrations" style="text-decoration:none;color:#33f;font-weight:bold;background-color:transparent;border:none;" title="2 May 2006"><strong>MAY</strong></a>
+		                
+               </td>
+               <td id="displayMonthEl" style="background:#000;color:#ff0;font-size:11px!important;font-weight:bold;text-transform:uppercase;width:34px;height:15px;padding-top:1px;text-align:center;" title="You are here: 3:48:16 Jun 15, 2006">JUN</td>
+				<td style="padding-left:9px;font-size:11px!important;font-weight:bold;text-transform:uppercase;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+		                <a href="http://sami.samhuri.net/articles/2006/02/18/textmate-snippets-for-rails-migrations" style="text-decoration:none;color:#33f;font-weight:bold;background-color:transparent;border:none;" title="16 Jul 2006"><strong>JUL</strong></a>
+		                
+               </td>
+           </tr>
+
+           <!-- NEXT/PREV CAPTURE NAV AND DAY OF MONTH INDICATOR -->
+           <tr>
+               <td style="padding-right:9px;white-space:nowrap;overflow:visible;text-align:right!important;vertical-align:middle!important;" nowrap="nowrap">
+               
+		                <a href="http://sami.samhuri.net/articles/2006/02/18/textmate-snippets-for-rails-migrations" title="7:21:47 May 2, 2006" style="background-color:transparent;border:none;"><img src="./Some TextMate snippets for Rails Migrations - samhuri.net_files/wm_tb_prv_on.png" alt="Previous capture" width="14" height="16" border="0"></a>
+		                
+               </td>
+               <td id="displayDayEl" style="background:#000;color:#ff0;width:34px;height:24px;padding:2px 0 0 0;text-align:center;font-size:24px;font-weight: bold;" title="You are here: 3:48:16 Jun 15, 2006">15</td>
+				<td style="padding-left:9px;white-space:nowrap;overflow:visible;text-align:left!important;vertical-align:middle!important;" nowrap="nowrap">
+               
+		                <a href="http://sami.samhuri.net/articles/2006/02/18/textmate-snippets-for-rails-migrations" title="10:24:58 Jul 3, 2006" style="background-color:transparent;border:none;"><img src="./Some TextMate snippets for Rails Migrations - samhuri.net_files/wm_tb_nxt_on.png" alt="Next capture" width="14" height="16" border="0"></a>
+		                
+			    </td>
+           </tr>
+
+           <!-- NEXT/PREV YEAR NAV AND YEAR INDICATOR -->
+           <tr style="width:110px;height:13px;font-size:9px!important;">
+				<td style="padding-right:9px;font-size:11px!important;font-weight: bold;text-align:right;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+                       2005
+                       
+               </td>
+               <td id="displayYearEl" style="background:#000;color:#ff0;font-size:11px!important;font-weight: bold;padding-top:1px;width:34px;height:13px;text-align:center;" title="You are here: 3:48:16 Jun 15, 2006">2006</td>
+				<td style="padding-left:9px;font-size:11px!important;font-weight: bold;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+		                <a href="http://sami.samhuri.net/articles/2006/02/18/textmate-snippets-for-rails-migrations" style="text-decoration:none;color:#33f;font-weight:bold;background-color:transparent;border:none;" title="9 Aug 2007"><strong>2007</strong></a>
+		                
+				</td>
+           </tr>
+           </tbody></table>
+       </td>
+
+       </tr>
+       <tr>
+       <td style="vertical-align:middle;padding:0!important;">
+           <a href="http://wayback.archive.org/web/20060615034816*/http://sami.samhuri.net/articles/2006/02/18/textmate-snippets-for-rails-migrations" style="color:#33f;font-size:11px;font-weight:bold;background-color:transparent;border:none;" title="See a list of every capture for this URL"><strong>31 captures</strong></a>
+           <div style="margin:0!important;padding:0!important;color:#666;font-size:9px;padding-top:2px!important;white-space:nowrap;" title="Timespan for captures of this URL">3 Mar 06 - 21 Mar 09</div>
+       </td>
+       <td style="padding:0!important;">
+       <a style="position:relative; white-space:nowrap; width:400px;height:27px;" href="" id="wm-graph-anchor">
+       <div id="wm-ipp-sparkline" style="position:relative; white-space:nowrap; width:400px;height:27px;background-color:#fff;cursor:pointer;border-right:1px solid #ccc;" title="Explore captures for this URL">
+			<img id="sparklineImgId" style="position:absolute; z-index:9012; top:0px; left:0px;" onmouseover="showTrackers(&#39;inline&#39;);" onmouseout="showTrackers(&#39;none&#39;);" onmousemove="trackMouseMove(event,this)" alt="sparklines" width="400" height="27" border="0" src="./Some TextMate snippets for Rails Migrations - samhuri.net_files/graph.jsp">
+			<img id="wbMouseTrackYearImg" style="display:none; position:absolute; z-index:9010;" width="25" height="27" border="0" src="./Some TextMate snippets for Rails Migrations - samhuri.net_files/transp-yellow-pixel.png">
+			<img id="wbMouseTrackMonthImg" style="display:none; position:absolute; z-index:9011; " width="2" height="27" border="0" src="./Some TextMate snippets for Rails Migrations - samhuri.net_files/transp-red-pixel.png">
+       </div>
+		</a>
+
+       </td>
+       </tr></tbody></table>
+   </td>
+   <td style="text-align:right;padding:5px;width:65px;font-size:11px!important;">
+       <a href="javascript:;" onclick="document.getElementById(&#39;wm-ipp&#39;).style.display=&#39;none&#39;;" style="display:block;padding-right:18px;background:url(http://staticweb.archive.org/images/toolbar/wm_tb_close.png) no-repeat 100% 0;color:#33f;font-family:&#39;Lucida Grande&#39;,&#39;Arial&#39;,sans-serif;margin-bottom:23px;background-color:transparent;border:none;" title="Close the toolbar">Close</a>
+       <a href="http://faq.web.archive.org/" style="display:block;padding-right:18px;background:url(http://staticweb.archive.org/images/toolbar/wm_tb_help.png) no-repeat 100% 0;color:#33f;font-family:&#39;Lucida Grande&#39;,&#39;Arial&#39;,sans-serif;background-color:transparent;border:none;" title="Get some help using the Wayback Machine">Help</a>
+   </td>
+   </tr></tbody></table>
+
+</div>
+</div>
+<!-- BEGIN WAYBACK TOOLBAR INSERT -->
+
+<script type="text/javascript" src="./Some TextMate snippets for Rails Migrations - samhuri.net_files/disclaim-element.js"></script>
+<script type="text/javascript" src="./Some TextMate snippets for Rails Migrations - samhuri.net_files/graph-calc.js"></script>
+<script type="text/javascript" src="./Some TextMate snippets for Rails Migrations - samhuri.net_files/jquery.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+var firstDate = 820454400000;
+var lastDate = 1325375999999;
+var wbPrefix = "http://web.archive.org/web/";
+var wbCurrentUrl = "http://sami.samhuri.net/articles/2006/02/18/textmate-snippets-for-rails-migrations";
+
+var curYear = -1;
+var curMonth = -1;
+var yearCount = 16;
+var firstYear = 1996;
+var imgWidth=400;
+var yearImgWidth = 25;
+var monthImgWidth = 2;
+var trackerVal = "none";
+var displayDay = "15";
+var displayMonth = "Jun";
+var displayYear = "2006";
+var prettyMonths = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+function showTrackers(val) {
+	if(val == trackerVal) {
+		return;
+	}
+	if(val == "inline") {
+		document.getElementById("displayYearEl").style.color = "#ec008c";
+		document.getElementById("displayMonthEl").style.color = "#ec008c";
+		document.getElementById("displayDayEl").style.color = "#ec008c";		
+	} else {
+		document.getElementById("displayYearEl").innerHTML = displayYear;
+		document.getElementById("displayYearEl").style.color = "#ff0";
+		document.getElementById("displayMonthEl").innerHTML = displayMonth;
+		document.getElementById("displayMonthEl").style.color = "#ff0";
+		document.getElementById("displayDayEl").innerHTML = displayDay;
+		document.getElementById("displayDayEl").style.color = "#ff0";
+	}
+   document.getElementById("wbMouseTrackYearImg").style.display = val;
+   document.getElementById("wbMouseTrackMonthImg").style.display = val;
+   trackerVal = val;
+}
+function getElementX2(obj) {
+	var thing = jQuery(obj);
+	if((thing == undefined) 
+			|| (typeof thing == "undefined") 
+			|| (typeof thing.offset == "undefined")) {
+		return getElementX(obj);
+	}
+	return Math.round(thing.offset().left);
+}
+function trackMouseMove(event,element) {
+
+   var eventX = getEventX(event);
+   var elementX = getElementX2(element);
+   var xOff = eventX - elementX;
+	if(xOff < 0) {
+		xOff = 0;
+	} else if(xOff > imgWidth) {
+		xOff = imgWidth;
+	}
+   var monthOff = xOff % yearImgWidth;
+
+   var year = Math.floor(xOff / yearImgWidth);
+	var yearStart = year * yearImgWidth;
+   var monthOfYear = Math.floor(monthOff / monthImgWidth);
+   if(monthOfYear > 11) {
+       monthOfYear = 11;
+   }
+   // 1 extra border pixel at the left edge of the year:
+   var month = (year * 12) + monthOfYear;
+   var day = 1;
+	if(monthOff % 2 == 1) {
+		day = 15;
+	}
+	var dateString = 
+		zeroPad(year + firstYear) + 
+		zeroPad(monthOfYear+1,2) +
+		zeroPad(day,2) + "000000";
+
+	var monthString = prettyMonths[monthOfYear];
+	document.getElementById("displayYearEl").innerHTML = year + 1996;
+	document.getElementById("displayMonthEl").innerHTML = monthString;
+	// looks too jarring when it changes..
+	//document.getElementById("displayDayEl").innerHTML = zeroPad(day,2);
+
+	var url = wbPrefix + dateString + '/' +  wbCurrentUrl;
+	document.getElementById('wm-graph-anchor').href = url;
+
+   //document.getElementById("wmtbURL").value="evX("+eventX+") elX("+elementX+") xO("+xOff+") y("+year+") m("+month+") monthOff("+monthOff+") DS("+dateString+") Moy("+monthOfYear+") ms("+monthString+")";
+   if(curYear != year) {
+       var yrOff = year * yearImgWidth;
+       document.getElementById("wbMouseTrackYearImg").style.left = yrOff + "px";
+       curYear = year;
+   }
+   if(curMonth != month) {
+       var mtOff = year + (month * monthImgWidth) + 1;
+       document.getElementById("wbMouseTrackMonthImg").style.left = mtOff + "px";
+       curMonth = month;
+   }
+}
+//]]>
+</script>
+
+<style type="text/css">body{margin-top:0!important;padding-top:0!important;min-width:800px!important;}#wm-ipp a:hover{text-decoration:underline!important;}</style>
+
+<script type="text/javascript">
+ var wmDisclaimBanner = document.getElementById("wm-ipp");
+ if(wmDisclaimBanner != null) {
+   disclaimElement(wmDisclaimBanner);
+ }
+</script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+
+
+  <div id="content" class="clearfix">
+  
+    <div id="main">
+      <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+       xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+       xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about=""
+    trackback:ping="http://sami.samhuri.net/articles/trackback/10"
+    dc:title="Some TextMate snippets for Rails Migrations"
+    dc:identifier="http://sami.samhuri.net/articles/read/10"
+    dc:description="My arsenal of snippets and macros in TextMate is building as I read through the rails canon, Agile Web Development&amp;#8230; I&amp;#8217;m only 150 pages in"
+    dc:creator="sjs"
+    dc:date="2006-06-02T22:35:27-07:00" />
+</rdf:RDF>
+-->
+
+<div class="post" onmouseover="if (getCookie(&#39;is_admin&#39;) == &#39;yes&#39;) { Element.show(&#39;admin_article&#39;); }" onmouseout="Element.hide(&#39;admin_article&#39;);">
+  <a href="http://sami.samhuri.net/admin/content/edit/10" class="admintools" id="admin_article" style="display: none">edit</a>
+  <h2>Some TextMate snippets for Rails Migrations</h2>
+  <p class="auth"><!-- Posted by <a href="mailto:sjs@uvic.ca">Sami Jensen Samhuri</a> -->
+  <span class="typo_date" title="Sun, 19 Feb 2006 06:48:00 GMT">on Saturday, February 18, 2006</span></p>
+  <p>My arsenal of snippets and macros in TextMate is building as I read through the rails canon, <a href="http://www.pragmaticprogrammer.com/titles/rails/" title="Agile Web Development With Rails">Agile Web Development...</a> I'm only 150 pages in so I haven't had to add much so far because I started with the bundle found on the <a href="http://wiki.rubyonrails.org/rails/pages/TextMate">rails wiki</a>. The main ones so far are for migrations.</p><p>Initially I wrote a snippet for adding a table and one for dropping a table, but I don't want to write it twice every time! If I'm adding a table in <strong>up</strong> then I probably want to drop it in <strong>down</strong>.</p>
+
+<p>What I did was create one snippet that writes both lines, then it's just a matter of cut &amp; paste to get it in <strong>down</strong>. The drop_table line should be inserted in the correct method, but that doesn't seem possible. I hope I'm wrong!</p>
+
+<p>Scope should be <em>source.ruby.rails</em> and the triggers I use are above the snippets.  </p>
+
+<p>&nbsp;</p>
+
+<p>mcdt: <strong>M</strong>igration <strong>C</strong>reate and <strong>D</strong>rop <strong>T</strong>able</p>
+
+<pre><code>create_table "${1:table}" do |t|
+    $0
+end
+${2:drop_table "$1"}
+</code></pre>
+
+<p>mcc: <strong>M</strong>igration <strong>C</strong>reate <strong>C</strong>olumn</p>
+
+<pre><code>t.column "${1:title}", :${2:string}
+</code></pre>
+
+<p>marc: <strong>M</strong>igration <strong>A</strong>dd and <strong>R</strong>emove <strong>C</strong>olumn</p>
+
+<pre><code>add_column "${1:table}", "${2:column}", :${3:string}
+${4:remove_column "$1", "$2"}
+</code></pre>
+
+<p>I realize this might not be for everyone, so here are my original 4 snippets that do the work of <em>marc</em> and <em>mcdt</em>.</p>
+
+<p>&nbsp;</p>
+
+<p>mct: <strong>M</strong>igration <strong>C</strong>reate <strong>T</strong>able</p>
+
+<pre><code>create_table "${1:table}" do |t|
+    $0
+end
+</code></pre>
+
+<p>mdt: <strong>M</strong>igration <strong>D</strong>rop <strong>T</strong>able</p>
+
+<pre><code>drop_table "${1:table}"
+</code></pre>
+
+<p>mac: <strong>M</strong>igration <strong>A</strong>dd <strong>C</strong>olumn</p>
+
+<pre><code>add_column "${1:table}", "${2:column}", :${3:string}
+</code></pre>
+
+<p>mrc: <strong>M</strong>igration <strong>R</strong>remove <strong>C</strong>olumn</p>
+
+<pre><code>remove_column "${1:table}", "${2:column}"
+</code></pre>
+
+<p>I'll be adding more snippets and macros. There should be a central place where the rails bundle can be improved and extended. Maybe there is...</p>
+</div>
+<p class="meta">
+  Posted in <a href="http://sami.samhuri.net/articles/category/textmate" rel="tag">textmate</a>, <a href="http://sami.samhuri.net/articles/category/rails" rel="tag">rails</a>, <a href="http://sami.samhuri.net/articles/category/hacking" rel="tag">hacking</a>&nbsp;<strong>|</strong>&nbsp;Tags <a href="http://sami.samhuri.net/articles/tag/rails" rel="tag">rails</a>, <a href="http://sami.samhuri.net/articles/tag/snippets" rel="tag">snippets</a>, <a href="http://sami.samhuri.net/articles/tag/textmate" rel="tag">textmate</a>&nbsp;<strong>|</strong>&nbsp;<a href="http://sami.samhuri.net/articles/2006/02/18/textmate-snippets-for-rails-migrations#comments">6 comments</a>&nbsp;<strong>|</strong>&nbsp;<a href="http://sami.samhuri.net/articles/2006/02/18/textmate-snippets-for-rails-migrations#trackbacks">no trackbacks</a>
+</p>
+
+  <a name="comments"></a><h4 class="blueblk">Comments</h4> 
+      <p class="postmetadata alt">
+      <small><a href="http://sami.samhuri.net/articles/2006/02/18/textmate-snippets-for-rails-migrations#respond">Leave a response</a></small>
+    </p>
+    <ol class="comment-list" id="commentList">
+  
+    <li id="comment-12" onmouseover="if (getCookie(&#39;is_admin&#39;) == &#39;yes&#39;) { Element.show(&#39;admin_comment_12&#39;); }" onmouseout="Element.hide(&#39;admin_comment_12&#39;);">
+  <div id="admin_comment_12" style="display: none"><a class="admintools" href="http://sami.samhuri.net/articles/2006/02/18/textmate-snippets-for-rails-migrations#" onclick="if (confirm(&#39;Are you sure you want to delete this comment?&#39;)) { new Ajax.Request(&#39;/articles/nuke_comment/12&#39;, {asynchronous:true, evalScripts:true, onComplete:function(request){new Effect.Puff(&#39;comment-12&#39;,{duration:0.6});}}); }; return false;">nuke</a><a href="http://sami.samhuri.net/admin/comments/article/10/edit/12" class="admintools">edit</a></div>
+  <a name="comment-12"></a>
+  <img alt="Avatar" class="gravatar" src="./Some TextMate snippets for Rails Migrations - samhuri.net_files/avatar.php">
+  <cite><strong><a href="http://blog.inquirylabs.com/">Duane Johnson</a></strong> </cite> said about 8 hours later:<br>
+  <p>Hi Sami,</p>
+
+
+	<p>This looks great!  I agree, we should have some sort of central place for these things, and preferably something that's not under the management of the core Rails team as they have too much to worry about already.</p>
+
+
+	<p>Would you mind if I steal your snippets and put them in the syncPeople on Rails bundle?</p>
+</li><li id="comment-14" class="author_comment" onmouseover="if (getCookie(&#39;is_admin&#39;) == &#39;yes&#39;) { Element.show(&#39;admin_comment_14&#39;); }" onmouseout="Element.hide(&#39;admin_comment_14&#39;);">
+  <div id="admin_comment_14" style="display: none"><a class="admintools" href="http://sami.samhuri.net/articles/2006/02/18/textmate-snippets-for-rails-migrations#" onclick="if (confirm(&#39;Are you sure you want to delete this comment?&#39;)) { new Ajax.Request(&#39;/articles/nuke_comment/14&#39;, {asynchronous:true, evalScripts:true, onComplete:function(request){new Effect.Puff(&#39;comment-14&#39;,{duration:0.6});}}); }; return false;">nuke</a><a href="http://sami.samhuri.net/admin/comments/article/10/edit/14" class="admintools">edit</a></div>
+  <a name="comment-14"></a>
+  <img alt="Avatar" class="gravatar" src="./Some TextMate snippets for Rails Migrations - samhuri.net_files/avatar(1).php">
+  <cite><strong><a href="http://sami.samhuri.net/">Sami</a></strong> </cite> said about 20 hours later:<br>
+  <p>Not at all. I'm excited about this bundle you've got. Keep up the great work.</p>
+</li><li id="comment-17" onmouseover="if (getCookie(&#39;is_admin&#39;) == &#39;yes&#39;) { Element.show(&#39;admin_comment_17&#39;); }" onmouseout="Element.hide(&#39;admin_comment_17&#39;);">
+  <div id="admin_comment_17" style="display: none"><a class="admintools" href="http://sami.samhuri.net/articles/2006/02/18/textmate-snippets-for-rails-migrations#" onclick="if (confirm(&#39;Are you sure you want to delete this comment?&#39;)) { new Ajax.Request(&#39;/articles/nuke_comment/17&#39;, {asynchronous:true, evalScripts:true, onComplete:function(request){new Effect.Puff(&#39;comment-17&#39;,{duration:0.6});}}); }; return false;">nuke</a><a href="http://sami.samhuri.net/admin/comments/article/10/edit/17" class="admintools">edit</a></div>
+  <a name="comment-17"></a>
+  <img alt="Avatar" class="gravatar" src="./Some TextMate snippets for Rails Migrations - samhuri.net_files/avatar.php">
+  <cite><strong><a href="http://blog.inquirylabs.com/">Duane Johnson</a></strong> </cite> said 1 day later:<br>
+  <p>Just added the snippets, Sami.  I'll try to make a release tonight.  Great work, and keep it coming!</p>
+
+
+	<p>P.S.  I tried several ways to get the combo-snippets to put the pieces inside the right functions but failed.  We'll see tomorrow if Allan (creator of TextMate) has any ideas.</p>
+</li><li id="comment-42" onmouseover="if (getCookie(&#39;is_admin&#39;) == &#39;yes&#39;) { Element.show(&#39;admin_comment_42&#39;); }" onmouseout="Element.hide(&#39;admin_comment_42&#39;);">
+  <div id="admin_comment_42" style="display: none"><a class="admintools" href="http://sami.samhuri.net/articles/2006/02/18/textmate-snippets-for-rails-migrations#" onclick="if (confirm(&#39;Are you sure you want to delete this comment?&#39;)) { new Ajax.Request(&#39;/articles/nuke_comment/42&#39;, {asynchronous:true, evalScripts:true, onComplete:function(request){new Effect.Puff(&#39;comment-42&#39;,{duration:0.6});}}); }; return false;">nuke</a><a href="http://sami.samhuri.net/admin/comments/article/10/edit/42" class="admintools">edit</a></div>
+  <a name="comment-42"></a>
+  <img alt="Avatar" class="gravatar" src="./Some TextMate snippets for Rails Migrations - samhuri.net_files/avatar(2).php">
+  <cite><strong>dvdplm</strong> </cite> said 31 days later:<br>
+  <p>Need some help here...</p>
+
+
+	<p>Installed the syncPeople bundle. It's in ~/Library/Application Support/TextMate/Bundles/Rails.tmbundle/</p>
+
+
+	<p>Inside there is a Support/bin folder with the scripts needed for the macros/snippets, but typing "mcdt\t" gives an error: "/bin/bash: line 1: intelligent_migration_snippet.rb: command not found". Not really sure where TextMate look, but not in the right place. If I put the absolute path to the rb script in the "command" everything works.</p>
+
+
+	<p>So, do I need some environment vars set? Some other config magic? An installation note would be great...</p>
+
+
+	<p>:-/</p>
+</li><li id="comment-43" onmouseover="if (getCookie(&#39;is_admin&#39;) == &#39;yes&#39;) { Element.show(&#39;admin_comment_43&#39;); }" onmouseout="Element.hide(&#39;admin_comment_43&#39;);">
+  <div id="admin_comment_43" style="display: none"><a class="admintools" href="http://sami.samhuri.net/articles/2006/02/18/textmate-snippets-for-rails-migrations#" onclick="if (confirm(&#39;Are you sure you want to delete this comment?&#39;)) { new Ajax.Request(&#39;/articles/nuke_comment/43&#39;, {asynchronous:true, evalScripts:true, onComplete:function(request){new Effect.Puff(&#39;comment-43&#39;,{duration:0.6});}}); }; return false;">nuke</a><a href="http://sami.samhuri.net/admin/comments/article/10/edit/43" class="admintools">edit</a></div>
+  <a name="comment-43"></a>
+  <img alt="Avatar" class="gravatar" src="./Some TextMate snippets for Rails Migrations - samhuri.net_files/avatar(2).php">
+  <cite><strong><a href="http://sami.samhuri.net/">Sami Samhuri</a></strong> </cite> said 32 days later:<br>
+  <p>I can't reproduce that behaviour here. TextMate should search ~/Library/Application Support/TextMate/Bundles/Rails.tmbundle/Support/bin automatically.</p>
+
+
+	<p>On a new user account here I installed TM, then installed the syncPeople bundle and it just worked. Perhaps some cruft is affecting things. If possible I suggest starting with a fresh Rails.tmbundle from syncPeople. If that fails maybe starting with a fresh ~/Library/Application Support/TextMate folder will help.</p>
+</li><li id="comment-61" onmouseover="if (getCookie(&#39;is_admin&#39;) == &#39;yes&#39;) { Element.show(&#39;admin_comment_61&#39;); }" onmouseout="Element.hide(&#39;admin_comment_61&#39;);">
+  <div id="admin_comment_61" style="display: none"><a class="admintools" href="http://sami.samhuri.net/articles/2006/02/18/textmate-snippets-for-rails-migrations#" onclick="if (confirm(&#39;Are you sure you want to delete this comment?&#39;)) { new Ajax.Request(&#39;/articles/nuke_comment/61&#39;, {asynchronous:true, evalScripts:true, onComplete:function(request){new Effect.Puff(&#39;comment-61&#39;,{duration:0.6});}}); }; return false;">nuke</a><a href="http://sami.samhuri.net/admin/comments/article/10/edit/61" class="admintools">edit</a></div>
+  <a name="comment-61"></a>
+  <img alt="Avatar" class="gravatar" src="./Some TextMate snippets for Rails Migrations - samhuri.net_files/avatar(3).php">
+  <cite><strong><a href="http://www.fernandoreig.com/">Fernando Reig Matthies</a></strong> </cite> said 62 days later:<br>
+  <p>I get the same error when using <a href="http://sami.samhuri.net/articles/2006/02/18/%3C/p" rel="nofollow">mcdt\t</a>&gt;
+
+
+	</p><p>/Users/freig/Library/Application Support/TextMate/Bundles/Rails.tmbundle/Support/bin/intelligent_migration_snippet.rb:54:in /bin/bash: -c: line 1: unexpected EOF while looking for matching `''
+/bin/bash: -c: line 3: syntax error: unexpected end of fileinsert_migration'
+  from /Users/freig/Library/Application Support/TextMate/Bundles/Rails.tmbundle/Support/bin/intelligent_migration_snippet.rb:75</p>
+</li>
+  
+  </ol>
+
+  <a name="trackbacks"></a><h4 class="blueblk">Trackbacks</h4>
+  <p>
+    Use the following link to trackback from your own site:<br>
+    <span class="light-bg">http://sami.samhuri.net/articles/trackback/10</span>
+    </p>    
+    
+
+<p class="postmetadata alt">
+  <small>
+  <a href="http://sami.samhuri.net/xml/rss20/article/10/feed.xml" title="RSS Feed">RSS feed for this post</a>
+  <a href="http://sami.samhuri.net/articles/trackback/10">trackback uri</a>  
+  </small>
+</p>
+
+  <form action="http://sami.samhuri.net/articles/comment/10" class="commentform" id="commentform" method="post" onsubmit="new Ajax.Updater({success:&#39;commentList&#39;}, &#39;/articles/comment/10&#39;, {asynchronous:true, evalScripts:true, insertion:Insertion.Bottom, onComplete:function(request){complete(request)}, onFailure:function(request){failure(request)}, onLoading:function(request){loading()}, parameters:Form.serialize(this)}); return false;">
+
+
+<div class="comment-box">
+  <div id="errors"></div>
+  <div id="preview" style="display: none"></div>
+
+  <a name="respond"></a>
+  <table cellpadding="4" cellspacing="0" class="frm-tbl">
+    <tbody><tr>
+      <td><p><label for="comment_author">Your name</label></p></td>
+      <td> <input id="comment_author" name="comment[author]" size="20" type="text"> <small><a href="http://sami.samhuri.net/articles/2006/02/18/textmate-snippets-for-rails-migrations#" onclick="Element.toggle(&#39;guest_url&#39;); Element.toggle(&#39;guest_email&#39;); return false;">(leave url/email »)</a></small></td>
+    </tr>
+    <tr id="guest_url" style="display:none;">
+      <td><p><label for="comment_url">Your blog</label></p></td>
+      <td> <input id="comment_url" name="comment[url]" size="30" type="text"></td>
+    </tr>
+    <tr id="guest_email" style="display:none;">
+      <td><p><label for="comment_email">Your email</label></p></td>
+      <td> <input id="comment_email" name="comment[email]" size="30" type="text"></td>
+    </tr>
+    <tr>
+      <td><p><label for="comment_body">Your message</label></p></td>
+      <td valign="top" colspan="2">
+        <textarea cols="40" id="comment_body" name="comment[body]" rows="20"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" id="frm-btns">
+      <span id="comment_loading" style="display:none;"><img alt="Spinner" src="./Some TextMate snippets for Rails Migrations - samhuri.net_files/spinner.gif"></span>&nbsp;&nbsp;
+      <a href="http://sami.samhuri.net/articles/2006/02/18/textmate-snippets-for-rails-migrations#" onclick="new Ajax.Updater(&#39;preview&#39;, &#39;/articles/comment_preview&#39;,  {asynchronous:true, evalScripts:true, parameters:Form.serialize(&#39;commentform&#39;), onComplete:function(request){Element.show(&#39;preview&#39;)}}); return false;">Preview comment</a>      
+      <input type="submit" name="submit" id="form-submit-button" value="submit" class="button">
+      </td>
+    </tr>
+  </tbody></table>
+</div>
+</form>
+
+      <script type="text/javascript">
+//<![CDATA[
+show_dates_as_local_time()
+//]]>
+</script>
+    </div>
+  
+  </div>
+
+  <div id="leftcolumn">
+    <div id="header">
+      <h1 id="sitename"><a href="http://sami.samhuri.net/">sjs</a></h1>
+      <h2 id="subtitle">&nbsp;</h2>    
+    </div>
+    
+    <div id="sidebar">
+      <div id="search"><form action="http://sami.samhuri.net/articles/search" id="sform" method="get">
+ <label for="q">Search: </label><input type="text" id="q" name="q" value="" size="15">
+<img alt="Spinner-blue" id="search_spinner" src="./Some TextMate snippets for Rails Migrations - samhuri.net_files/spinner-blue.gif" style="display:none;">
+</form>
+<script type="text/javascript">
+//<![CDATA[
+new Form.Element.Observer('q', 1, function(element, value) {new Ajax.Updater('search-results', '/live/search', {asynchronous:true, evalScripts:true, onComplete:function(request){Element.hide('search_spinner')}, onLoading:function(request){Element.show('search_spinner')}, parameters:'q=' + escape($F('q'))})})
+//]]>
+</script></div>
+      <div id="search-results"></div>
+        
+        
+      
+      <div class="sidebar-node">
+        <h3>All about...</h3>
+<ul>
+  <li><a href="http://sami.samhuri.net/pages/about">me in 3 paragraphs</a></li>
+  <li><a href="http://sami.samhuri.net/pages/how-i-became-a-geek">geek background</a></li>
+<li><a href="http://sami.samhuri.net/pages/thunder">workstation</a></li>
+</ul>
+
+
+      </div>
+    
+      
+      <div class="sidebar-node">
+        <h3>Categories</h3>
+<ul id="categories">
+  
+  <li><a href="http://sami.samhuri.net/articles/category/amusement">amusement</a> <em>(4)</em></li>
+  
+  
+  <li><a href="http://sami.samhuri.net/articles/category/gentoo">gentoo</a> <em>(1)</em></li>
+  
+  
+  <li><a href="http://sami.samhuri.net/articles/category/hacking">hacking</a> <em>(12)</em></li>
+  
+  
+  <li><a href="http://sami.samhuri.net/articles/category/life">life</a> <em>(4)</em></li>
+  
+  
+  <li><a href="http://sami.samhuri.net/articles/category/linux">linux</a> <em>(1)</em></li>
+  
+  
+  <li><a href="http://sami.samhuri.net/articles/category/mac-os-x">mac os x</a> <em>(5)</em></li>
+  
+  
+  
+  <li><a href="http://sami.samhuri.net/articles/category/python">python</a> <em>(1)</em></li>
+  
+  
+  <li><a href="http://sami.samhuri.net/articles/category/rails">rails</a> <em>(11)</em></li>
+  
+  
+  
+  
+  <li><a href="http://sami.samhuri.net/articles/category/technology">technology</a> <em>(2)</em></li>
+  
+  
+  <li><a href="http://sami.samhuri.net/articles/category/textmate">textmate</a> <em>(10)</em></li>
+  
+  
+  <li><a href="http://sami.samhuri.net/articles/category/apple">apple</a> <em>(3)</em></li>
+  
+</ul>
+
+
+      </div>
+    
+      
+      <div class="sidebar-node">
+        
+<h3>Archives</h3>
+<ul id="archives">
+  
+    <li>
+      <a href="http://sami.samhuri.net/articles/2006/06">June 2006</a>
+      <em>(1)</em>
+    </li>
+  
+    <li>
+      <a href="http://sami.samhuri.net/articles/2006/05">May 2006</a>
+      <em>(2)</em>
+    </li>
+  
+    <li>
+      <a href="http://sami.samhuri.net/articles/2006/04">April 2006</a>
+      <em>(1)</em>
+    </li>
+  
+    <li>
+      <a href="http://sami.samhuri.net/articles/2006/03">March 2006</a>
+      <em>(4)</em>
+    </li>
+  
+    <li>
+      <a href="http://sami.samhuri.net/articles/2006/02">February 2006</a>
+      <em>(15)</em>
+    </li>
+  
+</ul>
+
+
+      </div>
+    
+      
+      <div class="sidebar-node">
+        <h3>Links</h3>
+<ul>
+<li><a href="http://phox.ca/cswiki/Main_Page">CSWiki</a></li>
+<li><a href="http://jim.roepcke.com/">Have Browser, Will Travel</a></li>
+<li><a href="http://blog.inquirylabs.com/">Going Up</a></li>
+<li><a href="http://www.mirage.org/">encieno</a></li>
+<li><a href="http://www.nofxwiki.net/">nofxwiki.net</a></li>
+</ul>
+
+      </div>
+    
+      
+      <div class="sidebar-node">
+        <p></p><ul>
+    <li><a class="feed" href="http://sami.samhuri.net/xml/rss20/feed.xml" title="Articles feed"><img src="./Some TextMate snippets for Rails Migrations - samhuri.net_files/feed-icon-48x48.png" alt="RSS 2.0" width="48" height="48"></a></li>
+  
+<!--
+  
+-->
+  
+</ul><p></p>
+
+      </div>
+    
+  
+
+
+        
+      <br clear="all">
+    </div>
+  </div>
+  
+  <div id="footer">
+    <ul>
+      <li><a href="http://typo.leetsoft.com/">Typo</a></li>
+      <li>•</li>
+      <li><a href="http://validator.w3.org/check?uri=referer">Valid XHTML</a></li>
+      <li>•</li>
+      <li><a href="http://jigsaw.w3.org/css-validator/validator?uri=http://sami.samhuri.net/">Valid CSS</a></li>
+    </ul>
+  </div>
+  
+  <script src="./Some TextMate snippets for Rails Migrations - samhuri.net_files/urchin.js" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+    _uacct = "UA-214054-3";
+    urchinTracker();
+  </script>  
+
+
+
+
+
+
+
+
+<!--
+     FILE ARCHIVED ON 3:48:16 Jun 15, 2006 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 2:41:12 Aug 21, 2011.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<div id="footnotify_lightbox" style="position: fixed; width: 100%; height: 100%; top: 0px; left: 0px; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgba(0, 0, 0, 0.699219); display: none; background-position: initial initial; background-repeat: initial initial; "></div><div id="footnotify_holder" style="position: absolute; display: none; "><div id="footnotify_arrow" style="letter-spacing: -1px; width: 32px; margin-top: 0px; margin-right: -11px; margin-bottom: 0px; margin-left: -11px; text-align: center; font-size: 13px; padding-top: 2em; line-height: 0.9em; color: rgb(0, 0, 0); ">◢◣</div><div id="footnotify_panel" style="padding-top: 1px; padding-right: 1px; padding-bottom: 1px; padding-left: 1px; margin-top: 0px; margin-right: -240px; margin-bottom: 0px; margin-left: -240px; width: 480px; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(0, 0, 0); color: inherit; background-position: initial initial; background-repeat: initial initial; "><div id="footnotify_content" style="margin-top: 2em; margin-right: 2em; margin-bottom: 2em; margin-left: 2em; "></div></div></div><div id="footnotify_notification" style="position: fixed; top: 5px; left: 5px; z-index: 999; padding-top: 1em; padding-right: 1em; padding-bottom: 1em; padding-left: 1em; color: rgb(255, 255, 255); background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgba(0, 0, 0, 0.699219); display: none; background-position: initial initial; background-repeat: initial initial; "></div></body></html>

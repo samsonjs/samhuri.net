@@ -1,0 +1,760 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>sjs: A Scheme parser in Haskell: Part 1</title>
+
+  <link rel="openid.server" href="http://web.archive.org/web/20090215135823/http://www.myopenid.com/server" />
+  <link rel="openid.delegate" href="http://web.archive.org/web/20090215135823/http://sami-samhuri.myopenid.com/" />
+  <meta http-equiv="X-XRDS-Location" content="http://sami-samhuri.myopenid.com/xrds" />
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />  
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://web.archive.org/web/20090215135823/http://feeds.feedburner.com/sjs" />
+  
+
+  <script src="http://web.archive.org/web/20090215135823js_/http://sami.samhuri.net/javascripts/prototype.js" type="text/javascript"></script>
+
+  <link href="http://web.archive.org/web/20090215135823cs_/http://sami.samhuri.net/stylesheets/application.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<!-- BEGIN WAYBACK TOOLBAR INSERT -->
+
+<script type="text/javascript" src="http://staticweb.archive.org/js/disclaim-element.js" ></script>
+<script type="text/javascript" src="http://staticweb.archive.org/js/graph-calc.js" ></script>
+<script type="text/javascript" src="http://staticweb.archive.org/jflot/jquery.min.js" ></script>
+<script type="text/javascript">
+//<![CDATA[
+var firstDate = 820454400000;
+var lastDate = 1325375999999;
+var wbPrefix = "http://web.archive.org/web/";
+var wbCurrentUrl = "http:\/\/sami.samhuri.net\/2007\/5\/3\/a-scheme-parser-in-haskell-part-1\/";
+
+var curYear = -1;
+var curMonth = -1;
+var yearCount = 16;
+var firstYear = 1996;
+var imgWidth=400;
+var yearImgWidth = 25;
+var monthImgWidth = 2;
+var trackerVal = "none";
+var displayDay = "15";
+var displayMonth = "Feb";
+var displayYear = "2009";
+var prettyMonths = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+function showTrackers(val) {
+	if(val == trackerVal) {
+		return;
+	}
+	if(val == "inline") {
+		document.getElementById("displayYearEl").style.color = "#ec008c";
+		document.getElementById("displayMonthEl").style.color = "#ec008c";
+		document.getElementById("displayDayEl").style.color = "#ec008c";		
+	} else {
+		document.getElementById("displayYearEl").innerHTML = displayYear;
+		document.getElementById("displayYearEl").style.color = "#ff0";
+		document.getElementById("displayMonthEl").innerHTML = displayMonth;
+		document.getElementById("displayMonthEl").style.color = "#ff0";
+		document.getElementById("displayDayEl").innerHTML = displayDay;
+		document.getElementById("displayDayEl").style.color = "#ff0";
+	}
+   document.getElementById("wbMouseTrackYearImg").style.display = val;
+   document.getElementById("wbMouseTrackMonthImg").style.display = val;
+   trackerVal = val;
+}
+function getElementX2(obj) {
+	var thing = jQuery(obj);
+	if((thing == undefined) 
+			|| (typeof thing == "undefined") 
+			|| (typeof thing.offset == "undefined")) {
+		return getElementX(obj);
+	}
+	return Math.round(thing.offset().left);
+}
+function trackMouseMove(event,element) {
+
+   var eventX = getEventX(event);
+   var elementX = getElementX2(element);
+   var xOff = eventX - elementX;
+	if(xOff < 0) {
+		xOff = 0;
+	} else if(xOff > imgWidth) {
+		xOff = imgWidth;
+	}
+   var monthOff = xOff % yearImgWidth;
+
+   var year = Math.floor(xOff / yearImgWidth);
+	var yearStart = year * yearImgWidth;
+   var monthOfYear = Math.floor(monthOff / monthImgWidth);
+   if(monthOfYear > 11) {
+       monthOfYear = 11;
+   }
+   // 1 extra border pixel at the left edge of the year:
+   var month = (year * 12) + monthOfYear;
+   var day = 1;
+	if(monthOff % 2 == 1) {
+		day = 15;
+	}
+	var dateString = 
+		zeroPad(year + firstYear) + 
+		zeroPad(monthOfYear+1,2) +
+		zeroPad(day,2) + "000000";
+
+	var monthString = prettyMonths[monthOfYear];
+	document.getElementById("displayYearEl").innerHTML = year + 1996;
+	document.getElementById("displayMonthEl").innerHTML = monthString;
+	// looks too jarring when it changes..
+	//document.getElementById("displayDayEl").innerHTML = zeroPad(day,2);
+
+	var url = wbPrefix + dateString + '/' +  wbCurrentUrl;
+	document.getElementById('wm-graph-anchor').href = url;
+
+   //document.getElementById("wmtbURL").value="evX("+eventX+") elX("+elementX+") xO("+xOff+") y("+year+") m("+month+") monthOff("+monthOff+") DS("+dateString+") Moy("+monthOfYear+") ms("+monthString+")";
+   if(curYear != year) {
+       var yrOff = year * yearImgWidth;
+       document.getElementById("wbMouseTrackYearImg").style.left = yrOff + "px";
+       curYear = year;
+   }
+   if(curMonth != month) {
+       var mtOff = year + (month * monthImgWidth) + 1;
+       document.getElementById("wbMouseTrackMonthImg").style.left = mtOff + "px";
+       curMonth = month;
+   }
+}
+//]]>
+</script>
+
+<style type="text/css">body{margin-top:0!important;padding-top:0!important;min-width:800px!important;}#wm-ipp a:hover{text-decoration:underline!important;}</style>
+<div id="wm-ipp" style="display:none; position:relative;padding:0 5px;min-height:70px;min-width:800px; z-index:9000;">
+<div id="wm-ipp-inside" style="position:fixed;padding:0!important;margin:0!important;width:97%;min-width:780px;border:5px solid #000;border-top:none;background-image:url(http://staticweb.archive.org/images/toolbar/wm_tb_bk_trns.png);text-align:center;-moz-box-shadow:1px 1px 3px #333;-webkit-box-shadow:1px 1px 3px #333;box-shadow:1px 1px 3px #333;font-size:11px!important;font-family:'Lucida Grande','Arial',sans-serif!important;">
+   <table style="border-collapse:collapse;margin:0;padding:0;width:100%;"><tbody><tr>
+   <td style="padding:10px;vertical-align:top;min-width:110px;">
+   <a href="http://wayback.archive.org/web/" title="Wayback Machine home page" style="background-color:transparent;border:none;"><img src="http://staticweb.archive.org/images/toolbar/wayback-toolbar-logo.png" alt="Wayback Machine" width="110" height="39" border="0"/></a>
+   </td>
+   <td style="padding:0!important;text-align:center;vertical-align:top;width:100%;">
+
+       <table style="border-collapse:collapse;margin:0 auto;padding:0;width:570px;"><tbody><tr>
+       <td style="padding:3px 0;" colspan="2">
+       <form target="_top" method="get" action="http://wayback.archive.org/web/form-submit.jsp" name="wmtb" id="wmtb" style="margin:0!important;padding:0!important;"><input type="text" name="url" id="wmtbURL" value="http://sami.samhuri.net/2007/5/3/a-scheme-parser-in-haskell-part-1/" style="width:400px;font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;" onfocus="javascript:this.focus();this.select();" /><input type="hidden" name="type" value="replay" /><input type="hidden" name="date" value="20090215135823" /><input type="submit" value="Go" style="font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;margin-left:5px;" /><span id="wm_tb_options" style="display:block;"></span></form>
+       </td>
+       <td style="vertical-align:bottom;padding:5px 0 0 0!important;" rowspan="2">
+           <table style="border-collapse:collapse;width:110px;color:#99a;font-family:'Helvetica','Lucida Grande','Arial',sans-serif;"><tbody>
+			
+           <!-- NEXT/PREV MONTH NAV AND MONTH INDICATOR -->
+           <tr style="width:110px;height:16px;font-size:10px!important;">
+           	<td style="padding-right:9px;font-size:11px!important;font-weight:bold;text-transform:uppercase;text-align:right;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+                       Jan
+                       
+               </td>
+               <td id="displayMonthEl" style="background:#000;color:#ff0;font-size:11px!important;font-weight:bold;text-transform:uppercase;width:34px;height:15px;padding-top:1px;text-align:center;" title="You are here: 13:58:23 Feb 15, 2009">FEB</td>
+				<td style="padding-left:9px;font-size:11px!important;font-weight:bold;text-transform:uppercase;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+                       Mar
+                       
+               </td>
+           </tr>
+
+           <!-- NEXT/PREV CAPTURE NAV AND DAY OF MONTH INDICATOR -->
+           <tr>
+               <td style="padding-right:9px;white-space:nowrap;overflow:visible;text-align:right!important;vertical-align:middle!important;" nowrap="nowrap">
+               
+                       <img src="http://staticweb.archive.org/images/toolbar/wm_tb_prv_off.png" alt="Previous capture" width="14" height="16" border="0" />
+                       
+               </td>
+               <td id="displayDayEl" style="background:#000;color:#ff0;width:34px;height:24px;padding:2px 0 0 0;text-align:center;font-size:24px;font-weight: bold;" title="You are here: 13:58:23 Feb 15, 2009">15</td>
+				<td style="padding-left:9px;white-space:nowrap;overflow:visible;text-align:left!important;vertical-align:middle!important;" nowrap="nowrap">
+               
+		                <a href="http://web.archive.org/web/20090218162506/http://sami.samhuri.net/2007/5/3/a-scheme-parser-in-haskell-part-1/" title="16:25:06 Feb 18, 2009" style="background-color:transparent;border:none;"><img src="http://staticweb.archive.org/images/toolbar/wm_tb_nxt_on.png" alt="Next capture" width="14" height="16" border="0"/></a>
+		                
+			    </td>
+           </tr>
+
+           <!-- NEXT/PREV YEAR NAV AND YEAR INDICATOR -->
+           <tr style="width:110px;height:13px;font-size:9px!important;">
+				<td style="padding-right:9px;font-size:11px!important;font-weight: bold;text-align:right;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+                       2008
+                       
+               </td>
+               <td id="displayYearEl" style="background:#000;color:#ff0;font-size:11px!important;font-weight: bold;padding-top:1px;width:34px;height:13px;text-align:center;" title="You are here: 13:58:23 Feb 15, 2009">2009</td>
+				<td style="padding-left:9px;font-size:11px!important;font-weight: bold;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+                       2010
+                       
+				</td>
+           </tr>
+           </tbody></table>
+       </td>
+
+       </tr>
+       <tr>
+       <td style="vertical-align:middle;padding:0!important;">
+           <a href="http://wayback.archive.org/web/20090215135823*/http://sami.samhuri.net/2007/5/3/a-scheme-parser-in-haskell-part-1/" style="color:#33f;font-size:11px;font-weight:bold;background-color:transparent;border:none;" title="See a list of every capture for this URL"><strong>2 captures</strong></a>
+           <div style="margin:0!important;padding:0!important;color:#666;font-size:9px;padding-top:2px!important;white-space:nowrap;" title="Timespan for captures of this URL">15 Feb 09 - 18 Feb 09</div>
+       </td>
+       <td style="padding:0!important;">
+       <a style="position:relative; white-space:nowrap; width:400px;height:27px;" href="" id="wm-graph-anchor">
+       <div id="wm-ipp-sparkline" style="position:relative; white-space:nowrap; width:400px;height:27px;background-color:#fff;cursor:pointer;border-right:1px solid #ccc;" title="Explore captures for this URL">
+			<img id="sparklineImgId" style="position:absolute; z-index:9012; top:0px; left:0px;"
+				onmouseover="showTrackers('inline');" 
+				onmouseout="showTrackers('none');"
+				onmousemove="trackMouseMove(event,this)"
+				alt="sparklines"
+				width="400"
+				height="27"
+				border="0"
+				src="http://wayback.archive.org/jsp/graph.jsp?graphdata=400_27_1996:-1:000000000000_1997:-1:000000000000_1998:-1:000000000000_1999:-1:000000000000_2000:-1:000000000000_2001:-1:000000000000_2002:-1:000000000000_2003:-1:000000000000_2004:-1:000000000000_2005:-1:000000000000_2006:-1:000000000000_2007:-1:000000000000_2008:-1:000000000000_2009:1:020000000000_2010:-1:000000000000_2011:-1:000000000000"></img>
+			<img id="wbMouseTrackYearImg" 
+				style="display:none; position:absolute; z-index:9010;"
+				width="25" 
+				height="27"
+				border="0"
+				src="http://staticweb.archive.org/images/toolbar/transp-yellow-pixel.png"></img>
+			<img id="wbMouseTrackMonthImg"
+				style="display:none; position:absolute; z-index:9011; " 
+				width="2"
+				height="27" 
+				border="0"
+				src="http://staticweb.archive.org/images/toolbar/transp-red-pixel.png"></img>
+       </div>
+		</a>
+
+       </td>
+       </tr></tbody></table>
+   </td>
+   <td style="text-align:right;padding:5px;width:65px;font-size:11px!important;">
+       <a href="javascript:;" onclick="document.getElementById('wm-ipp').style.display='none';" style="display:block;padding-right:18px;background:url(http://staticweb.archive.org/images/toolbar/wm_tb_close.png) no-repeat 100% 0;color:#33f;font-family:'Lucida Grande','Arial',sans-serif;margin-bottom:23px;background-color:transparent;border:none;" title="Close the toolbar">Close</a>
+       <a href="http://faq.web.archive.org/" style="display:block;padding-right:18px;background:url(http://staticweb.archive.org/images/toolbar/wm_tb_help.png) no-repeat 100% 0;color:#33f;font-family:'Lucida Grande','Arial',sans-serif;background-color:transparent;border:none;" title="Get some help using the Wayback Machine">Help</a>
+   </td>
+   </tr></tbody></table>
+
+</div>
+</div>
+<script type="text/javascript">
+ var wmDisclaimBanner = document.getElementById("wm-ipp");
+ if(wmDisclaimBanner != null) {
+   disclaimElement(wmDisclaimBanner);
+ }
+</script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+
+<div id="container">
+  <div id="header">
+    <h1><span><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/">sjs</a></span></h1>
+    <h2>geeky ramblings</h2>
+  </div>
+
+  <div id="page">
+    <div id="content">
+      
+  
+<!--
+<rdf:RDF
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+  rdf:about=""
+  trackback:ping=""
+  dc:title="A Scheme parser in Haskell: Part 1"
+  dc:identifier="/2007/5/3/a-scheme-parser-in-haskell-part-1"
+  dc:description="From <a href="http://halogen.note.amherst.edu/~jdtang/scheme_in_48/tutorial/firststeps.html">Write Yourself a Scheme in 48 hours</a>:
+	<blockquote>
+		<p>Basically, a monad is a way of saying &#8220;there&#8217;s some extra information attached to ..."
+  dc:creator="sjs"
+  dc:date="May 03, 2007 07:47" />
+</rdf:RDF>
+-->
+
+<div class="hentry" id="article-40">
+  <h2 class="entry-title">
+    <a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/2007/5/3/a-scheme-parser-in-haskell-part-1">A Scheme parser in Haskell: Part 1</a>
+    
+  </h2>
+  <div class="vcard">
+  Posted by <span class="fn">sjs</span>
+</div>
+<abbr class="published" title="2007-05-03T07:47:50+00:00">on Thursday, May 03</abbr>
+<br class="clear" />
+  <div class="entry-content">
+  From <a href="http://web.archive.org/web/20090215135823/http://halogen.note.amherst.edu/~jdtang/scheme_in_48/tutorial/firststeps.html">Write Yourself a Scheme in 48 hours</a>:
+	<blockquote>
+		<p>Basically, a monad is a way of saying &#8220;there&#8217;s some extra information attached to this value, which most functions don&#8217;t need to worry about&#8221;. In this example, the &#8220;extra information&#8221; is the fact that this action performs IO, and the basic value is nothing, represented as &#8220;()&#8221;. Monadic values are often called &#8220;actions&#8221;, because the easiest way to think about the IO monad is a sequencing of actions that each might affect the outside world.</p>
+	</blockquote>
+
+
+	<p>I really like this tutorial. I&#8217;m only on part 3.3 of 12, <a href="http://web.archive.org/web/20090215135823/http://halogen.note.amherst.edu/~jdtang/scheme_in_48/tutorial/parser.html">parsing</a>, but I&#8217;m new to Haskell so I&#8217;m learning left, right &#38; centre. The exercises are taking me hours of reading and experimenting, and it&#8217;s lots of fun! ghc&#8217;s errors are usually quite helpful and of course ghci is a big help as well.</p>
+
+
+	<p>I&#8217;m going to explain one of the exercises because converting between the various syntax for dealing with monads wasn&#8217;t plainly obvious to me. Perhaps I wasn&#8217;t paying enough attention to the docs I read. In any case if you&#8217;re interested in Haskell at all, I recommend the tutorial and if you&#8217;re stuck on exercise 3.3.1 like I was then come on back here. Whether you&#8217;re following the tutorial or not the point of this post should stand on its own with a basic knowledge of Haskell.</p>
+
+
+	<p>Last night I rewrote <code>parseNumber</code> using <code>do</code> and <code>&gt;&gt;=</code> (bind) notations (ex. 3.3.1). Here&#8217;s <code>parseNumber</code> using the <code>liftM</code> method given in the tutorial:</p>
+
+
+<pre><code>parseNumber :: Parser LispVal
+parseNumber :: liftM (Number . read) $ many1 digit
+</code></pre>
+
+	<p>Okay that&#8217;s pretty simple right? Let&#8217;s break it down, first looking at the right-hand side of the <code>$</code> operator, then the left.</p>
+
+
+	<ul>
+	<li><tt>many1 digit</tt> reads as many decimal digits as it can.</li>
+	</ul>
+
+
+	<ul>
+	<li><code>Number . read</code> is a <a href="http://web.archive.org/web/20090215135823/http://en.wikipedia.org/wiki/Function_composition_(computer_science%29">function composition</a> just like we&#8217;re used to using in math. It applies <code>read</code> to its argument, then applies <code>Number</code> to that result.</li>
+	</ul>
+
+
+	<ul>
+	<li><tt>liftM</tt> is concisely and effectively defined <a href="http://web.archive.org/web/20090215135823/http://members.chello.nl/hjgtuyl/tourdemonad.html#liftM">elsewhere</a>, and I&#8217;ll borrow their description:</li>
+	</ul>
+
+
+	<blockquote>
+		<p><tt>liftM f m</tt> lets a non-monadic function <tt>f</tt> operate on the contents of monad <tt>m</tt></p>
+	</blockquote>
+
+
+	<p><code>liftM</code>&#8217;s type is also quite telling: <tt>liftM :: (Monad m) =&gt; (a -&gt; b) -&gt; (m a -&gt; m b)</tt></p>
+
+
+	<p>In a nutshell <code>liftM</code> turns a function from <code>a</code> to <code>b</code> to a function from a monad containing <code>a</code> to a monad containing <code>b</code>.</p>
+
+
+	<p>That results in a function on the left-hand side of <code>$</code>, which operates on and outputs a monad. The content of the input monad is a <code>String</code>. The content of the output monad is a <tt>LispVal</tt> (defined earlier in the tutorial). Specifically it is a <code>Number</code>.</p>
+
+
+	<p>The <code>$</code> acts similar to a pipe in <code>$FAVOURITE_SHELL</code>, and is right associative which means the expression on the right is passed to the expression (function) on the left. It&#8217;s exactly the same as <tt>(liftM (Number . read)) (many1 digit)</tt> except it looks cleaner. If you know <span class="caps">LISP</span> or Scheme (sadly I do not) then it&#8217;s analogous to the <code>apply</code> function.</p>
+
+
+	<p>So how does a Haskell newbie go about re-writing that using other notations which haven&#8217;t even been explained in the tutorial? Clearly one must search the web and read as much as they can until they understand enough to figure it out (which is one thing I like about the tutorial). If you&#8217;re lazy like me, here are 3 equivalent pieces of code for you to chew on. <code>parseNumber</code>&#8217;s type is <code>Parser LispVal</code> (Parser is a monad).</p>
+
+
+Familiar <code>liftM</code> method:
+<pre><code>parseNumber -&gt; liftM (Number . read) $ many1 digit
+</code></pre>
+
+Using <code>do</code> notation:
+<pre><code>parseNumber -&gt; do digits &lt;- many1 digit
+                  return $ (Number . read) digits
+</code></pre>
+
+	<p>If you&#8217;re thinking &#8220;Hey a <code>return</code>, I know that one!&#8221; then the devious masterminds behind Haskell are certainly laughing evilly right now. <code>return</code> simply wraps up it&#8217;s argument in a monad of some sort. In this case it&#8217;s the <code>Parser</code> monad. The <code>return</code> part may seem strange at first. Since <code>many1 digit</code> yields a monad why do we need to wrap anything? The answer is that using <code>&lt;-</code> causes <code>digits</code> to contain a <code>String</code>, stripped out of the monad which resulted from <code>many1 digit</code>. Hence we no longer use <code>liftM</code> to make <code>(Number . read)</code> monads, and instead need to use <code>return</code> to properly wrap it back up in a monad.</p>
+
+
+	<p>In other words <code>liftM</code> eliminates the need to explicitly re-monadize the contents as is necessary using <code>do</code>.</p>
+
+
+Finally, using <code>&gt;&gt;=</code> (bind) notation:
+<pre><code>parseNumber -&gt; many1 digit &gt;&gt;= \digits -&gt;
+               return $ (Number . read) digits
+</code></pre>
+
+	<p>At this point I don&#8217;t think this warrants much of an explanation. The syntactic sugar provided by <code>do</code> should be pretty obvious. Just in case it&#8217;s not, <code>&gt;&gt;=</code> passes the contents of its left argument (a monad) to the <em>function</em> on its right. Once again <code>return</code> is needed to wrap up the result and send it on its way.</p>
+
+
+	<p>When I first read about Haskell I was overwhelmed by not knowing anything, and not being able to apply my previous knowledge of programming to <em>anything</em> in Haskell. One piece of syntax at a time I am slowly able to understand more of the Haskell found <a href="http://web.archive.org/web/20090215135823/http://www.google.com/url?sa=t&ct=res&cd=2&url=http%3A%2F%2Fblog.moertel.com%2Farticles%2F2005%2F03%2F25%2Fwriting-a-simple-ruby-evaluator-in-haskell&ei=Q1A6RtWPLZvYigGZsMjxAQ&usg=AFrqEzdrRepwsuNaQqe1gHYjHvqdCDKfoA&sig2=0qNTIOB9XxeZRqKR7J61Iw">in the wild</a>.</p>
+
+
+	<p>I&#8217;m currently working on ex. 3.3.4, which is parsing <a href="http://web.archive.org/web/20090215135823/http://www.schemers.org/Documents/Standards/R5RS/HTML/r5rs-Z-H-9.html#%_sec_6.3.5"><span class="caps">R5RS</span> compliant numbers</a> <em>(e.g. #o12345670, #xff, #d987)</em>. I&#8217;ll probably write something about that once I figure it out, but in the meantime if you have any hints I&#8217;m all ears.</p>
+
+
+	<p><em>Update #1: I should do more proof-reading if I&#8217;m going to try and explain things. I made some changes in wording.</em></p>
+  
+</div>
+  <ul class="meta">
+  
+  
+  <li>
+    Tags: <a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/coding">coding</a>&nbsp;<a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/haskell">haskell</a>&nbsp;
+  </li>
+  
+  <li>
+    Meta: 
+    
+    <a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/2007/5/3/a-scheme-parser-in-haskell-part-1">permalink</a>
+    
+  </li>
+</ul>
+</div>
+
+<h5><a name="comments">Comments</a></h5>
+<p><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/2007/5/3/a-scheme-parser-in-haskell-part-1/#comment-form">Leave a response</a></p>
+<div id="comments_div">
+  <ol id="comments" class="comments">
+    
+    <li class="comment" id="comment-55">
+      <div class="author">
+        <cite><span class="author"><a href="http://web.archive.org/web/20090215135823/http://comonad.com/">Edward Kmett</a></span></cite> &#150; 
+        <abbr title="May 11, 2007 10:26"><span class="date">May 11, 2007 @ 10:26 AM</span></abbr>
+      </div>
+      <div class="content">
+        In your above example, you can view return as another function in the chain of functions to apply, yielding:
+
+parseNumber = many1 digit >>= return . Number . read
+
+or
+
+parseNumber = do digits &lt;- many1 digit; return . Number . read $ digits
+
+of course, this is just unrolling the definition of liftM, so its not surprising.
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-56">
+      <div class="author">
+        <cite><span class="author"><span>sjs</span></span></cite> &#150; 
+        <abbr title="May 11, 2007 10:26"><span class="date">May 11, 2007 @ 10:26 AM</span></abbr>
+      </div>
+      <div class="content">
+        Ah, that makes perfect sense. Thanks for that. Every little bit helps my understanding of monads.
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-64">
+      <div class="author">
+        <cite><span class="author"><span>anonymous</span></span></cite> &#150; 
+        <abbr title="May 29, 2007 13:49"><span class="date">May 29, 2007 @ 01:49 PM</span></abbr>
+      </div>
+      <div class="content">
+        <p>You might also want to know that for monads,</p>
+
+
+	<pre><code>liftM = fmap</code></pre>
+
+
+	<p>This is useful (at least for me), because I have different intuitions for liftM and fmap:</p>
+
+
+	<p>I see liftM as a function lifting ordinary functions to monadic functions, while I think of (fmap f) as a function manipulating the &#8220;contents&#8221; of a monadic value using f, just like the ordinary map on lists manipulates the elements of lists.</p>
+
+
+	<p>(Depending on context, I use both liftM and fmap.)</p>
+
+
+	<p>In your case, I&#8217;d use fmap (this choice is completely subjective, of course), to stress that I just want to change the contents of the monadic return value of (many1 digits):</p>
+
+
+	<pre><code>fmap (Number . read) $ many1 digits</code></pre>
+
+
+	<p>Also, some prefer to write this using infix notation:</p>
+
+
+	<pre><code>Number . read `fmap` many1 digits</code></pre>
+
+
+	<p>This way you see that fmap can be tought of being ($), only modulo monadic stuff.</p>
+
+
+	<p><span class="caps">BTW</span>, fmap is useful on many other data structures, too:</p>
+
+
+	<pre><code>fmap f (Just x) = Just (f x)
+fmap f Nothing  = Nothing</code></pre>
+
+
+	<pre><code>fmap f (Left  x) = Left x
+fmap f (Right x) = Right (f x)
+-- You need Control.Monad.Error for this one.</code></pre>
+
+
+	<pre><code>fmap f xs = map f xs
+-- With xs :: [a]</code></pre>
+
+
+	<p>Happy Haskelling!</p>
+      </div>
+    </li>
+    
+  </ol>
+</div>
+
+
+
+    </div>
+
+    <div id="sidebar">
+
+      <div class="sidebar-node">
+        <div id="search" class="search">
+          <form action="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/search" id="sform" method="get" name="sform">
+            <p><input type="text" id="q" name="q" value="" /></p>
+          </form>
+        </div>
+      </div>
+
+      
+
+      
+      <div class="sidebar-node">
+        <h3>Sections</h3>
+        <ul>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/">geeky ramblings</a> (15)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/emacs">Emacs</a> (3)</li>
+        
+        </ul>
+      </div>
+      
+
+      
+      <div class="sidebar-node">
+        <h3>Tags</h3>
+        <ul>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/activerecord">activerecord</a> (2)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/alsa">alsa</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/amusement">amusement</a> (6)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/apple">apple</a> (6)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/arc">arc</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/bdd">bdd</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/broken">broken</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/browsers">browsers</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/buffalo">buffalo</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/bundle">bundle</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/cheat">cheat</a> (3)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/coding">coding</a> (22)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/cool">cool</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/coverflow">coverflow</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/crazy">crazy</a> (2)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/digg">digg</a> (2)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/drm">drm</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/dtrace">dtrace</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/dubai">dubai</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/elschemo">elschemo</a> (2)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/emacs">emacs</a> (11)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/english">english</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/extensions">extensions</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/firefox">firefox</a> (3)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/framework">framework</a> (2)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/funny">funny</a> (2)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/fuse">fuse</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/games">games</a> (2)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/gentoo">gentoo</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/german">german</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/gtkpod">gtkpod</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/haskell">haskell</a> (7)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/humans">humans</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/injury">injury</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/inspirado">inspirado</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/iphone">iphone</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/itunes">itunes</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/i_laughed_i_cried">i_laughed_i_cried</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/keyboard">keyboard</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/keyboard%20shortcuts">keyboard shortcuts</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/lemmings">lemmings</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/life">life</a> (13)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/linux">linux</a> (8)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/lisp">lisp</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/lisp%20arc">lisp arc</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/mac%20os%20x">mac os x</a> (6)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/mediawiki">mediawiki</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/mephisto">mephisto</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/migrations">migrations</a> (2)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/munich">munich</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/mysql">mysql</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/networking">networking</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/opera">opera</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/pedantry">pedantry</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/people">people</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/photo">photo</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/php">php</a> (4)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/programming">programming</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/project%20euler">project euler</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/propaganda">propaganda</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/python">python</a> (2)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/quickcheck">quickcheck</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/rails">rails</a> (18)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/rails%20on%20rules">rails on rules</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/regex">regex</a> (2)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/regular%20expressions">regular expressions</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/rest">rest</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/rtfm">rtfm</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/ruby">ruby</a> (14)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/rushcheck">rushcheck</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/sake">sake</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/scheme">scheme</a> (4)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/school">school</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/seaside">seaside</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/secure%20associations">secure associations</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/seekport">seekport</a> (2)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/snippets">snippets</a> (3)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/ssh">ssh</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/tagify">tagify</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/technology">technology</a> (6)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/test/spec">test/spec</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/textmate">textmate</a> (7)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/tips">tips</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/typo">typo</a> (2)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/ubuntu">ubuntu</a> (2)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/usability">usability</a> (2)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/userscript">userscript</a> (2)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/vacation">vacation</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/vim">vim</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/volume">volume</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/web">web</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/web%20objects">web objects</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/wikipediafs">wikipediafs</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/windows">windows</a> (2)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/work">work</a> (1)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/zend">zend</a> (2)</li>
+        
+          <li><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/tags/zsh">zsh</a> (1)</li>
+        
+        </ul>
+      </div>
+      
+
+      <div class="sidebar-node">
+        <h3>Friends &amp; cool blogs</h3>
+        <ul>
+          <li><a href="http://web.archive.org/web/20090215135823/http://jim.roepcke.com/">have browser, will travel</a></li>
+          <li><a href="http://web.archive.org/web/20090215135823/http://cassandrahill.blogspot.com/">cj's chatter</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-node">
+        <p><a href="http://web.archive.org/web/20090215135823/http://twitter.com/_sjs">
+          <img src="http://web.archive.org/web/20090215135823im_/http://sami.samhuri.net/assets/2007/6/26/icon_twitter.png" alt="[t]" /> twitter</a></p>
+      </div>
+
+      <div class="sidebar-node">
+        <p><a href="http://web.archive.org/web/20090215135823/http://mephistoblog.com/" class="powered"><img alt="mephisto-badge-tiny" src="http://web.archive.org/web/20090215135823im_/http://sami.samhuri.net/images/mephisto-badge-tiny.png" /></a></p>
+      </div>
+
+    </div>
+    <br style="clear:both;" />
+
+  </div>
+
+  <div id="footer">
+    <hr />
+    <p><a href="http://web.archive.org/web/20090215135823/http://sami.samhuri.net/">sjs</a></p>
+    <ul>
+      <li>powered by <a href="http://web.archive.org/web/20090215135823/http://mephistoblog.com/">Mephisto</a> /
+          styled with <a href="http://web.archive.org/web/20090215135823/http://quotedprintable.com/pages/scribbish">scribbish</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<script src="http://web.archive.org/web/20090215135823js_/http://www.google-analytics.com/urchin.js" type="text/javascript"> </script>
+<script type="text/javascript"> _uacct = "UA-214054-3"; urchinTracker(); </script>  
+<script src="http://web.archive.org/web/20090215135823js_/http://feeds.feedburner.com/~s/sjs" type="text/javascript" charset="utf-8"></script>
+
+</body>
+</html>
+
+
+
+
+
+<!--
+     FILE ARCHIVED ON 13:58:23 Feb 15, 2009 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 9:12:21 Dec 11, 2011.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->

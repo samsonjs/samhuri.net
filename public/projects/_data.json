@@ -1,0 +1,58 @@
+{
+  "strftime": {
+    "title": "strftime",
+    "description": "strftime for JavaScript"
+  },
+  "bin": {
+    "title": "bin",
+    "description": "~/bin"
+  },
+  "compiler": {
+    "title": "compiler",
+    "description": "an x86 compiler written in ruby"
+  },
+  "config": {
+    "title": "config",
+    "description": "important dot files (zsh, emacs, vim, screen)"
+  },
+  "format": {
+    "title": "format",
+    "description": "printf for JavaScript"
+  },
+  "gitter": {
+    "title": "gitter",
+    "description": "a GitHub client for Node (v3 API)"
+  },
+  "samhuri.net": {
+    "title": "samhuri.net",
+    "description": "this site"
+  },
+  "ThePusher": {
+    "title": "ThePusher",
+    "description": "Github post receive hook router"
+  },
+  "lake": {
+    "title": "lake",
+    "description": "A simple implementation of Scheme in C"
+  },
+  "mojo.el": {
+    "title": "mojo.el",
+    "description": "turn emacs into a sweet mojo editor"
+  },
+  "NorthWatcher": {
+    "title": "NorthWatcher",
+    "description": "cron for filesystem changes"
+  },
+  "batteries": {
+    "title": "batteries",
+    "description": "a general purpose node library"
+  },
+  "repl-edit": {
+    "title": "repl-edit",
+    "description": "edit Node repl commands with your text editor"
+  },
+  "cheat.el": {
+    "title": "cheat.el",
+    "description": "cheat from emacs"
+  }
+}

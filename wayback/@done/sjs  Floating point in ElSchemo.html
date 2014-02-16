@@ -1,0 +1,1006 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>sjs: Floating point in ElSchemo</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />  
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/sjs" />
+  
+
+  <script src="http://web.archive.org/web/20070628231343js_/http://sami.samhuri.net/javascripts/prototype.js" type="text/javascript"></script>
+
+  <link href="http://web.archive.org/web/20070628231343cs_/http://sami.samhuri.net/stylesheets/application.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<!-- BEGIN WAYBACK TOOLBAR INSERT -->
+
+<script type="text/javascript" src="http://staticweb.archive.org/js/disclaim-element.js" ></script>
+<script type="text/javascript" src="http://staticweb.archive.org/js/graph-calc.js" ></script>
+<script type="text/javascript" src="http://staticweb.archive.org/jflot/jquery.min.js" ></script>
+<script type="text/javascript">
+//<![CDATA[
+var firstDate = 820454400000;
+var lastDate = 1325375999999;
+var wbPrefix = "http://web.archive.org/web/";
+var wbCurrentUrl = "http://sami.samhuri.net/2007/6/25/floating-point-in-elschemo";
+
+var curYear = -1;
+var curMonth = -1;
+var yearCount = 16;
+var firstYear = 1996;
+var imgWidth=400;
+var yearImgWidth = 25;
+var monthImgWidth = 2;
+var trackerVal = "none";
+var displayDay = "28";
+var displayMonth = "Jun";
+var displayYear = "2007";
+var prettyMonths = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+function showTrackers(val) {
+	if(val == trackerVal) {
+		return;
+	}
+	if(val == "inline") {
+		document.getElementById("displayYearEl").style.color = "#ec008c";
+		document.getElementById("displayMonthEl").style.color = "#ec008c";
+		document.getElementById("displayDayEl").style.color = "#ec008c";		
+	} else {
+		document.getElementById("displayYearEl").innerHTML = displayYear;
+		document.getElementById("displayYearEl").style.color = "#ff0";
+		document.getElementById("displayMonthEl").innerHTML = displayMonth;
+		document.getElementById("displayMonthEl").style.color = "#ff0";
+		document.getElementById("displayDayEl").innerHTML = displayDay;
+		document.getElementById("displayDayEl").style.color = "#ff0";
+	}
+   document.getElementById("wbMouseTrackYearImg").style.display = val;
+   document.getElementById("wbMouseTrackMonthImg").style.display = val;
+   trackerVal = val;
+}
+function getElementX2(obj) {
+	var thing = jQuery(obj);
+	if((thing == undefined) 
+			|| (typeof thing == "undefined") 
+			|| (typeof thing.offset == "undefined")) {
+		return getElementX(obj);
+	}
+	return Math.round(thing.offset().left);
+}
+function trackMouseMove(event,element) {
+
+   var eventX = getEventX(event);
+   var elementX = getElementX2(element);
+   var xOff = eventX - elementX;
+	if(xOff < 0) {
+		xOff = 0;
+	} else if(xOff > imgWidth) {
+		xOff = imgWidth;
+	}
+   var monthOff = xOff % yearImgWidth;
+
+   var year = Math.floor(xOff / yearImgWidth);
+	var yearStart = year * yearImgWidth;
+   var monthOfYear = Math.floor(monthOff / monthImgWidth);
+   if(monthOfYear > 11) {
+       monthOfYear = 11;
+   }
+   // 1 extra border pixel at the left edge of the year:
+   var month = (year * 12) + monthOfYear;
+   var day = 1;
+	if(monthOff % 2 == 1) {
+		day = 15;
+	}
+	var dateString = 
+		zeroPad(year + firstYear) + 
+		zeroPad(monthOfYear+1,2) +
+		zeroPad(day,2) + "000000";
+
+	var monthString = prettyMonths[monthOfYear];
+	document.getElementById("displayYearEl").innerHTML = year + 1996;
+	document.getElementById("displayMonthEl").innerHTML = monthString;
+	// looks too jarring when it changes..
+	//document.getElementById("displayDayEl").innerHTML = zeroPad(day,2);
+
+	var url = wbPrefix + dateString + '/' +  wbCurrentUrl;
+	document.getElementById('wm-graph-anchor').href = url;
+
+   //document.getElementById("wmtbURL").value="evX("+eventX+") elX("+elementX+") xO("+xOff+") y("+year+") m("+month+") monthOff("+monthOff+") DS("+dateString+") Moy("+monthOfYear+") ms("+monthString+")";
+   if(curYear != year) {
+       var yrOff = year * yearImgWidth;
+       document.getElementById("wbMouseTrackYearImg").style.left = yrOff + "px";
+       curYear = year;
+   }
+   if(curMonth != month) {
+       var mtOff = year + (month * monthImgWidth) + 1;
+       document.getElementById("wbMouseTrackMonthImg").style.left = mtOff + "px";
+       curMonth = month;
+   }
+}
+//]]>
+</script>
+
+<style type="text/css">body{margin-top:0!important;padding-top:0!important;min-width:800px!important;}#wm-ipp a:hover{text-decoration:underline!important;}</style>
+<div id="wm-ipp" style="display:none; position:relative;padding:0 5px;min-height:70px;min-width:800px; z-index:9000;">
+<div id="wm-ipp-inside" style="position:fixed;padding:0!important;margin:0!important;width:97%;min-width:780px;border:5px solid #000;border-top:none;background-image:url(http://staticweb.archive.org/images/toolbar/wm_tb_bk_trns.png);text-align:center;-moz-box-shadow:1px 1px 3px #333;-webkit-box-shadow:1px 1px 3px #333;box-shadow:1px 1px 3px #333;font-size:11px!important;font-family:'Lucida Grande','Arial',sans-serif!important;">
+   <table style="border-collapse:collapse;margin:0;padding:0;width:100%;"><tbody><tr>
+   <td style="padding:10px;vertical-align:top;min-width:110px;">
+   <a href="http://wayback.archive.org/web/" title="Wayback Machine home page" style="background-color:transparent;border:none;"><img src="http://staticweb.archive.org/images/toolbar/wayback-toolbar-logo.png" alt="Wayback Machine" width="110" height="39" border="0"/></a>
+   </td>
+   <td style="padding:0!important;text-align:center;vertical-align:top;width:100%;">
+
+       <table style="border-collapse:collapse;margin:0 auto;padding:0;width:570px;"><tbody><tr>
+       <td style="padding:3px 0;" colspan="2">
+       <form target="_top" method="get" action="http://wayback.archive.org/web/form-submit.jsp" name="wmtb" id="wmtb" style="margin:0!important;padding:0!important;"><input type="text" name="url" id="wmtbURL" value="http://sami.samhuri.net/2007/6/25/floating-point-in-elschemo" style="width:400px;font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;" onfocus="javascript:this.focus();this.select();" /><input type="hidden" name="type" value="replay" /><input type="hidden" name="date" value="20070628231343" /><input type="submit" value="Go" style="font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;margin-left:5px;" /><span id="wm_tb_options" style="display:block;"></span></form>
+       </td>
+       <td style="vertical-align:bottom;padding:5px 0 0 0!important;" rowspan="2">
+           <table style="border-collapse:collapse;width:110px;color:#99a;font-family:'Helvetica','Lucida Grande','Arial',sans-serif;"><tbody>
+			
+           <!-- NEXT/PREV MONTH NAV AND MONTH INDICATOR -->
+           <tr style="width:110px;height:16px;font-size:10px!important;">
+           	<td style="padding-right:9px;font-size:11px!important;font-weight:bold;text-transform:uppercase;text-align:right;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+                       May
+                       
+               </td>
+               <td id="displayMonthEl" style="background:#000;color:#ff0;font-size:11px!important;font-weight:bold;text-transform:uppercase;width:34px;height:15px;padding-top:1px;text-align:center;" title="You are here: 23:13:43 Jun 28, 2007">JUN</td>
+				<td style="padding-left:9px;font-size:11px!important;font-weight:bold;text-transform:uppercase;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+		                <a href="http://sami.samhuri.net/2007/6/25/floating-point-in-elschemo" style="text-decoration:none;color:#33f;font-weight:bold;background-color:transparent;border:none;" title="9 Aug 2007"><strong>AUG</strong></a>
+		                
+               </td>
+           </tr>
+
+           <!-- NEXT/PREV CAPTURE NAV AND DAY OF MONTH INDICATOR -->
+           <tr>
+               <td style="padding-right:9px;white-space:nowrap;overflow:visible;text-align:right!important;vertical-align:middle!important;" nowrap="nowrap">
+               
+                       <img src="http://staticweb.archive.org/images/toolbar/wm_tb_prv_off.png" alt="Previous capture" width="14" height="16" border="0" />
+                       
+               </td>
+               <td id="displayDayEl" style="background:#000;color:#ff0;width:34px;height:24px;padding:2px 0 0 0;text-align:center;font-size:24px;font-weight: bold;" title="You are here: 23:13:43 Jun 28, 2007">28</td>
+				<td style="padding-left:9px;white-space:nowrap;overflow:visible;text-align:left!important;vertical-align:middle!important;" nowrap="nowrap">
+               
+		                <a href="http://sami.samhuri.net/2007/6/25/floating-point-in-elschemo" title="4:08:04 Jun 30, 2007" style="background-color:transparent;border:none;"><img src="http://staticweb.archive.org/images/toolbar/wm_tb_nxt_on.png" alt="Next capture" width="14" height="16" border="0"/></a>
+		                
+			    </td>
+           </tr>
+
+           <!-- NEXT/PREV YEAR NAV AND YEAR INDICATOR -->
+           <tr style="width:110px;height:13px;font-size:9px!important;">
+				<td style="padding-right:9px;font-size:11px!important;font-weight: bold;text-align:right;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+                       2006
+                       
+               </td>
+               <td id="displayYearEl" style="background:#000;color:#ff0;font-size:11px!important;font-weight: bold;padding-top:1px;width:34px;height:13px;text-align:center;" title="You are here: 23:13:43 Jun 28, 2007">2007</td>
+				<td style="padding-left:9px;font-size:11px!important;font-weight: bold;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+		                <a href="http://sami.samhuri.net/2007/6/25/floating-point-in-elschemo" style="text-decoration:none;color:#33f;font-weight:bold;background-color:transparent;border:none;" title="20 Aug 2008"><strong>2008</strong></a>
+		                
+				</td>
+           </tr>
+           </tbody></table>
+       </td>
+
+       </tr>
+       <tr>
+       <td style="vertical-align:middle;padding:0!important;">
+           <a href="http://wayback.archive.org/web/20070628231343*/http://sami.samhuri.net/2007/6/25/floating-point-in-elschemo" style="color:#33f;font-size:11px;font-weight:bold;background-color:transparent;border:none;" title="See a list of every capture for this URL"><strong>12 captures</strong></a>
+           <div style="margin:0!important;padding:0!important;color:#666;font-size:9px;padding-top:2px!important;white-space:nowrap;" title="Timespan for captures of this URL">28 Jun 07 - 20 Aug 08</div>
+       </td>
+       <td style="padding:0!important;">
+       <a style="position:relative; white-space:nowrap; width:400px;height:27px;" href="" id="wm-graph-anchor">
+       <div id="wm-ipp-sparkline" style="position:relative; white-space:nowrap; width:400px;height:27px;background-color:#fff;cursor:pointer;border-right:1px solid #ccc;" title="Explore captures for this URL">
+			<img id="sparklineImgId" style="position:absolute; z-index:9012; top:0px; left:0px;"
+				onmouseover="showTrackers('inline');" 
+				onmouseout="showTrackers('none');"
+				onmousemove="trackMouseMove(event,this)"
+				alt="sparklines"
+				width="400"
+				height="27"
+				border="0"
+				src="http://wayback.archive.org/jsp/graph.jsp?graphdata=400_27_1996:-1:000000000000_1997:-1:000000000000_1998:-1:000000000000_1999:-1:000000000000_2000:-1:000000000000_2001:-1:000000000000_2002:-1:000000000000_2003:-1:000000000000_2004:-1:000000000000_2005:-1:000000000000_2006:-1:000000000000_2007:5:000002011101_2008:-1:111101010000_2009:-1:000000000000_2010:-1:000000000000_2011:-1:000000000000"></img>
+			<img id="wbMouseTrackYearImg" 
+				style="display:none; position:absolute; z-index:9010;"
+				width="25" 
+				height="27"
+				border="0"
+				src="http://staticweb.archive.org/images/toolbar/transp-yellow-pixel.png"></img>
+			<img id="wbMouseTrackMonthImg"
+				style="display:none; position:absolute; z-index:9011; " 
+				width="2"
+				height="27" 
+				border="0"
+				src="http://staticweb.archive.org/images/toolbar/transp-red-pixel.png"></img>
+       </div>
+		</a>
+
+       </td>
+       </tr></tbody></table>
+   </td>
+   <td style="text-align:right;padding:5px;width:65px;font-size:11px!important;">
+       <a href="javascript:;" onclick="document.getElementById('wm-ipp').style.display='none';" style="display:block;padding-right:18px;background:url(http://staticweb.archive.org/images/toolbar/wm_tb_close.png) no-repeat 100% 0;color:#33f;font-family:'Lucida Grande','Arial',sans-serif;margin-bottom:23px;background-color:transparent;border:none;" title="Close the toolbar">Close</a>
+       <a href="http://faq.web.archive.org/" style="display:block;padding-right:18px;background:url(http://staticweb.archive.org/images/toolbar/wm_tb_help.png) no-repeat 100% 0;color:#33f;font-family:'Lucida Grande','Arial',sans-serif;background-color:transparent;border:none;" title="Get some help using the Wayback Machine">Help</a>
+   </td>
+   </tr></tbody></table>
+
+</div>
+</div>
+<script type="text/javascript">
+ var wmDisclaimBanner = document.getElementById("wm-ipp");
+ if(wmDisclaimBanner != null) {
+   disclaimElement(wmDisclaimBanner);
+ }
+</script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+
+<div id="container">
+  <div id="header">
+    <h1><span><a href="http://sami.samhuri.net/">sjs</a></span></h1>
+    <h2>geeky ramblings</h2>
+  </div>
+
+  <div id="page">
+    <div id="content">
+      
+  
+<!--
+<rdf:RDF
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+  rdf:about=""
+  trackback:ping=""
+  dc:title="Floating point in ElSchemo"
+  dc:identifier="/2007/6/25/floating-point-in-elschemo"
+  dc:description="<h3>Parsing floating point numbers</h3>
+
+
+	<p>The first task is extending the <code>LispVal</code> type to grok floats.</p>
+
+
+<table class="CodeRay"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { di..."
+  dc:creator="sjs"
+  dc:date="June 24, 2007 18:53" />
+</rdf:RDF>
+-->
+
+<div class="hentry" id="article-101">
+  <h2 class="entry-title">
+    <a href="http://sami.samhuri.net/2007/6/25/floating-point-in-elschemo">Floating point in ElSchemo</a>
+    
+    <span class="comment_count">0</span>
+    
+  </h2>
+  <div class="vcard">
+  Posted by <span class="fn">sjs</span>
+</div>
+<abbr class="published" title="2007-06-24T18:53:00+00:00">on Sunday, June 24</abbr>
+<br class="clear" />
+  <div class="entry-content">
+  <h3>Parsing floating point numbers</h3>
+
+
+	<p>The first task is extending the <code>LispVal</code> type to grok floats.</p>
+
+
+<table class="CodeRay"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+</tt>2<tt>
+</tt>3<tt>
+</tt>4<tt>
+</tt>5<tt>
+</tt>6<tt>
+</tt>7<tt>
+</tt>8<tt>
+</tt>9<tt>
+</tt><strong>10</strong><tt>
+</tt>11<tt>
+</tt>12<tt>
+</tt>13<tt>
+</tt>14<tt>
+</tt>15<tt>
+</tt></pre></td>
+  <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">type LispInt = Integer<tt>
+</tt>type LispFloat = Float<tt>
+</tt><tt>
+</tt>-- numeric data types<tt>
+</tt>data LispNum = Integer LispInt<tt>
+</tt>             | Float LispFloat<tt>
+</tt><tt>
+</tt>-- data types<tt>
+</tt>data LispVal = Atom String<tt>
+</tt>             | List [LispVal]<tt>
+</tt>             | DottedList [LispVal] LispVal<tt>
+</tt>             | Number LispNum<tt>
+</tt>             | Char Char<tt>
+</tt>             | String String<tt>
+</tt>             | ...</pre></td>
+</tr></table>
+
+
+	<p>The reason for using the new <code>LispNum</code> type and not just throwing a new <code>Float Float</code> constructor in there is so that functions can accept and operate on parameters of any supported numeric type.  First the floating point numbers need to be parsed.  For now I only parse floating point numbers in decimal because the effort to parse other bases is too great for the benefits gained (none, for me).</p>
+
+
+	<p>ElSchemo now parses negative numbers so I'll start with 2 helper functions that are used when parsing both integers and floats:</p>
+
+
+<table class="CodeRay"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+</tt>2<tt>
+</tt>3<tt>
+</tt>4<tt>
+</tt>5<tt>
+</tt>6<tt>
+</tt>7<tt>
+</tt></pre></td>
+  <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">parseSign :: Parser Char<tt>
+</tt>parseSign = do try (char '-')<tt>
+</tt>           &lt;|&gt; do optional (char '+')<tt>
+</tt>                  return '+'<tt>
+</tt><tt>
+</tt>applySign :: Char -&gt; LispNum -&gt; LispNum<tt>
+</tt>applySign sign n = if sign == '-' then negate n else n</pre></td>
+</tr></table>
+
+
+	<p><code>parseSign</code> is straightforward as it follows the convention that a literal number is positive unless explicitly marked as negative with a leading minus sign. A leading plus sign is allowed but not required.</p>
+
+
+	<p><code>applySign</code> takes a sign character and a <code>LispNum</code> and negates it if necessary, returning a <code>LispNum</code>.</p>
+
+
+	<p>Armed with these 2 functions we can now parse floating point numbers in decimal. Conforming to R5RS an optional <code>#d</code> prefix is allowed.</p>
+
+
+<table class="CodeRay"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+</tt>2<tt>
+</tt>3<tt>
+</tt>4<tt>
+</tt>5<tt>
+</tt>6<tt>
+</tt>7<tt>
+</tt>8<tt>
+</tt></pre></td>
+  <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">parseFloat :: Parser LispVal<tt>
+</tt>parseFloat = do optional (string &quot;#d&quot;)<tt>
+</tt>                sign &lt;- parseSign<tt>
+</tt>                whole &lt;- many1 digit<tt>
+</tt>                char '.'<tt>
+</tt>                fract &lt;- many1 digit<tt>
+</tt>                return . Number $ applySign sign (makeFloat whole fract)<tt>
+</tt>    where makeFloat whole fract = Float . fst . head . readFloat $ whole ++ &quot;.&quot; ++ fract</pre></td>
+</tr></table>
+
+
+	<p>The first 6 lines should be clear. Line 7 simply applies the parsed sign to the parsed number and returns it, delegating most of the work to <code>makeFloat</code>.  <code>makeFloat</code> in turn delegates the work to the <code>readFloat</code> library function, extracts the result and constructs a <code>LispNum</code> for it.</p>
+
+
+	<p>The last step for parsing is to modify <code>parseExpr</code> to try and parse floats.</p>
+
+
+<table class="CodeRay"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+</tt>2<tt>
+</tt>3<tt>
+</tt>4<tt>
+</tt>5<tt>
+</tt>6<tt>
+</tt>7<tt>
+</tt>8<tt>
+</tt>9<tt>
+</tt><strong>10</strong><tt>
+</tt>11<tt>
+</tt>12<tt>
+</tt>13<tt>
+</tt>14<tt>
+</tt></pre></td>
+  <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">-- Integers, floats, characters and atoms can all start with a # so wrap those with try.<tt>
+</tt>-- (Left factor the grammar in the future)<tt>
+</tt>parseExpr :: Parser LispVal<tt>
+</tt>parseExpr = (try parseFloat)<tt>
+</tt>        &lt;|&gt; (try parseInteger)<tt>
+</tt>        &lt;|&gt; (try parseChar)<tt>
+</tt>        &lt;|&gt; parseAtom<tt>
+</tt>        &lt;|&gt; parseString<tt>
+</tt>        &lt;|&gt; parseQuoted<tt>
+</tt>        &lt;|&gt; do char '('<tt>
+</tt>               x &lt;- (try parseList) &lt;|&gt; parseDottedList<tt>
+</tt>               char ')'<tt>
+</tt>               return x<tt>
+</tt>        &lt;|&gt; parseComment</pre></td>
+</tr></table>
+
+
+	<h3>Displaying the floats</h3>
+
+
+	<p>That's it for parsing, now let's provide a way to display these suckers.  <code>LispVal</code> is an instance of show, where <code>show</code> = <code>showVal</code> so <code>showVal</code> is our first stop.  Remembering that <code>LispVal</code> now has a single <code>Number</code> constructor we modify it accordingly:</p>
+
+
+<table class="CodeRay"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+</tt>2<tt>
+</tt>3<tt>
+</tt>4<tt>
+</tt>5<tt>
+</tt>6<tt>
+</tt>7<tt>
+</tt></pre></td>
+  <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">showVal (Number n) = showNum n<tt>
+</tt><tt>
+</tt>showNum :: LispNum -&gt; String<tt>
+</tt>showNum (Integer contents) = show contents<tt>
+</tt>showNum (Float contents) = show contents<tt>
+</tt><tt>
+</tt>instance Show LispNum where show = showNum</pre></td>
+</tr></table>
+
+
+	<p>One last, and certainly not least, step is to modify <code>eval</code> so that numbers evaluate to themselves.</p>
+
+
+<pre><code>eval env val@(Number _) = return val</code></pre>
+
+	<p>There's a little more housekeeping to be done such as fixing <code>integer?</code>, <code>number?</code>, implementing <code>float?</code> but I will leave those as an exercise to the reader, or just wait until I share the full code.  As it stands now floating point numbers can be parsed and displayed.  If you fire up the interpreter and type <code>2.5</code> or <code>-10.88</code> they will be understood.  Now try adding them:</p>
+
+
+<pre>(+ 2.5 1.1)
+Invalid type: expected integer, found 2.5</pre>
+
+	<p>Oops, we don't know how to operate on floats yet!</p>
+
+
+	<h3>Operating on floats</h3>
+
+
+	<p>Parsing was the easy part.  Operating on the new floats is not necessarily difficult, but it was more work than I realized it would be.  I don't claim that this is the best or the only way to operate on any <code>LispNum</code>, it's just the way I did it and it seems to work.  There's a bunch of boilerplate necessary to make <code>LispNum</code> an instance of the required classes, Eq, Num, Real, and Ord.  I don't think I have done this properly but for now it works.  What is clearly necessary is the code that operates on different types of numbers.  I think I've specified sane semantics for coercion.  This will be very handy shortly.</p>
+
+
+<table class="CodeRay"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+</tt>2<tt>
+</tt>3<tt>
+</tt>4<tt>
+</tt>5<tt>
+</tt>6<tt>
+</tt>7<tt>
+</tt>8<tt>
+</tt>9<tt>
+</tt><strong>10</strong><tt>
+</tt>11<tt>
+</tt>12<tt>
+</tt>13<tt>
+</tt>14<tt>
+</tt>15<tt>
+</tt>16<tt>
+</tt>17<tt>
+</tt>18<tt>
+</tt>19<tt>
+</tt><strong>20</strong><tt>
+</tt>21<tt>
+</tt>22<tt>
+</tt>23<tt>
+</tt>24<tt>
+</tt>25<tt>
+</tt>26<tt>
+</tt>27<tt>
+</tt>28<tt>
+</tt>29<tt>
+</tt><strong>30</strong><tt>
+</tt>31<tt>
+</tt>32<tt>
+</tt>33<tt>
+</tt>34<tt>
+</tt>35<tt>
+</tt>36<tt>
+</tt>37<tt>
+</tt>38<tt>
+</tt>39<tt>
+</tt><strong>40</strong><tt>
+</tt>41<tt>
+</tt>42<tt>
+</tt>43<tt>
+</tt>44<tt>
+</tt>45<tt>
+</tt>46<tt>
+</tt>47<tt>
+</tt>48<tt>
+</tt>49<tt>
+</tt><strong>50</strong><tt>
+</tt>51<tt>
+</tt>52<tt>
+</tt>53<tt>
+</tt>54<tt>
+</tt>55<tt>
+</tt>56<tt>
+</tt>57<tt>
+</tt>58<tt>
+</tt>59<tt>
+</tt><strong>60</strong><tt>
+</tt>61<tt>
+</tt>62<tt>
+</tt>63<tt>
+</tt>64<tt>
+</tt>65<tt>
+</tt>66<tt>
+</tt>67<tt>
+</tt>68<tt>
+</tt>69<tt>
+</tt><strong>70</strong><tt>
+</tt></pre></td>
+  <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">lispNumEq :: LispNum -&gt; LispNum -&gt; Bool<tt>
+</tt>lispNumEq (Integer arg1) (Integer arg2) = arg1 == arg2<tt>
+</tt>lispNumEq (Integer arg1) (Float arg2) = (fromInteger arg1) == arg2<tt>
+</tt>lispNumEq (Float arg1) (Float arg2) = arg1 == arg2<tt>
+</tt>lispNumEq (Float arg1) (Integer arg2) = arg1 == (fromInteger arg2)<tt>
+</tt><tt>
+</tt>instance Eq LispNum where (==) = lispNumEq<tt>
+</tt><tt>
+</tt>lispNumPlus :: LispNum -&gt; LispNum -&gt; LispNum<tt>
+</tt>lispNumPlus (Integer x) (Integer y) = Integer $ x + y<tt>
+</tt>lispNumPlus (Integer x) (Float y)   = Float $ (fromInteger x) + y<tt>
+</tt>lispNumPlus (Float x)   (Float y)   = Float $ x + y<tt>
+</tt>lispNumPlus (Float x)   (Integer y) = Float $ x + (fromInteger y)<tt>
+</tt><tt>
+</tt>lispNumMinus :: LispNum -&gt; LispNum -&gt; LispNum<tt>
+</tt>lispNumMinus (Integer x) (Integer y) = Integer $ x - y<tt>
+</tt>lispNumMinus (Integer x) (Float y)   = Float $ (fromInteger x) - y<tt>
+</tt>lispNumMinus (Float x)   (Float y)   = Float $ x - y<tt>
+</tt>lispNumMinus (Float x)   (Integer y) = Float $ x - (fromInteger y)<tt>
+</tt><tt>
+</tt>lispNumMult :: LispNum -&gt; LispNum -&gt; LispNum<tt>
+</tt>lispNumMult (Integer x) (Integer y) = Integer $ x * y<tt>
+</tt>lispNumMult (Integer x) (Float y)   = Float $ (fromInteger x) * y<tt>
+</tt>lispNumMult (Float x)   (Float y)   = Float $ x * y<tt>
+</tt>lispNumMult (Float x)   (Integer y) = Float $ x * (fromInteger y)<tt>
+</tt><tt>
+</tt>lispNumDiv :: LispNum -&gt; LispNum -&gt; LispNum<tt>
+</tt>lispNumDiv (Integer x) (Integer y) = Integer $ x `div` y<tt>
+</tt>lispNumDiv (Integer x) (Float y)   = Float $ (fromInteger x) / y<tt>
+</tt>lispNumDiv (Float x)   (Float y)   = Float $ x / y<tt>
+</tt>lispNumDiv (Float x)   (Integer y) = Float $ x / (fromInteger y)<tt>
+</tt><tt>
+</tt>lispNumAbs :: LispNum -&gt; LispNum<tt>
+</tt>lispNumAbs (Integer x) = Integer (abs x)<tt>
+</tt>lispNumAbs (Float x) = Float (abs x)<tt>
+</tt><tt>
+</tt>lispNumSignum :: LispNum -&gt; LispNum<tt>
+</tt>lispNumSignum (Integer x) = Integer (signum x)<tt>
+</tt>lispNumSignum (Float x) = Float (signum x)<tt>
+</tt><tt>
+</tt>instance Num LispNum where<tt>
+</tt>    (+) = lispNumPlus<tt>
+</tt>    (-) = lispNumMinus<tt>
+</tt>    (*) = lispNumMult<tt>
+</tt>    abs = lispNumAbs<tt>
+</tt>    signum = lispNumSignum<tt>
+</tt>    fromInteger x = Integer x<tt>
+</tt><tt>
+</tt><tt>
+</tt>lispNumToRational :: LispNum -&gt; Rational<tt>
+</tt>lispNumToRational (Integer x) = toRational x<tt>
+</tt>lispNumToRational (Float x) = toRational x<tt>
+</tt><tt>
+</tt>instance Real LispNum where<tt>
+</tt>    toRational = lispNumToRational<tt>
+</tt><tt>
+</tt><tt>
+</tt>lispIntQuotRem :: LispInt -&gt; LispInt -&gt; (LispInt, LispInt)<tt>
+</tt>lispIntQuotRem n d = quotRem n d<tt>
+</tt><tt>
+</tt>lispIntToInteger :: LispInt -&gt; Integer<tt>
+</tt>lispIntToInteger x = x<tt>
+</tt><tt>
+</tt>lispNumLessThanEq :: LispNum -&gt; LispNum -&gt; Bool<tt>
+</tt>lispNumLessThanEq (Integer x) (Integer y) = x &lt;= y<tt>
+</tt>lispNumLessThanEq (Integer x) (Float y)   = (fromInteger x) &lt;= y<tt>
+</tt>lispNumLessThanEq (Float x)   (Integer y) = x &lt;= (fromInteger y)<tt>
+</tt>lispNumLessThanEq (Float x)   (Float y)   = x &lt;= y<tt>
+</tt><tt>
+</tt>instance Ord LispNum where (&lt;=) = lispNumLessThanEq</pre></td>
+</tr></table>
+
+
+	<p>Phew, ok with that out of the way now we can actually extend our operators to work with any type of <code>LispNum</code>.  Our Scheme operators are defined using the functions <code>numericBinop</code> and <code>numBoolBinop</code>.  First we'll slightly modify our definition of <code>primitives</code>:</p>
+
+
+<table class="CodeRay"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+</tt>2<tt>
+</tt>3<tt>
+</tt>4<tt>
+</tt>5<tt>
+</tt>6<tt>
+</tt>7<tt>
+</tt>8<tt>
+</tt>9<tt>
+</tt><strong>10</strong><tt>
+</tt>11<tt>
+</tt>12<tt>
+</tt>13<tt>
+</tt>14<tt>
+</tt>15<tt>
+</tt></pre></td>
+  <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">primitives :: [(String, [LispVal] -&gt; ThrowsError LispVal)]<tt>
+</tt>primitives = [(&quot;+&quot;, numericBinop (+)),<tt>
+</tt>              (&quot;-&quot;, subtractOp),<tt>
+</tt>              (&quot;*&quot;, numericBinop (*)),<tt>
+</tt>              (&quot;/&quot;, floatBinop (/)),<tt>
+</tt>              (&quot;mod&quot;, integralBinop mod),<tt>
+</tt>              (&quot;quotient&quot;, integralBinop quot),<tt>
+</tt>              (&quot;remainder&quot;, integralBinop rem),<tt>
+</tt>              (&quot;=&quot;, numBoolBinop (==)),<tt>
+</tt>              (&quot;&lt;&quot;, numBoolBinop (&lt;)),<tt>
+</tt>              (&quot;&gt;&quot;, numBoolBinop (&gt;)),<tt>
+</tt>              (&quot;/=&quot;, numBoolBinop (/=)),<tt>
+</tt>              (&quot;&gt;=&quot;, numBoolBinop (&gt;=)),<tt>
+</tt>              (&quot;&lt;=&quot;, numBoolBinop (&lt;=)),<tt>
+</tt>              ...]</pre></td>
+</tr></table>
+
+
+	<p>Note that <code>mod</code>, <code>quotient</code>, and <code>remainder</code> are only defined for integers and as such use <code>integralBinop</code>, while division (/) is only defined for floating point numbers using <code>floatBinop</code>.  <code>subtractOp</code> is different to support unary usage, e.g. <code>(- 4) =&gt; -4</code>, but it uses <code>numericBinop</code> internally when more than 1 argument is given.  On to the implementation!  First extend <code>unpackNum</code> to work with any <code>LispNum</code>, and provide separate <code>unpackInt</code> and <code>unpackFloat</code> functions to handle both kinds of <code>LispNum</code>.</p>
+
+
+<table class="CodeRay"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+</tt>2<tt>
+</tt>3<tt>
+</tt>4<tt>
+</tt>5<tt>
+</tt>6<tt>
+</tt>7<tt>
+</tt>8<tt>
+</tt>9<tt>
+</tt><strong>10</strong><tt>
+</tt>11<tt>
+</tt>12<tt>
+</tt>13<tt>
+</tt>14<tt>
+</tt>15<tt>
+</tt></pre></td>
+  <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">unpackNum :: LispVal -&gt; ThrowsError LispNum<tt>
+</tt>unpackNum (Number (Integer n)) = return $ Integer n<tt>
+</tt>unpackNum (Number (Float n)) = return $ Float n<tt>
+</tt>unpackNum notNum = throwError $ TypeMismatch &quot;number&quot; notNum<tt>
+</tt><tt>
+</tt>unpackInt :: LispVal -&gt; ThrowsError Integer<tt>
+</tt>unpackInt (Number (Integer n)) = return n<tt>
+</tt>unpackInt (List [n]) = unpackInt n<tt>
+</tt>unpackInt notInt = throwError $ TypeMismatch &quot;integer&quot; notInt<tt>
+</tt><tt>
+</tt>unpackFloat :: LispVal -&gt; ThrowsError Float<tt>
+</tt>unpackFloat (Number (Float f)) = return f<tt>
+</tt>unpackFloat (Number (Integer f)) = return $ fromInteger f<tt>
+</tt>unpackFloat (List [f]) = unpackFloat f<tt>
+</tt>unpackFloat notFloat = throwError $ TypeMismatch &quot;float&quot; notFloat</pre></td>
+</tr></table>
+
+
+	<p>The initial work of separating integers and floats into the <code>LispNum</code> abstraction, and the code I said would be handy shortly, are going to be really handy here.  There's relatively no change in <code>numericBinop</code> except for the type signature.  <code>integralBinop</code> and <code>floatBinop</code> are just specific versions of the same function.  I'm sure there's a nice Haskelly way of doing this with less repetition, and I welcome such corrections.</p>
+
+
+<table class="CodeRay"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+</tt>2<tt>
+</tt>3<tt>
+</tt>4<tt>
+</tt>5<tt>
+</tt>6<tt>
+</tt>7<tt>
+</tt>8<tt>
+</tt>9<tt>
+</tt><strong>10</strong><tt>
+</tt>11<tt>
+</tt>12<tt>
+</tt>13<tt>
+</tt>14<tt>
+</tt>15<tt>
+</tt>16<tt>
+</tt>17<tt>
+</tt>18<tt>
+</tt></pre></td>
+  <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">numericBinop :: (LispNum -&gt; LispNum -&gt; LispNum) -&gt; [LispVal] -&gt; ThrowsError LispVal<tt>
+</tt>numericBinop op singleVal@[_] = throwError $ NumArgs 2 singleVal<tt>
+</tt>numericBinop op params = mapM unpackNum params &gt;&gt;= return . Number . foldl1 op<tt>
+</tt><tt>
+</tt>integralBinop :: (LispInt -&gt; LispInt -&gt; LispInt) -&gt; [LispVal] -&gt; ThrowsError LispVal<tt>
+</tt>integralBinop op singleVal@[_] = throwError $ NumArgs 2 singleVal<tt>
+</tt>integralBinop op params = mapM unpackInt params &gt;&gt;= return . Number . Integer . foldl1 op<tt>
+</tt><tt>
+</tt>floatBinop :: (LispFloat -&gt; LispFloat -&gt; LispFloat) -&gt; [LispVal] -&gt; ThrowsError LispVal<tt>
+</tt>floatBinop op singleVal@[_] = throwError $ NumArgs 2 singleVal<tt>
+</tt>floatBinop op params = mapM unpackFloat params &gt;&gt;= return . Number . Float . foldl1 op<tt>
+</tt><tt>
+</tt>subtractOp :: [LispVal] -&gt; ThrowsError LispVal<tt>
+</tt>subtractOp num@[_] = unpackNum (head num) &gt;&gt;= return . Number . negate<tt>
+</tt>subtractOp params = numericBinop (-) params<tt>
+</tt><tt>
+</tt>numBoolBinop :: (LispNum -&gt; LispNum -&gt; Bool) -&gt; [LispVal] -&gt; ThrowsError LispVal<tt>
+</tt>numBoolBinop op params = boolBinop unpackNum op params</pre></td>
+</tr></table>
+
+
+	<p>That was a bit of work but now ElSchemo supports floating point numbers, and if you're following along then your Scheme might too if I haven't missed any important details!</p>
+
+
+	<p>Next time I'll go over some of the special forms I have added, including short-circuiting <code>and</code> and <code>or</code> forms and the full repetoire of <code>let</code>, <code>let*</code>, and <code>letrec</code>. Stay tuned!</p>
+  
+  <div class="extended">
+    <p><a href="http://sami.samhuri.net/2007/6/25/floating-point-in-elschemo">Continue reading...</a></p>
+  </div>
+  
+</div>
+  <ul class="meta">
+  
+  
+  <li>
+    Tags: <a href="http://sami.samhuri.net/tags/elschemo">elschemo</a>&nbsp;<a href="http://sami.samhuri.net/tags/haskell">haskell</a>&nbsp;<a href="http://sami.samhuri.net/tags/scheme">scheme</a>&nbsp;
+  </li>
+  
+  <li>
+    Meta: 
+    
+    <a href="http://sami.samhuri.net/2007/6/25/floating-point-in-elschemo">0 comments</a>, 
+    
+    <a href="http://sami.samhuri.net/2007/6/25/floating-point-in-elschemo">permalink</a>
+    
+  </li>
+</ul>
+</div>
+
+<h5><a name="comments">Comments</a></h5>
+<p><a href="http://sami.samhuri.net/2007/6/25/floating-point-in-elschemo#comment-form">Leave a response</a></p>
+<div id="comments_div">
+  <ol id="comments" class="comments">
+    
+  </ol>
+</div>
+
+<form id="comment-form" method="post" action="http://sami.samhuri.net/2007/6/25/floating-point-in-elschemo/comments#comment-form">
+<fieldset>
+  <legend>Comment</legend>
+  <p>
+    <label class="text" for="comment_author">Name:</label><br/>
+    <input type="text" id="comment_author" name="comment[author]" value="" />
+  </p>
+  <p>
+    <label class="text" for="comment_author_email">Email Address:</label><br />
+    <input type="text" id="comment_author_email" name="comment[author_email]" value="" />
+  </p>
+  <p>
+    <label class="text" for="comment_author_url">Website:</label><br />
+    <input type="text" id="comment_author_url" name="comment[author_url]" value="" />
+  </p>
+  <p>
+    <label class="text" for="comment_body">Comment:</label><br />
+    <textarea id="comment_body" name="comment[body]"></textarea>
+  </p>
+  <div class="formactions">
+    <input type="submit" value="Post comment" class="submit" />
+  </div>
+</fieldset>
+</form>
+
+
+
+    </div>
+
+    <div id="sidebar">
+
+      <div class="sidebar-node">
+        <div id="search" class="search">
+          <form action="http://sami.samhuri.net/search" id="sform" method="get" name="sform">
+            <p><input type="text" id="q" name="q" value="" /></p>
+          </form>
+        </div>
+      </div>
+
+      
+
+      
+
+      
+      <div class="sidebar-node">
+        <h3>Tags</h3>
+        <ul>
+        
+          <li><a href="http://sami.samhuri.net/tags/activerecord">activerecord</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/amusement">amusement</a> (6)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/apple">apple</a> (7)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/bdd">bdd</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/bootcamp">bootcamp</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/buffalo">buffalo</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/bundle">bundle</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/cheat">cheat</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/coding">coding</a> (22)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/cool">cool</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/coverflow">coverflow</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/crazy">crazy</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/digg">digg</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/drm">drm</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/dtrace">dtrace</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/elschemo">elschemo</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/emacs">emacs</a> (6)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/english">english</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/extensions">extensions</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/firefox">firefox</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/framework">framework</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/funny">funny</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/fuse">fuse</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/games">games</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/gentoo">gentoo</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/german">german</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/haskell">haskell</a> (6)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/inspirado">inspirado</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/iphone">iphone</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/itunes">itunes</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/i_laughed_i_cried">i_laughed_i_cried</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/keyboard">keyboard</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/life">life</a> (7)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/linux">linux</a> (5)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/mac%20os%20x">mac os x</a> (7)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/mediawiki">mediawiki</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/mephisto">mephisto</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/migrations">migrations</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/munich">munich</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/mysql">mysql</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/networking">networking</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/parallels">parallels</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/pedantry">pedantry</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/photo">photo</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/php">php</a> (4)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/propaganda">propaganda</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/python">python</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/rails">rails</a> (16)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/regex">regex</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/rest">rest</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/rtfm">rtfm</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/ruby">ruby</a> (9)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/scheme">scheme</a> (3)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/school">school</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/seekport">seekport</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/snippets">snippets</a> (3)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/tagify">tagify</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/technology">technology</a> (6)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/test/spec">test/spec</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/textmate">textmate</a> (6)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/typo">typo</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/ubuntu">ubuntu</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/usability">usability</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/userscript">userscript</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/vim">vim</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/wikipediafs">wikipediafs</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/windows">windows</a> (3)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/work">work</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/zend">zend</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/zsh">zsh</a> (1)</li>
+        
+        </ul>
+      </div>
+      
+
+      <div class="sidebar-node">
+        <h3>Friends &amp; cool blogs</h3>
+        <ul>
+          <li><a href="http://jim.roepcke.com/">have browser, will travel</a></li>
+          <li><a href="http://cassandrahill.blogspot.com/">cj's chatter</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-node">
+        <p><a href="http://twitter.com/_sjs">
+          <img src="http://web.archive.org/web/20070628231343im_/http://sami.samhuri.net/assets/2007/6/26/icon_twitter.png" alt="[t]" /> twitter</a></p>
+      </div>
+
+      <div class="sidebar-node">
+        <p><a href="http://mephistoblog.com/" class="powered"><img alt="mephisto-badge-tiny" src="http://web.archive.org/web/20070628231343im_/http://sami.samhuri.net/images/mephisto-badge-tiny.png" /></a></p>
+      </div>
+
+    </div>
+    <br style="clear:both;" />
+
+  </div>
+
+  <div id="footer">
+    <hr />
+    <p><a href="http://sami.samhuri.net/">sjs</a></p>
+    <ul>
+      <li>powered by <a href="http://mephistoblog.com/">Mephisto</a> /
+          styled with <a href="http://quotedprintable.com/pages/scribbish">scribbish</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<script src="http://web.archive.org/web/20070628231343js_/http://www.google-analytics.com/urchin.js" type="text/javascript"> </script>
+<script type="text/javascript"> _uacct = "UA-214054-3"; urchinTracker(); </script>  
+<script src="http://web.archive.org/web/20070628231343js_/http://feeds.feedburner.com/~s/sjs" type="text/javascript" charset="utf-8"></script>
+
+</body>
+</html>
+
+
+
+
+
+<!--
+     FILE ARCHIVED ON 23:13:43 Jun 28, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 2:57:56 Aug 21, 2011.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->

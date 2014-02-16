@@ -1,0 +1,1309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>sjs - geeky ramblings</title>
+
+  <link rel="openid.server" href="http://www.myopenid.com/server" />
+  <link rel="openid.delegate" href="http://sami-samhuri.myopenid.com/" />
+  <meta http-equiv="X-XRDS-Location" content="http://sami-samhuri.myopenid.com/xrds" />
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />  
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/sjs" />
+  
+
+  <script src="http://web.archive.org/web/20070910235042js_/http://sami.samhuri.net/javascripts/prototype.js" type="text/javascript"></script>
+
+  <link href="http://web.archive.org/web/20070910235042cs_/http://sami.samhuri.net/stylesheets/application.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<!-- BEGIN WAYBACK TOOLBAR INSERT -->
+
+<script type="text/javascript" src="http://staticweb.archive.org/js/disclaim-element.js" ></script>
+<script type="text/javascript" src="http://staticweb.archive.org/js/graph-calc.js" ></script>
+<script type="text/javascript" src="http://staticweb.archive.org/jflot/jquery.min.js" ></script>
+<script type="text/javascript">
+//<![CDATA[
+var firstDate = 820454400000;
+var lastDate = 1325375999999;
+var wbPrefix = "http://web.archive.org/web/";
+var wbCurrentUrl = "http://sami.samhuri.net/";
+
+var curYear = -1;
+var curMonth = -1;
+var yearCount = 16;
+var firstYear = 1996;
+var imgWidth=400;
+var yearImgWidth = 25;
+var monthImgWidth = 2;
+var trackerVal = "none";
+var displayDay = "10";
+var displayMonth = "Sep";
+var displayYear = "2007";
+var prettyMonths = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+function showTrackers(val) {
+	if(val == trackerVal) {
+		return;
+	}
+	if(val == "inline") {
+		document.getElementById("displayYearEl").style.color = "#ec008c";
+		document.getElementById("displayMonthEl").style.color = "#ec008c";
+		document.getElementById("displayDayEl").style.color = "#ec008c";		
+	} else {
+		document.getElementById("displayYearEl").innerHTML = displayYear;
+		document.getElementById("displayYearEl").style.color = "#ff0";
+		document.getElementById("displayMonthEl").innerHTML = displayMonth;
+		document.getElementById("displayMonthEl").style.color = "#ff0";
+		document.getElementById("displayDayEl").innerHTML = displayDay;
+		document.getElementById("displayDayEl").style.color = "#ff0";
+	}
+   document.getElementById("wbMouseTrackYearImg").style.display = val;
+   document.getElementById("wbMouseTrackMonthImg").style.display = val;
+   trackerVal = val;
+}
+function getElementX2(obj) {
+	var thing = jQuery(obj);
+	if((thing == undefined) 
+			|| (typeof thing == "undefined") 
+			|| (typeof thing.offset == "undefined")) {
+		return getElementX(obj);
+	}
+	return Math.round(thing.offset().left);
+}
+function trackMouseMove(event,element) {
+
+   var eventX = getEventX(event);
+   var elementX = getElementX2(element);
+   var xOff = eventX - elementX;
+	if(xOff < 0) {
+		xOff = 0;
+	} else if(xOff > imgWidth) {
+		xOff = imgWidth;
+	}
+   var monthOff = xOff % yearImgWidth;
+
+   var year = Math.floor(xOff / yearImgWidth);
+	var yearStart = year * yearImgWidth;
+   var monthOfYear = Math.floor(monthOff / monthImgWidth);
+   if(monthOfYear > 11) {
+       monthOfYear = 11;
+   }
+   // 1 extra border pixel at the left edge of the year:
+   var month = (year * 12) + monthOfYear;
+   var day = 1;
+	if(monthOff % 2 == 1) {
+		day = 15;
+	}
+	var dateString = 
+		zeroPad(year + firstYear) + 
+		zeroPad(monthOfYear+1,2) +
+		zeroPad(day,2) + "000000";
+
+	var monthString = prettyMonths[monthOfYear];
+	document.getElementById("displayYearEl").innerHTML = year + 1996;
+	document.getElementById("displayMonthEl").innerHTML = monthString;
+	// looks too jarring when it changes..
+	//document.getElementById("displayDayEl").innerHTML = zeroPad(day,2);
+
+	var url = wbPrefix + dateString + '/' +  wbCurrentUrl;
+	document.getElementById('wm-graph-anchor').href = url;
+
+   //document.getElementById("wmtbURL").value="evX("+eventX+") elX("+elementX+") xO("+xOff+") y("+year+") m("+month+") monthOff("+monthOff+") DS("+dateString+") Moy("+monthOfYear+") ms("+monthString+")";
+   if(curYear != year) {
+       var yrOff = year * yearImgWidth;
+       document.getElementById("wbMouseTrackYearImg").style.left = yrOff + "px";
+       curYear = year;
+   }
+   if(curMonth != month) {
+       var mtOff = year + (month * monthImgWidth) + 1;
+       document.getElementById("wbMouseTrackMonthImg").style.left = mtOff + "px";
+       curMonth = month;
+   }
+}
+//]]>
+</script>
+
+<style type="text/css">body{margin-top:0!important;padding-top:0!important;min-width:800px!important;}#wm-ipp a:hover{text-decoration:underline!important;}</style>
+<div id="wm-ipp" style="display:none; position:relative;padding:0 5px;min-height:70px;min-width:800px; z-index:9000;">
+<div id="wm-ipp-inside" style="position:fixed;padding:0!important;margin:0!important;width:97%;min-width:780px;border:5px solid #000;border-top:none;background-image:url(http://staticweb.archive.org/images/toolbar/wm_tb_bk_trns.png);text-align:center;-moz-box-shadow:1px 1px 3px #333;-webkit-box-shadow:1px 1px 3px #333;box-shadow:1px 1px 3px #333;font-size:11px!important;font-family:'Lucida Grande','Arial',sans-serif!important;">
+   <table style="border-collapse:collapse;margin:0;padding:0;width:100%;"><tbody><tr>
+   <td style="padding:10px;vertical-align:top;min-width:110px;">
+   <a href="http://wayback.archive.org/web/" title="Wayback Machine home page" style="background-color:transparent;border:none;"><img src="http://staticweb.archive.org/images/toolbar/wayback-toolbar-logo.png" alt="Wayback Machine" width="110" height="39" border="0"/></a>
+   </td>
+   <td style="padding:0!important;text-align:center;vertical-align:top;width:100%;">
+
+       <table style="border-collapse:collapse;margin:0 auto;padding:0;width:570px;"><tbody><tr>
+       <td style="padding:3px 0;" colspan="2">
+       <form target="_top" method="get" action="http://wayback.archive.org/web/form-submit.jsp" name="wmtb" id="wmtb" style="margin:0!important;padding:0!important;"><input type="text" name="url" id="wmtbURL" value="http://sami.samhuri.net/" style="width:400px;font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;" onfocus="javascript:this.focus();this.select();" /><input type="hidden" name="type" value="replay" /><input type="hidden" name="date" value="20070910235042" /><input type="submit" value="Go" style="font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;margin-left:5px;" /><span id="wm_tb_options" style="display:block;"></span></form>
+       </td>
+       <td style="vertical-align:bottom;padding:5px 0 0 0!important;" rowspan="2">
+           <table style="border-collapse:collapse;width:110px;color:#99a;font-family:'Helvetica','Lucida Grande','Arial',sans-serif;"><tbody>
+			
+           <!-- NEXT/PREV MONTH NAV AND MONTH INDICATOR -->
+           <tr style="width:110px;height:16px;font-size:10px!important;">
+           	<td style="padding-right:9px;font-size:11px!important;font-weight:bold;text-transform:uppercase;text-align:right;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+		                <a href="http://sami.samhuri.net/" style="text-decoration:none;color:#33f;font-weight:bold;background-color:transparent;border:none;" title="29 Jun 2007"><strong>JUN</strong></a>
+		                
+               </td>
+               <td id="displayMonthEl" style="background:#000;color:#ff0;font-size:11px!important;font-weight:bold;text-transform:uppercase;width:34px;height:15px;padding-top:1px;text-align:center;" title="You are here: 23:50:42 Sep 10, 2007">SEP</td>
+				<td style="padding-left:9px;font-size:11px!important;font-weight:bold;text-transform:uppercase;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+		                <a href="http://sami.samhuri.net/" style="text-decoration:none;color:#33f;font-weight:bold;background-color:transparent;border:none;" title="11 Oct 2007"><strong>OCT</strong></a>
+		                
+               </td>
+           </tr>
+
+           <!-- NEXT/PREV CAPTURE NAV AND DAY OF MONTH INDICATOR -->
+           <tr>
+               <td style="padding-right:9px;white-space:nowrap;overflow:visible;text-align:right!important;vertical-align:middle!important;" nowrap="nowrap">
+               
+		                <a href="http://sami.samhuri.net/" title="12:57:48 Aug 11, 2007" style="background-color:transparent;border:none;"><img src="http://staticweb.archive.org/images/toolbar/wm_tb_prv_on.png" alt="Previous capture" width="14" height="16" border="0" /></a>
+		                
+               </td>
+               <td id="displayDayEl" style="background:#000;color:#ff0;width:34px;height:24px;padding:2px 0 0 0;text-align:center;font-size:24px;font-weight: bold;" title="You are here: 23:50:42 Sep 10, 2007">10</td>
+				<td style="padding-left:9px;white-space:nowrap;overflow:visible;text-align:left!important;vertical-align:middle!important;" nowrap="nowrap">
+               
+		                <a href="http://sami.samhuri.net/" title="18:39:45 Oct 11, 2007" style="background-color:transparent;border:none;"><img src="http://staticweb.archive.org/images/toolbar/wm_tb_nxt_on.png" alt="Next capture" width="14" height="16" border="0"/></a>
+		                
+			    </td>
+           </tr>
+
+           <!-- NEXT/PREV YEAR NAV AND YEAR INDICATOR -->
+           <tr style="width:110px;height:13px;font-size:9px!important;">
+				<td style="padding-right:9px;font-size:11px!important;font-weight: bold;text-align:right;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+		                <a href="http://sami.samhuri.net/" style="text-decoration:none;color:#33f;font-weight:bold;background-color:transparent;border:none;" title="20 Jun 2006"><strong>2006</strong></a>
+		                
+               </td>
+               <td id="displayYearEl" style="background:#000;color:#ff0;font-size:11px!important;font-weight: bold;padding-top:1px;width:34px;height:13px;text-align:center;" title="You are here: 23:50:42 Sep 10, 2007">2007</td>
+				<td style="padding-left:9px;font-size:11px!important;font-weight: bold;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+		                <a href="http://sami.samhuri.net/" style="text-decoration:none;color:#33f;font-weight:bold;background-color:transparent;border:none;" title="1 Feb 2009"><strong>2009</strong></a>
+		                
+				</td>
+           </tr>
+           </tbody></table>
+       </td>
+
+       </tr>
+       <tr>
+       <td style="vertical-align:middle;padding:0!important;">
+           <a href="http://wayback.archive.org/web/20070910235042*/http://sami.samhuri.net/" style="color:#33f;font-size:11px;font-weight:bold;background-color:transparent;border:none;" title="See a list of every capture for this URL"><strong>23 captures</strong></a>
+           <div style="margin:0!important;padding:0!important;color:#666;font-size:9px;padding-top:2px!important;white-space:nowrap;" title="Timespan for captures of this URL">3 Mar 06 - 31 May 09</div>
+       </td>
+       <td style="padding:0!important;">
+       <a style="position:relative; white-space:nowrap; width:400px;height:27px;" href="" id="wm-graph-anchor">
+       <div id="wm-ipp-sparkline" style="position:relative; white-space:nowrap; width:400px;height:27px;background-color:#fff;cursor:pointer;border-right:1px solid #ccc;" title="Explore captures for this URL">
+			<img id="sparklineImgId" style="position:absolute; z-index:9012; top:0px; left:0px;"
+				onmouseover="showTrackers('inline');" 
+				onmouseout="showTrackers('none');"
+				onmousemove="trackMouseMove(event,this)"
+				alt="sparklines"
+				width="400"
+				height="27"
+				border="0"
+				src="http://wayback.archive.org/jsp/graph.jsp?graphdata=400_27_1996:-1:000000000000_1997:-1:000000000000_1998:-1:000000000000_1999:-1:000000000000_2000:-1:000000000000_2001:-1:000000000000_2002:-1:000000000000_2003:-1:000000000000_2004:-1:000000000000_2005:-1:000000000000_2006:-1:001102000100_2007:8:001121011211_2008:-1:011100100000_2009:-1:010110000000_2010:-1:000000000000_2011:-1:000000000000"></img>
+			<img id="wbMouseTrackYearImg" 
+				style="display:none; position:absolute; z-index:9010;"
+				width="25" 
+				height="27"
+				border="0"
+				src="http://staticweb.archive.org/images/toolbar/transp-yellow-pixel.png"></img>
+			<img id="wbMouseTrackMonthImg"
+				style="display:none; position:absolute; z-index:9011; " 
+				width="2"
+				height="27" 
+				border="0"
+				src="http://staticweb.archive.org/images/toolbar/transp-red-pixel.png"></img>
+       </div>
+		</a>
+
+       </td>
+       </tr></tbody></table>
+   </td>
+   <td style="text-align:right;padding:5px;width:65px;font-size:11px!important;">
+       <a href="javascript:;" onclick="document.getElementById('wm-ipp').style.display='none';" style="display:block;padding-right:18px;background:url(http://staticweb.archive.org/images/toolbar/wm_tb_close.png) no-repeat 100% 0;color:#33f;font-family:'Lucida Grande','Arial',sans-serif;margin-bottom:23px;background-color:transparent;border:none;" title="Close the toolbar">Close</a>
+       <a href="http://faq.web.archive.org/" style="display:block;padding-right:18px;background:url(http://staticweb.archive.org/images/toolbar/wm_tb_help.png) no-repeat 100% 0;color:#33f;font-family:'Lucida Grande','Arial',sans-serif;background-color:transparent;border:none;" title="Get some help using the Wayback Machine">Help</a>
+   </td>
+   </tr></tbody></table>
+
+</div>
+</div>
+<script type="text/javascript">
+ var wmDisclaimBanner = document.getElementById("wm-ipp");
+ if(wmDisclaimBanner != null) {
+   disclaimElement(wmDisclaimBanner);
+ }
+</script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+
+<div id="container">
+  <div id="header">
+    <h1><span><a href="http://sami.samhuri.net/">sjs</a></span></h1>
+    <h2>geeky ramblings</h2>
+  </div>
+
+  <div id="page">
+    <div id="content">
+      
+<div class="hentry" id="article-254">
+  <h2 class="entry-title">
+    <a href="http://sami.samhuri.net/2007/8/30/5-ways-to-avoid-looking-like-a-jerk-on-the-internet">5 ways to avoid looking like a jerk on the Internet</a>
+    
+    <span class="comment_count">3</span>
+    
+  </h2>
+  <div class="vcard">
+  Posted by <span class="fn">sjs</span>
+</div>
+<abbr class="published" title="2007-08-30T15:25:00+00:00">on Thursday, August 30</abbr>
+<br class="clear" />
+  <div class="entry-content">
+  <p>Let me begin by stating that these are tips I have gathered by posting in many public forums on the Internet and I have learned most of these rules by making the mistakes myself.  I'm not trying to point fingers at anyone or act all holier-than-thou.  It's a cold, emotionless medium text is.  It can be difficult to accurately convey one's feelings when typing a quick reply somewhere.  <a href="http://www.penny-arcade.com/comic/2004/03/19">John Gabriel's theory</a> certainly plays a part as well, but I'll try and assume that you are generally a nice person.  I also assume that we are talking about a text medium (IRC, forums, Slashdot/Reddit/Digg).  None of that fancy voice or video conferencing stuff!</p>
+
+
+	<p>Also, this is not a guide on how to really be an arrogant prick, but just not look like one when you engage in conversations on the Internet.  It's also not a guide on not being a jerk.  Should you lack basic manners you will have to learn them elsewhere.</p>
+
+
+	<h3>Rule #1: Forget the medium</h3>
+
+
+	<p>One thing that is quite difficult to do is look past the medium and remember that these are all real people conversing with each other.  Don't type anything that you wouldn't say to their face in real life.  This is, of course, not exclusive to the Internet.</p>
+
+
+	<h3>Rule #2: Remember the medium!</h3>
+
+
+	<p>While obeying Rule #1 it's important to remember that in a text medium there is no emotion or tone to our words.  If you think that smilies / emoticons are lame and for 12 year olds, well you're right.  However, there's no reason for an adult to refrain from using them as well.  They can be important quick clues to how your message should be interpreted.  You can always rephrase what you write so that there's little ambiguity to your words, but if you're typing something quickly on Digg, Reddit or some forum then you probably aren't spell checking and proof reading each and every post.</p>
+
+
+	<h3>Rule #3: Avoid know-it-all responses</h3>
+
+
+	<p>Starting a reply with "But ...", "Well ...", "No ...", or "Your mother's a ..." often sounds confrontational.  There's obviously no harm in using these in the right context, but many times I have found that removing these from the front of a sentence can drastically alter the tone and make it clear that I am trying to converse rather than argue.</p>
+
+
+	<h3>Rule #4: Address the correct party</h3>
+
+
+	<p>If you're not speaking directly to the reader avoid using "you" when you mean "one".  This is a particularly hard one to get in the habit of doing, for me at least.  I am just not used to speaking so formally but in writing it really does make a world of difference.  People are defensive creatures by nature and we don't like being singled out or accused.  Hell, half of the time we don't even like honest, kind advice.</p>
+
+
+	<h3>Rule #5: Accept the fact that people know more than you</h3>
+
+
+	<p>Geeks often come across as know-it-alls.  While most geeks probably do think they're rather clever (guilty as charged) they probably also know that they don't know everything.  When one knows nothing of a topic it's easy to admit that others are right and they are wrong (often because they won't have an opinion on the subject yet).  The trouble starts once they learn something about the matter, once they have formed opinions and ideas about it.</p>
+
+
+	<p>I'm not saying that we should all stop discussing things we're not experts on, just that we should try harder to keep open minds about things and realize that others may have some insight we do not.  If in doubt, partake in civil discourse and try not to dismiss others without even asking them to back up their claims or ideas.</p>
+
+
+	<p>Cue the comments pointing out how many of these rules I broke in this very post... :)</p>
+  
+</div>
+  <ul class="meta">
+  
+  
+  <li>
+    Tags: <a href="http://sami.samhuri.net/tags/life">life</a>&nbsp;<a href="http://sami.samhuri.net/tags/netiquette">netiquette</a>&nbsp;
+  </li>
+  
+  <li>
+    Meta: 
+    
+    <a href="http://sami.samhuri.net/2007/8/30/5-ways-to-avoid-looking-like-a-jerk-on-the-internet">3 comments</a>, 
+    
+    <a href="http://sami.samhuri.net/2007/8/30/5-ways-to-avoid-looking-like-a-jerk-on-the-internet">permalink</a>
+    
+  </li>
+</ul>
+</div>
+
+<div class="hentry" id="article-248">
+  <h2 class="entry-title">
+    <a href="http://sami.samhuri.net/2007/8/26/captivating-little-creatures">Captivating little creatures</a>
+    
+    <span class="comment_count">0</span>
+    
+  </h2>
+  <div class="vcard">
+  Posted by <span class="fn">sjs</span>
+</div>
+<abbr class="published" title="2007-08-26T12:35:00+00:00">on Sunday, August 26</abbr>
+<br class="clear" />
+  <div class="entry-content">
+  <p>Someone posted this JavaScript implementation of an old gem on Reddit, <a href="http://www.elizium.nu/scripts/lemmings/">Lemmings</a>! There goes my Sunday! :)</p>
+  
+</div>
+  <ul class="meta">
+  
+  
+  <li>
+    Tags: <a href="http://sami.samhuri.net/tags/games">games</a>&nbsp;<a href="http://sami.samhuri.net/tags/lemmings">lemmings</a>&nbsp;
+  </li>
+  
+  <li>
+    Meta: 
+    
+    <a href="http://sami.samhuri.net/2007/8/26/captivating-little-creatures">0 comments</a>, 
+    
+    <a href="http://sami.samhuri.net/2007/8/26/captivating-little-creatures">permalink</a>
+    
+  </li>
+</ul>
+</div>
+
+<div class="hentry" id="article-239">
+  <h2 class="entry-title">
+    <a href="http://sami.samhuri.net/2007/8/22/cheat-productively-in-emacs">Cheat productively in Emacs</a>
+    
+    <span class="comment_count">0</span>
+    
+  </h2>
+  <div class="vcard">
+  Posted by <span class="fn">sjs</span>
+</div>
+<abbr class="published" title="2007-08-21T18:20:00+00:00">on Tuesday, August 21</abbr>
+<br class="clear" />
+  <div class="entry-content">
+  <p>By now you may have heard about <a href="http://cheat.errtheblog.com/">cheat</a>, the command line cheat sheet collection that's completely open to editing, wiki style.  A couple of weeks ago I posted <a href="http://sami.samhuri.net/2007/8/10/cheat-from-emacs">cheat.el</a> which allows one to cheat from within Emacs.  There's an update.  However, before I get to cheat.el there's a small detour.</p>
+
+
+	<p>Cheat is not just about Ruby!  A few examples of cheats available are:</p>
+
+
+	<ul>
+	<li>bash and zsh</li>
+		<li>$EDITOR (if you happen to like e, TextMate, vi, emacs, RadRails, ...)</li>
+		<li>GNU screen</li>
+		<li>Version control (darcs, svn, git)</li>
+		<li>Firebug</li>
+		<li>Markdown and Textile</li>
+		<li>Oracle and MySQL</li>
+		<li>Regular expressions</li>
+		<li>and of course Ruby, Rails, Capistrano, etc.</li>
+	</ul>
+
+
+	<p>As of today, Aug-21 2007, the count is at <strong>166 cheat sheets</strong> so there's probably something there that you'll want to look up from the command line or Emacs sometime.  That's enough stroking cheat's ego, but there seems to be a notion that cheat is only for Ruby stuff and that's really not the case.</p>
+
+
+	<p>So what's new in this version of cheat.el?  <strong>Completion!</strong>  The only thing that bothered me about cheating in Emacs was the lack of completion.  It now has completion, thus it is now perfect. :)  In all likeliness this won't be the last release, but I can't really foresee adding anything else to it in the near future.  Enjoy!</p>
+
+
+	<p>Download it now: <a href="http://sami.samhuri.net/assets/2007/8/10/cheat.el">cheat.el</a></p>
+
+
+	<p>For any newcomers, just drop this into <code>~/.emacs.d</code>, <code>~/.elisp</code>, or any directory in your <code>load-path</code> and then <code>(require 'cheat)</code>.  For more info check the <a href="http://sami.samhuri.net/2007/8/10/cheat-from-emacs">original article</a> for a rundown on the cheat commands.</p>
+  
+</div>
+  <ul class="meta">
+  
+  <li>
+    Sections:  <a href="http://sami.samhuri.net/emacs">Emacs</a>
+  </li>
+  
+  
+  <li>
+    Tags: <a href="http://sami.samhuri.net/tags/cheat">cheat</a>&nbsp;<a href="http://sami.samhuri.net/tags/emacs">emacs</a>&nbsp;
+  </li>
+  
+  <li>
+    Meta: 
+    
+    <a href="http://sami.samhuri.net/2007/8/22/cheat-productively-in-emacs">0 comments</a>, 
+    
+    <a href="http://sami.samhuri.net/2007/8/22/cheat-productively-in-emacs">permalink</a>
+    
+  </li>
+</ul>
+</div>
+
+<div class="hentry" id="article-233">
+  <h2 class="entry-title">
+    <a href="http://sami.samhuri.net/2007/8/20/catch-compiler-errors-at-runtime">Catch compiler errors at runtime</a>
+    
+    <span class="comment_count">0</span>
+    
+  </h2>
+  <div class="vcard">
+  Posted by <span class="fn">sjs</span>
+</div>
+<abbr class="published" title="2007-08-19T22:17:00+00:00">on Sunday, August 19</abbr>
+<br class="clear" />
+  <div class="entry-content">
+  <p>While coding just now I had a small epiphany about Ruby.  Though Ruby is highly dynamic and compiled at runtime, that doesn't preclude one catching some mistakes at compile time.  I'm not talking about mere syntax errors or anything either.  The only proviso to catching mistakes at compile time is that you must have a decent chunk of code executed during compilation.  One benefit of Ruby's blurring of compile time and runtime is that you can run real code at compile time.  This is largely how metaprogramming tricks are pulled off elegantly and with ease in projects such as Rails.</p>
+
+
+	<p>Sure you won't get all the benefits of a strictly and/or statically typed compiler, but you can get some of them.  If you have a library that makes substantial use of executing code at compile time then the mere act of loading your library causes your code to run, thus it compiles.  If you <code>require</code> your lib and get <code>true</code> back then you know the code that bootstraps the runtime code is at least partially correct.</p>
+
+
+	<p>Compile time is runtime.  Runtime is compile time.  Just because you have to run the code to compile it doesn't mean you can't catch a good chunk of compiler errors before you send out your code.  Tests will always be there for the rest of your mistakes, but if you can pull work into compile time then Ruby's compiler can augment your regular testing practices.</p>
+
+
+	<p>I admit that this is of limited use most of the time, but let it not be said that you can't catch any errors with your compiler just because you have to run your code to compile it.  With Ruby the more meta you get the more the compiler rewards you.</p>
+
+
+	<p><em>[Of course this is true of languages such as Common Lisp too, which make available the full programming language at compile time. I just happened to be using Ruby when I realized this.]</em></p>
+  
+</div>
+  <ul class="meta">
+  
+  
+  <li>
+    Tags: <a href="http://sami.samhuri.net/tags/ruby">ruby</a>&nbsp;
+  </li>
+  
+  <li>
+    Meta: 
+    
+    <a href="http://sami.samhuri.net/2007/8/20/catch-compiler-errors-at-runtime">0 comments</a>, 
+    
+    <a href="http://sami.samhuri.net/2007/8/20/catch-compiler-errors-at-runtime">permalink</a>
+    
+  </li>
+</ul>
+</div>
+
+<div class="hentry" id="article-223">
+  <h2 class="entry-title">
+    <a href="http://sami.samhuri.net/2007/8/11/opera-is-pretty-slick">Opera is pretty slick</a>
+    
+    <span class="comment_count">0</span>
+    
+  </h2>
+  <div class="vcard">
+  Posted by <span class="fn">sjs</span>
+</div>
+<abbr class="published" title="2007-08-11T12:11:00+00:00">on Saturday, August 11</abbr>
+<br class="clear" />
+  <div class="entry-content">
+  <p>Though I usually prefer free software, I don't have any problems using proprietary stuff if I think it's good.  I had Firefox open for a couple of days and noticed that it was using 700M of memory.  That's not a problem at all since I have 4G but it's also a lot of RAM to be in use for just one window with one tab open.  The fact that Firefox gets sluggish after some time and needs to be restarted tells me that this isn't expected behaviour and is likely not due to caching for quick back/forward or whatever they claim is taking up the leaked memory.</p>
+
+
+	<p>Konqueror is ok but I'm not a huge fan of it, partly due to its kitchen-sink browser/file manager hybrid design.  IMO the KDE folks should break out the file manager part, but I digress.  I can't really put my finger on anything specific I dislike about Konqueror, it's just not for me.  To my dismay it seems to be the snappiest browser on Linux.</p>
+
+
+	<p>The only other decent browser I know of (for Linux) is Opera so I found some quick instructions on the Ubuntu forums and shoehorned the x86 build of it into my amd64 installation.  Everything went well, Flash works and all that stuff.  Opera is not nearly as snappy as I like but it is still fairly pleasant to use, once you find a skin that fits into your desktop.  For the record Firefox isn't snappy enough either.  Apart from AdBlock I don't miss many extensions for every day browsing.</p>
+
+
+	<p>I'm not sure if I'm going to stick with it yet but I've been using it for 2 days and haven't really missed Firefox at all.  Of course as soon as I do any development I need Firefox for Firebug and the Web Developer extension and such.  I've yet to investigate development tools on Opera.  I'm comfortable developing in Firefox already so why switch?</p>
+
+
+	<p>Man am I glad we're not in a Netscape/IE world anymore!  If I open up my MacBook I can choose from at least 2 other browsers for every day browsing (Camino, Safari).</p>
+  
+</div>
+  <ul class="meta">
+  
+  
+  <li>
+    Tags: <a href="http://sami.samhuri.net/tags/browsers">browsers</a>&nbsp;<a href="http://sami.samhuri.net/tags/firefox">firefox</a>&nbsp;<a href="http://sami.samhuri.net/tags/opera">opera</a>&nbsp;
+  </li>
+  
+  <li>
+    Meta: 
+    
+    <a href="http://sami.samhuri.net/2007/8/11/opera-is-pretty-slick">0 comments</a>, 
+    
+    <a href="http://sami.samhuri.net/2007/8/11/opera-is-pretty-slick">permalink</a>
+    
+  </li>
+</ul>
+</div>
+
+<div class="hentry" id="article-217">
+  <h2 class="entry-title">
+    <a href="http://sami.samhuri.net/2007/8/10/cheat-from-emacs">Cheat from Emacs</a>
+    
+    <span class="comment_count">4</span>
+    
+  </h2>
+  <div class="vcard">
+  Posted by <span class="fn">sjs</span>
+</div>
+<abbr class="published" title="2007-08-10T01:56:00+00:00">on Friday, August 10</abbr>
+<br class="clear" />
+  <div class="entry-content">
+  <p><em>Update: I had inadvertently used <code>string-join</code>, a function provided by something in my ~/.emacs.d. The script has been updated to work with a vanilla Emacs (23, but should work with 22 as well).</em></p>
+
+
+	<p><em>Update #2 [2007.08.10]: Editing cheats and diffs have been implemented.</em></p>
+
+
+	<p><em>Update #3 [2007.08.21]: I <a href="http://sami.samhuri.net/2007/8/21/cheat-productively-in-emacs">added completion</a> to cheat.el. The file linked on this page is still the latest version.</em></p>
+
+
+	<p>We all know and love <a href="http://cheat.errtheblog.com/">cheat</a>.  Now you can cheat without leaving Emacs (and without using a shell in Emacs).</p>
+
+
+	<p>Just save <a href="http://sami.samhuri.net/assets/2007/8/10/cheat.el">cheat.el</a> in ~/.emacs.d and then <code>(require 'cheat)</code> in your ~/.emacs.  I also bind <code>C-z C-c</code> to <code>cheat</code>, you may want to do something similar.</p>
+
+
+	<p><del>You can't do everything you can do with cheat on the command line yet</del>, and for most of the commands the cheat command itself is used. <em>Now you can do everything the command line client does from within Emacs, though you may need to revert to using <code>cheat-command</code> (described below).</em></p>
+
+
+	<p>Here's the rundown:</p>
+
+
+	<p><em>Any time you enter a cheat name there are both completion and a cheat-specific history available.  Unless you are adding a new cheat.  In that case you should use a new, unique name (duh).</em></p>
+
+
+	<ul>
+	<li><code>cheat</code> - Lookup a cheat sheet interactively (<code>cheat &lt;name&gt;</code>)</li>
+		<li><code>cheat-sheets</code> - List all cheat sheets (<code>cheat sheets</code>)</li>
+		<li><code>cheat-recent</code> - List recently added cheat sheets (<code>cheat recent</code>)</li>
+		<li><code>cheat-versions</code> - List versions of a cheat sheet interactively (<code>cheat &lt;name&gt; --versions</code>)</li>
+		<li><code>cheat-clear-cache</code> - Clear all cached sheets.</li>
+		<li><code>cheat-add-current-buffer</code> - Add a new cheat using the specified name and the contents of the current buffer as the body. (<code>cheat &lt;name&gt; --add</code>)</li>
+		<li><code>cheat-edit</code> - Retrieve a fresh copy of the named cheat and display the body in a buffer for editing.</li>
+		<li><code>cheat-save-current-buffer</code> - Save the current cheat buffer, which should be named <code>*cheat-&lt;name&gt;*</code>.</li>
+		<li><code>cheat-diff</code> - Show the diff between the current version and the given version of the named cheat. If the version given is of the form <em>m:n</em> then show the diff between versions <em>m</em> and <em>n</em>. (<code>cheat &lt;name&gt; --diff &lt;version&gt;</code>)</li>
+		<li><code>cheat-command</code> - Pass any arguments you want to cheat interactively.</li>
+	</ul>
+
+
+	<p><em>(Added)</em> <del>I may add support for <code>--diff</code> and <code>--edit</code> in the future.</del></p>
+
+
+	<p>Please do send me your patches so everyone can benefit from them.</p>
+  
+</div>
+  <ul class="meta">
+  
+  <li>
+    Sections:  <a href="http://sami.samhuri.net/emacs">Emacs</a>
+  </li>
+  
+  
+  <li>
+    Tags: <a href="http://sami.samhuri.net/tags/cheat">cheat</a>&nbsp;<a href="http://sami.samhuri.net/tags/emacs">emacs</a>&nbsp;
+  </li>
+  
+  <li>
+    Meta: 
+    
+    <a href="http://sami.samhuri.net/2007/8/10/cheat-from-emacs">4 comments</a>, 
+    
+    <a href="http://sami.samhuri.net/2007/8/10/cheat-from-emacs">permalink</a>
+    
+  </li>
+</ul>
+</div>
+
+<div class="hentry" id="article-214">
+  <h2 class="entry-title">
+    <a href="http://sami.samhuri.net/2007/8/9/snap-crunchle-pop">Snap, crunchle, pop</a>
+    
+    <span class="comment_count">1</span>
+    
+  </h2>
+  <div class="vcard">
+  Posted by <span class="fn">sjs</span>
+</div>
+<abbr class="published" title="2007-08-09T10:17:00+00:00">on Thursday, August 09</abbr>
+<br class="clear" />
+  <div class="entry-content">
+  <p>I think that every now and then we need to be reminded of the frail nature of our human bodies.  Yesterday morning as I walked to my kitchen I was turning right by pivoting on my right foot when my 24 years of walking experience suddenly failed me.  I clearly did something wrong, as I heard a crunching pop or two in my right ankle and went down.  Luckily it's just a sprain but my foot is fairly bruised and still sore today.  I'm trying to follow the <a href="http://orthopedics.about.com/cs/sprainsstrains/a/sprain_4.htm">RICE</a> method for recuperating but one can only lay down for so long before having to eat, work, use the bathroom, etc.  Thank goodness I don't work on my feet or I'd be out of commission.  If it still hurts next week I'm going to see a doctor but till then I'm trying not to leave my house.  The idea of hopping and hobbling to a bus to go to a doctor does not thrill me in the slightest.</p>
+
+
+	<p>Oh, if you find yourself in a bind an upside down hockey stick is a decent makeshift crutch.  You'll need 2 hands to operate the thing though.</p>
+
+
+	<p>At the opposite end of the spectrum there are times when we seem to be amazingly resilient creatures.  Check out a documentary called <em>"101 Things Removed from the Human Head"</em> if you can find it anywhere.  One of those things was a boat anchor, I kid you not.</p>
+  
+</div>
+  <ul class="meta">
+  
+  
+  <li>
+    Tags: <a href="http://sami.samhuri.net/tags/humans">humans</a>&nbsp;<a href="http://sami.samhuri.net/tags/injury">injury</a>&nbsp;<a href="http://sami.samhuri.net/tags/life">life</a>&nbsp;
+  </li>
+  
+  <li>
+    Meta: 
+    
+    <a href="http://sami.samhuri.net/2007/8/9/snap-crunchle-pop">1 comment</a>, 
+    
+    <a href="http://sami.samhuri.net/2007/8/9/snap-crunchle-pop">permalink</a>
+    
+  </li>
+</ul>
+</div>
+
+<div class="hentry" id="article-210">
+  <h2 class="entry-title">
+    <a href="http://sami.samhuri.net/2007/8/2/elschemo-boolean-logic-and-branching">ElSchemo: Boolean logic and branching</a>
+    
+    <span class="comment_count">0</span>
+    
+  </h2>
+  <div class="vcard">
+  Posted by <span class="fn">sjs</span>
+</div>
+<abbr class="published" title="2007-08-02T16:59:00+00:00">on Thursday, August 02</abbr>
+<br class="clear" />
+  <div class="entry-content">
+  <p>Well it has been a while since my last post.  I'll try not to do that
+frequently.  Anyhow, on to the good stuff.</p>
+
+
+	<p>I've been developing a Scheme
+interpreter in Haskell called
+<a href="http://sami.samhuri.net/2007/6/25/floating-point-in-elschemo">ElSchemo</a>.
+It started from <a href="http://halogen.note.amherst.edu/~jdtang/scheme_in_48/tutorial/overview.html">Jonathan's excellent Haskell
+tutorial</a>
+which I followed in order to learn both Haskell and Scheme.  Basically
+that means the code here is for me to get some feedback as much
+as to show others how to do this kind of stuff.  This may not be too
+interesting if you haven't at least browsed the tutorial.</p>
+
+
+	<p>I'm going to cover 3 new special forms: <code>and</code>, <code>or</code>, and <code>cond</code>.  I
+promised to cover the <code>let</code> family of special forms this time around
+but methinks this is long enough as it is.  My sincere apologies if
+you've been waiting for those.</p>
+  
+  <div class="extended">
+    <p><a href="http://sami.samhuri.net/2007/8/2/elschemo-boolean-logic-and-branching">Continue reading...</a></p>
+  </div>
+  
+</div>
+  <ul class="meta">
+  
+  
+  <li>
+    Tags: <a href="http://sami.samhuri.net/tags/elschemo">elschemo</a>&nbsp;<a href="http://sami.samhuri.net/tags/haskell">haskell</a>&nbsp;<a href="http://sami.samhuri.net/tags/scheme">scheme</a>&nbsp;
+  </li>
+  
+  <li>
+    Meta: 
+    
+    <a href="http://sami.samhuri.net/2007/8/2/elschemo-boolean-logic-and-branching">0 comments</a>, 
+    
+    <a href="http://sami.samhuri.net/2007/8/2/elschemo-boolean-logic-and-branching">permalink</a>
+    
+  </li>
+</ul>
+</div>
+
+<div class="hentry" id="article-157">
+  <h2 class="entry-title">
+    <a href="http://sami.samhuri.net/2007/7/12/poeple">people</a>
+    
+    <span class="comment_count">0</span>
+    
+  </h2>
+  <div class="vcard">
+  Posted by <span class="fn">sjs</span>
+</div>
+<abbr class="published" title="2007-07-12T12:28:00+00:00">on Thursday, July 12</abbr>
+<br class="clear" />
+  <div class="entry-content">
+  <p>Sometimes this is difficult to remember for someone who (likes to think that he) thinks somewhat logically.</p>
+
+
+	<blockquote>
+		<p>When dealing with people, let us remember that we are not dealing with creatures of logic.  We are dealing with creatures of emotion, creatures bristling with prejudices and motivated by pride and vanity.</p>
+	</blockquote>
+
+
+	<p>&#8212;<a href="http://en.wikipedia.org/wiki/Dale_Carnegie">Dale Carnegie</a>, <em><a href="http://en.wikipedia.org/wiki/How_to_Win_Friends_and_Influence_People">How to Win Friends and Influence People</a></em></p>
+  
+</div>
+  <ul class="meta">
+  
+  
+  <li>
+    Tags: <a href="http://sami.samhuri.net/tags/life">life</a>&nbsp;<a href="http://sami.samhuri.net/tags/people">people</a>&nbsp;
+  </li>
+  
+  <li>
+    Meta: 
+    
+    <a href="http://sami.samhuri.net/2007/7/12/poeple">0 comments</a>, 
+    
+    <a href="http://sami.samhuri.net/2007/7/12/poeple">permalink</a>
+    
+  </li>
+</ul>
+</div>
+
+<div class="hentry" id="article-133">
+  <h2 class="entry-title">
+    <a href="http://sami.samhuri.net/2007/7/6/see-your-regular-expressions-in-emacs">See your regular expressions in Emacs</a>
+    
+    <span class="comment_count">0</span>
+    
+  </h2>
+  <div class="vcard">
+  Posted by <span class="fn">sjs</span>
+</div>
+<abbr class="published" title="2007-07-06T16:45:00+00:00">on Friday, July 06</abbr>
+<br class="clear" />
+  <div class="entry-content">
+  <p>First, if you are an Emacs newbie then be sure to read (at least) the introduction of <a href="http://stuff.mit.edu/iap/emacs">Being Productive with Emacs</a>. For some reason the PDF and HTML versions are slightly similar.</p>
+
+
+	<p>Anyway, it mentions <code>re-builder</code> which is an awesome little gem if you use regular expressions at all<sup><a href="http://sami.samhuri.net/#fn1">1</a></sup>. What this baby does is open a small window at the bottom of your screen in which you can type a regex.  It is parsed as you type it and matches are highlighted in the other window. Genius.</p>
+
+
+	<p>[1] If you don't use them I encourage you to "learn them"http://regex.info/. Don't pay any attention to <a href="http://regex.info/blog/2006-09-15/247">Jamie Zawinsky</a> and his lack of appreciation for a fantastic tool.</p>
+  
+</div>
+  <ul class="meta">
+  
+  
+  <li>
+    Tags: <a href="http://sami.samhuri.net/tags/emacs">emacs</a>&nbsp;<a href="http://sami.samhuri.net/tags/regex">regex</a>&nbsp;
+  </li>
+  
+  <li>
+    Meta: 
+    
+    <a href="http://sami.samhuri.net/2007/7/6/see-your-regular-expressions-in-emacs">0 comments</a>, 
+    
+    <a href="http://sami.samhuri.net/2007/7/6/see-your-regular-expressions-in-emacs">permalink</a>
+    
+  </li>
+</ul>
+</div>
+
+<div class="hentry" id="article-128">
+  <h2 class="entry-title">
+    <a href="http://sami.samhuri.net/2007/7/6/rushcheck-quickcheck-for-ruby">RushCheck: QuickCheck for Ruby</a>
+    
+    <span class="comment_count">0</span>
+    
+  </h2>
+  <div class="vcard">
+  Posted by <span class="fn">sjs</span>
+</div>
+<abbr class="published" title="2007-07-05T19:50:00+00:00">on Thursday, July 05</abbr>
+<br class="clear" />
+  <div class="entry-content">
+  <p>I cannot wait to try out <a href="http://rushcheck.rubyforge.org/about.html">RushCheck</a>. It is <a href="http://www.cs.chalmers.se/~rjmh/QuickCheck/">QuickCheck</a> for Ruby. I don't have experience with QuickCheck or anything but it's clear to see how this helps you make certain your code is robust.</p>
+  
+</div>
+  <ul class="meta">
+  
+  
+  <li>
+    Tags: <a href="http://sami.samhuri.net/tags/quickcheck">quickcheck</a>&nbsp;<a href="http://sami.samhuri.net/tags/ruby">ruby</a>&nbsp;<a href="http://sami.samhuri.net/tags/rushcheck">rushcheck</a>&nbsp;
+  </li>
+  
+  <li>
+    Meta: 
+    
+    <a href="http://sami.samhuri.net/2007/7/6/rushcheck-quickcheck-for-ruby">0 comments</a>, 
+    
+    <a href="http://sami.samhuri.net/2007/7/6/rushcheck-quickcheck-for-ruby">permalink</a>
+    
+  </li>
+</ul>
+</div>
+
+<div class="hentry" id="article-120">
+  <h2 class="entry-title">
+    <a href="http://sami.samhuri.net/2007/7/3/a-textmate-tip-for-emacs-users">A TextMate tip for Emacs users</a>
+    
+    <span class="comment_count">0</span>
+    
+  </h2>
+  <div class="vcard">
+  Posted by <span class="fn">sjs</span>
+</div>
+<abbr class="published" title="2007-07-03T16:45:00+00:00">on Tuesday, July 03</abbr>
+<br class="clear" />
+  <div class="entry-content">
+  <p><em>Update: The only place I've seen this mentioned is in a <a href="http://macromates.com/blog/2005/screencast/#comment-660">comment</a> on the MacroMates blog.</em></p>
+
+
+	<p>My Linux box is down due to a hardware failure; a cheap SATA controller to be specific. Perhaps that will be a story for another day. As a result I've been working on my MacBook and back in TextMate. Old habits. And I haven't gotten comfortable in any of the OS X Emacsen yet.</p>
+
+
+	<p>This gave me an opportunity to accidentally discover some shortcuts in TextMate. A result of the Emacs shortcuts that my fingers are already wired to, here are some TextMate keyboard shortcuts that may or may not be <a href="http://macromates.com/textmate/manual/">documented</a> (I need to RTFM some day).</p>
+
+
+	<ul>
+	<li>As in most Cocoa text areas, <code>C-f</code>, <code>C-b</code>, <code>C-n</code>, <code>C-p</code>, <code>C-a</code>, <code>C-e</code>, and <code>C-t</code> work as expected (and others I'm sure).</li>
+		<li><code>C-k</code>: behaves as a vanilla Emacs, killing till a newline or killing a bare newline. I use the word killing specifically because you can yank it back with...</li>
+		<li><code>C-y</code>: yanks back the last thing on the kill ring (paste history). You still have to use <code>C-S-v</code> to yank previous items.</li>
+	</ul>
+
+
+	<p>I think TextMate may have helped ease me into Emacs without me even knowing. I had my suspicions that Allan was an Emacs fan and now I'm certain of it. I keep finding things in one that the other has, which makes switching between them easy. Well done Allan.</p>
+  
+</div>
+  <ul class="meta">
+  
+  
+  <li>
+    Tags: <a href="http://sami.samhuri.net/tags/emacs">emacs</a>&nbsp;<a href="http://sami.samhuri.net/tags/keyboard%20shortcuts">keyboard shortcuts</a>&nbsp;<a href="http://sami.samhuri.net/tags/textmate">textmate</a>&nbsp;
+  </li>
+  
+  <li>
+    Meta: 
+    
+    <a href="http://sami.samhuri.net/2007/7/3/a-textmate-tip-for-emacs-users">0 comments</a>, 
+    
+    <a href="http://sami.samhuri.net/2007/7/3/a-textmate-tip-for-emacs-users">permalink</a>
+    
+  </li>
+</ul>
+</div>
+
+<div class="hentry" id="article-115">
+  <h2 class="entry-title">
+    <a href="http://sami.samhuri.net/2007/7/1/controlling-volume-via-the-keyboard-on-linux">Controlling volume via the keyboard on Linux</a>
+    
+    <span class="comment_count">0</span>
+    
+  </h2>
+  <div class="vcard">
+  Posted by <span class="fn">sjs</span>
+</div>
+<abbr class="published" title="2007-06-30T23:13:00+00:00">on Saturday, June 30</abbr>
+<br class="clear" />
+  <div class="entry-content">
+  <p>I was using Amarok's global keyboard shortcuts to control the volume of my music via the <a href="http://pfuca-store.stores.yahoo.net/haphackeylit1.html">keyboard</a> but I wanted to control the system volume as well. A quick script later and now I can control both, and thanks to libnotify I get some feedback on what happened. It's not as pretty as OS X's volume control or <a href="http://growl.info/">Growl</a> but it'll certainly do.</p>
+
+
+	<p><a href="http://sami.samhuri.net/assets/2007/7/1/volume.rb">&darr; Download volume.rb</a></p>
+
+
+	<p>I save this as <strong>~/bin/volume</strong> and call it thusly: <code>volume +</code> and <code>volume -</code>. I bind Alt-+ and Alt&#8212;to those in my fluxbox config. If you don't have a preferred key binding program I recommend trying <a href="http://hocwp.free.fr/xbindkeys/xbindkeys.html">xbindkeys</a>. apt-get install, emerge, paludis -i, or rpm -i as needed.</p>
+  
+</div>
+  <ul class="meta">
+  
+  
+  <li>
+    Tags: <a href="http://sami.samhuri.net/tags/alsa">alsa</a>&nbsp;<a href="http://sami.samhuri.net/tags/linux">linux</a>&nbsp;<a href="http://sami.samhuri.net/tags/ruby">ruby</a>&nbsp;<a href="http://sami.samhuri.net/tags/volume">volume</a>&nbsp;
+  </li>
+  
+  <li>
+    Meta: 
+    
+    <a href="http://sami.samhuri.net/2007/7/1/controlling-volume-via-the-keyboard-on-linux">0 comments</a>, 
+    
+    <a href="http://sami.samhuri.net/2007/7/1/controlling-volume-via-the-keyboard-on-linux">permalink</a>
+    
+  </li>
+</ul>
+</div>
+
+<div class="hentry" id="article-112">
+  <h2 class="entry-title">
+    <a href="http://sami.samhuri.net/2007/6/29/recent-ruby-and-rails-regales">Recent Ruby and Rails Regales</a>
+    
+    <span class="comment_count">0</span>
+    
+  </h2>
+  <div class="vcard">
+  Posted by <span class="fn">sjs</span>
+</div>
+<abbr class="published" title="2007-06-28T19:23:00+00:00">on Thursday, June 28</abbr>
+<br class="clear" />
+  <div class="entry-content">
+  <p>Some cool Ruby and [the former on] Rails things are springing up and I haven't written much about the two Rs lately, though I work with them daily.</p>
+
+
+	<h3>Rails on Rules</h3>
+
+
+	<p>My friend <a href="http://jim.roepcke.com/">Jim Roepcke</a> is researching and implementing a plugin/framework designed to work with Rails called <a href="http://willingtofail.com/research/rules/index.html">Rails on Rules</a>.  His inspiration is <a href="http://developer.apple.com/documentation/WebObjects/Developing_With_D2W/Architecture/chapter_3_section_13.html">the rule system</a> from <a href="http://developer.apple.com/documentation/WebObjects/WebObjects_Overview/index.html">WebObjects'</a> <a href="http://developer.apple.com/documentation/WebObjects/Developing_With_D2W/Introduction/chapter_1_section_1.html">Direct to Web</a>.  He posted a good <a href="http://willingtofail.com/research/rules/example.html">example</a> for me, but this baby isn't just for template/view logic.  If some of the Rails conventions were specified in a default set of rules which the developer could further customize then you basically have a nice way of doing things that you would otherwise code by hand.  I think it would be a boon for the <a href="http://activescaffold.com/">ActiveScaffold</a> project.  We're meeting up to talk about this soon and I'll have more to say after then, but it sounds pretty cool.</p>
+
+
+	<h3>Sake Bomb!</h3>
+
+
+	<p>I've noticed a trend among some <a href="http://www.railsenvy.com/2007/6/11/ruby-on-rails-rake-tutorial">recent posts</a> about Rake: the authors keep talking about booze.  Are we nothing but a bunch of booze hounds?!  Well one can hope.  There's some motivation to learn more about a tool, having more time to drink after work.  This week <a href="http://ozmm.org/">Chris Wanstrath</a> dropped a <a href="http://errtheblog.com/post/6069">Sake Bomb</a> on the Ruby community.  Like piston, sake is something you can just pick up and use instantly.  Interestingly the different pronunciations of <code>rake</code> and <code>sake</code> help me from confusing the two on the command line... so far.</p>
+
+
+	<h3>Secure Associations (for Rails)</h3>
+
+
+	<p><a href="http://tuples.us/">Jordan McKible</a> released the <a href="http://tuples.us/2007/06/28/secure_associations-plugin-gets-some-love/">secure_associations</a> plugin. It lets you protect your models' *_id attributes from mass-assignment via <code>belongs_to_protected</code> and <code>has_many_protected</code>. It's a mild enhancement, but an enhancement nonetheless. This is useful to enough people that it should be in Rails proper.</p>
+
+
+	<h3>Regular expressions and strings with embedded objects</h3>
+
+
+	<p><a href="http://t-a-w.blogspot.com/">taw</a> taught me a <a href="http://t-a-w.blogspot.com/2007/06/regular-expressions-and-strings-with.html">new technique for simplifying regular expressions</a> by transforming the text in a reversible manner.  In one example he replaced literal strings in SQL - which are easily parsed via a regex - with what he calls embedded objects.  They're just tokens to identify the temporarily removed strings, but the important thing is that they don't interfere with the regexes that operate on the other parts of the SQL, which would have been very difficult to get right with the strings inside it.  If I made it sound complicated just read the post, he explains it well.</p>
+
+
+	<p>If you believe anything <a href="http://steve-yegge.blogspot.com/2007/06/rich-programmer-food.html">Steve Yegge</a> says then that last regex trick may come in handy for Q&#38;D parsing in any language, be it Ruby, NBL, or whataver.</p>
+  
+</div>
+  <ul class="meta">
+  
+  
+  <li>
+    Tags: <a href="http://sami.samhuri.net/tags/rails">rails</a>&nbsp;<a href="http://sami.samhuri.net/tags/rails%20on%20rules">rails on rules</a>&nbsp;<a href="http://sami.samhuri.net/tags/regular%20expressions">regular expressions</a>&nbsp;<a href="http://sami.samhuri.net/tags/ruby">ruby</a>&nbsp;<a href="http://sami.samhuri.net/tags/sake">sake</a>&nbsp;<a href="http://sami.samhuri.net/tags/secure%20associations">secure associations</a>&nbsp;
+  </li>
+  
+  <li>
+    Meta: 
+    
+    <a href="http://sami.samhuri.net/2007/6/29/recent-ruby-and-rails-regales">0 comments</a>, 
+    
+    <a href="http://sami.samhuri.net/2007/6/29/recent-ruby-and-rails-regales">permalink</a>
+    
+  </li>
+</ul>
+</div>
+
+<div class="hentry" id="article-110">
+  <h2 class="entry-title">
+    <a href="http://sami.samhuri.net/2007/6/26/emacs-tagify-region-or-insert-tag">Emacs: tagify-region-or-insert-tag</a>
+    
+    <span class="comment_count">0</span>
+    
+  </h2>
+  <div class="vcard">
+  Posted by <span class="fn">sjs</span>
+</div>
+<abbr class="published" title="2007-06-25T22:13:00+00:00">on Monday, June 25</abbr>
+<br class="clear" />
+  <div class="entry-content">
+  <p>After <a href="http://sami.samhuri.net/2007/6/26/rtfm">axing</a> half of <a href="http://sami.samhuri.net/2007/6/23/emacs-for-textmate-junkies">wrap-region.el</a> I renamed it to <a href="http://sami.samhuri.net/assets/2007/6/26/tagify.el">tagify.el</a> and improved it ever so slightly. It's leaner, and does more!</p>
+
+
+	<p><code>tagify-region-or-insert-tag</code> does the same thing as <code>wrap-region-with-tag</code> except if there is no region it now inserts the opening and closing tags and sets point in between them. I have this bound to <code>C-z t</code>, as I use <code>C-z</code> as my personal command prefix.</p>
+
+
+	<p><code>&lt;</code> is bound to <code>tagify-region-or-insert-self</code> which really doesn't warrant an explanation.</p>
+  
+</div>
+  <ul class="meta">
+  
+  
+  <li>
+    Tags: <a href="http://sami.samhuri.net/tags/emacs">emacs</a>&nbsp;<a href="http://sami.samhuri.net/tags/tagify">tagify</a>&nbsp;
+  </li>
+  
+  <li>
+    Meta: 
+    
+    <a href="http://sami.samhuri.net/2007/6/26/emacs-tagify-region-or-insert-tag">0 comments</a>, 
+    
+    <a href="http://sami.samhuri.net/2007/6/26/emacs-tagify-region-or-insert-tag">permalink</a>
+    
+  </li>
+</ul>
+</div>
+
+    </div>
+
+    <div id="sidebar">
+
+      <div class="sidebar-node">
+        <div id="search" class="search">
+          <form action="http://sami.samhuri.net/search" id="sform" method="get" name="sform">
+            <p><input type="text" id="q" name="q" value="" /></p>
+          </form>
+        </div>
+      </div>
+
+      
+      <div class="sidebar-node">
+        <h3>Archives</h3>
+        <ul>
+        
+          <li><a href="http://sami.samhuri.net/archives/2007/9">September 2007</a> (0)</li>
+        
+          <li><a href="http://sami.samhuri.net/archives/2007/8">August 2007</a> (8)</li>
+        
+          <li><a href="http://sami.samhuri.net/archives/2007/7">July 2007</a> (5)</li>
+        
+          <li><a href="http://sami.samhuri.net/archives/2007/6">June 2007</a> (14)</li>
+        
+          <li><a href="http://sami.samhuri.net/archives/2007/5">May 2007</a> (15)</li>
+        
+          <li><a href="http://sami.samhuri.net/archives/2007/4">April 2007</a> (5)</li>
+        
+          <li><a href="http://sami.samhuri.net/archives/2007/3">March 2007</a> (5)</li>
+        
+          <li><a href="http://sami.samhuri.net/archives/2007/2">February 2007</a> (0)</li>
+        
+          <li><a href="http://sami.samhuri.net/archives/2007/1">January 2007</a> (0)</li>
+        
+          <li><a href="http://sami.samhuri.net/archives/2006/12">December 2006</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/archives/2006/11">November 2006</a> (0)</li>
+        
+          <li><a href="http://sami.samhuri.net/archives/2006/10">October 2006</a> (0)</li>
+        
+          <li><a href="http://sami.samhuri.net/archives/2006/9">September 2006</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/archives/2006/8">August 2006</a> (0)</li>
+        
+          <li><a href="http://sami.samhuri.net/archives/2006/7">July 2006</a> (5)</li>
+        
+          <li><a href="http://sami.samhuri.net/archives/2006/6">June 2006</a> (4)</li>
+        
+          <li><a href="http://sami.samhuri.net/archives/2006/5">May 2006</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/archives/2006/4">April 2006</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/archives/2006/3">March 2006</a> (3)</li>
+        
+          <li><a href="http://sami.samhuri.net/archives/2006/2">February 2006</a> (11)</li>
+        
+        </ul>
+      </div>
+      
+
+      
+      <div class="sidebar-node">
+        <h3>Sections</h3>
+        <ul>
+        
+          <li><a href="http://sami.samhuri.net/">geeky ramblings</a> (15)</li>
+        
+          <li><a href="http://sami.samhuri.net/emacs">Emacs</a> (3)</li>
+        
+        </ul>
+      </div>
+      
+
+      
+      <div class="sidebar-node">
+        <h3>Tags</h3>
+        <ul>
+        
+          <li><a href="http://sami.samhuri.net/tags/activerecord">activerecord</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/alsa">alsa</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/amusement">amusement</a> (6)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/apple">apple</a> (7)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/bdd">bdd</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/bootcamp">bootcamp</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/browsers">browsers</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/buffalo">buffalo</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/bundle">bundle</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/cheat">cheat</a> (3)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/coding">coding</a> (22)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/cool">cool</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/coverflow">coverflow</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/crazy">crazy</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/digg">digg</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/drm">drm</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/dtrace">dtrace</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/elschemo">elschemo</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/emacs">emacs</a> (11)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/english">english</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/extensions">extensions</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/firefox">firefox</a> (3)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/framework">framework</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/funny">funny</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/fuse">fuse</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/games">games</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/gentoo">gentoo</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/german">german</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/haskell">haskell</a> (7)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/humans">humans</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/injury">injury</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/inspirado">inspirado</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/iphone">iphone</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/itunes">itunes</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/i_laughed_i_cried">i_laughed_i_cried</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/keyboard">keyboard</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/keyboard%20shortcuts">keyboard shortcuts</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/lemmings">lemmings</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/life">life</a> (12)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/linux">linux</a> (6)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/mac%20os%20x">mac os x</a> (7)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/mediawiki">mediawiki</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/mephisto">mephisto</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/migrations">migrations</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/munich">munich</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/mysql">mysql</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/netiquette">netiquette</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/networking">networking</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/opera">opera</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/parallels">parallels</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/pedantry">pedantry</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/people">people</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/photo">photo</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/php">php</a> (4)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/propaganda">propaganda</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/python">python</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/quickcheck">quickcheck</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/rails">rails</a> (18)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/rails%20on%20rules">rails on rules</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/regex">regex</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/regular%20expressions">regular expressions</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/rest">rest</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/rtfm">rtfm</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/ruby">ruby</a> (13)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/rushcheck">rushcheck</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/sake">sake</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/scheme">scheme</a> (4)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/school">school</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/seaside">seaside</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/secure%20associations">secure associations</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/seekport">seekport</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/snippets">snippets</a> (3)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/tagify">tagify</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/technology">technology</a> (6)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/test/spec">test/spec</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/textmate">textmate</a> (7)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/tips">tips</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/typo">typo</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/ubuntu">ubuntu</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/usability">usability</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/userscript">userscript</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/vim">vim</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/volume">volume</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/web%20objects">web objects</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/wikipediafs">wikipediafs</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/windows">windows</a> (3)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/work">work</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/zend">zend</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/zsh">zsh</a> (1)</li>
+        
+        </ul>
+      </div>
+      
+
+      <div class="sidebar-node">
+        <h3>Friends &amp; cool blogs</h3>
+        <ul>
+          <li><a href="http://jim.roepcke.com/">have browser, will travel</a></li>
+          <li><a href="http://cassandrahill.blogspot.com/">cj's chatter</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-node">
+        <p><a href="http://twitter.com/_sjs">
+          <img src="http://web.archive.org/web/20070910235042im_/http://sami.samhuri.net/assets/2007/6/26/icon_twitter.png" alt="[t]" /> twitter</a></p>
+      </div>
+
+      <div class="sidebar-node">
+        <p><a href="http://mephistoblog.com/" class="powered"><img alt="mephisto-badge-tiny" src="http://web.archive.org/web/20070910235042im_/http://sami.samhuri.net/images/mephisto-badge-tiny.png" /></a></p>
+      </div>
+
+    </div>
+    <br style="clear:both;" />
+
+  </div>
+
+  <div id="footer">
+    <hr />
+    <p><a href="http://sami.samhuri.net/">sjs</a></p>
+    <ul>
+      <li>powered by <a href="http://mephistoblog.com/">Mephisto</a> /
+          styled with <a href="http://quotedprintable.com/pages/scribbish">scribbish</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<script src="http://web.archive.org/web/20070910235042js_/http://www.google-analytics.com/urchin.js" type="text/javascript"> </script>
+<script type="text/javascript"> _uacct = "UA-214054-3"; urchinTracker(); </script>  
+<script src="http://web.archive.org/web/20070910235042js_/http://feeds.feedburner.com/~s/sjs" type="text/javascript" charset="utf-8"></script>
+
+</body>
+</html>
+
+
+
+
+
+<!--
+     FILE ARCHIVED ON 23:50:42 Sep 10, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 3:00:56 Aug 21, 2011.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->

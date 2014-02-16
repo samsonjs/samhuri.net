@@ -1,0 +1,773 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>sjs: Emacs for TextMate junkies</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />  
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/sjs" />
+  
+
+  <script src="http://web.archive.org/web/20070626150908js_/http://sami.samhuri.net/javascripts/prototype.js" type="text/javascript"></script>
+
+  <link href="http://web.archive.org/web/20070626150908cs_/http://sami.samhuri.net/stylesheets/application.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<!-- BEGIN WAYBACK TOOLBAR INSERT -->
+
+<script type="text/javascript" src="http://staticweb.archive.org/js/disclaim-element.js" ></script>
+<script type="text/javascript" src="http://staticweb.archive.org/js/graph-calc.js" ></script>
+<script type="text/javascript" src="http://staticweb.archive.org/jflot/jquery.min.js" ></script>
+<script type="text/javascript">
+//<![CDATA[
+var firstDate = 820454400000;
+var lastDate = 1325375999999;
+var wbPrefix = "http://web.archive.org/web/";
+var wbCurrentUrl = "http://sami.samhuri.net/2007/6/23/emacs-for-textmate-junkies";
+
+var curYear = -1;
+var curMonth = -1;
+var yearCount = 16;
+var firstYear = 1996;
+var imgWidth=400;
+var yearImgWidth = 25;
+var monthImgWidth = 2;
+var trackerVal = "none";
+var displayDay = "26";
+var displayMonth = "Jun";
+var displayYear = "2007";
+var prettyMonths = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+function showTrackers(val) {
+	if(val == trackerVal) {
+		return;
+	}
+	if(val == "inline") {
+		document.getElementById("displayYearEl").style.color = "#ec008c";
+		document.getElementById("displayMonthEl").style.color = "#ec008c";
+		document.getElementById("displayDayEl").style.color = "#ec008c";		
+	} else {
+		document.getElementById("displayYearEl").innerHTML = displayYear;
+		document.getElementById("displayYearEl").style.color = "#ff0";
+		document.getElementById("displayMonthEl").innerHTML = displayMonth;
+		document.getElementById("displayMonthEl").style.color = "#ff0";
+		document.getElementById("displayDayEl").innerHTML = displayDay;
+		document.getElementById("displayDayEl").style.color = "#ff0";
+	}
+   document.getElementById("wbMouseTrackYearImg").style.display = val;
+   document.getElementById("wbMouseTrackMonthImg").style.display = val;
+   trackerVal = val;
+}
+function getElementX2(obj) {
+	var thing = jQuery(obj);
+	if((thing == undefined) 
+			|| (typeof thing == "undefined") 
+			|| (typeof thing.offset == "undefined")) {
+		return getElementX(obj);
+	}
+	return Math.round(thing.offset().left);
+}
+function trackMouseMove(event,element) {
+
+   var eventX = getEventX(event);
+   var elementX = getElementX2(element);
+   var xOff = eventX - elementX;
+	if(xOff < 0) {
+		xOff = 0;
+	} else if(xOff > imgWidth) {
+		xOff = imgWidth;
+	}
+   var monthOff = xOff % yearImgWidth;
+
+   var year = Math.floor(xOff / yearImgWidth);
+	var yearStart = year * yearImgWidth;
+   var monthOfYear = Math.floor(monthOff / monthImgWidth);
+   if(monthOfYear > 11) {
+       monthOfYear = 11;
+   }
+   // 1 extra border pixel at the left edge of the year:
+   var month = (year * 12) + monthOfYear;
+   var day = 1;
+	if(monthOff % 2 == 1) {
+		day = 15;
+	}
+	var dateString = 
+		zeroPad(year + firstYear) + 
+		zeroPad(monthOfYear+1,2) +
+		zeroPad(day,2) + "000000";
+
+	var monthString = prettyMonths[monthOfYear];
+	document.getElementById("displayYearEl").innerHTML = year + 1996;
+	document.getElementById("displayMonthEl").innerHTML = monthString;
+	// looks too jarring when it changes..
+	//document.getElementById("displayDayEl").innerHTML = zeroPad(day,2);
+
+	var url = wbPrefix + dateString + '/' +  wbCurrentUrl;
+	document.getElementById('wm-graph-anchor').href = url;
+
+   //document.getElementById("wmtbURL").value="evX("+eventX+") elX("+elementX+") xO("+xOff+") y("+year+") m("+month+") monthOff("+monthOff+") DS("+dateString+") Moy("+monthOfYear+") ms("+monthString+")";
+   if(curYear != year) {
+       var yrOff = year * yearImgWidth;
+       document.getElementById("wbMouseTrackYearImg").style.left = yrOff + "px";
+       curYear = year;
+   }
+   if(curMonth != month) {
+       var mtOff = year + (month * monthImgWidth) + 1;
+       document.getElementById("wbMouseTrackMonthImg").style.left = mtOff + "px";
+       curMonth = month;
+   }
+}
+//]]>
+</script>
+
+<style type="text/css">body{margin-top:0!important;padding-top:0!important;min-width:800px!important;}#wm-ipp a:hover{text-decoration:underline!important;}</style>
+<div id="wm-ipp" style="display:none; position:relative;padding:0 5px;min-height:70px;min-width:800px; z-index:9000;">
+<div id="wm-ipp-inside" style="position:fixed;padding:0!important;margin:0!important;width:97%;min-width:780px;border:5px solid #000;border-top:none;background-image:url(http://staticweb.archive.org/images/toolbar/wm_tb_bk_trns.png);text-align:center;-moz-box-shadow:1px 1px 3px #333;-webkit-box-shadow:1px 1px 3px #333;box-shadow:1px 1px 3px #333;font-size:11px!important;font-family:'Lucida Grande','Arial',sans-serif!important;">
+   <table style="border-collapse:collapse;margin:0;padding:0;width:100%;"><tbody><tr>
+   <td style="padding:10px;vertical-align:top;min-width:110px;">
+   <a href="http://wayback.archive.org/web/" title="Wayback Machine home page" style="background-color:transparent;border:none;"><img src="http://staticweb.archive.org/images/toolbar/wayback-toolbar-logo.png" alt="Wayback Machine" width="110" height="39" border="0"/></a>
+   </td>
+   <td style="padding:0!important;text-align:center;vertical-align:top;width:100%;">
+
+       <table style="border-collapse:collapse;margin:0 auto;padding:0;width:570px;"><tbody><tr>
+       <td style="padding:3px 0;" colspan="2">
+       <form target="_top" method="get" action="http://wayback.archive.org/web/form-submit.jsp" name="wmtb" id="wmtb" style="margin:0!important;padding:0!important;"><input type="text" name="url" id="wmtbURL" value="http://sami.samhuri.net/2007/6/23/emacs-for-textmate-junkies" style="width:400px;font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;" onfocus="javascript:this.focus();this.select();" /><input type="hidden" name="type" value="replay" /><input type="hidden" name="date" value="20070626150908" /><input type="submit" value="Go" style="font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;margin-left:5px;" /><span id="wm_tb_options" style="display:block;"></span></form>
+       </td>
+       <td style="vertical-align:bottom;padding:5px 0 0 0!important;" rowspan="2">
+           <table style="border-collapse:collapse;width:110px;color:#99a;font-family:'Helvetica','Lucida Grande','Arial',sans-serif;"><tbody>
+			
+           <!-- NEXT/PREV MONTH NAV AND MONTH INDICATOR -->
+           <tr style="width:110px;height:16px;font-size:10px!important;">
+           	<td style="padding-right:9px;font-size:11px!important;font-weight:bold;text-transform:uppercase;text-align:right;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+                       May
+                       
+               </td>
+               <td id="displayMonthEl" style="background:#000;color:#ff0;font-size:11px!important;font-weight:bold;text-transform:uppercase;width:34px;height:15px;padding-top:1px;text-align:center;" title="You are here: 15:09:08 Jun 26, 2007">JUN</td>
+				<td style="padding-left:9px;font-size:11px!important;font-weight:bold;text-transform:uppercase;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+		                <a href="http://sami.samhuri.net/2007/6/23/emacs-for-textmate-junkies" style="text-decoration:none;color:#33f;font-weight:bold;background-color:transparent;border:none;" title="10 Aug 2007"><strong>AUG</strong></a>
+		                
+               </td>
+           </tr>
+
+           <!-- NEXT/PREV CAPTURE NAV AND DAY OF MONTH INDICATOR -->
+           <tr>
+               <td style="padding-right:9px;white-space:nowrap;overflow:visible;text-align:right!important;vertical-align:middle!important;" nowrap="nowrap">
+               
+                       <img src="http://staticweb.archive.org/images/toolbar/wm_tb_prv_off.png" alt="Previous capture" width="14" height="16" border="0" />
+                       
+               </td>
+               <td id="displayDayEl" style="background:#000;color:#ff0;width:34px;height:24px;padding:2px 0 0 0;text-align:center;font-size:24px;font-weight: bold;" title="You are here: 15:09:08 Jun 26, 2007">26</td>
+				<td style="padding-left:9px;white-space:nowrap;overflow:visible;text-align:left!important;vertical-align:middle!important;" nowrap="nowrap">
+               
+		                <a href="http://sami.samhuri.net/2007/6/23/emacs-for-textmate-junkies" title="22:01:32 Jul 16, 2007" style="background-color:transparent;border:none;"><img src="http://staticweb.archive.org/images/toolbar/wm_tb_nxt_on.png" alt="Next capture" width="14" height="16" border="0"/></a>
+		                
+			    </td>
+           </tr>
+
+           <!-- NEXT/PREV YEAR NAV AND YEAR INDICATOR -->
+           <tr style="width:110px;height:13px;font-size:9px!important;">
+				<td style="padding-right:9px;font-size:11px!important;font-weight: bold;text-align:right;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+                       2006
+                       
+               </td>
+               <td id="displayYearEl" style="background:#000;color:#ff0;font-size:11px!important;font-weight: bold;padding-top:1px;width:34px;height:13px;text-align:center;" title="You are here: 15:09:08 Jun 26, 2007">2007</td>
+				<td style="padding-left:9px;font-size:11px!important;font-weight: bold;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+		                <a href="http://sami.samhuri.net/2007/6/23/emacs-for-textmate-junkies" style="text-decoration:none;color:#33f;font-weight:bold;background-color:transparent;border:none;" title="20 Aug 2008"><strong>2008</strong></a>
+		                
+				</td>
+           </tr>
+           </tbody></table>
+       </td>
+
+       </tr>
+       <tr>
+       <td style="vertical-align:middle;padding:0!important;">
+           <a href="http://wayback.archive.org/web/20070626150908*/http://sami.samhuri.net/2007/6/23/emacs-for-textmate-junkies" style="color:#33f;font-size:11px;font-weight:bold;background-color:transparent;border:none;" title="See a list of every capture for this URL"><strong>12 captures</strong></a>
+           <div style="margin:0!important;padding:0!important;color:#666;font-size:9px;padding-top:2px!important;white-space:nowrap;" title="Timespan for captures of this URL">26 Jun 07 - 13 Feb 09</div>
+       </td>
+       <td style="padding:0!important;">
+       <a style="position:relative; white-space:nowrap; width:400px;height:27px;" href="" id="wm-graph-anchor">
+       <div id="wm-ipp-sparkline" style="position:relative; white-space:nowrap; width:400px;height:27px;background-color:#fff;cursor:pointer;border-right:1px solid #ccc;" title="Explore captures for this URL">
+			<img id="sparklineImgId" style="position:absolute; z-index:9012; top:0px; left:0px;"
+				onmouseover="showTrackers('inline');" 
+				onmouseout="showTrackers('none');"
+				onmousemove="trackMouseMove(event,this)"
+				alt="sparklines"
+				width="400"
+				height="27"
+				border="0"
+				src="http://wayback.archive.org/jsp/graph.jsp?graphdata=400_27_1996:-1:000000000000_1997:-1:000000000000_1998:-1:000000000000_1999:-1:000000000000_2000:-1:000000000000_2001:-1:000000000000_2002:-1:000000000000_2003:-1:000000000000_2004:-1:000000000000_2005:-1:000000000000_2006:-1:000000000000_2007:5:000001111000_2008:-1:001110011101_2009:-1:010000000000_2010:-1:000000000000_2011:-1:000000000000"></img>
+			<img id="wbMouseTrackYearImg" 
+				style="display:none; position:absolute; z-index:9010;"
+				width="25" 
+				height="27"
+				border="0"
+				src="http://staticweb.archive.org/images/toolbar/transp-yellow-pixel.png"></img>
+			<img id="wbMouseTrackMonthImg"
+				style="display:none; position:absolute; z-index:9011; " 
+				width="2"
+				height="27" 
+				border="0"
+				src="http://staticweb.archive.org/images/toolbar/transp-red-pixel.png"></img>
+       </div>
+		</a>
+
+       </td>
+       </tr></tbody></table>
+   </td>
+   <td style="text-align:right;padding:5px;width:65px;font-size:11px!important;">
+       <a href="javascript:;" onclick="document.getElementById('wm-ipp').style.display='none';" style="display:block;padding-right:18px;background:url(http://staticweb.archive.org/images/toolbar/wm_tb_close.png) no-repeat 100% 0;color:#33f;font-family:'Lucida Grande','Arial',sans-serif;margin-bottom:23px;background-color:transparent;border:none;" title="Close the toolbar">Close</a>
+       <a href="http://faq.web.archive.org/" style="display:block;padding-right:18px;background:url(http://staticweb.archive.org/images/toolbar/wm_tb_help.png) no-repeat 100% 0;color:#33f;font-family:'Lucida Grande','Arial',sans-serif;background-color:transparent;border:none;" title="Get some help using the Wayback Machine">Help</a>
+   </td>
+   </tr></tbody></table>
+
+</div>
+</div>
+<script type="text/javascript">
+ var wmDisclaimBanner = document.getElementById("wm-ipp");
+ if(wmDisclaimBanner != null) {
+   disclaimElement(wmDisclaimBanner);
+ }
+</script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+
+<div id="container">
+  <div id="header">
+    <h1><span><a href="http://sami.samhuri.net/">sjs</a></span></h1>
+    <h2>geeky ramblings</h2>
+  </div>
+
+  <div id="page">
+    <div id="content">
+      
+  
+<!--
+<rdf:RDF
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+  rdf:about=""
+  trackback:ping=""
+  dc:title="Emacs for TextMate junkies"
+  dc:identifier="/2007/6/23/emacs-for-textmate-junkies"
+  dc:description="<p><em>Update #1: What I first posted will take out your &lt; key by mistake (it's available via <code>C-q &lt;</code>), it has since been revised to Do The Right Thing.</em></p>
+
+
+	<p><em>Update #2: Thanks to an anonymouse[sic] commenter th..."
+  dc:creator="sjs"
+  dc:date="June 23, 2007 02:17" />
+</rdf:RDF>
+-->
+
+<div class="hentry" id="article-94">
+  <h2 class="entry-title">
+    <a href="http://sami.samhuri.net/2007/6/23/emacs-for-textmate-junkies">Emacs for TextMate junkies</a>
+    
+    <span class="comment_count">6</span>
+    
+  </h2>
+  <div class="vcard">
+  Posted by <span class="fn">sjs</span>
+</div>
+<abbr class="published" title="2007-06-23T02:17:00+00:00">on Saturday, June 23</abbr>
+<br class="clear" />
+  <div class="entry-content">
+  <p><em>Update #1: What I first posted will take out your &lt; key by mistake (it's available via <code>C-q &lt;</code>), it has since been revised to Do The Right Thing.</em></p>
+
+
+	<p><em>Update #2: Thanks to an anonymouse[sic] commenter this code is a little cleaner.</em></p>
+
+
+	<p><em>Update #3: I should read the Emacs manual sometime, especially since I have it in dead-tree form. Check out <a href="http://www.gnu.org/software/emacs/manual/html_node/autotype/Inserting-Pairs.html">skeleton pairs</a> in the Emacs manual.</em></p>
+
+
+	<p>Despite my current infatuation with Emacs there are many reasons I started using TextMate, especially little time-savers that are very addictive. I'll talk about one of those features tonight. When you have text selected in TextMate and you hit say the <code>'</code> (single quote) then TextMate will surround the selected text with single quotes. The same goes for double quotes, parentheses, brackets, and braces. This little trick is one of my favourites so I had to come up with something similar in Emacs. It was easy since a <a href="http://osdir.com/ml/emacs.nxml.general/2005-08/msg00002.html">mailing list post</a> has a solution for surrounding the current region with tags, which served as a great starting point.</p>
+
+
+<table class="CodeRay"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+</tt>2<tt>
+</tt>3<tt>
+</tt>4<tt>
+</tt>5<tt>
+</tt>6<tt>
+</tt>7<tt>
+</tt></pre></td>
+  <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">(defun surround-region-with-tag (tag-name beg end)<tt>
+</tt>      (interactive &quot;sTag name: \nr&quot;)<tt>
+</tt>      (save-excursion<tt>
+</tt>        (goto-char beg)<tt>
+</tt>        (insert &quot;&lt;&quot; tag-name &quot;&gt;&quot;)<tt>
+</tt>        (goto-char (+ end 2 (length tag-name)))<tt>
+</tt>        (insert &quot;&lt;/&quot; tag-name &quot;&gt;&quot;)))</pre></td>
+</tr></table>
+
+
+	<p>With a little modification I now have the following in my ~/.emacs file:</p>
+
+
+<table class="CodeRay"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+</tt>2<tt>
+</tt>3<tt>
+</tt>4<tt>
+</tt>5<tt>
+</tt>6<tt>
+</tt>7<tt>
+</tt>8<tt>
+</tt>9<tt>
+</tt><strong>10</strong><tt>
+</tt>11<tt>
+</tt>12<tt>
+</tt>13<tt>
+</tt>14<tt>
+</tt>15<tt>
+</tt>16<tt>
+</tt>17<tt>
+</tt>18<tt>
+</tt>19<tt>
+</tt><strong>20</strong><tt>
+</tt>21<tt>
+</tt>22<tt>
+</tt>23<tt>
+</tt>24<tt>
+</tt>25<tt>
+</tt>26<tt>
+</tt>27<tt>
+</tt>28<tt>
+</tt>29<tt>
+</tt><strong>30</strong><tt>
+</tt>31<tt>
+</tt>32<tt>
+</tt>33<tt>
+</tt>34<tt>
+</tt>35<tt>
+</tt>36<tt>
+</tt>37<tt>
+</tt>38<tt>
+</tt>39<tt>
+</tt><strong>40</strong><tt>
+</tt>41<tt>
+</tt>42<tt>
+</tt>43<tt>
+</tt>44<tt>
+</tt>45<tt>
+</tt>46<tt>
+</tt>47<tt>
+</tt></pre></td>
+  <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">;; help out a TextMate junkie<tt>
+</tt><tt>
+</tt>(defun wrap-region (left right beg end)<tt>
+</tt>  &quot;Wrap the region in arbitrary text, LEFT goes to the left and RIGHT goes to the right.&quot;<tt>
+</tt>  (interactive)<tt>
+</tt>  (save-excursion<tt>
+</tt>    (goto-char beg)<tt>
+</tt>    (insert left)<tt>
+</tt>    (goto-char (+ end (length left)))<tt>
+</tt>    (insert right)))<tt>
+</tt><tt>
+</tt>(defmacro wrap-region-with-function (left right)<tt>
+</tt>  &quot;Returns a function which, when called, will interactively `wrap-region-or-insert' using LEFT and RIGHT.&quot;<tt>
+</tt>  `(lambda () (interactive)<tt>
+</tt>     (wrap-region-or-insert ,left ,right)))<tt>
+</tt><tt>
+</tt>(defun wrap-region-with-tag-or-insert ()<tt>
+</tt>  (interactive)<tt>
+</tt>  (if (and mark-active transient-mark-mode)<tt>
+</tt>      (call-interactively 'wrap-region-with-tag)<tt>
+</tt>    (insert &quot;&lt;&quot;)))<tt>
+</tt><tt>
+</tt>(defun wrap-region-with-tag (tag beg end)<tt>
+</tt>  &quot;Wrap the region in the given HTML/XML tag using `wrap-region'. If any<tt>
+</tt>attributes are specified then they are only included in the opening tag.&quot;<tt>
+</tt>  (interactive &quot;*sTag (including attributes): \nr&quot;)<tt>
+</tt>  (let* ((elems    (split-string tag &quot; &quot;))<tt>
+</tt>         (tag-name (car elems))<tt>
+</tt>         (right    (concat &quot;&lt;/&quot; tag-name &quot;&gt;&quot;)))<tt>
+</tt>    (if (= 1 (length elems))<tt>
+</tt>        (wrap-region (concat &quot;&lt;&quot; tag-name &quot;&gt;&quot;) right beg end)<tt>
+</tt>      (wrap-region (concat &quot;&lt;&quot; tag &quot;&gt;&quot;) right beg end))))<tt>
+</tt><tt>
+</tt>(defun wrap-region-or-insert (left right)<tt>
+</tt>  &quot;Wrap the region with `wrap-region' if an active region is marked, otherwise insert LEFT at point.&quot;<tt>
+</tt>  (interactive)<tt>
+</tt>  (if (and mark-active transient-mark-mode)<tt>
+</tt>      (wrap-region left right (region-beginning) (region-end))<tt>
+</tt>    (insert left)))<tt>
+</tt><tt>
+</tt>(global-set-key &quot;'&quot;  (wrap-region-with-function &quot;'&quot; &quot;'&quot;))<tt>
+</tt>(global-set-key &quot;\&quot;&quot; (wrap-region-with-function &quot;\&quot;&quot; &quot;\&quot;&quot;))<tt>
+</tt>(global-set-key &quot;`&quot;  (wrap-region-with-function &quot;`&quot; &quot;`&quot;))<tt>
+</tt>(global-set-key &quot;(&quot;  (wrap-region-with-function &quot;(&quot; &quot;)&quot;))<tt>
+</tt>(global-set-key &quot;[&quot;  (wrap-region-with-function &quot;[&quot; &quot;]&quot;))<tt>
+</tt>(global-set-key &quot;{&quot;  (wrap-region-with-function &quot;{&quot; &quot;}&quot;))<tt>
+</tt>(global-set-key &quot;&lt;&quot;  'wrap-region-with-tag-or-insert) ;; I opted not to have a wrap-with-angle-brackets</pre></td>
+</tr></table>
+
+
+	<p><a href="http://sami.samhuri.net/assets/2007/6/23/wrap-region.el" alt="wrap-region.el">Download wrap-region.el</a></p>
+
+
+	<p>That more or less sums up why I like Emacs so much. I wanted that functionality so I implemented it (barely! It was basically done for me), debugged it by immediately evaluating sexps and then trying it out, and then once it worked I reloaded my config and used the wanted feature. That's just awesome, and shows one strength of open source.</p>
+  
+</div>
+  <ul class="meta">
+  
+  
+  <li>
+    Tags: <a href="http://sami.samhuri.net/tags/emacs">emacs</a>&nbsp;<a href="http://sami.samhuri.net/tags/textmate">textmate</a>&nbsp;
+  </li>
+  
+  <li>
+    Meta: 
+    
+    <a href="http://sami.samhuri.net/2007/6/23/emacs-for-textmate-junkies">6 comments</a>, 
+    
+    <a href="http://sami.samhuri.net/2007/6/23/emacs-for-textmate-junkies">permalink</a>
+    
+  </li>
+</ul>
+</div>
+
+<h5><a name="comments">Comments</a></h5>
+<p><a href="http://sami.samhuri.net/2007/6/23/emacs-for-textmate-junkies#comment-form">Leave a response</a></p>
+<div id="comments_div">
+  <ol id="comments" class="comments">
+    
+    <li class="comment" id="comment-95">
+      <div class="author">
+        <cite><span class="author"><span>Ed Piman</span></span></cite> &#150; 
+        <abbr title="June 23, 2007 14:36"><span class="date">June 23, 2007 @ 02:36 PM</span></abbr>
+      </div>
+      <div class="content">
+        <p>I just tried that out using Aquamacs, and it worked like a charm. Thanks for sharing.</p>
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-98">
+      <div class="author">
+        <cite><span class="author"><span>anonymouse@anonymouse.com</span></span></cite> &#150; 
+        <abbr title="June 24, 2007 12:03"><span class="date">June 24, 2007 @ 12:03 PM</span></abbr>
+      </div>
+      <div class="content">
+        <p>Nice. But you can refactor it to avoid all that boilerplate at the end of the file (that you snipped from the blog post).</p>
+
+
+	<p>(defmacro wrap-region-with-function (left right)
+  "Returns a function which, when called, will interactively wrap-region-or-insert using left and right." 
+  `(lambda ()
+     (interactive)
+     (wrap-region-or-insert ,left ,right)
+     ))</p>
+
+
+	<p>When evaluated, this will macroexpand into wrap-region-with-parens-or-insert. Then define keys as follows:</p>
+
+
+	<p>(global-set-key "(" (wrap-region-with-function "(" ")" ) )</p>
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-100">
+      <div class="author">
+        <cite><span class="author"><a href="http://sami.samhuri.net/">sjs</a></span></cite> &#150; 
+        <abbr title="June 24, 2007 16:44"><span class="date">June 24, 2007 @ 04:44 PM</span></abbr>
+      </div>
+      <div class="content">
+        <p>Ed: Glad that you like it! :)</p>
+
+
+	<p>anonymouse: Thanks for that! I wanted to do that but I don't know enough ELisp yet. I mostly need to read up on quasiquote &#38; related stuff, and implement it in my scheme interpreter so I understand it well.</p>
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-103">
+      <div class="author">
+        <cite><span class="author"><a href="http://mike.hostetlerhome.com/">MikeH</a></span></cite> &#150; 
+        <abbr title="June 25, 2007 05:17"><span class="date">June 25, 2007 @ 05:17 AM</span></abbr>
+      </div>
+      <div class="content">
+        <p>I've been looking for this for a long time, and even tried it myself, but I didn't do it nearly as well as you did.</p>
+
+
+	<p>One thing that Textmate (and Eclipse, for that matter) does is that if you enter one of the wrapped characters without text selected, it will enter the ending character as well and put the cursor between the two.</p>
+
+
+	<p>IOW, if you are typing and enter "(" the screen will show "(_)", where _ is the cursor.</p>
+
+
+	<p>Anyway, I made a small change to wrap-region-or-insert to do just that.</p>
+
+
+	<p>(defun wrap-region-or-insert (left right)
+  "Wrap the region with `wrap-region' if an active region is marked, otherwise insert LEFT at point." 
+  (interactive)
+  (if (and mark-active transient-mark-mode)
+      (wrap-region left right (region-beginning) (region-end))
+    (insert left) (insert right) (backward-char)
+    )
+)</p>
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-104">
+      <div class="author">
+        <cite><span class="author"><span>foo</span></span></cite> &#150; 
+        <abbr title="June 25, 2007 08:34"><span class="date">June 25, 2007 @ 08:34 AM</span></abbr>
+      </div>
+      <div class="content">
+        <p>Check out paredit.el</p>
+
+
+	<p>http://mumble.net/~campbell/emacs/paredit.el</p>
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-106">
+      <div class="author">
+        <cite><span class="author"><a href="http://sami.samhuri.net/">sjs</a></span></cite> &#150; 
+        <abbr title="June 25, 2007 10:48"><span class="date">June 25, 2007 @ 10:48 AM</span></abbr>
+      </div>
+      <div class="content">
+        <p>Mike: Thanks for that. It'll take some getting used to without TextMate overwriting ending delimiters, but foo's link to paredit.el seems to hold the cure for that ailment.</p>
+
+
+	<p>When I have some time to go over paredit.el I'll probably have a nice update for the wrap-region family of functions.</p>
+      </div>
+    </li>
+    
+  </ol>
+</div>
+
+<form id="comment-form" method="post" action="http://sami.samhuri.net/2007/6/23/emacs-for-textmate-junkies/comments#comment-form">
+<fieldset>
+  <legend>Comment</legend>
+  <p>
+    <label class="text" for="comment_author">Name:</label><br/>
+    <input type="text" id="comment_author" name="comment[author]" value="" />
+  </p>
+  <p>
+    <label class="text" for="comment_author_email">Email Address:</label><br />
+    <input type="text" id="comment_author_email" name="comment[author_email]" value="" />
+  </p>
+  <p>
+    <label class="text" for="comment_author_url">Website:</label><br />
+    <input type="text" id="comment_author_url" name="comment[author_url]" value="" />
+  </p>
+  <p>
+    <label class="text" for="comment_body">Comment:</label><br />
+    <textarea id="comment_body" name="comment[body]"></textarea>
+  </p>
+  <div class="formactions">
+    <input type="submit" value="Post comment" class="submit" />
+  </div>
+</fieldset>
+</form>
+
+
+
+    </div>
+
+    <div id="sidebar">
+
+      <div class="sidebar-node">
+        <div id="search" class="search">
+          <form action="http://sami.samhuri.net/search" id="sform" method="get" name="sform">
+            <p><input type="text" id="q" name="q" value="" /></p>
+          </form>
+        </div>
+      </div>
+
+      
+
+      
+
+      
+      <div class="sidebar-node">
+        <h3>Tags</h3>
+        <ul>
+        
+          <li><a href="http://sami.samhuri.net/tags/activerecord">activerecord</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/amusement">amusement</a> (6)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/apple">apple</a> (7)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/bdd">bdd</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/bootcamp">bootcamp</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/buffalo">buffalo</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/bundle">bundle</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/cheat">cheat</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/coding">coding</a> (22)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/cool">cool</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/coverflow">coverflow</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/crazy">crazy</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/digg">digg</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/drm">drm</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/dtrace">dtrace</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/elschemo">elschemo</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/emacs">emacs</a> (5)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/english">english</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/extensions">extensions</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/firefox">firefox</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/framework">framework</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/funny">funny</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/fuse">fuse</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/games">games</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/gentoo">gentoo</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/german">german</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/haskell">haskell</a> (6)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/inspirado">inspirado</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/iphone">iphone</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/itunes">itunes</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/i_laughed_i_cried">i_laughed_i_cried</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/keyboard">keyboard</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/life">life</a> (7)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/linux">linux</a> (5)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/mac%20os%20x">mac os x</a> (7)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/mediawiki">mediawiki</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/mephisto">mephisto</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/migrations">migrations</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/munich">munich</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/mysql">mysql</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/networking">networking</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/parallels">parallels</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/pedantry">pedantry</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/photo">photo</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/php">php</a> (4)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/propaganda">propaganda</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/python">python</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/rails">rails</a> (16)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/regex">regex</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/rest">rest</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/rtfm">rtfm</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/ruby">ruby</a> (9)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/scheme">scheme</a> (3)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/school">school</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/seekport">seekport</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/snippets">snippets</a> (3)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/technology">technology</a> (6)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/test/spec">test/spec</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/textmate">textmate</a> (6)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/typo">typo</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/ubuntu">ubuntu</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/usability">usability</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/userscript">userscript</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/vim">vim</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/wikipediafs">wikipediafs</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/windows">windows</a> (3)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/work">work</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/zend">zend</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/zsh">zsh</a> (1)</li>
+        
+        </ul>
+      </div>
+      
+
+      <div class="sidebar-node">
+        <p><a href="http://mephistoblog.com/" class="powered"><img alt="mephisto-badge-tiny" src="http://web.archive.org/web/20070626150908im_/http://sami.samhuri.net/images/mephisto-badge-tiny.png" /></a></p>
+      </div>
+
+    </div>
+    <br style="clear:both;" />
+
+  </div>
+
+  <div id="footer">
+    <hr />
+    <p><a href="http://sami.samhuri.net/">sjs</a></p>
+    <ul>
+      <li>powered by <a href="http://mephistoblog.com/">Mephisto</a> /
+          styled with <a href="http://quotedprintable.com/pages/scribbish">scribbish</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<script src="http://web.archive.org/web/20070626150908js_/http://www.google-analytics.com/urchin.js" type="text/javascript"> </script>
+<script type="text/javascript"> _uacct = "UA-214054-3"; urchinTracker(); </script>  
+<script src="http://web.archive.org/web/20070626150908js_/http://feeds.feedburner.com/~s/sjs" type="text/javascript" charset="utf-8"></script>
+
+</body>
+</html>
+
+
+
+
+
+<!--
+     FILE ARCHIVED ON 15:09:08 Jun 26, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 2:57:58 Aug 21, 2011.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->

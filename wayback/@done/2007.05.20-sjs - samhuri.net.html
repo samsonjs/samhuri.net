@@ -1,0 +1,781 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>sjs - samhuri.net</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta content="48.472,-123.3683" name="ICBM" />
+  <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://sami.samhuri.net/xml/rsd" />
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="http://sami.samhuri.net/xml/atom/feed.xml" />
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://sami.samhuri.net/xml/rss20/feed.xml" />
+  <script src="http://web.archive.org/web/20070520022504js_/http://sami.samhuri.net/javascripts/cookies.js?1178129879" type="text/javascript"></script>
+  <script src="http://web.archive.org/web/20070520022504js_/http://sami.samhuri.net/javascripts/prototype.js?1178129878" type="text/javascript"></script>
+  <script src="http://web.archive.org/web/20070520022504js_/http://sami.samhuri.net/javascripts/effects.js?1178129879" type="text/javascript"></script>
+  <script src="http://web.archive.org/web/20070520022504js_/http://sami.samhuri.net/javascripts/typo.js?1178129879" type="text/javascript"></script>
+
+  <script type="text/javascript"></script>
+  <link href="http://web.archive.org/web/20070520022504cs_/http://sami.samhuri.net/stylesheets/theme/island.css" media="all" rel="Stylesheet" type="text/css" />
+  <link href="http://web.archive.org/web/20070520022504cs_/http://sami.samhuri.net/stylesheets/coderay.css?1178243963" media="all" rel="Stylesheet" type="text/css" />
+  <link href="http://web.archive.org/web/20070520022504cs_/http://sami.samhuri.net/stylesheets/user-styles.css?1178129880" media="all" rel="Stylesheet" type="text/css" />
+  <link href="http://web.archive.org/web/20070520022504cs_/http://sami.samhuri.net/stylesheets/theme/print.css" media="print" rel="Stylesheet" type="text/css" />
+</head>
+
+<body>
+<!-- BEGIN WAYBACK TOOLBAR INSERT -->
+
+<script type="text/javascript" src="http://staticweb.archive.org/js/disclaim-element.js" ></script>
+<script type="text/javascript" src="http://staticweb.archive.org/js/graph-calc.js" ></script>
+<script type="text/javascript" src="http://staticweb.archive.org/jflot/jquery.min.js" ></script>
+<script type="text/javascript">
+//<![CDATA[
+var firstDate = 820454400000;
+var lastDate = 1325375999999;
+var wbPrefix = "http://web.archive.org/web/";
+var wbCurrentUrl = "http://sami.samhuri.net/";
+
+var curYear = -1;
+var curMonth = -1;
+var yearCount = 16;
+var firstYear = 1996;
+var imgWidth=400;
+var yearImgWidth = 25;
+var monthImgWidth = 2;
+var trackerVal = "none";
+var displayDay = "20";
+var displayMonth = "May";
+var displayYear = "2007";
+var prettyMonths = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+function showTrackers(val) {
+	if(val == trackerVal) {
+		return;
+	}
+	if(val == "inline") {
+		document.getElementById("displayYearEl").style.color = "#ec008c";
+		document.getElementById("displayMonthEl").style.color = "#ec008c";
+		document.getElementById("displayDayEl").style.color = "#ec008c";		
+	} else {
+		document.getElementById("displayYearEl").innerHTML = displayYear;
+		document.getElementById("displayYearEl").style.color = "#ff0";
+		document.getElementById("displayMonthEl").innerHTML = displayMonth;
+		document.getElementById("displayMonthEl").style.color = "#ff0";
+		document.getElementById("displayDayEl").innerHTML = displayDay;
+		document.getElementById("displayDayEl").style.color = "#ff0";
+	}
+   document.getElementById("wbMouseTrackYearImg").style.display = val;
+   document.getElementById("wbMouseTrackMonthImg").style.display = val;
+   trackerVal = val;
+}
+function getElementX2(obj) {
+	var thing = jQuery(obj);
+	if((thing == undefined) 
+			|| (typeof thing == "undefined") 
+			|| (typeof thing.offset == "undefined")) {
+		return getElementX(obj);
+	}
+	return Math.round(thing.offset().left);
+}
+function trackMouseMove(event,element) {
+
+   var eventX = getEventX(event);
+   var elementX = getElementX2(element);
+   var xOff = eventX - elementX;
+	if(xOff < 0) {
+		xOff = 0;
+	} else if(xOff > imgWidth) {
+		xOff = imgWidth;
+	}
+   var monthOff = xOff % yearImgWidth;
+
+   var year = Math.floor(xOff / yearImgWidth);
+	var yearStart = year * yearImgWidth;
+   var monthOfYear = Math.floor(monthOff / monthImgWidth);
+   if(monthOfYear > 11) {
+       monthOfYear = 11;
+   }
+   // 1 extra border pixel at the left edge of the year:
+   var month = (year * 12) + monthOfYear;
+   var day = 1;
+	if(monthOff % 2 == 1) {
+		day = 15;
+	}
+	var dateString = 
+		zeroPad(year + firstYear) + 
+		zeroPad(monthOfYear+1,2) +
+		zeroPad(day,2) + "000000";
+
+	var monthString = prettyMonths[monthOfYear];
+	document.getElementById("displayYearEl").innerHTML = year + 1996;
+	document.getElementById("displayMonthEl").innerHTML = monthString;
+	// looks too jarring when it changes..
+	//document.getElementById("displayDayEl").innerHTML = zeroPad(day,2);
+
+	var url = wbPrefix + dateString + '/' +  wbCurrentUrl;
+	document.getElementById('wm-graph-anchor').href = url;
+
+   //document.getElementById("wmtbURL").value="evX("+eventX+") elX("+elementX+") xO("+xOff+") y("+year+") m("+month+") monthOff("+monthOff+") DS("+dateString+") Moy("+monthOfYear+") ms("+monthString+")";
+   if(curYear != year) {
+       var yrOff = year * yearImgWidth;
+       document.getElementById("wbMouseTrackYearImg").style.left = yrOff + "px";
+       curYear = year;
+   }
+   if(curMonth != month) {
+       var mtOff = year + (month * monthImgWidth) + 1;
+       document.getElementById("wbMouseTrackMonthImg").style.left = mtOff + "px";
+       curMonth = month;
+   }
+}
+//]]>
+</script>
+
+<style type="text/css">body{margin-top:0!important;padding-top:0!important;min-width:800px!important;}#wm-ipp a:hover{text-decoration:underline!important;}</style>
+<div id="wm-ipp" style="display:none; position:relative;padding:0 5px;min-height:70px;min-width:800px; z-index:9000;">
+<div id="wm-ipp-inside" style="position:fixed;padding:0!important;margin:0!important;width:97%;min-width:780px;border:5px solid #000;border-top:none;background-image:url(http://staticweb.archive.org/images/toolbar/wm_tb_bk_trns.png);text-align:center;-moz-box-shadow:1px 1px 3px #333;-webkit-box-shadow:1px 1px 3px #333;box-shadow:1px 1px 3px #333;font-size:11px!important;font-family:'Lucida Grande','Arial',sans-serif!important;">
+   <table style="border-collapse:collapse;margin:0;padding:0;width:100%;"><tbody><tr>
+   <td style="padding:10px;vertical-align:top;min-width:110px;">
+   <a href="http://wayback.archive.org/web/" title="Wayback Machine home page" style="background-color:transparent;border:none;"><img src="http://staticweb.archive.org/images/toolbar/wayback-toolbar-logo.png" alt="Wayback Machine" width="110" height="39" border="0"/></a>
+   </td>
+   <td style="padding:0!important;text-align:center;vertical-align:top;width:100%;">
+
+       <table style="border-collapse:collapse;margin:0 auto;padding:0;width:570px;"><tbody><tr>
+       <td style="padding:3px 0;" colspan="2">
+       <form target="_top" method="get" action="http://wayback.archive.org/web/form-submit.jsp" name="wmtb" id="wmtb" style="margin:0!important;padding:0!important;"><input type="text" name="url" id="wmtbURL" value="http://sami.samhuri.net/" style="width:400px;font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;" onfocus="javascript:this.focus();this.select();" /><input type="hidden" name="type" value="replay" /><input type="hidden" name="date" value="20070520022504" /><input type="submit" value="Go" style="font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;margin-left:5px;" /><span id="wm_tb_options" style="display:block;"></span></form>
+       </td>
+       <td style="vertical-align:bottom;padding:5px 0 0 0!important;" rowspan="2">
+           <table style="border-collapse:collapse;width:110px;color:#99a;font-family:'Helvetica','Lucida Grande','Arial',sans-serif;"><tbody>
+			
+           <!-- NEXT/PREV MONTH NAV AND MONTH INDICATOR -->
+           <tr style="width:110px;height:16px;font-size:10px!important;">
+           	<td style="padding-right:9px;font-size:11px!important;font-weight:bold;text-transform:uppercase;text-align:right;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+		                <a href="http://sami.samhuri.net/" style="text-decoration:none;color:#33f;font-weight:bold;background-color:transparent;border:none;" title="2 Mar 2007"><strong>MAR</strong></a>
+		                
+               </td>
+               <td id="displayMonthEl" style="background:#000;color:#ff0;font-size:11px!important;font-weight:bold;text-transform:uppercase;width:34px;height:15px;padding-top:1px;text-align:center;" title="You are here: 2:25:04 May 20, 2007">MAY</td>
+				<td style="padding-left:9px;font-size:11px!important;font-weight:bold;text-transform:uppercase;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+		                <a href="http://sami.samhuri.net/" style="text-decoration:none;color:#33f;font-weight:bold;background-color:transparent;border:none;" title="29 Jun 2007"><strong>JUN</strong></a>
+		                
+               </td>
+           </tr>
+
+           <!-- NEXT/PREV CAPTURE NAV AND DAY OF MONTH INDICATOR -->
+           <tr>
+               <td style="padding-right:9px;white-space:nowrap;overflow:visible;text-align:right!important;vertical-align:middle!important;" nowrap="nowrap">
+               
+		                <a href="http://sami.samhuri.net/" title="16:26:50 Apr 28, 2007" style="background-color:transparent;border:none;"><img src="http://staticweb.archive.org/images/toolbar/wm_tb_prv_on.png" alt="Previous capture" width="14" height="16" border="0" /></a>
+		                
+               </td>
+               <td id="displayDayEl" style="background:#000;color:#ff0;width:34px;height:24px;padding:2px 0 0 0;text-align:center;font-size:24px;font-weight: bold;" title="You are here: 2:25:04 May 20, 2007">20</td>
+				<td style="padding-left:9px;white-space:nowrap;overflow:visible;text-align:left!important;vertical-align:middle!important;" nowrap="nowrap">
+               
+		                <a href="http://sami.samhuri.net/" title="19:56:04 May 28, 2007" style="background-color:transparent;border:none;"><img src="http://staticweb.archive.org/images/toolbar/wm_tb_nxt_on.png" alt="Next capture" width="14" height="16" border="0"/></a>
+		                
+			    </td>
+           </tr>
+
+           <!-- NEXT/PREV YEAR NAV AND YEAR INDICATOR -->
+           <tr style="width:110px;height:13px;font-size:9px!important;">
+				<td style="padding-right:9px;font-size:11px!important;font-weight: bold;text-align:right;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+		                <a href="http://sami.samhuri.net/" style="text-decoration:none;color:#33f;font-weight:bold;background-color:transparent;border:none;" title="26 Apr 2006"><strong>2006</strong></a>
+		                
+               </td>
+               <td id="displayYearEl" style="background:#000;color:#ff0;font-size:11px!important;font-weight: bold;padding-top:1px;width:34px;height:13px;text-align:center;" title="You are here: 2:25:04 May 20, 2007">2007</td>
+				<td style="padding-left:9px;font-size:11px!important;font-weight: bold;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+		                <a href="http://sami.samhuri.net/" style="text-decoration:none;color:#33f;font-weight:bold;background-color:transparent;border:none;" title="4 Jul 2008"><strong>2008</strong></a>
+		                
+				</td>
+           </tr>
+           </tbody></table>
+       </td>
+
+       </tr>
+       <tr>
+       <td style="vertical-align:middle;padding:0!important;">
+           <a href="http://wayback.archive.org/web/20070520022504*/http://sami.samhuri.net/" style="color:#33f;font-size:11px;font-weight:bold;background-color:transparent;border:none;" title="See a list of every capture for this URL"><strong>23 captures</strong></a>
+           <div style="margin:0!important;padding:0!important;color:#666;font-size:9px;padding-top:2px!important;white-space:nowrap;" title="Timespan for captures of this URL">3 Mar 06 - 31 May 09</div>
+       </td>
+       <td style="padding:0!important;">
+       <a style="position:relative; white-space:nowrap; width:400px;height:27px;" href="" id="wm-graph-anchor">
+       <div id="wm-ipp-sparkline" style="position:relative; white-space:nowrap; width:400px;height:27px;background-color:#fff;cursor:pointer;border-right:1px solid #ccc;" title="Explore captures for this URL">
+			<img id="sparklineImgId" style="position:absolute; z-index:9012; top:0px; left:0px;"
+				onmouseover="showTrackers('inline');" 
+				onmouseout="showTrackers('none');"
+				onmousemove="trackMouseMove(event,this)"
+				alt="sparklines"
+				width="400"
+				height="27"
+				border="0"
+				src="http://wayback.archive.org/jsp/graph.jsp?graphdata=400_27_1996:-1:000000000000_1997:-1:000000000000_1998:-1:000000000000_1999:-1:000000000000_2000:-1:000000000000_2001:-1:000000000000_2002:-1:000000000000_2003:-1:000000000000_2004:-1:000000000000_2005:-1:000000000000_2006:-1:001102000100_2007:4:001121011211_2008:-1:011100100000_2009:-1:010110000000_2010:-1:000000000000_2011:-1:000000000000"></img>
+			<img id="wbMouseTrackYearImg" 
+				style="display:none; position:absolute; z-index:9010;"
+				width="25" 
+				height="27"
+				border="0"
+				src="http://staticweb.archive.org/images/toolbar/transp-yellow-pixel.png"></img>
+			<img id="wbMouseTrackMonthImg"
+				style="display:none; position:absolute; z-index:9011; " 
+				width="2"
+				height="27" 
+				border="0"
+				src="http://staticweb.archive.org/images/toolbar/transp-red-pixel.png"></img>
+       </div>
+		</a>
+
+       </td>
+       </tr></tbody></table>
+   </td>
+   <td style="text-align:right;padding:5px;width:65px;font-size:11px!important;">
+       <a href="javascript:;" onclick="document.getElementById('wm-ipp').style.display='none';" style="display:block;padding-right:18px;background:url(http://staticweb.archive.org/images/toolbar/wm_tb_close.png) no-repeat 100% 0;color:#33f;font-family:'Lucida Grande','Arial',sans-serif;margin-bottom:23px;background-color:transparent;border:none;" title="Close the toolbar">Close</a>
+       <a href="http://faq.web.archive.org/" style="display:block;padding-right:18px;background:url(http://staticweb.archive.org/images/toolbar/wm_tb_help.png) no-repeat 100% 0;color:#33f;font-family:'Lucida Grande','Arial',sans-serif;background-color:transparent;border:none;" title="Get some help using the Wayback Machine">Help</a>
+   </td>
+   </tr></tbody></table>
+
+</div>
+</div>
+<script type="text/javascript">
+ var wmDisclaimBanner = document.getElementById("wm-ipp");
+ if(wmDisclaimBanner != null) {
+   disclaimElement(wmDisclaimBanner);
+ }
+</script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+
+
+  <div id="content" class="clearfix">
+  
+    <div id="main">
+       <div class="post">
+  <h2><a href="http://sami.samhuri.net/articles/2007/05/18/iphone-humour">iPhone humour</a></h2>
+<p class="auth">Posted by <a href="mailto:sami.samhuri@gmail.com">sjs</a>
+<span class="typo_date" title="Fri, 18 May 2007 18:34:00 GMT">Fri, 18 May 2007 18:34:00 GMT</span></p>
+<p>Love it or hate it - even though it's not even out yet - the iPhone has spawned at least 2 good jokes.</p>
+
+
+	<ul>
+	<li><a href="http://www.geekculture.com/joyoftech/joyarchives/910.html">The other iPhone lawsuit</a> [geekculture.com]</li>
+	</ul>
+
+
+	<ul>
+	<li>A <a href="http://apple.slashdot.org/comments.pl?sid=235163&amp;cid=19174829">comment</a> on slashdot:
+	<blockquote>
+		<p>"I'm waiting for the iPhone-shuffle, no display, just a button to call a random person on your contacts list."</li>
+	</ul></p>
+	</blockquote>
+
+  
+  <p class="meta">Posted in <a href="http://sami.samhuri.net/articles/category/amusement" rel="tag">amusement</a>, <a href="http://sami.samhuri.net/articles/category/apple" rel="tag">apple</a>&nbsp;<strong>|</strong>&nbsp;Tags <a href="http://sami.samhuri.net/articles/tag/apple" rel="tag">apple</a>, <a href="http://sami.samhuri.net/articles/tag/funny" rel="tag">funny</a>, <a href="http://sami.samhuri.net/articles/tag/iphone" rel="tag">iphone</a>&nbsp;<strong>|</strong>&nbsp;<a href="http://sami.samhuri.net/articles/2007/05/18/iphone-humour#comments">no comments</a>&nbsp;<strong>|</strong>&nbsp;<a href="http://sami.samhuri.net/articles/2007/05/18/iphone-humour#trackbacks">no trackbacks</a></p>
+  </div>
+ <div class="post">
+  <h2><a href="http://sami.samhuri.net/articles/2007/05/16/cheating-at-life-in-general">Cheating at life in general</a></h2>
+<p class="auth">Posted by <a href="mailto:sami.samhuri@gmail.com">sjs</a>
+<span class="typo_date" title="Wed, 16 May 2007 16:46:00 GMT">Wed, 16 May 2007 16:46:00 GMT</span></p>
+<p><em>NB: My definition of life is slightly skewed by my being somewhat of a geek</em></p>
+
+
+	<p>Luckily no one in the real world cares if you cheat. Most of life is open-book, but for the times when you just need to find something quick the answer, of course, is to <a href="http://cheat.errtheblog.com/">cheat</a> profusely.</p>
+
+
+	<p>I've only checked out a few of the cheat sheets but they are of high quality and their wiki-like nature means if they suck and you have time you can help out. I was very pleased to find that there are a number of zsh cheats already.</p>
+
+
+	<p>They certainly know the way to my heart! Ruby, Rails, TextMate*, vim*, zsh, screen. That'll do snake. That'll do.</p>
+
+
+	<p><em>* There are cheats for emacs, jEdit, and <a href="http://www.e-texteditor.com/">e</a> too if TextMate and/or vim don't tickle your fancy</em></p>
+
+  
+  <p class="meta">Tags <a href="http://sami.samhuri.net/articles/tag/cheat" rel="tag">cheat</a>&nbsp;<strong>|</strong>&nbsp;<a href="http://sami.samhuri.net/articles/2007/05/16/cheating-at-life-in-general#comments">no comments</a>&nbsp;<strong>|</strong>&nbsp;<a href="http://sami.samhuri.net/articles/2007/05/16/cheating-at-life-in-general#trackbacks">no trackbacks</a></p>
+  </div>
+ <div class="post">
+  <h2><a href="http://sami.samhuri.net/articles/2007/05/15/dumping-objects-to-the-browser-in-rails">Dumping objects to the browser in Rails</a></h2>
+<p class="auth">Posted by <a href="mailto:sami.samhuri@gmail.com">sjs</a>
+<span class="typo_date" title="Wed, 16 May 2007 03:38:00 GMT">Wed, 16 May 2007 03:38:00 GMT</span></p>
+<p>Here's an easy way to solve a problem that may have nagged you as it did me. Simply using <code>foo.inspect</code> to dump out some object to the browser dumps one long string which is barely useful except for short strings and the like. The ideal output is already available using the <a href="http://www.ruby-doc.org/stdlib/libdoc/prettyprint/rdoc/index.html"><code>PrettyPrint</code></a> module so we just need to use it.</p>
+
+
+	<p>Unfortunately typing <tt>&lt;pre><%= PP.pp(@something, '') %>&lt;/pre&gt;</tt> to quickly debug some possibly large object (or collection) can get old fast so we need a shortcut.</p>
+
+
+	<p>Taking the definition of <a href="http://extensions.rubyforge.org/rdoc/classes/Object.html#M000020"><code>Object#pp_s</code></a> from the <a href="http://extensions.rubyforge.org/rdoc/">extensions project</a> it's trivial to create a helper method to just dump out an object in a reasonable manner.</p>
+
+
+<div class="typocode"><div class="codetitle">/app/helpers/application_helper.rb</div><pre><code class="typocode_ruby "><span class="keyword">def </span><span class="method">dump</span><span class="punct">(</span><span class="ident">thing</span><span class="punct">)</span>
+  <span class="ident">s</span> <span class="punct">=</span> <span class="constant">StringIO</span><span class="punct">.</span><span class="ident">new</span>
+  <span class="constant">PP</span><span class="punct">.</span><span class="ident">pp</span><span class="punct">(</span><span class="ident">thing</span><span class="punct">,</span> <span class="ident">s</span><span class="punct">)</span>
+  <span class="punct">&quot;</span><span class="string">&lt;pre&gt;<span class="expr">#{s.string}</span>&lt;/pre&gt;</span><span class="punct">&quot;</span>
+<span class="keyword">end</span></code></pre></div>
+
+	<p>Alternatively you could do as the extensions folks do and actually define <code>Object#pp_s</code> so you can use it in your logs or anywhere else you may want to inspect an object. If you do this you probably want to change the <code>dump</code> helper method accordingly in case you decide to change <code>pp_s</code> in the future.</p>
+
+
+<div class="typocode"><div class="codetitle">lib/local_support/core_ext/object.rb</div><pre><code class="typocode_ruby "><span class="keyword">class </span><span class="class">Object</span>
+  <span class="keyword">def </span><span class="method">pp_s</span>
+    <span class="ident">pps</span> <span class="punct">=</span> <span class="constant">StringIO</span><span class="punct">.</span><span class="ident">new</span>
+    <span class="constant">PP</span><span class="punct">.</span><span class="ident">pp</span><span class="punct">(</span><span class="constant">self</span><span class="punct">,</span> <span class="ident">pps</span><span class="punct">)</span>
+    <span class="ident">pps</span><span class="punct">.</span><span class="ident">string</span>
+  <span class="keyword">end</span>
+<span class="keyword">end</span></code></pre></div>
+
+  
+  <p class="meta">Posted in <a href="http://sami.samhuri.net/articles/category/rails" rel="tag">rails</a>&nbsp;<strong>|</strong>&nbsp;Tags <a href="http://sami.samhuri.net/articles/tag/rails" rel="tag">rails</a>&nbsp;<strong>|</strong>&nbsp;<a href="http://sami.samhuri.net/articles/2007/05/15/dumping-objects-to-the-browser-in-rails#comments">no comments</a>&nbsp;<strong>|</strong>&nbsp;<a href="http://sami.samhuri.net/articles/2007/05/15/dumping-objects-to-the-browser-in-rails#trackbacks">no trackbacks</a></p>
+  </div>
+ <div class="post">
+  <h2><a href="http://sami.samhuri.net/articles/2007/05/15/good-reading">Good reading</a></h2>
+<p class="auth">Posted by <a href="mailto:sami.samhuri@gmail.com">sjs</a>
+<span class="typo_date" title="Wed, 16 May 2007 00:55:00 GMT">Wed, 16 May 2007 00:55:00 GMT</span></p>
+<p>This is the <a href="http://www.b-simple.de/documents">best tutorial</a> I have read on developing RESTful web apps using Rails. If you're remotely interested or curious about REST on Rails I highly recommend that as one of your first reads.</p>
+
+
+	<p>I have been messing around with REST and managed to piece together a basic app without much trouble. That tutorial really cleared up some things I wasn't too sure about, especially with respect to routing resources.</p>
+
+
+	<p>Check out the <a href="http://agilewebdevelopment.com/plugins/restful_authentication">restful_authentication</a> plugin to see how a session becomes a resource.</p>
+
+
+	<p>For many cases I can definitely see the benefits of REST and for the exceptions you just use Rails in the traditional way.</p>
+
+  
+  <p class="meta">Posted in <a href="http://sami.samhuri.net/articles/category/rails" rel="tag">rails</a>&nbsp;<strong>|</strong>&nbsp;Tags <a href="http://sami.samhuri.net/articles/tag/rails" rel="tag">rails</a>, <a href="http://sami.samhuri.net/articles/tag/rest" rel="tag">rest</a>&nbsp;<strong>|</strong>&nbsp;<a href="http://sami.samhuri.net/articles/2007/05/15/good-reading#comments">no comments</a>&nbsp;<strong>|</strong>&nbsp;<a href="http://sami.samhuri.net/articles/2007/05/15/good-reading#trackbacks">no trackbacks</a></p>
+  </div>
+ <div class="post">
+  <h2><a href="http://sami.samhuri.net/articles/2007/05/10/enumerable-pluck-and-string-to_proc-for-ruby">Enumerable#pluck and String#to_proc for Ruby</a></h2>
+<p class="auth">Posted by <a href="mailto:sami.samhuri@gmail.com">sjs</a>
+<span class="typo_date" title="Fri, 11 May 2007 06:14:00 GMT">Fri, 11 May 2007 06:14:00 GMT</span></p>
+<p>I wanted a method analogous to Prototype's <a href="http://prototypejs.org/api/enumerable/pluck">pluck</a>  and <a href="http://prototypejs.org/api/enumerable/invoke">invoke</a> in Rails for building lists for <a href="http://api.rubyonrails.org/classes/ActionView/Helpers/FormOptionsHelper.html#M000510">options_for_select</a>. Yes, I know about <a href="http://api.rubyonrails.org/classes/ActionView/Helpers/FormOptionsHelper.html#M000511">options_from_collection_for_select</a>.</p>
+
+
+	<p>I wanted something more general that I can use anywhere - not just in Rails - so I wrote one. In a second I'll introduce <code>Enumerable#pluck</code>, but first we need some other methods to help implement it nicely.</p>
+
+
+	<p>First you need <a href="http://pragdave.pragprog.com/pragdave/2005/11/symbolto_proc.html"><code>Symbol#to_proc</code></a>, which shouldn't need an introduction. If you're using Rails you have this already.</p>
+
+
+<div class="typocode"><div class="codetitle">Symbol#to_proc</div><pre><code class="typocode_ruby "><span class="keyword">class </span><span class="class">Symbol</span>
+  <span class="comment"># Turns a symbol into a proc.</span>
+  <span class="comment">#</span>
+  <span class="comment"># Example:</span>
+  <span class="comment">#   # The same as people.map { |p| p.birthdate }</span>
+  <span class="comment">#   people.map(&amp;:birthdate)</span>
+  <span class="comment">#</span>
+  <span class="keyword">def </span><span class="method">to_proc</span>
+    <span class="constant">Proc</span><span class="punct">.</span><span class="ident">new</span> <span class="punct">{|</span><span class="ident">thing</span><span class="punct">,</span> <span class="punct">*</span><span class="ident">args</span><span class="punct">|</span> <span class="ident">thing</span><span class="punct">.</span><span class="ident">send</span><span class="punct">(</span><span class="constant">self</span><span class="punct">,</span> <span class="punct">*</span><span class="ident">args</span><span class="punct">)}</span>
+  <span class="keyword">end</span>
+<span class="keyword">end</span>
+</code></pre></div>
+
+	<p>Next we define <code>String#to_proc</code>, which is nearly identical to the <a href="http://sami.samhuri.net/articles/2007/05/03/array-to_proc-a-complement-to-symbol-to_proc"><code>Array#to_proc</code></a> method I previously wrote about.</p>
+
+
+<div class="typocode"><div class="codetitle">String#to_proc</div><pre><code class="typocode_ruby "><span class="keyword">class </span><span class="class">String</span>
+  <span class="comment"># Turns a string into a proc.</span>
+  <span class="comment">#</span>
+  <span class="comment"># Example:</span>
+  <span class="comment">#   # The same as people.map { |p| p.birthdate.year }</span>
+  <span class="comment">#   people.map(&amp;'birthdate.year')</span>
+  <span class="comment">#</span>
+  <span class="keyword">def </span><span class="method">to_proc</span>
+    <span class="constant">Proc</span><span class="punct">.</span><span class="ident">new</span> <span class="keyword">do</span> <span class="punct">|*</span><span class="ident">args</span><span class="punct">|</span>
+      <span class="ident">split</span><span class="punct">('</span><span class="string">.</span><span class="punct">').</span><span class="ident">inject</span><span class="punct">(</span><span class="ident">args</span><span class="punct">.</span><span class="ident">shift</span><span class="punct">)</span> <span class="keyword">do</span> <span class="punct">|</span><span class="ident">thing</span><span class="punct">,</span> <span class="ident">msg</span><span class="punct">|</span>
+        <span class="ident">thing</span> <span class="punct">=</span> <span class="ident">thing</span><span class="punct">.</span><span class="ident">send</span><span class="punct">(</span><span class="ident">msg</span><span class="punct">.</span><span class="ident">to_sym</span><span class="punct">,</span> <span class="punct">*</span><span class="ident">args</span><span class="punct">)</span>
+      <span class="keyword">end</span>
+    <span class="keyword">end</span>
+  <span class="keyword">end</span>
+<span class="keyword">end</span>
+</code></pre></div>
+
+	<p>Finally there's <code>Enumerable#to_proc</code> which returns a proc that passes its parameter through each of its members and collects their results. It's easier to explain by example.</p>
+
+
+<div class="typocode"><div class="codetitle">Enumerable#to_proc</div><pre><code class="typocode_ruby "><span class="keyword">module </span><span class="module">Enumerable</span>
+  <span class="comment"># Effectively treats itself as a list of transformations, and returns a proc</span>
+  <span class="comment"># which maps values to a list of the results of applying each transformation</span>
+  <span class="comment"># in that list to the value.</span>
+  <span class="comment">#</span>
+  <span class="comment"># Example:</span>
+  <span class="comment">#   # The same as people.map { |p| [p.birthdate, p.email] }</span>
+  <span class="comment">#   people.map(&amp;[:birthdate, :email])</span>
+  <span class="comment">#</span>
+  <span class="keyword">def </span><span class="method">to_proc</span>
+    <span class="attribute">@procs</span> <span class="punct">||=</span> <span class="ident">map</span><span class="punct">(&amp;</span><span class="symbol">:to_proc</span><span class="punct">)</span>
+    <span class="constant">Proc</span><span class="punct">.</span><span class="ident">new</span> <span class="keyword">do</span> <span class="punct">|</span><span class="ident">thing</span><span class="punct">,</span> <span class="punct">*</span><span class="ident">args</span><span class="punct">|</span>
+      <span class="attribute">@procs</span><span class="punct">.</span><span class="ident">map</span> <span class="keyword">do</span> <span class="punct">|</span><span class="ident">proc</span><span class="punct">|</span>
+        <span class="ident">proc</span><span class="punct">.</span><span class="ident">call</span><span class="punct">(</span><span class="ident">thing</span><span class="punct">,</span> <span class="punct">*</span><span class="ident">args</span><span class="punct">)</span>
+      <span class="keyword">end</span>
+    <span class="keyword">end</span>
+  <span class="keyword">end</span>
+<span class="keyword">end</span></code></pre></div>
+
+	<p>Here's the cool part, <code>Enumerable#pluck</code> for Ruby in all its glory.</p>
+
+
+<div class="typocode"><div class="codetitle">Enumerable#pluck</div><pre><code class="typocode_ruby "><span class="keyword">module </span><span class="module">Enumerable</span>
+  <span class="comment"># Use this to pluck values from objects, especially useful for ActiveRecord models.</span>
+  <span class="comment"># This is analogous to Prototype's Enumerable.pluck method but more powerful.</span>
+  <span class="comment">#</span>
+  <span class="comment"># You can pluck values simply, like so:</span>
+  <span class="comment">#   &gt;&gt; people.pluck(:last_name)  #=&gt; ['Samhuri', 'Jones', ...]</span>
+  <span class="comment">#</span>
+  <span class="comment"># But with Symbol#to_proc defined this is effectively the same as:</span>
+  <span class="comment">#   &gt;&gt; people.map(&amp;:last_name)   #=&gt; ['Samhuri', 'Jones', ...]</span>
+  <span class="comment">#</span>
+  <span class="comment"># Where pluck's power becomes evident is when you want to do something like:</span>
+  <span class="comment">#   &gt;&gt; people.pluck(:name, :address, :phone)</span>
+  <span class="comment">#        #=&gt; [['Johnny Canuck', '123 Maple Lane', '416-555-124'], ...]</span>
+  <span class="comment">#</span>
+  <span class="comment"># Instead of:</span>
+  <span class="comment">#   &gt;&gt; people.map { |p| [p.name, p.address, p.phone] }</span>
+  <span class="comment">#</span>
+  <span class="comment">#   # map each person to: [person.country.code, person.id]</span>
+  <span class="comment">#   &gt;&gt; people.pluck('country.code', :id)</span>
+  <span class="comment">#        #=&gt; [['US', 1], ['CA', 2], ...]</span>
+  <span class="comment">#</span>
+  <span class="keyword">def </span><span class="method">pluck</span><span class="punct">(*</span><span class="ident">args</span><span class="punct">)</span>
+    <span class="comment"># Thanks to Symbol#to_proc, Enumerable#to_proc and String#to_proc this Just Works(tm)</span>
+    <span class="ident">map</span><span class="punct">(&amp;</span><span class="ident">args</span><span class="punct">)</span>
+  <span class="keyword">end</span>
+<span class="keyword">end</span></code></pre></div>
+
+	<p>I wrote another version without using the various <code>#to_proc</code> methods so as to work with a standard Ruby while only patching 1 module.</p>
+
+
+<div class="typocode"><pre><code class="typocode_ruby "><span class="keyword">module </span><span class="module">Enumerable</span>
+  <span class="comment"># A version of pluck which doesn't require any to_proc methods.</span>
+  <span class="keyword">def </span><span class="method">pluck</span><span class="punct">(*</span><span class="ident">args</span><span class="punct">)</span>
+    <span class="ident">procs</span> <span class="punct">=</span> <span class="ident">args</span><span class="punct">.</span><span class="ident">map</span> <span class="keyword">do</span> <span class="punct">|</span><span class="ident">msgs</span><span class="punct">|</span>
+      <span class="comment"># always operate on lists of messages</span>
+      <span class="keyword">if</span> <span class="constant">String</span> <span class="punct">===</span> <span class="ident">msgs</span>
+        <span class="ident">msgs</span> <span class="punct">=</span> <span class="ident">msgs</span><span class="punct">.</span><span class="ident">split</span><span class="punct">('</span><span class="string">.</span><span class="punct">').</span><span class="ident">map</span> <span class="punct">{|</span><span class="ident">a</span><span class="punct">|</span> <span class="ident">a</span><span class="punct">.</span><span class="ident">to_sym</span><span class="punct">}</span> <span class="comment"># allow 'country.code'</span>
+      <span class="keyword">elsif</span> <span class="punct">!(</span><span class="constant">Enumerable</span> <span class="punct">===</span> <span class="ident">msgs</span><span class="punct">)</span>
+        <span class="ident">msgs</span> <span class="punct">=</span> <span class="punct">[</span><span class="ident">msgs</span><span class="punct">]</span>
+      <span class="keyword">end</span>
+      <span class="constant">Proc</span><span class="punct">.</span><span class="ident">new</span> <span class="keyword">do</span> <span class="punct">|</span><span class="ident">orig</span><span class="punct">|</span>
+        <span class="ident">msgs</span><span class="punct">.</span><span class="ident">inject</span><span class="punct">(</span><span class="ident">orig</span><span class="punct">)</span> <span class="punct">{</span> <span class="punct">|</span><span class="ident">thing</span><span class="punct">,</span> <span class="ident">msg</span><span class="punct">|</span> <span class="ident">thing</span> <span class="punct">=</span> <span class="ident">thing</span><span class="punct">.</span><span class="ident">send</span><span class="punct">(</span><span class="ident">msg</span><span class="punct">)</span> <span class="punct">}</span>
+      <span class="keyword">end</span>
+    <span class="keyword">end</span>
+
+    <span class="keyword">if</span> <span class="ident">procs</span><span class="punct">.</span><span class="ident">size</span> <span class="punct">==</span> <span class="number">1</span>
+      <span class="ident">map</span><span class="punct">(&amp;</span><span class="ident">procs</span><span class="punct">.</span><span class="ident">first</span><span class="punct">)</span>
+    <span class="keyword">else</span>
+      <span class="ident">map</span> <span class="keyword">do</span> <span class="punct">|</span><span class="ident">thing</span><span class="punct">|</span>
+        <span class="ident">procs</span><span class="punct">.</span><span class="ident">map</span> <span class="punct">{</span> <span class="punct">|</span><span class="ident">proc</span><span class="punct">|</span> <span class="ident">proc</span><span class="punct">.</span><span class="ident">call</span><span class="punct">(</span><span class="ident">thing</span><span class="punct">)</span> <span class="punct">}</span>
+      <span class="keyword">end</span>
+    <span class="keyword">end</span>
+  <span class="keyword">end</span>
+<span class="keyword">end</span></code></pre></div>
+
+	<p>It's just icing on the cake considering Ruby's convenient block syntax, but there it is. Do with it what you will. You can change or extend any of these to support drilling down into hashes quite easily too.</p>
+
+
+	<p><em><strong>Update #1:</strong> Fixed a potential performance issue in <code>Enumerable#to_proc</code> by saving the results of <code>to_proc</code> in <tt>@procs</tt>.</em></p>
+
+  
+  <p class="meta">Posted in <a href="http://sami.samhuri.net/articles/category/hacking" rel="tag">coding</a>, <a href="http://sami.samhuri.net/articles/category/ruby" rel="tag">ruby</a>&nbsp;<strong>|</strong>&nbsp;Tags <a href="http://sami.samhuri.net/articles/tag/extensions" rel="tag">extensions</a>, <a href="http://sami.samhuri.net/articles/tag/ruby" rel="tag">ruby</a>&nbsp;<strong>|</strong>&nbsp;<a href="http://sami.samhuri.net/articles/2007/05/10/enumerable-pluck-and-string-to_proc-for-ruby#comments">2 comments</a>&nbsp;<strong>|</strong>&nbsp;<a href="http://sami.samhuri.net/articles/2007/05/10/enumerable-pluck-and-string-to_proc-for-ruby#trackbacks">no trackbacks</a></p>
+  </div>
+ <div class="post">
+  <h2><a href="http://sami.samhuri.net/articles/2007/05/10/rails-plugins-link-dump">Rails plugins (link dump)</a></h2>
+<p class="auth">Posted by <a href="mailto:sami.samhuri@gmail.com">sjs</a>
+<span class="typo_date" title="Thu, 10 May 2007 07:22:00 GMT">Thu, 10 May 2007 07:22:00 GMT</span></p>
+<p>Some Rails plugins I find useful:</p>
+
+
+	<ul>
+	<li><a href="http://matthewman.net/articles/2006/09/04/new-rails-feature-simply_helpful">Simply Helpful</a></li>
+		<li><a href="http://svn.depixelate.com/plugins/focus_fu/">Focus-fu</a></li>
+		<li><a href="http://require.errtheblog.com/plugins/browser/sexy_migrations/README">Sexy Migrations</a></li>
+		<li><a href="http://blog.inquirylabs.com/2006/09/28/textmate-footnotes-v16-released/">TextMate Footnotes</a> (just awesome)</li>
+		<li><a href="http://agilewebdevelopment.com/plugins/acts_as_taggable_on_steroids">acts_as_taggable_on_steroids</a></li>
+		<li><a href="http://errtheblog.com/post/14">acts_as_textiled</a></li>
+	</ul>
+
+  
+  <p class="meta">Posted in <a href="http://sami.samhuri.net/articles/category/rails" rel="tag">rails</a>&nbsp;<strong>|</strong>&nbsp;Tags <a href="http://sami.samhuri.net/articles/tag/rails" rel="tag">rails</a>&nbsp;<strong>|</strong>&nbsp;<a href="http://sami.samhuri.net/articles/2007/05/10/rails-plugins-link-dump#comments">no comments</a>&nbsp;<strong>|</strong>&nbsp;<a href="http://sami.samhuri.net/articles/2007/05/10/rails-plugins-link-dump#trackbacks">no trackbacks</a></p>
+  </div>
+ <div class="post">
+  <h2><a href="http://sami.samhuri.net/articles/2007/05/09/i-cant-wait-to-see-what-matt-stone-trey-parker-do-with-this">I can't wait to see what Matt Stone &amp; Trey Parker do with this</a></h2>
+<p class="auth">Posted by <a href="mailto:sami.samhuri@gmail.com">sjs</a>
+<span class="typo_date" title="Thu, 10 May 2007 04:34:00 GMT">Thu, 10 May 2007 04:34:00 GMT</span></p>
+<p>I'd just like to say, <a href="http://news.com.com/8301-10784_3-9717828-7.html">bwa ha ha ha!</a></p>
+
+
+	<p>Summary: Paris Hilton drove with a suspended license and is facing 45 days in jail. Now she's reaching out to lord knows who on her MySpace page to petition The Governator to pardon her. I might cry if I weren't pissing myself laughing.</p>
+
+
+	<p>Paris Hilton is out of her mind, living in some fantasy world separate from Earth. Pathetic doesn't begin to describe this plea for help from her own stupidity. She knowingly and willingly disobeyed the law, got busted, and then proceeded to claim that</p>
+
+
+	<blockquote>
+		<p><em>"She provides hope for young people all over the U.S. <strong>and the world</strong>. She provides beauty and excitement to (most of) our <strong>otherwise mundane</strong> lives."</em></p>
+	</blockquote>
+
+
+	<p>I take this as a learning experience. For example, I learned that the US is no longer part of the world.</p>
+
+
+	<p>Flat out crazy, insane, not of sound mind. She is not any sort of hope, inspiration or role model for anyone.</p>
+
+  
+  <p class="meta">Posted in <a href="http://sami.samhuri.net/articles/category/amusement" rel="tag">amusement</a>&nbsp;<strong>|</strong>&nbsp;Tags <a href="http://sami.samhuri.net/articles/tag/crazy" rel="tag">crazy</a>, <a href="http://sami.samhuri.net/articles/tag/i_laughed_i_cried" rel="tag">i_laughed_i_cried</a>&nbsp;<strong>|</strong>&nbsp;<a href="http://sami.samhuri.net/articles/2007/05/09/i-cant-wait-to-see-what-matt-stone-trey-parker-do-with-this#comments">no comments</a>&nbsp;<strong>|</strong>&nbsp;<a href="http://sami.samhuri.net/articles/2007/05/09/i-cant-wait-to-see-what-matt-stone-trey-parker-do-with-this#trackbacks">no trackbacks</a></p>
+  </div>
+ <div class="post">
+  <h2><a href="http://sami.samhuri.net/articles/2007/05/09/dtrace-ruby-goodness-for-sun">dtrace + ruby = goodness for Sun</a></h2>
+<p class="auth">Posted by <a href="mailto:sami.samhuri@gmail.com">sjs</a>
+<span class="typo_date" title="Wed, 09 May 2007 22:45:00 GMT">Wed, 09 May 2007 22:45:00 GMT</span></p>
+<p>Suddenly I feel the urge to try out Solaris for i386 again. Last time I gave it a shot was when it was first released, and all I ever got out of the CD was a white screen. It's been 2-3 years since then and it should be well-tested. I'll try to install it into a VM first using the ISO and potentially save myself a CD. (I don't even think I have blank CDs lying around anymore, only DVDs.)</p>
+
+
+	<p><a href="http://joyeur.com/2007/05/07/dtrace-for-ruby-is-available">The culprit.</a></p>
+
+  
+  <p class="meta">Posted in <a href="http://sami.samhuri.net/articles/category/ruby" rel="tag">ruby</a>&nbsp;<strong>|</strong>&nbsp;Tags <a href="http://sami.samhuri.net/articles/tag/dtrace" rel="tag">dtrace</a>, <a href="http://sami.samhuri.net/articles/tag/ruby" rel="tag">ruby</a>&nbsp;<strong>|</strong>&nbsp;<a href="http://sami.samhuri.net/articles/2007/05/09/dtrace-ruby-goodness-for-sun#comments">no comments</a>&nbsp;<strong>|</strong>&nbsp;<a href="http://sami.samhuri.net/articles/2007/05/09/dtrace-ruby-goodness-for-sun#trackbacks">no trackbacks</a></p>
+  </div>
+ <div class="post">
+  <h2><a href="http://sami.samhuri.net/articles/2007/05/05/a-new-way-to-look-at-networking">A new way to look at networking</a></h2>
+<p class="auth">Posted by <a href="mailto:sami.samhuri@gmail.com">sjs</a>
+<span class="typo_date" title="Sun, 06 May 2007 06:10:00 GMT">Sun, 06 May 2007 06:10:00 GMT</span></p>
+<p><a href="http://en.wikipedia.org/wiki/Van_Jacobson">Van Jacobson</a> gave a <a href="http://video.google.com/videoplay?docid=-6972678839686672840&hl=en">Google Tech Talk</a> on some of his ideas of how a modern, global network could work more effectively, and with more trust in the data which changes many hands on its journey to its final destination.</p>
+
+
+<div style="width:100%;text-align:center;">
+<embed style="width:400px; height:326px;" type="application/x-shockwave-flash" src="http://video.google.com/googleplayer.swf?docId=-6972678839686672840&hl=en"> </embed>
+
+<p> </p>
+<a href="http://video.google.com/videoplay?docid=-6972678839686672840&hl=en">Watch the talk on Google's site</a>
+<p> </p>
+</div>
+
+	<p>The man is very smart and his ideas are fascinating. He has the experience and knowledge to see the big picture and what can be done to solve some of the new problems we have. He starts with the beginning of the phone networks and then goes on to briefly explain the origins of the <a href="http://en.wikipedia.org/wiki/ARPANET">ARPAnet</a>, which evolved into the modern Internet and TCP/IP and the many other protocols we use daily (often behind the scenes).</p>
+
+
+	<p>He explains the problems that were faced while using the phone networks for data, and how they were solved by realizing that a new problem had risen and needed a new, different solution. He then goes to explain how the Internet has changed significantly from the time it started off in research centres, schools, and government offices into what it is today (lots of identical bytes being redundantly pushed to many consumers, where broadcast would be more appropriate and efficient).</p>
+
+
+	<p>If you have some time I really suggest watching this talk. I would love to research some of the things he spoke about if I ever got the chance. I'm sure they'll be on my mind anyway and inevitably I'll end up playing around with layering crap onto IPV6 and what not. Deep down I love coding in C and I think developing a protocol would be pretty fun. I'd learn a lot in any case.</p>
+
+  
+  <p class="meta">Posted in <a href="http://sami.samhuri.net/articles/category/technology" rel="tag">technology</a>&nbsp;<strong>|</strong>&nbsp;Tags <a href="http://sami.samhuri.net/articles/tag/networking" rel="tag">networking</a>&nbsp;<strong>|</strong>&nbsp;<a href="http://sami.samhuri.net/articles/2007/05/05/a-new-way-to-look-at-networking#comments">no comments</a>&nbsp;<strong>|</strong>&nbsp;<a href="http://sami.samhuri.net/articles/2007/05/05/a-new-way-to-look-at-networking#trackbacks">no trackbacks</a></p>
+  </div>
+ <div class="post">
+  <h2><a href="http://sami.samhuri.net/articles/2007/05/05/gotta-love-the-ferry-ride">Gotta love the ferry ride</a></h2>
+<p class="auth">Posted by <a href="mailto:sami.samhuri@gmail.com">sjs</a>
+<span class="typo_date" title="Sat, 05 May 2007 18:25:00 GMT">Sat, 05 May 2007 18:25:00 GMT</span></p>
+<p>I lived in <a href="http://en.wikipedia.org/wiki/Victoria%2C_British_Columbia">Victoria</a> for over a year before I ever rode the <a href="http://www.bcferries.com/">ferry</a> between <a href="http://en.wikipedia.org/wiki/Vancouver_Island">Vancouver Island</a> and <a href="http://en.wikipedia.org/wiki/Tsawwassen">Tsawwassen</a> (ignoring the time I was in BC with my family about 16 years ago, that is). I always just flew in and out of Victoria directly. The ferry is awesome and the view is incredible, navigating through all those little islands. Last time I rode the ferry I snapped this shot. It's possibly the best picture I've taken on that trip.</p>
+
+
+	<p><a href="http://sami.samhuri.net/files/original.jpg" class="photo"><img src="http://web.archive.org/web/20070520022504im_/http://sami.samhuri.net/files/small.jpg" title="Sunset" alt="Sunset" /></a></p>
+
+  
+  <p class="meta">Posted in <a href="http://sami.samhuri.net/articles/category/life" rel="tag">life</a>&nbsp;<strong>|</strong>&nbsp;Tags <a href="http://sami.samhuri.net/articles/tag/photo" rel="tag">photo</a>&nbsp;<strong>|</strong>&nbsp;<a href="http://sami.samhuri.net/articles/2007/05/05/gotta-love-the-ferry-ride#comments">no comments</a>&nbsp;<strong>|</strong>&nbsp;<a href="http://sami.samhuri.net/articles/2007/05/05/gotta-love-the-ferry-ride#trackbacks">no trackbacks</a></p>
+  </div>
+
+
+  <p id="pagination">Older posts: 1 <a href="http://sami.samhuri.net/articles/page/2">2</a> <a href="http://sami.samhuri.net/articles/page/3">3</a>  ... <a href="http://sami.samhuri.net/articles/page/5">5</a></p>
+
+      <script type="text/javascript">
+//<![CDATA[
+show_dates_as_local_time()
+//]]>
+</script>
+    </div>
+  
+  </div>
+
+  <div id="leftcolumn">
+    <div id="header">
+      <h1 id="sitename"><a href="http://sami.samhuri.net/">sjs</a></h1>
+      <h2 id="subtitle"><a href="http://www.freedom-to-tinker.com/?p=1155">5d d9 2b e6 21 22 8d ad<br/>7e bb 84 a9 ee cd 99 4b</a></h2>    
+    </div>
+    
+    <div id="sidebar">
+      <div id="search"><form action="http://sami.samhuri.net/articles/search" id="sform" method="get">
+ <label for="q">Live Search:</label><input type="text" id="q" name="q" value="" size="15" />
+<img alt="Spinner-blue" id="search_spinner" src="http://web.archive.org/web/20070520022504im_/http://sami.samhuri.net/images/spinner-blue.gif?1178129878" style="display:none;" />
+</form>
+<script type="text/javascript">
+//<![CDATA[
+new Form.Element.Observer('q', 1, function(element, value) {new Ajax.Updater('search-results', '/live/search', {asynchronous:true, evalScripts:true, onComplete:function(request){Element.hide('search_spinner')}, onLoading:function(request){Element.show('search_spinner')}, parameters:'q=' + escape($F('q'))})})
+//]]>
+</script></div>
+      <div id="search-results"></div>
+        
+        <h3>Tags</h3>
+<p style="overflow:hidden" id="tags">
+<span style="font-size:66.6666666666667%"><a href="http://sami.samhuri.net/articles/tag/buffalo">buffalo</a></span>
+<span style="font-size:66.6666666666667%"><a href="http://sami.samhuri.net/articles/tag/cool">cool</a></span>
+<span style="font-size:66.6666666666667%"><a href="http://sami.samhuri.net/articles/tag/coverflow">coverflow</a></span>
+<span style="font-size:78.125%"><a href="http://sami.samhuri.net/articles/tag/crazy">crazy</a></span>
+<span style="font-size:78.125%"><a href="http://sami.samhuri.net/articles/tag/digg">digg</a></span>
+<span style="font-size:78.125%"><a href="http://sami.samhuri.net/articles/tag/framework">framework</a></span>
+<span style="font-size:78.125%"><a href="http://sami.samhuri.net/articles/tag/funny">funny</a></span>
+<span style="font-size:66.6666666666667%"><a href="http://sami.samhuri.net/articles/tag/fuse">fuse</a></span>
+<span style="font-size:66.6666666666667%"><a href="http://sami.samhuri.net/articles/tag/games">games</a></span>
+<span style="font-size:117.1875%"><a href="http://sami.samhuri.net/articles/tag/haskell">haskell</a></span>
+<span style="font-size:66.6666666666667%"><a href="http://sami.samhuri.net/articles/tag/itunes">itunes</a></span>
+<span style="font-size:156.25%"><a href="http://sami.samhuri.net/articles/tag/linux">linux</a></span>
+<span style="font-size:156.25%"><a href="http://sami.samhuri.net/articles/tag/macosx">macosx</a></span>
+<span style="font-size:78.125%"><a href="http://sami.samhuri.net/articles/tag/migrations">migrations</a></span>
+<span style="font-size:117.1875%"><a href="http://sami.samhuri.net/articles/tag/php">php</a></span>
+<span style="font-size:66.6666666666667%"><a href="http://sami.samhuri.net/articles/tag/python">python</a></span>
+<span style="font-size:200%"><a href="http://sami.samhuri.net/articles/tag/rails">rails</a></span>
+<span style="font-size:200%"><a href="http://sami.samhuri.net/articles/tag/ruby">ruby</a></span>
+<span style="font-size:78.125%"><a href="http://sami.samhuri.net/articles/tag/seekport">seekport</a></span>
+<span style="font-size:78.125%"><a href="http://sami.samhuri.net/articles/tag/snippets">snippets</a></span>
+<span style="font-size:117.1875%"><a href="http://sami.samhuri.net/articles/tag/textmate">textmate</a></span>
+<span style="font-size:66.6666666666667%"><a href="http://sami.samhuri.net/articles/tag/ubuntu">ubuntu</a></span>
+<span style="font-size:78.125%"><a href="http://sami.samhuri.net/articles/tag/userscript">userscript</a></span>
+<span style="font-size:78.125%"><a href="http://sami.samhuri.net/articles/tag/windows">windows</a></span>
+<span style="font-size:78.125%"><a href="http://sami.samhuri.net/articles/tag/zend">zend</a></span>
+</p>
+
+<h3>Categories</h3>
+<ul id="categories">
+  
+  <li><a href="http://sami.samhuri.net/articles/category/amusement">amusement</a> <em>(6)</em></li>
+  
+  
+  <li><a href="http://sami.samhuri.net/articles/category/hacking">coding</a> <em>(19)</em></li>
+  
+  
+  <li><a href="http://sami.samhuri.net/articles/category/life">life</a> <em>(4)</em></li>
+  
+  
+  <li><a href="http://sami.samhuri.net/articles/category/linux">linux</a> <em>(4)</em></li>
+  
+  
+  <li><a href="http://sami.samhuri.net/articles/category/mac-os-x">mac os x</a> <em>(7)</em></li>
+  
+  
+  <li><a href="http://sami.samhuri.net/articles/category/python">python</a> <em>(1)</em></li>
+  
+  
+  <li><a href="http://sami.samhuri.net/articles/category/rails">rails</a> <em>(12)</em></li>
+  
+  
+  <li><a href="http://sami.samhuri.net/articles/category/ruby">ruby</a> <em>(6)</em></li>
+  
+  
+  
+  <li><a href="http://sami.samhuri.net/articles/category/technology">technology</a> <em>(6)</em></li>
+  
+  
+  <li><a href="http://sami.samhuri.net/articles/category/textmate">textmate</a> <em>(4)</em></li>
+  
+  
+  <li><a href="http://sami.samhuri.net/articles/category/apple">apple</a> <em>(7)</em></li>
+  
+  
+  <li><a href="http://sami.samhuri.net/articles/category/php">php</a> <em>(4)</em></li>
+  
+  
+  <li><a href="http://sami.samhuri.net/articles/category/windows">windows</a> <em>(3)</em></li>
+  
+  
+  <li><a href="http://sami.samhuri.net/articles/category/bootcamp">bootcamp</a> <em>(1)</em></li>
+  
+  
+  <li><a href="http://sami.samhuri.net/articles/category/parallels">parallels</a> <em>(1)</em></li>
+  
+  
+  <li><a href="http://sami.samhuri.net/articles/category/firefox">firefox</a> <em>(2)</em></li>
+  
+</ul>
+
+
+<h3>Archives</h3>
+<ul id="archives">
+  
+    <li>
+      <a href="http://sami.samhuri.net/articles/2007/5">May 2007</a>
+      <em>(13)</em>
+    </li>
+  
+    <li>
+      <a href="http://sami.samhuri.net/articles/2007/4">April 2007</a>
+      <em>(5)</em>
+    </li>
+  
+    <li>
+      <a href="http://sami.samhuri.net/articles/2007/3">March 2007</a>
+      <em>(5)</em>
+    </li>
+  
+    <li>
+      <a href="http://sami.samhuri.net/articles/2006/12">December 2006</a>
+      <em>(1)</em>
+    </li>
+  
+    <li>
+      <a href="http://sami.samhuri.net/articles/2006/9">September 2006</a>
+      <em>(1)</em>
+    </li>
+  
+    <li>
+      <a href="http://sami.samhuri.net/articles/2006/7">July 2006</a>
+      <em>(5)</em>
+    </li>
+  
+    <li>
+      <a href="http://sami.samhuri.net/articles/2006/6">June 2006</a>
+      <em>(4)</em>
+    </li>
+  
+    <li>
+      <a href="http://sami.samhuri.net/articles/2006/5">May 2006</a>
+      <em>(2)</em>
+    </li>
+  
+    <li>
+      <a href="http://sami.samhuri.net/articles/2006/4">April 2006</a>
+      <em>(1)</em>
+    </li>
+  
+    <li>
+      <a href="http://sami.samhuri.net/articles/2006/3">March 2006</a>
+      <em>(3)</em>
+    </li>
+  
+</ul>
+
+<h3>Syndicate</h3>
+<ul>
+    <li><a href="http://sami.samhuri.net/xml/atom10/feed.xml" title="Articles feed">Articles</a></li>
+  
+  
+  
+</ul>
+
+        
+      <br clear="all" />
+    </div>
+  </div>
+  
+  <div id="footer">
+    <ul>
+      <li><a href="http://typosphere.org/">Typo</a></li>
+      <li>&bull;</li>
+      <li><a href="http://validator.w3.org/check?uri=referer">Valid XHTML</a></li>
+      <li>&bull;</li>
+      <li><a href="http://jigsaw.w3.org/css-validator/validator?uri=/">Valid CSS</a></li>
+    </ul>
+  </div>
+  
+  <script src="http://web.archive.org/web/20070520022504js_/http://www.google-analytics.com/urchin.js" type="text/javascript"> </script>
+  <script type="text/javascript"> _uacct = "UA-214054-3"; urchinTracker(); </script>  
+</body>
+</html>
+
+
+
+
+
+
+<!--
+     FILE ARCHIVED ON 2:25:04 May 20, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 2:55:45 Aug 21, 2011.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->

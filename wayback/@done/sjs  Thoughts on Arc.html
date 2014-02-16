@@ -1,0 +1,653 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>sjs: Thoughts on Arc</title>
+
+  <link rel="openid.server" href="http://www.myopenid.com/server" />
+  <link rel="openid.delegate" href="http://sami-samhuri.myopenid.com/" />
+  <meta http-equiv="X-XRDS-Location" content="http://sami-samhuri.myopenid.com/xrds" />
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />  
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/sjs" />
+  
+
+  <script src="http://web.archive.org/web/20080820114833js_/http://sami.samhuri.net/javascripts/prototype.js" type="text/javascript"></script>
+
+  <link href="http://web.archive.org/web/20080820114833cs_/http://sami.samhuri.net/stylesheets/application.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<!-- BEGIN WAYBACK TOOLBAR INSERT -->
+
+<script type="text/javascript" src="http://staticweb.archive.org/js/disclaim-element.js" ></script>
+<script type="text/javascript" src="http://staticweb.archive.org/js/graph-calc.js" ></script>
+<script type="text/javascript" src="http://staticweb.archive.org/jflot/jquery.min.js" ></script>
+<script type="text/javascript">
+//<![CDATA[
+var firstDate = 820454400000;
+var lastDate = 1325375999999;
+var wbPrefix = "http://web.archive.org/web/";
+var wbCurrentUrl = "http://sami.samhuri.net/2008/2/19/thoughts-on-arc";
+
+var curYear = -1;
+var curMonth = -1;
+var yearCount = 16;
+var firstYear = 1996;
+var imgWidth=400;
+var yearImgWidth = 25;
+var monthImgWidth = 2;
+var trackerVal = "none";
+var displayDay = "20";
+var displayMonth = "Aug";
+var displayYear = "2008";
+var prettyMonths = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+function showTrackers(val) {
+	if(val == trackerVal) {
+		return;
+	}
+	if(val == "inline") {
+		document.getElementById("displayYearEl").style.color = "#ec008c";
+		document.getElementById("displayMonthEl").style.color = "#ec008c";
+		document.getElementById("displayDayEl").style.color = "#ec008c";		
+	} else {
+		document.getElementById("displayYearEl").innerHTML = displayYear;
+		document.getElementById("displayYearEl").style.color = "#ff0";
+		document.getElementById("displayMonthEl").innerHTML = displayMonth;
+		document.getElementById("displayMonthEl").style.color = "#ff0";
+		document.getElementById("displayDayEl").innerHTML = displayDay;
+		document.getElementById("displayDayEl").style.color = "#ff0";
+	}
+   document.getElementById("wbMouseTrackYearImg").style.display = val;
+   document.getElementById("wbMouseTrackMonthImg").style.display = val;
+   trackerVal = val;
+}
+function getElementX2(obj) {
+	var thing = jQuery(obj);
+	if((thing == undefined) 
+			|| (typeof thing == "undefined") 
+			|| (typeof thing.offset == "undefined")) {
+		return getElementX(obj);
+	}
+	return Math.round(thing.offset().left);
+}
+function trackMouseMove(event,element) {
+
+   var eventX = getEventX(event);
+   var elementX = getElementX2(element);
+   var xOff = eventX - elementX;
+	if(xOff < 0) {
+		xOff = 0;
+	} else if(xOff > imgWidth) {
+		xOff = imgWidth;
+	}
+   var monthOff = xOff % yearImgWidth;
+
+   var year = Math.floor(xOff / yearImgWidth);
+	var yearStart = year * yearImgWidth;
+   var monthOfYear = Math.floor(monthOff / monthImgWidth);
+   if(monthOfYear > 11) {
+       monthOfYear = 11;
+   }
+   // 1 extra border pixel at the left edge of the year:
+   var month = (year * 12) + monthOfYear;
+   var day = 1;
+	if(monthOff % 2 == 1) {
+		day = 15;
+	}
+	var dateString = 
+		zeroPad(year + firstYear) + 
+		zeroPad(monthOfYear+1,2) +
+		zeroPad(day,2) + "000000";
+
+	var monthString = prettyMonths[monthOfYear];
+	document.getElementById("displayYearEl").innerHTML = year + 1996;
+	document.getElementById("displayMonthEl").innerHTML = monthString;
+	// looks too jarring when it changes..
+	//document.getElementById("displayDayEl").innerHTML = zeroPad(day,2);
+
+	var url = wbPrefix + dateString + '/' +  wbCurrentUrl;
+	document.getElementById('wm-graph-anchor').href = url;
+
+   //document.getElementById("wmtbURL").value="evX("+eventX+") elX("+elementX+") xO("+xOff+") y("+year+") m("+month+") monthOff("+monthOff+") DS("+dateString+") Moy("+monthOfYear+") ms("+monthString+")";
+   if(curYear != year) {
+       var yrOff = year * yearImgWidth;
+       document.getElementById("wbMouseTrackYearImg").style.left = yrOff + "px";
+       curYear = year;
+   }
+   if(curMonth != month) {
+       var mtOff = year + (month * monthImgWidth) + 1;
+       document.getElementById("wbMouseTrackMonthImg").style.left = mtOff + "px";
+       curMonth = month;
+   }
+}
+//]]>
+</script>
+
+<style type="text/css">body{margin-top:0!important;padding-top:0!important;min-width:800px!important;}#wm-ipp a:hover{text-decoration:underline!important;}</style>
+<div id="wm-ipp" style="display:none; position:relative;padding:0 5px;min-height:70px;min-width:800px; z-index:9000;">
+<div id="wm-ipp-inside" style="position:fixed;padding:0!important;margin:0!important;width:97%;min-width:780px;border:5px solid #000;border-top:none;background-image:url(http://staticweb.archive.org/images/toolbar/wm_tb_bk_trns.png);text-align:center;-moz-box-shadow:1px 1px 3px #333;-webkit-box-shadow:1px 1px 3px #333;box-shadow:1px 1px 3px #333;font-size:11px!important;font-family:'Lucida Grande','Arial',sans-serif!important;">
+   <table style="border-collapse:collapse;margin:0;padding:0;width:100%;"><tbody><tr>
+   <td style="padding:10px;vertical-align:top;min-width:110px;">
+   <a href="http://wayback.archive.org/web/" title="Wayback Machine home page" style="background-color:transparent;border:none;"><img src="http://staticweb.archive.org/images/toolbar/wayback-toolbar-logo.png" alt="Wayback Machine" width="110" height="39" border="0"/></a>
+   </td>
+   <td style="padding:0!important;text-align:center;vertical-align:top;width:100%;">
+
+       <table style="border-collapse:collapse;margin:0 auto;padding:0;width:570px;"><tbody><tr>
+       <td style="padding:3px 0;" colspan="2">
+       <form target="_top" method="get" action="http://wayback.archive.org/web/form-submit.jsp" name="wmtb" id="wmtb" style="margin:0!important;padding:0!important;"><input type="text" name="url" id="wmtbURL" value="http://sami.samhuri.net/2008/2/19/thoughts-on-arc" style="width:400px;font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;" onfocus="javascript:this.focus();this.select();" /><input type="hidden" name="type" value="replay" /><input type="hidden" name="date" value="20080820114833" /><input type="submit" value="Go" style="font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;margin-left:5px;" /><span id="wm_tb_options" style="display:block;"></span></form>
+       </td>
+       <td style="vertical-align:bottom;padding:5px 0 0 0!important;" rowspan="2">
+           <table style="border-collapse:collapse;width:110px;color:#99a;font-family:'Helvetica','Lucida Grande','Arial',sans-serif;"><tbody>
+			
+           <!-- NEXT/PREV MONTH NAV AND MONTH INDICATOR -->
+           <tr style="width:110px;height:16px;font-size:10px!important;">
+           	<td style="padding-right:9px;font-size:11px!important;font-weight:bold;text-transform:uppercase;text-align:right;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+                       Jul
+                       
+               </td>
+               <td id="displayMonthEl" style="background:#000;color:#ff0;font-size:11px!important;font-weight:bold;text-transform:uppercase;width:34px;height:15px;padding-top:1px;text-align:center;" title="You are here: 11:48:33 Aug 20, 2008">AUG</td>
+				<td style="padding-left:9px;font-size:11px!important;font-weight:bold;text-transform:uppercase;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+		                <a href="http://sami.samhuri.net/2008/2/19/thoughts-on-arc" style="text-decoration:none;color:#33f;font-weight:bold;background-color:transparent;border:none;" title="30 Apr 2009"><strong>APR</strong></a>
+		                
+               </td>
+           </tr>
+
+           <!-- NEXT/PREV CAPTURE NAV AND DAY OF MONTH INDICATOR -->
+           <tr>
+               <td style="padding-right:9px;white-space:nowrap;overflow:visible;text-align:right!important;vertical-align:middle!important;" nowrap="nowrap">
+               
+                       <img src="http://staticweb.archive.org/images/toolbar/wm_tb_prv_off.png" alt="Previous capture" width="14" height="16" border="0" />
+                       
+               </td>
+               <td id="displayDayEl" style="background:#000;color:#ff0;width:34px;height:24px;padding:2px 0 0 0;text-align:center;font-size:24px;font-weight: bold;" title="You are here: 11:48:33 Aug 20, 2008">20</td>
+				<td style="padding-left:9px;white-space:nowrap;overflow:visible;text-align:left!important;vertical-align:middle!important;" nowrap="nowrap">
+               
+		                <a href="http://sami.samhuri.net/2008/2/19/thoughts-on-arc" title="13:05:52 Apr 30, 2009" style="background-color:transparent;border:none;"><img src="http://staticweb.archive.org/images/toolbar/wm_tb_nxt_on.png" alt="Next capture" width="14" height="16" border="0"/></a>
+		                
+			    </td>
+           </tr>
+
+           <!-- NEXT/PREV YEAR NAV AND YEAR INDICATOR -->
+           <tr style="width:110px;height:13px;font-size:9px!important;">
+				<td style="padding-right:9px;font-size:11px!important;font-weight: bold;text-align:right;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+                       2007
+                       
+               </td>
+               <td id="displayYearEl" style="background:#000;color:#ff0;font-size:11px!important;font-weight: bold;padding-top:1px;width:34px;height:13px;text-align:center;" title="You are here: 11:48:33 Aug 20, 2008">2008</td>
+				<td style="padding-left:9px;font-size:11px!important;font-weight: bold;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+                       2009
+                       
+				</td>
+           </tr>
+           </tbody></table>
+       </td>
+
+       </tr>
+       <tr>
+       <td style="vertical-align:middle;padding:0!important;">
+           <a href="http://wayback.archive.org/web/20080820114833*/http://sami.samhuri.net/2008/2/19/thoughts-on-arc" style="color:#33f;font-size:11px;font-weight:bold;background-color:transparent;border:none;" title="See a list of every capture for this URL"><strong>2 captures</strong></a>
+           <div style="margin:0!important;padding:0!important;color:#666;font-size:9px;padding-top:2px!important;white-space:nowrap;" title="Timespan for captures of this URL">20 Aug 08 - 30 Apr 09</div>
+       </td>
+       <td style="padding:0!important;">
+       <a style="position:relative; white-space:nowrap; width:400px;height:27px;" href="" id="wm-graph-anchor">
+       <div id="wm-ipp-sparkline" style="position:relative; white-space:nowrap; width:400px;height:27px;background-color:#fff;cursor:pointer;border-right:1px solid #ccc;" title="Explore captures for this URL">
+			<img id="sparklineImgId" style="position:absolute; z-index:9012; top:0px; left:0px;"
+				onmouseover="showTrackers('inline');" 
+				onmouseout="showTrackers('none');"
+				onmousemove="trackMouseMove(event,this)"
+				alt="sparklines"
+				width="400"
+				height="27"
+				border="0"
+				src="http://wayback.archive.org/jsp/graph.jsp?graphdata=400_27_1996:-1:000000000000_1997:-1:000000000000_1998:-1:000000000000_1999:-1:000000000000_2000:-1:000000000000_2001:-1:000000000000_2002:-1:000000000000_2003:-1:000000000000_2004:-1:000000000000_2005:-1:000000000000_2006:-1:000000000000_2007:-1:000000000000_2008:7:000000010000_2009:-1:000100000000_2010:-1:000000000000_2011:-1:000000000000"></img>
+			<img id="wbMouseTrackYearImg" 
+				style="display:none; position:absolute; z-index:9010;"
+				width="25" 
+				height="27"
+				border="0"
+				src="http://staticweb.archive.org/images/toolbar/transp-yellow-pixel.png"></img>
+			<img id="wbMouseTrackMonthImg"
+				style="display:none; position:absolute; z-index:9011; " 
+				width="2"
+				height="27" 
+				border="0"
+				src="http://staticweb.archive.org/images/toolbar/transp-red-pixel.png"></img>
+       </div>
+		</a>
+
+       </td>
+       </tr></tbody></table>
+   </td>
+   <td style="text-align:right;padding:5px;width:65px;font-size:11px!important;">
+       <a href="javascript:;" onclick="document.getElementById('wm-ipp').style.display='none';" style="display:block;padding-right:18px;background:url(http://staticweb.archive.org/images/toolbar/wm_tb_close.png) no-repeat 100% 0;color:#33f;font-family:'Lucida Grande','Arial',sans-serif;margin-bottom:23px;background-color:transparent;border:none;" title="Close the toolbar">Close</a>
+       <a href="http://faq.web.archive.org/" style="display:block;padding-right:18px;background:url(http://staticweb.archive.org/images/toolbar/wm_tb_help.png) no-repeat 100% 0;color:#33f;font-family:'Lucida Grande','Arial',sans-serif;background-color:transparent;border:none;" title="Get some help using the Wayback Machine">Help</a>
+   </td>
+   </tr></tbody></table>
+
+</div>
+</div>
+<script type="text/javascript">
+ var wmDisclaimBanner = document.getElementById("wm-ipp");
+ if(wmDisclaimBanner != null) {
+   disclaimElement(wmDisclaimBanner);
+ }
+</script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+
+<div id="container">
+  <div id="header">
+    <h1><span><a href="http://sami.samhuri.net/">sjs</a></span></h1>
+    <h2>geeky ramblings</h2>
+  </div>
+
+  <div id="page">
+    <div id="content">
+      
+  
+<!--
+<rdf:RDF
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+  rdf:about=""
+  trackback:ping=""
+  dc:title="Thoughts on Arc"
+  dc:identifier="/2008/2/19/thoughts-on-arc"
+  dc:description="<p><em>NB: This is just a braindump.  There's nothing profound or particularly insightful in this post.</em></p>
+
+<p>You may have heard that <a href="http://www.paulgraham.com">Paul Graham</a> recently released his pet dialect of Lisp: <a href="ht..."
+  dc:creator="sjs"
+  dc:date="February 19, 2008 11:26" />
+</rdf:RDF>
+-->
+
+<div class="hentry" id="article-721">
+  <h2 class="entry-title">
+    <a href="http://sami.samhuri.net/2008/2/19/thoughts-on-arc">Thoughts on Arc</a>
+    
+    <span class="comment_count">0</span>
+    
+  </h2>
+  <div class="vcard">
+  Posted by <span class="fn">sjs</span>
+</div>
+<abbr class="published" title="2008-02-19T11:26:00+00:00">on Tuesday, February 19</abbr>
+<br class="clear" />
+  <div class="entry-content">
+  <p><em>NB: This is just a braindump.  There's nothing profound or particularly insightful in this post.</em></p>
+
+<p>You may have heard that <a href="http://www.paulgraham.com/">Paul Graham</a> recently released his pet dialect of Lisp: <a href="http://arclanguage.org/">Arc</a>.  It's a relatively small language consisting of just 4500 lines of code.  In just under <a href="http://arclanguage.com/install">1200 lines</a> of <a href="http://www.plt-scheme.org/">PLT Scheme</a> the core of Arc is defined.  The rest of the language is written in Arc itself.  The heart of that is a file arc.arc, weighing in at 1500 lines.  The remaining 1000-1300 lines are spread between libraries, mainly for writing web apps: html.arc, srv.arc, app.arc, and a few others.</p>
+
+<p>I'm not going to go into great detail, but Arc is a fun language.  You can read all the code in one or two sittings and start hacking on it in no time.  The code is simple where simple gets the job done and if you can follow <a href="http://mitpress.mit.edu/sicp/">SICP</a> then you should understand it with relative ease (assuming you're somewhat familiar with Lisp).</p>
+
+<h3>Parsing, Markdown</h3>
+
+<p>I'm writing a simple parser combinators library (loosely modeled on <a href="http://legacy.cs.uu.nl/daan/parsec.html">Parsec</a>) in order to write a nice Markdown implementation.  Overkill?  Indeed.  Parsec is a wonderful library and it is written beautifully.  If I end up with something 1/2 as powerful and 1/10th as beautiful I'll be pleased.  This was all in order to beef up the version of Markdown bundled with Arc so I could write a basic wiki.  I've been <a href="http://arclanguage.org/item?id=1456">beaten</a> to the punch, <a href="http://arclanguage.org/item?id=2037">twice</a>!  Perhaps I'll retrofit Markdown onto jgc's wiki once I get something decent finished.</p>
+
+<h3>Brevity and Innovation</h3>
+
+<p>The brevity of Arc is both a blessing and a curse.  On the one hand it makes for a very hacking-friendly language.  It's easy/fun to try things in the REPL and write throwaway code for learning purposes.  Paul's wanton removal of extraneous parentheses is a great boon.  On the flip side Arc code can be a little cryptic at a first glance.  While reading code there's a small period of time where you have to figure out what the short names are and what they do, but because the language is so small it's utterly trivial to grep or read the source and find out exactly how everything fits together and get the context you need.  Once you're familiar with the domain then the terse names not only make sense, but they make the interesting parts of the code stand out more.  I want to emphasize the pleasure of using Arc to learn.  I think that Paul is on to something with the general brevity and simple nature of Arc.</p>
+
+<p>Some interesting ways that Paul has reduced code is by introducing new intra-symbol operators.  Besides the usual backquote/quasiquote and comma/unquote translations, several other special characters are translated when they appear within/around symbols.</p>
+
+<p>There is the colon/compose operator that reduces code such as: <code>(sym (string "pre-" something "-suffix"))</code> to <code>(sym:string "pre-" something "-suffix")</code>.  It can help with car/cdr chains without defining monstrosities such as <code>cadadr</code>, though whether <code>(cadadr ...)</code> is better than <code>(cadr:cadr ...)</code> is better than <code>(car (cdr (car (cdr ...))))</code> is up to you.</p>
+
+<p>My favourite is the tilde to mean logical negation: <code>no</code> in Arc, <code>not</code> in most other languages.  It doesn't shorten code much but it helps with parens.  <code>(if (no (empty str)) ...)</code> becomes <code>(if (~empty str) ...)</code>.  Not much to be said about it, but it reads very nicely in code.</p>
+
+<p>Some newer ones are the dot and exclamation point to aide in the composition of functions requiring arguments.  I won't go into detail as their use is trivial.  If you're interested read <a href="http://arclanguage.org/item?id=2166">Paul's explanation</a> of them.</p>
+
+<h3>Web programming</h3>
+
+<p>Paul has touted Arc as a good web programming language, most notably in his <a href="http://www.paulgraham.com/arcchallenge.html">Arc Challenge</a> that caused a minor stir in a few blogs and on Reddit.  I'm writing a small web app for myself in Arc.  I may host it somewhere public when it's useable.  It's a somewhat <a href="http://pastie.caboo.se/">pastie</a>-like app specifically for storing/sharing solutions to problems over at <a href="http://projecteuler.net/">Project Euler</a>, which I recently started tackling.  "What's wrong with saving the code on your hard disk without a web app?", you ask? It doesn't give me an excuse to try Arc as a web language. ;-)</p>
+
+<p>So far I find that Arc is quite a nice web language.  With the handy HTML tag library you can generate 90s-style, quirks-mode-compliant tag soup in a blink.  I haven't had trouble producing HTML 4.01 (strict) that validates.  There's no need for a template language or partials (à la Rails), you just compose tags-as-sexps using Arc itself.  This turns out to be quite elegant, even if somewhat reminiscent of my first forays into web programming with PHP.  I don't feel as if I'm writing a web app so much as I'm writing an app that happens to present its UI in HTML.  <em>(I'm reminded a little of <a href="http://webpy.org/">web.py</a>, which I enjoy as the antithesis of Rails.)</em>  I suppose it takes some discipline to separate your logic &amp; design when everything's mixed in the same file, but there's nothing stopping you from separating the logic and views into their own files if you really prefer to do it that way.</p>
+
+<p>There's no distinction between GET and POST params.  This surprised me, but then I thought about it and it's not a big deal for most apps, imo.</p>
+
+<p>The app I'm writing is standard CRUD stuff so I haven't done anything cool using continuations yet.  I plan to use call/cc for backtracking in my parser, but I'm still a ways from implementing that kind of functionality!</p>
+
+<h3>Non-conclusion</h3>
+
+<p>I feel as though I should have a conclusion, but I don't.  I've only been using Arc for a short time.  It feels nice.  I think Paul is doing a good job on the design by keeping it small, compact, and simple.  Seeing as it's still in its infancy it's just a toy for me, but a toy with some decent potential.  And hopefully an impact on other Lisps.  Common Lisp may have industrial implementations and a 1500 page spec, but Arc is more fun and hackable.  More so than Scheme, too.  I think Arc has out-Schemed Scheme.</p>
+  
+</div>
+  <ul class="meta">
+  
+  
+  <li>
+    Tags: <a href="http://sami.samhuri.net/tags/lisp%20arc">lisp arc</a>&nbsp;
+  </li>
+  
+  <li>
+    Meta: 
+    
+    <a href="http://sami.samhuri.net/2008/2/19/thoughts-on-arc">0 comments</a>, 
+    
+    <a href="http://sami.samhuri.net/2008/2/19/thoughts-on-arc">permalink</a>
+    
+  </li>
+</ul>
+</div>
+
+<h5><a name="comments">Comments</a></h5>
+<p><a href="http://sami.samhuri.net/2008/2/19/thoughts-on-arc#comment-form">Leave a response</a></p>
+<div id="comments_div">
+  <ol id="comments" class="comments">
+    
+  </ol>
+</div>
+
+<form id="comment-form" method="post" action="http://sami.samhuri.net/2008/2/19/thoughts-on-arc/comments#comment-form">
+<fieldset>
+  <legend>Comment</legend>
+  <p>
+    <label class="text" for="comment_author">Name:</label><br/>
+    <input type="text" id="comment_author" name="comment[author]" value="" />
+  </p>
+  <p>
+    <label class="text" for="comment_author_email">Email Address:</label><br />
+    <input type="text" id="comment_author_email" name="comment[author_email]" value="" />
+  </p>
+  <p>
+    <label class="text" for="comment_author_url">Website:</label><br />
+    <input type="text" id="comment_author_url" name="comment[author_url]" value="" />
+  </p>
+  <p>
+    <label class="text" for="comment_body">Comment:</label><br />
+    <textarea id="comment_body" name="comment[body]"></textarea>
+  </p>
+  <div class="formactions">
+    <input type="submit" value="Post comment" class="submit" />
+  </div>
+</fieldset>
+</form>
+
+
+
+    </div>
+
+    <div id="sidebar">
+
+      <div class="sidebar-node">
+        <div id="search" class="search">
+          <form action="http://sami.samhuri.net/search" id="sform" method="get" name="sform">
+            <p><input type="text" id="q" name="q" value="" /></p>
+          </form>
+        </div>
+      </div>
+
+      
+
+      
+      <div class="sidebar-node">
+        <h3>Sections</h3>
+        <ul>
+        
+          <li><a href="http://sami.samhuri.net/">geeky ramblings</a> (15)</li>
+        
+          <li><a href="http://sami.samhuri.net/emacs">Emacs</a> (3)</li>
+        
+        </ul>
+      </div>
+      
+
+      
+      <div class="sidebar-node">
+        <h3>Tags</h3>
+        <ul>
+        
+          <li><a href="http://sami.samhuri.net/tags/activerecord">activerecord</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/alsa">alsa</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/amusement">amusement</a> (6)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/apple">apple</a> (6)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/arc">arc</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/bdd">bdd</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/broken">broken</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/browsers">browsers</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/buffalo">buffalo</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/bundle">bundle</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/cheat">cheat</a> (3)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/coding">coding</a> (22)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/cool">cool</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/coverflow">coverflow</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/crazy">crazy</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/digg">digg</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/drm">drm</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/dtrace">dtrace</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/dubai">dubai</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/elschemo">elschemo</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/emacs">emacs</a> (11)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/english">english</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/extensions">extensions</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/firefox">firefox</a> (3)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/framework">framework</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/funny">funny</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/fuse">fuse</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/games">games</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/gentoo">gentoo</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/german">german</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/gtkpod">gtkpod</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/haskell">haskell</a> (7)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/humans">humans</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/injury">injury</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/inspirado">inspirado</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/iphone">iphone</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/itunes">itunes</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/i_laughed_i_cried">i_laughed_i_cried</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/keyboard">keyboard</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/keyboard%20shortcuts">keyboard shortcuts</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/lemmings">lemmings</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/life">life</a> (13)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/linux">linux</a> (8)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/lisp">lisp</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/lisp%20arc">lisp arc</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/mac%20os%20x">mac os x</a> (6)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/mediawiki">mediawiki</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/mephisto">mephisto</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/migrations">migrations</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/munich">munich</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/mysql">mysql</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/networking">networking</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/opera">opera</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/pedantry">pedantry</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/people">people</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/photo">photo</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/php">php</a> (4)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/programming">programming</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/project%20euler">project euler</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/propaganda">propaganda</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/python">python</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/quickcheck">quickcheck</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/rails">rails</a> (18)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/rails%20on%20rules">rails on rules</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/regex">regex</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/regular%20expressions">regular expressions</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/rest">rest</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/rtfm">rtfm</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/ruby">ruby</a> (14)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/rushcheck">rushcheck</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/sake">sake</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/scheme">scheme</a> (4)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/school">school</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/seaside">seaside</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/secure%20associations">secure associations</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/seekport">seekport</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/snippets">snippets</a> (3)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/ssh">ssh</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/tagify">tagify</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/technology">technology</a> (6)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/test/spec">test/spec</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/textmate">textmate</a> (7)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/tips">tips</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/typo">typo</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/ubuntu">ubuntu</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/usability">usability</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/userscript">userscript</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/vacation">vacation</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/vim">vim</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/volume">volume</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/web">web</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/web%20objects">web objects</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/wikipediafs">wikipediafs</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/windows">windows</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/work">work</a> (1)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/zend">zend</a> (2)</li>
+        
+          <li><a href="http://sami.samhuri.net/tags/zsh">zsh</a> (1)</li>
+        
+        </ul>
+      </div>
+      
+
+      <div class="sidebar-node">
+        <h3>Friends &amp; cool blogs</h3>
+        <ul>
+          <li><a href="http://jim.roepcke.com/">have browser, will travel</a></li>
+          <li><a href="http://cassandrahill.blogspot.com/">cj's chatter</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-node">
+        <p><a href="http://twitter.com/_sjs">
+          <img src="http://web.archive.org/web/20080820114833im_/http://sami.samhuri.net/assets/2007/6/26/icon_twitter.png" alt="[t]" /> twitter</a></p>
+      </div>
+
+      <div class="sidebar-node">
+        <p><a href="http://mephistoblog.com/" class="powered"><img alt="mephisto-badge-tiny" src="http://web.archive.org/web/20080820114833im_/http://sami.samhuri.net/images/mephisto-badge-tiny.png" /></a></p>
+      </div>
+
+    </div>
+    <br style="clear:both;" />
+
+  </div>
+
+  <div id="footer">
+    <hr />
+    <p><a href="http://sami.samhuri.net/">sjs</a></p>
+    <ul>
+      <li>powered by <a href="http://mephistoblog.com/">Mephisto</a> /
+          styled with <a href="http://quotedprintable.com/pages/scribbish">scribbish</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<script src="http://web.archive.org/web/20080820114833js_/http://www.google-analytics.com/urchin.js" type="text/javascript"> </script>
+<script type="text/javascript"> _uacct = "UA-214054-3"; urchinTracker(); </script>  
+<script src="http://web.archive.org/web/20080820114833js_/http://feeds.feedburner.com/~s/sjs" type="text/javascript" charset="utf-8"></script>
+
+</body>
+</html>
+
+
+
+
+
+<!--
+     FILE ARCHIVED ON 11:48:33 Aug 20, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 3:03:40 Aug 21, 2011.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
