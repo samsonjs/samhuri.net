@@ -1,8 +1,11 @@
 #!/bin/bash
 
-harp compile public public
+bin/rss.rb public
 
-for FILENAME in public/posts/*.html public/projects/*.html; do
+mkdir -p www
+harp compile public www
+
+for FILENAME in www/*.html www/posts/*.html www/projects/*.html; do
   [[ "$FILENAME" = "index.html" ]] && continue
 
   DIRNAME="${FILENAME%.html}"

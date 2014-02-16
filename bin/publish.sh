@@ -8,20 +8,40 @@ bail() {
     exit 1
 }
 
-publish_host=samhuri.net
-publish_dir=samhuri.net/public/
+publish_host="samhuri.net"
+publish_dir="samhuri.net/public/"
+prefix=""
+delete=""
 
-# test
-if [[ "$1" = "-t" ]]; then
-    prefix=echo
-    shift
-fi
+break_while=0
+while [[ $# > 1 ]]; do
 
-# --delete, passed to rsync
-if [[ "$1" = "--delete" ]]; then
-    delete="--delete"
-    shift
-fi
+  arg="$1"
+
+  case "$arg" in
+
+    -t|--test)
+      prefix=echo
+      shift
+      ;;
+
+    -d|--delete)
+      # passed to rsync
+      delete="--delete"
+      shift
+      ;;
+
+    # we're at the paths, no more options
+    *)
+      break_while=1
+      break
+      ;;
+
+  esac
+
+  [[ $break_while -eq 1 ]] && break
+
+done
 
 if [[ $# -eq 0 ]]; then
     if [[ "$delete" != "" ]]; then
