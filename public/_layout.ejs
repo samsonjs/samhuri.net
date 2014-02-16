@@ -13,7 +13,10 @@
 
   <link rel="icon" type="image/gif" href="/images/s.gif">
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="alternate" type="application/rss+xml" href="http://samhuri.net/sjs.rss" title="samhuri.net">
+  <% for (var i in styles) { %>
+    <link rel="stylesheet" href="/css/<%= styles[i] %>.css">
+  <% } %>
+  <link rel="alternate" type="application/rss+xml" href="http://samhuri.net/feed.xml" title="samhuri.net">
 </head>
 
 <body>
@@ -32,6 +35,10 @@
     <p>You can <a href="https://twitter.com/_sjs">find me on twitter</a>.</p>
     <p><a href="mailto:sami@samhuri.net">sami@samhuri.net</a></p>
   </footer>
+
+  <% for (var i in scripts) { %>
+    <script src="/js/<%= scripts[i] %>.js"></script>
+  <% } %>
 
   <script>
     var _gaq = _gaq || []

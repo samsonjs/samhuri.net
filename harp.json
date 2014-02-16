@@ -2,6 +2,8 @@
   "globals": {
     "site": "samhuri.net",
     "author": "Sami Samhuri",
-    "url": "http://samhuri.net"
+    "url": "http://samhuri.net",
+    "styles": [],
+    "scripts": []
   }
 }
