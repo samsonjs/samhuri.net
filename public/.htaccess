@@ -7,10 +7,6 @@ SetOutputFilter DEFLATE
 ExpiresActive On
 ExpiresDefault A259200
 
-<Directory ~ "/(projects|posts)/">
-  Options Indexes FollowSymLinks MultiViews
-</Directory>
-
 # Set up caching on media files for 1 month
 <FilesMatch "\.(ico|gif|jpg|jpeg|png|pdf|mov|mp3|m4r|m4a)$">
   ExpiresDefault A2419200
