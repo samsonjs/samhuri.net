@@ -25,5 +25,5 @@ ExpiresDefault A259200
 </FilesMatch>
 
 Redirect 301 /proj/ /projects/
-Redirect 301 /blog/sjs.rss /sjs.rss
+Redirect 301 /blog/sjs.rss /feed.xml
 Redirect 301 /blog/ /posts/
