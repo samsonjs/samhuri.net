@@ -2,6 +2,12 @@
   "title": "samhuri.net",
   "subtitle": "words mean things",
   "url": "http://samhuri.net",
+  "styles": [
+    "/css/style.css"
+  ],
+  "scripts": [
+
+  ],
   "latest": {
     "title": "Structure of an Ember app",
     "date": "February 3, 2014",

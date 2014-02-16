@@ -49,3 +49,17 @@ h4 { margin: 0.5em 0 0.7em }
 #info > br.clear { clear: both }
 
 #contributors-box a { line-height: 1.8em }
+
+/* from projects/index, might not apply to projects/foo */
+#gh { text-align: center }
+#gh img { border: none }
+span { padding: 5px }
+#forkme { display: none }
+#projects li p { margin: 0 }
+#projects li p.description
+{ font-size: 0.6em
+; line-height: 1em
+; color: #444
+; margin-bottom: 0.5em
+}
+#stats a { text-decoration: none }

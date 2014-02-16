@@ -1,22 +1,61 @@
 <!doctype html>
 <html lang="en">
 
+<% allScripts = [] -%>
+<% allStyles = [] -%>
+<% var ctx = public -%>
+<% var n = current.path.length -%>
+<% for (var i in current.path) { -%>
+<%   var path = current.path[i] -%>
+<%   if (ctx._data) { -%>
+<%     if (ctx._data.scripts || ctx._data._scripts) { -%>
+<%       allScripts = allScripts.concat(ctx._data.scripts || ctx._data._scripts) -%>
+<%     } -%>
+<%     if (ctx._data.styles || ctx._data._styles) { -%>
+<%       allStyles = allStyles.concat(ctx._data.styles || ctx._data._styles) -%>
+<%     } -%>
+<%     if (ctx._data[path] && ctx._data[path].scripts) { -%>
+<%       allScripts = allScripts.concat(ctx._data[path].scripts) -%>
+<%     } -%>
+<%     if (ctx._data[path] && ctx._data[path].styles) { -%>
+<%       allStyles = allStyles.concat(ctx._data[path].styles) -%>
+<%     } -%>
+<%   } -%>
+<%   ctx = ctx[path] -%>
+<% } -%>
+
 <head>
-  <% if (typeof title != 'undefined') { %>
-    <title><%= title %> - <%= site %></title>
-  <% } else { %>
-    <title><%= site %></title>
-  <% } %>
+<% if (typeof title != 'undefined') { -%>
+  <title><%= title %> - <%= site %></title>
+<% } else { -%>
+  <title><%= site %></title>
+<% } -%>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
 
   <link rel="icon" type="image/gif" href="/images/s.gif">
-  <link rel="stylesheet" href="/css/style.css">
-  <% for (var i in styles) { %>
-    <link rel="stylesheet" href="/css/<%= styles[i] %>.css">
-  <% } %>
+
+<% for (var i in allStyles) { -%>
+  <link rel="stylesheet" href="<%= allStyles[i] %>">
+<% } -%>
+
   <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="<%= site %>">
+
+  <script>
+    if (typeof console === 'undefined') {
+      console = { log: function() {} }
+    }
+    window.SJS = {
+      ready: function(fn) {
+        if (document.addEventListener) {
+          document.addEventListener('DOMContentLoaded', fn, false)
+        } else if (window.attachEvent) {
+          window.attachEvent('onload', fn)
+        }
+      }
+    }
+  </script>
 </head>
 
 <body>
@@ -26,10 +65,10 @@
   </header>
 
   <nav>
-    <a href="/archive">posts</a>
+    <a href="/archive">archive</a>
     <a href="/projects">projects</a>
+    <a href="/feed.xml">rss feed</a>
     <a href="https://twitter.com/_sjs">twitter</a>
-    <a href="mailto:<%= email %>"><%= email %></a>
   </nav>
 
   <%- yield %>
@@ -38,9 +77,9 @@
     Copyright &copy; 2006 - <%= new Date().getFullYear() %> <a href="mailto:<%= email %>"><%= author %></a>
   </footer>
 
-  <% for (var i in scripts) { %>
-    <script src="/js/<%= scripts[i] %>.js"></script>
-  <% } %>
+<% for (var i in allScripts) { -%>
+  <script src="<%= allScripts[i] %>"></script>
+<% } -%>
 
   <script>
     var _gaq = _gaq || []

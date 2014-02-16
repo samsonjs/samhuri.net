@@ -1,137 +1,131 @@
 ;(function() {
-  if (typeof console === 'undefined') {
-    console = {log:function(){}}
+
+  if (SJS.projectName) {
+    SJS.ready(initProject)
   }
 
-  var global = this
-  global.SJS = {
-    proj: function(name) {
-      SJS.projName = name
-      var data = createObjectStore(name)
-      if (document.addEventListener) {
-        document.addEventListener('DOMContentLoaded', ready, false)
-      } else if (window.attachEvent) {
-        window.attachEvent('onload', ready)
+  function initProject() {
+
+    var data = createObjectStore(SJS.projectName)
+
+    function addClass(el, name) {
+      var c = el.className || name
+      if (!c.match(new RegExp('\b' + name + '\b', 'i'))) c += ' ' + name
+    }
+    function html(id, h) {
+      document.getElementById(id).innerHTML = h
+    }
+
+    var body = document.getElementsByTagName('body')[0]
+      , text
+    if ('innerText' in body) {
+      text = function(id, text) {
+        document.getElementById(id).innerText = text
       }
-      function ready() {
-        function addClass(el, name) {
-          var c = el.className || name
-          if (!c.match(new RegExp('\b' + name + '\b', 'i'))) c += ' ' + name
-        }
-        function html(id, h) {
-          document.getElementById(id).innerHTML = h
-        }
-
-        var body = document.getElementsByTagName('body')[0]
-          , text
-        if ('innerText' in body) {
-          text = function(id, text) {
-            document.getElementById(id).innerText = text
-          }
-        } else {
-          text = function(id, text) {
-            document.getElementById(id).textContent = text
-          }
-        }
-
-        function highlight(id) {
-          document.getElementById(id).style.className = ' highlight'
-        }
-        function textHighlight(id, t) {
-          text(id, t)
-          document.getElementById(id).className = ' highlight'
-        }
-        function hide(id) {
-          document.getElementById(id).style.display = 'none'
-        }
-
-        function langsByUsage(langs) {
-          return Object.keys(langs).sort(function(a, b) {
-            return langs[a] < langs[b] ? -1 : 1
-          })
-        }
-
-        function listify(things) {
-          return '<ul><li>' + things.join('</li><li>') + '</li></ul>'
-        }
-
-        function updateBranches(name, branches) {
-          function branchLink(b) {
-            return '<a href=https://github.com/samsonjs/' + name + '/tree/' + b.name + '>' + b.name + '</a>'
-          }
-          html('branches', listify(branches.map(branchLink)))
-        }
-
-        function updateContributors(contributors) {
-          function userLink(u) {
-            return '<a href=https://github.com/' + u.login + '>' + (u.name || u.login) + '</a>'
-          }
-          html('contributors', listify(contributors.map(userLink)))
-        }
-
-        function updateLangs(langs) {
-          html('langs', listify(langsByUsage(langs)))
-        }
-
-        function updateN(name, things) {
-          textHighlight('n' + name, things.length)
-          if (things.length === 1) hide(name.charAt(0) + 'plural')
-        }
-
-        var t = data.get('t-' + name)
-        if (!t || +new Date() - t > 3600 * 1000) {
-          console.log('stale ' + String(t))
-          data.set('t-' + name, +new Date())
-          GITR.repo('samsonjs', name)
-            .fetchBranches(function(err, branches) {
-              if (err) {
-                text('branches', '(oops)')
-              } else {
-                data.set('branches', branches)
-                updateBranches(name, branches)
-              }
-            })
-            .fetchLanguages(function(err, langs) {
-              if (err) {
-                text('langs', '(oops)')
-                return
-              }
-              data.set('langs', langs)
-              updateLangs(langs)
-            })
-            .fetchContributors(function(err, users) {
-              if (err) {
-                text('contributors', '(oops)')
-              } else {
-                data.set('contributors', users)
-                updateContributors(users)
-              }
-            })
-            .fetchWatchers(function(err, users) {
-              if (err) {
-                text('nwatchers', '?')
-              } else {
-                data.set('watchers', users)
-                updateN('watchers', users)
-              }
-            })
-            .fetchForks(function(err, repos) {
-              if (err) {
-                text('nforks', '?')
-              } else {
-                data.set('forks', repos)
-                updateN('forks', repos)
-              }
-            })
-        } else {
-          console.log('hit ' + t + ' (' + (+new Date() - t) + ')')
-          updateBranches(name, data.get('branches'))
-          updateLangs(data.get('langs'))
-          updateContributors(data.get('contributors'))
-          updateN('watchers', data.get('watchers'))
-          updateN('forks', data.get('forks'))
-        }
+    } else {
+      text = function(id, text) {
+        document.getElementById(id).textContent = text
       }
     }
+
+    function highlight(id) {
+      document.getElementById(id).style.className = ' highlight'
+    }
+    function textHighlight(id, t) {
+      text(id, t)
+      document.getElementById(id).className = ' highlight'
+    }
+    function hide(id) {
+      document.getElementById(id).style.display = 'none'
+    }
+
+    function langsByUsage(langs) {
+      return Object.keys(langs).sort(function(a, b) {
+        return langs[a] < langs[b] ? -1 : 1
+      })
+    }
+
+    function listify(things) {
+      return '<ul><li>' + things.join('</li><li>') + '</li></ul>'
+    }
+
+    function updateBranches(name, branches) {
+      function branchLink(b) {
+        return '<a href=https://github.com/samsonjs/' + name + '/tree/' + b.name + '>' + b.name + '</a>'
+      }
+      html('branches', listify(branches.map(branchLink)))
+    }
+
+    function updateContributors(contributors) {
+      function userLink(u) {
+        return '<a href=https://github.com/' + u.login + '>' + (u.name || u.login) + '</a>'
+      }
+      html('contributors', listify(contributors.map(userLink)))
+    }
+
+    function updateLangs(langs) {
+      html('langs', listify(langsByUsage(langs)))
+    }
+
+    function updateN(name, things) {
+      var pluralized = things.length == 1 ? name.replace(/s$/, '') : name
+      textHighlight('n' + name, things.length + ' ' + name)
+    }
+
+    var t = data.get('t-' + SJS.projectName)
+    if (!t || +new Date() - t > 3600 * 1000) {
+      console.log('stale ' + String(t))
+      data.set('t-' + SJS.projectName, +new Date())
+      GITR.repo('samsonjs', SJS.projectName)
+        .fetchBranches(function(err, branches) {
+          if (err) {
+            text('branches', '(oops)')
+          } else {
+            data.set('branches', branches)
+            updateBranches(SJS.projectName, branches)
+          }
+        })
+        .fetchLanguages(function(err, langs) {
+          if (err) {
+            text('langs', '(oops)')
+            return
+          }
+          data.set('langs', langs)
+          updateLangs(langs)
+        })
+        .fetchContributors(function(err, users) {
+          if (err) {
+            text('contributors', '(oops)')
+          } else {
+            data.set('contributors', users)
+            updateContributors(users)
+          }
+        })
+        .fetchWatchers(function(err, users) {
+          if (err) {
+            text('nwatchers', '?')
+          } else {
+            data.set('watchers', users)
+            updateN('watchers', users)
+          }
+        })
+        .fetchForks(function(err, repos) {
+          if (err) {
+            text('nforks', '?')
+          } else {
+            data.set('forks', repos)
+            updateN('forks', repos)
+          }
+        })
+    } else {
+      console.log('hit ' + t + ' (' + (+new Date() - t) + ')')
+      updateBranches(SJS.projectName, data.get('branches'))
+      updateLangs(data.get('langs'))
+      updateContributors(data.get('contributors'))
+      updateN('watchers', data.get('watchers'))
+      updateN('forks', data.get('forks'))
+    }
+
   }
+
 }());

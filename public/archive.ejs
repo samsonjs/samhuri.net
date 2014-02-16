@@ -1,9 +1,10 @@
 <ul id="index">
-  <% for (var slug in public.posts._data) { %>
-  <%   var post = public.posts._data[slug]; %>
-    <li>
-      <span class="date"><%= post.date %></span>
-      <a href="<%= post.url %>"><%= post.title %></a>
-    </li>
-  <% } %>
+<% for (var slug in public.posts._data) { %>
+<%   var post = public.posts._data[slug] %>
+<%   if (slug == 'index' || slug[0] == '_' || post.hidden) continue %>
+  <li>
+    <span class="date"><%= post.date %></span>
+    <a href="<%= post.url %>"><%= post.title %></a>
+  </li>
+<% } %>
 </ul>

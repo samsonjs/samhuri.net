@@ -1,7 +1,6 @@
 ;(function() {
-  var global = this
   if (typeof localStorage !== 'undefined') {
-    global.createObjectStore = function(namespace) {
+    window.createObjectStore = function(namespace) {
       function makeKey(k) {
         return '--' + namespace + '-' + (k || '')
       }
@@ -34,10 +33,10 @@
         }
       }
     }
-    global.ObjectStore = createObjectStore('default')
+    window.ObjectStore = createObjectStore('default')
   } else {
     // Create an in-memory store, should probably fall back to cookies
-    global.createObjectStore = function() {
+    window.createObjectStore = function() {
       var store = {}
       return {
         clear: function() { store = {} },
@@ -46,6 +45,6 @@
         remove: function(key) { delete store[key] }
       }
     }
-    global.ObjectStore = createObjectStore()
+    window.ObjectStore = createObjectStore()
   }
 }());

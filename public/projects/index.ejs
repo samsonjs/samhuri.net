@@ -1,5 +1,3 @@
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/projects.css">
   <!--[if IE 6]>
   <link rel="stylesheet" href="/css/ie6.css">
   <![endif]-->
@@ -8,20 +6,6 @@
   <script src="http://d1eqzjbvoh1rux.cloudfront.net/json2.min.js"></script>
   <script src="/js/storage-polyfill.js"></script>
   <![endif]-->
-  <style>
-    #gh { text-align: center }
-    #gh img { border: none }
-    span { padding: 5px }
-    #forkme { display: none }
-    #projects li p { margin: 0 }
-    #projects li p.description
-    { font-size: 0.6em
-    ; line-height: 1em
-    ; color: #444
-    ; margin-bottom: 0.5em
-    }
-    #stats a { text-decoration: none }
-  </style>
 
   <a href="https://github.com/samsonjs"><img id="forkme" src="/images/forkme@2x.png" width="140" height="140" alt="Fork me on GitHub"></a>
 
@@ -60,31 +44,23 @@
   </table>
   <nav>
     <ul class="nav" id="projects">
-      <% for (var name in public.projects._data) { %>
-      <%   var proj = public.projects._data[name]; %>
+<% for (var name in public.projects._data) { %>
+<%   var project = public.projects._data[name] %>
+<%   if (name == 'index' || name[0] == '_' || project.hidden) continue %>
       <li>
         <p class="title"><a href="<%= name %>"><%= name %></a></p>
-        <p class="description"><%= proj.description %></p>
+        <p class="description"><%= project.description %></p>
       </li>
-      <% } %>
+<% } %>
     </ul>
   </nav>
 
-  <script src="/js/gitter.js"></script>
-  <script src="/js/store.js"></script>
   <script>
-    if (typeof console === 'undefined') {
-      console = { log: function() {} }
-    }
-
     ;(function() {
-      if (document.addEventListener) {
-        document.addEventListener('DOMContentLoaded', ready, false)
-      } else if (window.attachEvent) {
-        window.attachEvent('onload', ready)
-      }
 
-      function ready() {
+      SJS.ready(initProjects)
+
+      function initProjects() {
         function addClass(el, name) {
           var c = el.className || name
           if (!c.match(new RegExp('\b' + name + '\b', 'i'))) c += ' ' + name
@@ -113,13 +89,13 @@
           textHighlight('n' + name, things)
         }
 
-        var data = createObjectStore('proj')
-          , t = data.get('t-proj')
+        var data = createObjectStore('projects')
+          , t = data.get('t-projects')
           , user = GITR.user('samsonjs')
           , names = ['followers', 'following', 'publicRepos', 'publicGists']
         if (!t || +new Date() - t > 3600 * 1000) {
           console.log('stale ' + String(t))
-          data.set('t-proj', +new Date())
+          data.set('t-projects', +new Date())
           user.fetch(function(err, user) {
             if (user) {
               data.set('user', user)
