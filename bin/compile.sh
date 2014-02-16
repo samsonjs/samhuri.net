@@ -1,12 +1,13 @@
 #!/bin/bash
 
-bin/rss.rb public
+# bail on errors
+set -e
 
-mkdir -p www
-harp compile public www
+bin/rss.rb public
+harp compile . www
 
 for FILENAME in www/*.html www/posts/*.html www/projects/*.html; do
-  [[ "$FILENAME" = "index.html" ]] && continue
+  [[ "${FILENAME##*/}" = "index.html" ]] && continue
 
   DIRNAME="${FILENAME%.html}"
   mkdir -p "$DIRNAME"

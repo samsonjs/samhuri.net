@@ -59,13 +59,18 @@ class Blag
     posts.first
   end
 
+  def find_post dir, slug
+    # technically should look for slug.md, slug.html.md, etc.
+    File.join dir, slug + '.html.md'
+  end
+
   def posts
     @posts ||= begin
       prefix = @dir + '/posts/'
       json = File.read File.join(prefix, '_data.json')
       data = JSON.parse json
       data.map do |slug, post|
-        filename = File.join prefix, slug + '.md'
+        filename = find_post prefix, slug
         content = File.read filename
         post['slug'] = slug
         post['type'] = post['link'] ? :link : :post
@@ -124,7 +129,7 @@ private
   def feed_xml
     xml = Builder::XmlMarkup.new
     xml.instruct! :xml, version: '1.0'
-    xml.instruct! 'xml-stylesheet', href: 'http://samhuri.net/css/style.css', type: 'text/css'
+    xml.instruct! 'xml-stylesheet', href: root_url + '/css/style.css', type: 'text/css'
 
     xml.rss version: '2.0' do
       xml.channel do

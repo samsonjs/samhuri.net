@@ -16,26 +16,26 @@
   <% for (var i in styles) { %>
     <link rel="stylesheet" href="/css/<%= styles[i] %>.css">
   <% } %>
-  <link rel="alternate" type="application/rss+xml" href="http://samhuri.net/feed.xml" title="samhuri.net">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="<%= site %>">
 </head>
 
 <body>
   <header>
-    <h1><a href="/">samhuri.net</a></h1>
-    <h4>by Sami Samhuri</h4>
+    <h1><a href="/"><%= site %></a></h1>
+    <h4>by <%= author %></h4>
   </header>
 
   <nav>
     <a href="/archive">posts</a>
     <a href="/projects">projects</a>
     <a href="https://twitter.com/_sjs">twitter</a>
-    <a href="mailto:sami@samhuri.net">sami@samhuri.net</a>
+    <a href="mailto:<%= email %>"><%= email %></a>
   </nav>
 
   <%- yield %>
 
   <footer>
-    Copyright &copy; 2006 - <%= new Date().getFullYear() %> <a href="mailto:sami@samhuri.net">Sami Samhuri</a>
+    Copyright &copy; 2006 - <%= new Date().getFullYear() %> <a href="mailto:<%= email %>"><%= author %></a>
   </footer>
 
   <% for (var i in scripts) { %>
