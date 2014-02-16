@@ -1,12 +1,12 @@
 all: compile
 
-compile: posts
+compile: rss
 	@echo
 	./bin/compile.sh
 
-posts:
+rss:
 	@echo
-	./bin/posts.rb public public
+	./bin/rss.rb public
 
 publish: compile
 	@echo
