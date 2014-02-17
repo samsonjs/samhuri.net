@@ -8,10 +8,6 @@
 
     var data = createObjectStore(SJS.projectName)
 
-    function addClass(el, name) {
-      var c = el.className || name
-      if (!c.match(new RegExp('\b' + name + '\b', 'i'))) c += ' ' + name
-    }
     function html(id, h) {
       document.getElementById(id).innerHTML = h
     }
@@ -28,15 +24,9 @@
       }
     }
 
-    function highlight(id) {
-      document.getElementById(id).style.className = ' highlight'
-    }
     function textHighlight(id, t) {
       text(id, t)
       document.getElementById(id).className = ' highlight'
-    }
-    function hide(id) {
-      document.getElementById(id).style.display = 'none'
     }
 
     function langsByUsage(langs) {
@@ -69,7 +59,7 @@
 
     function updateN(name, things) {
       var pluralized = things.length == 1 ? name.replace(/s$/, '') : name
-      textHighlight('n' + name, things.length + ' ' + name)
+      textHighlight('n' + name, things.length + ' ' + pluralized)
     }
 
     var t = data.get('t-' + SJS.projectName)

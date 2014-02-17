@@ -721,7 +721,6 @@
     // bootstrap loader from LABjs (load is declared earlier)
     load = function(url) {
       var oDOC = document
-      , handler
       , head = oDOC.head || oDOC.getElementsByTagName("head")
 
       // loading code borrowed directly from LABjs itself
