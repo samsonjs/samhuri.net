@@ -1,0 +1,172 @@
+<geekbench version="Geekbench 2.1.6" checksum="5ce6d993f5d4dee345bb111e9e706c59">
+<score>5713</score>
+<elapsed>21.8</elapsed>
+<metrics>
+<metric id="1" name="Platform" value="Mac OS X x86 (32-bit)" ivalue="0" />
+<metric id="2" name="Compiler" value="GCC 4.0.1 (Apple Inc. build 5493)" ivalue="0" />
+<metric id="3" name="Operating System" value="Mac OS X 10.6.4 (Build 10F569)" ivalue="0" />
+<metric id="4" name="Model" value="MacBook Pro (15-inch Early 2010)" ivalue="0" />
+<metric id="5" name="Motherboard" value="Apple Inc. Mac-F22586C8 MacBookPro6,2" ivalue="0" />
+<metric id="6" name="Processor" value="Intel(R) Core(TM) i7 CPU       M 620  @ 2.67GHz" ivalue="0" />
+<metric id="7" name="Processor ID" value="GenuineIntel Family 6 Model 37 Stepping 5" ivalue="0" />
+<metric id="8" name="Logical Processors" value="4" ivalue="4" />
+<metric id="9" name="Physical Processors" value="1" ivalue="1" />
+<metric id="10" name="Processor Frequency" value="2.66 GHz" ivalue="2660000000" />
+<metric id="11" name="L1 Instruction Cache" value="32.0 KB" ivalue="32768" />
+<metric id="12" name="L1 Data Cache" value="32.0 KB" ivalue="32768" />
+<metric id="13" name="L2 Cache" value="256 KB" ivalue="262144" />
+<metric id="14" name="L3 Cache" value="4.00 MB" ivalue="4194304" />
+<metric id="15" name="Bus Frequency" value="4.80 GHz" ivalue="4800000000" />
+<metric id="16" name="Memory" value="4.00 GB" ivalue="4294967296" />
+<metric id="17" name="Memory Type" value="1067 MHz DDR3" ivalue="0" />
+<metric id="18" name="SIMD" value="1" ivalue="1" />
+<metric id="19" name="BIOS" value="Apple Inc.    MBP61.88Z.0057.B09.1004161215" ivalue="0" />
+<metric id="20" name="Processor Model" value="Intel(R) Core(TM) i7 CPU       M 620  @ 2.67GHz" ivalue="0" />
+<metric id="21" name="Processor Cores" value="2" ivalue="2" />
+</metrics>
+<sections>
+<section name="Integer" id="1" percent="44">
+<score>4470</score>
+<benchmarks>
+<benchmark name="Blowfish" id="101" units="2">
+<results>
+<result threads="1" simd="0" result="92609949.7" comment="88.3 MB/sec" score="2010" percent="20" />
+<result threads="4" simd="0" result="269210809.1" comment="256.7 MB/sec" score="6265" percent="62" />
+</results>
+</benchmark>
+<benchmark name="Text Compress" id="102" units="2">
+<results>
+<result threads="1" simd="0" result="8568700.9" comment="8.17 MB/sec" score="2555" percent="25" />
+<result threads="4" simd="0" result="21004227.1" comment="20.0 MB/sec" score="6106" percent="61" />
+</results>
+</benchmark>
+<benchmark name="Text Decompress" id="103" units="2">
+<results>
+<result threads="1" simd="0" result="11352456.9" comment="10.8 MB/sec" score="2634" percent="26" />
+<result threads="4" simd="0" result="27168160.0" comment="25.9 MB/sec" score="6503" percent="65" />
+</results>
+</benchmark>
+<benchmark name="Image Compress" id="104" units="9">
+<results>
+<result threads="1" simd="0" result="18851687.1" comment="18.9 Mpixels/sec" score="2282" percent="22" />
+<result threads="4" simd="0" result="48609944.5" comment="48.6 Mpixels/sec" score="5777" percent="57" />
+</results>
+</benchmark>
+<benchmark name="Image Decompress" id="105" units="9">
+<results>
+<result threads="1" simd="0" result="34061955.1" comment="34.1 Mpixels/sec" score="2029" percent="20" />
+<result threads="4" simd="0" result="69241502.3" comment="69.2 Mpixels/sec" score="4244" percent="42" />
+</results>
+</benchmark>
+<benchmark name="Lua" id="107" units="10">
+<results>
+<result threads="1" simd="0" result="1632442.3" comment="1.63 Mnodes/sec" score="4240" percent="42" />
+<result threads="4" simd="0" result="3460218.6" comment="3.46 Mnodes/sec" score="8995" percent="89" />
+</results>
+</benchmark>
+</benchmarks>
+</section>
+<section name="Floating Point" id="2" percent="85">
+<score>8587</score>
+<benchmarks>
+<benchmark name="Mandelbrot" id="201" units="1">
+<results>
+<result threads="1" simd="0" result="1831908421.9" comment="1.83 Gflops" score="2753" percent="27" />
+<result threads="4" simd="0" result="6017003497.0" comment="6.02 Gflops" score="9195" percent="91" />
+</results>
+</benchmark>
+<benchmark name="Dot Product" id="202" units="1">
+<results>
+<result threads="1" simd="0" result="2166144987.1" comment="2.17 Gflops" score="4483" percent="44" />
+<result threads="4" simd="0" result="4136458217.1" comment="4.14 Gflops" score="9077" percent="90" />
+<result threads="1" simd="1" result="6445899500.2" comment="6.45 Gflops" score="5380" percent="53" />
+<result threads="4" simd="1" result="11719913214.7" comment="11.7 Gflops" score="11269" percent="100" />
+</results>
+</benchmark>
+<benchmark name="LU Decomposition" id="203" units="1">
+<results>
+<result threads="1" simd="0" result="862951460.1" comment="863.0 Mflops" score="969" percent="9" />
+<result threads="4" simd="0" result="1710120960.0" comment="1.71 Gflops" score="1950" percent="19" />
+</results>
+</benchmark>
+<benchmark name="Primality Test" id="204" units="1">
+<results>
+<result threads="1" simd="0" result="873167792.2" comment="873.2 Mflops" score="5846" percent="58" />
+<result threads="4" simd="0" result="1873531827.9" comment="1.87 Gflops" score="10095" percent="100" />
+</results>
+</benchmark>
+<benchmark name="Sharpen Image" id="205" units="9">
+<results>
+<result threads="1" simd="0" result="15552665.5" comment="15.6 Mpixels/sec" score="6666" percent="66" />
+<result threads="4" simd="0" result="43314232.1" comment="43.3 Mpixels/sec" score="18796" percent="100" />
+</results>
+</benchmark>
+<benchmark name="Blur Image" id="206" units="9">
+<results>
+<result threads="1" simd="0" result="6729715.9" comment="6.73 Mpixels/sec" score="8504" percent="85" />
+<result threads="4" simd="0" result="19848362.5" comment="19.8 Mpixels/sec" score="25243" percent="100" />
+</results>
+</benchmark>
+</benchmarks>
+</section>
+<section name="Memory" id="3" percent="41">
+<score>4145</score>
+<benchmarks>
+<benchmark name="Read Sequential" id="302" units="2">
+<results>
+<result threads="1" simd="0" result="5774319466.4" comment="5.38 GB/sec" score="4392" percent="43" />
+</results>
+</benchmark>
+<benchmark name="Write Sequential" id="304" units="2">
+<results>
+<result threads="1" simd="0" result="5169705892.2" comment="4.81 GB/sec" score="7039" percent="70" />
+</results>
+</benchmark>
+<benchmark name="Stdlib Allocate" id="306" units="4">
+<results>
+<result threads="1" simd="0" result="14493313.9" comment="14.5 Mallocs/sec" score="3884" percent="38" />
+</results>
+</benchmark>
+<benchmark name="Stdlib Write" id="307" units="2">
+<results>
+<result threads="1" simd="0" result="5425082428.3" comment="5.05 GB/sec" score="2441" percent="24" />
+</results>
+</benchmark>
+<benchmark name="Stdlib Copy" id="308" units="2">
+<results>
+<result threads="1" simd="0" result="3291104187.2" comment="3.07 GB/sec" score="2973" percent="29" />
+</results>
+</benchmark>
+</benchmarks>
+</section>
+<section name="Stream" id="4" percent="31">
+<score>3150</score>
+<benchmarks>
+<benchmark name="Stream Copy" id="401" units="2">
+<results>
+<result threads="1" simd="0" result="4744386743.4" comment="4.42 GB/sec" score="3231" percent="32" />
+<result threads="1" simd="1" result="5096230024.5" comment="4.75 GB/sec" score="3660" percent="36" />
+</results>
+</benchmark>
+<benchmark name="Stream Scale" id="402" units="2">
+<results>
+<result threads="1" simd="0" result="4801360820.0" comment="4.47 GB/sec" score="3446" percent="34" />
+<result threads="1" simd="1" result="5158998840.0" comment="4.80 GB/sec" score="3560" percent="35" />
+</results>
+</benchmark>
+<benchmark name="Stream Add" id="403" units="2">
+<results>
+<result threads="1" simd="0" result="3756338657.2" comment="3.50 GB/sec" score="2317" percent="23" />
+<result threads="1" simd="1" result="5535615495.4" comment="5.16 GB/sec" score="3706" percent="37" />
+</results>
+</benchmark>
+<benchmark name="Stream Triad" id="404" units="2">
+<results>
+<result threads="1" simd="0" result="3718230106.6" comment="3.46 GB/sec" score="2506" percent="25" />
+<result threads="1" simd="1" result="5587777462.5" comment="5.20 GB/sec" score="2780" percent="27" />
+</results>
+</benchmark>
+</benchmarks>
+</section>
+</sections>
+</geekbench>
