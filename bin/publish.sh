@@ -48,7 +48,7 @@ if [[ $# -eq 0 ]]; then
     if [[ "$delete" != "" ]]; then
         bail "no paths given, cowardly refusing to publish everything with --delete"
     fi
-    $prefix rsync -aKv $dryrun $delete public/* "$publish_host":"${publish_dir}"
+    $prefix rsync -aKv $dryrun $delete www/* "$publish_host":"${publish_dir}"
 else
     $prefix rsync -aKv $dryrun $delete "$@" "$publish_host":"${publish_dir}"
 fi
