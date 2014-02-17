@@ -23,3 +23,5 @@ ExpiresDefault A259200
 Redirect 301 /proj/ /projects/
 Redirect 301 /blog/sjs.rss /feed.xml
 Redirect 301 /blog/ /posts/
+
+Redirect 301 /json-diff/ http://tlrobinson.net/projects/javascript-fun/jsondiff/
