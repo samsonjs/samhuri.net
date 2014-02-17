@@ -1,1 +1,1 @@
-exclude = "{$exclude,www}"
+exclude = "{$exclude,www,node_modules}"

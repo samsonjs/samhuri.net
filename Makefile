@@ -1,12 +1,8 @@
 all: compile
 
-compile: rss
+compile:
 	@echo
 	./bin/compile.sh
-
-rss:
-	@echo
-	./bin/rss.rb public
 
 publish: compile
 	@echo
