@@ -22,6 +22,7 @@ while [[ $# > 1 ]]; do
 
     -t|--test)
       prefix=echo
+      dryrun="--dry-run"
       shift
       ;;
 
@@ -47,7 +48,7 @@ if [[ $# -eq 0 ]]; then
     if [[ "$delete" != "" ]]; then
         bail "no paths given, cowardly refusing to publish everything with --delete"
     fi
-    $prefix rsync -aKv $delete public/* "$publish_host":"${publish_dir}"
+    $prefix rsync -aKv $dryrun $delete public/* "$publish_host":"${publish_dir}"
 else
-    $prefix rsync -aKv $delete "$@" "$publish_host":"${publish_dir}"
+    $prefix rsync -aKv $dryrun $delete "$@" "$publish_host":"${publish_dir}"
 fi
