@@ -6,6 +6,10 @@ compile:
 
 publish: compile
 	@echo
-	./bin/publish.sh --delete www/
+	./bin/publish.sh --delete
 
-.PHONY: compile publish
+publish_beta: compile
+	@echo
+	./bin/publish.sh --beta --delete
+
+.PHONY: compile publish publish_beta

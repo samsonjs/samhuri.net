@@ -8,47 +8,53 @@ bail() {
     exit 1
 }
 
-publish_host="samhuri.net"
-publish_dir="samhuri.net/public/"
-prefix=""
-delete=""
+PUBLISH_HOST="samhuri.net"
+PUBLISH_DIR="samhuri.net/public"
+ECHO=0
+RSYNC_OPTS=""
+RSYNC_DELETE=0
 
-break_while=0
+BREAK_WHILE=0
 while [[ $# > 1 ]]; do
+  ARG="$1"
+  case "$ARG" in
 
-  arg="$1"
-
-  case "$arg" in
+    -b|--beta)
+      PUBLISH_DIR="beta.samhuri.net"
+      shift
+      ;;
 
     -t|--test)
-      prefix=echo
-      dryrun="--dry-run"
+      ECHO=1
+      RSYNC_OPTS="$RSYNC_OPTS --dry-run"
       shift
       ;;
 
     -d|--delete)
-      # passed to rsync
-      delete="--delete"
+      RSYNC_DELETE=1
+      RSYNC_OPTS="$RSYNC_OPTS --delete"
       shift
       ;;
 
     # we're at the paths, no more options
     *)
-      break_while=1
+      BREAK_WHILE=1
       break
       ;;
 
   esac
 
-  [[ $break_while -eq 1 ]] && break
-
+  [[ $BREAK_WHILE -eq 1 ]] && break
 done
 
 if [[ $# -eq 0 ]]; then
-    if [[ "$delete" != "" ]]; then
-        bail "no paths given, cowardly refusing to publish everything with --delete"
-    fi
-    $prefix rsync -aKv $dryrun $delete www/* "$publish_host":"${publish_dir}"
+  CMD=rsync -aKv $RSYNC_OPTS www/ "$PUBLISH_HOST":"$PUBLISH_DIR"
 else
-    $prefix rsync -aKv $dryrun $delete "$@" "$publish_host":"${publish_dir}"
+  CMD="rsync -aKv $RSYNC_OPTS $@ $PUBLISH_HOST:$PUBLISH_DIR"
 fi
+
+if [[ $ECHO -eq 1 ]]; then
+  echo "$CMD"
+fi
+
+$CMD
