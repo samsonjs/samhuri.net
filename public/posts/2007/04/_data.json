@@ -1,0 +1,58 @@
+{
+  "a-triple-booting-schizophrenic-macbook": {
+    "title": "A triple-booting, schizophrenic MacBook",
+    "date": "April 4, 2007",
+    "timestamp": 1175754600,
+    "tags": [
+      "linux",
+      "mac os x",
+      "windows"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2007/04/a-triple-booting-schizophrenic-macbook"
+  },
+  "activerecord-base.find_or_create-and-find_or_initialize": {
+    "title": "ActiveRecord::Base.find_or_create and find_or_initialize",
+    "date": "April 11, 2007",
+    "timestamp": 1176287040,
+    "tags": [
+      "activerecord",
+      "coding",
+      "rails",
+      "ruby"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2007/04/activerecord-base.find_or_create-and-find_or_initialize"
+  },
+  "getting-to-know-vista": {
+    "title": "Getting to know Vista",
+    "date": "April 16, 2007",
+    "timestamp": 1176746940,
+    "tags": [
+      "windows"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2007/04/getting-to-know-vista"
+  },
+  "quickly-inserting-millions-of-rows-with-mysql-innodb": {
+    "title": "Quickly inserting millions of rows with MySQL/InnoDB",
+    "date": "April 26, 2007",
+    "timestamp": 1177596360,
+    "tags": [
+      "linux",
+      "mysql"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2007/04/quickly-inserting-millions-of-rows-with-mysql-innodb"
+  },
+  "funny-how-code-can-be-beautiful": {
+    "title": "Funny how code can be beautiful",
+    "date": "April 30, 2007",
+    "timestamp": 1177942020,
+    "tags": [
+      "haskell"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2007/04/funny-how-code-can-be-beautiful"
+  }
+}

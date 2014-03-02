@@ -1,35 +1,31 @@
-  <a href="https://github.com/samsonjs/<%= title %>"><img id="forkme" src="/images/forkme@2x.png" width="140" height="140" alt="Fork me on GitHub"></a>
-  <h1><%= title %></h1>
-  <h2><%= description %></h2>
-  <table align="center" id="stats">
-    <tr>
-      <td align="right">
-        <span id="nwatchers"></span>
-      </td>
-      <td>&mdash;</td>
-      <td align="left">
-        <a href="https://github.com/samsonjs/<%= title %>/network/members">
-          <span id="nforks"></span>
-        </a>
-      </td>
-    </tr>
-  </table>
-  <div id="info">
-    <div>
-      <h4>branches</h4>
-      <span id="branches"></span>
-    </div>
-    <div>
-      <h4>languages</h4>
-      <span id="langs"></span>
-    </div>
-    <div id="contributors-box">
-      <h4>contributors</h4>
-      <span id="contributors"></span>
-    </div>
-    <br class="clear">
+<h4><%= description %></h4>
+
+<div class="project-stats">
+  <p>
+    <a href="https://github.com/samsonjs/<%= title %>">GitHub</a>
+    &bull;
+    <a id="nstar" href="https://github.com/samsonjs/<%= title %>/stargazers"></a>
+    &bull;
+    <a id="nfork" href="https://github.com/samsonjs/<%= title %>/network/members"></a>
+  </p>
+
+  <p>
+    Last updated on <span id="updated"></span>
+  </p>
+</div>
+
+<div class="project-info" class="row">
+  <div class="column half">
+    <h3>Contributors</h3>
+    <div id="contributors"></div>
   </div>
 
-  <script>
-    SJS.projectName = '<%= title %>'
-  </script>
+  <div class="column half">
+    <h3>Languages</h3>
+    <div id="langs"></div>
+  </div>
+</div>
+
+<script>
+  SJS.projectName = '<%= title %>'
+</script>

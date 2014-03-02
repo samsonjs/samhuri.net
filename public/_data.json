@@ -3,6 +3,7 @@
   "subtitle": "words mean things",
   "url": "http://samhuri.net",
   "styles": [
+    "/css/normalize.css",
     "/css/style.css"
   ],
   "scripts": [
@@ -15,8 +16,11 @@
     "tags": [
       "ember.js"
     ],
-    "author": "sjs",
-    "url": "/posts/2014.02.03-ember-structure",
-    "body": "<p>I made a diagram of an Ember app. There&rsquo;s <a href=\"http://discuss.emberjs.com/t/diagram-of-an-ember-apps-structure/4060\">a discussion about it</a> on the\n<a href=\"http://discuss.emberjs.com/\">Ember Discussion Forum</a>. Here is the source file, created with OmniGraffle: <a href=\"https://www.dropbox.com/s/onnmn1oq096hv5f/Ember%20structure.graffle\">Ember structure.graffle</a></p>\n\n<p><img src=\"/f/ember-structure.png\" alt=\"Structure of an Ember app\" /></p>\n"
+    "author": "Sami Samhuri",
+    "url": "/posts/2014/02/ember-structure",
+    "body": "<p>I made a diagram of an Ember app. There&rsquo;s <a href=\"http://discuss.emberjs.com/t/diagram-of-an-ember-apps-structure/4060\">a discussion about it</a> on the\n<a href=\"http://discuss.emberjs.com/\">Ember Discussion Forum</a>. Here is the source file, created with OmniGraffle: <a href=\"https://www.dropbox.com/s/onnmn1oq096hv5f/Ember%20structure.graffle\">Ember structure.graffle</a></p>\n\n<p><a href=\"/f/ember-structure.png\"><img src=\"/f/ember-structure.png\" alt=\"Structure of an Ember app\" /></a></p>\n"
+  },
+  "archive": {
+    "title": "Archive"
   }
 }

@@ -1,0 +1,39 @@
+{
+  "working-with-c-style-structs-in-ruby": {
+    "title": "Working with C-style structs in Ruby",
+    "date": "January 17, 2010",
+    "timestamp": 1263715200,
+    "tags": [
+      "ruby",
+      "cstruct",
+      "compiler"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2010/01/working-with-c-style-structs-in-ruby"
+  },
+  "basics-of-the-mach-o-file-format": {
+    "title": "Basics of the Mach-O file format",
+    "date": "January 18, 2010",
+    "timestamp": 1263801600,
+    "tags": [
+      "mach-o",
+      "os x",
+      "compiler"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2010/01/basics-of-the-mach-o-file-format"
+  },
+  "a-preview-of-mach-o-file-generation": {
+    "title": "A preview of Mach-O file generation",
+    "date": "January 20, 2010",
+    "timestamp": 1263974400,
+    "tags": [
+      "ruby",
+      "mach-o",
+      "os x",
+      "compiler"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2010/01/a-preview-of-mach-o-file-generation"
+  }
+}

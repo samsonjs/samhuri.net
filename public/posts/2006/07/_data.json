@@ -1,0 +1,72 @@
+{
+  "working-with-the-zend-framework": {
+    "title": "Working with the Zend Framework",
+    "date": "July 6, 2006",
+    "timestamp": 1152196560,
+    "tags": [
+      "coding",
+      "technology",
+      "php",
+      "framework",
+      "php",
+      "seekport",
+      "zend"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2006/07/working-with-the-zend-framework"
+  },
+  "ubuntu-linux-for-linux-users-please": {
+    "title": "Ubuntu: Linux for Linux users please",
+    "date": "July 13, 2006",
+    "timestamp": 1152804840,
+    "tags": [
+      "linux",
+      "linux",
+      "ubuntu"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2006/07/ubuntu-linux-for-linux-users-please"
+  },
+  "ruby-and-rails-have-spoiled-me-rotten": {
+    "title": "Ruby and Rails have spoiled me rotten",
+    "date": "July 17, 2006",
+    "timestamp": 1153140000,
+    "tags": [
+      "rails",
+      "ruby",
+      "php",
+      "coding",
+      "framework",
+      "php",
+      "rails",
+      "ruby",
+      "zend"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2006/07/ruby-and-rails-have-spoiled-me-rotten"
+  },
+  "late-static-binding": {
+    "title": "Late static binding",
+    "date": "July 19, 2006",
+    "timestamp": 1153329780,
+    "tags": [
+      "php",
+      "coding",
+      "coding",
+      "php"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2006/07/late-static-binding"
+  },
+  "class-method-instance-method-it-doesnt-matter-to-php": {
+    "title": "Class method? Instance method? It doesn't matter to PHP",
+    "date": "July 21, 2006",
+    "timestamp": 1153493760,
+    "tags": [
+      "php",
+      "coding"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2006/07/class-method-instance-method-it-doesnt-matter-to-php"
+  }
+}

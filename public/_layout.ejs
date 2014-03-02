@@ -25,6 +25,7 @@
 <% } -%>
 
 <head>
+
 <% if (typeof title != 'undefined') { -%>
   <title><%= title %> - <%= site %></title>
 <% } else { -%>
@@ -32,7 +33,7 @@
 <% } -%>
 
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="icon" type="image/gif" href="/images/s.gif">
 
@@ -40,6 +41,7 @@
   <link rel="stylesheet" href="<%= allStyles[i] %>">
 <% } -%>
 
+  <link rel="author" type="text/plain" href="/humans.txt">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="<%= site %>">
 
   <script>
@@ -59,22 +61,58 @@
 </head>
 
 <body>
-  <header>
-    <h1><a href="/"><%= site %></a></h1>
-    <h4>by <%= author %></h4>
+
+  <header class="primary">
+    <div class="title">
+      <h1><a href="/"><%= site %></a></h1>
+      <br>
+      <h4>By <%= author %></h4>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/archive">Archive</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/feed.xml">RSS</a></li>
+        <li><a href="https://twitter.com/_sjs">Twitter</a></li>
+      </ul>
+    </nav>
+
+    <div class="clearfix"></div>
   </header>
 
-  <nav>
-    <a href="/archive">archive</a>
-    <a href="/projects">projects</a>
-    <a href="/feed.xml">rss feed</a>
-    <a href="https://twitter.com/_sjs">twitter</a>
-  </nav>
+  <% if (typeof link != 'undefined') { -%>
+    <article class="container">
+      <header>
+        <h2><a href="<%= link %>">&rarr; <%= title %></a></h2>
+        <time><%= date %></time>
+      </header>
+      <%- yield %>
+      <p><a class="permalink" href="<%= url %>">&infin;</a></p>
+    </article>
+  <% } else if (typeof date != 'undefined') { -%>
+    <article class="container">
+      <header>
+        <h2><a href="<%= url %>"><%= title %></a></h2>
+        <time><%= date %></time>
+      </header>
+      <%- yield %>
+    </article>
+  <% } else if (typeof title != 'undefined') { -%>
+    <div class="container">
+      <h2><%= title %></h2>
+      <%- yield %>
+      <div class="clearfix">
+    </div>
+  <% } else { -%>
+    <div class="container">
+      <%- yield %>
+      <div class="clearfix">
+    </div>
+  <% } -%>
 
-  <%- yield %>
-
-  <footer>
-    Copyright &copy; 2006 - <%= new Date().getFullYear() %> <a href="mailto:<%= email %>"><%= author %></a>
+  <footer class="container">
+    &copy; 2006 - <%= new Date().getFullYear() %> <a href="mailto:<%= email %>"><%= author %></a>
   </footer>
 
 <% for (var i in allScripts) { -%>

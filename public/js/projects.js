@@ -24,11 +24,6 @@
       }
     }
 
-    function textHighlight(id, t) {
-      text(id, t)
-      document.getElementById(id).className = ' highlight'
-    }
-
     function langsByUsage(langs) {
       return Object.keys(langs).sort(function(a, b) {
         return langs[a] < langs[b] ? -1 : 1
@@ -57,23 +52,31 @@
       html('langs', listify(langsByUsage(langs)))
     }
 
-    function updateN(name, things) {
-      var pluralized = things.length == 1 ? name.replace(/s$/, '') : name
-      textHighlight('n' + name, things.length + ' ' + pluralized)
+    function updateN(name, n) {
+      var pluralized = n == 1 ? name : name + 's'
+      text('n' + name, (n == 0 ? 'no' : n) + ' ' + pluralized)
     }
+
+    function updateStars(n) {
+      html('nstar', n + ' &#10029;')
+    }
+
+    var Months = 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split(' ')
 
     var t = data.get('t-' + SJS.projectName)
     if (!t || +new Date() - t > 3600 * 1000) {
       console.log('stale ' + String(t))
       data.set('t-' + SJS.projectName, +new Date())
-      GITR.repo('samsonjs', SJS.projectName)
-        .fetchBranches(function(err, branches) {
+      var repo = GITR.repo('samsonjs', SJS.projectName)
+      repo
+        .fetch(function(err, repo) {
           if (err) {
-            text('branches', '(oops)')
-          } else {
-            data.set('branches', branches)
-            updateBranches(SJS.projectName, branches)
+            text('updated', '(oops)')
+            return
           }
+          var d = new Date(repo.updatedAt)
+          var updated = Months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear()
+          text('updated', updated)
         })
         .fetchLanguages(function(err, langs) {
           if (err) {
@@ -93,27 +96,32 @@
         })
         .fetchWatchers(function(err, users) {
           if (err) {
-            text('nwatchers', '?')
+            text('nstar', '?')
           } else {
-            data.set('watchers', users)
-            updateN('watchers', users)
+            data.set('stars', users)
+            updateStars(users.length)
           }
         })
         .fetchForks(function(err, repos) {
           if (err) {
-            text('nforks', '?')
+            text('nfork', '?')
           } else {
             data.set('forks', repos)
-            updateN('forks', repos)
+            updateN('fork', repos.length)
           }
         })
     } else {
       console.log('hit ' + t + ' (' + (+new Date() - t) + ')')
-      updateBranches(SJS.projectName, data.get('branches'))
-      updateLangs(data.get('langs'))
-      updateContributors(data.get('contributors'))
-      updateN('watchers', data.get('watchers'))
-      updateN('forks', data.get('forks'))
+      try {
+        updateBranches(SJS.projectName, data.get('branches'))
+        updateLangs(data.get('langs'))
+        updateContributors(data.get('contributors'))
+        updateStars(data.get('stars').length)
+        updateN('fork', data.get('forks').length)
+      } catch (e) {
+        data.set('t-' + SJS.projectName, null)
+        initProject()
+      }
     }
 
   }

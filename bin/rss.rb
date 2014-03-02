@@ -25,8 +25,9 @@ class Blag
     self.new(dir).generate!
   end
 
-  def initialize dir
+  def initialize dir, num_posts = 10
     @dir = dir
+    @num_posts = num_posts
   end
 
   def generate!
@@ -66,22 +67,25 @@ class Blag
 
   def posts
     @posts ||= begin
-      prefix = @dir + '/posts/'
-      json = File.read File.join(prefix, '_data.json')
-      data = JSON.parse json
-      data.map do |slug, post|
-        filename = find_post prefix, slug
-        content = File.read filename
-        post['slug'] = slug
-        post['type'] = post['link'] ? :link : :post
-        post['title'] += " →" if post['type'] == :link
-        post['relative_url'] = '/posts/' + slug
-        post['url'] = root_url + post['relative_url']
-        post['content'] = content
-        post['body'] = RDiscount.new(post['content'], :smart).to_html
-        post['rfc822'] = Time.at(post['timestamp']).rfc822
-        post
-      end.sort_by { |p| -p['timestamp'] }.first(10)
+      Dir[File.join(@dir, 'posts/20*/*')].map do |dir|
+        json = File.read File.join(dir, '_data.json')
+        data = JSON.parse json
+        prefix = dir.sub(@dir, '')
+        data.map do |slug, post|
+          filename = find_post dir, slug
+          content = File.read filename
+          relative_url = File.join(prefix, slug)
+          post['slug'] = slug
+          post['type'] = post['link'] ? :link : :post
+          post['title'] = "→ #{post['title']}" if post['type'] == :link
+          post['relative_url'] = relative_url
+          post['url'] = root_url + post['relative_url']
+          post['content'] = content
+          post['body'] = RDiscount.new(post['content'], :smart).to_html
+          post['rfc822'] = Time.at(post['timestamp']).rfc822
+          post
+        end
+      end.flatten.sort_by { |p| -p['timestamp'] }.first(@num_posts)
     end
   end
 
@@ -129,6 +133,7 @@ private
   def feed_xml
     xml = Builder::XmlMarkup.new
     xml.instruct! :xml, version: '1.0'
+    xml.instruct! 'xml-stylesheet', href: root_url + '/css/normalize.css', type: 'text/css'
     xml.instruct! 'xml-stylesheet', href: root_url + '/css/style.css', type: 'text/css'
 
     xml.rss version: '2.0' do

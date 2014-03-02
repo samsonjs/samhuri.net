@@ -1,0 +1,34 @@
+{
+  "os-x-and-fitts-law": {
+    "title": "OS X and Fitt's law",
+    "date": "May 7, 2006",
+    "timestamp": 1147059780,
+    "tags": [
+      "mac os x",
+      "apple",
+      "mac",
+      "os",
+      "usability",
+      "x"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2006/05/os-x-and-fitts-law"
+  },
+  "wikipediafs-on-linux-in-python": {
+    "title": "WikipediaFS on Linux, in Python",
+    "date": "May 7, 2006",
+    "timestamp": 1147060140,
+    "tags": [
+      "hacking",
+      "python",
+      "linux",
+      "fuse",
+      "linux",
+      "mediawiki",
+      "python",
+      "wikipediafs"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2006/05/wikipediafs-on-linux-in-python"
+  }
+}

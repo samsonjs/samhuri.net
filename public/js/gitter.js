@@ -218,7 +218,7 @@
   // Data is also available via the `data` property.
   Resource.prototype.fetch = function(cb) {
     if (this.data) {
-      cb(null, this.data)
+      cb.call(this, null, this.data)
     }
     else {
       var self = this

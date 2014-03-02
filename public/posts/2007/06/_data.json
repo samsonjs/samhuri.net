@@ -1,0 +1,179 @@
+{
+  "301-moved-permanently": {
+    "title": "301 moved permanently",
+    "date": "June 8, 2007",
+    "timestamp": 1181350800,
+    "tags": [
+      "life"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2007/06/301-moved-permanently"
+  },
+  "so-long-typo-and-thanks-for-all-the-timeouts": {
+    "title": "so long typo (and thanks for all the timeouts)",
+    "date": "June 8, 2007",
+    "timestamp": 1181350860,
+    "tags": [
+      "mephisto",
+      "typo"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2007/06/so-long-typo-and-thanks-for-all-the-timeouts"
+  },
+  "more-scheming-with-haskell": {
+    "title": "More Scheming with Haskell",
+    "date": "June 14, 2007",
+    "timestamp": 1181783340,
+    "tags": [
+      "coding",
+      "haskell",
+      "scheme"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2007/06/more-scheming-with-haskell"
+  },
+  "testspec-on-rails-declared-awesome-just-one-catch": {
+    "title": "test/spec on rails declared awesome, just one catch",
+    "date": "June 14, 2007",
+    "timestamp": 1181830860,
+    "tags": [
+      "bdd",
+      "rails",
+      "test/spec"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2007/06/testspec-on-rails-declared-awesome-just-one-catch"
+  },
+  "begging-the-question": {
+    "title": "Begging the question",
+    "date": "June 15, 2007",
+    "timestamp": 1181933340,
+    "tags": [
+      "english",
+      "life",
+      "pedantry"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2007/06/begging-the-question"
+  },
+  "back-on-gentoo-trying-new-things": {
+    "title": "Back on Gentoo, trying new things",
+    "date": "June 18, 2007",
+    "timestamp": 1182215100,
+    "tags": [
+      "emacs",
+      "gentoo",
+      "linux",
+      "vim"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2007/06/back-on-gentoo-trying-new-things"
+  },
+  "reinventing-the-wheel": {
+    "title": "Reinventing the wheel",
+    "date": "June 20, 2007",
+    "timestamp": 1182356820,
+    "tags": [
+      "emacs",
+      "snippets"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2007/06/reinventing-the-wheel"
+  },
+  "embrace-the-database": {
+    "title": "Embrace the database",
+    "date": "June 22, 2007",
+    "timestamp": 1182507240,
+    "tags": [
+      "activerecord",
+      "rails",
+      "ruby"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2007/06/embrace-the-database"
+  },
+  "emacs-for-textmate-junkies": {
+    "title": "Emacs for TextMate junkies",
+    "date": "June 23, 2007",
+    "timestamp": 1182565020,
+    "tags": [
+      "emacs",
+      "textmate"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2007/06/emacs-for-textmate-junkies"
+  },
+  "floating-point-in-elschemo": {
+    "title": "Floating point in ElSchemo",
+    "date": "June 24, 2007",
+    "timestamp": 1182711180,
+    "tags": [
+      "elschemo",
+      "haskell",
+      "scheme"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2007/06/floating-point-in-elschemo"
+  },
+  "propaganda-makes-me-sick": {
+    "title": "Propaganda makes me sick",
+    "date": "June 25, 2007",
+    "timestamp": 1182768900,
+    "tags": [
+      "propaganda"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2007/06/propaganda-makes-me-sick"
+  },
+  "rtfm": {
+    "title": "RTFM!",
+    "date": "June 26, 2007",
+    "timestamp": 1182806340,
+    "tags": [
+      "emacs",
+      "rtfm"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2007/06/rtfm"
+  },
+  "emacs-tagify-region-or-insert-tag": {
+    "title": "Emacs: tagify-region-or-insert-tag",
+    "date": "June 25, 2007",
+    "timestamp": 1182809580,
+    "tags": [
+      "emacs",
+      "tagify"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2007/06/emacs-tagify-region-or-insert-tag"
+  },
+  "recent-ruby-and-rails-regales": {
+    "title": "Recent Ruby and Rails Regales",
+    "date": "June 28, 2007",
+    "timestamp": 1183058580,
+    "tags": [
+      "rails",
+      "rails on rules",
+      "regular expressions",
+      "ruby",
+      "sake",
+      "secure associations",
+      "regex"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2007/06/recent-ruby-and-rails-regales"
+  },
+  "controlling-volume-via-the-keyboard-on-linux": {
+    "title": "Controlling volume via the keyboard on Linux",
+    "date": "June 30, 2007",
+    "timestamp": 1183245180,
+    "tags": [
+      "alsa",
+      "linux",
+      "ruby",
+      "volume"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2007/06/controlling-volume-via-the-keyboard-on-linux"
+  }
+}

@@ -1,7 +1,4 @@
 {
-  "_styles": [
-    "/css/projects.css"
-  ],
   "_scripts": [
     "http://ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js",
     "/js/gitter.js",
@@ -18,7 +15,7 @@
   },
   "compiler": {
     "title": "compiler",
-    "description": "an x86 compiler written in ruby"
+    "description": "a compiler targeting x86 in Ruby"
   },
   "config": {
     "title": "config",
@@ -43,7 +40,7 @@
   },
   "ThePusher": {
     "title": "ThePusher",
-    "description": "Github post receive hook router"
+    "description": "Github post-receive hook router"
   },
   "lake": {
     "title": "lake",

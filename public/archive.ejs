@@ -1,10 +1,51 @@
-<ul id="index">
-<% for (var slug in public.posts._data) { %>
-<%   var post = public.posts._data[slug] %>
-<%   if (slug == 'index' || slug[0] == '_' || post.hidden) continue %>
+<% function pad(n) { -%>
+<%   return +n < 10 ? '0' + n : String(n) -%>
+<% } -%>
+
+<% var _months = 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split(' ') -%>
+<% function formatDate(t) { -%>
+<%   var d = new Date(t) -%>
+<%   return _months[d.getMonth()] + ' ' + d.getDate() -%>
+<% } -%>
+
+<% function sortPosts(dir) { -%>
+<%   var slugs = Object.keys(dir._data) -%>
+<%   var posts = slugs.map(function(slug) { return dir._data[slug] }) -%>
+<%   posts.sort(function(a, b) { -%>
+<%     var t1 = a.timestamp -%>
+<%     var t2 = b.timestamp -%>
+<%     return t1 < t2 ? 1 : (t1 > t2 ? -1 : 0) -%>
+<%   }) -%>
+<%   return posts -%>
+<% } -%>
+
+<% function posts(dir, year) { -%>
+<%   if (!dir) return -%>
+
+<h3><%= year %></h3>
+
+<%   for (var month = 12; month >= 1; month--) { -%>
+<%     var monthDir = dir[pad(month)] -%>
+<%     if (!monthDir) continue -%>
+<ul class="archive">
+<%     var posts = sortPosts(monthDir) -%>
+<%     for (var i in posts) { -%>
+<%       var post = posts[i] -%>
+<%       if (post.hidden) continue -%>
   <li>
-    <span class="date"><%= post.date %></span>
-    <a href="<%= post.url %>"><%= post.title %></a>
+    <% if (post.link) { -%>
+      <a href="<%= post.url %>">&rarr; <%= post.title %></a>
+    <% } else { -%>
+      <a href="<%= post.url %>"><%= post.title %></a>
+    <% } -%>
+    <span class="date"><%= formatDate(1000 * post.timestamp) %></span>
   </li>
-<% } %>
+<%     } -%>
 </ul>
+<%   } -%>
+<% } -%>
+
+<% var year = new Date().getFullYear(); -%>
+<% for (; year >= 2006; year--) { -%>
+<%   posts(public.posts[year], year) -%>
+<% } -%>

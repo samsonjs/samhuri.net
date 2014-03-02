@@ -1,0 +1,48 @@
+{
+  "a-textmate-tip-for-emacs-users": {
+    "title": "A TextMate tip for Emacs users",
+    "date": "July 3, 2007",
+    "timestamp": 1183481100,
+    "tags": [
+      "emacs",
+      "keyboard shortcuts",
+      "textmate"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2007/07/a-textmate-tip-for-emacs-users"
+  },
+  "rushcheck-quickcheck-for-ruby": {
+    "title": "RushCheck: QuickCheck for Ruby",
+    "date": "July 5, 2007",
+    "timestamp": 1183665000,
+    "tags": [
+      "quickcheck",
+      "ruby",
+      "rushcheck"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2007/07/rushcheck-quickcheck-for-ruby"
+  },
+  "see-your-regular-expressions-in-emacs": {
+    "title": "See your regular expressions in Emacs",
+    "date": "July 6, 2007",
+    "timestamp": 1183740300,
+    "tags": [
+      "emacs",
+      "regex"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2007/07/see-your-regular-expressions-in-emacs"
+  },
+  "people": {
+    "title": "people",
+    "date": "July 12, 2007",
+    "timestamp": 1184243280,
+    "tags": [
+      "life",
+      "people"
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2007/07/people"
+  }
+}

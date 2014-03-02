@@ -15,14 +15,11 @@ function main() {
   rm -rf "$TARGET"
   "$HARP" compile . "$TARGET"
 
-  echo "* mungle html to make it available without the extension"
+  echo "* munge html files to make them available without an extension"
   munge_html
 
   echo "* minify js"
   minify_js
-
-  echo "* minify css"
-  minify_css
 }
 
 function compile_rss() {
@@ -30,7 +27,7 @@ function compile_rss() {
 }
 
 function munge_html() {
-  for FILE in "$TARGET"/*.html "$TARGET"/posts/*.html "$TARGET"/projects/*.html; do
+  for FILE in "$TARGET"/*.html "$TARGET"/posts/*/*/*.html "$TARGET"/projects/*.html; do
     [[ "${FILE##*/}" = "index.html" ]] && continue
 
     # make posts available without an .html extension
@@ -43,12 +40,6 @@ function munge_html() {
 function minify_js() {
   for FILE in "$TARGET"/js/*.js; do
     $DIR/minify-js.sh "$FILE" > /tmp/minified.js && mv /tmp/minified.js "$FILE" || echo "* failed to minify $FILE"
-  done
-}
-
-function minify_css() {
-  for FILE in "$TARGET"/css/*.css; do
-    $DIR/minify-css.sh "$FILE" > /tmp/minified.css && mv /tmp/minified.css "$FILE" || echo "* failed to minify $FILE"
   done
 }
 

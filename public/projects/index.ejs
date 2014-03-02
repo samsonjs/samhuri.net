@@ -1,109 +1,16 @@
-  <a href="https://github.com/samsonjs"><img id="forkme" src="/images/forkme@2x.png" width="140" height="140" alt="Fork me on GitHub"></a>
+<div id="octocat">
+  <img src="/images/dr-octocat-448x448.png" width="224" height="224" alt="Bad ass Indiana Jones Octocat">
+</div>
 
-  <nav class="navbar" id="title">projects</nav>
+<nav>
 
-  <p id="gh">
-    <a class="img" href="https://github.com/samsonjs"><img src="/images/dr-octocat-448x448.png" width="224" height="224" alt="GitHub"></a>
-  </p>
-  <table align="center" id="stats">
-    <tr>
-      <td align="right">
-        <a href="https://github.com/samsonjs">
-          <span id="npublicRepos"></span> projects
-        </a>
-      </td>
-      <td>&mdash;</td>
-      <td align="left">
-        <a href="https://github.com/samsonjs/followers">
-          <span id="nfollowers"></span> followers
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td align="right">
-        <a href="https://gist.github.com/samsonjs">
-          <span id="npublicGists"></span> gists
-        </a>
-      </td>
-      <td>&mdash;</td>
-      <td align="left">
-        <a href="https://github.com/samsonjs/following">
-          following <span id="nfollowing"></span>
-        </a>
-      </td>
-    </tr>
-  </table>
-  <nav>
-    <ul class="nav" id="projects">
 <% for (var name in public.projects._data) { %>
 <%   var project = public.projects._data[name] %>
 <%   if (name == 'index' || name[0] == '_' || project.hidden) continue %>
-      <li>
-        <p class="title"><a href="<%= name %>"><%= name %></a></p>
-        <p class="description"><%= project.description %></p>
-      </li>
+  <div class="project-listing">
+    <h4><a href="<%= name %>"><%= name %></a></h4>
+    <p class="description"><%= project.description %></p>
+  </div>
 <% } %>
-    </ul>
-  </nav>
 
-  <script>
-    ;(function() {
-
-      SJS.ready(initProjects)
-
-      function initProjects() {
-        function addClass(el, name) {
-          var c = el.className || name
-          if (!c.match(new RegExp('\b' + name + '\b', 'i'))) c += ' ' + name
-        }
-
-        var body = document.getElementsByTagName('body')[0]
-          , text
-        if ('innerText' in body) {
-          text = function(id, text) {
-            document.getElementById(id).innerText = text
-          }
-        } else {
-          text = function(id, text) {
-            document.getElementById(id).textContent = text
-          }
-        }
-
-        function highlight(id) {
-          document.getElementById(id).style.className = ' highlight'
-        }
-        function textHighlight(id, t) {
-          text(id, t)
-          document.getElementById(id).className = ' highlight'
-        }
-        function updateN(name, things) {
-          textHighlight('n' + name, things)
-        }
-
-        var data = createObjectStore('projects')
-          , t = data.get('t-projects')
-          , user = GITR.user('samsonjs')
-          , names = ['followers', 'following', 'publicRepos', 'publicGists']
-        if (!t || +new Date() - t > 3600 * 1000) {
-          console.log('stale ' + String(t))
-          data.set('t-projects', +new Date())
-          user.fetch(function(err, user) {
-            if (user) {
-              data.set('user', user)
-            }
-            names.forEach(function(name) {
-              if (err) {
-                updateN(name, '?')
-              }
-              else {
-                updateN(name, user[name])
-              }
-            })
-          })
-        } else {
-          console.log('hit ' + t + ' (' + (+new Date() - t) + ')')
-          names.forEach(function(name) { updateN(name, data.get('user')[name]) })
-        }
-      }
-    }())
-  </script>
+</nav>

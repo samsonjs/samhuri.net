@@ -1,0 +1,276 @@
+/**
+ * Basic responsive layout from http://www.adamkaplan.me/grid/
+ */
+
+/* Small screen is the default set of styles */
+@screen-medium: 40rem; /* ~ 640px */
+@screen-large: 64rem;  /* ~ 1024px */
+
+html { font-size: 100%; }
+
+@media (min-width: @screen-medium) {
+  html { font-size: 112%; }
+}
+
+@media (min-width: @screen-large) {
+  html { font-size: 120%; }
+}
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 48rem;
+  width: 90%;
+}
+
+@media (min-width: @screen-medium) {
+  .column {
+    float: left;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .column.full { width: 100%; }
+  .column.two-thirds { width: 66.7%; }
+  .column.half { width: 50%; }
+  .column.third { width: 33.3%; }
+  .column.fourth { width: 24.95%; }
+  .column.flow-opposite { float: right; }
+}
+
+
+/**
+ * Modern clearfix hack
+ * http://nicolasgallagher.com/micro-clearfix-hack/
+ */
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+
+
+/**
+ * Super barebones responsive images
+ */
+
+img {
+  max-width: 100%;
+}
+
+
+/**
+ * Site styles
+ */
+
+// colors
+@background: #f7f7f7;
+@text: #222;
+@highlight: #a00;
+
+// font weight
+@weight-thin: 300;
+
+body {
+  background-color: @background;
+  color: @text;
+  font-family: 'Helvetica Neue', 'Verdana', 'Roboto', sans-serif;
+}
+
+a {
+  color: lighten(@highlight, 5%);
+}
+
+a:visited {
+  color: @highlight;
+}
+
+header.primary {
+  background-color: darken(@text, 5%);
+  color: @background;
+  padding: 0.4rem 0.8rem;
+
+  .title {
+    float: left;
+  }
+
+  h1, h4 {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    font-weight: @weight-thin;
+  }
+
+  h1 {
+    height: 1.3rem;
+    font-size: 1.3rem;
+
+    a, a:visited {
+      color: @background;
+    }
+  }
+
+  h4 {
+    height: 0.8rem;
+    font-size: 0.8rem;
+    color: darken(@background, 10%);
+  }
+
+  nav {
+
+    padding-top: 0.5rem;
+    clear: left;
+
+    @media (min-width: @screen-medium) {
+      float: right;
+      clear: none;
+
+      padding: 0.55rem 0;
+      height: 1rem;
+      font-size: 1rem;
+    }
+
+    a, a:visited {
+      color: lighten(@highlight, 15%);
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+
+      @media (min-width: @screen-medium) {
+        font-weight: @weight-thin;
+      }
+
+      li {
+        display: inline-block;
+        list-style-type: none;
+      }
+
+      li:after {
+        font-weight: normal;
+        content: ' \2022 ';
+      }
+
+      li:last-child:after {
+        content: '';
+      }
+
+    } /* ul */
+  } /* nav */
+} /* header.primary */
+
+footer {
+  border-top: solid 1px lighten(@text, 70%);
+  padding: 1rem 0;
+  text-align: center;
+
+  a, a:visited {
+    color: @text;
+  }
+}
+
+
+/**
+ * Archive
+ */
+
+ul.archive {
+  padding-left: 0;
+  margin-left: 5%;
+  margin-bottom: 2rem;
+  list-style-type: none;
+
+  @media (min-width: @screen-medium) {
+    margin-right: 5%;
+  }
+
+  li {
+    margin: 0.8rem 0;
+
+    a {
+      text-decoration: none;
+    }
+
+    .date {
+      font-size: 80%;
+      padding-left: 0.5rem;
+      color: lighten(@text, 30%);
+      // float: right;
+    } /* .date */
+
+  } /* li */
+
+} /* ul.archive */
+
+
+/**
+ * Projects
+ */
+
+#octocat {
+  position: fixed;
+  bottom: 1rem;
+  width: 96%;
+  text-align: center;
+  z-index: -1;
+  opacity: 0.1;
+
+  @media (min-width: @screen-medium) {
+    right: 1rem;
+    width: auto;
+  }
+}
+
+.project-listing {
+  margin-bottom: 1rem;
+
+  h4, p {
+    margin: 0.5rem 0;
+  }
+
+}
+
+.project-stats {
+  text-align: center;
+  margin: 2rem 0;
+
+  a {
+    padding: 0 0.3rem;
+  }
+
+}
+
+.project-info {
+
+  h3 {
+    text-align: center;
+    margin-bottom: 0.2rem;
+
+    @media (min-width: @screen-medium) {
+      text-align: left;
+    }
+  }
+
+  .column {
+    margin-bottom: 2rem;
+  }
+
+  ul {
+    padding-left: 0;
+
+    li {
+      list-style-type: none;
+    }
+
+  }
+
+}

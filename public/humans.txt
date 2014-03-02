@@ -1,0 +1,10 @@
+/* SITE */
+
+Site name:  samhuri.net
+Site URL:   http://samhuri.net
+Contact:    sami@samhuri.net
+Twitter:    @_sjs
+Location:   Victoria, British Columbia, Canada
+Standards:  HTML 5, CSS 3, ES 5
+Components: Mostly custom - Normalize.css - Compiled with Harp
+Source:     https://github.com/samsonjs/samhuri.net
