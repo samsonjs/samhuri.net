@@ -1,4 +1,4 @@
-DefaultType text/html
+DefaultType text/plain
 AddType audio/mp4 m4r
 AddType application/rss+xml rss
 SetOutputFilter DEFLATE
