@@ -5,7 +5,7 @@ My Linux box is down due to a hardware failure; a cheap SATA controller to be sp
 This gave me an opportunity to accidentally discover some shortcuts in TextMate. A result of the Emacs shortcuts that my fingers are already wired to, here are some TextMate keyboard shortcuts that may or may not be <a href="http://macromates.com/textmate/manual/">documented</a> (I need to RTFM some day).
 
  * As in most Cocoa text areas, <code>C-f</code>, <code>C-b</code>, <code>C-n</code>, <code>C-p</code>, <code>C-a</code>, <code>C-e</code>, and <code>C-t</code> work as expected (and others I'm sure).
- * <code>C-k</code>: behaves as a vanilla Emacs, killing till a newline or killing a bare newline. I use the word killing specifically because you can yank it back with...
+ * <code>C-k</code>: behaves as a vanilla Emacs, killing until a newline or killing a bare newline. I use the word killing specifically because you can yank it back with...
  * <code>C-y</code>: yanks back the last thing on the kill ring (paste history). You still have to use <code>C-S-v</code> to yank previous items.
 
 I think TextMate may have helped ease me into Emacs without me even knowing. I had my suspicions that Allan was an Emacs fan and now I'm certain of it. I keep finding things in one that the other has, which makes switching between them easy. Well done Allan.

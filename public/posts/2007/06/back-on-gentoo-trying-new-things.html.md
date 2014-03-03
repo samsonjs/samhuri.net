@@ -6,7 +6,7 @@ zsh has an impressive completion system but I just don't feel the urge to ever c
 
 ### Linux is stable. Really stable. ###
 
-While people bash Microsoft daily for tying the GUI layer to the kernel, Apple seems to get away with it scot-free.  I don't know if it's caused by my external display hooked up to the dock, or the Prolific Firewire chip in my external disk enclosure but something causes the mysterious "music plays till the end of the song, mouse can be moved, but nothing works" bug now and then and all I can do is a hard reset.
+While people bash Microsoft daily for tying the GUI layer to the kernel, Apple seems to get away with it scot-free.  I don't know if it's caused by my external display hooked up to the dock, or the Prolific Firewire chip in my external disk enclosure but something causes the mysterious "music plays until the end of the song, mouse can be moved, but nothing works" bug now and then and all I can do is a hard reset.
 
 On Linux I currently use Fluxbox so everything is rock solid and fast (except Firefox! ;-), but in the extremely rare event that shit does hit the fan usually only a single app will crash, though sometimes X (and hence many others) go with it.  A <code>sudo /etc/init.d/gdm restart</code> fixes that.  The only times I've had to hard reset Linux was because of a random bug (strangely similar to my MacBook bug) with Nvidia's driver with dual head setups.  All this is pretty moot since Linux is generally just stable.
 

@@ -36,8 +36,8 @@ Redirect 301 /blog/2006.02.20-obligatory-post-about-ruby-on-rails /posts/2006/02
 Redirect 301 /blog/2006.02.20-textmate-snippets-for-rails-assertions /posts/2006/02/textmate-snippets-for-rails-assertions
 Redirect 301 /blog/2006.02.21-textmate-insert-text-into-self-down /posts/2006/02/textmate-insert-text-into-self-down
 Redirect 301 /blog/2006.02.21-textmate-move-selection-to-self-down /posts/2006/02/textmate-move-selection-to-self-down
-Redirect 301 /blog/2006.02.22-intelligent-migration-snippets-0.1-for-textmate /posts/2006/02/intelligent-migration-snippets-0.1-for-textmate
-Redirect 301 /blog/2006.02.23-sjs-rails-bundle-0.2-for-textmate /posts/2006/02/sjs-rails-bundle-0.2-for-textmate
+Redirect 301 /blog/2006.02.22-intelligent-migration-snippets-0.1-for-textmate /posts/2006/02/intelligent-migration-snippets-0_1-for-textmate
+Redirect 301 /blog/2006.02.23-sjs-rails-bundle-0.2-for-textmate /posts/2006/02/sjs-rails-bundle-0_2-for-textmate
 Redirect 301 /blog/2006.03.03-generate-selfdown-in-your-rails-migrations /posts/2006/03/generate-selfdown-in-your-rails-migrations
 Redirect 301 /blog/2006.03.03-i-dont-mind-fairplay-either /posts/2006/03/i-dont-mind-fairplay-either
 Redirect 301 /blog/2006.03.03-spore /posts/2006/03/spore
@@ -59,7 +59,7 @@ Redirect 301 /blog/2006.09.22-some-features-you-might-have-missed-in-itunes-7 /p
 Redirect 301 /blog/2006.12.17-coping-with-windows-xp-activiation-on-a-mac /posts/2006/12/coping-with-windows-xp-activiation-on-a-mac
 Redirect 301 /blog/2007.03.06-full-screen-cover-flow /posts/2007/03/full-screen-cover-flow
 Redirect 301 /blog/2007.03.08-digg-v4-reply-to-replies-greasemonkey-script /posts/2007/03/digg-v4-reply-to-replies-greasemonkey-script
-Redirect 301 /blog/2007.03.25-diggscuss-0.9 /posts/2007/03/diggscuss-0.9
+Redirect 301 /blog/2007.03.25-diggscuss-0.9 /posts/2007/03/diggscuss-0_9
 Redirect 301 /blog/2007.04.04-a-triple-booting-schizophrenic-macbook /posts/2007/04/a-triple-booting-schizophrenic-macbook
 Redirect 301 /blog/2007.04.11-activerecord-base.find_or_create-and-find_or_initialize /posts/2007/04/activerecord-base.find_or_create-and-find_or_initialize
 Redirect 301 /blog/2007.04.16-getting-to-know-vista /posts/2007/04/getting-to-know-vista

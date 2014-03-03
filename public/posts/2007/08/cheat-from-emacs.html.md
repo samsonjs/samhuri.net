@@ -2,7 +2,7 @@
 
 *Update #2 [2007.08.10]: Editing cheats and diffs have been implemented.*
 
-*Update #3 [2007.08.21]: I <a href="2007.08.21-cheat-productively-in-emacs">added completion</a> to cheat.el. The file linked on this page is still the latest version.*
+*Update #3 [2007.08.21]: I <a href="/posts/2007/08/cheat-productively-in-emacs">added completion</a> to cheat.el. The file linked on this page is still the latest version.*
 
 We all know and love <a href="http://cheat.errtheblog.com/">cheat</a>.  Now you can cheat without leaving Emacs (and without using a shell in Emacs).
 

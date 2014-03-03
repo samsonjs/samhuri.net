@@ -1,6 +1,6 @@
 **Update:** This needs to be run at system startup, before you log in. I have XP Home and haven't been able to get it to run that way yet.
 
-I can't test my method until I get XP Pro, if I get XP Pro at all. However chack left a <a href="2006.12.17-coping-with-windows-xp-activiation-on-a-mac.html#comment-1">comment</a> saying that he got it to work on XP Pro, so it seems we've got a solution here.
+I can't test my method until I get XP Pro, if I get XP Pro at all. However chack left a <a href="/posts/2006/12/coping-with-windows-xp-activiation-on-a-mac.html#comment-1">comment</a> saying that he got it to work on XP Pro, so it seems we've got a solution here.
 
 <hr>
 
@@ -65,11 +65,11 @@ If you have XP Pro then you can get it to run using the Group Policy editor. Sav
 	<p>If you have XP Home then the best you can do is run this script from your Startup folder (Start -> All Programs -> Startup), but that is not really going to work because eventually Windows will not even let you log in until you activate it. What a P.O.S.</p>
 
    @echo off
-    
+
     ipconfig /all | find "Parallels" > network.tmp
     for /F "tokens=14" %%x in (network.tmp) do set parallels=%x
     del network.tmp
-    
+
     if defined parallels (
       echo Parallels
       copy C:\Windows\System32\Parallels\wpa.* C:\Windows\System32

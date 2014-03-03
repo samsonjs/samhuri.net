@@ -1,9 +1,9 @@
-<p><em><strong>UPDATE:</strong> I got everything working and it's all packaged up <a href="2006.02.22-intelligent-migration-snippets-0.1-for-textmate">here</a>. There's an installation script this time as well.</em></p>
+<p><em><strong>UPDATE:</strong> I got everything working and it's all packaged up <a href="/posts/2006/02/intelligent-migration-snippets-0_1-for-textmate">here</a>. There's an installation script this time as well.</em></p>
 
 <p>Thanks to <a href="http://thread.gmane.org/gmane.editors.textmate.general/8520">a helpful thread</a> on the TextMate mailing list I have the beginning of a solution to insert text at 2 (or more) locations in a file.</p>
 
 
-<p>I implemented this for a new snippet I was working on for migrations, <code>rename_column</code>. Since the command is the same in self.up and self.down simply doing a reverse search for <code>rename_column</code> in my <a href="2006.02.21-textmate-move-selection-to-self-down">hackish macro</a> didn't return the cursor the desired location.</p><p>That's enough introduction, here's the program to do the insertion:</p>
+<p>I implemented this for a new snippet I was working on for migrations, <code>rename_column</code>. Since the command is the same in self.up and self.down simply doing a reverse search for <code>rename_column</code> in my <a href="/posts/2006/02/textmate-move-selection-to-self-down">hackish macro</a> didn't return the cursor the desired location.</p><p>That's enough introduction, here's the program to do the insertion:</p>
 
 
 <div class="typocode"><pre><code class="typocode_ruby "><span class="comment">#!/usr/bin/env ruby</span>

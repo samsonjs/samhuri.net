@@ -4,11 +4,11 @@ They work exactly as you'd expect them to work with possibly one gotcha. If you 
 
 Enough chat, here's the self-explanatory code:
 
-<table class="CodeRay"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+<table class="code"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1<tt>
 </tt>2<tt>
 </tt>3<tt>
-</tt>4<tt>
+</tt>4 <tt>
 </tt></pre></td>
   <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }"><span class="c"># extend ActiveRecord::Base with find_or_create and find_or_initialize.</span><tt>
 </tt><span class="co">ActiveRecord</span>::<span class="co">Base</span>.class_eval <span class="r">do</span><tt>
@@ -17,8 +17,8 @@ Enough chat, here's the self-explanatory code:
 </tr></table>
 
 
-<table class="CodeRay"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+<table class="code"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1<tt>
 </tt>2<tt>
 </tt>3<tt>
 </tt>4<tt>
@@ -58,7 +58,7 @@ Enough chat, here's the self-explanatory code:
 </tt>38<tt>
 </tt>39<tt>
 </tt><strong>40</strong><tt>
-</tt>41<tt>
+</tt>41 <tt>
 </tt></pre></td>
   <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }"><span class="r">module</span> <span class="cl">ActiveRecordExtensions</span><tt>
 </tt>  <span class="r">def</span> <span class="pc">self</span>.included(base)<tt>

@@ -158,7 +158,7 @@ chalk-sprites.png </div>
 
 <p>The draw function is called for each point in the points array at 30ms intervals. A line is started by calling <code>context.beginPath()</code>, each point is drawn, and then the line is ended with <code>context.stroke()</code>. <strike>The 2nd condition of the while loop ensures that we don't draw for too long, as bad things would happen if the function were executed a 2nd time while it was already running.</strike></p>
 
-<p><b>Sam Stephenson was kind enough to clarify these points. <a href="#Blog1_cmt-1187434093983456531">See his comment below</a> the post for clarification on using [x, y] in the touchend handler and the 10ms limit when drawing points.</b></p>
+<p><b>Sam Stephenson was kind enough to clarify these points. <a href="#comment-2">See his comment below</a> the post for clarification on using [x, y] in the touchend handler and the 10ms limit when drawing points.</b></p>
 
 <p>&nbsp;</p>
 <h3>Light Switch &amp; Shade</h3>
@@ -176,7 +176,7 @@ chalk-sprites.png </div>
 
 <p>The share window is opened after a 10ms delay, just enough time for any drawing to be completed before rendering the image. The image is created by assigning the result of canvas' <code>toDataURL()</code> method to the output image element's src attribute.</p>
 
-<p>When the share window is closed the output image element gets its src set to the sprites image. <strike>I'm not sure why that was done.</strike> <i>As Sam mentions in <a href="#Blog1_cmt-118743409398345653">his comment below</a>, this is done to reclaim the memory used by the rendered image.</i></p>
+<p>When the share window is closed the output image element gets its src set to the sprites image. <strike>I'm not sure why that was done.</strike> <i>As Sam mentions in <a href="#comment-2">his comment below</a>, this is done to reclaim the memory used by the rendered image.</i></p>
 
 <p>The rest of the code there just sets up event handlers and toggles CSS classes.</p>
 
@@ -215,3 +215,86 @@ function _addLineNumbersToGist(css_selector) {
 
 addLineNumbersToAllGists();
 </script>
+
+----
+
+#### Comments
+
+<div id="comment-1" class="comment">
+  <div class="name">
+    <a href="http://www.blogger.com/profile/03323308464846759827">Bijan</a>
+  </div>
+  <span class="date" title="2010-11-05 08:15:22 -0700">Nov 05, 2010</span>
+  <div class="body">
+    <p>Fuckin' beautiful code.</p>
+  </div>
+</div>
+
+<div id="comment-2" class="comment">
+  <div class="name">
+    <a href="http://sstephenson.us/">Sam Stephenson</a>
+  </div>
+  <span class="date" title="2010-11-05 09:00:47 -0700">Nov 05, 2010</span>
+  <div class="body">
+    <p>Excellent analysis. A couple of clarifications:</p>
+
+    <p>[x, y] is used in the touchend handler because the event.touches array is empty at that point. We push the coordinates on twice to ensure that a dot is drawn if you tap the screen without moving.</p>
+
+    <p>The 10ms constraint inside the drawing loop restricts the amount of time spent drawing in order to maximize the time available to receive touch events. setInterval callbacks would never run concurrently if the loop were unbounded, but it could prevent us from receiving touch events.</p>
+
+    <p>The output image's src is reset when the share window is closed to reclaim memory used by the image.</p>
+
+    <p>Here's the full CoffeeScript source: https://gist.github.com/664351</p>
+  </div>
+</div>
+
+<div id="comment-3" class="comment">
+  <div class="name">
+    <a href="http://joel.meador.myopenid.com/">Meador</a>
+  </div>
+  <span class="date" title="2010-11-05 09:39:29 -0700">Nov 05, 2010</span>
+  <div class="body">
+    <p>Awesome post!</p>
+  </div>
+</div>
+
+<div id="comment-4" class="comment">
+  <div class="name">
+    <a href="http://www.blogger.com/profile/16010963576677778438">Mike</a>
+  </div>
+  <span class="date" title="2010-11-05 10:19:30 -0700">Nov 05, 2010</span>
+  <div class="body">
+    <p>That was a sweet post!</p>
+  </div>
+</div>
+
+<div id="comment-5" class="comment">
+  <div class="name">
+    anonymous
+  </div>
+  <span class="date" title="2010-11-05 11:33:07 -0700">Nov 05, 2010</span>
+  <div class="body">
+    <p>Why is the variable "_ref" named with an underline and "touch" is not with an underline ... found in the "canvas.bind" function (line 23)?</p>
+  </div>
+</div>
+
+<div id="comment-6" class="comment">
+  <div class="name">
+    <a href="http://samhuri.net">sjs</a>
+  </div>
+  <span class="date" title="2010-11-05 11:35:27 -0700">Nov 05, 2010</span>
+  <div class="body">
+    <p>The code was written in <a href="http://jashkenas.github.com/coffee-script/">CoffeeScript</a> and then compiled down to JavaScript. _ref is a CoffeeScript thing.</p>
+  </div>
+</div>
+
+<div id="comment-7" class="comment">
+  <div class="name">
+    <a href="http://greenido.wordpress.com/">greenido</a>
+  </div>
+  <span class="date" title="2010-11-05 12:53:15 -0700">Nov 05, 2010</span>
+  <div class="body">
+    <p>Very cool code!
+Good job guys...</p>
+  </div>
+</div>

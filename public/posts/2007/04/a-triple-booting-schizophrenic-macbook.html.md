@@ -10,21 +10,18 @@ With <a href="http://www.macports.org/">MacPorts</a> and <a href="http://www.met
 
 *[edit: 25 minutes to compile X.org, not too shabby!]*
 
-My initial experience with Vista is quite good. Sadly the <a href="http://www.manicai.net/comp/swap-caps-ctrl.html">same old registry hack</a> is required to swap Caps lock and Control but I was just glad it worked. I really like the new Start menu and the eye-candy is fairly pleasant for the most part. Till now I’d only used RC2 on a machine incapable of running Aero Glass and it looked terrible. I switched to Windows Classic just like I do with XP. Not so with Aero at its finest though. Without thinking about the price Vista is a nice upgrade to Windows. But because of the price and uncertainty of running Aero Glass I still hesitate to urge non-geeks to upgrade.
+My initial experience with Vista is quite good. Sadly the <a href="http://www.manicai.net/comp/swap-caps-ctrl.html">same old registry hack</a> is required to swap Caps lock and Control but I was just glad it worked. I really like the new Start menu and the eye-candy is fairly pleasant for the most part. Until now I’d only used RC2 on a machine incapable of running Aero Glass and it looked terrible. I switched to Windows Classic just like I do with XP. Not so with Aero at its finest though. Without thinking about the price Vista is a nice upgrade to Windows. But because of the price and uncertainty of running Aero Glass I still hesitate to urge non-geeks to upgrade.
 
 OS X is OS X. It’s my favourite desktop OS right now because of apps like LaunchBar/Quicksilver and TextMate, a generally excellent UI, good old *nix stability, zsh out of the box! When I need WireShark or the GIMP X11 is there waiting.  Mac notebooks are great and tight integration with the hardware is a clear advantage for OS X.
 
 Oh yeah, I also have a Parallels VM for Windows 3.11. It boots in about second to the <tt>C:\&gt;</tt> prompt and then another second to type <tt>win</tt> and Windows to start. Without TCP/IP there’s not much to do though (I’m not going to write a driver for Parallels’ ethernet adapter).
 
-<ol>
-  <li><a id="fn1" name="fn1"></a>
-    <ul>
-      <li>Dual head setups are more work than plugging in a 2nd monitor, which is too much work.
-      <li>X requires a restart to enable or disable a 2nd display.
-      <li>Overall clunkiness such as displaying the houndstooth background before the WM starts,
-      <li>and/or going through a screwed up mode with a black &amp; white scrambled screen for a seconds before getting to the houndstooth.
-    </ul>
-    <a href="#fn1-ret">back up ↑</a>
-</ol>
+  * Dual head setups are more work than plugging in a 2nd monitor, which is too much work.
+
+  * X requires a restart to enable or disable a 2nd display.
+
+  * Overall clunkiness such as displaying the houndstooth background before the WM starts,
+
+  * and/or going through a screwed up mode with a black & white scrambled screen for a seconds before getting to the houndstooth.
 
 Like I said the X.org boys are doing amazing work. Hopefully soon after the current eye-candy craze is over they’ll get to more important work that needs to be done.

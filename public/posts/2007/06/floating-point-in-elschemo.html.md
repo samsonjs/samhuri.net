@@ -3,8 +3,8 @@
 The first task is extending the <code>LispVal</code> type to grok floats.
 
 
-<table class="CodeRay"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+<table class="code"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1<tt>
 </tt>2<tt>
 </tt>3<tt>
 </tt>4<tt>
@@ -18,7 +18,7 @@ The first task is extending the <code>LispVal</code> type to grok floats.
 </tt>12<tt>
 </tt>13<tt>
 </tt>14<tt>
-</tt>15<tt>
+</tt>15 <tt>
 </tt></pre></td>
   <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">type LispInt = Integer<tt>
 </tt>type LispFloat = Float<tt>
@@ -43,14 +43,14 @@ The reason for using the new <code>LispNum</code> type and not just throwing a n
 ElSchemo now parses negative numbers so I'll start with 2 helper functions that are used when parsing both integers and floats:
 
 
-<table class="CodeRay"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+<table class="code"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1<tt>
 </tt>2<tt>
 </tt>3<tt>
 </tt>4<tt>
 </tt>5<tt>
 </tt>6<tt>
-</tt>7<tt>
+</tt>7 <tt>
 </tt></pre></td>
   <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">parseSign :: Parser Char<tt>
 </tt>parseSign = do try (char '-')<tt>
@@ -69,15 +69,15 @@ ElSchemo now parses negative numbers so I'll start with 2 helper functions that 
 Armed with these 2 functions we can now parse floating point numbers in decimal. Conforming to R5RS an optional <code>#d</code> prefix is allowed.
 
 
-<table class="CodeRay"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+<table class="code"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1<tt>
 </tt>2<tt>
 </tt>3<tt>
 </tt>4<tt>
 </tt>5<tt>
 </tt>6<tt>
 </tt>7<tt>
-</tt>8<tt>
+</tt>8 <tt>
 </tt></pre></td>
   <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">parseFloat :: Parser LispVal<tt>
 </tt>parseFloat = do optional (string "#d")<tt>
@@ -95,8 +95,8 @@ The first 6 lines should be clear. Line 7 simply applies the parsed sign to the 
 The last step for parsing is to modify <code>parseExpr</code> to try and parse floats.
 
 
-<table class="CodeRay"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+<table class="code"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1<tt>
 </tt>2<tt>
 </tt>3<tt>
 </tt>4<tt>
@@ -109,7 +109,7 @@ The last step for parsing is to modify <code>parseExpr</code> to try and parse f
 </tt>11<tt>
 </tt>12<tt>
 </tt>13<tt>
-</tt>14<tt>
+</tt>14 <tt>
 </tt></pre></td>
   <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">-- Integers, floats, characters and atoms can all start with a # so wrap those with try.<tt>
 </tt>-- (Left factor the grammar in the future)<tt>
@@ -134,14 +134,14 @@ The last step for parsing is to modify <code>parseExpr</code> to try and parse f
 That's it for parsing, now let's provide a way to display these suckers.  <code>LispVal</code> is an instance of show, where <code>show</code> = <code>showVal</code> so <code>showVal</code> is our first stop.  Remembering that <code>LispVal</code> now has a single <code>Number</code> constructor we modify it accordingly:
 
 
-<table class="CodeRay"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+<table class="code"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1<tt>
 </tt>2<tt>
 </tt>3<tt>
 </tt>4<tt>
 </tt>5<tt>
 </tt>6<tt>
-</tt>7<tt>
+</tt>7 <tt>
 </tt></pre></td>
   <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">showVal (Number n) = showNum n<tt>
 </tt><tt>
@@ -170,8 +170,8 @@ Oops, we don't know how to operate on floats yet!
 Parsing was the easy part.  Operating on the new floats is not necessarily difficult, but it was more work than I realized it would be.  I don't claim that this is the best or the only way to operate on any <code>LispNum</code>, it's just the way I did it and it seems to work.  There's a bunch of boilerplate necessary to make <code>LispNum</code> an instance of the required classes, Eq, Num, Real, and Ord.  I don't think I have done this properly but for now it works.  What is clearly necessary is the code that operates on different types of numbers.  I think I've specified sane semantics for coercion.  This will be very handy shortly.
 
 
-<table class="CodeRay"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+<table class="code"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1<tt>
 </tt>2<tt>
 </tt>3<tt>
 </tt>4<tt>
@@ -240,7 +240,7 @@ Parsing was the easy part.  Operating on the new floats is not necessarily diffi
 </tt>67<tt>
 </tt>68<tt>
 </tt>69<tt>
-</tt><strong>70</strong><tt>
+</tt><strong>70 </strong><tt>
 </tt></pre></td>
   <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">lispNumEq :: LispNum -&gt; LispNum -&gt; Bool<tt>
 </tt>lispNumEq (Integer arg1) (Integer arg2) = arg1 == arg2<tt>
@@ -318,8 +318,8 @@ Parsing was the easy part.  Operating on the new floats is not necessarily diffi
 Phew, ok with that out of the way now we can actually extend our operators to work with any type of <code>LispNum</code>.  Our Scheme operators are defined using the functions <code>numericBinop</code> and <code>numBoolBinop</code>.  First we'll slightly modify our definition of <code>primitives</code>:
 
 
-<table class="CodeRay"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+<table class="code"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1<tt>
 </tt>2<tt>
 </tt>3<tt>
 </tt>4<tt>
@@ -333,7 +333,7 @@ Phew, ok with that out of the way now we can actually extend our operators to wo
 </tt>12<tt>
 </tt>13<tt>
 </tt>14<tt>
-</tt>15<tt>
+</tt>15 <tt>
 </tt></pre></td>
   <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">primitives :: [(String, [LispVal] -&gt; ThrowsError LispVal)]<tt>
 </tt>primitives = [("+", numericBinop (+)),<tt>
@@ -356,8 +356,8 @@ Phew, ok with that out of the way now we can actually extend our operators to wo
 Note that <code>mod</code>, <code>quotient</code>, and <code>remainder</code> are only defined for integers and as such use <code>integralBinop</code>, while division (/) is only defined for floating point numbers using <code>floatBinop</code>.  <code>subtractOp</code> is different to support unary usage, e.g. <code>(- 4) =&gt; -4</code>, but it uses <code>numericBinop</code> internally when more than 1 argument is given.  On to the implementation!  First extend <code>unpackNum</code> to work with any <code>LispNum</code>, and provide separate <code>unpackInt</code> and <code>unpackFloat</code> functions to handle both kinds of <code>LispNum</code>.
 
 
-<table class="CodeRay"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+<table class="code"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1<tt>
 </tt>2<tt>
 </tt>3<tt>
 </tt>4<tt>
@@ -371,7 +371,7 @@ Note that <code>mod</code>, <code>quotient</code>, and <code>remainder</code> ar
 </tt>12<tt>
 </tt>13<tt>
 </tt>14<tt>
-</tt>15<tt>
+</tt>15 <tt>
 </tt></pre></td>
   <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">unpackNum :: LispVal -&gt; ThrowsError LispNum<tt>
 </tt>unpackNum (Number (Integer n)) = return $ Integer n<tt>
@@ -394,8 +394,8 @@ Note that <code>mod</code>, <code>quotient</code>, and <code>remainder</code> ar
 The initial work of separating integers and floats into the <code>LispNum</code> abstraction, and the code I said would be handy shortly, are going to be really handy here.  There's relatively no change in <code>numericBinop</code> except for the type signature.  <code>integralBinop</code> and <code>floatBinop</code> are just specific versions of the same function.  I'm sure there's a nice Haskelly way of doing this with less repetition, and I welcome such corrections.
 
 
-<table class="CodeRay"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+<table class="code"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1<tt>
 </tt>2<tt>
 </tt>3<tt>
 </tt>4<tt>
@@ -412,7 +412,7 @@ The initial work of separating integers and floats into the <code>LispNum</code>
 </tt>15<tt>
 </tt>16<tt>
 </tt>17<tt>
-</tt>18<tt>
+</tt>18 <tt>
 </tt></pre></td>
   <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">numericBinop :: (LispNum -&gt; LispNum -&gt; LispNum) -&gt; [LispVal] -&gt; ThrowsError LispVal<tt>
 </tt>numericBinop op singleVal@[_] = throwError $ NumArgs 2 singleVal<tt>

@@ -1,6 +1,6 @@
 I've been developing a Scheme
 interpreter in Haskell called
-<a href="2007.06.24-floating-point-in-elschemo">ElSchemo</a>.
+<a href="/posts/2007/06/floating-point-in-elschemo">ElSchemo</a>.
 It started from <a href="http://halogen.note.amherst.edu/~jdtang/scheme_in_48/tutorial/overview.html">Jonathan's excellent Haskell
 tutorial</a>
 which I followed in order to learn both Haskell and Scheme.  Basically
@@ -38,15 +38,15 @@ concise language.  My explanations may be redundant because of this.
 ### lispAnd ###
 
 
-<table class="CodeRay"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+<table class="code"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1<tt>
 </tt>2<tt>
 </tt>3<tt>
 </tt>4<tt>
 </tt>5<tt>
 </tt>6<tt>
 </tt>7<tt>
-</tt>8<tt>
+</tt>8 <tt>
 </tt></pre></td>
   <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">lispAnd :: Env -&gt; [LispVal] -&gt; IOThrowsError LispVal<tt>
 </tt>lispAnd env [] = return $ Bool True<tt>
@@ -79,15 +79,15 @@ just complicates things but it's a viable solution.
 Predictably this is quite similar to <code>lispAnd</code>.
 
 
-<table class="CodeRay"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+<table class="code"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1<tt>
 </tt>2<tt>
 </tt>3<tt>
 </tt>4<tt>
 </tt>5<tt>
 </tt>6<tt>
 </tt>7<tt>
-</tt>8<tt>
+</tt>8 <tt>
 </tt></pre></td>
   <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">lispOr :: Env -&gt; [LispVal] -&gt; IOThrowsError LispVal<tt>
 </tt>lispOr env [] = return $ Bool False<tt>
@@ -114,9 +114,9 @@ ElSchemo.  It maps a list of expressions to their values by evaluating
 each one in the given environment.
 
 
-<table class="CodeRay"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
-</tt>2<tt>
+<table class="code"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1<tt>
+</tt>2 <tt>
 </tt></pre></td>
   <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">evalExprs :: Env -&gt; [LispVal] -&gt; IOThrowsError [LispVal]<tt>
 </tt>evalExprs env exprs = mapM (eval env) exprs</pre></td>
@@ -128,13 +128,13 @@ each one in the given environment.
 Again, <code>lispCond</code> has the same type as <code>eval</code>.
 
 
-<table class="CodeRay"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+<table class="code"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1<tt>
 </tt>2<tt>
 </tt>3<tt>
 </tt>4<tt>
 </tt>5<tt>
-</tt>6<tt>
+</tt>6 <tt>
 </tt></pre></td>
   <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">lispCond :: Env -&gt; [LispVal] -&gt; IOThrowsError LispVal<tt>
 </tt>lispCond env (List (pred:conseq) : rest) = do<tt>
@@ -165,10 +165,10 @@ expressions and return the value of the last one.
 Now all that's left is to hook up the new functions in <code>eval</code>.
 
 
-<table class="CodeRay"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+<table class="code"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1<tt>
 </tt>2<tt>
-</tt>3<tt>
+</tt>3 <tt>
 </tt></pre></td>
   <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">eval env (List (Atom "and" : params)) = lispAnd env params<tt>
 </tt>eval env (List (Atom "or" : params)) = lispOr env params<tt>

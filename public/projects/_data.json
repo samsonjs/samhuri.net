@@ -5,6 +5,9 @@
     "/js/store.js",
     "/js/projects.js"
   ],
+  "index": {
+    "title": "Projects"
+  },
   "strftime": {
     "title": "strftime",
     "description": "strftime for JavaScript"

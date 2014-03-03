@@ -27,7 +27,7 @@
 <head>
 
 <% if (typeof title != 'undefined') { -%>
-  <title><%= title %> - <%= site %></title>
+  <title><%= site %>: <%= title %></title>
 <% } else { -%>
   <title><%= site %></title>
 <% } -%>
@@ -60,7 +60,8 @@
   </script>
 </head>
 
-<body>
+<% var bodyClasses = current.path -%>
+<body class="<%= bodyClasses.join(' ') %>">
 
   <header class="primary">
     <div class="title">

@@ -11,22 +11,21 @@ Download those 4 .deb files and install them.  You can ignore any advise to use 
 
 Now that you know what to do I'll give you what you probably wanted at the beginning.  As long as you have wget, subversion, and use a Bourne-like shell this should work for you.
 
-↓ <a href="/f/gtkpod-aac-fix.sh">gtkpod-aac-fix.sh</a>
+&darr; <a href="/f/gtkpod-aac-fix.sh">gtkpod-aac-fix.sh</a>
 
-
-<table class="CodeRay"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
-</tt>2<tt>
-</tt>3<tt>
-</tt>4<tt>
-</tt>5<tt>
-</tt>6<tt>
-</tt>7<tt>
-</tt>8<tt>
-</tt>9<tt>
-</tt><strong>10</strong><tt>
-</tt>11<tt>
-</tt>12<tt>
+<table class="code"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1  <tt>
+</tt>2  <tt>
+</tt>3  <tt>
+</tt>4  <tt>
+</tt>5  <tt>
+</tt>6  <tt>
+</tt>7  <tt>
+</tt>8  <tt>
+</tt>9  <tt>
+</tt>10 <tt>
+</tt>11 <tt>
+</tt>12 <tt>
 </tt></pre></td>
   <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">mkdir /tmp/gtkpod-fix<tt>
 </tt>cd /tmp/gtkpod-fix<tt>

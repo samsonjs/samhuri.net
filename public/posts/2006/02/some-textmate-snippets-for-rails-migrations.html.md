@@ -43,3 +43,43 @@ mrc: **M**igration **R**remove **C**olumn
     remove_column "${1:table}", "${2:column}"
 
 I'll be adding more snippets and macros. There should be a central place where the rails bundle can be improved and extended. Maybe there is...
+
+----
+
+#### Comments
+
+<div id="comment-1" class="comment">
+  <div class="name">
+    <a href="http://blog.inquirylabs.com/">Duane Johnson</a>
+  </div>
+  <span class="date" title="2006-02-19 06:48:00 -0800">Feb 19, 2006</span>
+  <div class="body">
+    <p>This looks great!  I agree, we should have some sort of central place for these things, and
+    preferably something that's not under the management of the core Rails team as they have too
+    much to worry about already.</p>
+
+    <p>Would you mind if I steal your snippets and put them in the syncPeople on Rails bundle?</p>
+  </div>
+</div>
+
+<div id="comment-2" class="comment">
+  <div class="name">
+    <a href="http://samhuri.net">Sami Samhuri</a>
+  </div>
+  <span class="date" title="2006-02-19 18:48:00 -0800">Feb 19, 2006</span>
+  <div class="body">
+    <p>Not at all. I'm excited about this bundle you've got. Keep up the great work.</p>
+  </div>
+</div>
+
+<div id="comment-3" class="comment">
+  <div class="name">
+    <a href="http://blog.inquirylabs.com/">Duane Johnson</a>
+  </div>
+  <span class="date" title="2006-02-20 02:48:00 -0800">Feb 20, 2006</span>
+  <div class="body">
+    <p>Just added the snippets, Sami.  I'll try to make a release tonight.  Great work, and keep it coming!</p>
+
+    <p>P.S.  I tried several ways to get the combo-snippets to put the pieces inside the right functions but failed.  We'll see tomorrow if Allan (creator of TextMate) has any ideas.</p>
+  </div>
+</div>

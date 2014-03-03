@@ -11,7 +11,7 @@
     "author": "Sami Samhuri",
     "url": "/posts/2007/04/a-triple-booting-schizophrenic-macbook"
   },
-  "activerecord-base.find_or_create-and-find_or_initialize": {
+  "activerecord-base_find_or_create-and-find_or_initialize": {
     "title": "ActiveRecord::Base.find_or_create and find_or_initialize",
     "date": "April 11, 2007",
     "timestamp": 1176287040,
@@ -22,7 +22,7 @@
       "ruby"
     ],
     "author": "Sami Samhuri",
-    "url": "/posts/2007/04/activerecord-base.find_or_create-and-find_or_initialize"
+    "url": "/posts/2007/04/activerecord-base_find_or_create-and-find_or_initialize"
   },
   "getting-to-know-vista": {
     "title": "Getting to know Vista",

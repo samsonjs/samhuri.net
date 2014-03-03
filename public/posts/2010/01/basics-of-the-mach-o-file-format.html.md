@@ -1,6 +1,6 @@
 <p><i>This post is part of a series on generating basic x86 Mach-O files
 with Ruby.  The
-<a href="2010.01.17-working-with-c-style-structs-in-ruby">
+<a href="/posts/2010/01/working-with-c-style-structs-in-ruby">
 first post</a> introduced CStruct, a Ruby class used to serialize
 simple struct-like objects.</i></p>
 
@@ -43,9 +43,9 @@ diagram showing the layout of such a file:</p>
   Header    |  Mach header              |
             |    Segment 1              |
             |      Section 1 (__text)   | --,
-            |---------------------------|   | 
+            |---------------------------|   |
   Data      |           blob            | &lt;-'
-            '---------------------------'      
+            '---------------------------'
 </pre>
 
 
@@ -58,7 +58,7 @@ Mach header fire up a shell and type <tt>otool -h /bin/zsh</tt> (on a
 Mac).</p>
 
 <p>Using
-<a href="2010.01.17-working-with-c-style-structs-in-ruby">
+<a href="/posts/2010/01/working-with-c-style-structs-in-ruby">
 CStruct</a> we define the Mach header like so:</p>
 
 <script src="http://gist.github.com/280635.js"></script>
@@ -155,4 +155,4 @@ segment (nsects=1), and then a section named __text with a segment
 name of __TEXT, and some x86 machine code as the section data, you
 would almost have a useful Mach object file.)</i></p>
 
-<p>Till next time, happy hacking!</p>
+<p>Until next time, happy hacking!</p>

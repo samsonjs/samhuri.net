@@ -1,4 +1,4 @@
-It's been a little while since I wrote about Haskell and the <a href="2007.05.03-a-scheme-parser-in-haskell-part-1">Scheme interpreter</a> I've been using to learn and play with both Haskell and Scheme. I finished the tutorial and got myself a working Scheme interpreter and indeed it has been fun to use it for trying out little things now and then. (Normally I would use Emacs or Dr. Scheme for that sort of thing.) There certainly are <a href="http://www.lshift.net/blog/2007/06/11/folds-and-continuation-passing-style">interesting things</a> to try floating around da intranet. And also things to read and learn from, such as <a href="http://cubiclemuses.com/cm/blog/tags/Misp">misp</a> (via <a href="http://moonbase.rydia.net/mental/blog/programming/misp-is-a-lisp">Moonbase</a>).
+It's been a little while since I wrote about Haskell and the <a href="/posts/2007/05/a-scheme-parser-in-haskell-part-1">Scheme interpreter</a> I've been using to learn and play with both Haskell and Scheme. I finished the tutorial and got myself a working Scheme interpreter and indeed it has been fun to use it for trying out little things now and then. (Normally I would use Emacs or Dr. Scheme for that sort of thing.) There certainly are <a href="http://www.lshift.net/blog/2007/06/11/folds-and-continuation-passing-style">interesting things</a> to try floating around da intranet. And also things to read and learn from, such as <a href="http://cubiclemuses.com/cm/blog/tags/Misp">misp</a> (via <a href="http://moonbase.rydia.net/mental/blog/programming/misp-is-a-lisp">Moonbase</a>).
 
 *I'm going to describe two new features of my Scheme in this post. The second one is more interesting and was more fun to implement (cond).*
 
@@ -12,7 +12,7 @@ In order to parse binary digits we need to write a few short functions to help u
 
 <pre><code>-- parse a binary digit, analagous to decDigit, octDigit, hexDigit
 binDigit :: Parser Char
-binDigit = oneOf "01" 
+binDigit = oneOf "01"
 
 -- analogous to isDigit, isOctdigit, isHexDigit
 isBinDigit :: Char - Bool
@@ -54,8 +54,8 @@ The trickiest part of all this was figuring out how to use the various <code>rea
 It still takes me some time to knit together meaningful Haskell statements. Tonight I spent said time cobbling together an implementation of <a href="http://schemers.org/Documents/Standards/R5RS/HTML/r5rs-Z-H-7.html#%_sec_4.1.5">cond</a> as a new special form. Have a look at the code. The explanation follows.
 
 
-<table class="CodeRay"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+<table class="code"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1<tt>
 </tt>2<tt>
 </tt>3<tt>
 </tt>4<tt>
@@ -63,7 +63,7 @@ It still takes me some time to knit together meaningful Haskell statements. Toni
 </tt>6<tt>
 </tt>7<tt>
 </tt>8<tt>
-</tt>9<tt>
+</tt>9 <tt>
 </tt></pre></td>
   <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">eval env (List (Atom "cond" : List (Atom "else" : exprs) : [])) =<tt>
 </tt>    liftM last $ mapM (eval env) exprs<tt>

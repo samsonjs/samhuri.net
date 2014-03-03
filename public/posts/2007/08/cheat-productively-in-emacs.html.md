@@ -1,4 +1,4 @@
-By now you may have heard about <a href="http://cheat.errtheblog.com/">cheat</a>, the command line cheat sheet collection that's completely open to editing, wiki style.  A couple of weeks ago I posted <a href="2007.08.10-cheat-from-emacs">cheat.el</a> which allows one to cheat from within Emacs.  There's an update.  However, before I get to cheat.el there's a small detour.
+By now you may have heard about <a href="http://cheat.errtheblog.com/">cheat</a>, the command line cheat sheet collection that's completely open to editing, wiki style.  A couple of weeks ago I posted <a href="/posts/2007/08/cheat-from-emacs">cheat.el</a> which allows one to cheat from within Emacs.  There's an update.  However, before I get to cheat.el there's a small detour.
 
 Cheat is not just about Ruby!  A few examples of cheats available are:
 
@@ -18,4 +18,4 @@ So what's new in this version of cheat.el?  <strong>Completion!</strong>  The on
 
 Download it now: <a href="/f/cheat.el">cheat.el</a>
 
-For any newcomers, just drop this into <code>~/.emacs.d</code>, <code>~/.elisp</code>, or any directory in your <code>load-path</code> and then <code>(require 'cheat)</code>.  For more info check the <a href="2007.08.09-cheat-from-emacs">original article</a> for a rundown on the cheat commands.
+For any newcomers, just drop this into <code>~/.emacs.d</code>, <code>~/.elisp</code>, or any directory in your <code>load-path</code> and then <code>(require 'cheat)</code>.  For more info check the <a href="/posts/2007/08/cheat-from-emacs">original article</a> for a rundown on the cheat commands.

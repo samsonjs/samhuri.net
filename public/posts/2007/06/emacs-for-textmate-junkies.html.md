@@ -7,14 +7,14 @@
 Despite my current infatuation with Emacs there are many reasons I started using TextMate, especially little time-savers that are very addictive. I'll talk about one of those features tonight. When you have text selected in TextMate and you hit say the <code>'</code> (single quote) then TextMate will surround the selected text with single quotes. The same goes for double quotes, parentheses, brackets, and braces. This little trick is one of my favourites so I had to come up with something similar in Emacs. It was easy since a <a href="http://osdir.com/ml/emacs.nxml.general/2005-08/msg00002.html">mailing list post</a> has a solution for surrounding the current region with tags, which served as a great starting point.
 
 
-<table class="CodeRay"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+<table class="code"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1<tt>
 </tt>2<tt>
 </tt>3<tt>
 </tt>4<tt>
 </tt>5<tt>
 </tt>6<tt>
-</tt>7<tt>
+</tt>7 <tt>
 </tt></pre></td>
   <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">(defun surround-region-with-tag (tag-name beg end)<tt>
 </tt>      (interactive "sTag name: \nr")<tt>
@@ -29,8 +29,8 @@ Despite my current infatuation with Emacs there are many reasons I started using
 With a little modification I now have the following in my ~/.emacs file:
 
 
-<table class="CodeRay"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+<table class="code"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1<tt>
 </tt>2<tt>
 </tt>3<tt>
 </tt>4<tt>
@@ -76,7 +76,7 @@ With a little modification I now have the following in my ~/.emacs file:
 </tt>44<tt>
 </tt>45<tt>
 </tt>46<tt>
-</tt>47<tt>
+</tt>47 <tt>
 </tt></pre></td>
   <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">;; help out a TextMate junkie<tt>
 </tt><tt>

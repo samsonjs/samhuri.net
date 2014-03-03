@@ -14,7 +14,7 @@
 
 <p align="center"><a href="/f/zelda-tones.zip">Get the Zelda tones</a></p>
 
-<ul>
+<ul class="audio">
   <li><audio controls><source src="/f/zelda-tones/Zelda Theme.mp3" type="audio/mpeg"></audio> Theme</li>
   <li><audio controls><source src="/f/zelda-tones/Zelda Overture.mp3" type="audio/mpeg"></audio> Overworld overture</li>
   <li><audio controls><source src="/f/zelda-tones/Zelda Song of Storms.mp3" type="audio/mpeg"></audio> Song of Storms</li>
@@ -29,7 +29,7 @@
 <p>The second pack is two Pacman tones.</p>
 <p align="center"><a href="/f/pacman-tones.zip">Get the Pacman tones</a></p>
 
-<ul>
+<ul class="audio">
   <li><audio controls><source src="/f/pacman-tones/Pacman.mp3" type="audio/mpeg"></audio> Pacman starts</li>
   <li><audio controls><source src="/f/pacman-tones/Pacman Dies.mp3" type="audio/mpeg"></audio> Pacman dies</li>
 </ul>
@@ -45,7 +45,7 @@
   performed by the <a href="http://www.lpo.co.uk">London Philharmonic Orchestra</a>.
 </p>
 
-<ul><li><audio controls><source src="/f/Carmina Burana - O Fortuna.mp3" type="audio/mpeg"></audio> O Fortuna</li></ul>
+<ul class="audio"><li><audio controls><source src="/f/Carmina Burana - O Fortuna.mp3" type="audio/mpeg"></audio> O Fortuna</li></ul>
 
 <p align="center"><a href="/f/Carmina Burana - O Fortuna.m4r">Get the O Fortuna ringtone</a></p>
 

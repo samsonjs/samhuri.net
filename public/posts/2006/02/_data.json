@@ -140,7 +140,7 @@
       "typocode"
     ]
   },
-  "intelligent-migration-snippets-0.1-for-textmate": {
+  "intelligent-migration-snippets-0_1-for-textmate": {
     "title": "Intelligent Migration Snippets 0.1 for TextMate",
     "date": "February 22, 2006",
     "timestamp": 1140607680,
@@ -153,9 +153,9 @@
       "snippets"
     ],
     "author": "Sami Samhuri",
-    "url": "/posts/2006/02/intelligent-migration-snippets-0.1-for-textmate"
+    "url": "/posts/2006/02/intelligent-migration-snippets-0_1-for-textmate"
   },
-  "sjs-rails-bundle-0.2-for-textmate": {
+  "sjs-rails-bundle-0_2-for-textmate": {
     "title": "SJ's Rails Bundle 0.2 for TextMate",
     "date": "February 23, 2006",
     "timestamp": 1140743880,
@@ -170,7 +170,7 @@
       "textmate"
     ],
     "author": "Sami Samhuri",
-    "url": "/posts/2006/02/sjs-rails-bundle-0.2-for-textmate",
+    "url": "/posts/2006/02/sjs-rails-bundle-0_2-for-textmate",
     "styles": [
       "typocode"
     ]

@@ -24,7 +24,7 @@
     "author": "Sami Samhuri",
     "url": "/posts/2007/03/digg-v4-reply-to-replies-greasemonkey-script"
   },
-  "diggscuss-0.9": {
+  "diggscuss-0_9": {
     "title": "Diggscuss 0.9",
     "date": "March 25, 2007",
     "timestamp": 1174834980,
@@ -35,6 +35,6 @@
       "userscript"
     ],
     "author": "Sami Samhuri",
-    "url": "/posts/2007/03/diggscuss-0.9"
+    "url": "/posts/2007/03/diggscuss-0_9"
   }
 }

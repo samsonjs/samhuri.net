@@ -3,7 +3,7 @@ This last week I've been getting to know <a href="http://chneukirchen.org/blog/a
 I did hit a little snag with functional testing though. The method of declaring which controller to use takes the form:
 
 
-<table class="CodeRay"><tr>
+<table class="code"><tr>
   <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre><tt>
 </tt></pre></td>
   <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">use_controller <span class="sy">:foo</span></pre></td>
@@ -13,8 +13,8 @@ I did hit a little snag with functional testing though. The method of declaring 
 and can be placed in the <code>setup</code> method, like so:
 
 
-<table class="CodeRay"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+<table class="code"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1<tt>
 </tt>2<tt>
 </tt>3<tt>
 </tt>4<tt>
@@ -28,7 +28,7 @@ and can be placed in the <code>setup</code> method, like so:
 </tt>12<tt>
 </tt>13<tt>
 </tt>14<tt>
-</tt>15<tt>
+</tt>15 <tt>
 </tt></pre></td>
   <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }"><span class="c"># in test/functional/sessions_controller_test.rb</span><tt>
 </tt><tt>
@@ -51,8 +51,8 @@ and can be placed in the <code>setup</code> method, like so:
 This is great and the test will work. But let's say that I have another controller that guests can access:
 
 
-<table class="CodeRay"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1<tt>
+<table class="code"><tr>
+  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1<tt>
 </tt>2<tt>
 </tt>3<tt>
 </tt>4<tt>
@@ -64,7 +64,7 @@ This is great and the test will work. But let's say that I have another controll
 </tt><strong>10</strong><tt>
 </tt>11<tt>
 </tt>12<tt>
-</tt>13<tt>
+</tt>13 <tt>
 </tt></pre></td>
   <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }"><span class="c"># in test/functional/foo_controller_test.rb</span><tt>
 </tt><tt>

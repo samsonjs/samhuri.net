@@ -1,6 +1,6 @@
-<p><strong>UPDATE:</strong> <em>This is obsolete, see <a href="2006.02.21-textmate-insert-text-into-self-down">this post</a> for a better solution.</em></p>
+<p><strong>UPDATE:</strong> <em>This is obsolete, see <a href="/posts/2006/02/textmate-insert-text-into-self-down">this post</a> for a better solution.</em></p>
 
-<p><a href="2006.02.18-some-textmate-snippets-for-rails-migrations.html#comment-3">Duane's comment</a> prompted me to think about how to get the <code>drop_table</code> and <code>remove_column</code> lines inserted in the right place. I don't think TextMate's snippets are built to do this sort of text manipulation. It would be nicer, but a quick hack will suffice for now.</p><p>Use <acronym title="Migration Create and Drop Table">MCDT</acronym> to insert:</p>
+<p><a href="/posts/2006/02/some-textmate-snippets-for-rails-migrations.html#comment-3">Duane's comment</a> prompted me to think about how to get the <code>drop_table</code> and <code>remove_column</code> lines inserted in the right place. I don't think TextMate's snippets are built to do this sort of text manipulation. It would be nicer, but a quick hack will suffice for now.</p><p>Use <acronym title="Migration Create and Drop Table">MCDT</acronym> to insert:</p>
 
 <div class="typocode"><pre><code class="typocode_ruby "><span class="ident">create_table</span> <span class="punct">"</span><span class="string">table</span><span class="punct">"</span> <span class="keyword">do</span> <span class="punct">|</span><span class="ident">t</span><span class="punct">|</span>
 
