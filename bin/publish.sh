@@ -12,10 +12,9 @@ PUBLISH_HOST="samhuri.net"
 PUBLISH_DIR="samhuri.net/public"
 ECHO=0
 RSYNC_OPTS=""
-RSYNC_DELETE=0
 
 BREAK_WHILE=0
-while [[ $# > 1 ]]; do
+while [[ $# > 0 ]]; do
   ARG="$1"
   case "$ARG" in
 
@@ -31,7 +30,6 @@ while [[ $# > 1 ]]; do
       ;;
 
     -d|--delete)
-      RSYNC_DELETE=1
       RSYNC_OPTS="$RSYNC_OPTS --delete"
       shift
       ;;
@@ -48,7 +46,7 @@ while [[ $# > 1 ]]; do
 done
 
 if [[ $# -eq 0 ]]; then
-  CMD=rsync -aKv $RSYNC_OPTS www/ "$PUBLISH_HOST":"$PUBLISH_DIR"
+  CMD="rsync -aKv $RSYNC_OPTS www/ $PUBLISH_HOST:$PUBLISH_DIR"
 else
   CMD="rsync -aKv $RSYNC_OPTS $@ $PUBLISH_HOST:$PUBLISH_DIR"
 fi
