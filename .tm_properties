@@ -1,1 +1,1 @@
-exclude = "{$exclude,www,node_modules,tweets}"
+exclude = "{$exclude,www,node_modules,tweets,wayback}"
