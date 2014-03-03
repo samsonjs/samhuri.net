@@ -111,7 +111,7 @@ two underscores, e.g. __bss or __text</p>
 <h2>macho.rb</h2>
 
 <p>As much of the Mach-O format as we need is defined in
-<a href="http://github.com/samsonjs/compiler/blob/master/asm/macho.rb">
+<a href="http://github.com/samsonjs/compiler/blob/20c758ae85daa5cfa0ad9276c6633b78e982f8b4/asm/macho.rb">
 asm/macho.rb</a>.  The Mach header, Segment commands, sections,
 relocation tables, and symbol table structs are all there, with a few
 constants as well.</p>
