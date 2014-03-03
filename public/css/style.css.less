@@ -97,6 +97,8 @@ header.primary {
   background-color: darken(@text, 5%);
   color: @background;
   padding: 0.4rem 0.8rem;
+  border-bottom: solid 1px lighten(@text, 40%);
+  box-shadow: 0 0 12px 2px @text;
 
   .title {
     float: left;
@@ -168,9 +170,10 @@ footer {
   border-top: solid 1px lighten(@text, 70%);
   padding: 1rem 0;
   text-align: center;
+  color: lighten(@text, 30%);
 
   a, a:visited {
-    color: @text;
+    color: lighten(@text, 30%);
   }
 }
 
