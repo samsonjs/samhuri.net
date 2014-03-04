@@ -67,7 +67,7 @@
     <div class="title">
       <h1><a href="/"><%= site %></a></h1>
       <br>
-      <h4>By <%= author %></h4>
+      <h4>By <a href="/about"><%= author %></a></h4>
     </div>
 
     <nav>
@@ -114,7 +114,7 @@
   <% } -%>
 
   <footer class="container">
-    &copy; 2006 - <%= new Date().getFullYear() %> <a href="mailto:<%= email %>"><%= author %></a>
+    &copy; 2006 - <%= new Date().getFullYear() %> <a href="/about"><%= author %></a>
   </footer>
 
 <% for (var i in allScripts) { -%>
