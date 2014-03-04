@@ -88,9 +88,10 @@
       <header>
         <h2><a href="<%= link %>">&rarr; <%= title %></a></h2>
         <time><%= date %></time>
+        <a class="permalink" href="<%= url %>">&infin;</a>
       </header>
       <%- yield %>
-      <p><a class="permalink" href="<%= url %>">&infin;</a></p>
+      <p class="fin"><i class="fa fa-code"></i></p>
     </article>
   <% } else if (typeof date != 'undefined') { -%>
     <article class="container">
@@ -99,18 +100,21 @@
         <time><%= date %></time>
       </header>
       <%- yield %>
+      <p class="fin"><i class="fa fa-code"></i></p>
     </article>
   <% } else if (typeof title != 'undefined') { -%>
-    <div class="container">
+    <article class="container">
       <h2><%= title %></h2>
       <%- yield %>
       <div class="clearfix">
-    </div>
+      <p class="fin"><i class="fa fa-code"></i></p>
+    </article>
   <% } else { -%>
-    <div class="container">
+    <article class="container">
       <%- yield %>
       <div class="clearfix">
-    </div>
+      <p class="fin"><i class="fa fa-code"></i></p>
+    </article>
   <% } -%>
 
   <footer class="container">

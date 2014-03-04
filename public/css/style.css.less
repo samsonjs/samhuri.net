@@ -214,7 +214,6 @@ header.primary {
 }
 
 footer {
-  border-top: solid 1px lighten(@text, 70%);
   padding: 1rem 0;
   text-align: center;
   color: lighten(@text, 30%);
@@ -330,8 +329,28 @@ body.projects:not(.index) .container {
  * Posts
  */
 
-article header h2 {
-  word-wrap: break-word;
+article {
+
+  header {
+
+    h2 {
+      word-wrap: break-word;
+      margin-bottom: 0.3rem;
+    }
+
+    time {
+      margin-top: 0.3rem;
+      color: lighten(@text, 35%);
+    }
+
+  }
+
+  p.fin {
+    text-align: center;
+    color: darken(@background, 20%);
+    margin: 1rem 0;
+  }
+
 }
 
 blockquote {
