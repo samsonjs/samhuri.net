@@ -46,9 +46,9 @@
 
 The macro I'm thinking of to invoke this is tab-triggered and will simply:
 <ul>
-<li>Select word (<tt><strong>⌃W</strong></tt>)</li>
-	<li>Delete (<tt><strong>⌫</strong></tt>)</li>
-	<li>Select to end of file (<tt><strong>⇧⌘↓</strong></tt>)</li>
+<li>Select word (<code><strong>⌃W</strong></code>)</li>
+	<li>Delete (<code><strong>⌫</strong></code>)</li>
+	<li>Select to end of file (<code><strong>⇧⌘↓</strong></code>)</li>
 	<li>Run command "Put in self.down"</li>
 </ul>
 

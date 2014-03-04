@@ -42,13 +42,11 @@
     background-color:#eee;
     padding:2px;
     margin:5px;
-    margin-left:1em;
-    margin-bottom:1em;
 }
 
 .typocode pre {
-    padding: 0px;
-    margin: 0px;
+    padding: 0.2rem 0.5rem;
+    margin: 0;
     border: none;
     background: transparent;
     font-family: monospace;
@@ -58,20 +56,7 @@
 
 .typocode .lineno {
     text-align: right;
-    /*  color: #B00;*/
+    color: #B00;
     font-family: monospace;
-    padding-right: 1em;
-}
-
-code {
-  font-family: "Andale Mono", "Lucida Typewriter", "Bitstream Vera Sans Mono", fixed-width, monospace;
-  font-size: 0.9em;
-}
-
-pre {
-  background: #555;
-  border: 1px dashed #5189ea;
-  margin-bottom: 30px;
-  margin-top: -10px;
-  padding: 5px;
+    padding-right: 1rem;
 }

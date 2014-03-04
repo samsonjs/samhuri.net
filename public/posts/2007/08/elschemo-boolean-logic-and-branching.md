@@ -38,25 +38,23 @@ concise language.  My explanations may be redundant because of this.
 ### lispAnd ###
 
 
-<table class="code"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1<tt>
-</tt>2<tt>
-</tt>3<tt>
-</tt>4<tt>
-</tt>5<tt>
-</tt>6<tt>
-</tt>7<tt>
-</tt>8 <tt>
-</tt></pre></td>
-  <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">lispAnd :: Env -&gt; [LispVal] -&gt; IOThrowsError LispVal<tt>
-</tt>lispAnd env [] = return $ Bool True<tt>
-</tt>lispAnd env [pred] = eval env pred<tt>
-</tt>lispAnd env (pred:rest) = do<tt>
-</tt>    result &lt;- eval env pred<tt>
-</tt>    case result of<tt>
-</tt>      Bool False -&gt; return result<tt>
-</tt>      _ -&gt; lispAnd env rest</pre></td>
-</tr></table>
+<pre class="line-numbers">1
+2
+3
+4
+5
+6
+7
+8 
+</pre>
+<pre><code>lispAnd :: Env -&gt; [LispVal] -&gt; IOThrowsError LispVal
+lispAnd env [] = return $ Bool True
+lispAnd env [pred] = eval env pred
+lispAnd env (pred:rest) = do
+    result &lt;- eval env pred
+    case result of
+      Bool False -&gt; return result
+      _ -&gt; lispAnd env rest</code></pre>
 
 
 Starting with the trivial case, <code>and</code> returns <code>#t</code> with zero
@@ -79,25 +77,23 @@ just complicates things but it's a viable solution.
 Predictably this is quite similar to <code>lispAnd</code>.
 
 
-<table class="code"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1<tt>
-</tt>2<tt>
-</tt>3<tt>
-</tt>4<tt>
-</tt>5<tt>
-</tt>6<tt>
-</tt>7<tt>
-</tt>8 <tt>
-</tt></pre></td>
-  <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">lispOr :: Env -&gt; [LispVal] -&gt; IOThrowsError LispVal<tt>
-</tt>lispOr env [] = return $ Bool False<tt>
-</tt>lispOr env [pred] = eval env pred<tt>
-</tt>lispOr env (pred:rest) = do<tt>
-</tt>    result &lt;- eval env pred<tt>
-</tt>    case result of<tt>
-</tt>        Bool False -&gt; lispOr env rest<tt>
-</tt>        _ -&gt; return result</pre></td>
-</tr></table>
+<pre class="line-numbers">1
+2
+3
+4
+5
+6
+7
+8 
+</pre>
+<pre><code>lispOr :: Env -&gt; [LispVal] -&gt; IOThrowsError LispVal
+lispOr env [] = return $ Bool False
+lispOr env [pred] = eval env pred
+lispOr env (pred:rest) = do
+    result &lt;- eval env pred
+    case result of
+        Bool False -&gt; lispOr env rest
+        _ -&gt; return result</code></pre>
 
 
 With no arguments <code>lispOr</code> returns <code>#f</code>, and with one argument it
@@ -114,13 +110,11 @@ ElSchemo.  It maps a list of expressions to their values by evaluating
 each one in the given environment.
 
 
-<table class="code"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1<tt>
-</tt>2 <tt>
-</tt></pre></td>
-  <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">evalExprs :: Env -&gt; [LispVal] -&gt; IOThrowsError [LispVal]<tt>
-</tt>evalExprs env exprs = mapM (eval env) exprs</pre></td>
-</tr></table>
+<pre class="line-numbers">1
+2 
+</pre>
+<pre><code>evalExprs :: Env -&gt; [LispVal] -&gt; IOThrowsError [LispVal]
+evalExprs env exprs = mapM (eval env) exprs</code></pre>
 
 
 ### lispCond ###
@@ -128,21 +122,19 @@ each one in the given environment.
 Again, <code>lispCond</code> has the same type as <code>eval</code>.
 
 
-<table class="code"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1<tt>
-</tt>2<tt>
-</tt>3<tt>
-</tt>4<tt>
-</tt>5<tt>
-</tt>6 <tt>
-</tt></pre></td>
-  <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">lispCond :: Env -&gt; [LispVal] -&gt; IOThrowsError LispVal<tt>
-</tt>lispCond env (List (pred:conseq) : rest) = do<tt>
-</tt>    result &lt;- eval env pred<tt>
-</tt>    case result of<tt>
-</tt>        Bool False -&gt; if null rest then return result else lispCond env rest<tt>
-</tt>        _ -&gt; liftM last $ evalExprs env conseq</pre></td>
-</tr></table>
+<pre class="line-numbers">1
+2
+3
+4
+5
+6 
+</pre>
+<pre><code>lispCond :: Env -&gt; [LispVal] -&gt; IOThrowsError LispVal
+lispCond env (List (pred:conseq) : rest) = do
+    result &lt;- eval env pred
+    case result of
+        Bool False -&gt; if null rest then return result else lispCond env rest
+        _ -&gt; liftM last $ evalExprs env conseq</code></pre>
 
 
 Unlike Lisp – which uses a predicate of <code>T</code> (true) – Scheme uses a
@@ -165,15 +157,13 @@ expressions and return the value of the last one.
 Now all that's left is to hook up the new functions in <code>eval</code>.
 
 
-<table class="code"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1<tt>
-</tt>2<tt>
-</tt>3 <tt>
-</tt></pre></td>
-  <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">eval env (List (Atom "and" : params)) = lispAnd env params<tt>
-</tt>eval env (List (Atom "or" : params)) = lispOr env params<tt>
-</tt>eval env (List (Atom "cond" : params)) = lispCond env params</pre></td>
-</tr></table>
+<pre class="line-numbers">1
+2
+3 
+</pre>
+<pre><code>eval env (List (Atom "and" : params)) = lispAnd env params
+eval env (List (Atom "or" : params)) = lispOr env params
+eval env (List (Atom "cond" : params)) = lispCond env params</code></pre>
 
 
 You could, of course, throw the entire definitions in <code>eval</code> itself but <code>eval</code> is big

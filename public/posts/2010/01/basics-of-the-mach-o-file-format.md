@@ -54,7 +54,7 @@ diagram showing the layout of such a file:</p>
 <p>The Mach header contains the architecture (cpu type), the type of
 file (object in our case), and the number of segments.  There is more
 to it but that's about all we care about.  To see exactly what's in a
-Mach header fire up a shell and type <tt>otool -h /bin/zsh</tt> (on a
+Mach header fire up a shell and type <code>otool -h /bin/zsh</code> (on a
 Mac).</p>
 
 <p>Using
@@ -122,18 +122,18 @@ constants as well.</p>
 <h2>Looking at real Mach-O files</h2>
 
 <p>To see the segments and sections of an object file, run
-<tt>otool -l /usr/lib/crt1.o</tt>.  <b>-l</b> is for load commands.
+<code>otool -l /usr/lib/crt1.o</code>.  <b>-l</b> is for load commands.
 If you want to see why we stick to generating object files instead of
-executables run <tt>otool -l /bin/zsh</tt>.  They are complicated
+executables run <code>otool -l /bin/zsh</code>.  They are complicated
 beasts.</p>
 
 <p>If you want to see the actual data for a section otool provides a
 couple of ways to do this.  The first is to use
-<tt>otool -d &lt;segment&gt; &lt;section&gt;</tt> for an arbitrary
+<code>otool -d &lt;segment&gt; &lt;section&gt;</code> for an arbitrary
 section.  To see the contents of a well-known section, such as __text
-in the __TEXT segment, use <tt>otool -t /usr/bin/true</tt>.  You can
+in the __TEXT segment, use <code>otool -t /usr/bin/true</code>.  You can
 also disassemble the __text section with
-<tt>otool -tv /usr/bin/true</tt>.</p>
+<code>otool -tv /usr/bin/true</code>.</p>
 
 <p>You'll get to know otool quite well if you work with Mach-O.</p>
 

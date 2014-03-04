@@ -62,7 +62,7 @@ class Blag
 
   def find_post dir, slug
     # technically should look for slug.md, slug.html.md, etc.
-    File.join dir, slug + '.html.md'
+    File.join dir, slug + '.md'
   end
 
   def posts

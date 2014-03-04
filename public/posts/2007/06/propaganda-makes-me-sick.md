@@ -1,6 +1,6 @@
 Things <a href="http://arstechnica.com/news.ars/post/20070625-spying-on-campus-fbi-warns-mit-harvard.html">like this</a> in modern times are surprising. Can't people spot this phony crap for what it is?
 
-<tt>First they put away the dealers, keep our kids safe and off the streets<br>
+<code>First they put away the dealers, keep our kids safe and off the streets<br>
 Then they put away the prostitutes, keep married men cloistered at home<br>
 Then they shooed away the bums, and they beat and bashed the queers<br>
 Turned away asylum-seekers, fed us suspicions and fears<br>
@@ -26,5 +26,5 @@ And piss, while sucking on a giant pacifier<br>
 A country of adult infants, a legion of mental midgets<br>
 A country of adult infants, a country of adult infants<br>
 All regaining their unconsciousness<br>
-</tt>
+</code>
 —from the song <a href="http://www.nofxwiki.net/w/Lyrics:Regaining_Unconsciousness_%28song%29">Regaining Unconsciousness</a>, by <a href="http://www.nofx.org/">NOFX</a>

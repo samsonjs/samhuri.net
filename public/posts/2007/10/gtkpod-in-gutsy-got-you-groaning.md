@@ -13,30 +13,29 @@ Now that you know what to do I'll give you what you probably wanted at the begin
 
 &darr; <a href="/f/gtkpod-aac-fix.sh">gtkpod-aac-fix.sh</a>
 
-<table class="code"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1  <tt>
-</tt>2  <tt>
-</tt>3  <tt>
-</tt>4  <tt>
-</tt>5  <tt>
-</tt>6  <tt>
-</tt>7  <tt>
-</tt>8  <tt>
-</tt>9  <tt>
-</tt>10 <tt>
-</tt>11 <tt>
-</tt>12 <tt>
-</tt></pre></td>
-  <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">mkdir /tmp/gtkpod-fix<tt>
-</tt>cd /tmp/gtkpod-fix<tt>
-</tt>wget http://ftp.uni-kl.de/debian-multimedia/pool/main/libm/libmpeg4ip/libmp4v2-0_1.5.0.1-0.3_amd64.deb<tt>
-</tt>wget http://ftp.uni-kl.de/debian-multimedia/pool/main/libm/libmpeg4ip/libmp4v2-dev_1.5.0.1-0.3_amd64.deb<tt>
-</tt>wget http://ftp.uni-kl.de/debian-multimedia/pool/main/libm/libmpeg4ip/libmpeg4ip-0_1.5.0.1-0.3_amd64.deb<tt>
-</tt>wget http://ftp.uni-kl.de/debian-multimedia/pool/main/libm/libmpeg4ip/libmpeg4ip-dev_1.5.0.1-0.3_amd64.deb<tt>
-</tt>for f in *.deb; do sudo gdebi -n "$f"; done<tt>
-</tt>svn co https://gtkpod.svn.sourceforge.net/svnroot/gtkpod/gtkpod/trunk gtkpod<tt>
-</tt>cd gtkpod<tt>
-</tt>./autogen.sh --with-mp4v2 &amp;&amp; make &amp;&amp; sudo make install<tt>
-</tt>cd<tt>
-</tt>rm -rf /tmp/gtkpod-fix</pre></td>
-</tr></table>
+<pre class="line-numbers">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre>
+
+<pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }"><code>mkdir /tmp/gtkpod-fix
+cd /tmp/gtkpod-fix
+wget http://ftp.uni-kl.de/debian-multimedia/pool/main/libm/libmpeg4ip/libmp4v2-0_1.5.0.1-0.3_amd64.deb
+wget http://ftp.uni-kl.de/debian-multimedia/pool/main/libm/libmpeg4ip/libmp4v2-dev_1.5.0.1-0.3_amd64.deb
+wget http://ftp.uni-kl.de/debian-multimedia/pool/main/libm/libmpeg4ip/libmpeg4ip-0_1.5.0.1-0.3_amd64.deb
+wget http://ftp.uni-kl.de/debian-multimedia/pool/main/libm/libmpeg4ip/libmpeg4ip-dev_1.5.0.1-0.3_amd64.deb
+for f in *.deb; do sudo gdebi -n "$f"; done
+svn co https://gtkpod.svn.sourceforge.net/svnroot/gtkpod/gtkpod/trunk gtkpod
+cd gtkpod
+./autogen.sh --with-mp4v2 &amp;&amp; make &amp;&amp; sudo make install
+cd
+rm -rf /tmp/gtkpod-fix</code></pre>

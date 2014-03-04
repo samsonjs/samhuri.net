@@ -2,7 +2,7 @@ The steps are well documented so I won’t get into detail here but if you have 
 
  * Install OS X to a single partition filling your disk (optionally use your existing OS X intall)
  * Install <a href="http://refit.sourceforge.net/">rEFIt</a> (no need to reboot just yet)
- * Re-partition your disk into 3 partitions with <tt>diskutil resizeVolume</tt>, reboot and confirm it all works
+ * Re-partition your disk into 3 partitions with <code>diskutil resizeVolume</code>, reboot and confirm it all works
  * Boot the Vista install DVD and install to disk0s4 aka Partition 4
  * Install Gentoo (or other distro) to disk0s3 aka /dev/sda3
 
@@ -14,7 +14,7 @@ My initial experience with Vista is quite good. Sadly the <a href="http://www.ma
 
 OS X is OS X. It’s my favourite desktop OS right now because of apps like LaunchBar/Quicksilver and TextMate, a generally excellent UI, good old *nix stability, zsh out of the box! When I need WireShark or the GIMP X11 is there waiting.  Mac notebooks are great and tight integration with the hardware is a clear advantage for OS X.
 
-Oh yeah, I also have a Parallels VM for Windows 3.11. It boots in about second to the <tt>C:\&gt;</tt> prompt and then another second to type <tt>win</tt> and Windows to start. Without TCP/IP there’s not much to do though (I’m not going to write a driver for Parallels’ ethernet adapter).
+Oh yeah, I also have a Parallels VM for Windows 3.11. It boots in about second to the <code>C:\&gt;</code> prompt and then another second to type <code>win</code> and Windows to start. Without TCP/IP there’s not much to do though (I’m not going to write a driver for Parallels’ ethernet adapter).
 
   * Dual head setups are more work than plugging in a 2nd monitor, which is too much work.
 

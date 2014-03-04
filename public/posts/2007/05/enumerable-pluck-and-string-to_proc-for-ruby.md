@@ -115,4 +115,4 @@ I wrote another version without using the various <code>#to_proc</code> methods 
 
 It's just icing on the cake considering Ruby's convenient block syntax, but there it is. Do with it what you will. You can change or extend any of these to support drilling down into hashes quite easily too.
 
-*<strong>Update #1:</strong> Fixed a potential performance issue in <code>Enumerable#to_proc</code> by saving the results of <code>to_proc</code> in <tt>@procs</tt>.*
+*<strong>Update #1:</strong> Fixed a potential performance issue in <code>Enumerable#to_proc</code> by saving the results of <code>to_proc</code> in <code>@procs</code>.*

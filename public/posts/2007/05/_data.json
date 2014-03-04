@@ -85,7 +85,10 @@
       "extensions"
     ],
     "author": "Sami Samhuri",
-    "url": "/posts/2007/05/enumerable-pluck-and-string-to_proc-for-ruby"
+    "url": "/posts/2007/05/enumerable-pluck-and-string-to_proc-for-ruby",
+    "styles": [
+      "/css/typocode.css"
+    ]
   },
   "dumping-objects-to-the-browser-in-rails": {
     "title": "Dumping Objects to the Browser in Rails",
@@ -95,7 +98,10 @@
       "rails"
     ],
     "author": "Sami Samhuri",
-    "url": "/posts/2007/05/dumping-objects-to-the-browser-in-rails"
+    "url": "/posts/2007/05/dumping-objects-to-the-browser-in-rails",
+    "styles": [
+      "/css/typocode.css"
+    ]
   },
   "cheating-at-life-in-general": {
     "title": "Cheating at Life in General",

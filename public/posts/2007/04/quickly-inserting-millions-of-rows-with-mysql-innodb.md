@@ -22,9 +22,9 @@ According to [a post on a MySQL mailing list](http://lists.mysql.com/mysql/12924
 
 ### innodb_data_file_path ###
 
-On Gentoo this one bit me right in the ass, and I mentioned it above. It specifies how large the files used to store your data can be, and how many of them there are. The default setting is almost sane: <tt>ibdata1:10M:autoextend:<b>max:128M</b></tt>. Limiting the total size to 128M caused my test to fail after inserting several million rows.
+On Gentoo this one bit me right in the ass, and I mentioned it above. It specifies how large the files used to store your data can be, and how many of them there are. The default setting is almost sane: <code>ibdata1:10M:autoextend:<b>max:128M</b></code>. Limiting the total size to 128M caused my test to fail after inserting several million rows.
 
-Simply removing <tt>max:128M</tt> solves the problem. The resulting setting tells the InnoDB engine to use one file, named <b>ibdata1</b> which is initially 10M in size and grows as required.
+Simply removing <code>max:128M</code> solves the problem. The resulting setting tells the InnoDB engine to use one file, named <b>ibdata1</b> which is initially 10M in size and grows as required.
 
 ### innodb_log_file_size ###
 
@@ -36,10 +36,10 @@ Again I only went as far as the Gentoo config to learn about this setting. They 
 
 ### Save my.cnf and restart mysqld ###
 
-That’s it for the MySQL config. Restart mysqld however you do that on your platform. <tt>sudo /etc/init.d/mysql restart</tt> should look familiar to many *nix users.
+That’s it for the MySQL config. Restart mysqld however you do that on your platform. <code>sudo /etc/init.d/mysql restart</code> should look familiar to many *nix users.
 
 Now you should be able to insert dozens and indeed hundreds of millions of rows into your InnoDB tables. Sadly this brought little performance gains to the table. MySQL wraps single queries in implicit transactions. Wrapping everything in a transaction may work, but inevitably something will go wrong and you may want the ability to resume inserting the rows instead of starting all over.
 
-The solution now is to execute <tt>SET AUTOCOMMIT=0</tt> before inserting the data, and then issuing a <tt>COMMIT</tt> when you’re done. With all that in place I’m inserting 14,000,000 rows into both MyISAM and InnoDB tables in 30 minutes. MyISAM is still ~ 2 min faster, but as I said earlier this is adequate for now. Prior to all this it took several <b>hours</b> to insert 14,000,000 rows so I am happy.
+The solution now is to execute <code>SET AUTOCOMMIT=0</code> before inserting the data, and then issuing a <code>COMMIT</code> when you’re done. With all that in place I’m inserting 14,000,000 rows into both MyISAM and InnoDB tables in 30 minutes. MyISAM is still ~ 2 min faster, but as I said earlier this is adequate for now. Prior to all this it took several <b>hours</b> to insert 14,000,000 rows so I am happy.
 
 Now you can enjoy the speed MyISAM is known for with your InnoDB tables. Consider the data integrity a bonus! ;-)

@@ -1,7 +1,7 @@
 Here's an easy way to solve a problem that may have nagged you as it did me. Simply using <code>foo.inspect</code> to dump out some object to the browser dumps one long string which is barely useful except for short strings and the like. The ideal output is already available using the <a href="http://www.ruby-doc.org/stdlib/libdoc/prettyprint/rdoc/index.html"><code>PrettyPrint</code></a> module so we just need to use it.
 
 
-Unfortunately typing <tt><pre><%= PP.pp(@something, '') %></pre></tt> to quickly debug some possibly large object (or collection) can get old fast so we need a shortcut.
+Unfortunately typing <code><pre><%= PP.pp(@something, '') %></pre></code> to quickly debug some possibly large object (or collection) can get old fast so we need a shortcut.
 
 
 Taking the definition of <a href="http://extensions.rubyforge.org/rdoc/classes/Object.html#M000020"><code>Object#pp_s</code></a> from the <a href="http://extensions.rubyforge.org/rdoc/">extensions project</a> it's trivial to create a helper method to just dump out an object in a reasonable manner.

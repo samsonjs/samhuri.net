@@ -54,27 +54,25 @@ The trickiest part of all this was figuring out how to use the various <code>rea
 It still takes me some time to knit together meaningful Haskell statements. Tonight I spent said time cobbling together an implementation of <a href="http://schemers.org/Documents/Standards/R5RS/HTML/r5rs-Z-H-7.html#%_sec_4.1.5">cond</a> as a new special form. Have a look at the code. The explanation follows.
 
 
-<table class="code"><tr>
-  <td class="line_numbers" title="click to toggle" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre style="color: #888">1<tt>
-</tt>2<tt>
-</tt>3<tt>
-</tt>4<tt>
-</tt>5<tt>
-</tt>6<tt>
-</tt>7<tt>
-</tt>8<tt>
-</tt>9 <tt>
-</tt></pre></td>
-  <td class="code"><pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }">eval env (List (Atom "cond" : List (Atom "else" : exprs) : [])) =<tt>
-</tt>    liftM last $ mapM (eval env) exprs<tt>
-</tt>eval env (List (Atom "cond" : List (pred : conseq) : rest)) = <tt>
-</tt>    do result &lt;- eval env $ pred<tt>
-</tt>       case result of<tt>
-</tt>         Bool False -&gt; case rest of<tt>
-</tt>                         [] -&gt; return $ List []<tt>
-</tt>                         _ -&gt; eval env $ List (Atom "cond" : rest)<tt>
-</tt>         _ -&gt; liftM last $ mapM (eval env) conseq</pre></td>
-</tr></table>
+<pre class="line-numbers">1
+2
+3
+4
+5
+6
+7
+8
+9 
+</pre>
+<pre><code>eval env (List (Atom "cond" : List (Atom "else" : exprs) : [])) =
+    liftM last $ mapM (eval env) exprs
+eval env (List (Atom "cond" : List (pred : conseq) : rest)) = 
+    do result &lt;- eval env $ pred
+       case result of
+         Bool False -&gt; case rest of
+                         [] -&gt; return $ List []
+                         _ -&gt; eval env $ List (Atom "cond" : rest)
+         _ -&gt; liftM last $ mapM (eval env) conseq</code></pre>
 
 
  * __Lines 1-2:__ Handle <code>else</code> clauses by evaluating the given expression(s), returning the last result. It must come first or it's overlapped by the next pattern.

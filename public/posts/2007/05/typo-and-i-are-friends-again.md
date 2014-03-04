@@ -2,6 +2,6 @@
 
 Add to that the random HTTP 500 errors which were very noticeable while I was trying to fix that post and I was about to write my own blog or switch to WordPress.
 
-I don't love WP so I decided to just upgrade Typo instead. I was using Typo 2.6, and the current stable version is 4.1. They skipped version 3 to preclude any confusion that may have ensued between Typo v3 and the CMS <a href="http://typo3.com/">Typo3</a>. So it really isn't a big upgrade and it went perfectly. I checked out a new copy of the repo because I had some difficulty getting <tt>svn switch --relocate</tt> to work, configured the database settings and issued a <tt>rake db:migrate</tt>, copied my theme over and it all just worked. Bravo Typo team, that's how an upgrade should work.
+I don't love WP so I decided to just upgrade Typo instead. I was using Typo 2.6, and the current stable version is 4.1. They skipped version 3 to preclude any confusion that may have ensued between Typo v3 and the CMS <a href="http://typo3.com/">Typo3</a>. So it really isn't a big upgrade and it went perfectly. I checked out a new copy of the repo because I had some difficulty getting <code>svn switch --relocate</code> to work, configured the database settings and issued a <code>rake db:migrate</code>, copied my theme over and it all just worked. Bravo Typo team, that's how an upgrade should work.
 
 No more random 500 errors, things seem faster (better caching perhaps), and that troublesome post is troublesome no more. I am happy with Typo again.

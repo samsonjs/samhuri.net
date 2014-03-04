@@ -15,21 +15,21 @@ parseNumber :: liftM (Number . read) $ many1 digit
 </code></pre>
 Okay that's pretty simple right? Let's break it down, first looking at the right-hand side of the <code>$</code> operator, then the left.
 
- * <tt>many1 digit</tt> reads as many decimal digits as it can.
+ * <code>many1 digit</code> reads as many decimal digits as it can.
  * <code>Number . read</code> is a <a href="http://en.wikipedia.org/wiki/Function_composition_(computer_science%29">function composition</a> just like we're used to using in math. It applies <code>read</code> to its argument, then applies <code>Number</code> to that result.
- * <tt>liftM</tt> is concisely and effectively defined <a href="http://members.chello.nl/hjgtuyl/tourdemonad.html#liftM">elsewhere</a>, and I'll borrow their description:
+ * <code>liftM</code> is concisely and effectively defined <a href="http://members.chello.nl/hjgtuyl/tourdemonad.html#liftM">elsewhere</a>, and I'll borrow their description:
 
 <blockquote>
-	<p><tt>liftM f m</tt> lets a non-monadic function <tt>f</tt> operate on the contents of monad <tt>m</tt></p>
+	<p><code>liftM f m</code> lets a non-monadic function <code>f</code> operate on the contents of monad <code>m</code></p>
 </blockquote>
 
-<code>liftM</code>'s type is also quite telling: <tt>liftM :: (Monad m) =&gt; (a -&gt; b) -&gt; (m a -&gt; m b)</tt>
+<code>liftM</code>'s type is also quite telling: <code>liftM :: (Monad m) =&gt; (a -&gt; b) -&gt; (m a -&gt; m b)</code>
 
 In a nutshell <code>liftM</code> turns a function from <code>a</code> to <code>b</code> to a function from a monad containing <code>a</code> to a monad containing <code>b</code>.
 
-That results in a function on the left-hand side of <code>$</code>, which operates on and outputs a monad. The content of the input monad is a <code>String</code>. The content of the output monad is a <tt>LispVal</tt> (defined earlier in the tutorial). Specifically it is a <code>Number</code>.
+That results in a function on the left-hand side of <code>$</code>, which operates on and outputs a monad. The content of the input monad is a <code>String</code>. The content of the output monad is a <code>LispVal</code> (defined earlier in the tutorial). Specifically it is a <code>Number</code>.
 
-The <code>$</code> acts similar to a pipe in <code>$FAVOURITE_SHELL</code>, and is right associative which means the expression on the right is passed to the expression (function) on the left. It's exactly the same as <tt>(liftM (Number . read)) (many1 digit)</tt> except it looks cleaner. If you know LISP or Scheme (sadly I do not) then it's analogous to the <code>apply</code> function.
+The <code>$</code> acts similar to a pipe in <code>$FAVOURITE_SHELL</code>, and is right associative which means the expression on the right is passed to the expression (function) on the left. It's exactly the same as <code>(liftM (Number . read)) (many1 digit)</code> except it looks cleaner. If you know LISP or Scheme (sadly I do not) then it's analogous to the <code>apply</code> function.
 
 So how does a Haskell newbie go about re-writing that using other notations which haven't even been explained in the tutorial? Clearly one must search the web and read as much as they can until they understand enough to figure it out (which is one thing I like about the tutorial). If you're lazy like me, here are 3 equivalent pieces of code for you to chew on. <code>parseNumber</code>'s type is <code>Parser LispVal</code> (Parser is a monad).
 

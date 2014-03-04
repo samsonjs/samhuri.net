@@ -85,7 +85,7 @@
     "author": "Sami Samhuri",
     "url": "/posts/2006/02/obligatory-post-about-ruby-on-rails",
     "styles": [
-      "typocode"
+      "/css/typocode.css"
     ]
   },
   "textmate-snippets-for-rails-assertions": {
@@ -118,7 +118,10 @@
       "textmate"
     ],
     "author": "Sami Samhuri",
-    "url": "/posts/2006/02/textmate-move-selection-to-self-down"
+    "url": "/posts/2006/02/textmate-move-selection-to-self-down",
+    "styles": [
+      "/css/typocode.css"
+    ]
   },
   "textmate-insert-text-into-self-down": {
     "title": "TextMate: Insert text into self.down",
@@ -137,7 +140,7 @@
     "author": "Sami Samhuri",
     "url": "/posts/2006/02/textmate-insert-text-into-self-down",
     "styles": [
-      "typocode"
+      "/css/typocode.css"
     ]
   },
   "intelligent-migration-snippets-0_1-for-textmate": {
@@ -172,7 +175,7 @@
     "author": "Sami Samhuri",
     "url": "/posts/2006/02/sjs-rails-bundle-0_2-for-textmate",
     "styles": [
-      "typocode"
+      "/css/typocode.css"
     ]
   }
 }
