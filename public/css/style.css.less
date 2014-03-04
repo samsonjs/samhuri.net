@@ -135,7 +135,13 @@ header.primary {
   }
 
   nav {
+
+    /* Fix font rendering bugs in Safari. In this case, font weight differences
+     * with the #octocat's fixed position, font weight in landscape on iPhone,
+     * and probably other ones I hadn't discovered yet.
+     */
     -webkit-transform: translate3d(0, 0, 0);
+
     padding-top: 0.5rem;
     clear: left;
     font-size: 1.1rem;
