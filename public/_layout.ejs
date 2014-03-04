@@ -91,7 +91,7 @@
         <a class="permalink" href="<%= url %>">&infin;</a>
       </header>
       <%- yield %>
-      <p class="fin"><i class="fa fa-code"></i></p>
+      <p class="fin clearfix"><i class="fa fa-code"></i></p>
     </article>
   <% } else if (typeof date != 'undefined') { -%>
     <article class="container">
@@ -100,20 +100,18 @@
         <time><%= date %></time>
       </header>
       <%- yield %>
-      <p class="fin"><i class="fa fa-code"></i></p>
+      <p class="fin clearfix"><i class="fa fa-code"></i></p>
     </article>
   <% } else if (typeof title != 'undefined') { -%>
     <article class="container">
       <h2><%= title %></h2>
       <%- yield %>
-      <div class="clearfix">
-      <p class="fin"><i class="fa fa-code"></i></p>
+      <p class="fin clearfix"><i class="fa fa-code"></i></p>
     </article>
   <% } else { -%>
     <article class="container">
       <%- yield %>
-      <div class="clearfix">
-      <p class="fin"><i class="fa fa-code"></i></p>
+      <p class="fin clearfix"><i class="fa fa-code"></i></p>
     </article>
   <% } -%>
 
