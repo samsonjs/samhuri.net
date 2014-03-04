@@ -317,6 +317,20 @@ article header h2 {
   word-wrap: break-word;
 }
 
+blockquote {
+  margin-left: 6%;
+  font-style: italic;
+  color: lighten(@text, 15%);
+}
+
+blockquote:before {
+  content: '\201F'; // left double curly quote
+  float: left;
+  margin-top: -0.35rem;
+  margin-left: -1rem;
+  font-size: 150%;
+}
+
 ul.audio li {
   height: 2rem;
   margin: 0.5rem 0;
