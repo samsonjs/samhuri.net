@@ -1,8 +1,12 @@
 /**
  * Basic responsive layout from http://www.adamkaplan.me/grid/
+ *
+ * The rem to px conversions don't seem to hold on my Dell 2408 display,
+ * but do seem correct on iOS. Need to look into this.
  */
 
 /* Small screen is the default set of styles */
+@screen-iphone-landscape: 35.5rem; /* ~ 568px */
 @screen-medium: 40rem; /* ~ 640px */
 @screen-large: 64rem;  /* ~ 1024px */
 
@@ -76,6 +80,9 @@ img {
 @text: #222;
 @highlight: #a00;
 
+@rss-orange: #f60;
+@twitter-blue: #4099ff;
+
 // font weight
 @weight-thin: 400;
 
@@ -130,18 +137,18 @@ header.primary {
     -webkit-transform: translate3d(0, 0, 0);
     padding-top: 0.5rem;
     clear: left;
+    font-size: 1.1rem;
 
-    @media (min-width: @screen-medium) {
+    @media (min-width: @screen-iphone-landscape) {
       float: right;
       clear: none;
 
       padding: 0.55rem 0;
       height: 1rem;
-      font-size: 1rem;
     }
 
     a, a:visited {
-      color: lighten(@highlight, 15%);
+      color: @highlight;
     }
 
     ul {
@@ -151,20 +158,43 @@ header.primary {
       li {
         display: inline-block;
         list-style-type: none;
+        padding: 0.1rem 0.62rem;
       }
 
-      li:after {
-        font-weight: normal;
-        content: ' \2022 ';
+      li i.fa {
+        color: darken(@background, 10%);
+
+        -o-transition: 0.2s;
+        -ms-transition: 0.2s;
+        -moz-transition: 0.2s;
+        -webkit-transition: 0.2s;
+        transition: 0.2s;
       }
 
-      li:last-child:after {
-        content: '';
+      li.email i.fa:hover {
+        color: lighten(@background, 10%);
+      }
+
+      li.rss i.fa:hover {
+        color: desaturate(@rss-orange, 20%);
+      }
+
+      li.twitter i.fa:hover {
+        color: desaturate(@twitter-blue, 20%);
       }
 
     } /* ul */
   } /* nav */
 } /* header.primary */
+
+/* Improve colours in mobile Safari ... wish I could include desktop Safari somehow */
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  header.primary nav {
+    a, a:visited {
+      color: lighten(@highlight, 10%);
+    }
+  }
+}
 
 footer {
   border-top: solid 1px lighten(@text, 70%);

@@ -3,6 +3,7 @@
   "subtitle": "words mean things",
   "url": "http://samhuri.net",
   "styles": [
+    "/css/font-awesome.min.css",
     "/css/normalize.css",
     "/css/style.css"
   ],
