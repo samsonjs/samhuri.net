@@ -80,8 +80,10 @@ img {
 @text: #222;
 @highlight: #a00;
 
+@email-white: #fff;
 @rss-orange: #f60;
 @twitter-blue: #4099ff;
+@github-blue: #4183c4;
 
 // font weight
 @weight-thin: 400;
@@ -169,7 +171,7 @@ header.primary {
       li {
         display: inline-block;
         list-style-type: none;
-        padding: 0.1rem 0.62rem;
+        padding: 0.1rem 0.4rem;
       }
 
       li i.fa {
@@ -183,7 +185,7 @@ header.primary {
       }
 
       li.email i.fa:hover {
-        color: lighten(@background, 10%);
+        color: @email-white, 10%;
       }
 
       li.rss i.fa:hover {
@@ -192,6 +194,10 @@ header.primary {
 
       li.twitter i.fa:hover {
         color: desaturate(@twitter-blue, 20%);
+      }
+
+      li.github i.fa:hover {
+        color: @github-blue;
       }
 
     } /* ul */
