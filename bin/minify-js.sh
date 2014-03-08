@@ -1,7 +1,7 @@
 #!/bin/sh
 
 DIR=$(dirname "$0")
-UGLIFY="$DIR/../node_modules/.bin/uglifyjs"
+UGLIFY="uglifyjs"
 
 function minify() {
   INPUT="$1"

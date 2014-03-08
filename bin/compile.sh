@@ -4,7 +4,7 @@
 set -e
 
 DIR=$(dirname "$0")
-HARP="$DIR/../node_modules/.bin/harp"
+HARP="harp"
 TARGET="${1:-www}"
 
 function main() {
@@ -34,6 +34,14 @@ function munge_html() {
     FILE_DIR="${FILE%.html}"
     mkdir -p "$FILE_DIR"
     mv "$FILE" "$FILE_DIR/index.html"
+  done
+
+  # stupid harp
+  for FILE in "$TARGET"/projects/mojo.el "$TARGET"/projects/samhuri.net "$TARGET"/projects/cheat.el; do
+    mv "$FILE" "$FILE.tmp"
+    FILE_DIR="${FILE%.html}"
+    mkdir -p "$FILE_DIR"
+    mv "$FILE.tmp" "$FILE_DIR/index.html"
   done
 }
 
