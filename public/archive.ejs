@@ -22,7 +22,9 @@
 <% function posts(dir, year) { -%>
 <%   if (!dir) return -%>
 
-<h3><%= year %></h3>
+<h3>
+  <a href="/posts/<%= year %>"><%= year %></a>
+</h3>
 
 <%   for (var month = 12; month >= 1; month--) { -%>
 <%     var monthDir = dir[pad(month)] -%>
@@ -38,7 +40,7 @@
     <% } else { -%>
       <a href="<%= post.url %>"><%= post.title %></a>
     <% } -%>
-    <span class="date"><%= formatDate(1000 * post.timestamp) %></span>
+    <time><%= formatDate(1000 * post.timestamp) %></time>
   </li>
 <%     } -%>
 </ul>

@@ -1,0 +1,64 @@
+<% function pad(n) { -%>
+<%   return +n < 10 ? '0' + n : String(n) -%>
+<% } -%>
+
+<% var _months = 'January February March April May June July August September October November December'.split(' ') -%>
+<% var _shortMonths = _months.map(function(m) { return m.slice(0, 3) }) -%>
+<% function formatDate(t) { -%>
+<%   var d = new Date(t) -%>
+<%   return _shortMonths[d.getMonth()] + ' ' + d.getDate() -%>
+<% } -%>
+
+<% function sortPosts(dir) { -%>
+<%   var slugs = Object.keys(dir._data) -%>
+<%   var posts = slugs.map(function(slug) { -%>
+<%     var d = dir._data[slug]; -%>
+<%     d.slug = slug; -%>
+<%     return d; -%>
+<%   }) -%>
+<%   posts.sort(function(a, b) { -%>
+<%     var t1 = a.timestamp -%>
+<%     var t2 = b.timestamp -%>
+<%     return t1 < t2 ? 1 : (t1 > t2 ? -1 : 0) -%>
+<%   }) -%>
+<%   return posts -%>
+<% } -%>
+
+<% function posts(dir, year, month) { -%>
+<%   if (!dir) return -%>
+
+<h3>
+  <a href="/posts/<%= year %>/<%= pad(month) %>"><%= _months[month - 1] %></a>
+</h3>
+
+<ul class="archive">
+<%   var posts = sortPosts(dir) -%>
+<%   for (var i in posts) { -%>
+<%     var post = posts[i] -%>
+<%     if (post.hidden) continue -%>
+
+  <li>
+    <% if (post.link) { -%>
+      <a href="<%= post.url %>">&rarr; <%= post.title %></a>
+    <% } else { -%>
+      <a href="<%= post.url %>"><%= post.title %></a>
+    <% } -%>
+    <time><%= formatDate(1000 * post.timestamp) %></time>
+  </li>
+
+<%   } -%>
+</ul>
+<% } -%>
+
+<% var year = current.path[1] %>
+
+<div class="container">
+  <h2>
+    <%= year %>
+  </h2>
+
+<% for (var month = 12; month >= 1; month--) { -%>
+<%   posts(public.posts[year][pad(month)], year, month) -%>
+<% } -%>
+
+</div>

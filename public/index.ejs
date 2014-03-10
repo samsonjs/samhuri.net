@@ -1,3 +1,4 @@
+<div class="container">
 <% var posts = public._data.posts -%>
 <% for (var i in posts) { -%>
 
@@ -26,10 +27,9 @@
 
   <% } -%>
 
-  <% if (i < posts.length - 1) { -%>
-    <div class="row clearfix">
-      <p class="fin"><i class="fa fa-code"></i></p>
-    </div>
-  <% } -%>
+  <div class="row clearfix">
+    <p class="fin"><i class="fa fa-code"></i></p>
+  </div>
 
 <% } -%>
+</div>

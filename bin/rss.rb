@@ -68,6 +68,7 @@ class Blag
   def posts
     @posts ||= begin
       Dir[File.join(@dir, 'posts/20*/*')].map do |dir|
+        next unless dir =~ /\/\d\d$/
         json = File.read File.join(dir, '_data.json')
         data = JSON.parse json
         prefix = dir.sub(@dir, '')
@@ -85,7 +86,7 @@ class Blag
           post['rfc822'] = Time.at(post['timestamp']).rfc822
           post
         end
-      end.flatten.sort_by { |p| -p['timestamp'] }.first(@num_posts)
+      end.flatten.compact.sort_by { |p| -p['timestamp'] }.first(@num_posts)
     end
   end
 

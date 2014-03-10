@@ -52,7 +52,7 @@ class MetaWeblogHandler
 
     git_pull
 
-    FileUtils.mkdir_p(post_dir)
+    ensure_post_dir_exists(post_dir)
 
     post_filename = File.join(post_dir, "#{slug}.md")
     File.open(post_filename, 'w') do |f|
@@ -90,6 +90,22 @@ class MetaWeblogHandler
 
   def pad(n)
     n.to_i < 10 ? "0#{n}" : "#{n}"
+  end
+
+  def ensure_post_dir_exists(post_dir)
+    FileUtils.mkdir_p(post_dir)
+
+    monthly_index_filename = File.join(post_dir, 'index.ejs')
+    unless File.exists?(monthly_index_filename)
+      source = File.join(post_dir, '../../2006/02/index.ejs')
+      FileUtils.cp(source, monthly_index_filename)
+    end
+
+    yearly_index_filename = File.join(post_dir, '../index.ejs')
+    unless File.exists?(yearly_index_filename)
+      source = File.join(post_dir, '../../2006/index.ejs')
+      FileUtils.cp(source, yearly_index_filename)
+    end
   end
 
   def read_post_data(dir)
