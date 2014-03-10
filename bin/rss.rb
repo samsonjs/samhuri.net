@@ -31,23 +31,24 @@ class Blag
   end
 
   def generate!
-    generate_latest_post_json
+    generate_latest_posts_json
     generate_rss
   end
 
-  def generate_latest_post_json
-    post = latest_post
-    data['latest'] = {
-      title: post['title'],
-      date: post['date'],
-      timestamp: post['timestamp'],
-      tags: post['tags'],
-      author: post['author'],
-      url: post['relative_url'],
-      link: post['link'],
-      styles: post['styles'],
-      body: post['body']
-    }.delete_if { |k, v| v.nil? }
+  def generate_latest_posts_json
+    data['posts'] = latest_posts.map do |post|
+      {
+        title: post['title'],
+        date: post['date'],
+        timestamp: post['timestamp'],
+        tags: post['tags'],
+        author: post['author'],
+        url: post['relative_url'],
+        link: post['link'],
+        styles: post['styles'],
+        body: post['body']
+      }.delete_if { |k, v| v.nil? }
+    end
     json = JSON.pretty_generate data
     File.open(data_file, 'w') { |f| f.puts json }
   end
@@ -56,8 +57,8 @@ class Blag
     File.open(rss_file, 'w') { |f| f.puts feed_xml.target! }
   end
 
-  def latest_post
-    posts.first
+  def latest_posts(n = @num_posts)
+    posts.first(n)
   end
 
   def find_post dir, slug

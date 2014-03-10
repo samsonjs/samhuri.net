@@ -10,18 +10,129 @@
   "scripts": [
 
   ],
-  "latest": {
-    "title": "Structure of an Ember app",
-    "date": "February 3, 2014",
-    "timestamp": 1391479549,
-    "tags": [
-      "ember.js"
-    ],
-    "author": "Sami Samhuri",
-    "url": "/posts/2014/02/ember-structure",
-    "body": "<p>I made a diagram of an Ember app. There&rsquo;s <a href=\"http://discuss.emberjs.com/t/diagram-of-an-ember-apps-structure/4060\">a discussion about it</a> on the\n<a href=\"http://discuss.emberjs.com/\">Ember Discussion Forum</a>. Here is the source file, created with OmniGraffle: <a href=\"https://www.dropbox.com/s/onnmn1oq096hv5f/Ember%20structure.graffle\">Ember structure.graffle</a></p>\n\n<p><a href=\"/f/ember-structure.png\"><img src=\"/f/ember-structure.png\" alt=\"Structure of an Ember app\" /></a></p>\n"
-  },
   "archive": {
     "title": "Archive"
-  }
+  },
+  "posts": [
+    {
+      "title": "Structure of an Ember app",
+      "date": "February 3, 2014",
+      "timestamp": 1391479549,
+      "tags": [
+        "ember.js"
+      ],
+      "author": "Sami Samhuri",
+      "url": "/posts/2014/02/ember-structure",
+      "body": "<p>I made a diagram of an Ember app. There&rsquo;s <a href=\"http://discuss.emberjs.com/t/diagram-of-an-ember-apps-structure/4060\">a discussion about it</a> on the\n<a href=\"http://discuss.emberjs.com/\">Ember Discussion Forum</a>. Here is the source file, created with OmniGraffle: <a href=\"https://www.dropbox.com/s/onnmn1oq096hv5f/Ember%20structure.graffle\">Ember structure.graffle</a></p>\n\n<p><a href=\"/f/ember-structure.png\"><img src=\"/f/ember-structure.png\" alt=\"Structure of an Ember app\" /></a></p>\n"
+    },
+    {
+      "title": "Linky",
+      "date": "September 27, 2013",
+      "timestamp": 1380343742,
+      "tags": [
+        "linky",
+        "north watcher",
+        "ruby",
+        "gmail",
+        "links",
+        "notifications"
+      ],
+      "author": "Sami Samhuri",
+      "url": "/posts/2013/09/linky",
+      "body": "<h2>Send links from mobile devices to your computers.</h2>\n\n<p>The last few months I&rsquo;ve been annoyed by my workflow for sending links from my touch devices to my computers. For example if I come across a cool Mac app or an open source project I want to check out, or anything along those lines. Until now I have been mailing links to my work or home addresses, or saving links in Instapaper. The problem with both of those is the same: I have to remember to check something when I arrive at the correct machine. It sounds trivial but I have been annoyed by it nonetheless.</p>\n\n<p>This weekend I finally decided to scratch that itch and ended up writing much less code than I imagined to accomplish it in a perfectly acceptable way. The components are:</p>\n\n<ul>\n<li><a href=\"https://mail.google.com\">Gmail</a></li>\n<li><a href=\"http://ifttt.com\">IFTTT (If This Then That)</a></li>\n<li><a href=\"https://dropbox.com\">DropBox</a></li>\n<li><a href=\"https://github.com/samsonjs/NorthWatcher\">NorthWatcher</a></li>\n<li><a href=\"https://github.com/samsonjs/bin/blob/master/linky-notify\">a (short) Ruby program</a></li>\n<li><a href=\"https://github.com/alloy/terminal-notifier\">terminal-notifier</a> (which displays <a href=\"http://support.apple.com/kb/HT5362\">native notifications in OS X</a>)</li>\n</ul>\n\n\n<p>Yup, that is a lot of moving parts. It is rather elegant in a <a href=\"http://www.catb.org/~esr/writings/taoup/\">Unixy way</a> though.</p>\n\n<p><em>I experimented with Gmail &rarr; IFTTT &rarr; <a href=\"http://boxcar.io\">Boxcar</a> &rarr; <a href=\"http://growl.info/\">Growl</a>, but Boxcar&rsquo;s Mac app is really rough and didn&rsquo;t seem to pick up new messages at all, let alone quickly, so I fell back to a solution with more parts.</em></p>\n\n<h3>Gmail</h3>\n\n<p><a href=\"https://mail.google.com\">Gmail</a> allows you to append extra info to your email address in the username, which you can use for filtering and labeling. I send links to sami.samhuri+linky@gmail.com and then filter those messages out of my inbox, as well as applying the label <em>linky</em>. Using email as the entry point means that basically every app I use already supports sending links in this way.</p>\n\n<h3>IFTTT</h3>\n\n<p><a href=\"http://ifttt.com\">IFTTT (If This Then That)</a> can wire up services, so that events that happen in one place can trigger an action elsewhere, passing along some info about the event along with it. In this case when a new email arrives in my Gmail account with the label <em>linky</em> then I create a text file in Dropbox that contains two lines: the title, followed by the link itself.</p>\n\n<p>For example, the following lines would be created in a file at <code>~/Dropbox/Linky/Ruxton/&lt;generated filename&gt;.txt</code> for my machine named <a href=\"http://en.wikipedia.org/wiki/Ruxton_Island\">Ruxton</a>.</p>\n\n<pre><code>Callbacks as our Generations' Go To Statement\nhttp://tirania.org/blog/archive/2013/Aug-15.html\n</code></pre>\n\n<p>The filename field is defined as:</p>\n\n<pre><code>{FromAddress}-{ReceivedAt}\n</code></pre>\n\n<p>And the content is:</p>\n\n<pre><code>{Subject}&lt;br&gt;\n{BodyPlain}&lt;br&gt;\n</code></pre>\n\n<p>That means that when you email links, the subject should contain the title and the body should contain the link on the first line. It&rsquo;s ok if there&rsquo;s stuff after the body (like your signature), they will be ignored later.</p>\n\n<p>I create one recipe in IFTTT for each machine that I want links to appear on. You could get fancy and have different Gmail labels for individual machines, or aliases, groups, etc. I&rsquo;ve kept it simple and just have every link I send go to both my home &amp; work computers.</p>\n\n<h3>Dropbox</h3>\n\n<p>Dropbox is fantastic. My files are <a href=\"http://5by5.tv/b2w/37\">never not everywhere</a>. IFTTT creates the file in Dropbox, and then Dropbox makes sure it hits all of my machines. Did I mention that Dropbox is awesome? It&rsquo;s awesome.</p>\n\n<h3>NorthWatcher</h3>\n\n<p>This is a quick and dirty thing I whipped up a couple of years ago, and now it&rsquo;s come in handy again. It&rsquo;s a program that watches directories for added and removed files, and then launches a program that can then react to the change. In this case, on each machine I want notifications on, I have it watch the Dropbox folder where IFTTT creates the text files. e.g. <code>~/Dropbox/Linky/Ruxton</code></p>\n\n<p>It has a text configuration file kind of like <a href=\"http://en.wikipedia.org/wiki/Cron\">cron</a>. Here&rsquo;s mine from Ruxton:</p>\n\n<pre><code>+ Dropbox/Linky/Ruxton ruby /Users/sjs/bin/linky-notify\n</code></pre>\n\n<p>That tells NorthWatcher to run <code>ruby /Users/sjs/bin/linky-notify</code> when files are added to the directory <code>~/Dropbox/Linky/Ruxton</code>.</p>\n\n<p><em><a href=\"https://github.com/samsonjs/NorthWatcher\">NorthWatcher is on GitHub</a> and <a href=\"https://npmjs.org\">npm</a>. Install <a href=\"http://nodejs.org\">node</a> and then run <code>npm install -g northwatcher</code>. After creating the config file at <code>~/.northwatcher</code> you can run it automatically using <a href=\"https://gist.github.com/samsonjs/6657795\">this launchd config file</a>. Drop that in <code>~/Library/LaunchAgents/net.samhuri.northwatcher.plist</code>. Don&rsquo;t forget to update the working directory path, and run <code>launchctl load ~/Library/LaunchAgents/net.samhuri.northwatcher.plist</code> to load it up (afterwards it will load on boot).</em></p>\n\n<h3>A Ruby program, and terminal-notifier</h3>\n\n<p>Finally, we have the last two components of the system. A <a href=\"https://github.com/samsonjs/bin/blob/master/linky-notify\">short Ruby program (<code>/Users/sjs/bin/linky-notify</code>)</a> that reads in all the files NorthWatcher reports as added, and uses <code>terminal-notifier</code> to show a native OS X notification for each link. After displaying the notification it moves the text file into a subfolder named <code>Archive</code>, so I have a record of all the links I have sent myself.</p>\n\n<p>You can get <code>terminal-notifier</code> with <a href=\"http://brew.sh\">homebrew</a> in a few seconds: <code>brew install terminal-notifier</code>. After you have used <code>terminal-notifier</code> you will be able to go into <em>Notifications</em> in <em>System Preferences</em> and change it from <em>Banners</em> to <em>Alerts</em>. <em>Banners</em> are transient, while <em>Alerts</em> are persistent and have action buttons: <code>Show</code> and <code>Close</code>.</p>\n\n<h2>Cool story, bro</h2>\n\n<p>It may not be exciting, but as someone who typically suffers from <a href=\"http://en.wikipedia.org/wiki/Not_invented_here\">NIH syndrome</a> and writes too much from scratch, I found it pretty rewarding to cobble something seemingly complicated together with a bunch of existing components. It didn&rsquo;t take very long and only involved about 10 lines of code. It&rsquo;s not exactly what I wanted but it&rsquo;s surprisingly close. Success!</p>\n"
+    },
+    {
+      "title": "Zelda Tones for iOS",
+      "date": "March 6, 2013",
+      "timestamp": 1362624673,
+      "tags": [
+        "zelda",
+        "nintendo",
+        "pacman",
+        "ringtones",
+        "tones",
+        "ios"
+      ],
+      "author": "Sami Samhuri",
+      "url": "/posts/2013/03/zelda-tones-for-ios",
+      "body": "<h2>Zelda</h2>\n\n\n\n\n<p>\n  <a href=\"http://mattgemmell.com\">Matt Gemmell</a> recently shared some\n  <a href=\"http://mattgemmell.com/2013/03/05/iphone-5-super-nintendo-wallpapers/\">sweet Super Nintendo wallpapers for iPhone 5</a>.\n  Although I don't have an iPhone 5 I was happy to snap them up and crop them for my 4S.\n</p>\n\n\n\n\n<p>\n  If you like that sort of thing then you might want these tones that I whipped up. The first pack is a few Zelda\n  ringtones along with a few more SMS tones. Most of them are from\n  <a href=\"http://en.wikipedia.org/wiki/The_Legend_of_Zelda:_A_Link_to_the_Past\">A Link to the Past</a>.\n</p>\n\n\n\n\n<p align=\"center\"><a href=\"/f/zelda-tones.zip\">Get the Zelda tones</a></p>\n\n\n\n\n<ul class=\"audio\">\n  <li><audio controls><source src=\"/f/zelda-tones/Zelda Theme.mp3\" type=\"audio/mpeg\"></audio> Theme</li>\n  <li><audio controls><source src=\"/f/zelda-tones/Zelda Overture.mp3\" type=\"audio/mpeg\"></audio> Overworld overture</li>\n  <li><audio controls><source src=\"/f/zelda-tones/Zelda Song of Storms.mp3\" type=\"audio/mpeg\"></audio> Song of Storms</li>\n  <li><audio controls><source src=\"/f/zelda-tones/Zelda Secret.mp3\" type=\"audio/mpeg\"></audio> Secret</li>\n  <li><audio controls><source src=\"/f/zelda-tones/Zelda Item.mp3\" type=\"audio/mpeg\"></audio> Item</li>\n  <li><audio controls><source src=\"/f/zelda-tones/Zelda Achievement.mp3\" type=\"audio/mpeg\"></audio> Achievement</li>\n</ul>\n\n\n\n\n<h2>Pacman</h2>\n\n\n\n\n<p>The second pack is two Pacman tones.</p>\n\n\n<p align=\"center\"><a href=\"/f/pacman-tones.zip\">Get the Pacman tones</a></p>\n\n\n\n\n<ul class=\"audio\">\n  <li><audio controls><source src=\"/f/pacman-tones/Pacman.mp3\" type=\"audio/mpeg\"></audio> Pacman starts</li>\n  <li><audio controls><source src=\"/f/pacman-tones/Pacman Dies.mp3\" type=\"audio/mpeg\"></audio> Pacman dies</li>\n</ul>\n\n\n\n\n<h2>O Fortuna</h2>\n\n\n\n\n<p>\n  Okay okay, one last one.\n  <a href=\"http://en.wikipedia.org/wiki/O_Fortuna\">O Fortuna</a> from\n  <a href=\"http://en.wikipedia.org/wiki/Carmina_Burana\">Carmina Burana</a>,\n  composed by <a href=\"http://en.wikipedia.org/wiki/Carl_Orff\">Carl Orff</a>,\n  performed by the <a href=\"http://www.lpo.co.uk\">London Philharmonic Orchestra</a>.\n</p>\n\n\n\n\n<ul class=\"audio\"><li><audio controls><source src=\"/f/Carmina Burana - O Fortuna.mp3\" type=\"audio/mpeg\"></audio> O Fortuna</li></ul>\n\n\n\n\n<p align=\"center\"><a href=\"/f/Carmina Burana - O Fortuna.m4r\">Get the O Fortuna ringtone</a></p>\n\n\n\n\n<p>Enjoy!</p>\n\n"
+    },
+    {
+      "title": "→ Fujitsu has lost their mind",
+      "date": "January 19, 2012",
+      "timestamp": 1327032333,
+      "tags": [
+
+      ],
+      "url": "/posts/2012/01/fujitsu-has-lost-their-mind",
+      "link": "http://tablet-news.com/2012/01/17/fujitsu-lifebook-2013-concept-incorporates-a-tablet-for-a-keyboard-phone-and-digital-camera/",
+      "body": "<p>Does this even warrant any comments on why it&rsquo;s already a massive failure?\nThe many, many drawbacks seem so apparent I cannot believe this escaped\nfrom their drawing board.</p>\n"
+    },
+    {
+      "title": "→ SOPA lives - and MPAA calls protests an \"abuse of power\"",
+      "date": "January 17, 2012",
+      "timestamp": 1326797200,
+      "tags": [
+
+      ],
+      "url": "/posts/2012/01/sopa-lives-and-mpaa-calls-protests-an-abuse-of-power",
+      "link": "http://arstechnica.com/tech-policy/news/2012/01/sopa-livesand-mpaa-calls-protests-an-abuse-of-power.ars",
+      "body": "<blockquote><p>rather than coming to the table to find solutions to a problem that all\nnow seem to agree is very real and damaging.</p></blockquote>\n\n<p>No. All most certainly do <em>not</em> agree.</p>\n\n<blockquote><p>It is also an abuse of power given the freedoms these companies enjoy in\nthe marketplace today. It&rsquo;s a dangerous and troubling development when the\nplatforms that serve as gateways to information intentionally skew the\nfacts to incite their users in order to further their corporate interests.</p></blockquote>\n\n<p>This must be a joke. It&rsquo;s a joke, right? Please tell me this joker is\njoking. The hypocrisy is too much.</p>\n\n<blockquote><p>stop the hyperbole and PR stunts and engage in meaningful efforts to\ncombat piracy.</p></blockquote>\n\n<p>There is absolutely nothing reasonable that anyone can do to &ldquo;combat\npiracy&rdquo;. Digital copies are cheap. Adapt or die.</p>\n\n<p>The VCR did not kill media industries. Nor the cassette, CD, DVD. Why\nshould anyone believe that computers and the Internet are going to kill\nmusic and movies?</p>\n\n<p>If the MPAA displayed even a shred of sanity maybe they would be taken\nseriously in their efforts to curb piracy. The biggest problem I can see is\nthat studies have given us evidence that they are not hurt by it at all.\nTheir tactic of choice seems to be to loudly decry &ldquo;Nuh-uh! Piracy\n<em>does</em> hurt us!&rdquo; and then strong arming everyone worldwide while suing anyone and\neveryone. If times are so tough maybe they should cut some of their budgets\nfor lawyers and lobbyists.</p>\n"
+    },
+    {
+      "title": "→ Recovering From a Computer Science Education",
+      "date": "January 17, 2012",
+      "timestamp": 1326787200,
+      "tags": [
+
+      ],
+      "url": "/posts/2012/01/recovering-from-a-computer-science-education",
+      "link": "http://prog21.dadgum.com/123.html",
+      "body": "<p>Something to keep in mind.</p>\n"
+    },
+    {
+      "title": "→ The $40 Standup Desk",
+      "date": "January 9, 2012",
+      "timestamp": 1326097000,
+      "tags": [
+
+      ],
+      "url": "/posts/2012/01/the-40-standup-desk",
+      "link": "http://opensoul.org/blog/archives/2012/01/09/the-40-standup-desk/",
+      "body": "<blockquote><p>Ultimately, I decided I might as well just do something cheap for now. So I built my own. I had thinking about doing it for a while when my coworker Steve Smith built his desk. After seeing his, I was convinced this was what I wanted to do. It turns out, the cheap option is pretty awesome.</p></blockquote>\n\n<p>This looks great. Might have to consider it when or if I get a desk.</p>\n"
+    },
+    {
+      "title": "→ Yak shaving",
+      "date": "January 4, 2012",
+      "timestamp": 1325712240,
+      "tags": [
+
+      ],
+      "url": "/posts/2012/01/yak-shaving",
+      "link": "http://blog.hasmanythrough.com/2012/1/4/yak-shaving",
+      "body": "<p>The best plain-english explanation of yak shaving I have seen.</p>\n"
+    },
+    {
+      "title": "→ The Broken Pixel Theory",
+      "date": "December 25, 2011",
+      "timestamp": 1324868060,
+      "tags": [
+
+      ],
+      "url": "/posts/2011/12/the-broken-pixel-theory",
+      "link": "http://jtaby.com/2011/12/25/the-broken-pixel-theory.html",
+      "body": "<blockquote><p>For example, a clean desk tends to stay clean until a piece of paper stays on it for a couple of days. Similarly, I&rsquo;m much less likely to care about a 2-3 pixel UI bug when the whole UI is a mess.</p></blockquote>\n\n<p>Great insight from Majd Taby.</p>\n"
+    },
+    {
+      "title": "→ New Release of Firefox for Android, Optimized for Tablets",
+      "date": "December 22, 2011",
+      "timestamp": 1324868051,
+      "tags": [
+
+      ],
+      "url": "/posts/2011/12/new-release-of-firefox-for-android-optimized-for-tablets",
+      "link": "http://daringfireball.net/linked/2011/12/22/firefox-android",
+      "body": "<blockquote><p>On the other hand, watch this video. Even in Mozilla&rsquo;s own demo &ndash; which presumably puts Firefox for Android in its best light &ndash; doesn&rsquo;t the whole thing look a bit herky-jerky, in terms of touch responsiveness and scrolling smoothness?</p></blockquote>\n\n<p>Surely they could do better on iOS though. I have faith in the Firefox\nteam to provide a good experience because they have done so in the\npast. Modern versions of Firefox are excellent.</p>\n\n<p><a href=\"http://blog.mozilla.com/blog/2011/12/20/new-firefox-for-android-ex=%0Aperience-optimized-for-tablets/\">New Release of Firefox for Android, Optimized for\nTablets</a></p>\n"
+    }
+  ]
 }
