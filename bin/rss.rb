@@ -45,8 +45,7 @@ class Blag
         author: post['author'],
         url: post['relative_url'],
         link: post['link'],
-        styles: post['styles'],
-        body: post['body']
+        styles: post['styles']
       }.delete_if { |k, v| v.nil? }
     end
     json = JSON.pretty_generate data
