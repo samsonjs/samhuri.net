@@ -42,12 +42,15 @@ On Twitter as [@_sjs][twtr]. On App.net as [@sjs][adn].
 This site is lovingly hand-crafted, tag by tag and pixel by pixel. It adheres to
 and embraces modern web standards. It is authored in HTML, CSS, and JavaScript
 in conjunction with [Markdown][Markdown] and [LESS][], and then it's all
-compiled with [harp][] before [Apache][] serves it up.
+compiled with [harp][] before [Apache][] serves it up. The header and body font,
+[Museo Sans][Museo], is provided by [TypeKit][].
 
 [Markdown]: http://daringfireball.net/projects/markdown/
 [LESS]: http://lesscss.org
 [harp]: http://harpjs.com
 [Apache]: http://apache.org
+[Museo]: http://www.exljbris.com/museosans.html
+[TypeKit]: https://typekit.com/fonts
 
 Oh, and a shout out to [Font Awesome][fa] for being awesome.
 <i class="fa fa-thumbs-up" style="color: #ccc"></i>
