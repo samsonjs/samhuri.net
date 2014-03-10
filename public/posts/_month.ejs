@@ -19,7 +19,7 @@
 <%   posts.sort(function(a, b) { -%>
 <%     var t1 = a.timestamp -%>
 <%     var t2 = b.timestamp -%>
-<%     return t1 < t2 ? -1 : (t1 > t2 ? 1 : 0) -%>
+<%     return t1 < t2 ? 1 : (t1 > t2 ? -1 : 0) -%>
 <%   }) -%>
 <%   return posts -%>
 <% } -%>
