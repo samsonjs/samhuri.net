@@ -15,12 +15,42 @@
 <p align="center"><a href="/f/zelda-tones.zip">Get the Zelda tones</a></p>
 
 <ul class="audio">
-  <li><audio controls><source src="/f/zelda-tones/Zelda Theme.mp3" type="audio/mpeg"></audio> Theme</li>
-  <li><audio controls><source src="/f/zelda-tones/Zelda Overture.mp3" type="audio/mpeg"></audio> Overworld overture</li>
-  <li><audio controls><source src="/f/zelda-tones/Zelda Song of Storms.mp3" type="audio/mpeg"></audio> Song of Storms</li>
-  <li><audio controls><source src="/f/zelda-tones/Zelda Secret.mp3" type="audio/mpeg"></audio> Secret</li>
-  <li><audio controls><source src="/f/zelda-tones/Zelda Item.mp3" type="audio/mpeg"></audio> Item</li>
-  <li><audio controls><source src="/f/zelda-tones/Zelda Achievement.mp3" type="audio/mpeg"></audio> Achievement</li>
+  <li>
+    <audio controls preload="none">
+      <source src="/f/zelda-tones/Zelda Theme.mp3" type="audio/mpeg">
+    </audio>
+    Theme
+  </li>
+  <li>
+    <audio controls preload="none">
+      <source src="/f/zelda-tones/Zelda Overture.mp3" type="audio/mpeg">
+    </audio>
+    Overworld overture
+  </li>
+  <li>
+    <audio controls preload="none">
+      <source src="/f/zelda-tones/Zelda Song of Storms.mp3" type="audio/mpeg">
+    </audio>
+    Song of Storms
+  </li>
+  <li>
+    <audio controls preload="none">
+      <source src="/f/zelda-tones/Zelda Secret.mp3" type="audio/mpeg">
+    </audio>
+    Secret
+  </li>
+  <li>
+    <audio controls preload="none">
+      <source src="/f/zelda-tones/Zelda Item.mp3" type="audio/mpeg">
+    </audio>
+    Item
+  </li>
+  <li>
+    <audio controls preload="none">
+      <source src="/f/zelda-tones/Zelda Achievement.mp3" type="audio/mpeg">
+    </audio>
+    Achievement
+  </li>
 </ul>
 
 
@@ -30,8 +60,18 @@
 <p align="center"><a href="/f/pacman-tones.zip">Get the Pacman tones</a></p>
 
 <ul class="audio">
-  <li><audio controls><source src="/f/pacman-tones/Pacman.mp3" type="audio/mpeg"></audio> Pacman starts</li>
-  <li><audio controls><source src="/f/pacman-tones/Pacman Dies.mp3" type="audio/mpeg"></audio> Pacman dies</li>
+  <li>
+    <audio controls preload="none">
+      <source src="/f/pacman-tones/Pacman.mp3" type="audio/mpeg">
+    </audio>
+    Pacman starts
+  </li>
+  <li>
+    <audio controls preload="none">
+      <source src="/f/pacman-tones/Pacman Dies.mp3" type="audio/mpeg">
+    </audio>
+    Pacman dies
+  </li>
 </ul>
 
 
@@ -45,7 +85,14 @@
   performed by the <a href="http://www.lpo.co.uk">London Philharmonic Orchestra</a>.
 </p>
 
-<ul class="audio"><li><audio controls><source src="/f/Carmina%20Burana%20-%20O%20Fortuna.mp3" type="audio/mpeg"></audio> O Fortuna</li></ul>
+<ul class="audio">
+  <li>
+    <audio controls preload="none">
+      <source src="/f/Carmina%20Burana%20-%20O%20Fortuna.mp3" type="audio/mpeg">
+    </audio>
+    O Fortuna
+  </li>
+</ul>
 
 <p align="center"><a href="/f/Carmina%20Burana%20-%20O%20Fortuna.m4r">Get the O Fortuna ringtone</a></p>
 
