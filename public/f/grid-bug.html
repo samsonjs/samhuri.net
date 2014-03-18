@@ -1,110 +1,37 @@
 <!doctype html>
-<html lang="en">
-
+<html>
 
 <head>
-
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>samhuri.net</title>
-
-  <link rel="icon" type="image/gif" href="/images/favicon.gif">
-
-  <link rel="stylesheet" href="/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/css/normalize.css">
-  <link rel="stylesheet" href="/css/style.css">
+  <title>jank</title>
 
   <style>
-    @media (min-width: 64rem) {
-      html { font-size: 112%; }
+
+    html { font-size: 100% }
+
+    @media (min-width: 40rem) {
+      html { font-size: 112% }
     }
+
     @media (min-width: 64rem) {
-      html { font-size: 120%; }
+      html { font-size: 120% }
     }
+
   </style>
-
-  <link rel="author" type="text/plain" href="/humans.txt">
-  <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="samhuri.net">
-
-  <script>
-    if (typeof console === 'undefined') {
-      console = { log: function() {} }
-    }
-    window.SJS = {
-      ready: function(fn) {
-        if (document.addEventListener) {
-          document.addEventListener('DOMContentLoaded', fn, false)
-        } else if (window.attachEvent) {
-          window.attachEvent('onload', fn)
-        }
-      }
-    }
-  </script>
 </head>
 
-<body class="index">
+<body>
 
-  <header class="primary">
-    <div class="title">
-      <h1><a href="/">samhuri.net</a></h1>
-      <br>
-      <h4>By <a href="/about">Sami Samhuri</a></h4>
+  <h1>rem-sized elements and fonts flicker when resizing around the marked widths</h1>
+
+  <div style="width: 64rem; background-color: #ada">
+    <p align="center">64rem</p>
+
+    <div style="width: 40rem; background-color: #faa">
+      <p align="center">40rem</p>
     </div>
+  </div>
 
-    <nav>
-      <ul>
-        <li><a href="/archive">Archive</a></li>
-        <li><a href="/projects">Projects</a></li>
-        <li class="email"><a href="mailto:sami@samhuri.net"><i class="fa fa-envelope"></i></a></li>
-        <li class="rss"><a href="/feed.xml"><i class="fa fa-rss"></i></a></li>
-        <li class="twitter"><a href="https://twitter.com/_sjs"><i class="fa fa-twitter"></i></a></li>
-        <li class="github"><a href="https://github.com/samsonjs"><i class="fa fa-github"></i></a></li>
-      </ul>
-    </nav>
-
-    <div class="clearfix"></div>
-  </header>
-
-      <article class="container">
-
-  <article>
-    <header>
-      <h2><a href="/posts/2014/02/ember-structure">Structure of an Ember app</a></h2>
-      <time>February 3, 2014</time>
-    </header>
-    <p>I made a diagram of an Ember app. There&rsquo;s <a href="http://discuss.emberjs.com/t/diagram-of-an-ember-apps-structure/4060">a discussion about it</a> on the
-<a href="http://discuss.emberjs.com/">Ember Discussion Forum</a>. Here is the source file, created with OmniGraffle: <a href="https://www.dropbox.com/s/onnmn1oq096hv5f/Ember%20structure.graffle">Ember structure.graffle</a></p>
-
-<p><a href="/f/ember-structure.png"><img src="/f/ember-structure.png" alt="Structure of an Ember app" /></a></p>
-
-  </article>
-
-      <div class="row clearfix">
-        <p class="fin"><i class="fa fa-code"></i></p>
-      </div>
-    </article>
-
-  <footer class="container">
-    &copy; 2006 - 2014 <a href="/about">Sami Samhuri</a>
-  </footer>
-
-
-  <script>
-    var _gaq = _gaq || []
-    _gaq.push( ['_setAccount', 'UA-214054-5']
-             , ['_trackPageview']
-             )
-
-    ;(function() {
-      var ga = document.createElement('script')
-      ga.type = 'text/javascript'
-      ga.async = true
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'
-      var s = document.getElementsByTagName('script')[0]
-      s.parentNode.insertBefore(ga, s)
-    }())
-  </script>
 </body>
-
 </html>
