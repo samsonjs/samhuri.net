@@ -20,10 +20,24 @@ ExpiresDefault A259200
   Header append Cache-Control "private, must-revalidate"
 </FilesMatch>
 
+# Make super old posts redirect properly.
+#   e.g. http://sami.samhuri.net/2007/6/23/emacs-for-textmate-junkies
+RewriteEngine On
+RewriteRule ^posts/([0-9][0-9][0-9][0-9])/([0-9])/[0-9]/(.*)$ /posts/$1/0$2/$3 [R=301]
+RewriteRule ^posts/([0-9][0-9][0-9][0-9])/([0-9])/[0-9][0-9]/(.*)$ /posts/$1/0$2/$3 [R=301]
+RewriteRule ^posts/([0-9][0-9][0-9][0-9])/([0-9][0-9])/[0-9]/(.*)$ /posts/$1/$2/$3 [R=301]
+RewriteRule ^posts/([0-9][0-9][0-9][0-9])/([0-9][0-9])/[0-9][0-9]/(.*)$ /posts/$1/$2/$3 [R=301]
+
+# Never ended up running with this, give it back.
 Redirect 301 /json-diff/ http://tlrobinson.net/projects/javascript-fun/jsondiff/
 
+# The great vowel shortage of 1974 is over.
 Redirect 301 /proj/ /projects/
 
+Redirect 301 /blog/sjs.rss /feed.xml
+Redirect 301 /blog/ /posts/
+
+# Old naming scheme, incompatible with Harp.
 Redirect 301 /blog/2006.02.08-first-post /posts/2006/02/first-post
 Redirect 301 /blog/2006.02.08-touch-screen-on-steroids /posts/2006/02/touch-screen-on-steroids
 Redirect 301 /blog/2006.02.15-urban-extreme-gymnastics /posts/2006/02/urban-extreme-gymnastics
@@ -130,6 +144,3 @@ Redirect 301 /blog/2012.01.19-fujitsu-has-lost-their-mind /posts/2012/01/fujitsu
 Redirect 301 /blog/2013.03.06-zelda-tones-for-ios /posts/2013/03/zelda-tones-for-ios
 Redirect 301 /blog/2013.09.27-linky /posts/2013/09/linky
 Redirect 301 /blog/2014.02.03-ember-structure /posts/2014/02/ember-structure
-
-Redirect 301 /blog/sjs.rss /feed.xml
-Redirect 301 /blog/ /posts/
