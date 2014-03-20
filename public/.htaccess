@@ -2,6 +2,7 @@ DefaultType text/plain
 AddType audio/mp4 m4r
 AddType application/rss+xml rss
 SetOutputFilter DEFLATE
+AddDefaultCharset utf-8
 
 # Turn on Expires and set default expires to 3 days
 ExpiresActive On
