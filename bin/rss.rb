@@ -1,8 +1,7 @@
-#!/usr/bin/env ruby
+#!/usr/bin/env ruby -w -rrubygems
 # encoding: utf-8
 
 require 'time'
-require 'rubygems'
 require 'bundler/setup'
 require 'builder'
 require 'json'

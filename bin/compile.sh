@@ -18,6 +18,9 @@ function main() {
   echo "* munge html files to make them available without an extension"
   munge_html
 
+  echo "* inline CSS"
+  $DIR/inline-css.rb "$TARGET"
+
   echo "* minify js"
   minify_js
 }

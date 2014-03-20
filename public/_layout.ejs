@@ -132,6 +132,16 @@
     &copy; 2006 - <%= new Date().getFullYear() %> <a href="/about"><%= author %></a>
   </footer>
 
+  <script type="text/javascript">
+  	(function() {
+  		var css = document.createElement('link');
+  		css.href = '//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css';
+  		css.rel = 'stylesheet';
+  		css.type = 'text/css';
+  		document.getElementsByTagName('head')[0].appendChild(css);
+  	})();
+  </script>
+
 <% for (var i in allScripts) { -%>
   <script defer src="<%= allScripts[i] %>"></script>
 <% } -%>
