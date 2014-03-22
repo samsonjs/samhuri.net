@@ -6,7 +6,7 @@
 <% var _shortMonths = _months.map(function(m) { return m.slice(0, 3) }) -%>
 <% function formatDate(t) { -%>
 <%   var d = new Date(t) -%>
-<%   return _shortMonths[d.getMonth()] + ' ' + d.getDate() -%>
+<%   return d.getDate() + ' ' + _shortMonths[d.getMonth()] -%>
 <% } -%>
 
 <% function sortPosts(dir) { -%>

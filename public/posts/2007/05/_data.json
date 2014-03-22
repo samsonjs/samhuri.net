@@ -1,7 +1,7 @@
 {
   "typo-and-i-are-friends-again": {
     "title": "Typo and I are friends again",
-    "date": "May 1, 2007",
+    "date": "1st May, 2007",
     "timestamp": 1178081497,
     "tags": [
       "typo"
@@ -11,7 +11,7 @@
   },
   "a-scheme-parser-in-haskell-part-1": {
     "title": "A Scheme parser in Haskell: Part 1",
-    "date": "May 3, 2007",
+    "date": "3rd May, 2007",
     "timestamp": 1178178470,
     "tags": [
       "coding",
@@ -22,7 +22,7 @@
   },
   "gotta-love-the-ferry-ride": {
     "title": "Gotta Love the Ferry Ride",
-    "date": "May 5, 2007",
+    "date": "5th May, 2007",
     "timestamp": 1178364300,
     "tags": [
       "life",
@@ -35,7 +35,7 @@
   },
   "a-new-way-to-look-at-networking": {
     "title": "A New Way to Look at Networking",
-    "date": "May 5, 2007",
+    "date": "5th May, 2007",
     "timestamp": 1178406600,
     "tags": [
       "technology",
@@ -46,7 +46,7 @@
   },
   "dtrace-ruby-goodness-for-sun": {
     "title": "dtrace + Ruby = Goodness for Sun",
-    "date": "May 9, 2007",
+    "date": "9th May, 2007",
     "timestamp": 1178725500,
     "tags": [
       "ruby",
@@ -58,7 +58,7 @@
   },
   "i-cant-wait-to-see-what-matt-stone-trey-parker-do-with-this": {
     "title": "I Can't Wait to See What Trey Parker & Matt Stone Do With This",
-    "date": "May 9, 2007",
+    "date": "9th May, 2007",
     "timestamp": 1178746440,
     "tags": [
       "crazy"
@@ -68,7 +68,7 @@
   },
   "rails-plugins-link-dump": {
     "title": "Rails Plugins (link dump)",
-    "date": "May 10, 2007",
+    "date": "10th May, 2007",
     "timestamp": 1178756520,
     "tags": [
       "rails"
@@ -78,7 +78,7 @@
   },
   "enumerable-pluck-and-string-to_proc-for-ruby": {
     "title": "Enumurable#pluck and String#to_proc for Ruby",
-    "date": "May 10, 2007",
+    "date": "10th May, 2007",
     "timestamp": 1178838840,
     "tags": [
       "ruby",
@@ -92,7 +92,7 @@
   },
   "dumping-objects-to-the-browser-in-rails": {
     "title": "Dumping Objects to the Browser in Rails",
-    "date": "May 15, 2007",
+    "date": "15th May, 2007",
     "timestamp": 1179261480,
     "tags": [
       "rails"
@@ -105,7 +105,7 @@
   },
   "cheating-at-life-in-general": {
     "title": "Cheating at Life in General",
-    "date": "May 16, 2007",
+    "date": "16th May, 2007",
     "timestamp": 1179308760,
     "tags": [
       "cheat",
@@ -118,7 +118,7 @@
   },
   "iphone-humour": {
     "title": "iPhone Humour",
-    "date": "May 18, 2007",
+    "date": "18th May, 2007",
     "timestamp": 1179513240,
     "tags": [
       "apple",
@@ -130,7 +130,7 @@
   },
   "inspirado": {
     "title": "Inspirado",
-    "date": "May 22, 2007",
+    "date": "22nd May, 2007",
     "timestamp": 1179865380,
     "tags": [
       "rails",
@@ -141,7 +141,7 @@
   },
   "finnish-court-rules-css-ineffective-at-protecting-dvds": {
     "title": "Finnish court rules CSS ineffective at protecting DVDs",
-    "date": "May 26, 2007",
+    "date": "26th May, 2007",
     "timestamp": 1180175040,
     "tags": [
       "drm"

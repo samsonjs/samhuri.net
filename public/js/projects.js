@@ -75,7 +75,7 @@
             return
           }
           var d = new Date(repo.updatedAt)
-          var updated = Months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear()
+          var updated = d.getDate() + ' ' + Months[d.getMonth()] + ', ' + d.getFullYear()
           text('updated', updated)
         })
         .fetchLanguages(function(err, langs) {

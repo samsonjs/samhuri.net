@@ -1,7 +1,7 @@
 {
   "a-triple-booting-schizophrenic-macbook": {
     "title": "A triple-booting, schizophrenic MacBook",
-    "date": "April 4, 2007",
+    "date": "4th April, 2007",
     "timestamp": 1175754600,
     "tags": [
       "linux",
@@ -13,7 +13,7 @@
   },
   "activerecord-base_find_or_create-and-find_or_initialize": {
     "title": "ActiveRecord::Base.find_or_create and find_or_initialize",
-    "date": "April 11, 2007",
+    "date": "11th April, 2007",
     "timestamp": 1176287040,
     "tags": [
       "activerecord",
@@ -26,7 +26,7 @@
   },
   "getting-to-know-vista": {
     "title": "Getting to know Vista",
-    "date": "April 16, 2007",
+    "date": "16th April, 2007",
     "timestamp": 1176746940,
     "tags": [
       "windows"
@@ -36,7 +36,7 @@
   },
   "quickly-inserting-millions-of-rows-with-mysql-innodb": {
     "title": "Quickly inserting millions of rows with MySQL/InnoDB",
-    "date": "April 26, 2007",
+    "date": "26th April, 2007",
     "timestamp": 1177596360,
     "tags": [
       "linux",
@@ -47,7 +47,7 @@
   },
   "funny-how-code-can-be-beautiful": {
     "title": "Funny how code can be beautiful",
-    "date": "April 30, 2007",
+    "date": "30th April, 2007",
     "timestamp": 1177942020,
     "tags": [
       "haskell"

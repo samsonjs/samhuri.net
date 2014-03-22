@@ -5,7 +5,7 @@
 <% var _months = 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split(' ') -%>
 <% function formatDate(t) { -%>
 <%   var d = new Date(t) -%>
-<%   return _months[d.getMonth()] + ' ' + d.getDate() -%>
+<%   return d.getDate() + ' ' + _months[d.getMonth()] -%>
 <% } -%>
 
 <% function sortPosts(dir) { -%>
