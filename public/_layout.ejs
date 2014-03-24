@@ -125,7 +125,12 @@
       <p class="fin"><i class="fa fa-code"></i></p>
     </div>
   <% } else { -%>
-    <%- yield %>
+    <article class="container">
+      <%- yield %>
+    </article>
+    <div class="row clearfix">
+      <p class="fin"><i class="fa fa-code"></i></p>
+    </div>
   <% } -%>
 
   <footer class="container">
