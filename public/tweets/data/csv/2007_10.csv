@@ -1,2 +1,0 @@
-"tweet_id","in_reply_to_status_id","in_reply_to_user_id","retweeted_status_id","retweeted_status_user_id","timestamp","source","text","expanded_urls"
-"308350462","","","","","2007-10-03 01:23:23 +0000","<a href=""http://echofon.com/"" rel=""nofollow"">Echofon</a>","Pondering uses for JSONrequest.  Doing some Rails stuff..."

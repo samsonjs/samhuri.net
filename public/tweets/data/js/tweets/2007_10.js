@@ -1,24 +1,23 @@
 Grailbird.data.tweets_2007_10 = 
  [ {
-  "source" : "<a href=\"http://echofon.com/\" rel=\"nofollow\">Echofon</a>",
+  "source" : "\u003Ca href=\"http:\/\/echofon.com\/\" rel=\"nofollow\"\u003EEchofon\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
     "hashtags" : [ ],
     "urls" : [ ]
   },
-  "geo" : {
-  },
+  "geo" : { },
   "id_str" : "308350462",
   "text" : "Pondering uses for JSONrequest.  Doing some Rails stuff...",
   "id" : 308350462,
-  "created_at" : "Wed Oct 03 01:23:23 +0000 2007",
+  "created_at" : "2007-10-03 00:00:00 +0000",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
     "protected" : false,
     "id_str" : "4777951",
-    "profile_image_url_https" : "https://si0.twimg.com/profile_images/1307563055/me_normal.jpg",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
     "id" : 4777951,
     "verified" : false
   }
