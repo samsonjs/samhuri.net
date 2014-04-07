@@ -38,14 +38,6 @@ function munge_html() {
     mkdir -p "$FILE_DIR"
     mv "$FILE" "$FILE_DIR/index.html"
   done
-
-  # stupid harp
-  for FILE in "$TARGET"/projects/mojo.el "$TARGET"/projects/samhuri.net "$TARGET"/projects/cheat.el; do
-    mv "$FILE" "$FILE.tmp"
-    FILE_DIR="${FILE%.html}"
-    mkdir -p "$FILE_DIR"
-    mv "$FILE.tmp" "$FILE_DIR/index.html"
-  done
 }
 
 function minify_js() {
