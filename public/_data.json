@@ -12,6 +12,9 @@
   "archive": {
     "title": "Archive"
   },
+  "about": {
+    "title": "About me"
+  },
   "posts": [
     {
       "title": "Structure of an Ember app",
