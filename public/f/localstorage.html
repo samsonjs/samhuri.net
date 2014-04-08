@@ -1,0 +1,10 @@
+<!doctype html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<p align=center id=out></p>
+<script>
+	var x = Number(localStorage['test'] || 0)
+    document.getElementById('out').innerHTML = x
+	x += 1
+	localStorage['test'] = x
+</script>
+
