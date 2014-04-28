@@ -1,0 +1,65 @@
+==================================================================
+https://keybase.io/samsonjs
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://samhuri.net
+  * I am samsonjs (https://keybase.io/samsonjs) on keybase.
+  * I have a public key with fingerprint BBED 74DD 17DB 7C8F 7664  4FE2 0522 38DD 367F 2A76
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "bbed74dd17db7c8f76644fe2052238dd367f2a76",
+            "host": "keybase.io",
+            "key_id": "052238dd367f2a76",
+            "uid": "25b680ae659b316bdce367b13f236900",
+            "username": "samsonjs"
+        },
+        "service": {
+            "hostname": "samhuri.net",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1398721942,
+    "expire_in": 157680000,
+    "prev": "b1e8262765e3cce79be1740d17ce3ce87119f7e4744c71a94f8875cb491969f2",
+    "seqno": 2,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v0.1.12
+Comment: https://keybase.io/crypto
+
+yMHmAnicbZFbSBRhFMd3NS03Q/FB6CGiT4OyRXdmZ+ebWcmXKFi1YtFIxVrm8s3u
+VDuzzsxurcsGBV2g1dCwTe2iWUgQUlEmmJdki8g06cFAyHoIpUIw6ymI9Rspemle
+hvmf3//855yT2pRpsVn3vi//XFtQMG2dHF8OW2qOTl2NAV4Vo8AdA8fR2kuSFT/S
+QpqsGMANeB6JkBJFAoo8FBgJ0jRFSYh0uEjSyYiik4YSyUEa2EFA1U0HbsNzOiqV
+VazhD58sYvU/fHitQLp4mnFwiHaxvJOgeVFAmOEJp0Q6adbhMEEdaQoXRJjWuaCu
+Ksd0ELcDrEZkAauxteh/RCCsyaUKMrA1pKmGKqgncCFgGCG36TOiIRM8iXjfnxY+
+XlZEPDY2RJCmy6oC3AQmBUM2exJOloEkwVKkHaBTIVlDPtkkXBD/OX7MGBQxl0Ug
+hqRJSLuQUxAQZHlEQMqBl4eHEhADCYKVIKIgRQmQ4FhKYhjoEniKJVialUicr6Mm
+RQVunGRwfnMc2a9wRlhDID4x3rjOYrVZsrMyzMNZbDn5f8+59cz6dIBvbNnjzY9+
+fziW9kf7hkcS1smZmScNUlFydmV2Z5WyNNX6Icbm3htpmm5runCu9+vb5pa2Bz37
+QNbgEXdZ53J5g23b3e2HMsev5RRNXHzdWz8c7O+GO5iBsbqeoa7LBx/lDxXvfnPa
+c6mresPt+p/dvXXz+vVk6UqqYvPH4gH5eWXVs6R3xmMZiosdanHOHeLpjcpoza5P
+i3JJwPvN81tPPf6Rkepo0BMZrV3paIJNDi/NlbC+/njtr9qiA7cOZ6faz6bb8gYL
+vwStRvv+K575xQGyzzr1YqPafHMhYO98V3H/5Xz5XKG3ZSGRV/GKGh3NbSXPi8FI
+dRmxZRUO8hJq
+=7TfG
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/samsonjs
+
+==================================================================
