@@ -34,7 +34,7 @@ Apple's Mach-O overview</a>, which illustrates this quite nicely.</p>
 
 <p>A very basic Mach object file consists of a header followed by single
 blob of machine code.  That blob could be described by a single
-section named __text, inside a single nameless segment.  Here's a
+section named \_\_text, inside a single nameless segment.  Here's a
 diagram showing the layout of such a file:</p>
 
 <pre>
@@ -77,7 +77,7 @@ is where in memory segments will ultimately end up.</p>
 
 <p>Names are optional and can be arbitrary, but the convention is to
 name segments with uppercase letters preceded by two underscores,
-e.g. __DATA or __TEXT </p>
+e.g. \_\_DATA or \_\_TEXT </p>
 
 <p>The code exposes some more details about segment commands, but should
 be easy enough to follow.</p>
@@ -101,7 +101,7 @@ everything in memory the addresses inside our machine code will need
 to be updated.</p>
 
 <p>By convention segments are named with lowercase letters preceded by
-two underscores, e.g. __bss or __text</p>
+two underscores, e.g. \_\_bss or \_\_text</p>
 
 <p>Finally, the Ruby code describing section structs:</p>
 
@@ -130,9 +130,9 @@ beasts.</p>
 <p>If you want to see the actual data for a section otool provides a
 couple of ways to do this.  The first is to use
 <code>otool -d &lt;segment&gt; &lt;section&gt;</code> for an arbitrary
-section.  To see the contents of a well-known section, such as __text
-in the __TEXT segment, use <code>otool -t /usr/bin/true</code>.  You can
-also disassemble the __text section with
+section.  To see the contents of a well-known section, such as \_\_text
+in the \_\_TEXT segment, use <code>otool -t /usr/bin/true</code>.  You can
+also disassemble the \_\_text section with
 <code>otool -tv /usr/bin/true</code>.</p>
 
 <p>You'll get to know otool quite well if you work with Mach-O.</p>
@@ -151,8 +151,8 @@ the next post we'll be there.</p>
 
 <p><i>(You can almost do that with what we know now.  If you
 create a Mach file with a Mach header (ncmds=1), a single unnamed
-segment (nsects=1), and then a section named __text with a segment
-name of __TEXT, and some x86 machine code as the section data, you
+segment (nsects=1), and then a section named \_\_text with a segment
+name of \_\_TEXT, and some x86 machine code as the section data, you
 would almost have a useful Mach object file.)</i></p>
 
 <p>Until next time, happy hacking!</p>
