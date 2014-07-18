@@ -471,7 +471,7 @@ Grailbird.data.tweets_2014_02 =
       "screen_name" : "juhasaarinen",
       "protected" : false,
       "id_str" : "15829574",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/443948243647361024\/qluym9IZ_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/480174837751484416\/E3RBj1Tl_normal.jpeg",
       "id" : 15829574,
       "verified" : true
     }
@@ -800,7 +800,7 @@ Grailbird.data.tweets_2014_02 =
   "id_str" : "439065374756052992",
   "text" : "RT @shit_so_says: To use CUDA you need to use C, which doesn't support inheritance. Therefore, you need to be clever.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1067,87 +1067,7 @@ Grailbird.data.tweets_2014_02 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Chris Nehren",
-      "screen_name" : "justapeiron",
-      "indices" : [ 3, 15 ],
-      "id_str" : "1500277741",
-      "id" : 1500277741
-    }, {
-      "name" : "Gizmo Mathboy",
-      "screen_name" : "gizmomathboy",
-      "indices" : [ 17, 30 ],
-      "id_str" : "41309638",
-      "id" : 41309638
-    }, {
-      "name" : "literally no thing",
-      "screen_name" : "izs",
-      "indices" : [ 102, 106 ],
-      "id_str" : "8038312",
-      "id" : 8038312
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "438734039759859712",
-  "text" : "RT @justapeiron: @gizmomathboy npmjs is a terrible (confusing!) name for something that's unofficial. @izs is totally justified in his acti\u2026",
-  "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twirssi.com\" rel=\"nofollow\"\u003ETwirssi\u003C\/a\u003E",
-    "entities" : {
-      "user_mentions" : [ {
-        "name" : "Gizmo Mathboy",
-        "screen_name" : "gizmomathboy",
-        "indices" : [ 0, 13 ],
-        "id_str" : "41309638",
-        "id" : 41309638
-      }, {
-        "name" : "literally no thing",
-        "screen_name" : "izs",
-        "indices" : [ 85, 89 ],
-        "id_str" : "8038312",
-        "id" : 8038312
-      } ],
-      "media" : [ ],
-      "hashtags" : [ ],
-      "urls" : [ ]
-    },
-    "in_reply_to_status_id_str" : "438694178483367937",
-    "geo" : { },
-    "id_str" : "438696411434323968",
-    "in_reply_to_user_id" : 41309638,
-    "text" : "@gizmomathboy npmjs is a terrible (confusing!) name for something that's unofficial. @izs is totally justified in his actions.",
-    "id" : 438696411434323968,
-    "in_reply_to_status_id" : 438694178483367937,
-    "created_at" : "2014-02-26 15:25:49 +0000",
-    "in_reply_to_screen_name" : "gizmomathboy",
-    "in_reply_to_user_id_str" : "41309638",
-    "user" : {
-      "name" : "Chris Nehren",
-      "screen_name" : "justapeiron",
-      "protected" : false,
-      "id_str" : "1500277741",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/3784834226\/d1983e2521c7d51ed989c1b18d226487_normal.jpeg",
-      "id" : 1500277741,
-      "verified" : false
-    }
-  },
-  "id" : 438734039759859712,
-  "created_at" : "2014-02-26 17:55:21 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "literally no thing",
+      "name" : "what izs love",
       "screen_name" : "izs",
       "indices" : [ 3, 7 ],
       "id_str" : "8038312",
@@ -1215,11 +1135,11 @@ Grailbird.data.tweets_2014_02 =
     "in_reply_to_screen_name" : "indutny",
     "in_reply_to_user_id_str" : "92915570",
     "user" : {
-      "name" : "literally solipsist",
+      "name" : "what izs love",
       "screen_name" : "izs",
       "protected" : false,
       "id_str" : "8038312",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/429334527018672128\/WbXbeeHb_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/484207951310118914\/3qxqcxAu_normal.jpeg",
       "id" : 8038312,
       "verified" : false
     }
@@ -1302,7 +1222,7 @@ Grailbird.data.tweets_2014_02 =
       "screen_name" : "monkbent",
       "protected" : false,
       "id_str" : "40273",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/3097836774\/5b138c2da4e7a96c83409436e301ace2_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/457016792259391488\/lNWACUK8_normal.jpeg",
       "id" : 40273,
       "verified" : false
     }
@@ -1441,7 +1361,7 @@ Grailbird.data.tweets_2014_02 =
       "screen_name" : "tapbot_paul",
       "protected" : false,
       "id_str" : "18247541",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000727389627\/46dacd92037d23a7203bdc20188b8141_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/477104207162789889\/bxs3MU5L_normal.jpeg",
       "id" : 18247541,
       "verified" : false
     }
@@ -1505,7 +1425,7 @@ Grailbird.data.tweets_2014_02 =
   "id_str" : "438175053792833536",
   "text" : "RT @appcode: Tip of the day: Detecting unreachable code is easy with AppCode. Can your IDE do the same? http:\/\/t.co\/ap5XXr6W7n",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ {
@@ -1657,7 +1577,7 @@ Grailbird.data.tweets_2014_02 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Erik Bryn\u2122",
+      "name" : "Erik Bryn",
       "screen_name" : "ebryn",
       "indices" : [ 0, 6 ],
       "id_str" : "3594",
@@ -1740,7 +1660,7 @@ Grailbird.data.tweets_2014_02 =
       "screen_name" : "justin",
       "protected" : false,
       "id_str" : "929",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/443183497843183616\/q67WDC64_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/477186157474639873\/31vyejnA_normal.jpeg",
       "id" : 929,
       "verified" : false
     }
@@ -2018,7 +1938,7 @@ Grailbird.data.tweets_2014_02 =
   "id_str" : "437008832548466688",
   "text" : "RT @csoghoian: Don't worry. The security update used to patch Apple's iOS SSL authentication flaw will be delivered to you securely via a S\u2026",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -2099,7 +2019,7 @@ Grailbird.data.tweets_2014_02 =
   "id_str" : "437006954045517824",
   "text" : "RT @mariaignatova: Hilarious yet absolutely spot-on writing rules http:\/\/t.co\/J7fDjp6Ozr",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ {
@@ -2412,7 +2332,7 @@ Grailbird.data.tweets_2014_02 =
   "id_str" : "436890127395061760",
   "text" : "RT @RichardDawkins: I would use \"troll\" to mean someone who seeks not to enlighten, persuade or amuse, but to \"get a rise out of\" or pointl\u2026",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -2434,7 +2354,7 @@ Grailbird.data.tweets_2014_02 =
       "screen_name" : "RichardDawkins",
       "protected" : false,
       "id_str" : "15143478",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/435900751861141504\/s_lG70es_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/486455188073349121\/OzzZhX-__normal.png",
       "id" : 15143478,
       "verified" : true
     }
@@ -2468,7 +2388,7 @@ Grailbird.data.tweets_2014_02 =
   "id_str" : "436890117613965313",
   "text" : "RT @RichardDawkins: Anyone who loves language welcomes useful neologisms. But \"troll\" is increasingly used to mean only \"someone who disagr\u2026",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -2485,7 +2405,7 @@ Grailbird.data.tweets_2014_02 =
       "screen_name" : "RichardDawkins",
       "protected" : false,
       "id_str" : "15143478",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/435900751861141504\/s_lG70es_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/486455188073349121\/OzzZhX-__normal.png",
       "id" : 15143478,
       "verified" : true
     }
@@ -2552,7 +2472,7 @@ Grailbird.data.tweets_2014_02 =
   "id_str" : "436657252447948800",
   "text" : "RT @garybernhardt: just gonna rewrite literally everything in Ruby because everything is too slow, don't mind me, black is white, up is dow\u2026",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -2614,7 +2534,7 @@ Grailbird.data.tweets_2014_02 =
   "id_str" : "436392936951922688",
   "text" : "RT @joeerl: http:\/\/t.co\/OEfKeS2c1P #erlang and #WhatsApp - this is what a 55 people company can do with erlang.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -2693,7 +2613,7 @@ Grailbird.data.tweets_2014_02 =
       "screen_name" : "BenedictEvans",
       "protected" : false,
       "id_str" : "1236101",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/86361875\/photo1_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/454333621331976193\/AX-M-ESC_normal.jpeg",
       "id" : 1236101,
       "verified" : false
     }
@@ -2799,7 +2719,7 @@ Grailbird.data.tweets_2014_02 =
   "id_str" : "435997573451509760",
   "text" : "RT @topherbullock: @tenderlove throw some \"!important\" on that, its basically the YOLO of CSS.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Aaron Patterson",
@@ -2888,7 +2808,7 @@ Grailbird.data.tweets_2014_02 =
       "screen_name" : "benschwarz",
       "protected" : false,
       "id_str" : "14431882",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000787427480\/a5782116df96280751a9e453e392db51_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/477417312081813504\/ow7QC_8h_normal.jpeg",
       "id" : 14431882,
       "verified" : false
     }
@@ -2972,7 +2892,7 @@ Grailbird.data.tweets_2014_02 =
   "id_str" : "435898782530560000",
   "text" : "RT @bobodtech: The Trouble with Touchpads, my latest column @techpinions: http:\/\/t.co\/uIaPIQ4Ltf",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Tech.pinions",
@@ -3169,7 +3089,7 @@ Grailbird.data.tweets_2014_02 =
   "id_str" : "435834814222970880",
   "text" : "RT @tylerhunt: Checking out pull requests locally: https:\/\/t.co\/yZoEV6KEjJ. This is so much easier than adding a new remote. Just `git chec\u2026",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -3242,7 +3162,7 @@ Grailbird.data.tweets_2014_02 =
       "screen_name" : "anildash",
       "protected" : false,
       "id_str" : "36823",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/3588056222\/0d62af265381d6b5861371e86d0bff23_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/476939811702718464\/Qq0LPfRy_normal.jpeg",
       "id" : 36823,
       "verified" : true
     }
@@ -3325,7 +3245,7 @@ Grailbird.data.tweets_2014_02 =
       "screen_name" : "trek",
       "protected" : false,
       "id_str" : "1291711",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/419215303080280064\/YVgfRE9H_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/458981557865172993\/lKDSzPXa_normal.jpeg",
       "id" : 1291711,
       "verified" : false
     }
@@ -3345,7 +3265,7 @@ Grailbird.data.tweets_2014_02 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "greg bate",
+      "name" : "Greg Bate",
       "screen_name" : "gregbate",
       "indices" : [ 0, 9 ],
       "id_str" : "15292261",
@@ -3422,7 +3342,7 @@ Grailbird.data.tweets_2014_02 =
   "id_str" : "435488133749035008",
   "text" : "RT @jammiesblvd: The Birds of the App Store. http:\/\/t.co\/ylFLR107Pk",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ {
@@ -3469,7 +3389,7 @@ Grailbird.data.tweets_2014_02 =
       "screen_name" : "jammiesblvd",
       "protected" : false,
       "id_str" : "213803207",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/420198595330314240\/VGGj0VRT_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/486629687297191936\/wfq1HwlS_normal.png",
       "id" : 213803207,
       "verified" : false
     }
@@ -3530,7 +3450,7 @@ Grailbird.data.tweets_2014_02 =
       "screen_name" : "monkbent",
       "protected" : false,
       "id_str" : "40273",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/3097836774\/5b138c2da4e7a96c83409436e301ace2_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/457016792259391488\/lNWACUK8_normal.jpeg",
       "id" : 40273,
       "verified" : false
     }
@@ -3564,7 +3484,7 @@ Grailbird.data.tweets_2014_02 =
   "id_str" : "435450845291741185",
   "text" : "RT @CompSciFact: \"One person's syntax is another person's semantics.\" -- Joseph Goguen",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/www.hootsuite.com\" rel=\"nofollow\"\u003EHootSuite\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"http:\/\/www.hootsuite.com\" rel=\"nofollow\"\u003EHootsuite\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -4146,7 +4066,7 @@ Grailbird.data.tweets_2014_02 =
   "id_str" : "434591535170990080",
   "text" : "RT @dontcallmeDOM: Apple just joined the #WebRTC Working Group; welcome on board, guys!",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -4166,7 +4086,7 @@ Grailbird.data.tweets_2014_02 =
       "screen_name" : "dontcallmeDOM",
       "protected" : false,
       "id_str" : "19218240",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1132222584\/40a3e560-d85f-4b93-bbd5-b00ef983da77_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/477412405358518272\/uQd4GSBQ_normal.jpeg",
       "id" : 19218240,
       "verified" : false
     }
@@ -4283,7 +4203,7 @@ Grailbird.data.tweets_2014_02 =
   "id_str" : "434412063889186816",
   "text" : "RT @codinghorror: Apparently the Silence of the Lambs was not actually a \"romance\" and thus is an \"inappropriate\" valentine reference. I re\u2026",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -4364,7 +4284,7 @@ Grailbird.data.tweets_2014_02 =
   "id_str" : "434412053130801153",
   "text" : "RT @codinghorror: Happy Valentine's Day! Here's to placing the lotion in someone's basket. http:\/\/t.co\/6DmZG3cZBs",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ {
@@ -4551,7 +4471,7 @@ Grailbird.data.tweets_2014_02 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Joseph Martel",
@@ -4619,7 +4539,7 @@ Grailbird.data.tweets_2014_02 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Joseph Martel",
@@ -4773,7 +4693,7 @@ Grailbird.data.tweets_2014_02 =
   "id_str" : "434134852560887808",
   "text" : "RT @JimRoepcke: The Heart and Stroke Foundation Owes Canadian Parents an Apology: http:\/\/t.co\/yYDnOX8MEx",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitter.com\/tweetbutton\" rel=\"nofollow\"\u003ETweet Button\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/dev.twitter.com\/docs\/tfw\" rel=\"nofollow\"\u003ETwitter for Websites\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -5508,7 +5428,7 @@ Grailbird.data.tweets_2014_02 =
   "id_str" : "433417774879109121",
   "text" : "RT @timbray: How I\u2019m thinking about browsers these days. http:\/\/t.co\/DiqYFKSal6",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ {
@@ -5989,7 +5909,7 @@ Grailbird.data.tweets_2014_02 =
   "id_str" : "432271957023670273",
   "text" : "RT @codinghorror: @marcoarment server herpes!",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Marco Arment",
@@ -6089,7 +6009,7 @@ Grailbird.data.tweets_2014_02 =
   "id_str" : "431951859478040576",
   "text" : "RT @HackerNewsOnion: A gorgeous, opinionated JavaScript microframework hand-delivered to your door every month",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -6211,7 +6131,7 @@ Grailbird.data.tweets_2014_02 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -6349,7 +6269,7 @@ Grailbird.data.tweets_2014_02 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Adolfo Builes",
@@ -6470,7 +6390,7 @@ Grailbird.data.tweets_2014_02 =
       "screen_name" : "tapbot_paul",
       "protected" : false,
       "id_str" : "18247541",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000727389627\/46dacd92037d23a7203bdc20188b8141_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/477104207162789889\/bxs3MU5L_normal.jpeg",
       "id" : 18247541,
       "verified" : false
     }
@@ -6487,7 +6407,7 @@ Grailbird.data.tweets_2014_02 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Twitterrific",
@@ -6636,7 +6556,7 @@ Grailbird.data.tweets_2014_02 =
   "id_str" : "431128071198871553",
   "text" : "RT @jchutchins: Wikipedia, you crack me the hell up. http:\/\/t.co\/icOIrEuVPq",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ {
@@ -6683,7 +6603,7 @@ Grailbird.data.tweets_2014_02 =
       "screen_name" : "jchutchins",
       "protected" : false,
       "id_str" : "773003",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/435236285020516352\/cb_gXznB_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/489526016105140224\/tVDAbu6G_normal.jpeg",
       "id" : 773003,
       "verified" : false
     }
@@ -6700,7 +6620,7 @@ Grailbird.data.tweets_2014_02 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Eli Perelman",
@@ -7359,7 +7279,7 @@ Grailbird.data.tweets_2014_02 =
       "screen_name" : "raganwald",
       "protected" : false,
       "id_str" : "18137723",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/436205905437134848\/MdRKL9hb_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/485403259301928960\/f10AqCur_normal.png",
       "id" : 18137723,
       "verified" : false
     }

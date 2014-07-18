@@ -17,7 +17,7 @@ Grailbird.data.tweets_2013_09 =
   "id_str" : "384815334588293120",
   "text" : "RT @jessiechar: 15% of design is making sure it doesn't look like a swastika or a dick.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -260,7 +260,7 @@ Grailbird.data.tweets_2013_09 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Bryan Kyle",
@@ -323,7 +323,7 @@ Grailbird.data.tweets_2013_09 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "greg bate",
+      "name" : "Greg Bate",
       "screen_name" : "gregbate",
       "indices" : [ 0, 9 ],
       "id_str" : "15292261",
@@ -742,7 +742,7 @@ Grailbird.data.tweets_2013_09 =
       "id_str" : "1310721",
       "id" : 1310721
     }, {
-      "name" : "Aaron Heckmann",
+      "name" : "aheckmann",
       "screen_name" : "aaronheckmann",
       "indices" : [ 10, 24 ],
       "id_str" : "13818902",
@@ -1374,7 +1374,7 @@ Grailbird.data.tweets_2013_09 =
   "id_str" : "382534159094140928",
   "text" : "RT @diegoperini: element.dispatchEvent(new Event('click', \u007B 'bubbles': true, 'cancelable': true \u007D)); all in one line ! - createEvent is dep\u2026",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1821,7 +1821,7 @@ Grailbird.data.tweets_2013_09 =
   "id_str" : "381309364985810946",
   "text" : "RT @gparker: iOS 7 fixes a performance bug in some animated GIFs. I was annoyed enough to hunt it down one weekend. You're welcome.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -2163,7 +2163,7 @@ Grailbird.data.tweets_2013_09 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Jim Roepcke",
@@ -2286,7 +2286,7 @@ Grailbird.data.tweets_2013_09 =
       "id_str" : "624683",
       "id" : 624683
     }, {
-      "name" : "Mahyar McDonald",
+      "name" : "Mahyar M",
       "screen_name" : "mahyarm",
       "indices" : [ 8, 16 ],
       "id_str" : "22406953",
@@ -2316,7 +2316,7 @@ Grailbird.data.tweets_2013_09 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Brian Klug",
@@ -3106,7 +3106,7 @@ Grailbird.data.tweets_2013_09 =
       "screen_name" : "KKrzcuik",
       "protected" : false,
       "id_str" : "588435038",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/442170041388511232\/F5WFbEoo_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/485816626957545472\/ph7eKIMx_normal.jpeg",
       "id" : 588435038,
       "verified" : false
     }
@@ -3839,7 +3839,7 @@ Grailbird.data.tweets_2013_09 =
   "id_str" : "379444280818823169",
   "text" : "RT @igrigorik: Ruby HTTP 2.0 library is starting to come together... http:\/\/t.co\/LpiswQlEh5 - 154 examples, 0 failures - woot.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -3861,7 +3861,7 @@ Grailbird.data.tweets_2013_09 =
       "screen_name" : "igrigorik",
       "protected" : false,
       "id_str" : "9980812",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/412364630279745536\/5xDKUf4r_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/458689841186611200\/SMmZLt2Y_normal.jpeg",
       "id" : 9980812,
       "verified" : false
     }
@@ -4651,7 +4651,7 @@ Grailbird.data.tweets_2013_09 =
       "screen_name" : "maira",
       "protected" : false,
       "id_str" : "397570506",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/3748150902\/4c081b0de8a98fc1c73b011e519b561a_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/468124844115394560\/ofAG3Egp_normal.jpeg",
       "id" : 397570506,
       "verified" : false
     }
@@ -5094,7 +5094,7 @@ Grailbird.data.tweets_2013_09 =
       "screen_name" : "counternotions",
       "protected" : false,
       "id_str" : "19225408",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000565429354\/350ed8f0e2135732d262d91f95f92b18_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/472995716663488512\/0MErVHN__normal.png",
       "id" : 19225408,
       "verified" : false
     }
@@ -5403,7 +5403,7 @@ Grailbird.data.tweets_2013_09 =
       "screen_name" : "parislemon",
       "protected" : false,
       "id_str" : "652193",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/430498692018094081\/eNje7vMm_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/475450216175263744\/KhPqb7vQ_normal.jpeg",
       "id" : 652193,
       "verified" : true
     }
@@ -5454,7 +5454,7 @@ Grailbird.data.tweets_2013_09 =
       "screen_name" : "tapbot_paul",
       "protected" : false,
       "id_str" : "18247541",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000727389627\/46dacd92037d23a7203bdc20188b8141_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/477104207162789889\/bxs3MU5L_normal.jpeg",
       "id" : 18247541,
       "verified" : false
     }
@@ -5528,7 +5528,7 @@ Grailbird.data.tweets_2013_09 =
   "id_str" : "376214341483102208",
   "text" : "RT @dsandler: \u201CDad, how does Santa know if you\u2019ve been bad or good, all the time?\u201D \n\u201CBackdoored crypto protocols, son.\u201D",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -5692,7 +5692,7 @@ Grailbird.data.tweets_2013_09 =
       "screen_name" : "BenedictEvans",
       "protected" : false,
       "id_str" : "1236101",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/86361875\/photo1_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/454333621331976193\/AX-M-ESC_normal.jpeg",
       "id" : 1236101,
       "verified" : false
     }

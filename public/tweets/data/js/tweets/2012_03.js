@@ -203,7 +203,7 @@ Grailbird.data.tweets_2012_03 =
       "id_str" : "8479062",
       "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000321492435\/f103f3a24b6082c43520d01f550af4a4_normal.jpeg",
       "id" : 8479062,
-      "verified" : false
+      "verified" : true
     }
   },
   "id" : 185451285540126720,
@@ -268,7 +268,7 @@ Grailbird.data.tweets_2012_03 =
   "id_str" : "185378679579353090",
   "text" : "RT @BrendanEich: Yes, arrow functions (=&gt; only, no -&gt;; lexical |this|, standard body block rules for break\/continue\/return) have c ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -324,7 +324,7 @@ Grailbird.data.tweets_2012_03 =
   "id_str" : "185378663863300096",
   "text" : "RT @BrendanEich: http:\/\/t.co\/O08PzEBP - TC39 consensus achieved via stand-up comedy whiteboard operation by me + goodwill & acceptable c ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -606,7 +606,7 @@ Grailbird.data.tweets_2012_03 =
   "id_str" : "184155347500535808",
   "text" : "RT @cdixon: The worst app on my iPhone is this thing called \"Phone\" where you have to speak synchronously with other humans.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -726,7 +726,7 @@ Grailbird.data.tweets_2012_03 =
     "id" : 183685451138338817,
     "created_at" : "2012-03-24 22:43:18 +0000",
     "user" : {
-      "name" : "sir wizard of astro",
+      "name" : "Andy Casey",
       "screen_name" : "astrowizicist",
       "protected" : false,
       "id_str" : "31377368",
@@ -816,7 +816,7 @@ Grailbird.data.tweets_2012_03 =
   "id_str" : "183618691852804097",
   "text" : "RT @hotdogsladies: I say: \"No, sorry. I'm not on Facebook at all.\"\n\nThey hear: \"I live amongst hill people where The Goat we worship has ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1021,7 +1021,7 @@ Grailbird.data.tweets_2012_03 =
       "screen_name" : "grigs",
       "protected" : false,
       "id_str" : "5774462",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/448676113946923008\/hccKLBEJ_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/478672550969348096\/AOKArwPW_normal.jpeg",
       "id" : 5774462,
       "verified" : false
     }
@@ -1522,7 +1522,7 @@ Grailbird.data.tweets_2012_03 =
   "id_str" : "180711844632207361",
   "text" : "RT @tapfortap: @_sjs first \"new iPad\" in the office award goes to you. #jealousrage",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Sami Samhuri",
@@ -1690,7 +1690,7 @@ Grailbird.data.tweets_2012_03 =
       "screen_name" : "hellogeri",
       "protected" : false,
       "id_str" : "12069912",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/414621155811528704\/hyHdU7km_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/478341928988057600\/rdlJ1zag_normal.jpeg",
       "id" : 12069912,
       "verified" : false
     }

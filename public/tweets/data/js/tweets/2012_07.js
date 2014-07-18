@@ -61,7 +61,7 @@ Grailbird.data.tweets_2012_07 =
   "id_str" : "230452011584344064",
   "text" : "RT @lunafiko: Just launched Tell Your Boss Anything, anonymous way for employees to provide feedback to their managers https:\/\/t.co\/YsFeC6yD",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -83,7 +83,7 @@ Grailbird.data.tweets_2012_07 =
       "screen_name" : "lunafiko",
       "protected" : false,
       "id_str" : "14273142",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/2366304626\/khrxv6x39wsfdqmhseny_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/481925411496931328\/7sQcjyzQ_normal.jpeg",
       "id" : 14273142,
       "verified" : false
     }
@@ -352,7 +352,7 @@ Grailbird.data.tweets_2012_07 =
       "screen_name" : "antirez",
       "protected" : false,
       "id_str" : "5813712",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/447047867652272128\/MtilrTWI_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/461550870648217602\/XjbUS5rb_normal.png",
       "id" : 5813712,
       "verified" : false
     }
@@ -624,7 +624,7 @@ Grailbird.data.tweets_2012_07 =
       "screen_name" : "ChrisBeckmann",
       "protected" : false,
       "id_str" : "55486012",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/444342041955155968\/uhRS3WEZ_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/485930912907931648\/j9OxdMLw_normal.png",
       "id" : 55486012,
       "verified" : false
     }
@@ -644,7 +644,7 @@ Grailbird.data.tweets_2012_07 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Amos Wenger",
+      "name" : "Amos Wenger (old)",
       "screen_name" : "nddrylliog",
       "indices" : [ 3, 14 ],
       "id_str" : "267433199",
@@ -693,11 +693,11 @@ Grailbird.data.tweets_2012_07 =
     "id" : 223932856269938690,
     "created_at" : "2012-07-14 00:12:08 +0000",
     "user" : {
-      "name" : "Amos Wenger",
+      "name" : "Amos Wenger (old)",
       "screen_name" : "nddrylliog",
       "protected" : false,
       "id_str" : "267433199",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/447736531608809472\/AECMF5xJ_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/482206429537792000\/iocHfWJL_normal.png",
       "id" : 267433199,
       "verified" : false
     }
@@ -742,7 +742,7 @@ Grailbird.data.tweets_2012_07 =
   "id_str" : "223132039967293440",
   "text" : "RT @polotek: This is pretty amazing. \"Paid, PAID Vacation\". Pay employees to take a real vacation and NOT work. http:\/\/t.co\/RhC4ZSpL via ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Brad Feld",
@@ -1017,7 +1017,7 @@ Grailbird.data.tweets_2012_07 =
   "id_str" : "221285716448133121",
   "text" : "RT @bgifford: YYYYMMDD Let's just agree that's the best for organising dates. K, thanks.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1129,7 +1129,7 @@ Grailbird.data.tweets_2012_07 =
       "screen_name" : "antirez",
       "protected" : false,
       "id_str" : "5813712",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/447047867652272128\/MtilrTWI_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/461550870648217602\/XjbUS5rb_normal.png",
       "id" : 5813712,
       "verified" : false
     }

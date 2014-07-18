@@ -68,7 +68,7 @@ Grailbird.data.tweets_2013_05 =
       "screen_name" : "jamieforrest",
       "protected" : false,
       "id_str" : "14069034",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/425020003100803072\/X7a0m-zU_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/488634866280316929\/6593PGS7_normal.jpeg",
       "id" : 14069034,
       "verified" : false
     }
@@ -102,7 +102,7 @@ Grailbird.data.tweets_2013_05 =
   "id_str" : "340244372824137729",
   "text" : "RT @isoiphone: \"Click Here\" is lazy. Come up with links that make sense!",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -360,7 +360,7 @@ Grailbird.data.tweets_2013_05 =
       "screen_name" : "JeremiahLee",
       "protected" : false,
       "id_str" : "14538587",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000096902625\/f05d3c01d3bc7794ed0f9eb074d5e9e5_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/477867276738101248\/0On7yb38_normal.jpeg",
       "id" : 14538587,
       "verified" : false
     }
@@ -484,7 +484,7 @@ Grailbird.data.tweets_2013_05 =
   "id_str" : "337665132136108032",
   "text" : "RT @JosephMartel: It has to be \"jiff\", \"jife\", \"giff\", or \"gife\", but \"gif\" is not reconcilable in English orthography and morphophonology.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -637,7 +637,7 @@ Grailbird.data.tweets_2013_05 =
       "screen_name" : "mikeal",
       "protected" : false,
       "id_str" : "668423",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/3696914564\/537a181733d33d4125eab616e896afe8_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/458999500753747968\/yrHm17uc_normal.jpeg",
       "id" : 668423,
       "verified" : false
     }
@@ -685,7 +685,7 @@ Grailbird.data.tweets_2013_05 =
       "id_str" : "74837444",
       "id" : 74837444
     }, {
-      "name" : "De\u00A2ktoni\u00A2",
+      "name" : "Deckt\u00F8nic",
       "screen_name" : "decktonic",
       "indices" : [ 11, 21 ],
       "id_str" : "74750365",
@@ -718,7 +718,7 @@ Grailbird.data.tweets_2013_05 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "De\u00A2ktoni\u00A2",
+      "name" : "Deckt\u00F8nic",
       "screen_name" : "decktonic",
       "indices" : [ 0, 10 ],
       "id_str" : "74750365",
@@ -1245,7 +1245,7 @@ Grailbird.data.tweets_2013_05 =
       "screen_name" : "raganwald",
       "protected" : false,
       "id_str" : "18137723",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/436205905437134848\/MdRKL9hb_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/485403259301928960\/f10AqCur_normal.png",
       "id" : 18137723,
       "verified" : false
     }
@@ -1306,7 +1306,7 @@ Grailbird.data.tweets_2013_05 =
       "screen_name" : "raganwald",
       "protected" : false,
       "id_str" : "18137723",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/436205905437134848\/MdRKL9hb_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/485403259301928960\/f10AqCur_normal.png",
       "id" : 18137723,
       "verified" : false
     }

@@ -123,7 +123,7 @@ Grailbird.data.tweets_2012_05 =
   "id_str" : "207490853411897344",
   "text" : "RT @DalaiLama: The many factors which divide us are actually much more superficial than those we share.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -177,7 +177,7 @@ Grailbird.data.tweets_2012_05 =
   "id_str" : "207307473776943104",
   "text" : "RT @lunafiko: Need a website, custom web or mobile app, or design work done? We provide local expertise in UI\/UX, cutting edge web and m ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -197,7 +197,7 @@ Grailbird.data.tweets_2012_05 =
       "screen_name" : "lunafiko",
       "protected" : false,
       "id_str" : "14273142",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/2366304626\/khrxv6x39wsfdqmhseny_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/481925411496931328\/7sQcjyzQ_normal.jpeg",
       "id" : 14273142,
       "verified" : false
     }
@@ -566,7 +566,7 @@ Grailbird.data.tweets_2012_05 =
       "screen_name" : "brianloveswords",
       "protected" : false,
       "id_str" : "17177251",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/3426841674\/766c6a1633c935bccf8bfe1b872b70a8_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/477448167919611904\/ccADXh08_normal.jpeg",
       "id" : 17177251,
       "verified" : false
     }
@@ -696,7 +696,7 @@ Grailbird.data.tweets_2012_05 =
   "id_str" : "205701172185677825",
   "text" : "RT @tapfortap: Tap for Tappers. Today is Free Credit Thursday! Tweet me or retweet this and I'll give you 1000 credits for free app prom ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -822,7 +822,7 @@ Grailbird.data.tweets_2012_05 =
   "id_str" : "205115245885259779",
   "text" : "RT @conradirwin: Introducing `&amp;X`, a library we use at @rapportive to write more readable ruby: http:\/\/t.co\/CGCtiftl",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Rapportive",
@@ -2445,7 +2445,7 @@ Grailbird.data.tweets_2012_05 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "CLINT\u2014ECKER",
+      "name" : "YUNG KRANG",
       "screen_name" : "CLINT",
       "indices" : [ 0, 6 ],
       "id_str" : "45993",
@@ -2484,7 +2484,7 @@ Grailbird.data.tweets_2012_05 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "CLINT\u2014ECKER",
+      "name" : "YUNG KRANG",
       "screen_name" : "CLINT",
       "indices" : [ 0, 6 ],
       "id_str" : "45993",
@@ -2725,7 +2725,7 @@ Grailbird.data.tweets_2012_05 =
   "id_str" : "199736326529097729",
   "text" : "RT @rob_pike: The Go compiler isn't so fast; other compilers are just slow. Machines are bloody fast. Just don't piss the speed away.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -2865,7 +2865,7 @@ Grailbird.data.tweets_2012_05 =
   "id_str" : "199515343692120066",
   "text" : "RT @kylepulver: Every single programming bug hunt seems to end with \"Wow, I'm an idiot.\"",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -2955,7 +2955,7 @@ Grailbird.data.tweets_2012_05 =
   "id_str" : "198939898919653378",
   "text" : "RT @peterc: @_sjs perl -pe \"s\/\\n\/\\n;\\n\/\" &lt; script.js .. it cures all!",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Sami Samhuri",
@@ -3009,7 +3009,7 @@ Grailbird.data.tweets_2012_05 =
       "id_str" : "12131132",
       "id" : 12131132
     }, {
-      "name" : "5BY5 Broadcasting",
+      "name" : "5by5",
       "screen_name" : "5by5",
       "indices" : [ 132, 137 ],
       "id_str" : "106231780",
@@ -3192,7 +3192,7 @@ Grailbird.data.tweets_2012_05 =
       "screen_name" : "MattBloomFilms",
       "protected" : false,
       "id_str" : "32591490",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000611474336\/8edb15a0c0cd74825803855add6966a3_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/487671881575575552\/keDtNQvX_normal.jpeg",
       "id" : 32591490,
       "verified" : false
     }
@@ -3253,7 +3253,7 @@ Grailbird.data.tweets_2012_05 =
   "id_str" : "198590359658442759",
   "text" : "RT @toshok: color diff viewers should flip red\/green.  red should be for lines added.  green should be for lines removed.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -3412,7 +3412,7 @@ Grailbird.data.tweets_2012_05 =
   "id_str" : "198456924642095106",
   "text" : "RT @rupie: @tapfortap lead developer --&gt; @_sjs crossing the TC 10k...coffee in hand! http:\/\/t.co\/iJehtGGP",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Tap for Tap",
@@ -3606,7 +3606,7 @@ Grailbird.data.tweets_2012_05 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "news.yc Popular",
+      "name" : "Hacker News",
       "screen_name" : "newsycombinator",
       "indices" : [ 3, 19 ],
       "id_str" : "14335498",
@@ -3643,11 +3643,11 @@ Grailbird.data.tweets_2012_05 =
     "id" : 198382736564699136,
     "created_at" : "2012-05-04 12:05:04 +0000",
     "user" : {
-      "name" : "news.yc Popular",
+      "name" : "Hacker News",
       "screen_name" : "newsycombinator",
       "protected" : false,
       "id_str" : "14335498",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000017952599\/cf443a6da9a74e5c9c1fcddf422ebb0e_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/469397708986269696\/iUrYEOpJ_normal.png",
       "id" : 14335498,
       "verified" : false
     }
@@ -3832,7 +3832,7 @@ Grailbird.data.tweets_2012_05 =
   "id_str" : "197883018109661184",
   "text" : "RT @joshsmith: Whoa! `npm install ____ --save` is freaking amazing. How did I not know about this before?",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],

@@ -61,7 +61,7 @@ Grailbird.data.tweets_2010_09 =
   "id_str" : "25934013381",
   "text" : "RT @swedal: If you think hiring a professional is expensive, wait till you hire an amateur.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -98,7 +98,7 @@ Grailbird.data.tweets_2010_09 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003ETwitter for iPad\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mahyar McDonald",
+      "name" : "Mahyar M",
       "screen_name" : "mahyarm",
       "indices" : [ 0, 8 ],
       "id_str" : "22406953",
@@ -145,7 +145,7 @@ Grailbird.data.tweets_2010_09 =
   "id_str" : "25989561990",
   "text" : "RT @RussB: Someone desperately needs to invent an 8 a.m. that comes after 11 a.m. I'd totally buy one of those.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -162,7 +162,7 @@ Grailbird.data.tweets_2010_09 =
       "screen_name" : "RussB",
       "protected" : false,
       "id_str" : "4826261",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000416372661\/ecf41d432c89d51c0a0b31d54bd56798_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/477200261014753280\/paNeKpew_normal.jpeg",
       "id" : 4826261,
       "verified" : false
     }
@@ -196,7 +196,7 @@ Grailbird.data.tweets_2010_09 =
   "id_str" : "25992039113",
   "text" : "RT @kangax: Upset about Function &lt;3 being false? That's easy to fix: Function.valueOf=function()\u007Breturn 2\u007D; Now Function &lt;3 is true",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -305,7 +305,7 @@ Grailbird.data.tweets_2010_09 =
   "id_str" : "25884877724",
   "text" : "RT @ilinsky: I would really like to see activate event name in browsers instead of click (for buttons, links, etc.)",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -381,7 +381,7 @@ Grailbird.data.tweets_2010_09 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Sergey ilinsky",
@@ -410,7 +410,7 @@ Grailbird.data.tweets_2010_09 =
   "id_str" : "25886813627",
   "text" : "RT @ilinsky: @getify @_sjs dblclick is wrong anyway. It should be click with click detail set to 2",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "getify",
@@ -461,7 +461,7 @@ Grailbird.data.tweets_2010_09 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Grooveshark",
@@ -1018,11 +1018,11 @@ Grailbird.data.tweets_2010_09 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Francisco T",
-      "screen_name" : "frank06",
+      "name" : "Frank Mulder",
+      "screen_name" : "Frank06",
       "indices" : [ 0, 8 ],
-      "id_str" : "14560304",
-      "id" : 14560304
+      "id_str" : "2532144734",
+      "id" : 2532144734
     } ],
     "media" : [ ],
     "hashtags" : [ ],
@@ -1034,7 +1034,7 @@ Grailbird.data.tweets_2010_09 =
   "text" : "@frank06 riak-js.org\/docs.html is 404",
   "id" : 25719791398,
   "created_at" : "2010-09-27 00:00:00 +0000",
-  "in_reply_to_screen_name" : "frank06",
+  "in_reply_to_screen_name" : "radixlab",
   "in_reply_to_user_id_str" : "14560304",
   "user" : {
     "name" : "Sami Samhuri",
@@ -1049,11 +1049,11 @@ Grailbird.data.tweets_2010_09 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Francisco T",
-      "screen_name" : "frank06",
+      "name" : "Frank Mulder",
+      "screen_name" : "Frank06",
       "indices" : [ 0, 8 ],
-      "id_str" : "14560304",
-      "id" : 14560304
+      "id_str" : "2532144734",
+      "id" : 2532144734
     } ],
     "media" : [ ],
     "hashtags" : [ ],
@@ -1067,7 +1067,7 @@ Grailbird.data.tweets_2010_09 =
   "id" : 25723675401,
   "in_reply_to_status_id" : 25721129579,
   "created_at" : "2010-09-27 00:00:00 +0000",
-  "in_reply_to_screen_name" : "frank06",
+  "in_reply_to_screen_name" : "radixlab",
   "in_reply_to_user_id_str" : "14560304",
   "user" : {
     "name" : "Sami Samhuri",
@@ -1102,7 +1102,7 @@ Grailbird.data.tweets_2010_09 =
   "id_str" : "25617512077",
   "text" : "RT @rem: I may not be at @jsconfeu, but I \/can\/ support fellow JavaScripters & docs by adding http:\/\/promotejs.com to my blog - please d ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "jsconfeu",
@@ -1125,7 +1125,7 @@ Grailbird.data.tweets_2010_09 =
       "screen_name" : "rem",
       "protected" : false,
       "id_str" : "648873",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1509934279\/rem-2011_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/477412102731464704\/JOKteQGi_normal.jpeg",
       "id" : 648873,
       "verified" : false
     }
@@ -1257,7 +1257,7 @@ Grailbird.data.tweets_2010_09 =
   "id_str" : "25422750644",
   "text" : "RT @pjhyett: what's a guy gotta do to get the new twitter interface",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1356,7 +1356,7 @@ Grailbird.data.tweets_2010_09 =
   "id_str" : "25448192081",
   "text" : "RT @gussynichols: Worried Mom fought for helmets, now BC is getting fatter cause of it.  http:\/\/t.co\/DlNTKRH via @AddThis #bike #bc @bccycle",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitter.com\/tweetbutton\" rel=\"nofollow\"\u003ETweet Button\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/dev.twitter.com\/docs\/tfw\" rel=\"nofollow\"\u003ETwitter for Websites\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "AddThis",
@@ -1416,7 +1416,7 @@ Grailbird.data.tweets_2010_09 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Giles Goat Boy",
+      "name" : "\u30BF\u30C1\u30B3\u30DE",
       "screen_name" : "gilesgoatboy",
       "indices" : [ 34, 47 ],
       "id_str" : "1341781",
@@ -1447,7 +1447,7 @@ Grailbird.data.tweets_2010_09 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003ETwitter for iPad\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "news.yc Popular",
+      "name" : "Hacker News",
       "screen_name" : "newsycombinator",
       "indices" : [ 3, 19 ],
       "id_str" : "14335498",
@@ -1474,11 +1474,11 @@ Grailbird.data.tweets_2010_09 =
     "id" : 25368955288,
     "created_at" : "2010-09-24 03:00:05 +0000",
     "user" : {
-      "name" : "news.yc Popular",
+      "name" : "Hacker News",
       "screen_name" : "newsycombinator",
       "protected" : false,
       "id_str" : "14335498",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000017952599\/cf443a6da9a74e5c9c1fcddf422ebb0e_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/469397708986269696\/iUrYEOpJ_normal.png",
       "id" : 14335498,
       "verified" : false
     }
@@ -1512,7 +1512,7 @@ Grailbird.data.tweets_2010_09 =
   "id_str" : "25413352553",
   "text" : "RT @AaronHillegass: We have space in the upcoming Beginning Cocoa class (Oct 9 - 15, Atlanta) so I'm offering you, dear followers, 20% o ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1593,7 +1593,7 @@ Grailbird.data.tweets_2010_09 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Sean Cribbs",
+      "name" : "cribbs . sean",
       "screen_name" : "seancribbs",
       "indices" : [ 0, 11 ],
       "id_str" : "14939200",
@@ -1629,7 +1629,7 @@ Grailbird.data.tweets_2010_09 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Sean Cribbs",
+      "name" : "cribbs . sean",
       "screen_name" : "seancribbs",
       "indices" : [ 0, 11 ],
       "id_str" : "14939200",
@@ -1665,7 +1665,7 @@ Grailbird.data.tweets_2010_09 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Sean Cribbs",
+      "name" : "cribbs . sean",
       "screen_name" : "seancribbs",
       "indices" : [ 3, 14 ],
       "id_str" : "14939200",
@@ -1679,7 +1679,7 @@ Grailbird.data.tweets_2010_09 =
   "id_str" : "25318031347",
   "text" : "RT @seancribbs: To all, I realize you can set your own keyboard shortcuts (and just did). Just wish app authors would follow UI guidelin ...",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/www.hootsuite.com\" rel=\"nofollow\"\u003EHootSuite\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"http:\/\/www.hootsuite.com\" rel=\"nofollow\"\u003EHootsuite\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1692,11 +1692,11 @@ Grailbird.data.tweets_2010_09 =
     "id" : 25317257681,
     "created_at" : "2010-09-23 15:31:23 +0000",
     "user" : {
-      "name" : "Sean Cribbs",
+      "name" : "cribbs . sean",
       "screen_name" : "seancribbs",
       "protected" : false,
       "id_str" : "14939200",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/438362898033672193\/rHzxGBAd_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/475407937347674112\/PvjqBJF3_normal.jpeg",
       "id" : 14939200,
       "verified" : false
     }
@@ -1884,7 +1884,7 @@ Grailbird.data.tweets_2010_09 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -1912,7 +1912,7 @@ Grailbird.data.tweets_2010_09 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Jim Roepcke",
@@ -2126,7 +2126,7 @@ Grailbird.data.tweets_2010_09 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -2255,7 +2255,7 @@ Grailbird.data.tweets_2010_09 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Mathias Meyer",
@@ -2428,7 +2428,7 @@ Grailbird.data.tweets_2010_09 =
   "id_str" : "24801372539",
   "text" : "RT @derekmorrison: Very clear refresher on JavaScript scoping: http:\/\/t.co\/Hl7s23F by @bcherry",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitter.com\/tweetbutton\" rel=\"nofollow\"\u003ETweet Button\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/dev.twitter.com\/docs\/tfw\" rel=\"nofollow\"\u003ETwitter for Websites\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Ben Cherry",
@@ -2718,7 +2718,7 @@ Grailbird.data.tweets_2010_09 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Dion Almaer",
@@ -2735,7 +2735,7 @@ Grailbird.data.tweets_2010_09 =
   "id_str" : "24697941346",
   "text" : "RT @dalmaer: \"Microsoft, if you want a way to declare a context-menu in HTML use HTML5\u2019s &lt;menu&gt; element!\" http:\/\/bit.ly\/9IHrSp",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/mobile.twitter.com\" rel=\"nofollow\"\u003Emobile web\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -2960,7 +2960,7 @@ Grailbird.data.tweets_2010_09 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Tobie Langel",
@@ -3049,6 +3049,50 @@ Grailbird.data.tweets_2010_09 =
   "text" : "iPad + MyWi make an hour long commute pretty nice. Mywi 4.0 is much easier on my battery too.",
   "id" : 22845345587,
   "created_at" : "2010-09-03 00:00:00 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "22673150711",
+  "text" : "Workaround for stuck MBP trackpad: disable Dragging in trackpad prefs, then re-enable. That unstuck it for me just now. Hooray, no reboot.",
+  "id" : 22673150711,
+  "created_at" : "2010-09-01 00:00:00 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "22673362598",
+  "text" : "I'm glad I found a workaround but Apple really needs to fix this. Wish I could check the status of filed bug reports that get closed \"dupe\".",
+  "id" : 22673362598,
+  "created_at" : "2010-09-01 00:00:00 +0000",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",

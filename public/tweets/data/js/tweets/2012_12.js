@@ -527,10 +527,10 @@ Grailbird.data.tweets_2012_12 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "mean meaning machine",
+      "name" : "megaman",
       "screen_name" : "ColtonPhillips",
       "indices" : [ 0, 15 ],
       "id_str" : "49227164",
@@ -540,16 +540,11 @@ Grailbird.data.tweets_2012_12 =
     "hashtags" : [ ],
     "urls" : [ ]
   },
-  "in_reply_to_status_id_str" : "280750071740497920",
   "geo" : { },
   "id_str" : "280750875792777217",
-  "in_reply_to_user_id" : 49227164,
   "text" : "@ColtonPhillips With some fava beans, a nice chianti.",
   "id" : 280750875792777217,
-  "in_reply_to_status_id" : 280750071740497920,
   "created_at" : "2012-12-17 19:06:39 +0000",
-  "in_reply_to_screen_name" : "ColtonPhillips",
-  "in_reply_to_user_id_str" : "49227164",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -563,26 +558,21 @@ Grailbird.data.tweets_2012_12 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "mean meaning machine",
+      "name" : "Colt45",
       "screen_name" : "ColtonPhillips",
       "indices" : [ 0, 15 ],
-      "id_str" : "49227164",
-      "id" : 49227164
+      "id_str" : "2649472424",
+      "id" : 2649472424
     } ],
     "media" : [ ],
     "hashtags" : [ ],
     "urls" : [ ]
   },
-  "in_reply_to_status_id_str" : "280746436965060608",
   "geo" : { },
   "id_str" : "280749518008483840",
-  "in_reply_to_user_id" : 49227164,
   "text" : "@ColtonPhillips You're a superstar now. Next you'll have paparazzi after you.",
   "id" : 280749518008483840,
-  "in_reply_to_status_id" : 280746436965060608,
   "created_at" : "2012-12-17 19:01:15 +0000",
-  "in_reply_to_screen_name" : "ColtonPhillips",
-  "in_reply_to_user_id_str" : "49227164",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",

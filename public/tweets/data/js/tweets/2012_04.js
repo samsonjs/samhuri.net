@@ -585,7 +585,7 @@ Grailbird.data.tweets_2012_04 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Adam Jordens",
@@ -627,7 +627,7 @@ Grailbird.data.tweets_2012_04 =
       "id_str" : "3260971",
       "id" : 3260971
     }, {
-      "name" : "Steve Streza",
+      "name" : "Steve Streza \u26BD\uFE0F",
       "screen_name" : "SteveStreza",
       "indices" : [ 76, 88 ],
       "id_str" : "658643",
@@ -691,7 +691,7 @@ Grailbird.data.tweets_2012_04 =
       "screen_name" : "coda",
       "protected" : false,
       "id_str" : "637533",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000685737941\/6f81b375c0350068780811f4579a099e_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/478914115260252161\/-_K8pPSX_normal.jpeg",
       "id" : 637533,
       "verified" : false
     }
@@ -973,7 +973,7 @@ Grailbird.data.tweets_2012_04 =
       "id_str" : "12819682",
       "id" : 12819682
     }, {
-      "name" : "mannyanekal",
+      "name" : "Manny Anekal",
       "screen_name" : "mannyanekal",
       "indices" : [ 28, 40 ],
       "id_str" : "14535376",
@@ -995,7 +995,7 @@ Grailbird.data.tweets_2012_04 =
     "source" : "\u003Ca href=\"http:\/\/www.echofon.com\/\" rel=\"nofollow\"\u003EEchofon\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
-        "name" : "mannyanekal",
+        "name" : "Manny Anekal",
         "screen_name" : "mannyanekal",
         "indices" : [ 13, 25 ],
         "id_str" : "14535376",
@@ -1120,7 +1120,7 @@ Grailbird.data.tweets_2012_04 =
       "screen_name" : "aaronbazinet",
       "protected" : false,
       "id_str" : "15212851",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/3481200413\/811eb3a2387d49a2c0dd30bd4ab9fb98_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/477597234062585856\/jr8Es22w_normal.jpeg",
       "id" : 15212851,
       "verified" : false
     }
@@ -1165,7 +1165,7 @@ Grailbird.data.tweets_2012_04 =
   "id_str" : "192323653210357760",
   "text" : "RT @Teh_kLeV: LOL: http:\/\/t.co\/jQ2lk2OY \/via @tinkertim",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Tim Post",
@@ -1193,7 +1193,7 @@ Grailbird.data.tweets_2012_04 =
       "screen_name" : "Teh_kLeV",
       "protected" : false,
       "id_str" : "68813509",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/436289211063226369\/qtYn9q-2_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/453509911733739521\/1E8E4fOy_normal.png",
       "id" : 68813509,
       "verified" : false
     }
@@ -1343,7 +1343,7 @@ Grailbird.data.tweets_2012_04 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Carl Lerche",
@@ -1394,7 +1394,7 @@ Grailbird.data.tweets_2012_04 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Jeff Atwood",
@@ -1411,7 +1411,7 @@ Grailbird.data.tweets_2012_04 =
   "id_str" : "190972338160930817",
   "text" : "RT @codinghorror: PHP is the Nickelback of programming languages.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1468,7 +1468,7 @@ Grailbird.data.tweets_2012_04 =
   "id_str" : "190972083621216256",
   "text" : "RT @peterc: @_sjs I've been wrong, I've been down, been to the bottom of every bottle. These five words in my head scream \"Are we having ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Sami Samhuri",
@@ -1584,7 +1584,7 @@ Grailbird.data.tweets_2012_04 =
       "screen_name" : "soffes",
       "protected" : false,
       "id_str" : "6154602",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/415633901151715329\/c6ZxEKOM_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/458833667813433344\/OaJnlQA7_normal.png",
       "id" : 6154602,
       "verified" : false
     }
@@ -1806,7 +1806,7 @@ Grailbird.data.tweets_2012_04 =
   "id_str" : "186689573760417793",
   "text" : "RT @petervandijck: WebOS, truly the Amiga of the 2010's. http:\/\/t.co\/p8hbuthE",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1895,7 +1895,7 @@ Grailbird.data.tweets_2012_04 =
   "id_str" : "186576954936410112",
   "text" : "RT @kuvos: Wouldn't it be nice to be able to have an Array#sort(prop) that desugars to .sort(function(a,b)\u007B if (a[prop]&lt;b[prop]) ..,  ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],

@@ -154,7 +154,7 @@ Grailbird.data.tweets_2010_07 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Grigory Kruglov",
@@ -171,7 +171,7 @@ Grailbird.data.tweets_2010_07 =
   "id_str" : "19007757579",
   "text" : "RT @lunafiko: Launched my new web app: it sends you text messages when stuff you care about gets updates. Greg's Pulse: http:\/\/gregspuls ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -188,7 +188,7 @@ Grailbird.data.tweets_2010_07 =
       "screen_name" : "lunafiko",
       "protected" : false,
       "id_str" : "14273142",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/2366304626\/khrxv6x39wsfdqmhseny_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/481925411496931328\/7sQcjyzQ_normal.jpeg",
       "id" : 14273142,
       "verified" : false
     }
@@ -205,7 +205,7 @@ Grailbird.data.tweets_2010_07 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -233,7 +233,7 @@ Grailbird.data.tweets_2010_07 =
       "screen_name" : "alexisohanian",
       "protected" : false,
       "id_str" : "811350",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/435168160124125184\/2E8ujQ3p_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/451768574273519616\/QqAmLb05_normal.jpeg",
       "id" : 811350,
       "verified" : false
     }
@@ -459,7 +459,7 @@ Grailbird.data.tweets_2010_07 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Jim Roepcke",
@@ -552,7 +552,7 @@ Grailbird.data.tweets_2010_07 =
   "id_str" : "18366966341",
   "text" : "RT @sroucheray: Excellent ECMAScript 5 intro by Douglas Corckford : The New and Improved Parts http:\/\/slidesha.re\/drVb8q #javascript",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -927,7 +927,7 @@ Grailbird.data.tweets_2010_07 =
   "id_str" : "18129222659",
   "text" : "RT @opera: Opera launches viral campaign. Please RT.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1042,7 +1042,7 @@ Grailbird.data.tweets_2010_07 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mahyar McDonald",
+      "name" : "Mahyar M",
       "screen_name" : "mahyarm",
       "indices" : [ 0, 8 ],
       "id_str" : "22406953",
@@ -1094,7 +1094,7 @@ Grailbird.data.tweets_2010_07 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Tim Siedell",
@@ -1111,7 +1111,7 @@ Grailbird.data.tweets_2010_07 =
   "id_str" : "17974129306",
   "text" : "RT @badbanana: I won't dismiss Prince's internet prediction. You must admit he nailed the amount of partying we all ended up doing in 1999.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1145,7 +1145,7 @@ Grailbird.data.tweets_2010_07 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Canice Leung",
@@ -1171,7 +1171,7 @@ Grailbird.data.tweets_2010_07 =
   "id_str" : "17987597382",
   "text" : "RT @canice: echoing everyone else: WOW. just, wow. CF soldier in afghanistan writes open letter to the #G20 police http:\/\/bit.ly\/djoWnO  ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Jonathan Goldsbie",
@@ -1314,6 +1314,28 @@ Grailbird.data.tweets_2010_07 =
   "text" : "50min interview w\/ Richard Feynman on Google Video: http:\/\/bit.ly\/osyYq  Or check out shorter clips on YouTube: http:\/\/bit.ly\/a4cEzK",
   "id" : 17628391831,
   "created_at" : "2010-07-03 00:00:00 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "17466589345",
+  "text" : "Man, why haven't I tried Cmd-Shift-G in the simple save dialog on OS X till just now? Staying on the home row makes me happy.",
+  "id" : 17466589345,
+  "created_at" : "2010-07-01 00:00:00 +0000",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",

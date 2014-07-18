@@ -3,7 +3,7 @@ Grailbird.data.tweets_2011_07 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "5BY5 Broadcasting",
+      "name" : "5by5",
       "screen_name" : "5by5",
       "indices" : [ 0, 5 ],
       "id_str" : "106231780",
@@ -638,7 +638,7 @@ Grailbird.data.tweets_2011_07 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mahyar McDonald",
+      "name" : "Mahyar M",
       "screen_name" : "mahyarm",
       "indices" : [ 0, 8 ],
       "id_str" : "22406953",
@@ -677,7 +677,7 @@ Grailbird.data.tweets_2011_07 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mahyar McDonald",
+      "name" : "Mahyar M",
       "screen_name" : "mahyarm",
       "indices" : [ 0, 8 ],
       "id_str" : "22406953",
@@ -710,7 +710,7 @@ Grailbird.data.tweets_2011_07 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mahyar McDonald",
+      "name" : "Mahyar M",
       "screen_name" : "mahyarm",
       "indices" : [ 0, 8 ],
       "id_str" : "22406953",
@@ -929,7 +929,7 @@ Grailbird.data.tweets_2011_07 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003ETwitter for Android\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Kit Cambridge",
+      "name" : "Muxing Demuxer",
       "screen_name" : "kitcambridge",
       "indices" : [ 0, 13 ],
       "id_str" : "136077128",
@@ -962,7 +962,7 @@ Grailbird.data.tweets_2011_07 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003ETwitter for Android\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Kit Cambridge",
+      "name" : "Muxing Demuxer",
       "screen_name" : "kitcambridge",
       "indices" : [ 0, 13 ],
       "id_str" : "136077128",
@@ -2052,7 +2052,7 @@ Grailbird.data.tweets_2011_07 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Kit Cambridge",
+      "name" : "Muxing Demuxer",
       "screen_name" : "kitcambridge",
       "indices" : [ 0, 13 ],
       "id_str" : "136077128",
@@ -3404,7 +3404,7 @@ Grailbird.data.tweets_2011_07 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mahyar McDonald",
+      "name" : "Mahyar M",
       "screen_name" : "mahyarm",
       "indices" : [ 0, 8 ],
       "id_str" : "22406953",
@@ -3437,7 +3437,7 @@ Grailbird.data.tweets_2011_07 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mahyar McDonald",
+      "name" : "Mahyar M",
       "screen_name" : "mahyarm",
       "indices" : [ 0, 8 ],
       "id_str" : "22406953",
@@ -3748,7 +3748,7 @@ Grailbird.data.tweets_2011_07 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Aaron Heckmann",
+      "name" : "aheckmann",
       "screen_name" : "aaronheckmann",
       "indices" : [ 0, 14 ],
       "id_str" : "13818902",
@@ -4057,7 +4057,7 @@ Grailbird.data.tweets_2011_07 =
   "id_str" : "91566446466973696",
   "text" : "RT @jeremyckahn: The best developers are the ones who do it for fun.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -4184,7 +4184,7 @@ Grailbird.data.tweets_2011_07 =
   "id_str" : "91559909421875202",
   "text" : "RT @espiekermann: A world map showing Flickr & Twitter use. Very cool! http:\/\/t.co\/Fkxn3OO",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -4689,7 +4689,7 @@ Grailbird.data.tweets_2011_07 =
     "id" : 91197875748470784,
     "created_at" : "2011-07-13 17:30:42 +0000",
     "user" : {
-      "name" : "Kit Cambridge",
+      "name" : "Muxing Demuxer",
       "screen_name" : "kitcambridge",
       "protected" : false,
       "id_str" : "136077128",
@@ -5266,7 +5266,7 @@ Grailbird.data.tweets_2011_07 =
   "id_str" : "90911065357041664",
   "text" : "RT @toyns: I can't believe Netflix is going to charge me slightly more to watch whatever I want whenever I want to!",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -5283,7 +5283,7 @@ Grailbird.data.tweets_2011_07 =
       "screen_name" : "toyns",
       "protected" : false,
       "id_str" : "51193121",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/417927696128413696\/gUf2u0iF_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/466455435172536320\/ID9E15Af_normal.jpeg",
       "id" : 51193121,
       "verified" : false
     }
@@ -6260,7 +6260,7 @@ Grailbird.data.tweets_2011_07 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mahyar McDonald",
+      "name" : "Mahyar M",
       "screen_name" : "mahyarm",
       "indices" : [ 0, 8 ],
       "id_str" : "22406953",
@@ -6293,7 +6293,7 @@ Grailbird.data.tweets_2011_07 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mahyar McDonald",
+      "name" : "Mahyar M",
       "screen_name" : "mahyarm",
       "indices" : [ 0, 8 ],
       "id_str" : "22406953",
@@ -6783,7 +6783,7 @@ Grailbird.data.tweets_2011_07 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "benjamin black",
+      "name" : "Benjamin Black",
       "screen_name" : "b6n",
       "indices" : [ 3, 7 ],
       "id_str" : "16031975",
@@ -6810,11 +6810,11 @@ Grailbird.data.tweets_2011_07 =
     "id" : 89497134390460416,
     "created_at" : "2011-07-09 00:52:34 +0000",
     "user" : {
-      "name" : "nightmare.scala",
+      "name" : "Benjamin Black",
       "screen_name" : "b6n",
       "protected" : false,
       "id_str" : "16031975",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/445991433585954816\/7I7n4U06_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/471834536087543808\/AS5YOkwa_normal.jpeg",
       "id" : 16031975,
       "verified" : false
     }
@@ -6945,7 +6945,7 @@ Grailbird.data.tweets_2011_07 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mahyar McDonald",
+      "name" : "Mahyar M",
       "screen_name" : "mahyarm",
       "indices" : [ 0, 8 ],
       "id_str" : "22406953",
@@ -7174,7 +7174,7 @@ Grailbird.data.tweets_2011_07 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Adam Lisagor",
@@ -7405,7 +7405,7 @@ Grailbird.data.tweets_2011_07 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Jim Roepcke",
@@ -7606,7 +7606,7 @@ Grailbird.data.tweets_2011_07 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003ETwitter for Android\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mahyar McDonald",
+      "name" : "Mahyar M",
       "screen_name" : "mahyarm",
       "indices" : [ 0, 8 ],
       "id_str" : "22406953",
@@ -8029,7 +8029,7 @@ Grailbird.data.tweets_2011_07 =
   "source" : "\u003Ca href=\"http:\/\/seesmic.com\/\" rel=\"nofollow\"\u003ESeesmic\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "bradfordw",
+      "name" : "BradfordW",
       "screen_name" : "bradfordw",
       "indices" : [ 0, 10 ],
       "id_str" : "14640131",
@@ -8186,7 +8186,7 @@ Grailbird.data.tweets_2011_07 =
   "id_str" : "88004748694917120",
   "text" : "RT @saroy: Watching CNN special on shuttle program. ENTIRE 40-year shuttle program cost $115 billion. FY2010 military budget is 4x that.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -8282,7 +8282,7 @@ Grailbird.data.tweets_2011_07 =
   "id_str" : "87977564160794624",
   "text" : "RT @vicpdcanada: Canada Day drunk books himself into cells. Here's to a bad idea. Don't #peeonourbuilding. #yyj notes forthcoming.",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/www.hootsuite.com\" rel=\"nofollow\"\u003EHootSuite\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"http:\/\/www.hootsuite.com\" rel=\"nofollow\"\u003EHootsuite\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],

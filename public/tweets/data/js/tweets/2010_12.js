@@ -325,7 +325,7 @@ Grailbird.data.tweets_2010_12 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Peter-Paul Koch",
@@ -342,7 +342,7 @@ Grailbird.data.tweets_2010_12 =
   "id_str" : "20108790447738880",
   "text" : "RT @ppk: New blog post: The Unbearable Inevitability of Talking Nonsense when you Don\u2019t Know Shit about the Mobile Market\nhttp:\/\/bit.ly\/ ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -359,7 +359,7 @@ Grailbird.data.tweets_2010_12 =
       "screen_name" : "ppk",
       "protected" : false,
       "id_str" : "887251",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/3190478870\/1cf132bf72f6788ae44540de239da92f_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/477425031593488384\/95qvvrzD_normal.jpeg",
       "id" : 887251,
       "verified" : false
     }
@@ -376,7 +376,7 @@ Grailbird.data.tweets_2010_12 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Grigory Kruglov",
@@ -393,7 +393,7 @@ Grailbird.data.tweets_2010_12 =
   "id_str" : "20102836775821312",
   "text" : "RT @lunafiko: If you're a Netflix user, check out my IMDb ratings\/links chrome plugin: IMflixDB: http:\/\/goo.gl\/odxQo",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -410,7 +410,7 @@ Grailbird.data.tweets_2010_12 =
       "screen_name" : "lunafiko",
       "protected" : false,
       "id_str" : "14273142",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/2366304626\/khrxv6x39wsfdqmhseny_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/481925411496931328\/7sQcjyzQ_normal.jpeg",
       "id" : 14273142,
       "verified" : false
     }
@@ -809,7 +809,7 @@ Grailbird.data.tweets_2010_12 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Mark Phillips",
@@ -1043,7 +1043,7 @@ Grailbird.data.tweets_2010_12 =
   "id_str" : "15904633033592832",
   "text" : "RT @getify: \"I can fix that...\" http:\/\/bit.ly\/fhR0nu #haha",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1063,7 +1063,7 @@ Grailbird.data.tweets_2010_12 =
       "screen_name" : "getify",
       "protected" : false,
       "id_str" : "16686076",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/435350039083229185\/5j6zCGKE_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/477301374799986690\/4N1I7U7L_normal.png",
       "id" : 16686076,
       "verified" : false
     }
@@ -1152,7 +1152,7 @@ Grailbird.data.tweets_2010_12 =
   "id_str" : "15805187683778560",
   "text" : "RT @sstephenson: Dropbox 1.0: \u201CYou now can choose which folders get downloaded to which computers.\u201D Right on. http:\/\/blog.dropbox.com\/?p=581",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1259,7 +1259,7 @@ Grailbird.data.tweets_2010_12 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Mark Phillips",
@@ -1310,7 +1310,7 @@ Grailbird.data.tweets_2010_12 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -1327,7 +1327,7 @@ Grailbird.data.tweets_2010_12 =
   "id_str" : "15489927789674497",
   "text" : "RT @opscode: Chef on Steroids (Demo Tonight) at LOPSALA ( http:\/\/ow.ly\/3qpwS ) #chef #devops",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/www.hootsuite.com\" rel=\"nofollow\"\u003EHootSuite\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"http:\/\/www.hootsuite.com\" rel=\"nofollow\"\u003EHootsuite\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1454,7 +1454,7 @@ Grailbird.data.tweets_2010_12 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "literally no thing",
+      "name" : "what izs love",
       "screen_name" : "izs",
       "indices" : [ 0, 4 ],
       "id_str" : "8038312",
@@ -1487,7 +1487,7 @@ Grailbird.data.tweets_2010_12 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "literally no thing",
+      "name" : "what izs love",
       "screen_name" : "izs",
       "indices" : [ 0, 4 ],
       "id_str" : "8038312",
@@ -1553,11 +1553,11 @@ Grailbird.data.tweets_2010_12 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Francisco T",
-      "screen_name" : "frank06",
+      "name" : "Frank Mulder",
+      "screen_name" : "Frank06",
       "indices" : [ 0, 8 ],
-      "id_str" : "14560304",
-      "id" : 14560304
+      "id_str" : "2532144734",
+      "id" : 2532144734
     } ],
     "media" : [ ],
     "hashtags" : [ ],
@@ -1571,7 +1571,7 @@ Grailbird.data.tweets_2010_12 =
   "id" : 15132847224393728,
   "in_reply_to_status_id" : 15129237690253312,
   "created_at" : "2010-12-15 19:55:26 +0000",
-  "in_reply_to_screen_name" : "frank06",
+  "in_reply_to_screen_name" : "radixlab",
   "in_reply_to_user_id_str" : "14560304",
   "user" : {
     "name" : "Sami Samhuri",
@@ -1605,7 +1605,7 @@ Grailbird.data.tweets_2010_12 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Brian Arnold",
@@ -1722,7 +1722,7 @@ Grailbird.data.tweets_2010_12 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Minute With Podcast",
@@ -1739,7 +1739,7 @@ Grailbird.data.tweets_2010_12 =
   "id_str" : "15090204062785537",
   "text" : "RT @minutewith: Announcing the launch of our main directory page: http:\/\/minutewith.com AND our new podcast http:\/\/node.minutewith.com",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1879,7 +1879,7 @@ Grailbird.data.tweets_2010_12 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Scott Roemermann",
@@ -1910,7 +1910,7 @@ Grailbird.data.tweets_2010_12 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Stephen Fry",
@@ -1944,7 +1944,7 @@ Grailbird.data.tweets_2010_12 =
       "screen_name" : "stephenfry",
       "protected" : false,
       "id_str" : "15439395",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/344513261579148157\/ba4807791ef9cce28dc0d4aa2ce9372c_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/468385513637171200\/P-D8j7Ly_normal.jpeg",
       "id" : 15439395,
       "verified" : true
     }
@@ -2017,7 +2017,7 @@ Grailbird.data.tweets_2010_12 =
   "id_str" : "14842738600054784",
   "text" : "RT @wilw: @kn0thing All I want for Christmas is for Social Media Agencies and Social Media Douchebags to ride a rocket into the heart of ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Alexis Ohanian",
@@ -2200,7 +2200,7 @@ Grailbird.data.tweets_2010_12 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Reginald Braithwaite",
@@ -2235,7 +2235,7 @@ Grailbird.data.tweets_2010_12 =
   "id_str" : "14732506158858240",
   "text" : "RT @raganwald: Three-sided coin: @lsegal http:\/\/bit.ly\/e2ki2x, @unclebobmartin http:\/\/post.ly\/1KkVI, @raganwald http:\/\/bit.ly\/iaTrCb",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Loren Segal",
@@ -2270,7 +2270,7 @@ Grailbird.data.tweets_2010_12 =
       "screen_name" : "raganwald",
       "protected" : false,
       "id_str" : "18137723",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/436205905437134848\/MdRKL9hb_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/485403259301928960\/f10AqCur_normal.png",
       "id" : 18137723,
       "verified" : false
     }
@@ -2568,7 +2568,7 @@ Grailbird.data.tweets_2010_12 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Dan Piponi",
@@ -2601,7 +2601,7 @@ Grailbird.data.tweets_2010_12 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "BrendanEich",
@@ -2624,7 +2624,7 @@ Grailbird.data.tweets_2010_12 =
   "id_str" : "13333495367602176",
   "text" : "RT @BrendanEich: New blog from @awbjs at http:\/\/www.wirfs-brock.com\/allen\/ -- good first posts",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Allen Wirfs-Brock",
@@ -2664,7 +2664,7 @@ Grailbird.data.tweets_2010_12 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "getify",
@@ -2931,7 +2931,7 @@ Grailbird.data.tweets_2010_12 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "bradfordw",
+      "name" : "BradfordW",
       "screen_name" : "bradfordw",
       "indices" : [ 3, 13 ],
       "id_str" : "14640131",
@@ -2945,7 +2945,7 @@ Grailbird.data.tweets_2010_12 =
   "id_str" : "12898562476081153",
   "text" : "RT @bradfordw: Pardon my Kanye: \"Yo node.js, Imma let you finish, but Erlang\/OTP is one of the greatest network service languages\/platfo ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -2958,7 +2958,7 @@ Grailbird.data.tweets_2010_12 =
     "id" : 12896897178009601,
     "created_at" : "2010-12-09 15:50:34 +0000",
     "user" : {
-      "name" : "bradfordw",
+      "name" : "BradfordW",
       "screen_name" : "bradfordw",
       "protected" : false,
       "id_str" : "14640131",
@@ -3442,7 +3442,7 @@ Grailbird.data.tweets_2010_12 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Erik Corry",
@@ -3479,7 +3479,7 @@ Grailbird.data.tweets_2010_12 =
       "screen_name" : "erikcorry",
       "protected" : false,
       "id_str" : "16100691",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/427685388\/twitterProfilePhoto_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/461220878400094208\/92KYginj_normal.jpeg",
       "id" : 16100691,
       "verified" : false
     }
@@ -3529,7 +3529,7 @@ Grailbird.data.tweets_2010_12 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Chris Williams",
@@ -3752,7 +3752,7 @@ Grailbird.data.tweets_2010_12 =
   "id_str" : "11939110885265409",
   "text" : "RT @mjijackson: The more software I write, the more I'm convinced that it should do as little as possible to get the job done.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -4452,7 +4452,7 @@ Grailbird.data.tweets_2010_12 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Peter Cooper",
@@ -4469,7 +4469,7 @@ Grailbird.data.tweets_2010_12 =
   "id_str" : "10839324975169536",
   "text" : "RT @peterc: \"A person feels threatened only in areas that he considers the basis for his identity.\" \u2014 David J. Lieberman",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -4696,7 +4696,7 @@ Grailbird.data.tweets_2010_12 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Travis Swicegood",
@@ -4713,7 +4713,7 @@ Grailbird.data.tweets_2010_12 =
   "id_str" : "10765449675411456",
   "text" : "RT @tswicegood: \"Your primary concern should be to create an environment where you developers can code fearlessly.\" http:\/\/j.mp\/dM65Lb",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/bitly.com\" rel=\"nofollow\"\u003Ebitly\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"http:\/\/bitly.com\" rel=\"nofollow\"\u003Ebitly bitlink\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -4730,7 +4730,7 @@ Grailbird.data.tweets_2010_12 =
       "screen_name" : "tswicegood",
       "protected" : false,
       "id_str" : "9478892",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000256490530\/f5a9d63d1b5f06b331c77cbb5d62c969_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/479458144532197377\/eSdgAHQn_normal.jpeg",
       "id" : 9478892,
       "verified" : false
     }
@@ -4747,7 +4747,7 @@ Grailbird.data.tweets_2010_12 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Travis Swicegood",
@@ -4781,7 +4781,7 @@ Grailbird.data.tweets_2010_12 =
       "screen_name" : "tswicegood",
       "protected" : false,
       "id_str" : "9478892",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000256490530\/f5a9d63d1b5f06b331c77cbb5d62c969_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/479458144532197377\/eSdgAHQn_normal.jpeg",
       "id" : 9478892,
       "verified" : false
     }
@@ -5046,7 +5046,7 @@ Grailbird.data.tweets_2010_12 =
   "id_str" : "10729525952385024",
   "text" : "RT @tjholowaychuk: our little Amazon S3 client for #nodejs is open sourced http:\/\/bit.ly\/gSNWhz",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -5086,7 +5086,7 @@ Grailbird.data.tweets_2010_12 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Sean Cribbs",
+      "name" : "cribbs . sean",
       "screen_name" : "seancribbs",
       "indices" : [ 3, 14 ],
       "id_str" : "14939200",
@@ -5106,7 +5106,7 @@ Grailbird.data.tweets_2010_12 =
   "id_str" : "10728915521769473",
   "text" : "RT @seancribbs: @roidrage How about just \"programmer\" or \"developer\". I use Ruby, Erlang and JS, I *am* none exclusively.",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/www.hootsuite.com\" rel=\"nofollow\"\u003EHootSuite\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"http:\/\/www.hootsuite.com\" rel=\"nofollow\"\u003EHootsuite\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Mathias Meyer",
@@ -5130,11 +5130,11 @@ Grailbird.data.tweets_2010_12 =
     "in_reply_to_screen_name" : "roidrage",
     "in_reply_to_user_id_str" : "14658472",
     "user" : {
-      "name" : "Sean Cribbs",
+      "name" : "cribbs . sean",
       "screen_name" : "seancribbs",
       "protected" : false,
       "id_str" : "14939200",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/438362898033672193\/rHzxGBAd_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/475407937347674112\/PvjqBJF3_normal.jpeg",
       "id" : 14939200,
       "verified" : false
     }
@@ -5197,7 +5197,7 @@ Grailbird.data.tweets_2010_12 =
       "screen_name" : "acangiano",
       "protected" : false,
       "id_str" : "14582359",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1788074286\/image1327786678_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/473881706768760832\/qIkS0g72_normal.jpeg",
       "id" : 14582359,
       "verified" : false
     }
@@ -5278,7 +5278,7 @@ Grailbird.data.tweets_2010_12 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Bryan Kyle",
@@ -5480,6 +5480,53 @@ Grailbird.data.tweets_2010_12 =
   "text" : "If you tweet more links than you can possibly read it makes me question the value of them. Fewer good links &gt;&gt;&gt; lots of questionable links.",
   "id" : 10004649180405760,
   "created_at" : "2010-12-01 16:17:48 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "9828904965509121",
+  "text" : "So this is what it looks like eh?  http:\/\/yfrog.com\/31uupp",
+  "id" : 9828904965509121,
+  "created_at" : "2010-12-01 04:39:28 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : {
+    "type" : "Point",
+    "coordinates" : [ 48.45312881, -123.37135368 ]
+  },
+  "id_str" : "9770430135009280",
+  "text" : "Huh, AirPlay doesn't work for 3rd party apps. Guess I'm skipping 4.2 entirely on my phone then.",
+  "id" : 9770430135009280,
+  "created_at" : "2010-12-01 00:47:06 +0000",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",

@@ -112,7 +112,7 @@ Grailbird.data.tweets_2013_12 =
   "id_str" : "418168831169658880",
   "text" : "RT @spolsky: @roxaloxa @raganwald that's the only way they make money. if you like the service why not pay them for building and hosting it\u2026",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Ari Velazquez",
@@ -146,7 +146,7 @@ Grailbird.data.tweets_2013_12 =
       "screen_name" : "spolsky",
       "protected" : false,
       "id_str" : "15948437",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000091193257\/fcb03c8d0a40048f2537df967239686f_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/451185078073171968\/T4QKBj-E_normal.jpeg",
       "id" : 15948437,
       "verified" : true
     }
@@ -275,7 +275,7 @@ Grailbird.data.tweets_2013_12 =
       "screen_name" : "trek",
       "protected" : false,
       "id_str" : "1291711",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/419215303080280064\/YVgfRE9H_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/458981557865172993\/lKDSzPXa_normal.jpeg",
       "id" : 1291711,
       "verified" : false
     }
@@ -359,7 +359,7 @@ Grailbird.data.tweets_2013_12 =
       "screen_name" : "counternotions",
       "protected" : false,
       "id_str" : "19225408",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000565429354\/350ed8f0e2135732d262d91f95f92b18_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/472995716663488512\/0MErVHN__normal.png",
       "id" : 19225408,
       "verified" : false
     }
@@ -611,7 +611,7 @@ Grailbird.data.tweets_2013_12 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "George Nachman",
@@ -952,7 +952,7 @@ Grailbird.data.tweets_2013_12 =
   "id_str" : "416620157465673728",
   "text" : "RT @fogus: I'm working on a new book \"JavaScript: The Good-enough Parts\"",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1347,7 +1347,7 @@ Grailbird.data.tweets_2013_12 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Thomas Fuchs",
@@ -1449,7 +1449,7 @@ Grailbird.data.tweets_2013_12 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Luke O'Neil",
+      "name" : "Raymond Favre",
       "screen_name" : "lukeoneil47",
       "indices" : [ 3, 15 ],
       "id_str" : "108338399",
@@ -1463,7 +1463,7 @@ Grailbird.data.tweets_2013_12 =
   "id_str" : "415529643878256640",
   "text" : "RT @lukeoneil47: It's pronounced Christmas jift, actually.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1480,7 +1480,7 @@ Grailbird.data.tweets_2013_12 =
       "screen_name" : "lukeoneil47",
       "protected" : false,
       "id_str" : "108338399",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/441684001464401920\/wwLgt2KU_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/489901699058765825\/l1XVt3Jw_normal.jpeg",
       "id" : 108338399,
       "verified" : false
     }
@@ -1592,7 +1592,7 @@ Grailbird.data.tweets_2013_12 =
       "screen_name" : "monkbent",
       "protected" : false,
       "id_str" : "40273",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/3097836774\/5b138c2da4e7a96c83409436e301ace2_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/457016792259391488\/lNWACUK8_normal.jpeg",
       "id" : 40273,
       "verified" : false
     }
@@ -1695,7 +1695,7 @@ Grailbird.data.tweets_2013_12 =
   "id_str" : "415198820167712769",
   "text" : "RT @TheNodeLebowski: JSLint vs. JSHint. Well, you know, that's just like, your opinion, man. http:\/\/t.co\/xxdLHfxl9H",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ {
@@ -2026,7 +2026,7 @@ Grailbird.data.tweets_2013_12 =
       "screen_name" : "MattBors",
       "protected" : false,
       "id_str" : "15161984",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/3444427297\/f9c83749dd16fbc0bac9a78f80ccded1_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/450549904952156160\/38Rh8k-s_normal.jpeg",
       "id" : 15161984,
       "verified" : false
     }
@@ -2535,7 +2535,7 @@ Grailbird.data.tweets_2013_12 =
       "screen_name" : "thomasfuchs",
       "protected" : false,
       "id_str" : "6927562",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/447055689026764800\/fpOqxwkY_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/485053387239473153\/fiqEzQYT_normal.jpeg",
       "id" : 6927562,
       "verified" : false
     }
@@ -2697,7 +2697,7 @@ Grailbird.data.tweets_2013_12 =
       "screen_name" : "tapbot_paul",
       "protected" : false,
       "id_str" : "18247541",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000727389627\/46dacd92037d23a7203bdc20188b8141_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/477104207162789889\/bxs3MU5L_normal.jpeg",
       "id" : 18247541,
       "verified" : false
     }
@@ -2808,7 +2808,7 @@ Grailbird.data.tweets_2013_12 =
       "screen_name" : "tapbot_paul",
       "protected" : false,
       "id_str" : "18247541",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000727389627\/46dacd92037d23a7203bdc20188b8141_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/477104207162789889\/bxs3MU5L_normal.jpeg",
       "id" : 18247541,
       "verified" : false
     }
@@ -2969,7 +2969,7 @@ Grailbird.data.tweets_2013_12 =
   "id_str" : "413543332061528064",
   "text" : "RT @jeresig: A plea for those writing complex libraries: Include practical examples. Use of foo\/bar\/baz and single-letter variables is forb\u2026",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -2986,7 +2986,7 @@ Grailbird.data.tweets_2013_12 =
       "screen_name" : "jeresig",
       "protected" : false,
       "id_str" : "752673",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/3710418056\/50890b833c898cab45237a461e873807_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/453551474711097345\/tXmNE9Cj_normal.jpeg",
       "id" : 752673,
       "verified" : true
     }
@@ -3070,7 +3070,7 @@ Grailbird.data.tweets_2013_12 =
   "id_str" : "413491021536702466",
   "text" : "RT @brentsimmons: Q Branch Standard Kit: https:\/\/t.co\/dI8pqAvUHU",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -3176,7 +3176,7 @@ Grailbird.data.tweets_2013_12 =
   "id_str" : "413415315364511744",
   "text" : "RT @tarikh: @gruber \"this keyboard represents everything about Apple that I hate\" http:\/\/t.co\/PhrZBw5FWr",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "John Gruber",
@@ -3311,7 +3311,7 @@ Grailbird.data.tweets_2013_12 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Sir Charles of Somer",
+      "name" : "Charlie Somerville",
       "screen_name" : "charliesome",
       "indices" : [ 3, 15 ],
       "id_str" : "16142240",
@@ -3348,7 +3348,7 @@ Grailbird.data.tweets_2013_12 =
     "id" : 412780320685957120,
     "created_at" : "2013-12-17 03:04:32 +0000",
     "user" : {
-      "name" : "Sir Charles of Somer",
+      "name" : "Charlie Somerville",
       "screen_name" : "charliesome",
       "protected" : false,
       "id_str" : "16142240",
@@ -3429,7 +3429,7 @@ Grailbird.data.tweets_2013_12 =
       "id_str" : "40273",
       "id" : 40273
     }, {
-      "name" : "strat\u0113chery",
+      "name" : "stratechery",
       "screen_name" : "stratechery",
       "indices" : [ 113, 125 ],
       "id_str" : "1233663476",
@@ -3456,7 +3456,7 @@ Grailbird.data.tweets_2013_12 =
     "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
-        "name" : "strat\u0113chery",
+        "name" : "stratechery",
         "screen_name" : "stratechery",
         "indices" : [ 99, 111 ],
         "id_str" : "1233663476",
@@ -3486,7 +3486,7 @@ Grailbird.data.tweets_2013_12 =
       "screen_name" : "monkbent",
       "protected" : false,
       "id_str" : "40273",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/3097836774\/5b138c2da4e7a96c83409436e301ace2_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/457016792259391488\/lNWACUK8_normal.jpeg",
       "id" : 40273,
       "verified" : false
     }
@@ -3536,7 +3536,7 @@ Grailbird.data.tweets_2013_12 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Sol",
@@ -3688,7 +3688,7 @@ Grailbird.data.tweets_2013_12 =
   "id_str" : "412610688272842752",
   "text" : "RT @stopsatgreen: Good news: Safari\/iOS 7.1 will introduce a viewport flag that allows for hiding the top and bottom bars: https:\/\/t.co\/OKc\u2026",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Daniel McKenzie",
@@ -3802,7 +3802,7 @@ Grailbird.data.tweets_2013_12 =
       "screen_name" : "andreasbovens",
       "protected" : false,
       "id_str" : "15736487",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/426151019144171520\/_52Tk3-3_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/484735815633752065\/QEO-s7kf_normal.jpeg",
       "id" : 15736487,
       "verified" : false
     }
@@ -4632,7 +4632,7 @@ Grailbird.data.tweets_2013_12 =
   "id_str" : "410925508654661632",
   "text" : "RT @Gotham3: Allow me to play with your mind by showing you 4 perfect circles. http:\/\/t.co\/b05qncGs8v",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ {
@@ -4679,7 +4679,7 @@ Grailbird.data.tweets_2013_12 =
       "screen_name" : "Gotham3",
       "protected" : false,
       "id_str" : "126903716",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/437713419358064640\/gsjAyt07_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/481542778241822720\/Yb6Tf2Gq_normal.jpeg",
       "id" : 126903716,
       "verified" : false
     }
@@ -4718,7 +4718,7 @@ Grailbird.data.tweets_2013_12 =
   "id_str" : "410647920501743616",
   "text" : "RT @paul_irish: Improving your mobile web experience. Checklist and recommendations from Google Search: http:\/\/t.co\/VDgCNgL07n",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -4804,7 +4804,7 @@ Grailbird.data.tweets_2013_12 =
   "id_str" : "410236072850108416",
   "text" : "RT @cabel: When informed that, in 2013, people would be pirating software that costs $1.99, and has no packaging, Peter died. http:\/\/t.co\/K\u2026",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ {
@@ -4957,7 +4957,7 @@ Grailbird.data.tweets_2013_12 =
       "screen_name" : "tapbot_paul",
       "protected" : false,
       "id_str" : "18247541",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000727389627\/46dacd92037d23a7203bdc20188b8141_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/477104207162789889\/bxs3MU5L_normal.jpeg",
       "id" : 18247541,
       "verified" : false
     }
@@ -5161,7 +5161,7 @@ Grailbird.data.tweets_2013_12 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Aaron Patterson",
@@ -5363,7 +5363,7 @@ Grailbird.data.tweets_2013_12 =
   "id_str" : "408508392542453760",
   "text" : "RT @creationix: Today's mad science hack is a utility that uses async-listener to trace and draw all events in your node program.\nhttps:\/\/t\u2026",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -5553,7 +5553,7 @@ Grailbird.data.tweets_2013_12 =
       "screen_name" : "DougPawl",
       "protected" : false,
       "id_str" : "53507520",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/443137760808144896\/XLSOMSlP_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/477258372345905153\/o_13AxuH_normal.jpeg",
       "id" : 53507520,
       "verified" : false
     }
@@ -5756,7 +5756,7 @@ Grailbird.data.tweets_2013_12 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "James",
+      "name" : "James Peters",
       "screen_name" : "Jameslfc19",
       "indices" : [ 0, 11 ],
       "id_str" : "204008694",
@@ -5795,7 +5795,7 @@ Grailbird.data.tweets_2013_12 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "James",
+      "name" : "James Peters",
       "screen_name" : "Jameslfc19",
       "indices" : [ 0, 11 ],
       "id_str" : "204008694",

@@ -2,53 +2,6 @@ Grailbird.data.tweets_2010_11 =
  [ {
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
-    "user_mentions" : [ ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "9828904965509121",
-  "text" : "So this is what it looks like eh?  http:\/\/yfrog.com\/31uupp",
-  "id" : 9828904965509121,
-  "created_at" : "2010-12-01 04:39:28 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : {
-    "type" : "Point",
-    "coordinates" : [ 48.45312881, -123.37135368 ]
-  },
-  "id_str" : "9770430135009280",
-  "text" : "Huh, AirPlay doesn't work for 3rd party apps. Guess I'm skipping 4.2 entirely on my phone then.",
-  "id" : 9770430135009280,
-  "created_at" : "2010-12-01 00:47:06 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
-  "entities" : {
     "user_mentions" : [ {
       "name" : "ryah",
       "screen_name" : "ryah",
@@ -78,7 +31,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "John Siracusa",
@@ -203,7 +156,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Tim Bray",
@@ -378,7 +331,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "jalbertbowdenii",
@@ -473,7 +426,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Grooveshark",
@@ -589,7 +542,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Ilya Grigorik",
@@ -606,7 +559,7 @@ Grailbird.data.tweets_2010_11 =
   "id_str" : "8202767315238912",
   "text" : "RT @igrigorik: htracr: node_pcap + raphael.js = beautiful HTTP\/TCP packet sniffer @ http:\/\/j.mp\/dLDTTb",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -623,7 +576,7 @@ Grailbird.data.tweets_2010_11 =
       "screen_name" : "igrigorik",
       "protected" : false,
       "id_str" : "9980812",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/412364630279745536\/5xDKUf4r_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/458689841186611200\/SMmZLt2Y_normal.jpeg",
       "id" : 9980812,
       "verified" : false
     }
@@ -665,7 +618,7 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/kiwi-app.net\" rel=\"nofollow\"\u003EKiwi\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mahyar McDonald",
+      "name" : "Mahyar M",
       "screen_name" : "mahyarm",
       "indices" : [ 3, 11 ],
       "id_str" : "22406953",
@@ -685,7 +638,7 @@ Grailbird.data.tweets_2010_11 =
   "id_str" : "7917446325342209",
   "text" : "RT @mahyarm: @BC_Transit  Please add routes and schedules to google maps, it would very useful!  And cut down on paper schedule costs",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "BC Transut",
@@ -707,7 +660,7 @@ Grailbird.data.tweets_2010_11 =
     "in_reply_to_screen_name" : "BCTransit",
     "in_reply_to_user_id_str" : "67042447",
     "user" : {
-      "name" : "Mahyar McDonald",
+      "name" : "Mahyar M",
       "screen_name" : "mahyarm",
       "protected" : false,
       "id_str" : "22406953",
@@ -877,7 +830,7 @@ Grailbird.data.tweets_2010_11 =
   "id_str" : "7828398390906880",
   "text" : "RT @BC_Transit: Here we go again, Victoria. Because of snowfall and road conditions, buses may be running late. Bundle up! #yyj",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1141,7 +1094,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Zach Holman",
@@ -1175,7 +1128,7 @@ Grailbird.data.tweets_2010_11 =
       "screen_name" : "holman",
       "protected" : false,
       "id_str" : "11322372",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/418621979491450880\/xNRUDtqG_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/478434515916824576\/y_0DGc0F_normal.jpeg",
       "id" : 11322372,
       "verified" : false
     }
@@ -1269,7 +1222,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "BrendanEich",
@@ -1496,7 +1449,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "A Minute With...",
@@ -1660,7 +1613,7 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "code baes",
+      "name" : "Anna Molly",
       "screen_name" : "moonpolysoft",
       "indices" : [ 36, 49 ],
       "id_str" : "14204623",
@@ -1685,7 +1638,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "TJ Holowaychuk",
@@ -1882,7 +1835,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Chris Dickinson",
@@ -1899,7 +1852,7 @@ Grailbird.data.tweets_2010_11 =
   "id_str" : "5697319752171521",
   "text" : "RT @isntitvacant: YES FINALLY http:\/\/www.zurb.com\/playground\/jquery-raptorize",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -2011,7 +1964,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Edd Dumbill",
@@ -2045,7 +1998,7 @@ Grailbird.data.tweets_2010_11 =
       "screen_name" : "edd",
       "protected" : false,
       "id_str" : "12876",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000699086134\/54a9a4ead60c11f9966f3d272eb0ac9e_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/477946036531785728\/ReHKrGOp_normal.jpeg",
       "id" : 12876,
       "verified" : false
     }
@@ -2151,7 +2104,7 @@ Grailbird.data.tweets_2010_11 =
   "id_str" : "5422530533793792",
   "text" : "RT @spyced: Configuration options are a hope that your users, with less knowledge of how the system works, will find the right solution  ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -2202,7 +2155,7 @@ Grailbird.data.tweets_2010_11 =
   "id_str" : "5137798986203137",
   "text" : "RT @tomdale: I am guilty of this: http:\/\/www.wiccat.net\/jargon\/html\/C\/creeping-elegance.html",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -2350,7 +2303,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Sebastian Markb\u00E5ge",
@@ -2373,7 +2326,7 @@ Grailbird.data.tweets_2010_11 =
   "id_str" : "5071011485585408",
   "text" : "RT @sebmarkbage: Blog Post: Leaky This - Why not all code can be safely wrapped, even with JavaScript Proxies. http:\/\/goo.gl\/dAgGr cc @B ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "BrendanEich",
@@ -2587,7 +2540,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Jim Roepcke",
@@ -2604,7 +2557,7 @@ Grailbird.data.tweets_2010_11 =
   "id_str" : "4982533787746304",
   "text" : "RT @JimRoepcke: The revived feature I was talking about on Nov 9th is live! iPhone Simulator (beta 1). Written in Cappuccino. http:\/\/cms ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -2699,7 +2652,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Diego Perini",
@@ -2841,7 +2794,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Alexey Rashevskiy",
@@ -3235,7 +3188,7 @@ Grailbird.data.tweets_2010_11 =
   "id_str" : "4651259885780992",
   "text" : "RT @brianleroux: expand tabs to spaces. pls, I beg you. tabs are for makefiles and nothing else!",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -3362,7 +3315,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Grooveshark",
@@ -3443,7 +3396,7 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003ETwitter for iPad\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Joshua Timberman",
+      "name" : "Overheard By",
       "screen_name" : "jtimberman",
       "indices" : [ 0, 11 ],
       "id_str" : "17025041",
@@ -3473,7 +3426,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "kangax",
@@ -3524,7 +3477,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "cloudhead",
@@ -3541,7 +3494,7 @@ Grailbird.data.tweets_2010_11 =
   "id_str" : "4299099784355840",
   "text" : "RT @cloudhead: Having options which enable\/disable UI or UX features is a sign of bad\/confused UX. Don't hand off that duty to the user.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -3603,7 +3556,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "A Minute With...",
@@ -4215,7 +4168,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Mathias Meyer",
@@ -4283,7 +4236,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Peter Cooper",
@@ -4351,7 +4304,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Mathias Meyer",
@@ -4402,7 +4355,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "getify",
@@ -4419,7 +4372,7 @@ Grailbird.data.tweets_2010_11 =
   "id_str" : "3910056114397184",
   "text" : "RT @getify: I just posted a quick 5 minute overview screencast about LABjs, if you've been wondering what it's for: http:\/\/screenr.com\/N7c",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -4436,7 +4389,7 @@ Grailbird.data.tweets_2010_11 =
       "screen_name" : "getify",
       "protected" : false,
       "id_str" : "16686076",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/435350039083229185\/5j6zCGKE_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/477301374799986690\/4N1I7U7L_normal.png",
       "id" : 16686076,
       "verified" : false
     }
@@ -4555,7 +4508,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Micheil Smith",
@@ -4663,7 +4616,7 @@ Grailbird.data.tweets_2010_11 =
   "id_str" : "3555882537328640",
   "text" : "RT @JimRoepcke: I have a feeling this girl is going to regret making her dog this smart... http:\/\/www.youtube.com\/watch?v=6RRjqkUAs8k",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -4697,7 +4650,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Tobie Langel",
@@ -4812,7 +4765,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "tom robinson",
@@ -4869,7 +4822,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Jim Roepcke",
@@ -4938,7 +4891,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Thomas Aylott",
@@ -4955,7 +4908,7 @@ Grailbird.data.tweets_2010_11 =
   "id_str" : "2785079105421312",
   "text" : "RT @SubtleGradient: NEW appify 2.0!\nCreate the simplest possible mac app from a shell script!\n`cat my-script.sh | appify MyApp`\n\nhttps:\/ ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -4989,7 +4942,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "matt knox",
@@ -4998,7 +4951,7 @@ Grailbird.data.tweets_2010_11 =
       "id_str" : "795244",
       "id" : 795244
     }, {
-      "name" : "Giles Goat Boy",
+      "name" : "\u30BF\u30C1\u30B3\u30DE",
       "screen_name" : "gilesgoatboy",
       "indices" : [ 14, 27 ],
       "id_str" : "1341781",
@@ -5018,10 +4971,10 @@ Grailbird.data.tweets_2010_11 =
   "id_str" : "2595597475389442",
   "text" : "RT @mattknox: @gilesgoatboy sibilant by @jacobrothstein is sorta similar, as is something of mine.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
-        "name" : "Giles Goat Boy",
+        "name" : "\u30BF\u30C1\u30B3\u30DE",
         "screen_name" : "gilesgoatboy",
         "indices" : [ 0, 13 ],
         "id_str" : "1341781",
@@ -5069,10 +5022,10 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Giles Goat Boy",
+      "name" : "\u30BF\u30C1\u30B3\u30DE",
       "screen_name" : "gilesgoatboy",
       "indices" : [ 3, 16 ],
       "id_str" : "1341781",
@@ -5099,11 +5052,11 @@ Grailbird.data.tweets_2010_11 =
     "id" : 2520070060253184,
     "created_at" : "2010-11-11 00:36:46 +0000",
     "user" : {
-      "name" : "Giles Goat Boy",
+      "name" : "\u30BF\u30C1\u30B3\u30DE",
       "screen_name" : "gilesgoatboy",
       "protected" : false,
       "id_str" : "1341781",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000416569929\/d65ccd54c8ad23a6c994183a5b47c5a8_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/487079412706189312\/LEyhyh5n_normal.jpeg",
       "id" : 1341781,
       "verified" : false
     }
@@ -5120,7 +5073,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Marco Arment",
@@ -5227,15 +5180,9 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
-    "user_mentions" : [ {
-      "name" : "Francisco T",
-      "screen_name" : "frank06",
-      "indices" : [ 3, 11 ],
-      "id_str" : "14560304",
-      "id" : 14560304
-    } ],
+    "user_mentions" : [ ],
     "media" : [ ],
     "hashtags" : [ {
       "text" : "riak",
@@ -5275,11 +5222,11 @@ Grailbird.data.tweets_2010_11 =
     "id" : 2374406705778688,
     "created_at" : "2010-11-10 14:57:57 +0000",
     "user" : {
-      "name" : "Francisco T",
-      "screen_name" : "frank06",
+      "name" : "Francisco Radix",
+      "screen_name" : "radixlab",
       "protected" : false,
       "id_str" : "14560304",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/3513906093\/46e3a9af2fbbb4c42ec00e197d9de428_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/479005609291833344\/JL-M57Gh_normal.png",
       "id" : 14560304,
       "verified" : false
     }
@@ -5358,7 +5305,7 @@ Grailbird.data.tweets_2010_11 =
       "screen_name" : "dshaw",
       "protected" : false,
       "id_str" : "806757",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1552591406\/angry_unicorn_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/485564678039302144\/Fjxv6IbQ_normal.png",
       "id" : 806757,
       "verified" : false
     }
@@ -5392,7 +5339,7 @@ Grailbird.data.tweets_2010_11 =
   "id_str" : "2158295842295809",
   "text" : "RT @jacobrothstein: Twitter recommendation column should be a mini-stream of tweets from suggested users. Entice me to follow them with  ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -5531,10 +5478,10 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Andy Gross",
+      "name" : "\u1D2C \u1D3F\u1D3C\u1D2E\u1D35\u1D3A\u02E2\u1D3C\u1D3A \u1D33\u1D3F\u1D3C\u02E2\u02E2",
       "screen_name" : "argv0",
       "indices" : [ 85, 91 ],
       "id_str" : "6509982",
@@ -5572,7 +5519,7 @@ Grailbird.data.tweets_2010_11 =
     "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
-        "name" : "Andy Gross",
+        "name" : "\u1D2C \u1D3F\u1D3C\u1D2E\u1D35\u1D3A\u02E2\u1D3C\u1D3A \u1D33\u1D3F\u1D3C\u02E2\u02E2",
         "screen_name" : "argv0",
         "indices" : [ 66, 72 ],
         "id_str" : "6509982",
@@ -5773,7 +5720,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -5795,7 +5742,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Avi Bryant",
@@ -5839,7 +5786,7 @@ Grailbird.data.tweets_2010_11 =
       "screen_name" : "avibryant",
       "protected" : false,
       "id_str" : "13192",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/48591172\/avibryant_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/452471447047254016\/f1QJrHB0_normal.png",
       "id" : 13192,
       "verified" : false
     }
@@ -6003,7 +5950,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Max Howell",
@@ -6020,7 +5967,7 @@ Grailbird.data.tweets_2010_11 =
   "id_str" : "1669916658769921",
   "text" : "RT @mxcl: I'm trying to build foo on Windows, can you help? Yes I can. Your problem, you see, is you are trying to do software developme ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -6035,7 +5982,7 @@ Grailbird.data.tweets_2010_11 =
     "user" : {
       "name" : "Max Howell",
       "screen_name" : "mxcl",
-      "protected" : true,
+      "protected" : false,
       "id_str" : "3374231",
       "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/2645645159\/11c2757eb86a89cec667e81c6092a066_normal.png",
       "id" : 3374231,
@@ -6227,7 +6174,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "ontwik",
@@ -6302,7 +6249,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "jbr",
@@ -6527,7 +6474,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Sam Stephenson",
@@ -6544,7 +6491,7 @@ Grailbird.data.tweets_2010_11 =
   "id_str" : "569167153467393",
   "text" : "RT @sstephenson: The JS that powers Chalk is written in CoffeeScript, compiled and served on-the-fly with Brochure: http:\/\/github.com\/ss ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -6578,7 +6525,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Sam Stephenson",
@@ -6601,7 +6548,7 @@ Grailbird.data.tweets_2010_11 =
   "id_str" : "569157116497920",
   "text" : "RT @sstephenson: Spot-on dissection of Chalk by @_sjs: http:\/\/samisamhuri.blogspot.com\/2010\/11\/37signals-chalk-dissected.html",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Sami Samhuri",
@@ -6776,7 +6723,7 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003ETwitter for iPad\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Steve Streza",
+      "name" : "Steve Streza \u26BD\uFE0F",
       "screen_name" : "SteveStreza",
       "indices" : [ 3, 15 ],
       "id_str" : "658643",
@@ -6803,11 +6750,11 @@ Grailbird.data.tweets_2010_11 =
     "id" : 375969575604224,
     "created_at" : "2010-11-05 02:36:52 +0000",
     "user" : {
-      "name" : "Steve Streza",
+      "name" : "Steve Streza \u26BD\uFE0F",
       "screen_name" : "SteveStreza",
       "protected" : false,
       "id_str" : "658643",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/446516305764438016\/F-vBkSbu_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/451118437600088064\/WdAiVKwz_normal.jpeg",
       "id" : 658643,
       "verified" : false
     }
@@ -6893,7 +6840,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Thomas Aylott",
@@ -7267,7 +7214,7 @@ Grailbird.data.tweets_2010_11 =
       "screen_name" : "acangiano",
       "protected" : false,
       "id_str" : "14582359",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1788074286\/image1327786678_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/473881706768760832\/qIkS0g72_normal.jpeg",
       "id" : 14582359,
       "verified" : false
     }
@@ -7454,7 +7401,7 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Sam Stephenson",
@@ -7471,7 +7418,7 @@ Grailbird.data.tweets_2010_11 =
   "id_str" : "29483259436",
   "text" : "RT @sstephenson: Chalk is a little iPad app we made for fun: http:\/\/bit.ly\/c93xN3",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -7562,6 +7509,412 @@ Grailbird.data.tweets_2010_11 =
   "text" : "No luck w\/ @grooveshark for iPhone the last few days. Every song pops up an alert saying it can't be played. #sadpanda",
   "id" : 29517895804,
   "created_at" : "2010-11-02 00:00:00 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Grigory Kruglov",
+      "screen_name" : "lunafiko",
+      "indices" : [ 0, 9 ],
+      "id_str" : "14273142",
+      "id" : 14273142
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "29322081414",
+  "geo" : {
+    "type" : "Point",
+    "coordinates" : [ 48.65268027, -123.66034698 ]
+  },
+  "id_str" : "29328445426",
+  "in_reply_to_user_id" : 14273142,
+  "text" : "@lunafiko I probably should have said the 2nd is easier to spot when not looking for it. I'm not on a crusade though, I just like it.",
+  "id" : 29328445426,
+  "in_reply_to_status_id" : 29322081414,
+  "created_at" : "2010-11-01 00:00:00 +0000",
+  "in_reply_to_screen_name" : "lunafiko",
+  "in_reply_to_user_id_str" : "14273142",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003ETwitter for iPad\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "niels bom",
+      "screen_name" : "niels_bom",
+      "indices" : [ 0, 10 ],
+      "id_str" : "3260971",
+      "id" : 3260971
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "29358745907",
+  "geo" : { },
+  "id_str" : "29374815208",
+  "in_reply_to_user_id" : 3260971,
+  "text" : "@niels_bom interesting, who knew people edited files &gt; 1GB with a normal editor. That's massive.",
+  "id" : 29374815208,
+  "in_reply_to_status_id" : 29358745907,
+  "created_at" : "2010-11-01 00:00:00 +0000",
+  "in_reply_to_screen_name" : "niels_bom",
+  "in_reply_to_user_id_str" : "3260971",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003ETwitter for iPad\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Grigory Kruglov",
+      "screen_name" : "lunafiko",
+      "indices" : [ 0, 9 ],
+      "id_str" : "14273142",
+      "id" : 14273142
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "29329351171",
+  "geo" : { },
+  "id_str" : "29375030439",
+  "in_reply_to_user_id" : 14273142,
+  "text" : "@lunafiko careful with it though, it can become a habit fast! I do my CSS the same way now :)",
+  "id" : 29375030439,
+  "in_reply_to_status_id" : 29329351171,
+  "created_at" : "2010-11-01 00:00:00 +0000",
+  "in_reply_to_screen_name" : "lunafiko",
+  "in_reply_to_user_id_str" : "14273142",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003ETwitter for iPad\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "29375266306",
+  "text" : "RT @js_fiddle: Please help with a little survey - http:\/\/survey.jsfiddle.net\/ takes 15sec, no personal data collected - repeat as many t ...",
+  "retweeted_status" : {
+    "source" : "\u003Ca href=\"http:\/\/ping.fm\/\" rel=\"nofollow\"\u003EPing.fm\u003C\/a\u003E",
+    "entities" : {
+      "user_mentions" : [ ],
+      "media" : [ ],
+      "hashtags" : [ ],
+      "urls" : [ ]
+    },
+    "geo" : { },
+    "id_str" : "29371945221",
+    "text" : "Please help with a little survey - http:\/\/survey.jsfiddle.net\/ takes 15sec, no personal data collected - repeat as many times as you like",
+    "id" : 29371945221,
+    "created_at" : "2010-11-01 13:29:43 +0000",
+    "user" : {
+      "name" : "JSFiddle",
+      "screen_name" : "jsfiddle",
+      "protected" : false,
+      "id_str" : "86026492",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000468659874\/9f88454a4a8f69ea24d13bf8142c3e2f_normal.png",
+      "id" : 86026492,
+      "verified" : false
+    }
+  },
+  "id" : 29375266306,
+  "created_at" : "2010-11-01 00:00:00 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003ETwitter for iPad\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Antonio Cangiano",
+      "screen_name" : "acangiano",
+      "indices" : [ 3, 13 ],
+      "id_str" : "14582359",
+      "id" : 14582359
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "29375363397",
+  "text" : "RT @acangiano: WOW, a lyrics site that doesn't suck: http:\/\/instalyrics.com",
+  "retweeted_status" : {
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
+    "entities" : {
+      "user_mentions" : [ ],
+      "media" : [ ],
+      "hashtags" : [ ],
+      "urls" : [ ]
+    },
+    "geo" : { },
+    "id_str" : "29373811618",
+    "text" : "WOW, a lyrics site that doesn't suck: http:\/\/instalyrics.com",
+    "id" : 29373811618,
+    "created_at" : "2010-11-01 13:52:16 +0000",
+    "user" : {
+      "name" : "Antonio Cangiano",
+      "screen_name" : "acangiano",
+      "protected" : false,
+      "id_str" : "14582359",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/473881706768760832\/qIkS0g72_normal.jpeg",
+      "id" : 14582359,
+      "verified" : false
+    }
+  },
+  "id" : 29375363397,
+  "created_at" : "2010-11-01 00:00:00 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "niels bom",
+      "screen_name" : "niels_bom",
+      "indices" : [ 0, 10 ],
+      "id_str" : "3260971",
+      "id" : 3260971
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "29375735737",
+  "geo" : { },
+  "id_str" : "29377939391",
+  "in_reply_to_user_id" : 3260971,
+  "text" : "@niels_bom Hmm, even w\/ syntax highlighting off emacs is slow while editing 1.7MB. TextMate fares much better, at least as good as vim.",
+  "id" : 29377939391,
+  "in_reply_to_status_id" : 29375735737,
+  "created_at" : "2010-11-01 00:00:00 +0000",
+  "in_reply_to_screen_name" : "niels_bom",
+  "in_reply_to_user_id_str" : "3260971",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Grooveshark",
+      "screen_name" : "Grooveshark",
+      "indices" : [ 53, 65 ],
+      "id_str" : "3806441",
+      "id" : 3806441
+    } ],
+    "media" : [ ],
+    "hashtags" : [ {
+      "text" : "musicmonday",
+      "indices" : [ 92, 104 ]
+    }, {
+      "text" : "nowplaying",
+      "indices" : [ 105, 116 ]
+    }, {
+      "text" : "rainymonday",
+      "indices" : [ 117, 129 ]
+    } ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "29382783017",
+  "text" : "Quite possibly the best Everclear song: AM Radio. On @Grooveshark: http:\/\/tinysong.com\/1XlM #musicmonday #nowplaying #rainymonday",
+  "id" : 29382783017,
+  "created_at" : "2010-11-01 00:00:00 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ ],
+    "media" : [ ],
+    "hashtags" : [ {
+      "text" : "newtwitter",
+      "indices" : [ 12, 23 ]
+    }, {
+      "text" : "fail",
+      "indices" : [ 126, 131 ]
+    } ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "29385115672",
+  "text" : "Why doesn't #newtwitter display conversations like the iPad app? It's basically impossible to trace a reply back to the root. #fail",
+  "id" : 29385115672,
+  "created_at" : "2010-11-01 00:00:00 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "29387515974",
+  "text" : "Node needs a standard library with deep promises\/futures\/deferred support. If all values may be deferred you write fewer nested callbacks.",
+  "id" : 29387515974,
+  "created_at" : "2010-11-01 00:00:00 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "29387607225",
+  "text" : "Combined with dynamic properties (getter\/setter) you could make an async system that's a pleasure to use.",
+  "id" : 29387607225,
+  "created_at" : "2010-11-01 00:00:00 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "29387808624",
+  "text" : "Unfortunately to make it really excellent you need method missing as well. Can't wait for proxies! http:\/\/is.gd\/gzS6Q",
+  "id" : 29387808624,
+  "created_at" : "2010-11-01 00:00:00 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "29388475602",
+  "text" : "To make it perfect you need language support. if, for, while, etc. all need to grok promise\/futures\/deferreds. I can wish...",
+  "id" : 29388475602,
+  "created_at" : "2010-11-01 00:00:00 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "29392091074",
+  "text" : "TextMate needs some kind of warning when a bundle clobbers a native keyboard shortcut. Ideally with a \"Slap Bundle Author\" button.",
+  "id" : 29392091074,
+  "created_at" : "2010-11-01 00:00:00 +0000",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",

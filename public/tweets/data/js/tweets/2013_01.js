@@ -129,7 +129,7 @@ Grailbird.data.tweets_2013_01 =
       "screen_name" : "raganwald",
       "protected" : false,
       "id_str" : "18137723",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/436205905437134848\/MdRKL9hb_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/485403259301928960\/f10AqCur_normal.png",
       "id" : 18137723,
       "verified" : false
     }
@@ -310,10 +310,10 @@ Grailbird.data.tweets_2013_01 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mahyar McDonald",
+      "name" : "Mahyar M",
       "screen_name" : "mahyarm",
       "indices" : [ 0, 8 ],
       "id_str" : "22406953",
@@ -343,10 +343,10 @@ Grailbird.data.tweets_2013_01 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mahyar McDonald",
+      "name" : "Mahyar M",
       "screen_name" : "mahyarm",
       "indices" : [ 0, 8 ],
       "id_str" : "22406953",
@@ -379,7 +379,7 @@ Grailbird.data.tweets_2013_01 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mahyar McDonald",
+      "name" : "Mahyar M",
       "screen_name" : "mahyarm",
       "indices" : [ 0, 8 ],
       "id_str" : "22406953",
@@ -412,7 +412,7 @@ Grailbird.data.tweets_2013_01 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mahyar McDonald",
+      "name" : "Mahyar M",
       "screen_name" : "mahyarm",
       "indices" : [ 0, 8 ],
       "id_str" : "22406953",
@@ -624,7 +624,7 @@ Grailbird.data.tweets_2013_01 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Aaron Heckmann",
+      "name" : "aheckmann",
       "screen_name" : "aaronheckmann",
       "indices" : [ 3, 17 ],
       "id_str" : "13818902",
@@ -638,7 +638,7 @@ Grailbird.data.tweets_2013_01 =
   "id_str" : "296067475613831168",
   "text" : "RT @aaronheckmann: 'strict mode'; what happens in eval() stays in eval()",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -651,11 +651,11 @@ Grailbird.data.tweets_2013_01 =
     "id" : 296060546048999424,
     "created_at" : "2013-01-29 01:01:49 +0000",
     "user" : {
-      "name" : "Aaron Heckmann",
+      "name" : "aheckmann",
       "screen_name" : "aaronheckmann",
       "protected" : false,
       "id_str" : "13818902",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/3497059361\/5d522c25916de422d27a0bbbce76d05a_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/467187086034878465\/nY320Ug__normal.jpeg",
       "id" : 13818902,
       "verified" : false
     }
@@ -722,7 +722,7 @@ Grailbird.data.tweets_2013_01 =
   "id_str" : "295771218181763072",
   "text" : "RT @AngelineGragzin: To all my real-world friends who invite me places and whose invites I politely decline: I am sorry. I am a hermit.  ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -739,7 +739,7 @@ Grailbird.data.tweets_2013_01 =
       "screen_name" : "AngelineGragzin",
       "protected" : false,
       "id_str" : "58809542",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/2134167141\/2012_REEL_thumb_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/486593087150370816\/rD2CkAMq_normal.png",
       "id" : 58809542,
       "verified" : false
     }
@@ -773,7 +773,7 @@ Grailbird.data.tweets_2013_01 =
   "id_str" : "295770304289071106",
   "text" : "RT @horse_js: so as any JavaScript programmer would do I decided to rewrite the entire thing",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1359,7 +1359,7 @@ Grailbird.data.tweets_2013_01 =
       "id_str" : "15734539",
       "id" : 15734539
     }, {
-      "name" : "literally no thing",
+      "name" : "what izs love",
       "screen_name" : "izs",
       "indices" : [ 68, 72 ],
       "id_str" : "8038312",
@@ -1373,10 +1373,10 @@ Grailbird.data.tweets_2013_01 =
   "id_str" : "294854164222201856",
   "text" : "RT @FrozenFire: \"Objects in roadmap are larger than they appear.\" --@izs",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
-        "name" : "literally no thing",
+        "name" : "what izs love",
         "screen_name" : "izs",
         "indices" : [ 52, 56 ],
         "id_str" : "8038312",
@@ -2128,7 +2128,7 @@ Grailbird.data.tweets_2013_01 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -2224,7 +2224,7 @@ Grailbird.data.tweets_2013_01 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -2326,7 +2326,7 @@ Grailbird.data.tweets_2013_01 =
       "id_str" : "125027291",
       "id" : 125027291
     }, {
-      "name" : "literally no thing",
+      "name" : "what izs love",
       "screen_name" : "izs",
       "indices" : [ 10, 14 ],
       "id_str" : "8038312",
@@ -3007,7 +3007,7 @@ Grailbird.data.tweets_2013_01 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Sol",
@@ -4484,7 +4484,7 @@ Grailbird.data.tweets_2013_01 =
       "id_str" : "14864447",
       "id" : 14864447
     }, {
-      "name" : "5BY5 Broadcasting",
+      "name" : "5by5",
       "screen_name" : "5by5",
       "indices" : [ 12, 17 ],
       "id_str" : "106231780",
@@ -4523,7 +4523,7 @@ Grailbird.data.tweets_2013_01 =
   "source" : "\u003Ca href=\"http:\/\/www.apple.com\" rel=\"nofollow\"\u003EiOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "5BY5 Broadcasting",
+      "name" : "5by5",
       "screen_name" : "5by5",
       "indices" : [ 13, 18 ],
       "id_str" : "106231780",

@@ -178,7 +178,7 @@ Grailbird.data.tweets_2013_04 =
   "id_str" : "327523354833715201",
   "text" : "RT @igrigorik: PageSpeed for Nginx is now available in Beta: http:\/\/t.co\/H1xesxp3Wv - 40+ optimization filters, open-source and free to use!",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -200,7 +200,7 @@ Grailbird.data.tweets_2013_04 =
       "screen_name" : "igrigorik",
       "protected" : false,
       "id_str" : "9980812",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/412364630279745536\/5xDKUf4r_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/458689841186611200\/SMmZLt2Y_normal.jpeg",
       "id" : 9980812,
       "verified" : false
     }
@@ -330,26 +330,21 @@ Grailbird.data.tweets_2013_04 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "mean meaning machine",
+      "name" : "Colt45",
       "screen_name" : "ColtonPhillips",
       "indices" : [ 0, 15 ],
-      "id_str" : "49227164",
-      "id" : 49227164
+      "id_str" : "2649472424",
+      "id" : 2649472424
     } ],
     "media" : [ ],
     "hashtags" : [ ],
     "urls" : [ ]
   },
-  "in_reply_to_status_id_str" : "326389203694927872",
   "geo" : { },
   "id_str" : "326405371616964608",
-  "in_reply_to_user_id" : 49227164,
   "text" : "@ColtonPhillips Good question. Eric knows what is going on with our SDK and Corona and such. Might be worth mailing him about it.",
   "id" : 326405371616964608,
-  "in_reply_to_status_id" : 326389203694927872,
   "created_at" : "2013-04-22 18:41:19 +0000",
-  "in_reply_to_screen_name" : "ColtonPhillips",
-  "in_reply_to_user_id_str" : "49227164",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -372,108 +367,6 @@ Grailbird.data.tweets_2013_04 =
   "text" : "OH: \u201CI\u2019m going to give up saturated fats for a weekend so I can try ecstasy.\u201D",
   "id" : 325444041565159425,
   "created_at" : "2013-04-20 03:01:20 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "Fran\u00E7ois-G. Ribreau",
-      "screen_name" : "FGRibreau",
-      "indices" : [ 3, 13 ],
-      "id_str" : "5719692",
-      "id" : 5719692
-    }, {
-      "name" : "Redis News Feed",
-      "screen_name" : "redisfeed",
-      "indices" : [ 15, 25 ],
-      "id_str" : "881105347",
-      "id" : 881105347
-    }, {
-      "name" : "Bringr",
-      "screen_name" : "bringr",
-      "indices" : [ 64, 71 ],
-      "id_str" : "261768120",
-      "id" : 261768120
-    }, {
-      "name" : "Sami Samhuri",
-      "screen_name" : "_sjs",
-      "indices" : [ 102, 107 ],
-      "id_str" : "4777951",
-      "id" : 4777951
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ {
-      "indices" : [ 72, 94 ],
-      "url" : "http:\/\/t.co\/2O59n0P6Hf",
-      "expanded_url" : "http:\/\/d.pr\/i\/Od7g",
-      "display_url" : "d.pr\/i\/Od7g"
-    } ]
-  },
-  "geo" : { },
-  "id_str" : "325356753795563521",
-  "text" : "RT @FGRibreau: @redisfeed 6 billion commands on the last 7 days @bringr http:\/\/t.co\/2O59n0P6Hf ^^ \/cc @_sjs",
-  "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/sites.google.com\/site\/yorufukurou\/\" rel=\"nofollow\"\u003EYoruFukurou\u003C\/a\u003E",
-    "entities" : {
-      "user_mentions" : [ {
-        "name" : "Redis News Feed",
-        "screen_name" : "redisfeed",
-        "indices" : [ 0, 10 ],
-        "id_str" : "881105347",
-        "id" : 881105347
-      }, {
-        "name" : "Bringr",
-        "screen_name" : "bringr",
-        "indices" : [ 49, 56 ],
-        "id_str" : "261768120",
-        "id" : 261768120
-      }, {
-        "name" : "Sami Samhuri",
-        "screen_name" : "_sjs",
-        "indices" : [ 87, 92 ],
-        "id_str" : "4777951",
-        "id" : 4777951
-      } ],
-      "media" : [ ],
-      "hashtags" : [ ],
-      "urls" : [ {
-        "indices" : [ 57, 79 ],
-        "url" : "http:\/\/t.co\/2O59n0P6Hf",
-        "expanded_url" : "http:\/\/d.pr\/i\/Od7g",
-        "display_url" : "d.pr\/i\/Od7g"
-      } ]
-    },
-    "in_reply_to_status_id_str" : "325028481442406400",
-    "geo" : { },
-    "id_str" : "325330849732128769",
-    "in_reply_to_user_id" : 4777951,
-    "text" : "@redisfeed 6 billion commands on the last 7 days @bringr http:\/\/t.co\/2O59n0P6Hf ^^ \/cc @_sjs",
-    "id" : 325330849732128769,
-    "in_reply_to_status_id" : 325028481442406400,
-    "created_at" : "2013-04-19 19:31:33 +0000",
-    "in_reply_to_screen_name" : "_sjs",
-    "in_reply_to_user_id_str" : "4777951",
-    "user" : {
-      "name" : "Fran\u00E7ois-G. Ribreau",
-      "screen_name" : "FGRibreau",
-      "protected" : false,
-      "id_str" : "5719692",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1117780106\/2009_shooting_medium_normal.png",
-      "id" : 5719692,
-      "verified" : false
-    }
-  },
-  "id" : 325356753795563521,
-  "created_at" : "2013-04-19 21:14:29 +0000",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -529,7 +422,7 @@ Grailbird.data.tweets_2013_04 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Hipster Hacker",
@@ -714,7 +607,7 @@ Grailbird.data.tweets_2013_04 =
   "id_str" : "324273461700730880",
   "text" : "RT @secoif: been waiting for this day my whole life: just got complimented by a random person in a bagel shop on my vim t-shirt",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -808,11 +701,11 @@ Grailbird.data.tweets_2013_04 =
       "id_str" : "236252268",
       "id" : 236252268
     }, {
-      "name" : "mean meaning machine",
+      "name" : "Colt45",
       "screen_name" : "ColtonPhillips",
       "indices" : [ 10, 25 ],
-      "id_str" : "49227164",
-      "id" : 49227164
+      "id_str" : "2649472424",
+      "id" : 2649472424
     } ],
     "media" : [ ],
     "hashtags" : [ ],
@@ -841,26 +734,21 @@ Grailbird.data.tweets_2013_04 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "mean meaning machine",
+      "name" : "Colt45",
       "screen_name" : "ColtonPhillips",
       "indices" : [ 0, 15 ],
-      "id_str" : "49227164",
-      "id" : 49227164
+      "id_str" : "2649472424",
+      "id" : 2649472424
     } ],
     "media" : [ ],
     "hashtags" : [ ],
     "urls" : [ ]
   },
-  "in_reply_to_status_id_str" : "322849189195304960",
   "geo" : { },
   "id_str" : "322850729612165120",
-  "in_reply_to_user_id" : 49227164,
   "text" : "@ColtonPhillips They call that the \"make Colton look crazy\" feature. It's new.",
   "id" : 322850729612165120,
-  "in_reply_to_status_id" : 322849189195304960,
   "created_at" : "2013-04-12 23:16:26 +0000",
-  "in_reply_to_screen_name" : "ColtonPhillips",
-  "in_reply_to_user_id_str" : "49227164",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -893,7 +781,7 @@ Grailbird.data.tweets_2013_04 =
   "id_str" : "322824648192585729",
   "text" : "RT @igrigorik: It's not a web app. It's an app you install from the web: http:\/\/t.co\/a9X2XSpoAL - good advice.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -915,7 +803,7 @@ Grailbird.data.tweets_2013_04 =
       "screen_name" : "igrigorik",
       "protected" : false,
       "id_str" : "9980812",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/412364630279745536\/5xDKUf4r_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/458689841186611200\/SMmZLt2Y_normal.jpeg",
       "id" : 9980812,
       "verified" : false
     }
@@ -1195,11 +1083,11 @@ Grailbird.data.tweets_2013_04 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "mean meaning machine",
+      "name" : "Colt45",
       "screen_name" : "ColtonPhillips",
       "indices" : [ 0, 15 ],
-      "id_str" : "49227164",
-      "id" : 49227164
+      "id_str" : "2649472424",
+      "id" : 2649472424
     }, {
       "name" : "knut",
       "screen_name" : "_knutaf",
@@ -1211,16 +1099,11 @@ Grailbird.data.tweets_2013_04 =
     "hashtags" : [ ],
     "urls" : [ ]
   },
-  "in_reply_to_status_id_str" : "322361268491137028",
   "geo" : { },
   "id_str" : "322403232615895040",
-  "in_reply_to_user_id" : 49227164,
   "text" : "@ColtonPhillips @_knutaf The same social habits that are good for other humans I guess.",
   "id" : 322403232615895040,
-  "in_reply_to_status_id" : 322361268491137028,
   "created_at" : "2013-04-11 17:38:15 +0000",
-  "in_reply_to_screen_name" : "ColtonPhillips",
-  "in_reply_to_user_id_str" : "49227164",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -1253,7 +1136,7 @@ Grailbird.data.tweets_2013_04 =
   "id_str" : "322127024913276929",
   "text" : "RT @Cabel: Status Board Tidbit #3: Unsure that Apple would approve it, we built a quick prototype and submitted that. In 2011. http:\/\/t. ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1295,7 +1178,7 @@ Grailbird.data.tweets_2013_04 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Tom Henderson",
+      "name" : "not all math",
       "screen_name" : "mathpunk",
       "indices" : [ 3, 12 ],
       "id_str" : "7621482",
@@ -1309,7 +1192,7 @@ Grailbird.data.tweets_2013_04 =
   "id_str" : "322109525643636736",
   "text" : "RT @mathpunk: i'm holding my bitcoin snark comments until i have a cogent explanation of what a \"dollar\" is",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1322,7 +1205,7 @@ Grailbird.data.tweets_2013_04 =
     "id" : 322062896148410368,
     "created_at" : "2013-04-10 19:05:52 +0000",
     "user" : {
-      "name" : "Tom Henderson",
+      "name" : "not all math",
       "screen_name" : "mathpunk",
       "protected" : false,
       "id_str" : "7621482",
@@ -1568,26 +1451,21 @@ Grailbird.data.tweets_2013_04 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "mean meaning machine",
+      "name" : "Colt45",
       "screen_name" : "ColtonPhillips",
       "indices" : [ 0, 15 ],
-      "id_str" : "49227164",
-      "id" : 49227164
+      "id_str" : "2649472424",
+      "id" : 2649472424
     } ],
     "media" : [ ],
     "hashtags" : [ ],
     "urls" : [ ]
   },
-  "in_reply_to_status_id_str" : "321088942118170625",
   "geo" : { },
   "id_str" : "321091368036491264",
-  "in_reply_to_user_id" : 49227164,
   "text" : "@ColtonPhillips Ha, I'm not sure. I don't think it would be a problem. Worth a shot.",
   "id" : 321091368036491264,
-  "in_reply_to_status_id" : 321088942118170625,
   "created_at" : "2013-04-08 02:45:22 +0000",
-  "in_reply_to_screen_name" : "ColtonPhillips",
-  "in_reply_to_user_id_str" : "49227164",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -1662,26 +1540,21 @@ Grailbird.data.tweets_2013_04 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "mean meaning machine",
+      "name" : "Colt45",
       "screen_name" : "ColtonPhillips",
       "indices" : [ 0, 15 ],
-      "id_str" : "49227164",
-      "id" : 49227164
+      "id_str" : "2649472424",
+      "id" : 2649472424
     } ],
     "media" : [ ],
     "hashtags" : [ ],
     "urls" : [ ]
   },
-  "in_reply_to_status_id_str" : "320759260436918272",
   "geo" : { },
   "id_str" : "320919614068506624",
-  "in_reply_to_user_id" : 49227164,
   "text" : "@ColtonPhillips There is the tc10k on the 28th. Are you going to go for it?",
   "id" : 320919614068506624,
-  "in_reply_to_status_id" : 320759260436918272,
   "created_at" : "2013-04-07 15:22:53 +0000",
-  "in_reply_to_screen_name" : "ColtonPhillips",
-  "in_reply_to_user_id_str" : "49227164",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -2442,7 +2315,7 @@ Grailbird.data.tweets_2013_04 =
   "id_str" : "319113764827979776",
   "text" : "RT @joeerl: Red and Green Callbacks http:\/\/t.co\/K9mREQdkLz",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitter.com\/tweetbutton\" rel=\"nofollow\"\u003ETweet Button\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/dev.twitter.com\/docs\/tfw\" rel=\"nofollow\"\u003ETwitter for Websites\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],

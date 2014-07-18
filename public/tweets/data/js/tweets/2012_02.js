@@ -118,7 +118,7 @@ Grailbird.data.tweets_2012_02 =
   "id_str" : "173085202166452225",
   "text" : "RT @DioVayne: LOL! Very Suspicious Quotation Marks :D\nhttp:\/\/t.co\/ioXrPzdl",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -140,7 +140,7 @@ Grailbird.data.tweets_2012_02 =
       "screen_name" : "DioVayne",
       "protected" : false,
       "id_str" : "19019338",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/3724575614\/b79b4a6c8b20d38849fbf57d0033cc36_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/458849876361494528\/B4dxVOzY_normal.png",
       "id" : 19019338,
       "verified" : false
     }
@@ -289,7 +289,7 @@ Grailbird.data.tweets_2012_02 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Tanner Stokes",
@@ -322,7 +322,7 @@ Grailbird.data.tweets_2012_02 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Tanner Stokes",
@@ -410,7 +410,7 @@ Grailbird.data.tweets_2012_02 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/mobile.twitter.com\" rel=\"nofollow\"\u003EMobile Web\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -483,7 +483,7 @@ Grailbird.data.tweets_2012_02 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Kit Cambridge",
+      "name" : "Muxing Demuxer",
       "screen_name" : "kitcambridge",
       "indices" : [ 0, 13 ],
       "id_str" : "136077128",
@@ -1227,7 +1227,7 @@ Grailbird.data.tweets_2012_02 =
   "id_str" : "166986793802141696",
   "text" : "RT @polotek: Wow. @github definitely thinks their hoodie is worth $55. As someone who was pretty excited and now is not, I ask you to re ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "GitHub",
@@ -1944,7 +1944,7 @@ Grailbird.data.tweets_2012_02 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Akshay Dodeja",
@@ -2064,7 +2064,7 @@ Grailbird.data.tweets_2012_02 =
   "id_str" : "165601866087010304",
   "text" : "RT @polotek: Import testing tip: If you've never seen a test fail in a controlled way when it should, don't assume it's valid. Fail it,  ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -2142,7 +2142,7 @@ Grailbird.data.tweets_2012_02 =
       "screen_name" : "chartier",
       "protected" : false,
       "id_str" : "35383",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/430909249468653568\/vAm-r_R9_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/479998676660518913\/Fg5T-3gi_normal.jpeg",
       "id" : 35383,
       "verified" : false
     }
@@ -2203,7 +2203,7 @@ Grailbird.data.tweets_2012_02 =
       "screen_name" : "typeoneerror",
       "protected" : false,
       "id_str" : "11973362",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/438460947997278208\/lrsH_UGg_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/472192334914805760\/wn3rN7Ks_normal.jpeg",
       "id" : 11973362,
       "verified" : false
     }
@@ -2411,7 +2411,7 @@ Grailbird.data.tweets_2012_02 =
       "screen_name" : "hij1nx",
       "protected" : false,
       "id_str" : "95938827",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/433281459952967680\/e0AypOHv_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/467266738296332288\/ImubiuUR_normal.jpeg",
       "id" : 95938827,
       "verified" : false
     }
@@ -2518,7 +2518,7 @@ Grailbird.data.tweets_2012_02 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Horace Dediu",

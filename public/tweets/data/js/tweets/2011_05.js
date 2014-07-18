@@ -253,7 +253,7 @@ Grailbird.data.tweets_2011_05 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Marc Nijdam",
@@ -359,7 +359,7 @@ Grailbird.data.tweets_2011_05 =
   "source" : "\u003Ca href=\"http:\/\/kiwi-app.net\" rel=\"nofollow\"\u003EKiwi\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mahyar McDonald",
+      "name" : "Mahyar M",
       "screen_name" : "mahyarm",
       "indices" : [ 0, 8 ],
       "id_str" : "22406953",
@@ -565,7 +565,7 @@ Grailbird.data.tweets_2011_05 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\/tweetbutton\" rel=\"nofollow\"\u003ETweet Button\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/dev.twitter.com\/docs\/tfw\" rel=\"nofollow\"\u003ETwitter for Websites\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Grooveshark",
@@ -845,7 +845,7 @@ Grailbird.data.tweets_2011_05 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -930,7 +930,7 @@ Grailbird.data.tweets_2011_05 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Elliott Kember",
@@ -964,7 +964,7 @@ Grailbird.data.tweets_2011_05 =
       "screen_name" : "elliottkember",
       "protected" : false,
       "id_str" : "903351",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000680694156\/8cf72d6afccd8962429d62f7c1def55f_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/485123804385906688\/WtBmYXix_normal.jpeg",
       "id" : 903351,
       "verified" : false
     }
@@ -981,7 +981,7 @@ Grailbird.data.tweets_2011_05 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Rebecca Murphey",
@@ -1014,10 +1014,10 @@ Grailbird.data.tweets_2011_05 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Bryan Liles (\u30C4)",
+      "name" : "Bryan Liles",
       "screen_name" : "bryanl",
       "indices" : [ 3, 10 ],
       "id_str" : "659933",
@@ -1044,11 +1044,11 @@ Grailbird.data.tweets_2011_05 =
     "id" : 73751667656495104,
     "created_at" : "2011-05-26 14:05:42 +0000",
     "user" : {
-      "name" : "Bryan Liles (\u30C4)",
+      "name" : "Bryan Liles",
       "screen_name" : "bryanl",
       "protected" : false,
       "id_str" : "659933",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/3402533533\/e4a4effa3744474d4ca0d765dd918633_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/456796626602819585\/WLE6z4kI_normal.jpeg",
       "id" : 659933,
       "verified" : false
     }
@@ -1595,7 +1595,7 @@ Grailbird.data.tweets_2011_05 =
   "source" : "\u003Ca href=\"http:\/\/seesmic.com\/\" rel=\"nofollow\"\u003ESeesmic\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "benjamin black",
+      "name" : "Benjamin Black",
       "screen_name" : "b6n",
       "indices" : [ 3, 7 ],
       "id_str" : "16031975",
@@ -1622,11 +1622,11 @@ Grailbird.data.tweets_2011_05 =
     "id" : 73107211563433984,
     "created_at" : "2011-05-24 19:24:52 +0000",
     "user" : {
-      "name" : "nightmare.scala",
+      "name" : "Benjamin Black",
       "screen_name" : "b6n",
       "protected" : false,
       "id_str" : "16031975",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/445991433585954816\/7I7n4U06_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/471834536087543808\/AS5YOkwa_normal.jpeg",
       "id" : 16031975,
       "verified" : false
     }
@@ -2451,7 +2451,7 @@ Grailbird.data.tweets_2011_05 =
   "id_str" : "72034991713943552",
   "text" : "RT @defunkt: for those who enjoy js golfing: https:\/\/github.com\/jed\/140bytes\/wiki\/Byte-saving-techniques",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -2499,7 +2499,7 @@ Grailbird.data.tweets_2011_05 =
   "id_str" : "72032046603706368",
   "text" : "RT @CP442: If you can't think of a #rapture joke...don't worry. It's not the end of the world",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -2564,7 +2564,7 @@ Grailbird.data.tweets_2011_05 =
   "source" : "\u003Ca href=\"http:\/\/kiwi-app.net\" rel=\"nofollow\"\u003EKiwi\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "literally no thing",
+      "name" : "what izs love",
       "screen_name" : "izs",
       "indices" : [ 0, 4 ],
       "id_str" : "8038312",
@@ -2972,7 +2972,7 @@ Grailbird.data.tweets_2011_05 =
   "id_str" : "71692737191231488",
   "text" : "RT @paul_irish: Small userscript to clean the ugly ?utm_source param junk from URLs on load via HTML5 History api: https:\/\/gist.github.c ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -3359,7 +3359,7 @@ Grailbird.data.tweets_2011_05 =
   "id_str" : "71063752656695296",
   "text" : "RT @mde: @_sjs Any language you actually use for things is terrible on various levels.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Sami Samhuri",
@@ -3802,7 +3802,7 @@ Grailbird.data.tweets_2011_05 =
   "id_str" : "70369212652204032",
   "text" : "RT @cramforce: Some more info on the JS x86 VM running Linux http:\/\/bellard.org\/jslinux\/tech.html",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -3865,7 +3865,7 @@ Grailbird.data.tweets_2011_05 =
   "id_str" : "70369175582941184",
   "text" : "RT @sogrady: you can now emulate x86 in JavaScript. for serious (via @jdub & @bcantrill). Bellard also did FFmpeg, QEMU and Tiny C: http ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Jeff Waugh",
@@ -3945,7 +3945,7 @@ Grailbird.data.tweets_2011_05 =
       "screen_name" : "thomasfuchs",
       "protected" : false,
       "id_str" : "6927562",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/447055689026764800\/fpOqxwkY_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/485053387239473153\/fiqEzQYT_normal.jpeg",
       "id" : 6927562,
       "verified" : false
     }
@@ -3965,7 +3965,7 @@ Grailbird.data.tweets_2011_05 =
   "source" : "\u003Ca href=\"http:\/\/kiwi-app.net\" rel=\"nofollow\"\u003EKiwi\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "\u00AC \u2200 $_console$$",
+      "name" : "Maybe Just Nothing",
       "screen_name" : "jcoglan",
       "indices" : [ 0, 8 ],
       "id_str" : "13861042",
@@ -4057,7 +4057,7 @@ Grailbird.data.tweets_2011_05 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Malte Ubl",
@@ -4081,10 +4081,7 @@ Grailbird.data.tweets_2011_05 =
       "hashtags" : [ ],
       "urls" : [ ]
     },
-    "geo" : {
-      "type" : "Point",
-      "coordinates" : [ 53.553407, 9.992196 ]
-    },
+    "geo" : { },
     "id_str" : "69814956157186048",
     "text" : "How to make WIFI work at tech conferences http:\/\/j.mp\/mtPzwl",
     "id" : 69814956157186048,
@@ -4333,7 +4330,7 @@ Grailbird.data.tweets_2011_05 =
       "screen_name" : "limi",
       "protected" : false,
       "id_str" : "1045541",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/2244569689\/Limi_-_headshot__160px_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/454481985742712832\/rNnol8l7_normal.png",
       "id" : 1045541,
       "verified" : false
     }
@@ -4350,7 +4347,7 @@ Grailbird.data.tweets_2011_05 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Marc Harter",
@@ -4524,7 +4521,7 @@ Grailbird.data.tweets_2011_05 =
   "id_str" : "67771654511665152",
   "text" : "RT @gnachman: @_sjs Good idea! Hey @1password let me know if you're interested in integrating with iTerm2.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Sami Samhuri",
@@ -5081,7 +5078,7 @@ Grailbird.data.tweets_2011_05 =
   "id_str" : "65908048983633920",
   "text" : "RT @souders: To get page load times from Google Analytics you have to add one line: _gaq.push(['_trackPageLoadTime']); - http:\/\/bit.ly\/j ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -5420,7 +5417,7 @@ Grailbird.data.tweets_2011_05 =
   "id_str" : "65591838685413376",
   "text" : "RT @KaKaRoToKS: @zedshaw @comex lol, it is retarded. It's no different than a goto, only uglier.. just never use a goto to go above your ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "zedshaw",
@@ -6050,7 +6047,7 @@ Grailbird.data.tweets_2011_05 =
   "id_str" : "64730641278832640",
   "text" : "RT @snookca: Font sizing with rem http:\/\/snk.ms\/i That is not a typo: rem!",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -6067,7 +6064,7 @@ Grailbird.data.tweets_2011_05 =
       "screen_name" : "snookca",
       "protected" : false,
       "id_str" : "12591",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000526466987\/c2e8535f96e0e9a31385d2a63bcb682a_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/466637140513001472\/oziZSmuy_normal.jpeg",
       "id" : 12591,
       "verified" : false
     }

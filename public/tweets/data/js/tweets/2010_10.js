@@ -1,411 +1,5 @@
 Grailbird.data.tweets_2010_10 = 
  [ {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "Grigory Kruglov",
-      "screen_name" : "lunafiko",
-      "indices" : [ 0, 9 ],
-      "id_str" : "14273142",
-      "id" : 14273142
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "in_reply_to_status_id_str" : "29322081414",
-  "geo" : {
-    "type" : "Point",
-    "coordinates" : [ 48.65268027, -123.66034698 ]
-  },
-  "id_str" : "29328445426",
-  "in_reply_to_user_id" : 14273142,
-  "text" : "@lunafiko I probably should have said the 2nd is easier to spot when not looking for it. I'm not on a crusade though, I just like it.",
-  "id" : 29328445426,
-  "in_reply_to_status_id" : 29322081414,
-  "created_at" : "2010-11-01 00:00:00 +0000",
-  "in_reply_to_screen_name" : "lunafiko",
-  "in_reply_to_user_id_str" : "14273142",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003ETwitter for iPad\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "niels bom",
-      "screen_name" : "niels_bom",
-      "indices" : [ 0, 10 ],
-      "id_str" : "3260971",
-      "id" : 3260971
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "in_reply_to_status_id_str" : "29358745907",
-  "geo" : { },
-  "id_str" : "29374815208",
-  "in_reply_to_user_id" : 3260971,
-  "text" : "@niels_bom interesting, who knew people edited files &gt; 1GB with a normal editor. That's massive.",
-  "id" : 29374815208,
-  "in_reply_to_status_id" : 29358745907,
-  "created_at" : "2010-11-01 00:00:00 +0000",
-  "in_reply_to_screen_name" : "niels_bom",
-  "in_reply_to_user_id_str" : "3260971",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003ETwitter for iPad\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "Grigory Kruglov",
-      "screen_name" : "lunafiko",
-      "indices" : [ 0, 9 ],
-      "id_str" : "14273142",
-      "id" : 14273142
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "in_reply_to_status_id_str" : "29329351171",
-  "geo" : { },
-  "id_str" : "29375030439",
-  "in_reply_to_user_id" : 14273142,
-  "text" : "@lunafiko careful with it though, it can become a habit fast! I do my CSS the same way now :)",
-  "id" : 29375030439,
-  "in_reply_to_status_id" : 29329351171,
-  "created_at" : "2010-11-01 00:00:00 +0000",
-  "in_reply_to_screen_name" : "lunafiko",
-  "in_reply_to_user_id_str" : "14273142",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003ETwitter for iPad\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "29375266306",
-  "text" : "RT @js_fiddle: Please help with a little survey - http:\/\/survey.jsfiddle.net\/ takes 15sec, no personal data collected - repeat as many t ...",
-  "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/ping.fm\/\" rel=\"nofollow\"\u003EPing.fm\u003C\/a\u003E",
-    "entities" : {
-      "user_mentions" : [ ],
-      "media" : [ ],
-      "hashtags" : [ ],
-      "urls" : [ ]
-    },
-    "geo" : { },
-    "id_str" : "29371945221",
-    "text" : "Please help with a little survey - http:\/\/survey.jsfiddle.net\/ takes 15sec, no personal data collected - repeat as many times as you like",
-    "id" : 29371945221,
-    "created_at" : "2010-11-01 13:29:43 +0000",
-    "user" : {
-      "name" : "JSFiddle",
-      "screen_name" : "jsfiddle",
-      "protected" : false,
-      "id_str" : "86026492",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000468659874\/9f88454a4a8f69ea24d13bf8142c3e2f_normal.png",
-      "id" : 86026492,
-      "verified" : false
-    }
-  },
-  "id" : 29375266306,
-  "created_at" : "2010-11-01 00:00:00 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003ETwitter for iPad\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "Antonio Cangiano",
-      "screen_name" : "acangiano",
-      "indices" : [ 3, 13 ],
-      "id_str" : "14582359",
-      "id" : 14582359
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "29375363397",
-  "text" : "RT @acangiano: WOW, a lyrics site that doesn't suck: http:\/\/instalyrics.com",
-  "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
-    "entities" : {
-      "user_mentions" : [ ],
-      "media" : [ ],
-      "hashtags" : [ ],
-      "urls" : [ ]
-    },
-    "geo" : { },
-    "id_str" : "29373811618",
-    "text" : "WOW, a lyrics site that doesn't suck: http:\/\/instalyrics.com",
-    "id" : 29373811618,
-    "created_at" : "2010-11-01 13:52:16 +0000",
-    "user" : {
-      "name" : "Antonio Cangiano",
-      "screen_name" : "acangiano",
-      "protected" : false,
-      "id_str" : "14582359",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1788074286\/image1327786678_normal.png",
-      "id" : 14582359,
-      "verified" : false
-    }
-  },
-  "id" : 29375363397,
-  "created_at" : "2010-11-01 00:00:00 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "niels bom",
-      "screen_name" : "niels_bom",
-      "indices" : [ 0, 10 ],
-      "id_str" : "3260971",
-      "id" : 3260971
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "in_reply_to_status_id_str" : "29375735737",
-  "geo" : { },
-  "id_str" : "29377939391",
-  "in_reply_to_user_id" : 3260971,
-  "text" : "@niels_bom Hmm, even w\/ syntax highlighting off emacs is slow while editing 1.7MB. TextMate fares much better, at least as good as vim.",
-  "id" : 29377939391,
-  "in_reply_to_status_id" : 29375735737,
-  "created_at" : "2010-11-01 00:00:00 +0000",
-  "in_reply_to_screen_name" : "niels_bom",
-  "in_reply_to_user_id_str" : "3260971",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "web",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "Grooveshark",
-      "screen_name" : "Grooveshark",
-      "indices" : [ 53, 65 ],
-      "id_str" : "3806441",
-      "id" : 3806441
-    } ],
-    "media" : [ ],
-    "hashtags" : [ {
-      "text" : "musicmonday",
-      "indices" : [ 92, 104 ]
-    }, {
-      "text" : "nowplaying",
-      "indices" : [ 105, 116 ]
-    }, {
-      "text" : "rainymonday",
-      "indices" : [ 117, 129 ]
-    } ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "29382783017",
-  "text" : "Quite possibly the best Everclear song: AM Radio. On @Grooveshark: http:\/\/tinysong.com\/1XlM #musicmonday #nowplaying #rainymonday",
-  "id" : 29382783017,
-  "created_at" : "2010-11-01 00:00:00 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "web",
-  "entities" : {
-    "user_mentions" : [ ],
-    "media" : [ ],
-    "hashtags" : [ {
-      "text" : "newtwitter",
-      "indices" : [ 12, 23 ]
-    }, {
-      "text" : "fail",
-      "indices" : [ 126, 131 ]
-    } ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "29385115672",
-  "text" : "Why doesn't #newtwitter display conversations like the iPad app? It's basically impossible to trace a reply back to the root. #fail",
-  "id" : 29385115672,
-  "created_at" : "2010-11-01 00:00:00 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "29387515974",
-  "text" : "Node needs a standard library with deep promises\/futures\/deferred support. If all values may be deferred you write fewer nested callbacks.",
-  "id" : 29387515974,
-  "created_at" : "2010-11-01 00:00:00 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "29387607225",
-  "text" : "Combined with dynamic properties (getter\/setter) you could make an async system that's a pleasure to use.",
-  "id" : 29387607225,
-  "created_at" : "2010-11-01 00:00:00 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "29387808624",
-  "text" : "Unfortunately to make it really excellent you need method missing as well. Can't wait for proxies! http:\/\/is.gd\/gzS6Q",
-  "id" : 29387808624,
-  "created_at" : "2010-11-01 00:00:00 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "29388475602",
-  "text" : "To make it perfect you need language support. if, for, while, etc. all need to grok promise\/futures\/deferreds. I can wish...",
-  "id" : 29388475602,
-  "created_at" : "2010-11-01 00:00:00 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "29392091074",
-  "text" : "TextMate needs some kind of warning when a bundle clobbers a native keyboard shortcut. Ideally with a \"Slap Bundle Author\" button.",
-  "id" : 29392091074,
-  "created_at" : "2010-11-01 00:00:00 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
@@ -439,15 +33,9 @@ Grailbird.data.tweets_2010_10 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
-    "user_mentions" : [ {
-      "name" : "Francisco T",
-      "screen_name" : "frank06",
-      "indices" : [ 3, 11 ],
-      "id_str" : "14560304",
-      "id" : 14560304
-    } ],
+    "user_mentions" : [ ],
     "media" : [ ],
     "hashtags" : [ ],
     "urls" : [ ]
@@ -469,11 +57,11 @@ Grailbird.data.tweets_2010_10 =
     "id" : 29300781513,
     "created_at" : "2010-10-31 18:41:01 +0000",
     "user" : {
-      "name" : "Francisco T",
-      "screen_name" : "frank06",
+      "name" : "Francisco Radix",
+      "screen_name" : "radixlab",
       "protected" : false,
       "id_str" : "14560304",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/3513906093\/46e3a9af2fbbb4c42ec00e197d9de428_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/479005609291833344\/JL-M57Gh_normal.png",
       "id" : 14560304,
       "verified" : false
     }
@@ -628,7 +216,7 @@ Grailbird.data.tweets_2010_10 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Micheil Smith",
@@ -825,7 +413,7 @@ Grailbird.data.tweets_2010_10 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Guillermo Rauch",
@@ -859,7 +447,7 @@ Grailbird.data.tweets_2010_10 =
       "screen_name" : "rauchg",
       "protected" : false,
       "id_str" : "15540222",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/424606094237790208\/ii_CxjK1_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/471505092122652673\/Y5pXTnOi_normal.png",
       "id" : 15540222,
       "verified" : false
     }
@@ -876,7 +464,7 @@ Grailbird.data.tweets_2010_10 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "rentzsch",
@@ -969,7 +557,7 @@ Grailbird.data.tweets_2010_10 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "literally no thing",
+      "name" : "what izs love",
       "screen_name" : "izs",
       "indices" : [ 0, 4 ],
       "id_str" : "8038312",
@@ -1198,7 +786,7 @@ Grailbird.data.tweets_2010_10 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Mark Phillips",
@@ -1249,7 +837,7 @@ Grailbird.data.tweets_2010_10 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "risk _danger_ olson",
@@ -1283,7 +871,7 @@ Grailbird.data.tweets_2010_10 =
       "screen_name" : "technoweenie",
       "protected" : false,
       "id_str" : "780561",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/420281203770413056\/bat1mfYU_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/458704821491470336\/tyTPwlBP_normal.jpeg",
       "id" : 780561,
       "verified" : false
     }
@@ -1322,7 +910,7 @@ Grailbird.data.tweets_2010_10 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -1693,7 +1281,7 @@ Grailbird.data.tweets_2010_10 =
   "id_str" : "28653713322",
   "text" : "RT @avibryant: Session hijacking made idiot-proof. Yikes. http:\/\/t.co\/PPvQeiW",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1715,7 +1303,7 @@ Grailbird.data.tweets_2010_10 =
       "screen_name" : "avibryant",
       "protected" : false,
       "id_str" : "13192",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/48591172\/avibryant_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/452471447047254016\/f1QJrHB0_normal.png",
       "id" : 13192,
       "verified" : false
     }
@@ -1785,7 +1373,7 @@ Grailbird.data.tweets_2010_10 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Jim Roepcke",
@@ -1945,7 +1533,7 @@ Grailbird.data.tweets_2010_10 =
   "id_str" : "28547135154",
   "text" : "RT @jacobrothstein: Just discovered CTRL-x-e in bash opens current command in $EDITOR.  Inordinately excited.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -2372,7 +1960,7 @@ Grailbird.data.tweets_2010_10 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Grigory Kruglov",
@@ -2958,7 +2546,7 @@ Grailbird.data.tweets_2010_10 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Mitchell Hashimoto",
@@ -2989,7 +2577,7 @@ Grailbird.data.tweets_2010_10 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Peter Cooper",
@@ -3006,7 +2594,7 @@ Grailbird.data.tweets_2010_10 =
   "id_str" : "27451894026",
   "text" : "RT @peterc: Hacker News users might find this thing I whipped up this morning interesting: http:\/\/hackerslide.com\/",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -3143,7 +2731,7 @@ Grailbird.data.tweets_2010_10 =
       "screen_name" : "cyberdelia",
       "protected" : false,
       "id_str" : "82843",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000505078115\/79572e17f6dadadc6e06e7b3aadc7a0a_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/460624781876797440\/d6Q5-TKx_normal.jpeg",
       "id" : 82843,
       "verified" : false
     }
@@ -3188,7 +2776,7 @@ Grailbird.data.tweets_2010_10 =
       "screen_name" : "bobby",
       "protected" : false,
       "id_str" : "17983820",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/441055451677851649\/SuVB1N3t_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/476872245470842880\/KSwp0hNr_normal.jpeg",
       "id" : 17983820,
       "verified" : false
     }
@@ -3205,7 +2793,7 @@ Grailbird.data.tweets_2010_10 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -3385,7 +2973,7 @@ Grailbird.data.tweets_2010_10 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Hacker News Bot",
@@ -3445,7 +3033,7 @@ Grailbird.data.tweets_2010_10 =
       "id_str" : "645143",
       "id" : 645143
     }, {
-      "name" : "(erhan erdo\u011Fan)",
+      "name" : "erhan",
       "screen_name" : "erhanerdogan",
       "indices" : [ 28, 41 ],
       "id_str" : "8632782",
@@ -3462,7 +3050,7 @@ Grailbird.data.tweets_2010_10 =
     "source" : "\u003Ca href=\"http:\/\/www.echofon.com\/\" rel=\"nofollow\"\u003EEchofon\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
-        "name" : "(erhan erdo\u011Fan)",
+        "name" : "erhan",
         "screen_name" : "erhanerdogan",
         "indices" : [ 16, 29 ],
         "id_str" : "8632782",
@@ -3637,7 +3225,7 @@ Grailbird.data.tweets_2010_10 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Dr Nic",
@@ -3683,7 +3271,7 @@ Grailbird.data.tweets_2010_10 =
       "screen_name" : "drnic",
       "protected" : false,
       "id_str" : "9885102",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/2243751587\/drnic_by_jeff_casimir_at_railsconf2010_-_thumbnail_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/465590363244081153\/E23iIjWL_normal.jpeg",
       "id" : 9885102,
       "verified" : false
     }
@@ -3725,7 +3313,7 @@ Grailbird.data.tweets_2010_10 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Zach Waugh",
@@ -4043,7 +3631,7 @@ Grailbird.data.tweets_2010_10 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "tom robinson",
@@ -4249,7 +3837,7 @@ Grailbird.data.tweets_2010_10 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mahyar McDonald",
+      "name" : "Mahyar M",
       "screen_name" : "mahyarm",
       "indices" : [ 0, 8 ],
       "id_str" : "22406953",
@@ -4316,7 +3904,7 @@ Grailbird.data.tweets_2010_10 =
       "screen_name" : "SethMacFarlane",
       "protected" : false,
       "id_str" : "18948541",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1870701230\/SethMacFarlane_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/477598819715395585\/g0lGqC_J_normal.jpeg",
       "id" : 18948541,
       "verified" : true
     }
@@ -4434,7 +4022,7 @@ Grailbird.data.tweets_2010_10 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Dion Almaer",

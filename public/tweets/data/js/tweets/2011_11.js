@@ -172,7 +172,7 @@ Grailbird.data.tweets_2011_11 =
   "id_str" : "140138383799357441",
   "text" : "RT @peterc: Just saw this quote: \"All code in any code-base should look like a single person typed it, no matter how many people contrib ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1266,7 +1266,7 @@ Grailbird.data.tweets_2011_11 =
       "screen_name" : "rauchg",
       "protected" : false,
       "id_str" : "15540222",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/424606094237790208\/ii_CxjK1_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/471505092122652673\/Y5pXTnOi_normal.png",
       "id" : 15540222,
       "verified" : false
     }
@@ -1801,7 +1801,7 @@ Grailbird.data.tweets_2011_11 =
   "id_str" : "132472104317763584",
   "text" : "RT @AaronHillegass: At the end of my MacTech talk, I shared the questions that keep me awake at night. TUAW found it worth writing about ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1961,7 +1961,7 @@ Grailbird.data.tweets_2011_11 =
   "id_str" : "131798571677790208",
   "text" : "RT @abozhilov: So you need arguments default value in JS? Possible approach: http:\/\/t.co\/my92CDAN",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],

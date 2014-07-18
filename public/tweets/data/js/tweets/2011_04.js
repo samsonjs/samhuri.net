@@ -22,7 +22,7 @@ Grailbird.data.tweets_2011_04 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "d woolverton",
@@ -39,7 +39,7 @@ Grailbird.data.tweets_2011_04 =
   "id_str" : "64449214855385088",
   "text" : "RT @woolstar: Its not .gdbrc, its .gdbinit just to be different.",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitterhelp.blogspot.com\/2008\/05\/twitter-via-mobile-web-mtwittercom.html\" rel=\"nofollow\"\u003Emobile web\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -263,7 +263,7 @@ Grailbird.data.tweets_2011_04 =
   "source" : "\u003Ca href=\"http:\/\/kiwi-app.net\" rel=\"nofollow\"\u003EKiwi\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "literally no thing",
+      "name" : "what izs love",
       "screen_name" : "izs",
       "indices" : [ 3, 7 ],
       "id_str" : "8038312",
@@ -300,11 +300,11 @@ Grailbird.data.tweets_2011_04 =
     "id" : 64425378097266688,
     "created_at" : "2011-04-30 20:26:21 +0000",
     "user" : {
-      "name" : "literally solipsist",
+      "name" : "what izs love",
       "screen_name" : "izs",
       "protected" : false,
       "id_str" : "8038312",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/429334527018672128\/WbXbeeHb_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/484207951310118914\/3qxqcxAu_normal.jpeg",
       "id" : 8038312,
       "verified" : false
     }
@@ -558,7 +558,7 @@ Grailbird.data.tweets_2011_04 =
   "id_str" : "64405955202383872",
   "text" : "RT @brianleroux: Got the http:\/\/vanjs.no.de client running on iOS and Android. Not as quickly as it could've been..but faster than if yo ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -592,7 +592,7 @@ Grailbird.data.tweets_2011_04 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Allen Wirfs-Brock",
@@ -802,7 +802,7 @@ Grailbird.data.tweets_2011_04 =
   "id_str" : "64051050222600192",
   "text" : "RT @skylerslade: seeking\/scrubbing coming soon to the @Grooveshark #android app ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Grooveshark",
@@ -976,7 +976,7 @@ Grailbird.data.tweets_2011_04 =
   "source" : "\u003Ca href=\"http:\/\/kiwi-app.net\" rel=\"nofollow\"\u003EKiwi\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Sean Cribbs",
+      "name" : "cribbs . sean",
       "screen_name" : "seancribbs",
       "indices" : [ 0, 11 ],
       "id_str" : "14939200",
@@ -1015,7 +1015,7 @@ Grailbird.data.tweets_2011_04 =
       "id_str" : "780561",
       "id" : 780561
     }, {
-      "name" : "Sean Cribbs",
+      "name" : "cribbs . sean",
       "screen_name" : "seancribbs",
       "indices" : [ 14, 25 ],
       "id_str" : "14939200",
@@ -1327,7 +1327,7 @@ Grailbird.data.tweets_2011_04 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Allen Wirfs-Brock",
@@ -1390,7 +1390,7 @@ Grailbird.data.tweets_2011_04 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Allen Wirfs-Brock",
@@ -1591,7 +1591,7 @@ Grailbird.data.tweets_2011_04 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Daniel Markham",
@@ -1608,7 +1608,7 @@ Grailbird.data.tweets_2011_04 =
   "id_str" : "63305699312152576",
   "text" : "RT @danielbmarkham: OH \"when you don't create things, you become defined by your tastes rather than ability. your tastes only narrow & e ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],

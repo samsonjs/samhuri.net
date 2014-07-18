@@ -257,7 +257,7 @@ Grailbird.data.tweets_2013_08 =
       "screen_name" : "sdw",
       "protected" : false,
       "id_str" : "6503412",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000485385696\/a5b72dc6709b259e9a7e95724991877e_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/483310703936151552\/51aqSGLp_normal.jpeg",
       "id" : 6503412,
       "verified" : false
     }
@@ -673,7 +673,7 @@ Grailbird.data.tweets_2013_08 =
       "screen_name" : "ejacqui",
       "protected" : false,
       "id_str" : "46023",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000837143680\/64947c88fb46881c9f7f851cc1c56eb0_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/453933291469434880\/TyWiqorW_normal.jpeg",
       "id" : 46023,
       "verified" : false
     }
@@ -724,7 +724,7 @@ Grailbird.data.tweets_2013_08 =
       "screen_name" : "ejacqui",
       "protected" : false,
       "id_str" : "46023",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000837143680\/64947c88fb46881c9f7f851cc1c56eb0_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/453933291469434880\/TyWiqorW_normal.jpeg",
       "id" : 46023,
       "verified" : false
     }
@@ -847,7 +847,7 @@ Grailbird.data.tweets_2013_08 =
       "screen_name" : "mrgan",
       "protected" : false,
       "id_str" : "35293",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000679756779\/de2395d30aeefafdd1dcffb73d4b7c26_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/475861465564327937\/oIwV6Tdf_normal.png",
       "id" : 35293,
       "verified" : false
     }
@@ -1538,7 +1538,7 @@ Grailbird.data.tweets_2013_08 =
       "id_str" : "29255412",
       "id" : 29255412
     }, {
-      "name" : "literally no thing",
+      "name" : "what izs love",
       "screen_name" : "izs",
       "indices" : [ 15, 19 ],
       "id_str" : "8038312",
@@ -1977,7 +1977,7 @@ Grailbird.data.tweets_2013_08 =
   "id_str" : "368584133041061888",
   "text" : "RT @mraleph: looking at another microbenchmark http:\/\/t.co\/zc8jL73XXs",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -2213,7 +2213,7 @@ Grailbird.data.tweets_2013_08 =
   "id_str" : "366278104265654274",
   "text" : "RT @mraleph: jokes about JITs as a high tech currency\n\nprovides more security than bitcoin",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -2388,7 +2388,7 @@ Grailbird.data.tweets_2013_08 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Aaron Heckmann",
+      "name" : "aheckmann",
       "screen_name" : "aaronheckmann",
       "indices" : [ 0, 14 ],
       "id_str" : "13818902",
@@ -2421,7 +2421,7 @@ Grailbird.data.tweets_2013_08 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Aaron Heckmann",
+      "name" : "aheckmann",
       "screen_name" : "aaronheckmann",
       "indices" : [ 0, 14 ],
       "id_str" : "13818902",
@@ -2559,7 +2559,7 @@ Grailbird.data.tweets_2013_08 =
       "screen_name" : "raganwald",
       "protected" : false,
       "id_str" : "18137723",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/436205905437134848\/MdRKL9hb_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/485403259301928960\/f10AqCur_normal.png",
       "id" : 18137723,
       "verified" : false
     }

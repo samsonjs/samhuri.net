@@ -139,7 +139,7 @@ Grailbird.data.tweets_2012_06 =
   "id_str" : "218575476938117120",
   "text" : "RT @tjholowaychuk: burl(1) http verbs are more expressive now https:\/\/t.co\/EYVveBuF",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -327,7 +327,7 @@ Grailbird.data.tweets_2012_06 =
       "screen_name" : "antirez",
       "protected" : false,
       "id_str" : "5813712",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/447047867652272128\/MtilrTWI_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/461550870648217602\/XjbUS5rb_normal.png",
       "id" : 5813712,
       "verified" : false
     }
@@ -582,7 +582,7 @@ Grailbird.data.tweets_2012_06 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mahyar McDonald",
+      "name" : "Mahyar M",
       "screen_name" : "mahyarm",
       "indices" : [ 0, 8 ],
       "id_str" : "22406953",
@@ -957,13 +957,13 @@ Grailbird.data.tweets_2012_06 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "HTTP\/1.1 202Accepted",
+      "name" : "![doc(steveklabnik)]",
       "screen_name" : "steveklabnik",
       "indices" : [ 3, 16 ],
       "id_str" : "22386062",
       "id" : 22386062
     }, {
-      "name" : "Literally Merlin",
+      "name" : "(\u2229\uFF40-\u00B4 )\u2283\u2501\u2606\uFF9F.*\uFF65\uFF61\uFF9F",
       "screen_name" : "ReinH",
       "indices" : [ 139, 140 ],
       "id_str" : "10255262",
@@ -985,7 +985,7 @@ Grailbird.data.tweets_2012_06 =
     "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
-        "name" : "Literally Merlin",
+        "name" : "(\u2229\uFF40-\u00B4 )\u2283\u2501\u2606\uFF9F.*\uFF65\uFF61\uFF9F",
         "screen_name" : "ReinH",
         "indices" : [ 129, 135 ],
         "id_str" : "10255262",
@@ -1006,7 +1006,7 @@ Grailbird.data.tweets_2012_06 =
     "id" : 212981330538020864,
     "created_at" : "2012-06-13 18:54:40 +0000",
     "user" : {
-      "name" : "HTTP\/1.1 202Accepted",
+      "name" : "![doc(steveklabnik)]",
       "screen_name" : "steveklabnik",
       "protected" : false,
       "id_str" : "22386062",
@@ -1117,7 +1117,7 @@ Grailbird.data.tweets_2012_06 =
   "id_str" : "212895503459942403",
   "text" : "RT @ariyahidayat: For those \"Please help me building my skyscraper, I'm clueless!\" questions, as much as I'd like to help everyone, I al ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1201,7 +1201,7 @@ Grailbird.data.tweets_2012_06 =
   "id_str" : "212361899088674819",
   "text" : "RT @bryan_kyle: Big news day today.  Emacs 24.1 released!",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1740,7 +1740,7 @@ Grailbird.data.tweets_2012_06 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Kit Cambridge",
+      "name" : "Muxing Demuxer",
       "screen_name" : "kitcambridge",
       "indices" : [ 0, 13 ],
       "id_str" : "136077128",
@@ -1871,7 +1871,7 @@ Grailbird.data.tweets_2012_06 =
   "id_str" : "211106691348054016",
   "text" : "RT @creationix: NaN !== NaN and -0 === +0, except in ECMA6 Map keys where they are reversed!?  JavaScript sure is entertaining.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -2388,7 +2388,7 @@ Grailbird.data.tweets_2012_06 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Steve Streza",
+      "name" : "Steve Streza \u26BD\uFE0F",
       "screen_name" : "SteveStreza",
       "indices" : [ 3, 15 ],
       "id_str" : "658643",
@@ -2432,11 +2432,11 @@ Grailbird.data.tweets_2012_06 =
     "in_reply_to_screen_name" : "marcoarment",
     "in_reply_to_user_id_str" : "14231571",
     "user" : {
-      "name" : "Steve Streza",
+      "name" : "Steve Streza \u26BD\uFE0F",
       "screen_name" : "SteveStreza",
       "protected" : false,
       "id_str" : "658643",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/446516305764438016\/F-vBkSbu_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/451118437600088064\/WdAiVKwz_normal.jpeg",
       "id" : 658643,
       "verified" : false
     }
@@ -2711,7 +2711,7 @@ Grailbird.data.tweets_2012_06 =
   "id_str" : "208549171106562049",
   "text" : "RT @DavidBruant: \"Completeness is an anti-goal for syntax.\" @littlecalculist https:\/\/t.co\/W2zYRNgw",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "David Herman",
@@ -2739,7 +2739,7 @@ Grailbird.data.tweets_2012_06 =
       "screen_name" : "DavidBruant",
       "protected" : false,
       "id_str" : "217829531",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1171604614\/Sayan2_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/468495248696414208\/k3SkUbo4_normal.jpeg",
       "id" : 217829531,
       "verified" : false
     }

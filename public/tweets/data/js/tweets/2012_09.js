@@ -3,7 +3,7 @@ Grailbird.data.tweets_2012_09 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mahyar McDonald",
+      "name" : "Mahyar M",
       "screen_name" : "mahyarm",
       "indices" : [ 0, 8 ],
       "id_str" : "22406953",
@@ -36,7 +36,7 @@ Grailbird.data.tweets_2012_09 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mahyar McDonald",
+      "name" : "Mahyar M",
       "screen_name" : "mahyarm",
       "indices" : [ 0, 8 ],
       "id_str" : "22406953",
@@ -99,7 +99,7 @@ Grailbird.data.tweets_2012_09 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Jim Roepcke",
@@ -160,7 +160,7 @@ Grailbird.data.tweets_2012_09 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Jim Roepcke",
@@ -618,11 +618,11 @@ Grailbird.data.tweets_2012_09 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "mean meaning machine",
+      "name" : "Colt45",
       "screen_name" : "ColtonPhillips",
       "indices" : [ 0, 15 ],
-      "id_str" : "49227164",
-      "id" : 49227164
+      "id_str" : "2649472424",
+      "id" : 2649472424
     }, {
       "name" : "Tap for Tap",
       "screen_name" : "tapfortap",
@@ -634,16 +634,11 @@ Grailbird.data.tweets_2012_09 =
     "hashtags" : [ ],
     "urls" : [ ]
   },
-  "in_reply_to_status_id_str" : "249254587863818241",
   "geo" : { },
   "id_str" : "249291902875226112",
-  "in_reply_to_user_id" : 49227164,
   "text" : "@ColtonPhillips @tapfortap Naive? Ambitious? FUCK IT WE'LL DO IT LIVE! :)",
   "id" : 249291902875226112,
-  "in_reply_to_status_id" : 249254587863818241,
   "created_at" : "2012-09-21 23:39:55 +0000",
-  "in_reply_to_screen_name" : "ColtonPhillips",
-  "in_reply_to_user_id_str" : "49227164",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -876,7 +871,7 @@ Grailbird.data.tweets_2012_09 =
       "screen_name" : "antirez",
       "protected" : false,
       "id_str" : "5813712",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/447047867652272128\/MtilrTWI_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/461550870648217602\/XjbUS5rb_normal.png",
       "id" : 5813712,
       "verified" : false
     }
@@ -965,7 +960,7 @@ Grailbird.data.tweets_2012_09 =
       "id_str" : "14272162",
       "id" : 14272162
     }, {
-      "name" : "Charlie Kindel",
+      "name" : "Charli\u00EB K\u00EFndel",
       "screen_name" : "ckindel",
       "indices" : [ 9, 17 ],
       "id_str" : "15416485",
@@ -1186,7 +1181,7 @@ Grailbird.data.tweets_2012_09 =
       "screen_name" : "jjustice",
       "protected" : false,
       "id_str" : "14325629",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000713038277\/1ff645d54946292945e05901aaff38f5_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/480490047188107264\/LPhwYFa5_normal.jpeg",
       "id" : 14325629,
       "verified" : false
     }
@@ -1384,7 +1379,7 @@ Grailbird.data.tweets_2012_09 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Kyle Greenlaw",

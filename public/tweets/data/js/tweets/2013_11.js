@@ -3,7 +3,7 @@ Grailbird.data.tweets_2013_11 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "news.yc Popular",
+      "name" : "Hacker News",
       "screen_name" : "newsycombinator",
       "indices" : [ 3, 19 ],
       "id_str" : "14335498",
@@ -40,11 +40,11 @@ Grailbird.data.tweets_2013_11 =
     "id" : 400942095386824704,
     "created_at" : "2013-11-14 11:03:39 +0000",
     "user" : {
-      "name" : "news.yc Popular",
+      "name" : "Hacker News",
       "screen_name" : "newsycombinator",
       "protected" : false,
       "id_str" : "14335498",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000017952599\/cf443a6da9a74e5c9c1fcddf422ebb0e_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/469397708986269696\/iUrYEOpJ_normal.png",
       "id" : 14335498,
       "verified" : false
     }
@@ -64,7 +64,7 @@ Grailbird.data.tweets_2013_11 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Angelinatron 9001 v1",
+      "name" : "Angelina Fabbro",
       "screen_name" : "angelinamagnum",
       "indices" : [ 3, 18 ],
       "id_str" : "58708498",
@@ -78,7 +78,7 @@ Grailbird.data.tweets_2013_11 =
   "id_str" : "405548460596015104",
   "text" : "RT @angelinamagnum: If you are a dev writing code that you expect other devs to use you may be surprised to find that you are working on us\u2026",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -91,7 +91,7 @@ Grailbird.data.tweets_2013_11 =
     "id" : 405450793605533697,
     "created_at" : "2013-11-26 21:39:36 +0000",
     "user" : {
-      "name" : "Angelinatron 9001 v1",
+      "name" : "Angelina Fabbro",
       "screen_name" : "angelinamagnum",
       "protected" : false,
       "id_str" : "58708498",
@@ -337,7 +337,7 @@ Grailbird.data.tweets_2013_11 =
   "id_str" : "403947320657457152",
   "text" : "RT @tlrobinson: Rappers can't make it rain Bitcoins, but they can sign a message with a rich Bitcoin address' private key provably attestin\u2026",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -528,7 +528,7 @@ Grailbird.data.tweets_2013_11 =
       "screen_name" : "raganwald",
       "protected" : false,
       "id_str" : "18137723",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/436205905437134848\/MdRKL9hb_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/485403259301928960\/f10AqCur_normal.png",
       "id" : 18137723,
       "verified" : false
     }
@@ -675,7 +675,7 @@ Grailbird.data.tweets_2013_11 =
   "id_str" : "402235486854340610",
   "text" : "RT @dmost: Noticing the UI elements in XCode. Button looks like text, and text looks like button. http:\/\/t.co\/uOMDLqTjKc",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ {
@@ -786,7 +786,7 @@ Grailbird.data.tweets_2013_11 =
   "id_str" : "402137658953973760",
   "text" : "RT @jesseschell: A truer flowchart was never whiteboarded. http:\/\/t.co\/RSn7WufBqL",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/www.hootsuite.com\" rel=\"nofollow\"\u003EHootSuite\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"http:\/\/www.hootsuite.com\" rel=\"nofollow\"\u003EHootsuite\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ {
@@ -872,7 +872,7 @@ Grailbird.data.tweets_2013_11 =
   "id_str" : "402137568105336832",
   "text" : "RT @substack: task automation with `npm run` http:\/\/t.co\/iuE0TGOUto",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1500,7 +1500,7 @@ Grailbird.data.tweets_2013_11 =
       "screen_name" : "everydayscott",
       "protected" : false,
       "id_str" : "22854817",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/416193548682162176\/aiyHXodk_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/469204186622472192\/vbaVkjGM_normal.jpeg",
       "id" : 22854817,
       "verified" : false
     }
@@ -1665,7 +1665,7 @@ Grailbird.data.tweets_2013_11 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "greg bate",
+      "name" : "Greg Bate",
       "screen_name" : "gregbate",
       "indices" : [ 0, 9 ],
       "id_str" : "15292261",
@@ -1835,7 +1835,7 @@ Grailbird.data.tweets_2013_11 =
   "id_str" : "398234048499159042",
   "text" : "RT @AdobeRevel: @_sjs @picturelife @TeamLoom @siracusa Adobe Revel will not upload exact duplicates in a library, you will get a msg and pi\u2026",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Sami Samhuri",
@@ -1881,7 +1881,7 @@ Grailbird.data.tweets_2013_11 =
       "screen_name" : "AdobeRevel",
       "protected" : false,
       "id_str" : "304719153",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/3472436901\/abc7d6d36e8432523f3101aba3768e8d_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/477123520913108992\/Ty6726A1_normal.png",
       "id" : 304719153,
       "verified" : false
     }
@@ -2108,7 +2108,7 @@ Grailbird.data.tweets_2013_11 =
       "screen_name" : "yuusharo",
       "protected" : false,
       "id_str" : "14824763",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000350594871\/0b332351beb25bd7cd3b6d02cad6f061_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/480596747601711104\/fdfFo-Ll_normal.jpeg",
       "id" : 14824763,
       "verified" : false
     }
@@ -2205,7 +2205,7 @@ Grailbird.data.tweets_2013_11 =
       "screen_name" : "edog1203",
       "protected" : false,
       "id_str" : "14305022",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/195558653\/Calvin_and_Hobbes_-_Spaceman_Spiff_normal.gif",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/461765914321358848\/Vp6XymAZ_normal.jpeg",
       "id" : 14305022,
       "verified" : false
     }
@@ -2537,7 +2537,7 @@ Grailbird.data.tweets_2013_11 =
   "id_str" : "397618989402030080",
   "text" : "RT @valueof: Hey y'all! Did you know JavaScript type coercion is weird when you use == instead of ===? Let's keep talking about that until \u2026",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -2554,7 +2554,7 @@ Grailbird.data.tweets_2013_11 =
       "screen_name" : "valueof",
       "protected" : false,
       "id_str" : "18179447",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/427992270235648000\/37-v4MEP_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/488551991220506624\/kZJORzhk_normal.jpeg",
       "id" : 18179447,
       "verified" : false
     }
@@ -2723,7 +2723,7 @@ Grailbird.data.tweets_2013_11 =
       "screen_name" : "iamdevloper",
       "protected" : false,
       "id_str" : "564919357",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/2170966625\/56CD5565-6B71-4DBB-84D3-24258DED9FF2_normal",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/477397164453527552\/uh2w1u1o_normal.jpeg",
       "id" : 564919357,
       "verified" : false
     }

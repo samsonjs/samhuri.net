@@ -22,7 +22,7 @@ Grailbird.data.tweets_2012_01 =
   "id_str" : "164550927754338304",
   "text" : "RT @paul_irish: Did a quick little jQuery.ajax() prefilter plugin adaptation to cache results in localStorage for better perf https:\/\/t. ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -91,7 +91,7 @@ Grailbird.data.tweets_2012_01 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Amos Wenger",
+      "name" : "Amos Wenger (old)",
       "screen_name" : "nddrylliog",
       "indices" : [ 3, 14 ],
       "id_str" : "267433199",
@@ -128,11 +128,11 @@ Grailbird.data.tweets_2012_01 =
     "id" : 164519898947653632,
     "created_at" : "2012-02-01 01:26:15 +0000",
     "user" : {
-      "name" : "Amos Wenger",
+      "name" : "Amos Wenger (old)",
       "screen_name" : "nddrylliog",
       "protected" : false,
       "id_str" : "267433199",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/447736531608809472\/AECMF5xJ_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/482206429537792000\/iocHfWJL_normal.png",
       "id" : 267433199,
       "verified" : false
     }
@@ -215,7 +215,7 @@ Grailbird.data.tweets_2012_01 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Kit Cambridge",
+      "name" : "Muxing Demuxer",
       "screen_name" : "kitcambridge",
       "indices" : [ 0, 13 ],
       "id_str" : "136077128",
@@ -350,7 +350,7 @@ Grailbird.data.tweets_2012_01 =
       "screen_name" : "adambrault",
       "protected" : false,
       "id_str" : "1568",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/418303980565827584\/_DojMXkY_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/474848741849968641\/vN5qcXaZ_normal.jpeg",
       "id" : 1568,
       "verified" : false
     }
@@ -423,7 +423,7 @@ Grailbird.data.tweets_2012_01 =
   "id_str" : "164025509112590336",
   "text" : "RT @jzawodn: One of the best Quora answers ever: http:\/\/t.co\/pg2LYoiK",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -495,7 +495,7 @@ Grailbird.data.tweets_2012_01 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\/tweetbutton\" rel=\"nofollow\"\u003ETweet Button\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/dev.twitter.com\/docs\/tfw\" rel=\"nofollow\"\u003ETwitter for Websites\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Aaron Klein",
@@ -639,7 +639,7 @@ Grailbird.data.tweets_2012_01 =
   "id_str" : "162941921810071552",
   "text" : "RT @ncb000gt: Awesome: http:\/\/t.co\/nxkMnEN0",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -661,7 +661,7 @@ Grailbird.data.tweets_2012_01 =
       "screen_name" : "ncb000gt",
       "protected" : false,
       "id_str" : "7955612",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/445796715212570624\/1Y3BIB4k_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/488795251013079040\/JGzgO-c3_normal.jpeg",
       "id" : 7955612,
       "verified" : false
     }
@@ -1023,7 +1023,7 @@ Grailbird.data.tweets_2012_01 =
       "screen_name" : "elliottkember",
       "protected" : false,
       "id_str" : "903351",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000680694156\/8cf72d6afccd8962429d62f7c1def55f_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/485123804385906688\/WtBmYXix_normal.jpeg",
       "id" : 903351,
       "verified" : false
     }
@@ -1087,7 +1087,7 @@ Grailbird.data.tweets_2012_01 =
   "id_str" : "162598517871878144",
   "text" : "RT @NodeSummit: Talks from #NodeSummit will be available online (after a little R&R).  Will announce here and to the email list - http:\/ ...",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/www.hootsuite.com\" rel=\"nofollow\"\u003EHootSuite\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"http:\/\/www.hootsuite.com\" rel=\"nofollow\"\u003EHootsuite\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1441,7 +1441,7 @@ Grailbird.data.tweets_2012_01 =
       "screen_name" : "jtaby",
       "protected" : false,
       "id_str" : "6827332",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/3205012970\/55024b051add5ee576569b217438d59a_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/484136119382970368\/joqbVL4R_normal.jpeg",
       "id" : 6827332,
       "verified" : false
     }
@@ -1514,7 +1514,7 @@ Grailbird.data.tweets_2012_01 =
       "screen_name" : "jonathanstark",
       "protected" : false,
       "id_str" : "7198302",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000305628908\/99190bc7032ec47cd5db01767753b077_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/465641491638255616\/VwfjwkcT_normal.jpeg",
       "id" : 7198302,
       "verified" : false
     }
@@ -1554,7 +1554,7 @@ Grailbird.data.tweets_2012_01 =
   "id_str" : "161945918244012033",
   "text" : "RT @bcantrill: Google is being annoyingly tight-lipped, while Microsoft is writing a Node program on stage -- on a Mac. #NodeSummit #Wor ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1829,7 +1829,7 @@ Grailbird.data.tweets_2012_01 =
   "id_str" : "160293861195923456",
   "text" : "RT @BrendanEich: Flash: let a=[]; for(let i=0;i&lt;4;i++) a.push(function()\u007Breturn i\u007D); for (let j in a) assert(a[j]() === j) is in ES6  ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1964,7 +1964,7 @@ Grailbird.data.tweets_2012_01 =
       "id_str" : "14957252",
       "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/421677121329975297\/Ugmp-mls_normal.jpeg",
       "id" : 14957252,
-      "verified" : false
+      "verified" : true
     }
   },
   "id" : 160045765333499904,
@@ -1979,7 +1979,7 @@ Grailbird.data.tweets_2012_01 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Bryan O'Sullivan",
@@ -2576,7 +2576,7 @@ Grailbird.data.tweets_2012_01 =
       "screen_name" : "jonathanstark",
       "protected" : false,
       "id_str" : "7198302",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000305628908\/99190bc7032ec47cd5db01767753b077_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/465641491638255616\/VwfjwkcT_normal.jpeg",
       "id" : 7198302,
       "verified" : false
     }
@@ -2687,7 +2687,7 @@ Grailbird.data.tweets_2012_01 =
       "screen_name" : "jedschmidt",
       "protected" : false,
       "id_str" : "815114",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000847455995\/92856a0e8d7651cd5fc74699319e9f59_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/468535675101261825\/zAePF1v3_normal.jpeg",
       "id" : 815114,
       "verified" : false
     }
@@ -2704,7 +2704,7 @@ Grailbird.data.tweets_2012_01 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Scott Wasserman",

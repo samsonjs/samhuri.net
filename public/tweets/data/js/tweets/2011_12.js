@@ -154,7 +154,7 @@ Grailbird.data.tweets_2011_12 =
   "id_str" : "151782151803772928",
   "text" : "RT @abackstrom: How to Pronounce Hors d'oeuvres http:\/\/t.co\/KeqlGTPz",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitter.com\/tweetbutton\" rel=\"nofollow\"\u003ETweet Button\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/dev.twitter.com\/docs\/tfw\" rel=\"nofollow\"\u003ETwitter for Websites\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -176,7 +176,7 @@ Grailbird.data.tweets_2011_12 =
       "screen_name" : "abackstrom",
       "protected" : false,
       "id_str" : "3621751",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/435547669339983872\/_DcvU0WG_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/451461262438703104\/rHQCJBEL_normal.jpeg",
       "id" : 3621751,
       "verified" : false
     }
@@ -288,7 +288,7 @@ Grailbird.data.tweets_2011_12 =
       "screen_name" : "rands",
       "protected" : false,
       "id_str" : "30923",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/2886028302\/d9137f9df14bafdb1144d6b6c16259c1_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/458982455932760064\/40qsmGPF_normal.png",
       "id" : 30923,
       "verified" : false
     }
@@ -583,7 +583,7 @@ Grailbird.data.tweets_2011_12 =
   "id_str" : "150705598089007104",
   "text" : "RT @kevinpo: THIS is a christmas tree: http:\/\/t.co\/2kNDeEI5",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -677,7 +677,7 @@ Grailbird.data.tweets_2011_12 =
   "id_str" : "149612597514211328",
   "text" : "RT @chrisblizzard: We un-prefixed the WebSockets API in Firefox 11, coming to Aurora very soon.  https:\/\/t.co\/JN9trcVZ",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1330,7 +1330,7 @@ Grailbird.data.tweets_2011_12 =
   "id_str" : "147784108121128960",
   "text" : "RT @LeaVerou: Introducing dabblet: An interactive CSS playground (a.k.a. what I've been working on for the past 3 weeks) http:\/\/t.co\/QOE ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1352,7 +1352,7 @@ Grailbird.data.tweets_2011_12 =
       "screen_name" : "LeaVerou",
       "protected" : false,
       "id_str" : "22199970",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1716232467\/avatar-logo_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/476531283862884353\/x0m-0MlO_normal.png",
       "id" : 22199970,
       "verified" : false
     }
@@ -1521,7 +1521,7 @@ Grailbird.data.tweets_2011_12 =
   "id_str" : "147460448856453120",
   "text" : "RT @paul_irish: Really like this HTML5 & CSS3 Advent Calendar: http:\/\/t.co\/WQ7Q37qB Pro techniques inside.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1674,7 +1674,7 @@ Grailbird.data.tweets_2011_12 =
   "id_str" : "147343411777769473",
   "text" : "RT @stoyanstefanov: Performance calendar day #14: Say hello to icy: an iOS app to inspect HTTP traffic http:\/\/t.co\/I1T8Q5G8 + http:\/\/t.c ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1762,7 +1762,7 @@ Grailbird.data.tweets_2011_12 =
       "screen_name" : "mikeal",
       "protected" : false,
       "id_str" : "668423",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/3696914564\/537a181733d33d4125eab616e896afe8_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/458999500753747968\/yrHm17uc_normal.jpeg",
       "id" : 668423,
       "verified" : false
     }
@@ -1782,7 +1782,7 @@ Grailbird.data.tweets_2011_12 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "news.yc Popular",
+      "name" : "Hacker News",
       "screen_name" : "newsycombinator",
       "indices" : [ 3, 19 ],
       "id_str" : "14335498",
@@ -1819,11 +1819,11 @@ Grailbird.data.tweets_2011_12 =
     "id" : 147316248542318593,
     "created_at" : "2011-12-15 14:05:05 +0000",
     "user" : {
-      "name" : "news.yc Popular",
+      "name" : "Hacker News",
       "screen_name" : "newsycombinator",
       "protected" : false,
       "id_str" : "14335498",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000017952599\/cf443a6da9a74e5c9c1fcddf422ebb0e_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/469397708986269696\/iUrYEOpJ_normal.png",
       "id" : 14335498,
       "verified" : false
     }
@@ -2189,7 +2189,7 @@ Grailbird.data.tweets_2011_12 =
   "id_str" : "142427878812942336",
   "text" : "RT @LeaVerou: Inner border-radius = outer border-radius -padding -border-width. Don't use the same for both ever again, it's pig ugly ht ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ {
@@ -2236,7 +2236,7 @@ Grailbird.data.tweets_2011_12 =
       "screen_name" : "LeaVerou",
       "protected" : false,
       "id_str" : "22199970",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1716232467\/avatar-logo_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/476531283862884353\/x0m-0MlO_normal.png",
       "id" : 22199970,
       "verified" : false
     }
@@ -2275,7 +2275,7 @@ Grailbird.data.tweets_2011_12 =
   "id_str" : "142426343014010880",
   "text" : "RT @JimRoepcke: \"Cool to be Clever\" for iPad is now on the App Store. The story of Edson Hendricks, who helped design the Internet. http ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],

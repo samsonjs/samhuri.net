@@ -1,5 +1,2257 @@
 Grailbird.data.tweets_2014_03 = 
-[ {
+ [ {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "snarfmason",
+      "screen_name" : "snarfmason",
+      "indices" : [ 0, 11 ],
+      "id_str" : "108814849",
+      "id" : 108814849
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "450854676246704128",
+  "geo" : { },
+  "id_str" : "450872347164024832",
+  "in_reply_to_user_id" : 108814849,
+  "text" : "@snarfmason I'm with you on that. Plus it makes it easy to find dependencies.",
+  "id" : 450872347164024832,
+  "in_reply_to_status_id" : 450854676246704128,
+  "created_at" : "2014-04-01 05:48:39 +0000",
+  "in_reply_to_screen_name" : "snarfmason",
+  "in_reply_to_user_id_str" : "108814849",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ {
+      "indices" : [ 68, 90 ],
+      "url" : "http:\/\/t.co\/QWXAdd6wz3",
+      "expanded_url" : "http:\/\/gmailblog.blogspot.ca\/2014\/03\/introducing-gmail-shelfie.html",
+      "display_url" : "gmailblog.blogspot.ca\/2014\/03\/introd\u2026"
+    } ]
+  },
+  "geo" : { },
+  "id_str" : "450765714589114368",
+  "text" : "It has begun. Happy Ignore-everything-you-see-on-the-Internet day!\n\nhttp:\/\/t.co\/QWXAdd6wz3",
+  "id" : 450765714589114368,
+  "created_at" : "2014-03-31 22:44:55 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Hipwood",
+      "screen_name" : "HipwoodDigital",
+      "indices" : [ 0, 15 ],
+      "id_str" : "17088322",
+      "id" : 17088322
+    }, {
+      "name" : "Mashable",
+      "screen_name" : "mashable",
+      "indices" : [ 16, 25 ],
+      "id_str" : "972651",
+      "id" : 972651
+    }, {
+      "name" : "Jim Roepcke",
+      "screen_name" : "JimRoepcke",
+      "indices" : [ 26, 37 ],
+      "id_str" : "894911",
+      "id" : 894911
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "450722126178181120",
+  "geo" : { },
+  "id_str" : "450723660525891584",
+  "in_reply_to_user_id" : 17088322,
+  "text" : "@HipwoodDigital @mashable @JimRoepcke Thanks Chris!",
+  "id" : 450723660525891584,
+  "in_reply_to_status_id" : 450722126178181120,
+  "created_at" : "2014-03-31 19:57:49 +0000",
+  "in_reply_to_screen_name" : "HipwoodDigital",
+  "in_reply_to_user_id_str" : "17088322",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Jim Roepcke",
+      "screen_name" : "JimRoepcke",
+      "indices" : [ 3, 14 ],
+      "id_str" : "894911",
+      "id" : 894911
+    }, {
+      "name" : "Sami Samhuri",
+      "screen_name" : "_sjs",
+      "indices" : [ 34, 39 ],
+      "id_str" : "4777951",
+      "id" : 4777951
+    }, {
+      "name" : "Mashable",
+      "screen_name" : "mashable",
+      "indices" : [ 51, 60 ],
+      "id_str" : "972651",
+      "id" : 972651
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "450723590485188608",
+  "text" : "RT @JimRoepcke: Very excited that @_sjs has joined @Mashable! Thrilled to have Sami on our mobile development team. :-)",
+  "retweeted_status" : {
+    "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+    "entities" : {
+      "user_mentions" : [ {
+        "name" : "Sami Samhuri",
+        "screen_name" : "_sjs",
+        "indices" : [ 18, 23 ],
+        "id_str" : "4777951",
+        "id" : 4777951
+      }, {
+        "name" : "Mashable",
+        "screen_name" : "mashable",
+        "indices" : [ 35, 44 ],
+        "id_str" : "972651",
+        "id" : 972651
+      } ],
+      "media" : [ ],
+      "hashtags" : [ ],
+      "urls" : [ ]
+    },
+    "geo" : { },
+    "id_str" : "450720443045912576",
+    "text" : "Very excited that @_sjs has joined @Mashable! Thrilled to have Sami on our mobile development team. :-)",
+    "id" : 450720443045912576,
+    "created_at" : "2014-03-31 19:45:02 +0000",
+    "user" : {
+      "name" : "Jim Roepcke",
+      "screen_name" : "JimRoepcke",
+      "protected" : false,
+      "id_str" : "894911",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/437064720906846208\/tAqM1Q5y_normal.jpeg",
+      "id" : 894911,
+      "verified" : false
+    }
+  },
+  "id" : 450723590485188608,
+  "created_at" : "2014-03-31 19:57:32 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Mashable",
+      "screen_name" : "mashable",
+      "indices" : [ 30, 39 ],
+      "id_str" : "972651",
+      "id" : 972651
+    }, {
+      "name" : "Jim Roepcke",
+      "screen_name" : "JimRoepcke",
+      "indices" : [ 47, 58 ],
+      "id_str" : "894911",
+      "id" : 894911
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "450720224715608064",
+  "text" : "Excited to start working with @mashable today! @JimRoepcke just can\u2019t get enough of me.",
+  "id" : 450720224715608064,
+  "created_at" : "2014-03-31 19:44:10 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "450353627777863680",
+  "text" : "Siri seems really good these days. I don't remember the last time it was unavailable.",
+  "id" : 450353627777863680,
+  "created_at" : "2014-03-30 19:27:26 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Jim Roepcke",
+      "screen_name" : "JimRoepcke",
+      "indices" : [ 0, 11 ],
+      "id_str" : "894911",
+      "id" : 894911
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ {
+      "indices" : [ 22, 44 ],
+      "url" : "http:\/\/t.co\/hVbaPR3gR0",
+      "expanded_url" : "http:\/\/twitter.com\/tenderlove\/status\/449946466581094400",
+      "display_url" : "twitter.com\/tenderlove\/sta\u2026"
+    } ]
+  },
+  "in_reply_to_status_id_str" : "450028556798525440",
+  "geo" : { },
+  "id_str" : "450031229404844032",
+  "in_reply_to_user_id" : 894911,
+  "text" : "@JimRoepcke So angry. http:\/\/t.co\/hVbaPR3gR0",
+  "id" : 450031229404844032,
+  "in_reply_to_status_id" : 450028556798525440,
+  "created_at" : "2014-03-29 22:06:20 +0000",
+  "in_reply_to_screen_name" : "JimRoepcke",
+  "in_reply_to_user_id_str" : "894911",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Shaw Help",
+      "screen_name" : "Shawhelp",
+      "indices" : [ 35, 44 ],
+      "id_str" : "216808077",
+      "id" : 216808077
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "449970480053624833",
+  "text" : "Day 2 of bad Internet service from @Shawhelp. Hope that they sort this out soon.\n\nI\u2019M ADDICTED TO THE INTERWEBS",
+  "id" : 449970480053624833,
+  "created_at" : "2014-03-29 18:04:57 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "449947895949586432",
+  "text" : "I\u2019m happy to hear others pronouncing the .io TLD as \u201Cee-oh\u201D. Check the weather on Forecastio. Find the app on Fndio. Hope it catches on.",
+  "id" : 449947895949586432,
+  "created_at" : "2014-03-29 16:35:12 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Jim Roepcke",
+      "screen_name" : "JimRoepcke",
+      "indices" : [ 3, 14 ],
+      "id_str" : "894911",
+      "id" : 894911
+    }, {
+      "name" : "Sami Samhuri",
+      "screen_name" : "_sjs",
+      "indices" : [ 16, 21 ],
+      "id_str" : "4777951",
+      "id" : 4777951
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "449735545548066816",
+  "text" : "RT @JimRoepcke: @_sjs *deletes hockey tweet he was writing*",
+  "retweeted_status" : {
+    "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+    "entities" : {
+      "user_mentions" : [ {
+        "name" : "Sami Samhuri",
+        "screen_name" : "_sjs",
+        "indices" : [ 0, 5 ],
+        "id_str" : "4777951",
+        "id" : 4777951
+      } ],
+      "media" : [ ],
+      "hashtags" : [ ],
+      "urls" : [ ]
+    },
+    "in_reply_to_status_id_str" : "449728944527253505",
+    "geo" : { },
+    "id_str" : "449729046008446976",
+    "in_reply_to_user_id" : 4777951,
+    "text" : "@_sjs *deletes hockey tweet he was writing*",
+    "id" : 449729046008446976,
+    "in_reply_to_status_id" : 449728944527253505,
+    "created_at" : "2014-03-29 02:05:34 +0000",
+    "in_reply_to_screen_name" : "_sjs",
+    "in_reply_to_user_id_str" : "4777951",
+    "user" : {
+      "name" : "Jim Roepcke",
+      "screen_name" : "JimRoepcke",
+      "protected" : false,
+      "id_str" : "894911",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/437064720906846208\/tAqM1Q5y_normal.jpeg",
+      "id" : 894911,
+      "verified" : false
+    }
+  },
+  "id" : 449735545548066816,
+  "created_at" : "2014-03-29 02:31:24 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ ],
+    "media" : [ ],
+    "hashtags" : [ {
+      "text" : "SPORTSBALL",
+      "indices" : [ 47, 58 ]
+    } ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "449728944527253505",
+  "text" : "Oh yeah. That's why I don't follow MG Siegler. #SPORTSBALL",
+  "id" : 449728944527253505,
+  "created_at" : "2014-03-29 02:05:10 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Aaron Patterson",
+      "screen_name" : "tenderlove",
+      "indices" : [ 0, 11 ],
+      "id_str" : "14761655",
+      "id" : 14761655
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "449699452895240192",
+  "geo" : { },
+  "id_str" : "449722279639801856",
+  "in_reply_to_user_id" : 14761655,
+  "text" : "@tenderlove Those seconds will add up to so many days and years for so many people. Thanks!",
+  "id" : 449722279639801856,
+  "in_reply_to_status_id" : 449699452895240192,
+  "created_at" : "2014-03-29 01:38:41 +0000",
+  "in_reply_to_screen_name" : "tenderlove",
+  "in_reply_to_user_id_str" : "14761655",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Aaron Patterson",
+      "screen_name" : "tenderlove",
+      "indices" : [ 3, 14 ],
+      "id_str" : "14761655",
+      "id" : 14761655
+    } ],
+    "media" : [ {
+      "expanded_url" : "http:\/\/twitter.com\/tenderlove\/status\/449699452895240192\/photo\/1",
+      "indices" : [ 118, 140 ],
+      "url" : "http:\/\/t.co\/5ApJmuAcJT",
+      "media_url" : "http:\/\/pbs.twimg.com\/media\/Bj2nRQYCMAAyrJN.png",
+      "id_str" : "449699452702306304",
+      "id" : 449699452702306304,
+      "media_url_https" : "https:\/\/pbs.twimg.com\/media\/Bj2nRQYCMAAyrJN.png",
+      "sizes" : [ {
+        "h" : 319,
+        "resize" : "fit",
+        "w" : 730
+      }, {
+        "h" : 150,
+        "resize" : "crop",
+        "w" : 150
+      }, {
+        "h" : 149,
+        "resize" : "fit",
+        "w" : 340
+      }, {
+        "h" : 262,
+        "resize" : "fit",
+        "w" : 600
+      }, {
+        "h" : 319,
+        "resize" : "fit",
+        "w" : 730
+      } ],
+      "display_url" : "pic.twitter.com\/5ApJmuAcJT"
+    } ],
+    "hashtags" : [ ],
+    "urls" : [ {
+      "indices" : [ 57, 80 ],
+      "url" : "https:\/\/t.co\/fXHJ6Ww1Zj",
+      "expanded_url" : "https:\/\/github.com\/rubygems\/rubygems\/pull\/871",
+      "display_url" : "github.com\/rubygems\/rubyg\u2026"
+    }, {
+      "indices" : [ 85, 108 ],
+      "url" : "https:\/\/t.co\/KF9ISlYT3J",
+      "expanded_url" : "https:\/\/github.com\/rubygems\/rubygems\/pull\/869",
+      "display_url" : "github.com\/rubygems\/rubyg\u2026"
+    } ]
+  },
+  "geo" : { },
+  "id_str" : "449721917541347328",
+  "text" : "RT @tenderlove: `gem install` before and after. Combines https:\/\/t.co\/fXHJ6Ww1Zj and https:\/\/t.co\/KF9ISlYT3J and gzip http:\/\/t.co\/5ApJmuAcJT",
+  "retweeted_status" : {
+    "source" : "\u003Ca href=\"http:\/\/www.echofon.com\/\" rel=\"nofollow\"\u003EEchofon\u003C\/a\u003E",
+    "entities" : {
+      "user_mentions" : [ ],
+      "media" : [ {
+        "expanded_url" : "http:\/\/twitter.com\/tenderlove\/status\/449699452895240192\/photo\/1",
+        "indices" : [ 102, 124 ],
+        "url" : "http:\/\/t.co\/5ApJmuAcJT",
+        "media_url" : "http:\/\/pbs.twimg.com\/media\/Bj2nRQYCMAAyrJN.png",
+        "id_str" : "449699452702306304",
+        "id" : 449699452702306304,
+        "media_url_https" : "https:\/\/pbs.twimg.com\/media\/Bj2nRQYCMAAyrJN.png",
+        "sizes" : [ {
+          "h" : 319,
+          "resize" : "fit",
+          "w" : 730
+        }, {
+          "h" : 150,
+          "resize" : "crop",
+          "w" : 150
+        }, {
+          "h" : 149,
+          "resize" : "fit",
+          "w" : 340
+        }, {
+          "h" : 262,
+          "resize" : "fit",
+          "w" : 600
+        }, {
+          "h" : 319,
+          "resize" : "fit",
+          "w" : 730
+        } ],
+        "display_url" : "pic.twitter.com\/5ApJmuAcJT"
+      } ],
+      "hashtags" : [ ],
+      "urls" : [ {
+        "indices" : [ 41, 64 ],
+        "url" : "https:\/\/t.co\/fXHJ6Ww1Zj",
+        "expanded_url" : "https:\/\/github.com\/rubygems\/rubygems\/pull\/871",
+        "display_url" : "github.com\/rubygems\/rubyg\u2026"
+      }, {
+        "indices" : [ 69, 92 ],
+        "url" : "https:\/\/t.co\/KF9ISlYT3J",
+        "expanded_url" : "https:\/\/github.com\/rubygems\/rubygems\/pull\/869",
+        "display_url" : "github.com\/rubygems\/rubyg\u2026"
+      } ]
+    },
+    "geo" : { },
+    "id_str" : "449699452895240192",
+    "text" : "`gem install` before and after. Combines https:\/\/t.co\/fXHJ6Ww1Zj and https:\/\/t.co\/KF9ISlYT3J and gzip http:\/\/t.co\/5ApJmuAcJT",
+    "id" : 449699452895240192,
+    "created_at" : "2014-03-29 00:07:59 +0000",
+    "user" : {
+      "name" : "Aaron Patterson",
+      "screen_name" : "tenderlove",
+      "protected" : false,
+      "id_str" : "14761655",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000325798111\/ca48276f8ebbbbac9c6ce83aac3c8548_normal.jpeg",
+      "id" : 14761655,
+      "verified" : false
+    }
+  },
+  "id" : 449721917541347328,
+  "created_at" : "2014-03-29 01:37:15 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Nick Fitzgerald",
+      "screen_name" : "fitzgen",
+      "indices" : [ 3, 11 ],
+      "id_str" : "182855710",
+      "id" : 182855710
+    } ],
+    "media" : [ ],
+    "hashtags" : [ {
+      "text" : "prolog",
+      "indices" : [ 13, 20 ]
+    } ],
+    "urls" : [ {
+      "indices" : [ 29, 52 ],
+      "url" : "https:\/\/t.co\/u5pQQQEKOA",
+      "expanded_url" : "https:\/\/curiosity-driven.org\/prolog-interpreter",
+      "display_url" : "curiosity-driven.org\/prolog-interpr\u2026"
+    } ]
+  },
+  "geo" : { },
+  "id_str" : "449646688823562240",
+  "text" : "RT @fitzgen: #prolog in es6: https:\/\/t.co\/u5pQQQEKOA",
+  "retweeted_status" : {
+    "source" : "\u003Ca href=\"https:\/\/about.twitter.com\/products\/tweetdeck\" rel=\"nofollow\"\u003ETweetDeck\u003C\/a\u003E",
+    "entities" : {
+      "user_mentions" : [ ],
+      "media" : [ ],
+      "hashtags" : [ {
+        "text" : "prolog",
+        "indices" : [ 0, 7 ]
+      } ],
+      "urls" : [ {
+        "indices" : [ 16, 39 ],
+        "url" : "https:\/\/t.co\/u5pQQQEKOA",
+        "expanded_url" : "https:\/\/curiosity-driven.org\/prolog-interpreter",
+        "display_url" : "curiosity-driven.org\/prolog-interpr\u2026"
+      } ]
+    },
+    "geo" : { },
+    "id_str" : "449641605461331968",
+    "text" : "#prolog in es6: https:\/\/t.co\/u5pQQQEKOA",
+    "id" : 449641605461331968,
+    "created_at" : "2014-03-28 20:18:07 +0000",
+    "user" : {
+      "name" : "Nick Fitzgerald",
+      "screen_name" : "fitzgen",
+      "protected" : false,
+      "id_str" : "182855710",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000737593631\/db1b2bc8eb1a2332abfe059a59d2164d_normal.jpeg",
+      "id" : 182855710,
+      "verified" : false
+    }
+  },
+  "id" : 449646688823562240,
+  "created_at" : "2014-03-28 20:38:19 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Tim Cook",
+      "screen_name" : "tim_cook",
+      "indices" : [ 26, 35 ],
+      "id_str" : "1636590253",
+      "id" : 1636590253
+    }, {
+      "name" : "Satya Nadella",
+      "screen_name" : "satyanadella",
+      "indices" : [ 56, 69 ],
+      "id_str" : "20571756",
+      "id" : 20571756
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "449632828817289216",
+  "text" : "So far I like Apple under @tim_cook and Microsoft under @satyanadella. I see good changes in both companies, especially with communication.",
+  "id" : 449632828817289216,
+  "created_at" : "2014-03-28 19:43:14 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Postmodern",
+      "screen_name" : "postmodern_mod3",
+      "indices" : [ 0, 16 ],
+      "id_str" : "46852648",
+      "id" : 46852648
+    }, {
+      "name" : "snarfmason",
+      "screen_name" : "snarfmason",
+      "indices" : [ 17, 28 ],
+      "id_str" : "108814849",
+      "id" : 108814849
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "449631009542115328",
+  "geo" : { },
+  "id_str" : "449631763417927680",
+  "in_reply_to_user_id" : 46852648,
+  "text" : "@postmodern_mod3 @snarfmason I'll keep that in mind. Most of the time all I really need is ruby-build or ruby-install now that I think of it",
+  "id" : 449631763417927680,
+  "in_reply_to_status_id" : 449631009542115328,
+  "created_at" : "2014-03-28 19:39:00 +0000",
+  "in_reply_to_screen_name" : "postmodern_mod3",
+  "in_reply_to_user_id_str" : "46852648",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "an asshole \u2739",
+      "screen_name" : "tef",
+      "indices" : [ 3, 7 ],
+      "id_str" : "16681276",
+      "id" : 16681276
+    }, {
+      "name" : "snarfmason",
+      "screen_name" : "snarfmason",
+      "indices" : [ 9, 20 ],
+      "id_str" : "108814849",
+      "id" : 108814849
+    }, {
+      "name" : "Sami Samhuri",
+      "screen_name" : "_sjs",
+      "indices" : [ 21, 26 ],
+      "id_str" : "4777951",
+      "id" : 4777951
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ {
+      "indices" : [ 53, 75 ],
+      "url" : "http:\/\/t.co\/okhfIF5JOr",
+      "expanded_url" : "http:\/\/en.wikipedia.org\/wiki\/CESU-8",
+      "display_url" : "en.wikipedia.org\/wiki\/CESU-8"
+    } ]
+  },
+  "geo" : { },
+  "id_str" : "449613438478594048",
+  "text" : "RT @tef: @snarfmason @_sjs it's also known as CESU-8 http:\/\/t.co\/okhfIF5JOr or \"Not UTF-8\"",
+  "retweeted_status" : {
+    "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
+    "entities" : {
+      "user_mentions" : [ {
+        "name" : "snarfmason",
+        "screen_name" : "snarfmason",
+        "indices" : [ 0, 11 ],
+        "id_str" : "108814849",
+        "id" : 108814849
+      }, {
+        "name" : "Sami Samhuri",
+        "screen_name" : "_sjs",
+        "indices" : [ 12, 17 ],
+        "id_str" : "4777951",
+        "id" : 4777951
+      } ],
+      "media" : [ ],
+      "hashtags" : [ ],
+      "urls" : [ {
+        "indices" : [ 44, 66 ],
+        "url" : "http:\/\/t.co\/okhfIF5JOr",
+        "expanded_url" : "http:\/\/en.wikipedia.org\/wiki\/CESU-8",
+        "display_url" : "en.wikipedia.org\/wiki\/CESU-8"
+      } ]
+    },
+    "in_reply_to_status_id_str" : "449611736107085824",
+    "geo" : { },
+    "id_str" : "449611921948286976",
+    "in_reply_to_user_id" : 108814849,
+    "text" : "@snarfmason @_sjs it's also known as CESU-8 http:\/\/t.co\/okhfIF5JOr or \"Not UTF-8\"",
+    "id" : 449611921948286976,
+    "in_reply_to_status_id" : 449611736107085824,
+    "created_at" : "2014-03-28 18:20:10 +0000",
+    "in_reply_to_screen_name" : "snarfmason",
+    "in_reply_to_user_id_str" : "108814849",
+    "user" : {
+      "name" : "an asshole \u2739",
+      "screen_name" : "tef",
+      "protected" : false,
+      "id_str" : "16681276",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/475307386094104576\/h7r246Dc_normal.png",
+      "id" : 16681276,
+      "verified" : false
+    }
+  },
+  "id" : 449613438478594048,
+  "created_at" : "2014-03-28 18:26:11 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "an asshole \u2739",
+      "screen_name" : "tef",
+      "indices" : [ 3, 7 ],
+      "id_str" : "16681276",
+      "id" : 16681276
+    }, {
+      "name" : "Sami Samhuri",
+      "screen_name" : "_sjs",
+      "indices" : [ 9, 14 ],
+      "id_str" : "4777951",
+      "id" : 4777951
+    }, {
+      "name" : "snarfmason",
+      "screen_name" : "snarfmason",
+      "indices" : [ 15, 26 ],
+      "id_str" : "108814849",
+      "id" : 108814849
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ {
+      "indices" : [ 105, 128 ],
+      "url" : "https:\/\/t.co\/meXk6F0dLE",
+      "expanded_url" : "https:\/\/dev.mysql.com\/doc\/refman\/5.5\/en\/charset-unicode-utf8mb4.html",
+      "display_url" : "dev.mysql.com\/doc\/refman\/5.5\u2026"
+    } ]
+  },
+  "geo" : { },
+  "id_str" : "449613414797557760",
+  "text" : "RT @tef: @_sjs @snarfmason as a unrelated thing, you're likely going to want utf8mb4, not utf8 for mysql https:\/\/t.co\/meXk6F0dLE",
+  "retweeted_status" : {
+    "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
+    "entities" : {
+      "user_mentions" : [ {
+        "name" : "Sami Samhuri",
+        "screen_name" : "_sjs",
+        "indices" : [ 0, 5 ],
+        "id_str" : "4777951",
+        "id" : 4777951
+      }, {
+        "name" : "snarfmason",
+        "screen_name" : "snarfmason",
+        "indices" : [ 6, 17 ],
+        "id_str" : "108814849",
+        "id" : 108814849
+      } ],
+      "media" : [ ],
+      "hashtags" : [ ],
+      "urls" : [ {
+        "indices" : [ 96, 119 ],
+        "url" : "https:\/\/t.co\/meXk6F0dLE",
+        "expanded_url" : "https:\/\/dev.mysql.com\/doc\/refman\/5.5\/en\/charset-unicode-utf8mb4.html",
+        "display_url" : "dev.mysql.com\/doc\/refman\/5.5\u2026"
+      } ]
+    },
+    "in_reply_to_status_id_str" : "449602942484492288",
+    "geo" : { },
+    "id_str" : "449610897967685632",
+    "in_reply_to_user_id" : 4777951,
+    "text" : "@_sjs @snarfmason as a unrelated thing, you're likely going to want utf8mb4, not utf8 for mysql https:\/\/t.co\/meXk6F0dLE",
+    "id" : 449610897967685632,
+    "in_reply_to_status_id" : 449602942484492288,
+    "created_at" : "2014-03-28 18:16:06 +0000",
+    "in_reply_to_screen_name" : "_sjs",
+    "in_reply_to_user_id_str" : "4777951",
+    "user" : {
+      "name" : "an asshole \u2739",
+      "screen_name" : "tef",
+      "protected" : false,
+      "id_str" : "16681276",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/475307386094104576\/h7r246Dc_normal.png",
+      "id" : 16681276,
+      "verified" : false
+    }
+  },
+  "id" : 449613414797557760,
+  "created_at" : "2014-03-28 18:26:06 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "snarfmason",
+      "screen_name" : "snarfmason",
+      "indices" : [ 0, 11 ],
+      "id_str" : "108814849",
+      "id" : 108814849
+    }, {
+      "name" : "an asshole \u2739",
+      "screen_name" : "tef",
+      "indices" : [ 12, 16 ],
+      "id_str" : "16681276",
+      "id" : 16681276
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "449612016336912384",
+  "geo" : { },
+  "id_str" : "449612328653185025",
+  "in_reply_to_user_id" : 108814849,
+  "text" : "@snarfmason @tef I\u2019m seriously going to look at PostgreSQL one day. I swear.",
+  "id" : 449612328653185025,
+  "in_reply_to_status_id" : 449612016336912384,
+  "created_at" : "2014-03-28 18:21:47 +0000",
+  "in_reply_to_screen_name" : "snarfmason",
+  "in_reply_to_user_id_str" : "108814849",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "an asshole \u2739",
+      "screen_name" : "tef",
+      "indices" : [ 0, 4 ],
+      "id_str" : "16681276",
+      "id" : 16681276
+    }, {
+      "name" : "snarfmason",
+      "screen_name" : "snarfmason",
+      "indices" : [ 5, 16 ],
+      "id_str" : "108814849",
+      "id" : 108814849
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "449610897967685632",
+  "geo" : { },
+  "id_str" : "449612105402953728",
+  "in_reply_to_user_id" : 16681276,
+  "text" : "@tef @snarfmason Yikes. Good to know, thanks.",
+  "id" : 449612105402953728,
+  "in_reply_to_status_id" : 449610897967685632,
+  "created_at" : "2014-03-28 18:20:53 +0000",
+  "in_reply_to_screen_name" : "tef",
+  "in_reply_to_user_id_str" : "16681276",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "snarfmason",
+      "screen_name" : "snarfmason",
+      "indices" : [ 0, 11 ],
+      "id_str" : "108814849",
+      "id" : 108814849
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "449606549153931264",
+  "geo" : { },
+  "id_str" : "449608068460863488",
+  "in_reply_to_user_id" : 108814849,
+  "text" : "@snarfmason This is the last day I\u2019ll be working on this project, so if it doesn\u2019t get solved I\u2019ll bequeath the force_encoding hack.",
+  "id" : 449608068460863488,
+  "in_reply_to_status_id" : 449606549153931264,
+  "created_at" : "2014-03-28 18:04:51 +0000",
+  "in_reply_to_screen_name" : "snarfmason",
+  "in_reply_to_user_id_str" : "108814849",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "snarfmason",
+      "screen_name" : "snarfmason",
+      "indices" : [ 0, 11 ],
+      "id_str" : "108814849",
+      "id" : 108814849
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "449606549153931264",
+  "geo" : { },
+  "id_str" : "449607899216502784",
+  "in_reply_to_user_id" : 108814849,
+  "text" : "@snarfmason Hmm. Server was using latin1 but connections were using utf8. Fixed that, still no dice. Thanks for the rewteet!",
+  "id" : 449607899216502784,
+  "in_reply_to_status_id" : 449606549153931264,
+  "created_at" : "2014-03-28 18:04:11 +0000",
+  "in_reply_to_screen_name" : "snarfmason",
+  "in_reply_to_user_id_str" : "108814849",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "snarfmason",
+      "screen_name" : "snarfmason",
+      "indices" : [ 0, 11 ],
+      "id_str" : "108814849",
+      "id" : 108814849
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "449606088912957441",
+  "geo" : { },
+  "id_str" : "449607691422294017",
+  "in_reply_to_user_id" : 108814849,
+  "text" : "@snarfmason Oh god, yeah I forgot about that! Maybe that\u2019s part of the reason I ditched it.",
+  "id" : 449607691422294017,
+  "in_reply_to_status_id" : 449606088912957441,
+  "created_at" : "2014-03-28 18:03:21 +0000",
+  "in_reply_to_screen_name" : "snarfmason",
+  "in_reply_to_user_id_str" : "108814849",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "snarfmason",
+      "screen_name" : "snarfmason",
+      "indices" : [ 0, 11 ],
+      "id_str" : "108814849",
+      "id" : 108814849
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "449604548139573248",
+  "geo" : { },
+  "id_str" : "449605625857585155",
+  "in_reply_to_user_id" : 108814849,
+  "text" : "@snarfmason Yes, same on both. mysql2 is handing me ASCII, so that\u2019s the problem. I set encoding: \u2018utf8\u2019 even. At least that eliminates AR.",
+  "id" : 449605625857585155,
+  "in_reply_to_status_id" : 449604548139573248,
+  "created_at" : "2014-03-28 17:55:09 +0000",
+  "in_reply_to_screen_name" : "snarfmason",
+  "in_reply_to_user_id_str" : "108814849",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "snarfmason",
+      "screen_name" : "snarfmason",
+      "indices" : [ 0, 11 ],
+      "id_str" : "108814849",
+      "id" : 108814849
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "449604116759597056",
+  "geo" : { },
+  "id_str" : "449604503793180672",
+  "in_reply_to_user_id" : 108814849,
+  "text" : "@snarfmason I should check which encoding I get using mysql2 directly. After that I guess I\u2019ll have to delve into ActiveRecord.",
+  "id" : 449604503793180672,
+  "in_reply_to_status_id" : 449604116759597056,
+  "created_at" : "2014-03-28 17:50:41 +0000",
+  "in_reply_to_screen_name" : "snarfmason",
+  "in_reply_to_user_id_str" : "108814849",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "snarfmason",
+      "screen_name" : "snarfmason",
+      "indices" : [ 0, 11 ],
+      "id_str" : "108814849",
+      "id" : 108814849
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "449603802220339200",
+  "geo" : { },
+  "id_str" : "449604087042953216",
+  "in_reply_to_user_id" : 108814849,
+  "text" : "@snarfmason Also Encoding::UTF_8 \uD83D\uDE2D",
+  "id" : 449604087042953216,
+  "in_reply_to_status_id" : 449603802220339200,
+  "created_at" : "2014-03-28 17:49:02 +0000",
+  "in_reply_to_screen_name" : "snarfmason",
+  "in_reply_to_user_id_str" : "108814849",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "snarfmason",
+      "screen_name" : "snarfmason",
+      "indices" : [ 0, 11 ],
+      "id_str" : "108814849",
+      "id" : 108814849
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "449603227508420608",
+  "geo" : { },
+  "id_str" : "449603489723715584",
+  "in_reply_to_user_id" : 108814849,
+  "text" : "@snarfmason Encoding::UTF_8 :(",
+  "id" : 449603489723715584,
+  "in_reply_to_status_id" : 449603227508420608,
+  "created_at" : "2014-03-28 17:46:39 +0000",
+  "in_reply_to_screen_name" : "snarfmason",
+  "in_reply_to_user_id_str" : "108814849",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Bernard Poon",
+      "screen_name" : "StackOverflow",
+      "indices" : [ 30, 44 ],
+      "id_str" : "128700677",
+      "id" : 128700677
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ {
+      "indices" : [ 45, 67 ],
+      "url" : "http:\/\/t.co\/v1Lq3zGlNY",
+      "expanded_url" : "http:\/\/stackoverflow.com\/questions\/22719767\/activerecord-in-rails-4-0-4-gives-ascii-8bit-with-mysql2-encoding-set-to-utf8",
+      "display_url" : "stackoverflow.com\/questions\/2271\u2026"
+    } ]
+  },
+  "geo" : { },
+  "id_str" : "449602942484492288",
+  "text" : "Asked my encoding question on @StackOverflow http:\/\/t.co\/v1Lq3zGlNY\n\nAppreciate any help!",
+  "id" : 449602942484492288,
+  "created_at" : "2014-03-28 17:44:29 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "snarfmason",
+      "screen_name" : "snarfmason",
+      "indices" : [ 3, 14 ],
+      "id_str" : "108814849",
+      "id" : 108814849
+    }, {
+      "name" : "Sami Samhuri",
+      "screen_name" : "_sjs",
+      "indices" : [ 50, 55 ],
+      "id_str" : "4777951",
+      "id" : 4777951
+    }, {
+      "name" : "snarfmason",
+      "screen_name" : "snarfmason",
+      "indices" : [ 56, 67 ],
+      "id_str" : "108814849",
+      "id" : 108814849
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "449602849706483713",
+  "text" : "RT @snarfmason: hahaha on being an rbenv user. RT @_sjs @snarfmason I am the 1%!",
+  "retweeted_status" : {
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
+    "entities" : {
+      "user_mentions" : [ {
+        "name" : "Sami Samhuri",
+        "screen_name" : "_sjs",
+        "indices" : [ 34, 39 ],
+        "id_str" : "4777951",
+        "id" : 4777951
+      }, {
+        "name" : "snarfmason",
+        "screen_name" : "snarfmason",
+        "indices" : [ 40, 51 ],
+        "id_str" : "108814849",
+        "id" : 108814849
+      } ],
+      "media" : [ ],
+      "hashtags" : [ ],
+      "urls" : [ ]
+    },
+    "in_reply_to_status_id_str" : "449600186172456960",
+    "geo" : { },
+    "id_str" : "449602679770062848",
+    "in_reply_to_user_id" : 4777951,
+    "text" : "hahaha on being an rbenv user. RT @_sjs @snarfmason I am the 1%!",
+    "id" : 449602679770062848,
+    "in_reply_to_status_id" : 449600186172456960,
+    "created_at" : "2014-03-28 17:43:26 +0000",
+    "in_reply_to_screen_name" : "_sjs",
+    "in_reply_to_user_id_str" : "4777951",
+    "user" : {
+      "name" : "snarfmason",
+      "screen_name" : "snarfmason",
+      "protected" : false,
+      "id_str" : "108814849",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/657938913\/snarf-small_normal.jpg",
+      "id" : 108814849,
+      "verified" : false
+    }
+  },
+  "id" : 449602849706483713,
+  "created_at" : "2014-03-28 17:44:07 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "snarfmason",
+      "screen_name" : "snarfmason",
+      "indices" : [ 0, 11 ],
+      "id_str" : "108814849",
+      "id" : 108814849
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "449602476367282176",
+  "geo" : { },
+  "id_str" : "449602809667674112",
+  "in_reply_to_user_id" : 108814849,
+  "text" : "@snarfmason I had some trouble with RVM, but never with rbenv. It works great and I can easily play around with JRuby, Rubinius, etc.",
+  "id" : 449602809667674112,
+  "in_reply_to_status_id" : 449602476367282176,
+  "created_at" : "2014-03-28 17:43:57 +0000",
+  "in_reply_to_screen_name" : "snarfmason",
+  "in_reply_to_user_id_str" : "108814849",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "449600899296399361",
+  "text" : "Oh, and it works fine on my Mac but not on the production Linux server. Tried setting LANG and LC_ALL to \u201Cen_US.UTF-8\u201D.",
+  "id" : 449600899296399361,
+  "created_at" : "2014-03-28 17:36:22 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "snarfmason",
+      "screen_name" : "snarfmason",
+      "indices" : [ 0, 11 ],
+      "id_str" : "108814849",
+      "id" : 108814849
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "449599691945025536",
+  "geo" : { },
+  "id_str" : "449600186172456960",
+  "in_reply_to_user_id" : 108814849,
+  "text" : "@snarfmason I am the 1%!",
+  "id" : 449600186172456960,
+  "in_reply_to_status_id" : 449599691945025536,
+  "created_at" : "2014-03-28 17:33:32 +0000",
+  "in_reply_to_screen_name" : "snarfmason",
+  "in_reply_to_user_id_str" : "108814849",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Shaw Help",
+      "screen_name" : "Shawhelp",
+      "indices" : [ 0, 9 ],
+      "id_str" : "216808077",
+      "id" : 216808077
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "449598764026974210",
+  "geo" : { },
+  "id_str" : "449600036460965888",
+  "in_reply_to_user_id" : 216808077,
+  "text" : "@Shawhelp Yeah I\u2019ve been able to workaround it using a VPN, but it\u2019s hardly practical to go switching DNS on every computer in the office.",
+  "id" : 449600036460965888,
+  "in_reply_to_status_id" : 449598764026974210,
+  "created_at" : "2014-03-28 17:32:56 +0000",
+  "in_reply_to_screen_name" : "Shawhelp",
+  "in_reply_to_user_id_str" : "216808077",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "449597776800649216",
+  "text" : "Rails 4.0.2 running on Ruby 2.0.0-p353 bulit from source (ruby-build + rbenv). MySQL 5.1.71.\n\n(Third time\u2019s the charm!)",
+  "id" : 449597776800649216,
+  "created_at" : "2014-03-28 17:23:57 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "449597023453327360",
+  "text" : "MySQL tables are definitely using UTF-8. The data is correct and I can force_encoding(\u2018utf8\u2019), but obviously shouldn\u2019t have to.",
+  "id" : 449597023453327360,
+  "created_at" : "2014-03-28 17:20:58 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "449596787964141569",
+  "text" : "ActiveRecord is fetching string fields as ASCII, even though I\u2019m using mysql2 with \u201Cutf8\u201D encoding in database.yml. What else can I check?",
+  "id" : 449596787964141569,
+  "created_at" : "2014-03-28 17:20:02 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "RogersHelps",
+      "screen_name" : "RogersHelps",
+      "indices" : [ 0, 12 ],
+      "id_str" : "31442511",
+      "id" : 31442511
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "449594367418712064",
+  "in_reply_to_user_id" : 31442511,
+  "text" : "@RogersHelps Some text and a confirmation button is fine, but it should be one tap to stop them. Look to MailChimp to see how it\u2019s done.",
+  "id" : 449594367418712064,
+  "created_at" : "2014-03-28 17:10:24 +0000",
+  "in_reply_to_screen_name" : "RogersHelps",
+  "in_reply_to_user_id_str" : "31442511",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "RogersHelps",
+      "screen_name" : "RogersHelps",
+      "indices" : [ 0, 12 ],
+      "id_str" : "31442511",
+      "id" : 31442511
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "449593907408424962",
+  "in_reply_to_user_id" : 31442511,
+  "text" : "@RogersHelps The \u201Cstop\u201D link in promo texts shouldn\u2019t tell me to sign in and mess w\/ settings. It should stop them immediately, w\/o sign-in.",
+  "id" : 449593907408424962,
+  "created_at" : "2014-03-28 17:08:35 +0000",
+  "in_reply_to_screen_name" : "RogersHelps",
+  "in_reply_to_user_id_str" : "31442511",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Shaw Help",
+      "screen_name" : "Shawhelp",
+      "indices" : [ 80, 89 ],
+      "id_str" : "216808077",
+      "id" : 216808077
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "449592729522028544",
+  "text" : "If you have a VPN then switch it on. Assuming the VPN itself is not affected by @ShawHelp\u2019s current trouble, everything should work fine.",
+  "id" : 449592729522028544,
+  "created_at" : "2014-03-28 17:03:54 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Shaw Help",
+      "screen_name" : "Shawhelp",
+      "indices" : [ 11, 20 ],
+      "id_str" : "216808077",
+      "id" : 216808077
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "449592456288292864",
+  "text" : "Seems like @ShawHelp is having some trouble today. Some domains are slow, others unavailable entirely. At home and work.",
+  "id" : 449592456288292864,
+  "created_at" : "2014-03-28 17:02:49 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Marcelo Somers",
+      "screen_name" : "marcelosomers",
+      "indices" : [ 0, 14 ],
+      "id_str" : "23516090",
+      "id" : 23516090
+    }, {
+      "name" : "Marco Arment",
+      "screen_name" : "marcoarment",
+      "indices" : [ 15, 27 ],
+      "id_str" : "14231571",
+      "id" : 14231571
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "449581871324602368",
+  "geo" : { },
+  "id_str" : "449590364685365248",
+  "in_reply_to_user_id" : 23516090,
+  "text" : "@marcelosomers @marcoarment At a previous gig we could deploy a new web server with a few clicks. 10 mins later it\u2019s up, added to the LB.",
+  "id" : 449590364685365248,
+  "in_reply_to_status_id" : 449581871324602368,
+  "created_at" : "2014-03-28 16:54:30 +0000",
+  "in_reply_to_screen_name" : "marcelosomers",
+  "in_reply_to_user_id_str" : "23516090",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Marcelo Somers",
+      "screen_name" : "marcelosomers",
+      "indices" : [ 0, 14 ],
+      "id_str" : "23516090",
+      "id" : 23516090
+    }, {
+      "name" : "Marco Arment",
+      "screen_name" : "marcoarment",
+      "indices" : [ 15, 27 ],
+      "id_str" : "14231571",
+      "id" : 14231571
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "449581871324602368",
+  "geo" : { },
+  "id_str" : "449590215913385984",
+  "in_reply_to_user_id" : 23516090,
+  "text" : "@marcelosomers @marcoarment And if you\u2019re into automation, you can set ENV variables when creating new VMs. e.g. set the role for Chef.",
+  "id" : 449590215913385984,
+  "in_reply_to_status_id" : 449581871324602368,
+  "created_at" : "2014-03-28 16:53:55 +0000",
+  "in_reply_to_screen_name" : "marcelosomers",
+  "in_reply_to_user_id_str" : "23516090",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Feedbin",
+      "screen_name" : "feedbin",
+      "indices" : [ 0, 8 ],
+      "id_str" : "1170518132",
+      "id" : 1170518132
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "449574170913804288",
+  "geo" : { },
+  "id_str" : "449574681301876737",
+  "in_reply_to_user_id" : 1170518132,
+  "text" : "@feedbin Next time I'll check isup.me first, I promise.",
+  "id" : 449574681301876737,
+  "in_reply_to_status_id" : 449574170913804288,
+  "created_at" : "2014-03-28 15:52:11 +0000",
+  "in_reply_to_screen_name" : "feedbin",
+  "in_reply_to_user_id_str" : "1170518132",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Feedbin",
+      "screen_name" : "feedbin",
+      "indices" : [ 0, 8 ],
+      "id_str" : "1170518132",
+      "id" : 1170518132
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "449574170913804288",
+  "geo" : { },
+  "id_str" : "449574441828118528",
+  "in_reply_to_user_id" : 1170518132,
+  "text" : "@feedbin Sorry about that! Looks like I spoke prematurely. My ISP must be having issues because I have no trouble connecting via VPN.",
+  "id" : 449574441828118528,
+  "in_reply_to_status_id" : 449574170913804288,
+  "created_at" : "2014-03-28 15:51:14 +0000",
+  "in_reply_to_screen_name" : "feedbin",
+  "in_reply_to_user_id_str" : "1170518132",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Feedbin",
+      "screen_name" : "feedbin",
+      "indices" : [ 0, 8 ],
+      "id_str" : "1170518132",
+      "id" : 1170518132
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "449569980833488896",
+  "in_reply_to_user_id" : 1170518132,
+  "text" : "@feedbin You seem to have fallen over.",
+  "id" : 449569980833488896,
+  "created_at" : "2014-03-28 15:33:30 +0000",
+  "in_reply_to_screen_name" : "feedbin",
+  "in_reply_to_user_id_str" : "1170518132",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Zach Carter",
+      "screen_name" : "zii",
+      "indices" : [ 0, 4 ],
+      "id_str" : "12712742",
+      "id" : 12712742
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ {
+      "indices" : [ 33, 55 ],
+      "url" : "http:\/\/t.co\/tIPiB62eqS",
+      "expanded_url" : "http:\/\/i.imgur.com\/zOSiG9T.gif",
+      "display_url" : "i.imgur.com\/zOSiG9T.gif"
+    } ]
+  },
+  "in_reply_to_status_id_str" : "449404910816096256",
+  "geo" : { },
+  "id_str" : "449411728153919489",
+  "in_reply_to_user_id" : 12712742,
+  "text" : "@zii You should go to a meet up. http:\/\/t.co\/tIPiB62eqS",
+  "id" : 449411728153919489,
+  "in_reply_to_status_id" : 449404910816096256,
+  "created_at" : "2014-03-28 05:04:40 +0000",
+  "in_reply_to_screen_name" : "zii",
+  "in_reply_to_user_id_str" : "12712742",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Guy English",
+      "screen_name" : "gte",
+      "indices" : [ 0, 4 ],
+      "id_str" : "7125712",
+      "id" : 7125712
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "449403424929746944",
+  "geo" : { },
+  "id_str" : "449405890391597056",
+  "in_reply_to_user_id" : 7125712,
+  "text" : "@gte Lots of time to learn how things work. Yeah that helps.",
+  "id" : 449405890391597056,
+  "in_reply_to_status_id" : 449403424929746944,
+  "created_at" : "2014-03-28 04:41:28 +0000",
+  "in_reply_to_screen_name" : "gte",
+  "in_reply_to_user_id_str" : "7125712",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Guy English",
+      "screen_name" : "gte",
+      "indices" : [ 0, 4 ],
+      "id_str" : "7125712",
+      "id" : 7125712
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "449333242987302912",
+  "geo" : { },
+  "id_str" : "449345860577411072",
+  "in_reply_to_user_id" : 7125712,
+  "text" : "@gte It seems like more than that (knowing what esp\/rsp is), but even if that\u2019s it you prepare pretty fucking well then.",
+  "id" : 449345860577411072,
+  "in_reply_to_status_id" : 449333242987302912,
+  "created_at" : "2014-03-28 00:42:56 +0000",
+  "in_reply_to_screen_name" : "gte",
+  "in_reply_to_user_id_str" : "7125712",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Aaron Patterson",
+      "screen_name" : "tenderlove",
+      "indices" : [ 0, 11 ],
+      "id_str" : "14761655",
+      "id" : 14761655
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ {
+      "indices" : [ 70, 92 ],
+      "url" : "http:\/\/t.co\/ruoA006FOT",
+      "expanded_url" : "http:\/\/img.ly\/yrwC",
+      "display_url" : "img.ly\/yrwC"
+    } ]
+  },
+  "in_reply_to_status_id_str" : "449307041337589761",
+  "geo" : { },
+  "id_str" : "449308587676819456",
+  "in_reply_to_user_id" : 14761655,
+  "text" : "@tenderlove I can\u2019t find the upvote arrow. Consider yourself upvoted! http:\/\/t.co\/ruoA006FOT",
+  "id" : 449308587676819456,
+  "in_reply_to_status_id" : 449307041337589761,
+  "created_at" : "2014-03-27 22:14:49 +0000",
+  "in_reply_to_screen_name" : "tenderlove",
+  "in_reply_to_user_id_str" : "14761655",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Aaron Patterson",
+      "screen_name" : "tenderlove",
+      "indices" : [ 3, 14 ],
+      "id_str" : "14761655",
+      "id" : 14761655
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ {
+      "indices" : [ 79, 102 ],
+      "url" : "https:\/\/t.co\/KF9ISlYT3J",
+      "expanded_url" : "https:\/\/github.com\/rubygems\/rubygems\/pull\/869",
+      "display_url" : "github.com\/rubygems\/rubyg\u2026"
+    } ]
+  },
+  "geo" : { },
+  "id_str" : "449308309854502912",
+  "text" : "RT @tenderlove: OP delivers: speed up `gem install` (12.8 seconds down to 8.1) https:\/\/t.co\/KF9ISlYT3J",
+  "retweeted_status" : {
+    "source" : "\u003Ca href=\"http:\/\/www.echofon.com\/\" rel=\"nofollow\"\u003EEchofon\u003C\/a\u003E",
+    "entities" : {
+      "user_mentions" : [ ],
+      "media" : [ ],
+      "hashtags" : [ ],
+      "urls" : [ {
+        "indices" : [ 63, 86 ],
+        "url" : "https:\/\/t.co\/KF9ISlYT3J",
+        "expanded_url" : "https:\/\/github.com\/rubygems\/rubygems\/pull\/869",
+        "display_url" : "github.com\/rubygems\/rubyg\u2026"
+      } ]
+    },
+    "geo" : { },
+    "id_str" : "449307041337589761",
+    "text" : "OP delivers: speed up `gem install` (12.8 seconds down to 8.1) https:\/\/t.co\/KF9ISlYT3J",
+    "id" : 449307041337589761,
+    "created_at" : "2014-03-27 22:08:41 +0000",
+    "user" : {
+      "name" : "Aaron Patterson",
+      "screen_name" : "tenderlove",
+      "protected" : false,
+      "id_str" : "14761655",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000325798111\/ca48276f8ebbbbac9c6ce83aac3c8548_normal.jpeg",
+      "id" : 14761655,
+      "verified" : false
+    }
+  },
+  "id" : 449308309854502912,
+  "created_at" : "2014-03-27 22:13:43 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Patrick Walton",
+      "screen_name" : "pcwalton",
+      "indices" : [ 3, 12 ],
+      "id_str" : "88751152",
+      "id" : 88751152
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ {
+      "indices" : [ 47, 69 ],
+      "url" : "http:\/\/t.co\/1ICAgSMRXg",
+      "expanded_url" : "http:\/\/i.imgur.com\/CsLkgLl.png",
+      "display_url" : "i.imgur.com\/CsLkgLl.png"
+    } ]
+  },
+  "geo" : { },
+  "id_str" : "449305681057693696",
+  "text" : "RT @pcwalton: Servo passes Acid2 in my branch: http:\/\/t.co\/1ICAgSMRXg",
+  "retweeted_status" : {
+    "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
+    "entities" : {
+      "user_mentions" : [ ],
+      "media" : [ ],
+      "hashtags" : [ ],
+      "urls" : [ {
+        "indices" : [ 33, 55 ],
+        "url" : "http:\/\/t.co\/1ICAgSMRXg",
+        "expanded_url" : "http:\/\/i.imgur.com\/CsLkgLl.png",
+        "display_url" : "i.imgur.com\/CsLkgLl.png"
+      } ]
+    },
+    "geo" : { },
+    "id_str" : "449299846873108480",
+    "text" : "Servo passes Acid2 in my branch: http:\/\/t.co\/1ICAgSMRXg",
+    "id" : 449299846873108480,
+    "created_at" : "2014-03-27 21:40:05 +0000",
+    "user" : {
+      "name" : "Patrick Walton",
+      "screen_name" : "pcwalton",
+      "protected" : false,
+      "id_str" : "88751152",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619088718\/twitter-icon_normal.jpeg",
+      "id" : 88751152,
+      "verified" : false
+    }
+  },
+  "id" : 449305681057693696,
+  "created_at" : "2014-03-27 22:03:16 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Reginald Braithwaite",
+      "screen_name" : "raganwald",
+      "indices" : [ 3, 13 ],
+      "id_str" : "18137723",
+      "id" : 18137723
+    }, {
+      "name" : "DHH",
+      "screen_name" : "dhh",
+      "indices" : [ 15, 19 ],
+      "id_str" : "14561327",
+      "id" : 14561327
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ {
+      "indices" : [ 52, 75 ],
+      "url" : "https:\/\/t.co\/d00HmNziPD",
+      "expanded_url" : "https:\/\/en.wikipedia.org\/wiki\/Poe's_law",
+      "display_url" : "en.wikipedia.org\/wiki\/Poe's_law"
+    } ]
+  },
+  "geo" : { },
+  "id_str" : "449289849002946560",
+  "text" : "RT @raganwald: @dhh All of my tweets should link to https:\/\/t.co\/d00HmNziPD",
+  "retweeted_status" : {
+    "source" : "\u003Ca href=\"https:\/\/about.twitter.com\/products\/tweetdeck\" rel=\"nofollow\"\u003ETweetDeck\u003C\/a\u003E",
+    "entities" : {
+      "user_mentions" : [ {
+        "name" : "DHH",
+        "screen_name" : "dhh",
+        "indices" : [ 0, 4 ],
+        "id_str" : "14561327",
+        "id" : 14561327
+      } ],
+      "media" : [ ],
+      "hashtags" : [ ],
+      "urls" : [ {
+        "indices" : [ 37, 60 ],
+        "url" : "https:\/\/t.co\/d00HmNziPD",
+        "expanded_url" : "https:\/\/en.wikipedia.org\/wiki\/Poe's_law",
+        "display_url" : "en.wikipedia.org\/wiki\/Poe's_law"
+      } ]
+    },
+    "in_reply_to_status_id_str" : "449287736437264384",
+    "geo" : { },
+    "id_str" : "449288017295835136",
+    "in_reply_to_user_id" : 14561327,
+    "text" : "@dhh All of my tweets should link to https:\/\/t.co\/d00HmNziPD",
+    "id" : 449288017295835136,
+    "in_reply_to_status_id" : 449287736437264384,
+    "created_at" : "2014-03-27 20:53:05 +0000",
+    "in_reply_to_screen_name" : "dhh",
+    "in_reply_to_user_id_str" : "14561327",
+    "user" : {
+      "name" : "Reginald Braithwaite",
+      "screen_name" : "raganwald",
+      "protected" : false,
+      "id_str" : "18137723",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/485403259301928960\/f10AqCur_normal.png",
+      "id" : 18137723,
+      "verified" : false
+    }
+  },
+  "id" : 449289849002946560,
+  "created_at" : "2014-03-27 21:00:22 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Marco Arment",
+      "screen_name" : "marcoarment",
+      "indices" : [ 0, 12 ],
+      "id_str" : "14231571",
+      "id" : 14231571
+    }, {
+      "name" : "elePHPant",
+      "screen_name" : "elephpant",
+      "indices" : [ 23, 33 ],
+      "id_str" : "19390327",
+      "id" : 19390327
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "449243824569995264",
+  "geo" : { },
+  "id_str" : "449246088537452544",
+  "in_reply_to_user_id" : 14231571,
+  "text" : "@marcoarment Maybe ask @elephpant?",
+  "id" : 449246088537452544,
+  "in_reply_to_status_id" : 449243824569995264,
+  "created_at" : "2014-03-27 18:06:28 +0000",
+  "in_reply_to_screen_name" : "marcoarment",
+  "in_reply_to_user_id_str" : "14231571",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Eric Allam",
+      "screen_name" : "eallam",
+      "indices" : [ 3, 10 ],
+      "id_str" : "46783",
+      "id" : 46783
+    }, {
+      "name" : "Marco Arment",
+      "screen_name" : "marcoarment",
+      "indices" : [ 12, 24 ],
+      "id_str" : "14231571",
+      "id" : 14231571
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "449231842831372289",
+  "text" : "RT @eallam: @marcoarment heroku is about an order of magnitude more expensive, for about 50% time savings",
+  "retweeted_status" : {
+    "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+    "entities" : {
+      "user_mentions" : [ {
+        "name" : "Marco Arment",
+        "screen_name" : "marcoarment",
+        "indices" : [ 0, 12 ],
+        "id_str" : "14231571",
+        "id" : 14231571
+      } ],
+      "media" : [ ],
+      "hashtags" : [ ],
+      "urls" : [ ]
+    },
+    "in_reply_to_status_id_str" : "449213712759787521",
+    "geo" : { },
+    "id_str" : "449226904068186112",
+    "in_reply_to_user_id" : 14231571,
+    "text" : "@marcoarment heroku is about an order of magnitude more expensive, for about 50% time savings",
+    "id" : 449226904068186112,
+    "in_reply_to_status_id" : 449213712759787521,
+    "created_at" : "2014-03-27 16:50:14 +0000",
+    "in_reply_to_screen_name" : "marcoarment",
+    "in_reply_to_user_id_str" : "14231571",
+    "user" : {
+      "name" : "Eric Allam",
+      "screen_name" : "eallam",
+      "protected" : false,
+      "id_str" : "46783",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/3066111745\/97865436e3ef039bc7c2420fe5be366e_normal.png",
+      "id" : 46783,
+      "verified" : false
+    }
+  },
+  "id" : 449231842831372289,
+  "created_at" : "2014-03-27 17:09:52 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
@@ -187,7 +2439,7 @@ Grailbird.data.tweets_2014_03 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mat Honan",
+      "name" : "mat honan",
       "screen_name" : "mat",
       "indices" : [ 0, 4 ],
       "id_str" : "11113",
@@ -265,7 +2517,7 @@ Grailbird.data.tweets_2014_03 =
       "id_str" : "894911",
       "id" : 894911
     }, {
-      "name" : "Grant Paul (chpwn)",
+      "name" : "Grant Paul",
       "screen_name" : "chpwn",
       "indices" : [ 84, 90 ],
       "id_str" : "91625528",
@@ -287,7 +2539,7 @@ Grailbird.data.tweets_2014_03 =
     "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
-        "name" : "Grant Paul (chpwn)",
+        "name" : "Grant Paul",
         "screen_name" : "chpwn",
         "indices" : [ 68, 74 ],
         "id_str" : "91625528",
@@ -828,7 +3080,7 @@ Grailbird.data.tweets_2014_03 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "greg bate",
+      "name" : "Greg Bate",
       "screen_name" : "gregbate",
       "indices" : [ 0, 9 ],
       "id_str" : "15292261",
@@ -986,7 +3238,7 @@ Grailbird.data.tweets_2014_03 =
   "id_str" : "446713000401965056",
   "text" : "RT @pdenya: @_sjs that's hilarious.  I'd retweet it if my name wasn't paul..",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Sami Samhuri",
@@ -1070,7 +3322,7 @@ Grailbird.data.tweets_2014_03 =
   "id_str" : "446695996697763840",
   "text" : "RT @hdediu: twitter",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1665,7 +3917,7 @@ Grailbird.data.tweets_2014_03 =
       "screen_name" : "johnlandolfe",
       "protected" : false,
       "id_str" : "15781468",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1566025898\/dandy_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/452242702940114944\/zCG_81SR_normal.jpeg",
       "id" : 15781468,
       "verified" : false
     }
@@ -1724,7 +3976,7 @@ Grailbird.data.tweets_2014_03 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "A$AP Sacha",
+      "name" : "JSON Statham",
       "screen_name" : "sachasayan",
       "indices" : [ 0, 11 ],
       "id_str" : "48093353",
@@ -1763,7 +4015,7 @@ Grailbird.data.tweets_2014_03 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "A$AP Sacha",
+      "name" : "JSON Statham",
       "screen_name" : "sachasayan",
       "indices" : [ 0, 11 ],
       "id_str" : "48093353",
@@ -1802,7 +4054,7 @@ Grailbird.data.tweets_2014_03 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "A$AP Sacha",
+      "name" : "JSON Statham",
       "screen_name" : "sachasayan",
       "indices" : [ 0, 11 ],
       "id_str" : "48093353",
@@ -2143,7 +4395,7 @@ Grailbird.data.tweets_2014_03 =
   "id_str" : "444647986270699520",
   "text" : "RT @JoshHelfferich: Hipsters at SXSW professing to love bands that don't exist: http:\/\/t.co\/xBJdcsdAuz",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -2689,7 +4941,7 @@ Grailbird.data.tweets_2014_03 =
       "screen_name" : "jc",
       "protected" : false,
       "id_str" : "877421",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/3645952317\/6c8547d388267f68b2ce8fce366e7635_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/484103475044032513\/aKBfGZm5_normal.jpeg",
       "id" : 877421,
       "verified" : false
     }
@@ -2745,7 +4997,7 @@ Grailbird.data.tweets_2014_03 =
   "id_str" : "444184072223330304",
   "text" : "RT @CompSciFact: \"Lisp isn't a language, it's a building material.\" -- Alan Kay.",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/www.hootsuite.com\" rel=\"nofollow\"\u003EHootSuite\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"http:\/\/www.hootsuite.com\" rel=\"nofollow\"\u003EHootsuite\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -3020,7 +5272,7 @@ Grailbird.data.tweets_2014_03 =
       "screen_name" : "raganwald",
       "protected" : false,
       "id_str" : "18137723",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/436205905437134848\/MdRKL9hb_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/485403259301928960\/f10AqCur_normal.png",
       "id" : 18137723,
       "verified" : false
     }
@@ -3110,7 +5362,7 @@ Grailbird.data.tweets_2014_03 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "snarfmason",
@@ -3143,10 +5395,10 @@ Grailbird.data.tweets_2014_03 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "greg bate",
+      "name" : "Greg Bate",
       "screen_name" : "gregbate",
       "indices" : [ 0, 9 ],
       "id_str" : "15292261",
@@ -3193,7 +5445,7 @@ Grailbird.data.tweets_2014_03 =
   "id_str" : "443780982093533185",
   "text" : "RT @snarfmason: Man, people sure get touchy when I say bad things about github. I'm sorry everyone, github is the bestest and I love it's a\u2026",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -3617,7 +5869,7 @@ Grailbird.data.tweets_2014_03 =
   "id_str" : "443431370539274240",
   "text" : "RT @feedbin: Feedbin\u2019s First Year http:\/\/t.co\/l9jdcqoOja",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -3722,7 +5974,7 @@ Grailbird.data.tweets_2014_03 =
       "screen_name" : "raganwald",
       "protected" : false,
       "id_str" : "18137723",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/436205905437134848\/MdRKL9hb_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/485403259301928960\/f10AqCur_normal.png",
       "id" : 18137723,
       "verified" : false
     }
@@ -3979,7 +6231,7 @@ Grailbird.data.tweets_2014_03 =
   "id_str" : "443106991544606720",
   "text" : "RT @gparker: @gparker As I understand it, it's a ten year old bug in the virtual memory system that happened to be harmless until now.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Greg Parker",
@@ -4234,7 +6486,7 @@ Grailbird.data.tweets_2014_03 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Jim Roepcke",
@@ -4273,7 +6525,7 @@ Grailbird.data.tweets_2014_03 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Jim Roepcke",
@@ -4379,129 +6631,6 @@ Grailbird.data.tweets_2014_03 =
   "text" : "Don\u2019t forget to check out Webmachine after this diagram. RT @jboner Nice HTTP decision diagram: https:\/\/t.co\/cerEN5qJ2N",
   "id" : 442743534177624064,
   "created_at" : "2014-03-09 19:27:39 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1307563055\/me_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "plain jew",
-      "screen_name" : "sadjew",
-      "indices" : [ 3, 10 ],
-      "id_str" : "17123259",
-      "id" : 17123259
-    }, {
-      "name" : "hanna",
-      "screen_name" : "princessthot",
-      "indices" : [ 27, 40 ],
-      "id_str" : "25715564",
-      "id" : 25715564
-    } ],
-    "media" : [ {
-      "expanded_url" : "http:\/\/twitter.com\/sadjew\/status\/442468084004048896\/photo\/1",
-      "indices" : [ 139, 140 ],
-      "url" : "http:\/\/t.co\/o7cxFqZVkx",
-      "media_url" : "http:\/\/pbs.twimg.com\/media\/BiP2YL2CIAEHgwt.jpg",
-      "id_str" : "442468083769155585",
-      "id" : 442468083769155585,
-      "media_url_https" : "https:\/\/pbs.twimg.com\/media\/BiP2YL2CIAEHgwt.jpg",
-      "sizes" : [ {
-        "h" : 1136,
-        "resize" : "fit",
-        "w" : 852
-      }, {
-        "h" : 150,
-        "resize" : "crop",
-        "w" : 150
-      }, {
-        "h" : 453,
-        "resize" : "fit",
-        "w" : 340
-      }, {
-        "h" : 800,
-        "resize" : "fit",
-        "w" : 600
-      }, {
-        "h" : 1136,
-        "resize" : "fit",
-        "w" : 852
-      } ],
-      "display_url" : "pic.twitter.com\/o7cxFqZVkx"
-    } ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "442507926226235393",
-  "text" : "RT @sadjew: so inspired by @princessthot 's act of generosity. I'm spreading out half my bitcoin fortune to the first 5k retweets http:\/\/t.\u2026",
-  "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/www.apple.com\" rel=\"nofollow\"\u003EiOS\u003C\/a\u003E",
-    "entities" : {
-      "user_mentions" : [ {
-        "name" : "hanna",
-        "screen_name" : "princessthot",
-        "indices" : [ 15, 28 ],
-        "id_str" : "25715564",
-        "id" : 25715564
-      } ],
-      "media" : [ {
-        "expanded_url" : "http:\/\/twitter.com\/sadjew\/status\/442468084004048896\/photo\/1",
-        "indices" : [ 118, 140 ],
-        "url" : "http:\/\/t.co\/o7cxFqZVkx",
-        "media_url" : "http:\/\/pbs.twimg.com\/media\/BiP2YL2CIAEHgwt.jpg",
-        "id_str" : "442468083769155585",
-        "id" : 442468083769155585,
-        "media_url_https" : "https:\/\/pbs.twimg.com\/media\/BiP2YL2CIAEHgwt.jpg",
-        "sizes" : [ {
-          "h" : 1136,
-          "resize" : "fit",
-          "w" : 852
-        }, {
-          "h" : 150,
-          "resize" : "crop",
-          "w" : 150
-        }, {
-          "h" : 453,
-          "resize" : "fit",
-          "w" : 340
-        }, {
-          "h" : 800,
-          "resize" : "fit",
-          "w" : 600
-        }, {
-          "h" : 1136,
-          "resize" : "fit",
-          "w" : 852
-        } ],
-        "display_url" : "pic.twitter.com\/o7cxFqZVkx"
-      } ],
-      "hashtags" : [ ],
-      "urls" : [ ]
-    },
-    "geo" : { },
-    "id_str" : "442468084004048896",
-    "text" : "so inspired by @princessthot 's act of generosity. I'm spreading out half my bitcoin fortune to the first 5k retweets http:\/\/t.co\/o7cxFqZVkx",
-    "id" : 442468084004048896,
-    "created_at" : "2014-03-09 01:13:06 +0000",
-    "user" : {
-      "name" : "plain jew",
-      "screen_name" : "sadjew",
-      "protected" : false,
-      "id_str" : "17123259",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/442783026049605632\/6cApwOk6_normal.png",
-      "id" : 17123259,
-      "verified" : false
-    }
-  },
-  "id" : 442507926226235393,
-  "created_at" : "2014-03-09 03:51:25 +0000",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -4694,7 +6823,7 @@ Grailbird.data.tweets_2014_03 =
   "id_str" : "442092929612406784",
   "text" : "RT @mraleph: I just need an non-technical cofounder with an idea that can be sold for $$$ by this morning.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -4731,7 +6860,7 @@ Grailbird.data.tweets_2014_03 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Erik Bryn\u2122",
+      "name" : "Erik Bryn",
       "screen_name" : "ebryn",
       "indices" : [ 0, 6 ],
       "id_str" : "3594",
@@ -5002,7 +7131,7 @@ Grailbird.data.tweets_2014_03 =
   "id_str" : "441813211692556288",
   "text" : "RT @toranb: Anyone who wants to see a simple ember + handlebars + coffee + css + concat with Broccoli look no further! https:\/\/t.co\/BQ8d9og\u2026",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -5044,7 +7173,7 @@ Grailbird.data.tweets_2014_03 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Erik Bryn\u2122",
+      "name" : "Erik Bryn",
       "screen_name" : "ebryn",
       "indices" : [ 35, 41 ],
       "id_str" : "3594",
@@ -5108,7 +7237,7 @@ Grailbird.data.tweets_2014_03 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Caremad About Crypto",
+      "name" : "Tony Arcieri",
       "screen_name" : "bascule",
       "indices" : [ 0, 8 ],
       "id_str" : "6083342",
@@ -5178,9 +7307,9 @@ Grailbird.data.tweets_2014_03 =
       "screen_name" : "jsnell",
       "protected" : false,
       "id_str" : "784912",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/416080002807910400\/Vg16aQkq_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/489563542136180738\/fdgx0t03_normal.png",
       "id" : 784912,
-      "verified" : false
+      "verified" : true
     }
   },
   "id" : 441693562900475904,
@@ -5304,7 +7433,7 @@ Grailbird.data.tweets_2014_03 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "snarfmason",
@@ -5442,7 +7571,7 @@ Grailbird.data.tweets_2014_03 =
       "id_str" : "1451761",
       "id" : 1451761
     }, {
-      "name" : "Phil Hagelberg",
+      "name" : "tech know man see",
       "screen_name" : "technomancy",
       "indices" : [ 112, 124 ],
       "id_str" : "6264792",
@@ -5456,10 +7585,10 @@ Grailbird.data.tweets_2014_03 =
   "id_str" : "441471438101282816",
   "text" : "RT @matthavener: Dear scp: no one has ever wanted to use scp to locally copy a file and name it 'user@host' (cc @technomancy)",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
-        "name" : "Phil Hagelberg",
+        "name" : "tech know man see",
         "screen_name" : "technomancy",
         "indices" : [ 95, 107 ],
         "id_str" : "6264792",
@@ -5510,7 +7639,7 @@ Grailbird.data.tweets_2014_03 =
       "id_str" : "17052596",
       "id" : 17052596
     }, {
-      "name" : "Melissa",
+      "name" : "Melissa \u2608",
       "screen_name" : "0xabad1dea",
       "indices" : [ 18, 29 ],
       "id_str" : "126030998",
@@ -5527,7 +7656,7 @@ Grailbird.data.tweets_2014_03 =
     "source" : "\u003Ca href=\"http:\/\/backtoblaq.com\" rel=\"nofollow\"\u003EBlaq for BlackBerry\u00AE 10\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
-        "name" : "Melissa",
+        "name" : "Melissa \u2608",
         "screen_name" : "0xabad1dea",
         "indices" : [ 1, 12 ],
         "id_str" : "126030998",
@@ -5643,7 +7772,7 @@ Grailbird.data.tweets_2014_03 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Erik Bryn\u2122",
+      "name" : "Erik Bryn",
       "screen_name" : "ebryn",
       "indices" : [ 3, 9 ],
       "id_str" : "3594",
@@ -5699,11 +7828,11 @@ Grailbird.data.tweets_2014_03 =
     "in_reply_to_screen_name" : "delwynd",
     "in_reply_to_user_id_str" : "20694915",
     "user" : {
-      "name" : "Erik Bryn\u2122",
+      "name" : "Erik Bryn",
       "screen_name" : "ebryn",
       "protected" : false,
       "id_str" : "3594",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/427293094724116480\/WtJ70isV_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/451401968490016768\/Jv2V3-6Y_normal.jpeg",
       "id" : 3594,
       "verified" : false
     }
@@ -5895,7 +8024,7 @@ Grailbird.data.tweets_2014_03 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Nadim Kobeissi",
+      "name" : "Nadim Kobeissi ",
       "screen_name" : "kaepora",
       "indices" : [ 3, 11 ],
       "id_str" : "11728992",
@@ -5932,11 +8061,11 @@ Grailbird.data.tweets_2014_03 =
     "id" : 440687403012227073,
     "created_at" : "2014-03-04 03:17:19 +0000",
     "user" : {
-      "name" : "Nadim Kobeissi",
+      "name" : "Nadim Kobeissi ",
       "screen_name" : "kaepora",
       "protected" : false,
       "id_str" : "11728992",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/433359879172927488\/dSyU7dey_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/489102406852964352\/Dq6okg83_normal.png",
       "id" : 11728992,
       "verified" : false
     }
@@ -6107,7 +8236,7 @@ Grailbird.data.tweets_2014_03 =
   "id_str" : "440651226032533504",
   "text" : "RT @bitsweat: Chrome extension turns the GitHub blame view into a time machine: https:\/\/t.co\/nX1YmVN8l8",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -6163,7 +8292,7 @@ Grailbird.data.tweets_2014_03 =
   "id_str" : "440588328618827776",
   "text" : "RT @HackerNewsOnion: New node.js co-working space has 1 table and everyone takes turns",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -6341,7 +8470,7 @@ Grailbird.data.tweets_2014_03 =
       "screen_name" : "thomasfuchs",
       "protected" : false,
       "id_str" : "6927562",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/447055689026764800\/fpOqxwkY_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/485053387239473153\/fiqEzQYT_normal.jpeg",
       "id" : 6927562,
       "verified" : false
     }
@@ -6581,7 +8710,7 @@ Grailbird.data.tweets_2014_03 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "jalbertbowdenii",
@@ -6636,10 +8765,10 @@ Grailbird.data.tweets_2014_03 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "literally no thing",
+      "name" : "what izs love",
       "screen_name" : "izs",
       "indices" : [ 0, 4 ],
       "id_str" : "8038312",
@@ -6684,7 +8813,7 @@ Grailbird.data.tweets_2014_03 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "literally no thing",
+      "name" : "what izs love",
       "screen_name" : "izs",
       "indices" : [ 0, 4 ],
       "id_str" : "8038312",
@@ -6729,7 +8858,7 @@ Grailbird.data.tweets_2014_03 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "literally no thing",
+      "name" : "what izs love",
       "screen_name" : "izs",
       "indices" : [ 0, 4 ],
       "id_str" : "8038312",
@@ -6774,7 +8903,7 @@ Grailbird.data.tweets_2014_03 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "literally no thing",
+      "name" : "what izs love",
       "screen_name" : "izs",
       "indices" : [ 0, 4 ],
       "id_str" : "8038312",
@@ -6824,7 +8953,7 @@ Grailbird.data.tweets_2014_03 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "literally no thing",
+      "name" : "what izs love",
       "screen_name" : "izs",
       "indices" : [ 0, 4 ],
       "id_str" : "8038312",

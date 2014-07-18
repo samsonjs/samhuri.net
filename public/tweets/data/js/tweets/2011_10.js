@@ -55,7 +55,7 @@ Grailbird.data.tweets_2011_10 =
   "id_str" : "130066833922469888",
   "text" : "RT @jeresig: Look at the SHA hashes on the right hand: http:\/\/t.co\/4WGVhNuN *head explodes*",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -77,7 +77,7 @@ Grailbird.data.tweets_2011_10 =
       "screen_name" : "jeresig",
       "protected" : false,
       "id_str" : "752673",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/3710418056\/50890b833c898cab45237a461e873807_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/453551474711097345\/tXmNE9Cj_normal.jpeg",
       "id" : 752673,
       "verified" : true
     }
@@ -199,7 +199,7 @@ Grailbird.data.tweets_2011_10 =
   "id_str" : "125385181455597568",
   "text" : "RT @rwaldron: History seems to indicate that real change follows epic violence.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -299,7 +299,7 @@ Grailbird.data.tweets_2011_10 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Liza Sabater",
+      "name" : "liza",
       "screen_name" : "blogdiva",
       "indices" : [ 0, 9 ],
       "id_str" : "820694",
@@ -613,7 +613,7 @@ Grailbird.data.tweets_2011_10 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\/tweetbutton\" rel=\"nofollow\"\u003ETweet Button\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/dev.twitter.com\/docs\/tfw\" rel=\"nofollow\"\u003ETwitter for Websites\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -856,7 +856,7 @@ Grailbird.data.tweets_2011_10 =
   "id_str" : "123262459367800832",
   "text" : "RT @polotek: Dont mistake skepticism for close-mindedness. Sometimes, even when you're right, you have to convince people.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -913,7 +913,7 @@ Grailbird.data.tweets_2011_10 =
   "id_str" : "122461328978882560",
   "text" : "RT @benjaminfox: If you're not eating at @PiCNiC_Coffee twice a day you need to reevaluate some life choices.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Jon Picnic",

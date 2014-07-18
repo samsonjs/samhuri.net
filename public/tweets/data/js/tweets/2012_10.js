@@ -3,7 +3,7 @@ Grailbird.data.tweets_2012_10 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "\u30A2\u30EB\u30C8\u30D3\u30FC",
+      "name" : "@AlTobey",
       "screen_name" : "AlTobey",
       "indices" : [ 3, 11 ],
       "id_str" : "146248951",
@@ -17,7 +17,7 @@ Grailbird.data.tweets_2012_10 =
   "id_str" : "263836191126872064",
   "text" : "RT @AlTobey: Chaos Monkey is for sissies. We run Ruby in production.",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -30,7 +30,7 @@ Grailbird.data.tweets_2012_10 =
     "id" : 263771862125928448,
     "created_at" : "2012-10-31 22:38:07 +0000",
     "user" : {
-      "name" : "\u30A2\u30EB\u30C8\u30D3\u30FC",
+      "name" : "@AlTobey",
       "screen_name" : "AlTobey",
       "protected" : false,
       "id_str" : "146248951",
@@ -145,7 +145,7 @@ Grailbird.data.tweets_2012_10 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Jim Roepcke",
@@ -173,7 +173,7 @@ Grailbird.data.tweets_2012_10 =
   "id_str" : "258709800920178688",
   "text" : "RT @JimRoepcke: Lightt has launched! I've been working hard on this with the rest of the @lightt team since June. Share the Lightt! http ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Lightt",
@@ -240,7 +240,7 @@ Grailbird.data.tweets_2012_10 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Tap for Tap",
@@ -268,7 +268,7 @@ Grailbird.data.tweets_2012_10 =
   "id_str" : "258327103680946177",
   "text" : "RT @tapfortap: Mobile App Ad Exchange Network Tap For Tap Pivots To Engagement Swapping Model http:\/\/t.co\/DUVkfJfo via @techcrunch",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitter.com\/tweetbutton\" rel=\"nofollow\"\u003ETweet Button\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/dev.twitter.com\/docs\/tfw\" rel=\"nofollow\"\u003ETwitter for Websites\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "TechCrunch",
@@ -347,7 +347,7 @@ Grailbird.data.tweets_2012_10 =
       "screen_name" : "the_webhamster",
       "protected" : false,
       "id_str" : "207536489",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/439624633684611072\/7DIuo8ON_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/487623600707342336\/-xNkCk32_normal.jpeg",
       "id" : 207536489,
       "verified" : false
     }
@@ -387,7 +387,7 @@ Grailbird.data.tweets_2012_10 =
   "id_str" : "258093065233899520",
   "text" : "RT @ToddDunlop: BIG DAY at @tapfortap, BIG BIG DAY!",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Tap for Tap",
@@ -482,7 +482,7 @@ Grailbird.data.tweets_2012_10 =
   "id_str" : "256221333048934400",
   "text" : "RT @rob_pike: How to report a bug: 1) Say what happened. 2) Say what should have happened. 3) Give a self-contained reproducible example ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -533,7 +533,7 @@ Grailbird.data.tweets_2012_10 =
   "id_str" : "256220008026341377",
   "text" : "RT @garybernhardt: &gt;&gt;&gt; def method_missing(n, *a, &amp;b); send(methods.min_by \u007B |m| levenshtein(n.to_s, m.to_s) \u007D, *a, &amp;b); ...",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -621,7 +621,7 @@ Grailbird.data.tweets_2012_10 =
       "id_str" : "18702069",
       "id" : 18702069
     }, {
-      "name" : "James Long",
+      "name" : "James \u201CJimmy\u201D Long",
       "screen_name" : "jlongster",
       "indices" : [ 20, 30 ],
       "id_str" : "14615235",
@@ -660,7 +660,7 @@ Grailbird.data.tweets_2012_10 =
       "id_str" : "18702069",
       "id" : 18702069
     }, {
-      "name" : "James Long",
+      "name" : "James \u201CJimmy\u201D Long",
       "screen_name" : "jlongster",
       "indices" : [ 7, 17 ],
       "id_str" : "14615235",

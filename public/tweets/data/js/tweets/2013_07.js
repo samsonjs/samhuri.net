@@ -402,7 +402,7 @@ Grailbird.data.tweets_2013_07 =
       "screen_name" : "rauchg",
       "protected" : false,
       "id_str" : "15540222",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/424606094237790208\/ii_CxjK1_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/471505092122652673\/Y5pXTnOi_normal.png",
       "id" : 15540222,
       "verified" : false
     }
@@ -453,7 +453,7 @@ Grailbird.data.tweets_2013_07 =
       "screen_name" : "rauchg",
       "protected" : false,
       "id_str" : "15540222",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/424606094237790208\/ii_CxjK1_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/471505092122652673\/Y5pXTnOi_normal.png",
       "id" : 15540222,
       "verified" : false
     }
@@ -509,7 +509,7 @@ Grailbird.data.tweets_2013_07 =
   "id_str" : "358693775654137856",
   "text" : "RT @rauchg: Detroit's motto, coined after the 1805 fire:\n\"We Hope For Better Things; It Shall Rise From the Ashes\"",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -526,7 +526,7 @@ Grailbird.data.tweets_2013_07 =
       "screen_name" : "rauchg",
       "protected" : false,
       "id_str" : "15540222",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/424606094237790208\/ii_CxjK1_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/471505092122652673\/Y5pXTnOi_normal.png",
       "id" : 15540222,
       "verified" : false
     }
@@ -571,7 +571,7 @@ Grailbird.data.tweets_2013_07 =
   "id_str" : "358429225256108032",
   "text" : "RT @raganwald: Yes, JavaScript is a Lisp http:\/\/t.co\/eCAhfoxFEh via @raganwald",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitter.com\/tweetbutton\" rel=\"nofollow\"\u003ETweet Button\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/dev.twitter.com\/docs\/tfw\" rel=\"nofollow\"\u003ETwitter for Websites\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Reginald Braithwaite",
@@ -599,7 +599,7 @@ Grailbird.data.tweets_2013_07 =
       "screen_name" : "raganwald",
       "protected" : false,
       "id_str" : "18137723",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/436205905437134848\/MdRKL9hb_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/485403259301928960\/f10AqCur_normal.png",
       "id" : 18137723,
       "verified" : false
     }
@@ -870,7 +870,7 @@ Grailbird.data.tweets_2013_07 =
   "id_str" : "357939589367214080",
   "text" : "RT @JosephMartel: A minor Coronal Mass Ejection is hitting the earth today. Be prepared. Also, check for Northern Lights after dark for the\u2026",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -991,26 +991,21 @@ Grailbird.data.tweets_2013_07 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "mean meaning machine",
+      "name" : "Colt45",
       "screen_name" : "ColtonPhillips",
       "indices" : [ 0, 15 ],
-      "id_str" : "49227164",
-      "id" : 49227164
+      "id_str" : "2649472424",
+      "id" : 2649472424
     } ],
     "media" : [ ],
     "hashtags" : [ ],
     "urls" : [ ]
   },
-  "in_reply_to_status_id_str" : "357175072458412032",
   "geo" : { },
   "id_str" : "357178572567351298",
-  "in_reply_to_user_id" : 49227164,
   "text" : "@ColtonPhillips You got that right.",
   "id" : 357178572567351298,
-  "in_reply_to_status_id" : 357175072458412032,
   "created_at" : "2013-07-16 16:43:02 +0000",
-  "in_reply_to_screen_name" : "ColtonPhillips",
-  "in_reply_to_user_id_str" : "49227164",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -1024,26 +1019,21 @@ Grailbird.data.tweets_2013_07 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "mean meaning machine",
+      "name" : "Colt45",
       "screen_name" : "ColtonPhillips",
       "indices" : [ 0, 15 ],
-      "id_str" : "49227164",
-      "id" : 49227164
+      "id_str" : "2649472424",
+      "id" : 2649472424
     } ],
     "media" : [ ],
     "hashtags" : [ ],
     "urls" : [ ]
   },
-  "in_reply_to_status_id_str" : "357174545888718848",
   "geo" : { },
   "id_str" : "357174740655419394",
-  "in_reply_to_user_id" : 49227164,
   "text" : "@ColtonPhillips Damn! I thought it was there a day or two ago but it might have been longer.",
   "id" : 357174740655419394,
-  "in_reply_to_status_id" : 357174545888718848,
   "created_at" : "2013-07-16 16:27:48 +0000",
-  "in_reply_to_screen_name" : "ColtonPhillips",
-  "in_reply_to_user_id_str" : "49227164",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -1057,26 +1047,21 @@ Grailbird.data.tweets_2013_07 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "mean meaning machine",
+      "name" : "Colt45",
       "screen_name" : "ColtonPhillips",
       "indices" : [ 0, 15 ],
-      "id_str" : "49227164",
-      "id" : 49227164
+      "id_str" : "2649472424",
+      "id" : 2649472424
     } ],
     "media" : [ ],
     "hashtags" : [ ],
     "urls" : [ ]
   },
-  "in_reply_to_status_id_str" : "357160942049562624",
   "geo" : { },
   "id_str" : "357173667664363521",
-  "in_reply_to_user_id" : 49227164,
   "text" : "@ColtonPhillips There's one on the corner of Belleville &amp; Gov't at the harbour, and one at centennial square by Starbucks (Gov't &amp; Fisgard).",
   "id" : 357173667664363521,
-  "in_reply_to_status_id" : 357160942049562624,
   "created_at" : "2013-07-16 16:23:32 +0000",
-  "in_reply_to_screen_name" : "ColtonPhillips",
-  "in_reply_to_user_id_str" : "49227164",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -1221,7 +1206,7 @@ Grailbird.data.tweets_2013_07 =
   "id_str" : "354642645785653249",
   "text" : "RT @hij1nx: yes, browsers should have setImmediate -- http:\/\/t.co\/xC63LMxzAg",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1243,7 +1228,7 @@ Grailbird.data.tweets_2013_07 =
       "screen_name" : "hij1nx",
       "protected" : false,
       "id_str" : "95938827",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/433281459952967680\/e0AypOHv_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/467266738296332288\/ImubiuUR_normal.jpeg",
       "id" : 95938827,
       "verified" : false
     }
@@ -1260,7 +1245,7 @@ Grailbird.data.tweets_2013_07 =
     "verified" : false
   }
 }, {
-  "source" : "web",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "OpenUDID",

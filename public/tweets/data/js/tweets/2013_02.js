@@ -114,7 +114,7 @@ Grailbird.data.tweets_2013_02 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Joseph Blake",
+      "name" : "joseph",
       "screen_name" : "mixdup",
       "indices" : [ 0, 7 ],
       "id_str" : "7751612",
@@ -167,7 +167,7 @@ Grailbird.data.tweets_2013_02 =
   "id_str" : "306595711410126849",
   "text" : "RT @whatifnumbers: 2.18: Ounces of gold it would take to buy one ounce of 64GB MicroSD cards",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -218,7 +218,7 @@ Grailbird.data.tweets_2013_02 =
   "id_str" : "306595701465423872",
   "text" : "RT @whatifnumbers: 1.61: Storage capacity, in petabytes, of a gallon jug of MicroSD cards",
   "retweeted_status" : {
-    "source" : "web",
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1028,7 +1028,7 @@ Grailbird.data.tweets_2013_02 =
       "screen_name" : "raganwald",
       "protected" : false,
       "id_str" : "18137723",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/436205905437134848\/MdRKL9hb_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/485403259301928960\/f10AqCur_normal.png",
       "id" : 18137723,
       "verified" : false
     }
@@ -1449,7 +1449,7 @@ Grailbird.data.tweets_2013_02 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "literally no thing",
+      "name" : "what izs love",
       "screen_name" : "izs",
       "indices" : [ 3, 7 ],
       "id_str" : "8038312",
@@ -1476,11 +1476,11 @@ Grailbird.data.tweets_2013_02 =
     "id" : 294501215033761793,
     "created_at" : "2013-01-24 17:45:35 +0000",
     "user" : {
-      "name" : "literally solipsist",
+      "name" : "what izs love",
       "screen_name" : "izs",
       "protected" : false,
       "id_str" : "8038312",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/429334527018672128\/WbXbeeHb_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/484207951310118914\/3qxqcxAu_normal.jpeg",
       "id" : 8038312,
       "verified" : false
     }
