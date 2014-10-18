@@ -169,6 +169,22 @@ RSpec.describe HarpBlog do
     end
   end
 
+  describe '#months' do
+    it "should return all of the years and months with posts" do
+      months = [
+        ["2006", "02"], ["2006", "03"], ["2006", "04"], ["2006", "05"], ["2006", "06"], ["2006", "07"], ["2006", "08"], ["2006", "09"], ["2006", "12"],
+        ["2007", "03"], ["2007", "04"], ["2007", "05"], ["2007", "06"], ["2007", "07"], ["2007", "08"], ["2007", "09"], ["2007", "10"],
+        ["2008", "01"], ["2008", "02"], ["2008", "03"],
+        ["2009", "11"],
+        ["2010", "01"], ["2010", "11"],
+        ["2011", "11"], ["2011", "12"],
+        ["2012", "01"],
+        ["2013", "03"], ["2013", "09"],
+      ]
+      expect(@blog.months.first(months.length)).to eq(months)
+    end
+  end
+
   describe '#posts_for_month' do
     it "should return the correct number of posts" do
       expect(@blog.posts_for_month('2006', '02').length).to eq(12)

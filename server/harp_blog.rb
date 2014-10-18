@@ -110,6 +110,13 @@ class HarpBlog
     Dir[post_path('20*')].map { |x| File.basename(x) }.sort
   end
 
+  def months
+    years.map do |year|
+      # hack: month dirs (and only month dirs) are always 2 characters in length
+      Dir[post_path(year, '??')].map { |x| [year, File.basename(x)] }
+    end.flatten(1).sort
+  end
+
   def posts_for_year(year)
     posts = []
     1.upto(12) do |n|

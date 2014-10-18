@@ -77,6 +77,16 @@ get '/years' do
   JSON.generate(years: blog.years)
 end
 
+# list months
+get '/months' do
+  unless authenticated?(request['Auth'])
+    status 403
+    return 'forbidden'
+  end
+
+  JSON.generate(months: blog.months)
+end
+
 # list posts
 get '/posts/:year/?:month?' do |year, month|
   unless authenticated?(request['Auth'])
