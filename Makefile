@@ -12,4 +12,10 @@ publish_beta: compile
 	@echo
 	./bin/publish.sh --beta --delete
 
-.PHONY: compile publish publish_beta
+test_blog:
+	./bin/create-test-blog.sh server/spec/test-blog
+
+spec:
+	cd server && rspec -f documentation
+
+.PHONY: compile publish publish_beta test_blog spec

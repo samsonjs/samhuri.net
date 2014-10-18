@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'builder'
-gem 'json'
-gem 'mustache'
+gem 'htmlentities'
 gem 'rdiscount'
-gem 'nokogiri'
-gem 'css_parser'
+gem 'rspec'
+gem 'guard-rspec'
