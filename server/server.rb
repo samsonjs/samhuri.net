@@ -76,47 +76,34 @@ end
 
 # list years
 get '/years' do
-  unless authenticated?(request['Auth'])
-    status 403
-    return 'forbidden'
-  end
-
+  status 200
+  headers 'Content-Type' => 'application/json'
   JSON.generate(years: blog.years)
 end
 
 # list months
 get '/months' do
-  unless authenticated?(request['Auth'])
-    status 403
-    return 'forbidden'
-  end
-
+  status 200
+  headers 'Content-Type' => 'application/json'
   JSON.generate(months: blog.months)
 end
 
 # list posts
 get '/posts/:year/?:month?' do |year, month|
-  unless authenticated?(request['Auth'])
-    status 403
-    return 'forbidden'
-  end
-
   posts =
     if month
       blog.posts_for_month(year, month)
     else
       blog.posts_for_year(year)
     end
+
+  status 200
+  headers 'Content-Type' => 'application/json'
   JSON.generate(posts: posts.map(&:fields))
 end
 
 # get a post
 get '/posts/:year/:month/:slug' do |year, month, slug|
-  unless authenticated?(request['Auth'])
-    status 403
-    return 'forbidden'
-  end
-
   begin
     post = blog.get_post(year, month, slug)
   rescue HarpBlog::InvalidDataError => e
