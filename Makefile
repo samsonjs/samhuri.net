@@ -6,10 +6,12 @@ compile:
 
 publish: compile
 	@echo
+	cp .git/$(cat .git/HEAD | cut -d' ' -f2) public/version.txt
 	./bin/publish.sh --delete
 
 publish_beta: compile
 	@echo
+	cp .git/$(cat .git/HEAD | cut -d' ' -f2) public/version.txt
 	./bin/publish.sh --beta --delete
 
 test_blog:
