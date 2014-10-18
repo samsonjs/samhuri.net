@@ -9,7 +9,7 @@ if [[ -e "$BLOG_PATH" ]]; then
 else
   if [[ ! -e "$ORIGIN_BLOG_PATH" ]]; then
     echo ">>> Mirroring local origin..."
-    git clone --mirror git@github.com:samsonjs/samhuri.net.git "$ORIGIN_BLOG_PATH"
+    git clone --mirror https://github.com/samsonjs/samhuri.net.git "$ORIGIN_BLOG_PATH"
   fi
   echo ">>> Cloning test blog from local origin..."
   git clone "$ORIGIN_BLOG_PATH" "$BLOG_PATH"
