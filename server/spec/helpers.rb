@@ -42,4 +42,30 @@ module Helpers
     end
   end
 
+  class TitleFinder
+    attr_accessor :title
+    def initialize(title)
+      @title = title
+    end
+    def find_title(url) @title end
+  end
+
+  def mock_title_finder(title)
+    TitleFinder.new(title)
+  end
+
+  class VersionFinder
+    attr_accessor :version
+    def initialize(version)
+      @version = version
+    end
+    def find_version(url = nil)
+      @version
+    end
+  end
+
+  def mock_version_finder(version)
+    VersionFinder.new(version)
+  end
+
 end

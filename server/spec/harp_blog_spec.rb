@@ -143,7 +143,10 @@ RSpec.describe HarpBlog do
   before :each do
     @test_blog_ref = git_sha(TEST_BLOG_PATH)
     dry_run = false
-    @blog = HarpBlog.new(TEST_BLOG_PATH, dry_run)
+    @mock_title = 'fancy title'
+    @mock_title_finder = mock_title_finder(@mock_title)
+    @mock_version_finder = mock_version_finder(@test_blog_ref)
+    @blog = HarpBlog.new(TEST_BLOG_PATH, dry_run, @mock_title_finder, @mock_version_finder)
   end
 
   after :each do
@@ -158,6 +161,40 @@ RSpec.describe HarpBlog do
 
       blog = HarpBlog.new(TEST_BLOG_PATH)
       expect(blog).to be_truthy
+    end
+  end
+
+  describe '#local_version' do
+    it "should expose the local version" do
+      expect(@blog.local_version).to eq(@test_blog_ref)
+    end
+  end
+
+  describe '#remote_version' do
+    it "should expose the remote version" do
+      expect(@blog.remote_version).to eq(@test_blog_ref)
+    end
+  end
+
+  describe '#dirty?' do
+    it "should specify whether or not there are unpublished changes" do
+      expect(@blog.dirty?).to be_falsy
+
+      @blog.create_post('title', 'body', nil)
+      expect(@blog.dirty?).to be_truthy
+
+      @blog.publish
+      @mock_version_finder.version = @blog.local_version
+      expect(@blog.dirty?).to be_falsy
+    end
+  end
+
+  describe '#status' do
+    it "should expose the local and remote versions, and dirty state" do
+      status = @blog.status
+      expect(status['local-version']).to eq(@blog.local_version)
+      expect(status['remote-version']).to eq(@blog.remote_version)
+      expect(status['dirty']).to eq(@blog.dirty?)
     end
   end
 
@@ -247,16 +284,11 @@ RSpec.describe HarpBlog do
     end
 
     it "should fetch titles if necessary" do
-      class TitleFinder
-        def find_title(url) 'fancy title' end
-      end
-      dry_run = false
-      blog = HarpBlog.new(TEST_BLOG_PATH, dry_run, TitleFinder.new)
-      post = blog.create_post(nil, nil, 'http://samhuri.net')
-      expect(post.title).to eq('fancy title')
-      blog.delete_post(post.time.year.to_s, post.padded_month, post.slug)
-      post = blog.create_post(" \t\n", nil, 'http://samhuri.net')
-      expect(post.title).to eq('fancy title')
+      post = @blog.create_post(nil, nil, 'http://samhuri.net')
+      expect(post.title).to eq(@mock_title)
+      @blog.delete_post(post.time.year.to_s, post.padded_month, post.slug)
+      post = @blog.create_post(" \t\n", nil, 'http://samhuri.net')
+      expect(post.title).to eq(@mock_title)
     end
 
     it "should push the new post to the origin repo" do

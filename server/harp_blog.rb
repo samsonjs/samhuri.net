@@ -1,6 +1,7 @@
 require 'fileutils'
 require 'json'
 require './web_title_finder'
+require './web_version_finder'
 
 class HarpBlog
 
@@ -100,10 +101,31 @@ class HarpBlog
   end # Post
 
 
-  def initialize(path, dry_run = true, title_finder = nil)
+  def initialize(path, dry_run = true, title_finder = nil, version_finder = nil)
     @path = path
     @dry_run = dry_run
     @title_finder = title_finder || WebTitleFinder.new
+    @version_finder = version_finder || WebVersionFinder.new
+  end
+
+  def local_version
+    git_sha
+  end
+
+  def remote_version
+    @version_finder.find_version
+  end
+
+  def dirty?
+    local_version != remote_version
+  end
+
+  def status
+    {
+      'local-version' => local_version,
+      'remote-version' => remote_version,
+      'dirty' => dirty?,
+    }
   end
 
   def years
@@ -350,6 +372,14 @@ class HarpBlog
       puts ">>> cd '#{@path}' && #{cmd}"
     else
       `cd '#{@path}' && #{cmd} 2>&1`
+    end
+  end
+
+  def git_sha
+    if output = run('git log -n1 | head -n1 | cut -d" " -f2')
+      output.strip
+    else
+      'fake-sha'
     end
   end
 
