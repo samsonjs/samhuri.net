@@ -16,7 +16,13 @@ module Helpers
   end
 
   def git_bare?(dir)
-    !File.exist?(File.join(dir, '.git'))
+    if File.exist?(File.join(dir, '.git'))
+      false
+    elsif File.exist?(File.join(dir, 'HEAD'))
+      true
+    else
+      raise "what is this dir? #{dir} #{Dir[dir + '/*'].join(', ')}"
+    end
   end
 
   def git_sha(dir)
@@ -29,7 +35,7 @@ module Helpers
 
   def git_reset_hard(dir, ref = nil)
     if git_bare?(dir)
-      raise 'git_reset_hard does not support bare repos'
+      raise 'git_reset_hard does not support bare repos ' + dir + ' -- ' + ref.to_s
     else
       args = ref ? "'#{ref}'" : ''
       `cd '#{dir}' && git reset --hard #{args}`

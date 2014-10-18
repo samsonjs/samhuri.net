@@ -122,7 +122,7 @@ class HarpBlog
   def posts_for_month(year, month)
     post_dir = post_path(year, month)
     post_data = read_post_data(post_dir)
-    post_data.values.sort_by {|p| p['timestamp'] }.map {|p| Post.new(p) }
+    post_data.values.sort_by { |p| p['timestamp'] }.map { |p| Post.new(p) }
   end
 
   def get_post(year, month, slug)

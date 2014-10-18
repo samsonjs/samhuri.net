@@ -2,8 +2,8 @@ require 'json'
 require_relative './helpers'
 require_relative '../harp_blog'
 
-TEST_BLOG_PATH = File.expand_path('../test-blog', __FILE__)
-TEST_BLOG_ORIGIN_PATH = File.expand_path('../test-blog-origin.git', __FILE__)
+TEST_BLOG_PATH = File.expand_path('../../test-blog', __FILE__)
+TEST_BLOG_ORIGIN_PATH = File.expand_path('../../test-blog-origin.git', __FILE__)
 
 RSpec.configure do |c|
   c.include Helpers
@@ -238,6 +238,7 @@ RSpec.describe HarpBlog do
       blog = HarpBlog.new(TEST_BLOG_PATH, dry_run, TitleFinder.new)
       post = blog.create_post(nil, nil, 'http://samhuri.net')
       expect(post.title).to eq('fancy title')
+      blog.delete_post(post.time.year.to_s, post.padded_month, post.slug)
       post = blog.create_post(" \t\n", nil, 'http://samhuri.net')
       expect(post.title).to eq('fancy title')
     end

@@ -3,4 +3,4 @@ node_modules
 public/feed.xml
 www
 server/auth.json
-server/spec/test-blog*
+server/test-blog*

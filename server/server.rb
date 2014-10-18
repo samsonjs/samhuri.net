@@ -11,7 +11,7 @@ require './harp_blog'
 $config = {
   auth: false,
   dry_run: false,
-  path: File.expand_path('../spec/test-blog', __FILE__),
+  path: File.expand_path('../test-blog', __FILE__),
   host: '127.0.0.1',
   port: 6706,
 }
