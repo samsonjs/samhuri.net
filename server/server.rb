@@ -67,6 +67,13 @@ set :port, $config[:port]
 
 blog = HarpBlog.new($config[:path], $config[:dry_run])
 
+# status
+get '/status' do
+  status 200
+  headers 'Content-Type' => 'application/json'
+  JSON.generate(blog.status)
+end
+
 # list years
 get '/years' do
   unless authenticated?(request['Auth'])
