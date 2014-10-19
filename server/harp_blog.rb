@@ -19,7 +19,7 @@ class HarpBlog
 
   class Post
     PERSISTENT_FIELDS = %w[author title date timestamp link url tags].map(&:to_sym)
-    TRANSIENT_FIELDS = %w[time slug body].map(&:to_sym)
+    TRANSIENT_FIELDS = %w[time slug body draft].map(&:to_sym)
     FIELDS = PERSISTENT_FIELDS + TRANSIENT_FIELDS
     attr_accessor *FIELDS
 
@@ -51,9 +51,8 @@ class HarpBlog
       !!link
     end
 
-    def title=(title)
-      @slug = nil
-      @title = title
+    def draft?
+      @draft
     end
 
     def author
@@ -69,7 +68,12 @@ class HarpBlog
     end
 
     def url
-      @url ||= "/posts/#{time.year}/#{padded_month}/#{slug}"
+      @url ||=
+        if draft?
+          "/posts/drafts/#{slug}"
+        else
+          "/posts/#{time.year}/#{padded_month}/#{slug}"
+        end
     end
 
     def slug
@@ -93,6 +97,14 @@ class HarpBlog
 
     def padded_month
       pad(time.month)
+    end
+
+    def dir
+      if draft?
+        'drafts'
+      else
+        File.join(time.year.to_s, padded_month)
+      end
     end
 
     def pad(n)
@@ -149,71 +161,64 @@ class HarpBlog
   end
 
   def posts_for_month(year, month)
-    post_dir = post_path(year, month)
-    post_data = read_post_data(post_dir)
-    post_data.values.sort_by { |p| p['timestamp'] }.map { |p| Post.new(p) }
+    read_posts(File.join(year, month))
+  end
+
+  def drafts
+    read_posts('drafts', draft: true)
   end
 
   def get_post(year, month, slug)
-    post_dir = post_path(year, month)
-    post_filename = File.join(post_dir, "#{slug}.md")
-    post_data = read_post_data(post_dir)
-    if File.exist?(post_filename) && fields = post_data[slug]
-      fields[:body] = File.read(post_filename)
-      Post.new(fields)
-    elsif fields
-      message = "missing post body for #{year}/#{month}/#{slug}: #{post_filename}"
-      $stderr.puts "[HarpBlog#get_post] #{message}"
-      raise InvalidDataError.new(message)
-    elsif File.exist?(post_filename)
-      message = "missing metadata for #{year}/#{month}/#{slug}: #{post_dir}/_data.json"
-      $stderr.puts "[HarpBlog#get_post] #{message}"
-      raise InvalidDataError.new(message)
-    end
+    read_post(File.join(year, month), slug)
   end
 
-  def create_post(title, body, link)
+  def get_draft(slug)
+    read_post('drafts', slug, draft: true)
+  end
+
+  def create_post(title, body, link, extra_fields = nil)
     if !title || title.strip.length == 0
       title = find_title(link)
     end
     unless title
       raise "cannot find title for #{link}"
     end
-    fields = {
+    extra_fields ||= {}
+    fields = extra_fields.merge({
       title: title,
       link: link,
       body: body,
-    }
+    })
     post = Post.new(fields)
-    year, month, slug = post.time.year, post.padded_month, post.slug
 
     begin
-      existing_post = get_post(year.to_s, month, slug)
+      existing_post = read_post(post.dir, post.slug, extra_fields)
     rescue InvalidDataError => e
       $stderr.puts "[HarpBlog#create_post] deleting post with invalid data: #{e.message}"
-      delete_post(year.to_s, month, slug)
+      delete_post_from_dir(post.dir, post.slug)
       existing_post = nil
     end
 
     if existing_post
-      raise PostExistsError.new("post exists: #{year}/#{month}/#{slug}")
+      raise PostExistsError.new("post exists: #{post.dir}/#{post.slug}")
     else
-      save_post(post)
+      save_post('create post', post)
     end
   end
 
   def update_post(post, title, body, link)
-    old_slug = post.slug
     post.title = title
     post.body = body
     post.link = link
-    save_post(post, old_slug)
+    save_post('update post', post)
   end
 
   def delete_post(year, month, slug)
-    post_dir = post_path(year, month)
-    delete_post_body(post_dir, slug)
-    delete_post_index(post_dir, slug)
+    delete_post_from_dir(File.join(year, month), slug)
+  end
+
+  def delete_draft(slug)
+    delete_post_from_dir('drafts', slug)
   end
 
   def publish(production = false)
@@ -236,37 +241,74 @@ class HarpBlog
     path_for('public/posts', *components)
   end
 
-  def save_post(post, old_slug = nil)
+  def drafts_path(*components)
+    post_path('drafts', *components)
+  end
+
+  def read_posts(post_dir, extra_fields = nil)
+    post_data = read_post_data(post_path(post_dir))
+    post_data.sort_by do |k, v|
+      (v['timestamp'] || Time.now).to_i
+    end.map do |slug, fields|
+      Post.new(fields.merge(extra_fields || {}).merge(slug: slug))
+    end
+  end
+
+  def read_post(post_dir, slug, extra_fields = nil)
+    post_filename = post_path(post_dir, "#{slug}.md")
+    post_data = read_post_data(post_path(post_dir))
+    if File.exist?(post_filename) && fields = post_data[slug]
+      fields[:body] = File.read(post_filename)
+      Post.new(fields.merge(extra_fields || {}).merge(slug: slug))
+    elsif fields
+      message = "missing post body for #{post_dir}/#{slug}: #{post_filename}"
+      $stderr.puts "[HarpBlog#read_post] #{message}"
+      raise InvalidDataError.new(message)
+    elsif File.exist?(post_filename)
+      message = "missing metadata for #{post_dir}/#{slug}: #{post_dir}/_data.json"
+      $stderr.puts "[HarpBlog#read_post] #{message}"
+      raise InvalidDataError.new(message)
+    end
+  end
+
+  def save_post(action, post)
     git_fetch
     git_reset_hard('origin/master')
 
     begin
-      post_dir = write_post(post, old_slug)
-      git_commit(post.title, post_dir)
+      write_post(post)
+      git_commit(action, post.title, post_path(post.dir))
       git_push
       post
 
     rescue => e
+      $stderr.puts "#{e.class}: #{e.message}"
+      $stderr.puts e.backtrace
       git_reset_hard
       raise PostSaveError.new('failed to save post', e)
     end
   end
 
-  def write_post(post, old_slug = nil)
-    post_dir = post_path(post.time.year.to_s, post.padded_month)
-    ensure_post_dir_exists(post_dir)
-    if old_slug
-      delete_post_body(post_dir, old_slug)
-      delete_post_index(post_dir, old_slug)
+  def write_post(post)
+    post_dir = post_path(post.dir)
+    unless post.draft?
+      ensure_post_dir_exists(post_dir)
     end
     write_post_body(post_dir, post.slug, post.body)
     begin
       write_post_index(post_dir, post.slug, post.persistent_fields)
     rescue => e
+      $stderr.puts "#{e.class}: #{e.message}"
+      $stderr.puts e.backtrace
       delete_post_body(post_dir, post.slug)
       raise e
     end
-    post_dir
+  end
+
+  def delete_post_from_dir(post_dir, slug)
+    post_dir = post_path(post_dir)
+    delete_post_body(post_dir, slug)
+    delete_post_index(post_dir, slug)
   end
 
   def write_post_body(dir, slug, body)
@@ -287,8 +329,10 @@ class HarpBlog
 
   def delete_post_index(dir, slug)
     post_data = read_post_data(dir)
-    post_data.delete(slug)
-    write_post_data(dir, post_data)
+    if post_data[slug]
+      post_data.delete(slug)
+      write_post_data(dir, post_data)
+    end
   end
 
   def ensure_post_dir_exists(dir)
@@ -383,9 +427,9 @@ class HarpBlog
     end
   end
 
-  def git_commit(title, *files)
+  def git_commit(action, title, *files)
     quoted_files = files.map { |f| "\"#{quote(f)}\"" }
-    message = "linked '#{quote(title)}'"
+    message = "#{action} '#{quote(title)}'"
     run("git add -A #{quoted_files.join(' ')} && git commit -m \"#{message}\"")
   end
 

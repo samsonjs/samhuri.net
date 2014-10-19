@@ -88,7 +88,7 @@ get '/months' do
   JSON.generate(months: blog.months)
 end
 
-# list posts
+# list published posts
 get '/posts/:year/?:month?' do |year, month|
   posts =
     if month
@@ -96,6 +96,15 @@ get '/posts/:year/?:month?' do |year, month|
     else
       blog.posts_for_year(year)
     end
+
+  status 200
+  headers 'Content-Type' => 'application/json'
+  JSON.generate(posts: posts.map(&:fields))
+end
+
+# list drafts
+get '/drafts' do
+  posts = blog.drafts
 
   status 200
   headers 'Content-Type' => 'application/json'
@@ -130,15 +139,43 @@ get '/posts/:year/:month/:slug' do |year, month, slug|
   end
 end
 
-# make a post
-post '/posts' do
+# get a draft
+get '/drafts/:slug' do |slug|
+  begin
+    post = blog.get_draft(slug)
+  rescue HarpBlog::InvalidDataError => e
+    status 500
+    return "Failed to get draft, invalid data on disk: #{e.message}"
+  end
+
+  if post
+    if request.accept?('application/json')
+      status 200
+      headers 'Content-Type' => 'application/json'
+      JSON.generate(post: post.fields)
+    elsif request.accept?('text/html')
+      status 200
+      headers 'Content-Type' => 'text/html'
+      blog.render_post(post.fields)
+    else
+      status 400
+      "content not available in an acceptable format: #{request.accept.join(', ')}"
+    end
+  else
+    status 404
+    'not found'
+  end
+end
+
+# make a draft
+post '/drafts' do
   unless authenticated?(request['Auth'])
     status 403
     return 'forbidden'
   end
 
   begin
-    post = blog.create_post(params[:title], params[:body], params[:link])
+    post = blog.create_post(params[:title], params[:body], params[:link], draft: true)
   rescue HarpBlog::PostExistsError => e
     post = HarpBlog::Post.new({
       title: params[:title],
@@ -146,13 +183,13 @@ post '/posts' do
       link: params[:link],
     })
     status 409
-    return  "refusing to clobber existing post, update it instead: #{post.url}"
+    return  "refusing to clobber existing draft, update it instead: #{post.url}"
   rescue HarpBlog::PostSaveError => e
     status 500
     if orig_err = e.original_error
       "#{e.message} -- #{orig_err.class}: #{orig_err.message}"
     else
-      "Failed to create post: #{e.message}"
+      "Failed to create draft: #{e.message}"
     end
   end
 
@@ -190,7 +227,35 @@ put '/posts/:year/:month/:slug' do |year, month, slug|
     if orig_err = e.original_error
       "#{e.message} -- #{orig_err.class}: #{orig_err.message}"
     else
-      "Failed to create post: #{e.message}"
+      "Failed to update post: #{e.message}"
+    end
+  end
+end
+
+# update a draft
+put '/drafts/:slug' do |slug|
+  unless authenticated?(request['Auth'])
+    status 403
+    return 'forbidden'
+  end
+
+  begin
+    if post = blog.get_draft(slug)
+      blog.update_post(post, params[:title], params[:body], params[:link])
+      status 204
+    else
+      status 404
+      'not found'
+    end
+  rescue HarpBlog::InvalidDataError => e
+    status 500
+    "Failed to update draft, invalid data on disk: #{e.message}"
+  rescue HarpBlog::PostSaveError => e
+    status 500
+    if orig_err = e.original_error
+      "#{e.message} -- #{orig_err.class}: #{orig_err.message}"
+    else
+      "Failed to update draft: #{e.message}"
     end
   end
 end
@@ -203,6 +268,17 @@ delete '/posts/:year/:month/:slug' do |year, month, slug|
   end
 
   blog.delete_post(year, month, slug)
+  status 204
+end
+
+# delete a draft
+delete '/drafts/:slug' do |slug|
+  unless authenticated?(request['Auth'])
+    status 403
+    return 'forbidden'
+  end
+
+  blog.delete_draft(slug)
   status 204
 end
 

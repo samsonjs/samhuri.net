@@ -62,12 +62,24 @@ RSpec.describe HarpBlog::Post do
   describe '#link?' do
     it "returns true for link posts" do
       post = HarpBlog::Post.new(link: @default_fields[:link])
-      expect(post.link?).to eq(true)
+      expect(post.link?).to be_truthy
     end
 
     it "returns false for article posts" do
       post = HarpBlog::Post.new
-      expect(post.link?).to eq(false)
+      expect(post.link?).to be_falsy
+    end
+  end
+
+  describe '#draft?' do
+    it "returns true for draft posts" do
+      post = HarpBlog::Post.new(draft: true)
+      expect(post.draft?).to be_truthy
+    end
+
+    it "returns false for published posts" do
+      post = HarpBlog::Post.new
+      expect(post.draft?).to be_falsy
     end
   end
 
@@ -121,6 +133,18 @@ RSpec.describe HarpBlog::Post do
     it "should collapse runs of dashes" do
       post = HarpBlog::Post.new(title: 'foo???bar')
       expect(post.slug).to eq('foo-bar')
+    end
+  end
+
+  describe '#dir' do
+    it "returns the drafts dir for draft posts" do
+      post = HarpBlog::Post.new(draft: true)
+      expect(post.dir).to eq('drafts')
+    end
+
+    it "returns the dated dir for published posts" do
+      post = HarpBlog::Post.new
+      expect(post.dir).to eq("#{post.time.year}/#{post.padded_month}")
     end
   end
 
@@ -183,7 +207,6 @@ RSpec.describe HarpBlog do
       @blog.create_post('title', 'body', nil)
       expect(@blog.dirty?).to be_truthy
 
-      @blog.publish
       @mock_version_finder.version = @blog.local_version
       expect(@blog.dirty?).to be_falsy
     end
@@ -244,6 +267,59 @@ RSpec.describe HarpBlog do
     end
   end
 
+  describe '#drafts' do
+    it "returns the correct number of posts" do
+      expect(@blog.drafts.length).to eq(2)
+    end
+
+    it "should sort the posts by publish time" do
+      timestamps = @blog.drafts.map(&:timestamp)
+      expect(increasing?(timestamps)).to be_truthy
+    end
+  end
+
+  describe '#get_post' do
+    it "should return complete posts" do
+      first_post_path = File.join(TEST_BLOG_PATH, 'public/posts/2006/02/first-post.md')
+      post = @blog.get_post('2006', '02', 'first-post')
+      expect(post).to be_truthy
+      expect(post.author).to eq('Sami Samhuri')
+      expect(post.title).to eq('First Post!')
+      expect(post.slug).to eq('first-post')
+      expect(post.timestamp).to eq(1139368860)
+      expect(post.date).to eq('8th February, 2006')
+      expect(post.url).to eq('/posts/2006/02/first-post')
+      expect(post.link).to eq(nil)
+      expect(post.link?).to be_falsy
+      expect(post.tags).to eq(['life'])
+      expect(post.body).to eq(File.read(first_post_path))
+    end
+
+    it "should return nil if the post does not exist" do
+      post = @blog.get_post('2005', '01', 'anything')
+      expect(post).to be(nil)
+    end
+  end
+
+  describe '#get_draft' do
+    it "should return complete posts" do
+      title = 'new draft'
+      body = "blah blah blah\n"
+      @blog.create_post(title, body, nil, draft: true)
+      post = @blog.get_draft('new-draft')
+      expect(post).to be_truthy
+      expect(post.title).to eq(title)
+      expect(post.url).to eq('/posts/drafts/new-draft')
+      expect(post.draft?).to be_truthy
+      expect(post.body).to eq(body)
+    end
+
+    it "should return nil if the post does not exist" do
+      post = @blog.get_draft('does-not-exist')
+      expect(post).to be(nil)
+    end
+  end
+
   describe '#create_post' do
     it "should create a link post when a link is given" do
       title = 'test post'
@@ -270,6 +346,15 @@ RSpec.describe HarpBlog do
       expect(post.time.to_date).to eq(Date.today)
     end
 
+    it "should create a draft post" do
+      title = 'test draft'
+      body = 'check this out'
+      post = @blog.create_post(title, body, nil, draft: true)
+      expect(post).to be_truthy
+      expect(post.draft?).to be_truthy
+      expect(post.dir).to eq('drafts')
+    end
+
     it "should create a post that can be fetched immediately" do
       title = 'fetch now'
       body = 'blah blah blah'
@@ -280,6 +365,16 @@ RSpec.describe HarpBlog do
       year = today.year.to_s
       month = post.pad(today.month)
       fetched_post = @blog.get_post(year, month, post.slug)
+      expect(fetched_post.url).to eq(post.url)
+    end
+
+    it "should create a draft that can be fetched immediately" do
+      title = 'fetch now'
+      body = 'blah blah blah'
+      post = @blog.create_post(title, body, nil, draft: true)
+      expect(post).to be_truthy
+
+      fetched_post = @blog.get_draft(post.slug)
       expect(post.url).to eq(fetched_post.url)
     end
 
@@ -301,29 +396,6 @@ RSpec.describe HarpBlog do
     end
   end
 
-  describe '#get_post' do
-    it "should return complete posts" do
-      first_post_path = File.join(TEST_BLOG_PATH, 'public/posts/2006/02/first-post.md')
-      post = @blog.get_post('2006', '02', 'first-post')
-      expect(post).to be_truthy
-      expect(post.author).to eq('Sami Samhuri')
-      expect(post.title).to eq('First Post!')
-      expect(post.slug).to eq('first-post')
-      expect(post.timestamp).to eq(1139368860)
-      expect(post.date).to eq('8th February, 2006')
-      expect(post.url).to eq('/posts/2006/02/first-post')
-      expect(post.link).to eq(nil)
-      expect(post.link?).to eq(false)
-      expect(post.tags).to eq(['life'])
-      expect(post.body).to eq(File.read(first_post_path))
-    end
-
-    it "should return nil if the post does not exist" do
-      post = @blog.get_post('2005', '01', 'anything')
-      expect(post).to be(nil)
-    end
-  end
-
   describe '#update_post' do
     it "should immediately reflect changes when fetched" do
       post = @blog.get_post('2006', '02', 'first-post')
@@ -333,14 +405,10 @@ RSpec.describe HarpBlog do
       @blog.update_post(post, title, body, link)
 
       # new slug, new data
-      post = @blog.get_post('2006', '02', 'new-title')
+      post = @blog.get_post('2006', '02', 'first-post')
       expect(post.title).to eq(title)
       expect(post.body).to eq(body)
       expect(post.link).to eq(link)
-
-      # old post is long gone
-      post = @blog.get_post('2006', '02', 'first-post')
-      expect(post).to eq(nil)
     end
   end
 
@@ -361,6 +429,33 @@ RSpec.describe HarpBlog do
 
       @blog.delete_post('2006', '02', 'first-post')
       @blog.delete_post('2006', '02', 'first-post')
+    end
+  end
+
+  describe '#delete_draft' do
+    it "should delete existing drafts" do
+      title = 'new draft'
+      body = 'blah blah blah'
+      existing_post = @blog.create_post(title, body, nil, draft: true)
+      post = @blog.get_draft(existing_post.slug)
+      expect(post).to be_truthy
+
+      @blog.delete_draft(post.slug)
+
+      post = @blog.get_draft(post.slug)
+      expect(post).to eq(nil)
+    end
+
+    it "should do nothing for non-existent posts" do
+      title = 'new draft'
+      body = 'blah blah blah'
+      existing_post = @blog.create_post(title, body, nil, draft: true)
+
+      post = @blog.get_draft(existing_post.slug)
+      expect(post).to be_truthy
+
+      @blog.delete_draft(post.slug)
+      @blog.delete_draft(post.slug)
     end
   end
 
