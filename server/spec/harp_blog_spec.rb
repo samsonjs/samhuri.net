@@ -459,4 +459,56 @@ RSpec.describe HarpBlog do
     end
   end
 
+  describe '#publish_post' do
+    it "should publish drafts" do
+      title = 'a-shiny-new-post'
+      body = 'blah blah blah'
+      link = 'http://samhuri.net'
+      post = @blog.create_post(title, body, link, draft: true)
+      new_post = @blog.publish_post(post)
+      expect(new_post).to be_truthy
+      expect(new_post.draft?).to be_falsy
+      expect(new_post.title).to eq(title)
+      expect(new_post.body).to eq(body)
+      expect(new_post.link).to eq(link)
+
+      draft = @blog.get_draft(post.slug)
+      expect(draft).to eq(nil)
+
+      post = @blog.get_post(post.time.year.to_s, post.padded_month, post.slug)
+      expect(post).to be_truthy
+    end
+
+    it "should raise an error for published posts" do
+      post = @blog.get_post('2006', '02', 'first-post')
+      expect { @blog.publish_post(post) }.to raise_error
+    end
+  end
+
+  describe '#unpublish_post' do
+    it "should unpublish posts" do
+      post = @blog.get_post('2006', '02', 'first-post')
+      new_post = @blog.unpublish_post(post)
+      expect(new_post).to be_truthy
+      expect(new_post.draft?).to be_truthy
+      expect(new_post.title).to eq(post.title)
+      expect(new_post.body).to eq(post.body)
+      expect(new_post.link).to eq(post.link)
+
+      post = @blog.get_post(post.time.year.to_s, post.padded_month, post.slug)
+      expect(post).to eq(nil)
+
+      draft = @blog.get_draft(new_post.slug)
+      expect(draft).to be_truthy
+    end
+
+    it "should raise an error for drafts" do
+      title = 'a-shiny-new-post'
+      body = 'blah blah blah'
+      link = 'http://samhuri.net'
+      post = @blog.create_post(title, body, link, draft: true)
+      expect { @blog.unpublish_post(post) }.to raise_error
+    end
+  end
+
 end

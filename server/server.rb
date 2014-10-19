@@ -282,7 +282,43 @@ delete '/drafts/:slug' do |slug|
   status 204
 end
 
-# publish
+# publish a post
+post '/drafts/:slug/publish' do |slug|
+  unless authenticated?(request['Auth'])
+    status 403
+    return 'forbidden'
+  end
+
+  if post = blog.get_draft(slug)
+    new_post = blog.publish_post(post)
+    status 201
+    headers 'Location' => url_for(new_post.url), 'Content-Type' => 'application/json'
+    JSON.generate(post: new_post.fields)
+  else
+    status 404
+    'not found'
+  end
+end
+
+# unpublish a post
+post '/posts/:year/:month/:slug/unpublish' do |year, month, slug|
+  unless authenticated?(request['Auth'])
+    status 403
+    return 'forbidden'
+  end
+
+  if post = blog.get_post(year, month, slug)
+    new_post = blog.unpublish_post(post)
+    status 201
+    headers 'Location' => url_for(new_post.url), 'Content-Type' => 'application/json'
+    JSON.generate(post: new_post.fields)
+  else
+    status 404
+    'not found'
+  end
+end
+
+# publish the site
 post '/publish' do
   unless authenticated?(request['Auth'])
     status 403

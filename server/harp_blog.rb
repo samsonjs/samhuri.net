@@ -8,6 +8,8 @@ class HarpBlog
   class HarpBlogError < RuntimeError ; end
   class InvalidDataError < HarpBlogError ; end
   class PostExistsError < HarpBlogError ; end
+  class PostAlreadyPublishedError < HarpBlogError ; end
+  class PostNotPublishedError < HarpBlogError ; end
 
   class PostSaveError < HarpBlogError
     attr_reader :original_error
@@ -63,8 +65,22 @@ class HarpBlog
       @time ||= @timestamp ? Time.at(@timestamp) : Time.now
     end
 
+    def time=(time)
+      @timestamp = nil
+      @date = nil
+      @url = nil
+      @time = time
+    end
+
     def timestamp
       @timestamp ||= time.to_i
+    end
+
+    def timestamp=(timestamp)
+      @time = nil
+      @date = nil
+      @url = nil
+      @timestamp = timestamp
     end
 
     def url
@@ -219,6 +235,26 @@ class HarpBlog
 
   def delete_draft(slug)
     delete_post_from_dir('drafts', slug)
+  end
+
+  def publish_post(post)
+    if post.draft?
+      new_post = create_post(post.title, post.body, post.link)
+      delete_post_from_dir('drafts', post.slug)
+      new_post
+    else
+      raise PostAlreadyPublishedError.new("post is already published: #{post.dir}/#{post.slug}")
+    end
+  end
+
+  def unpublish_post(post)
+    if post.draft?
+      raise PostNotPublishedError.new("post is not published: #{post.dir}/#{post.slug}")
+    else
+      new_post = create_post(post.title, post.body, post.link, draft: true)
+      delete_post_from_dir(post.dir, post.slug)
+      new_post
+    end
   end
 
   def publish(production = false)
