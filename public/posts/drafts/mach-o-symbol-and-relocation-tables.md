@@ -3,27 +3,27 @@ with Ruby. The first post](/posts/2010/01/working-with-c-style-structs-in-ruby) 
 a Ruby class used to serialize simple struct-like objects, while the second describes
 [the structure of a simple Mach-O file](/posts/2010/01/basics-of-the-mach-o-file-format).*
 
-<h2>Symbol Tables</h2>
+## Symbol Tables
 
 TODO
 
 
-<h3>N-List structures</h3>
+### N-List structures
 
 TODO
 
 
-<h3>Load Command</h3>
+### Load Command
 
 TODO
 
 
-<h2>Relocation Tables</h2>
+## Relocation Tables
 
 TODO
 
 
-<h2>Putting it all together</h2>
+## Putting it all together
 
 As promised I'll show you how to create a very basic Mach-O binary
 that you can execute on a machine running OS X (well, any x86 machine

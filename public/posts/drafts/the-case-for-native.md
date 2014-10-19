@@ -1,9 +1,3 @@
-Title: The Case For Native
-Date: June 3, 2011
-Author: sjs
-Tags: titanium, native, mobile, apps, platforms, android, ios
-----
-
 For the past month I've been using [Appcelerator Titanium](http://www.appcelerator.com/products/) on a two man team. We made a simple iPhone app with a tab bar with embedded nav controllers, just 10 screens or so total. We started porting it to the iPad and Android so have some experience there. It's been a pretty frustrating exercise most days. I had a lot of little complaints but didn't take the time to step back and look at the bigger picture. I love JavaScript and in theory Titanium is awesome and a huge win. I wanted it to be a win but in reality it just hasn't been.
 
 Here are 9 reasons why native is better in the short and long run.
@@ -23,7 +17,7 @@ They're better. For these reasons:
  - Debuggers. Yup, they're useful.
 
  - Xcode / Interface Builder for iOS, Faster prototyping by using a GUI to build your GUIs.
- 
+
    *[One more level, we can go deeper.... BRRRAAAAAAUUUUUM](http://youtu.be/d2yD4yDsiP4)*
 
  - Android has XML layout which is somewhat better than code. Not as a big a win but still a win. Declarative is better than imperative.
