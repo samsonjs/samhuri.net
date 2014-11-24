@@ -192,17 +192,17 @@ class HarpBlog
     read_post('drafts', slug, draft: true)
   end
 
-  def create_post(title, body, link, extra_fields = nil)
+  def create_post(title, body, url, extra_fields = nil)
     if !title || title.strip.length == 0
-      title = find_title(link)
+      title = find_title(url)
     end
     unless title
-      raise "cannot find title for #{link}"
+      raise "cannot find title for #{url}"
     end
     extra_fields ||= {}
     fields = extra_fields.merge({
       title: title,
-      link: link,
+      link: url,
       body: body,
     })
     post = Post.new(fields)
