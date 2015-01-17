@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Nexa</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  @font-face {
+    font-family: NexaBold;
+    src: url("NexaBold.otf") format("opentype");
+  }
+  @font-face {
+    font-family: NexaLight;
+    src: url("NexaLight.otf") format("opentype");
+  }
+  .nexa-bold { font-family: "NexaBold"; }
+  .nexa-light { font-family: "NexaLight"; }
+  .resizable { font-size: 14px; }
+  </style>
+  <script>
+  function changeFontSize(size) {
+    document.getElementById('size-range').value = size;
+    document.getElementById('size-text').value = size;
+    var els = document.getElementsByClassName('resizable');
+    for (var k in els) {
+      var el = els[k];
+      el.style.fontSize = size + 'px';
+    }
+  }
+  </script>
+</head>
+<body style="text-align: center">
+  <h1 class="nexa-bold">Nexa Bold</h1>
+  <h1 class="nexa-light">Nexa Light</h1>  
+  <h2 class="nexa-bold">The quick brown fox doesn't always jump over the lazy dog.</h2>
+  <h2 class="nexa-light">The quick brown fox doesn't always jump over the lazy dog.</h2>
+  <h3 class="nexa-bold">The quick brown fox doesn't always jump over the lazy dog.</h3>
+  <h3 class="nexa-light">The quick brown fox doesn't always jump over the lazy dog.</h3>
+  <h4 class="nexa-bold">The quick brown fox doesn't always jump over the lazy dog.</h4>
+  <h4 class="nexa-light">The quick brown fox doesn't always jump over the lazy dog.</h4>
+  <h5 class="nexa-bold">The quick brown fox doesn't always jump over the lazy dog.</h5>
+  <h5 class="nexa-light">The quick brown fox doesn't always jump over the lazy dog.</h5>
+  <h6 class="nexa-bold">The quick brown fox doesn't always jump over the lazy dog.</h6>
+  <h6 class="nexa-light">The quick brown fox doesn't always jump over the lazy dog.</h6>
+  <div style="margin: 30px; padding: 10px; border-top: solid 1px #ddd">
+    Font Size (px)
+    <input id="size-range" type="range" min="4" max="96" value="14" onchange="changeFontSize(this.value)">
+    <input id="size-text" type="number" min="4" max="96" value="14" onchange="changeFontSize(this.value)"></input>
+  </div>
+  <p class="resizable nexa-bold">The quick brown fox doesn't always jump over the lazy dog.</p>
+  <p class="resizable nexa-light">The quick brown fox doesn't always jump over the lazy dog.</p>
+  <p class="resizable nexa-bold">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
+  <p class="resizable nexa-light">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
+  <p class="resizable nexa-bold">a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
+  <p class="resizable nexa-light">a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
+  <p class="resizable nexa-bold">1 2 3 4 5 6 7 8 9 0</p>
+  <p class="resizable nexa-light">1 2 3 4 5 6 7 8 9 0</p>
+  <p class="resizable nexa-bold">` [ ] ( ) { } ' , . = \ ; - ~ ! @ # $ % ^ &amp; * + | _ : &quot; &lt; &gt;</p>
+  <p class="resizable nexa-light">` [ ] ( ) { } ' , . = \ ; - ~ ! @ # $ % ^ &amp; * + | _ : &quot; &lt; &gt;</p>
+</body>
+</html>
