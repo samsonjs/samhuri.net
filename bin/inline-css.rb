@@ -1,5 +1,6 @@
-#!/usr/bin/env ruby -w -rrubygems
+#!/usr/bin/env ruby -w
 
+require 'rubygems'
 require 'bundler/setup'
 require 'nokogiri'
 require 'css_parser'

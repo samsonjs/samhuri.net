@@ -4,7 +4,7 @@
 set -e
 
 DIR=$(dirname "$0")
-HARP="harp"
+HARP="node_modules/harp/bin/harp"
 TARGET="${1:-www}"
 
 function main() {
@@ -19,14 +19,14 @@ function main() {
   munge_html
 
   echo "* inline CSS"
-  $DIR/inline-css.rb "$TARGET"
+  ruby -w $DIR/inline-css.rb "$TARGET"
 
   echo "* minify js"
   minify_js
 }
 
 function compile_rss() {
-  $DIR/rss.rb public
+  ruby -w $DIR/rss.rb public
 }
 
 function munge_html() {
