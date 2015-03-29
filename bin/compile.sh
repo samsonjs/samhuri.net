@@ -15,6 +15,9 @@ function main() {
   rm -rf "$TARGET"
   "$HARP" compile . "$TARGET"
 
+  # clean up temporary feed
+  rm public/feed.xml
+
   echo "* munge html files to make them available without an extension"
   munge_html
 

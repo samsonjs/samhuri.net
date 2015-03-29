@@ -1,6 +1,5 @@
 .bundle
 node_modules
-public/feed.xml
 www
 server/auth.json
 server/test-blog*
