@@ -37,7 +37,7 @@ class HarpBlog
     end
 
     def draft
-      @draft || false
+      @draft ||= false
     end
     alias_method :draft?, :draft
 
