@@ -11,21 +11,28 @@ end
 
 RSpec.describe HarpBlog::Post do
 
-  # Persistent fields: author, title, date, timestamp, link, url, tags
+  # Persistent fields: id, author, title, date, timestamp, link, url, tags
   # Transient fields: time, slug, body
 
   before :all do
-    @default_fields = {
+    @post_fields = {
       title: 'samhuri.net',
       link: 'http://samhuri.net',
       body: 'this site is sick',
     }
-    @default_slug = 'samhuri-net'
+    @post_slug = 'samhuri-net'
+    @draft_fields = {
+      title: 'reddit.com',
+      link: 'http://reddit.com',
+      body: 'hi reddit',
+      draft: true,
+      id: 'dummy-draft-id',
+    }
   end
 
   describe '#new' do
     it "takes a Hash of fields" do
-      fields = @default_fields
+      fields = @post_fields
       post = HarpBlog::Post.new(fields)
       expect(post.title).to eq(fields[:title])
       expect(post.link).to eq(fields[:link])
@@ -61,7 +68,7 @@ RSpec.describe HarpBlog::Post do
 
   describe '#link?' do
     it "returns true for link posts" do
-      post = HarpBlog::Post.new(link: @default_fields[:link])
+      post = HarpBlog::Post.new(link: @post_fields[:link])
       expect(post.link?).to be_truthy
     end
 
@@ -101,18 +108,38 @@ RSpec.describe HarpBlog::Post do
 
   describe '#url' do
     it "should be derived from the time and slug if necessary" do
-      post = HarpBlog::Post.new(@default_fields)
+      post = HarpBlog::Post.new(@post_fields)
       year = post.time.year.to_s
       month = post.time.month
-      padded_month = month < 10 ? " #{month}" : "#{month}"
-      expect(post.url).to eq("/posts/#{year}/#{padded_month}/#{@default_slug}")
+      padded_month = month < 10 ? "0#{month}" : "#{month}"
+      expect(post.url).to eq("/posts/#{year}/#{padded_month}/#{@post_slug}")
+    end
+  end
+
+  describe '#id' do
+    it "should be generated for drafts if necessary" do
+      draft = HarpBlog::Post.new(@draft_fields)
+      expect(draft.id).to eq(@draft_fields[:id])
+
+      draft = HarpBlog::Post.new(@draft_fields.merge(id: nil))
+      expect(draft.id).to_not eq(@draft_fields[:id])
+    end
+
+    it "should be the slug for posts" do
+      post = HarpBlog::Post.new(@post_fields)
+      expect(post.id).to eq(post.slug)
     end
   end
 
   describe '#slug' do
     it "should be derived from the title if necessary" do
-      post = HarpBlog::Post.new(@default_fields)
-      expect(post.slug).to eq(@default_slug)
+      post = HarpBlog::Post.new(@post_fields)
+      expect(post.slug).to eq(@post_slug)
+    end
+
+    it "should be nil for drafts" do
+      draft = HarpBlog::Post.new(@draft_fields)
+      expect(draft.slug).to be_nil
     end
 
     it "should strip apostrophes" do
@@ -303,20 +330,21 @@ RSpec.describe HarpBlog do
 
   describe '#get_draft' do
     it "should return complete posts" do
+      id = 'some-draft-id'
       title = 'new draft'
       body = "blah blah blah\n"
-      @blog.create_post(title, body, nil, draft: true)
-      post = @blog.get_draft('new-draft')
-      expect(post).to be_truthy
-      expect(post.title).to eq(title)
-      expect(post.url).to eq('/posts/drafts/new-draft')
-      expect(post.draft?).to be_truthy
-      expect(post.body).to eq(body)
+      @blog.create_post(title, body, nil, id: id, draft: true)
+      draft = @blog.get_draft(id)
+      expect(draft).to be_truthy
+      expect(draft.title).to eq(title)
+      expect(draft.url).to eq("/posts/drafts/#{id}")
+      expect(draft.draft?).to be_truthy
+      expect(draft.body).to eq(body)
     end
 
     it "should return nil if the post does not exist" do
-      post = @blog.get_draft('does-not-exist')
-      expect(post).to be(nil)
+      draft = @blog.get_draft('does-not-exist')
+      expect(draft).to be(nil)
     end
   end
 
@@ -369,13 +397,14 @@ RSpec.describe HarpBlog do
     end
 
     it "should create a draft that can be fetched immediately" do
+      id = 'another-draft-id'
       title = 'fetch now'
       body = 'blah blah blah'
-      post = @blog.create_post(title, body, nil, draft: true)
-      expect(post).to be_truthy
+      draft = @blog.create_post(title, body, nil, id: id, draft: true)
+      expect(draft).to be_truthy
 
-      fetched_post = @blog.get_draft(post.slug)
-      expect(post.url).to eq(fetched_post.url)
+      fetched_draft = @blog.get_draft(draft.id)
+      expect(draft.url).to eq(fetched_draft.url)
     end
 
     it "should fetch titles if necessary" do
@@ -434,49 +463,54 @@ RSpec.describe HarpBlog do
 
   describe '#delete_draft' do
     it "should delete existing drafts" do
+      id = 'bunk-draft-id'
       title = 'new draft'
       body = 'blah blah blah'
-      existing_post = @blog.create_post(title, body, nil, draft: true)
-      post = @blog.get_draft(existing_post.slug)
-      expect(post).to be_truthy
+      existing_draft = @blog.create_post(title, body, nil, id: id, draft: true)
+      draft = @blog.get_draft(existing_draft.id)
+      expect(draft).to be_truthy
 
-      @blog.delete_draft(post.slug)
+      @blog.delete_draft(draft.id)
 
-      post = @blog.get_draft(post.slug)
-      expect(post).to eq(nil)
+      draft = @blog.get_draft(draft.id)
+      expect(draft).to eq(nil)
     end
 
     it "should do nothing for non-existent posts" do
+      id = 'missing-draft-id'
       title = 'new draft'
       body = 'blah blah blah'
-      existing_post = @blog.create_post(title, body, nil, draft: true)
+      existing_draft = @blog.create_post(title, body, nil, id: id, draft: true)
 
-      post = @blog.get_draft(existing_post.slug)
-      expect(post).to be_truthy
+      draft = @blog.get_draft(existing_draft.id)
+      expect(draft).to be_truthy
 
-      @blog.delete_draft(post.slug)
-      @blog.delete_draft(post.slug)
+      @blog.delete_draft(draft.id)
+      expect(@blog.get_draft(existing_draft.id)).to be_nil
+      @blog.delete_draft(draft.id)
     end
   end
 
   describe '#publish_post' do
     it "should publish drafts" do
+      id = 'this-draft-is-a-keeper'
       title = 'a-shiny-new-post'
       body = 'blah blah blah'
       link = 'http://samhuri.net'
-      post = @blog.create_post(title, body, link, draft: true)
-      new_post = @blog.publish_post(post)
-      expect(new_post).to be_truthy
-      expect(new_post.draft?).to be_falsy
-      expect(new_post.title).to eq(title)
-      expect(new_post.body).to eq(body)
-      expect(new_post.link).to eq(link)
-
-      draft = @blog.get_draft(post.slug)
-      expect(draft).to eq(nil)
-
-      post = @blog.get_post(post.time.year.to_s, post.padded_month, post.slug)
+      draft = @blog.create_post(title, body, link, id: id, draft: true)
+      post = @blog.publish_post(draft)
       expect(post).to be_truthy
+      expect(post.id).to eq(post.slug)
+      expect(post.draft?).to be_falsy
+      expect(post.title).to eq(title)
+      expect(post.body).to eq(body)
+      expect(post.link).to eq(link)
+
+      missing_draft = @blog.get_draft(draft.id)
+      expect(missing_draft).to eq(nil)
+
+      fetched_post = @blog.get_post(post.time.year.to_s, post.padded_month, post.slug)
+      expect(fetched_post).to be_truthy
     end
 
     it "should raise an error for published posts" do
@@ -488,18 +522,19 @@ RSpec.describe HarpBlog do
   describe '#unpublish_post' do
     it "should unpublish posts" do
       post = @blog.get_post('2006', '02', 'first-post')
-      new_post = @blog.unpublish_post(post)
-      expect(new_post).to be_truthy
-      expect(new_post.draft?).to be_truthy
-      expect(new_post.title).to eq(post.title)
-      expect(new_post.body).to eq(post.body)
-      expect(new_post.link).to eq(post.link)
-
-      post = @blog.get_post(post.time.year.to_s, post.padded_month, post.slug)
-      expect(post).to eq(nil)
-
-      draft = @blog.get_draft(new_post.slug)
+      draft = @blog.unpublish_post(post)
       expect(draft).to be_truthy
+      expect(draft.id).to be_truthy
+      expect(draft.draft?).to be_truthy
+      expect(draft.title).to eq(post.title)
+      expect(draft.body).to eq(post.body)
+      expect(draft.link).to eq(post.link)
+
+      missing_post = @blog.get_post(post.time.year.to_s, post.padded_month, post.slug)
+      expect(missing_post).to eq(nil)
+
+      fetched_draft = @blog.get_draft(draft.id)
+      expect(fetched_draft).to be_truthy
     end
 
     it "should raise an error for drafts" do

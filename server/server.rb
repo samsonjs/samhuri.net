@@ -67,11 +67,36 @@ set :port, $config[:port]
 
 blog = HarpBlog.new($config[:path], $config[:dry_run])
 
+before do
+  if request.body.size > 0
+    type = request['HTTP_CONTENT_TYPE']
+    @fields =
+      case
+      when type =~ /^application\/json\b/
+        request.body.rewind
+        JSON.parse(request.body.read)
+      else
+        params
+      end
+  end
+end
+
 # status
 get '/status' do
   status 200
   headers 'Content-Type' => 'application/json'
-  JSON.generate(blog.status)
+  JSON.generate(status: blog.status)
+end
+
+# publish the site
+post '/publish' do
+  unless authenticated?(request['Auth'])
+    status 403
+    return 'forbidden'
+  end
+
+  blog.publish(@fields['env'])
+  status 204
 end
 
 # list years
@@ -102,6 +127,17 @@ get '/posts/:year/?:month?' do |year, month|
   JSON.generate(posts: posts.map(&:fields))
 end
 
+# list all published posts
+get '/posts' do
+  posts = blog.months.map do |year, month|
+    blog.posts_for_month(year, month)
+  end.flatten
+
+  status 200
+  headers 'Content-Type' => 'application/json'
+  JSON.generate(posts: posts.map(&:fields))
+end
+
 # list drafts
 get '/drafts' do
   posts = blog.drafts
@@ -112,9 +148,9 @@ get '/drafts' do
 end
 
 # get a post
-get '/posts/:year/:month/:slug' do |year, month, slug|
+get '/posts/:year/:month/:id' do |year, month, id|
   begin
-    post = blog.get_post(year, month, slug)
+    post = blog.get_post(year, month, id)
   rescue HarpBlog::InvalidDataError => e
     status 500
     return "Failed to get post, invalid data on disk: #{e.message}"
@@ -140,9 +176,9 @@ get '/posts/:year/:month/:slug' do |year, month, slug|
 end
 
 # get a draft
-get '/drafts/:slug' do |slug|
+get '/drafts/:id' do |id|
   begin
-    post = blog.get_draft(slug)
+    post = blog.get_draft(id)
   rescue HarpBlog::InvalidDataError => e
     status 500
     return "Failed to get draft, invalid data on disk: #{e.message}"
@@ -174,16 +210,25 @@ post '/drafts' do
     return 'forbidden'
   end
 
+  id, title, body, link = @fields.values_at('id', 'title', 'body', 'link')
   begin
-    post = blog.create_post(params[:title], params[:body], params[:link], draft: true)
+    if post = blog.create_post(title, body, link, id: id, draft: true)
+      url = url_for(post.url)
+      status 201
+      headers 'Location' => url, 'Content-Type' => 'application/json'
+      JSON.generate(post: post.fields)
+    else
+      status 500
+      'failed to create post'
+    end
   rescue HarpBlog::PostExistsError => e
     post = HarpBlog::Post.new({
-      title: params[:title],
-      body: params[:body],
-      link: params[:link],
+      title: title,
+      body: body,
+      link: link,
     })
     status 409
-    return  "refusing to clobber existing draft, update it instead: #{post.url}"
+    "refusing to clobber existing draft, update it instead: #{post.url}"
   rescue HarpBlog::PostSaveError => e
     status 500
     if orig_err = e.original_error
@@ -192,28 +237,19 @@ post '/drafts' do
       "Failed to create draft: #{e.message}"
     end
   end
-
-  if post
-    url = url_for(post.url)
-    status 201
-    headers 'Location' => url, 'Content-Type' => 'application/json'
-    JSON.generate(post: post.fields)
-  else
-    status 500
-    'failed to create post'
-  end
 end
 
 # update a post
-put '/posts/:year/:month/:slug' do |year, month, slug|
+put '/posts/:year/:month/:id' do |year, month, id|
   unless authenticated?(request['Auth'])
     status 403
     return 'forbidden'
   end
 
+  title, body, link = @field.values_at('title', 'body', 'link')
   begin
-    if post = blog.get_post(year, month, slug)
-      blog.update_post(post, params[:title], params[:body], params[:link])
+    if post = blog.get_post(year, month, id)
+      blog.update_post(post, title, body, link)
       status 204
     else
       status 404
@@ -233,15 +269,16 @@ put '/posts/:year/:month/:slug' do |year, month, slug|
 end
 
 # update a draft
-put '/drafts/:slug' do |slug|
+put '/drafts/:id' do |id|
   unless authenticated?(request['Auth'])
     status 403
     return 'forbidden'
   end
 
+  title, body, link = @field.values_at('title', 'body', 'link')
   begin
-    if post = blog.get_draft(slug)
-      blog.update_post(post, params[:title], params[:body], params[:link])
+    if post = blog.get_draft(id)
+      blog.update_post(post, title, body, link)
       status 204
     else
       status 404
@@ -261,35 +298,35 @@ put '/drafts/:slug' do |slug|
 end
 
 # delete a post
-delete '/posts/:year/:month/:slug' do |year, month, slug|
+delete '/posts/:year/:month/:id' do |year, month, id|
   unless authenticated?(request['Auth'])
     status 403
     return 'forbidden'
   end
 
-  blog.delete_post(year, month, slug)
+  blog.delete_post(year, month, id)
   status 204
 end
 
 # delete a draft
-delete '/drafts/:slug' do |slug|
+delete '/drafts/:id' do |id|
   unless authenticated?(request['Auth'])
     status 403
     return 'forbidden'
   end
 
-  blog.delete_draft(slug)
+  blog.delete_draft(id)
   status 204
 end
 
 # publish a post
-post '/drafts/:slug/publish' do |slug|
+post '/drafts/:id/publish' do |id|
   unless authenticated?(request['Auth'])
     status 403
     return 'forbidden'
   end
 
-  if post = blog.get_draft(slug)
+  if post = blog.get_draft(id)
     new_post = blog.publish_post(post)
     status 201
     headers 'Location' => url_for(new_post.url), 'Content-Type' => 'application/json'
@@ -301,13 +338,13 @@ post '/drafts/:slug/publish' do |slug|
 end
 
 # unpublish a post
-post '/posts/:year/:month/:slug/unpublish' do |year, month, slug|
+post '/posts/:year/:month/:id/unpublish' do |year, month, id|
   unless authenticated?(request['Auth'])
     status 403
     return 'forbidden'
   end
 
-  if post = blog.get_post(year, month, slug)
+  if post = blog.get_post(year, month, id)
     new_post = blog.unpublish_post(post)
     status 201
     headers 'Location' => url_for(new_post.url), 'Content-Type' => 'application/json'
@@ -316,16 +353,4 @@ post '/posts/:year/:month/:slug/unpublish' do |year, month, slug|
     status 404
     'not found'
   end
-end
-
-# publish the site
-post '/publish' do
-  unless authenticated?(request['Auth'])
-    status 403
-    return 'forbidden'
-  end
-
-  production = params[:env] == 'production'
-  blog.publish(production)
-  status 204
 end

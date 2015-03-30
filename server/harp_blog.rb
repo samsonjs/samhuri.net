@@ -1,5 +1,6 @@
 require 'fileutils'
 require 'json'
+require 'securerandom'
 require './web_title_finder'
 require './web_version_finder'
 
@@ -20,7 +21,7 @@ class HarpBlog
   end
 
   class Post
-    PERSISTENT_FIELDS = %w[author title date timestamp link url tags].map(&:to_sym)
+    PERSISTENT_FIELDS = %w[id author title date timestamp link url tags].map(&:to_sym)
     TRANSIENT_FIELDS = %w[time slug body draft].map(&:to_sym)
     FIELDS = PERSISTENT_FIELDS + TRANSIENT_FIELDS
     FIELDS.each { |f| attr_accessor f }
@@ -83,10 +84,19 @@ class HarpBlog
       @timestamp = timestamp
     end
 
+    def id
+      @id ||=
+        if draft?
+          SecureRandom.uuid
+        else
+          slug
+        end
+    end
+
     def url
       @url ||=
         if draft?
-          "/posts/drafts/#{slug}"
+          "/posts/drafts/#{id}"
         else
           "/posts/#{time.year}/#{padded_month}/#{slug}"
         end
@@ -94,7 +104,7 @@ class HarpBlog
 
     def slug
       # TODO: be intelligent about unicode ... \p{Word} might help. negated char class with it?
-      if title
+      if !draft? && title
         @slug ||= title.downcase.
           gsub(/'/, '').
           gsub(/[^[:alpha:]\d_]/, '-').
@@ -184,12 +194,12 @@ class HarpBlog
     read_posts('drafts', draft: true)
   end
 
-  def get_post(year, month, slug)
-    read_post(File.join(year, month), slug)
+  def get_post(year, month, id)
+    read_post(File.join(year, month), id)
   end
 
-  def get_draft(slug)
-    read_post('drafts', slug, draft: true)
+  def get_draft(id)
+    read_post('drafts', id, draft: true)
   end
 
   def create_post(title, body, url, extra_fields = nil)
@@ -208,15 +218,15 @@ class HarpBlog
     post = Post.new(fields)
 
     begin
-      existing_post = read_post(post.dir, post.slug, extra_fields)
+      existing_post = read_post(post.dir, post.id, extra_fields)
     rescue InvalidDataError => e
       $stderr.puts "[HarpBlog#create_post] deleting post with invalid data: #{e.message}"
-      delete_post_from_dir(post.dir, post.slug)
+      delete_post_from_dir(post.dir, post.id)
       existing_post = nil
     end
 
     if existing_post
-      raise PostExistsError.new("post exists: #{post.dir}/#{post.slug}")
+      raise PostExistsError.new("post exists: #{post.dir}/#{post.id}")
     else
       save_post('create post', post)
     end
@@ -229,36 +239,36 @@ class HarpBlog
     save_post('update post', post)
   end
 
-  def delete_post(year, month, slug)
-    delete_post_from_dir(File.join(year, month), slug)
+  def delete_post(year, month, id)
+    delete_post_from_dir(File.join(year, month), id)
   end
 
-  def delete_draft(slug)
-    delete_post_from_dir('drafts', slug)
+  def delete_draft(id)
+    delete_post_from_dir('drafts', id)
   end
 
   def publish_post(post)
     if post.draft?
       new_post = create_post(post.title, post.body, post.link)
-      delete_post_from_dir('drafts', post.slug)
+      delete_post_from_dir('drafts', post.id)
       new_post
     else
-      raise PostAlreadyPublishedError.new("post is already published: #{post.dir}/#{post.slug}")
+      raise PostAlreadyPublishedError.new("post is already published: #{post.dir}/#{post.id}")
     end
   end
 
   def unpublish_post(post)
     if post.draft?
-      raise PostNotPublishedError.new("post is not published: #{post.dir}/#{post.slug}")
+      raise PostNotPublishedError.new("post is not published: #{post.dir}/#{post.id}")
     else
       new_post = create_post(post.title, post.body, post.link, draft: true)
-      delete_post_from_dir(post.dir, post.slug)
+      delete_post_from_dir(post.dir, post.id)
       new_post
     end
   end
 
-  def publish(production = false)
-    target = production ? 'publish' : 'publish_beta'
+  def publish(env)
+    target = env.to_s == 'production' ? 'publish' : 'publish_beta'
     run("make #{target}")
   end
 
@@ -282,26 +292,40 @@ class HarpBlog
   end
 
   def read_posts(post_dir, extra_fields = nil)
+    extra_fields ||= {}
     post_data = read_post_data(post_path(post_dir))
     post_data.sort_by do |k, v|
       (v['timestamp'] || Time.now).to_i
-    end.map do |slug, fields|
-      Post.new(fields.merge(extra_fields || {}).merge(slug: slug))
+    end.map do |id, fields|
+      fields[:id] = id
+      unless extra_fields[:draft]
+        fields[:slug] = id
+      end
+      post_filename = post_path(post_dir, "#{id}.md")
+      fields[:body] = File.read(post_filename)
+      Post.new(fields.merge(extra_fields))
     end
   end
 
-  def read_post(post_dir, slug, extra_fields = nil)
-    post_filename = post_path(post_dir, "#{slug}.md")
+  def read_post(post_dir, id, extra_fields = nil)
+    post_filename = post_path(post_dir, "#{id}.md")
     post_data = read_post_data(post_path(post_dir))
-    if File.exist?(post_filename) && fields = post_data[slug]
+    if File.exist?(post_filename) && fields = post_data[id]
       fields[:body] = File.read(post_filename)
-      Post.new(fields.merge(extra_fields || {}).merge(slug: slug))
+      if extra_fields
+        fields.merge!(extra_fields)
+      end
+      fields[:id] = id
+      unless fields[:draft]
+        fields[:slug] = id
+      end
+      Post.new(fields)
     elsif fields
-      message = "missing post body for #{post_dir}/#{slug}: #{post_filename}"
+      message = "missing post body for #{post_dir}/#{id}: #{post_filename}"
       $stderr.puts "[HarpBlog#read_post] #{message}"
       raise InvalidDataError.new(message)
     elsif File.exist?(post_filename)
-      message = "missing metadata for #{post_dir}/#{slug}: #{post_dir}/_data.json"
+      message = "missing metadata for #{post_dir}/#{id}: #{post_dir}/_data.json"
       $stderr.puts "[HarpBlog#read_post] #{message}"
       raise InvalidDataError.new(message)
     end
@@ -330,43 +354,43 @@ class HarpBlog
     unless post.draft?
       ensure_post_dir_exists(post_dir)
     end
-    write_post_body(post_dir, post.slug, post.body)
+    write_post_body(post_dir, post.id, post.body)
     begin
-      write_post_index(post_dir, post.slug, post.persistent_fields)
+      write_post_index(post_dir, post.id, post.persistent_fields)
     rescue => e
       $stderr.puts "#{e.class}: #{e.message}"
       $stderr.puts e.backtrace
-      delete_post_body(post_dir, post.slug)
+      delete_post_body(post_dir, post.id)
       raise e
     end
   end
 
-  def delete_post_from_dir(post_dir, slug)
+  def delete_post_from_dir(post_dir, id)
     post_dir = post_path(post_dir)
-    delete_post_body(post_dir, slug)
-    delete_post_index(post_dir, slug)
+    delete_post_body(post_dir, id)
+    delete_post_index(post_dir, id)
   end
 
-  def write_post_body(dir, slug, body)
-    post_filename = File.join(dir, "#{slug}.md")
+  def write_post_body(dir, id, body)
+    post_filename = File.join(dir, "#{id}.md")
     write_file(post_filename, body)
   end
 
-  def delete_post_body(dir, slug)
-    post_filename = File.join(dir, "#{slug}.md")
+  def delete_post_body(dir, id)
+    post_filename = File.join(dir, "#{id}.md")
     delete_file(post_filename)
   end
 
-  def write_post_index(dir, slug, fields)
+  def write_post_index(dir, id, fields)
     post_data = read_post_data(dir)
-    post_data[slug] = fields
+    post_data[id] = fields
     write_post_data(dir, post_data)
   end
 
-  def delete_post_index(dir, slug)
+  def delete_post_index(dir, id)
     post_data = read_post_data(dir)
-    if post_data[slug]
-      post_data.delete(slug)
+    if post_data[id]
+      post_data.delete(id)
       write_post_data(dir, post_data)
     end
   end
