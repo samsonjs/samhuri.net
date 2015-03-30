@@ -82,6 +82,14 @@ before do
   end
 end
 
+after do
+  start = Time.now
+  if blog.compile_if_mutated
+    duration = Time.now.to_f - start.to_f
+    puts "Compiled blog in #{duration.round}ms"
+  end
+end
+
 # status
 get '/status' do
   status 200

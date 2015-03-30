@@ -25,6 +25,7 @@ class HarpBlog
     @dry_run = dry_run
     @title_finder = title_finder || WebTitleFinder.new
     @version_finder = version_finder || WebVersionFinder.new
+    @mutated = false
   end
 
   def local_version
@@ -153,6 +154,15 @@ class HarpBlog
     run("make #{target}")
   end
 
+  def compile
+    run('make compile')
+    @mutated = false
+  end
+
+  def compile_if_mutated
+    compile if @mutated
+  end
+
 
   private
 
@@ -220,6 +230,7 @@ class HarpBlog
       write_post(post)
       git_commit(action, post.title, post_path(post.dir))
       git_push
+      @mutated = true
       post
 
     rescue => e
@@ -250,6 +261,7 @@ class HarpBlog
     post_dir = post_path(post_dir)
     delete_post_body(post_dir, id)
     delete_post_index(post_dir, id)
+    @mutated = true
   end
 
   def write_post_body(dir, id, body)
