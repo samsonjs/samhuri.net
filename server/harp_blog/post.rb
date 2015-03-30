@@ -36,9 +36,10 @@ class HarpBlog
       !!link
     end
 
-    def draft?
-      @draft
+    def draft
+      @draft || false
     end
+    alias_method :draft?, :draft
 
     def author
       @author ||= 'Sami Samhuri'
