@@ -3,12 +3,11 @@
 # An HTTP interface for my Harp blog.
 
 require 'json'
-require 'optparse'
 require 'sinatra'
 require './auth'
 require './harp_blog'
 
-$config = {
+CONFIG_DEFAULTS = {
   auth: false,
   dry_run: false,
   path: File.expand_path('../test-blog', __FILE__),
@@ -16,27 +15,28 @@ $config = {
   port: 6706,
 }
 
-OptionParser.new do |opts|
-  opts.banner = "Usage: server.rb [options]"
-
-  opts.on("-a", "--[no-]auth", "Enable authentication") do |auth|
-    $config[:auth] = auth
+def env_value(name)
+  env_name = "BLOG_#{name.to_s.upcase}"
+  raw_value = ENV[env_name]
+  case name
+  when :auth, :dry_run
+    raw_value ? raw_value.to_i != 0 : false
+  when :port
+    raw_value ? raw_value.to_i : nil
+  else
+    raw_value
   end
+end
 
-  opts.on("-h", "--host [HOST]", "Host to bind") do |host|
-    $config[:host] = host
+$config = CONFIG_DEFAULTS.dup
+$config.each_key do |name|
+  value = env_value(name)
+  unless value.nil?
+    $config[name] = value
   end
+end
 
-  opts.on("-p", "--port [PORT]", "Port to bind") do |port|
-    $config[:port] = port.to_i
-  end
-
-  opts.on("-P", "--path [PATH]", "Path to Harp blog") do |path|
-    $config[:path] = path
-  end
-end.parse!
-
-unless File.exist?($config[:path])
+unless File.directory?($config[:path])
   raise RuntimeError.new("file not found: #{$config[:path]}")
 end
 

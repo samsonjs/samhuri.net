@@ -23,7 +23,7 @@ class HarpBlog
     PERSISTENT_FIELDS = %w[author title date timestamp link url tags].map(&:to_sym)
     TRANSIENT_FIELDS = %w[time slug body draft].map(&:to_sym)
     FIELDS = PERSISTENT_FIELDS + TRANSIENT_FIELDS
-    attr_accessor *FIELDS
+    FIELDS.each { |f| attr_accessor f }
 
     def initialize(fields = nil)
       if fields
