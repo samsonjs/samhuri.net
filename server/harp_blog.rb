@@ -80,8 +80,16 @@ class HarpBlog
     read_post(File.join(year, month), id)
   end
 
+  def get_post_html(year, month, id)
+    raise 'unimplemented'
+  end
+
   def get_draft(id)
     read_post('drafts', id, draft: true)
+  end
+
+  def get_draft_html(id)
+    raise 'unimplemented'
   end
 
   def create_post(title, body, url, extra_fields = nil)

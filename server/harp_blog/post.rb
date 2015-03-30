@@ -1,8 +1,8 @@
 require 'securerandom'
 
 class HarpBlog
-
   class Post
+
     PERSISTENT_FIELDS = %w[id author title date timestamp link url tags].map(&:to_sym)
     TRANSIENT_FIELDS = %w[time slug body draft].map(&:to_sym)
     FIELDS = PERSISTENT_FIELDS + TRANSIENT_FIELDS
