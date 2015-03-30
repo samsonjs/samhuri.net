@@ -12,7 +12,7 @@ CONFIG_DEFAULTS = {
   dry_run: false,
   path: File.expand_path('../test-blog', __FILE__),
   host: '127.0.0.1',
-  hostname: nil,
+  hostname: `hostname --fqdn`.strip,
   port: 6706,
 }
 
