@@ -12,6 +12,7 @@ CONFIG_DEFAULTS = {
   dry_run: false,
   path: File.expand_path('../test-blog', __FILE__),
   host: '127.0.0.1',
+  hostname: nil,
   port: 6706,
 }
 
@@ -54,8 +55,8 @@ def authenticated?(auth)
   end
 end
 
-real_host = $config[:host] == '0.0.0.0' ? 'h.samhuri.net' : $config[:host]
-$url_root = "http://#{real_host}:#{$config[:port]}/"
+host = $config[:hostname] || $config[:host]
+$url_root = "http://#{host}:#{$config[:port]}/"
 def url_for(*components)
   File.join($url_root, *components)
 end
