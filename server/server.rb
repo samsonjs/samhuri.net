@@ -247,7 +247,7 @@ put '/posts/:year/:month/:id' do |year, month, id|
     return 'forbidden'
   end
 
-  title, body, link = @field.values_at('title', 'body', 'link')
+  title, body, link = @fields.values_at('title', 'body', 'link')
   begin
     if post = blog.get_post(year, month, id)
       blog.update_post(post, title, body, link)
@@ -276,7 +276,7 @@ put '/drafts/:id' do |id|
     return 'forbidden'
   end
 
-  title, body, link = @field.values_at('title', 'body', 'link')
+  title, body, link = @fields.values_at('title', 'body', 'link')
   begin
     if post = blog.get_draft(id)
       blog.update_post(post, title, body, link)
