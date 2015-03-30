@@ -57,6 +57,7 @@ end
 
 host = $config[:hostname] || $config[:host]
 $url_root = "http://#{host}:#{$config[:port]}/"
+puts "URL root: #{$url_root}"
 def url_for(*components)
   File.join($url_root, *components)
 end
