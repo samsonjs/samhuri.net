@@ -352,8 +352,8 @@ class HarpBlog
     s.gsub('"', '\\"')
   end
 
-  def run(cmd)
-    if @dry_run
+  def run(cmd, safety = :destructive)
+    if safety == :destructive && @dry_run
       puts ">>> cd '#{@path}' && #{cmd}"
     else
       `cd '#{@path}' && #{cmd} 2>&1`
@@ -361,11 +361,7 @@ class HarpBlog
   end
 
   def git_sha
-    if output = run('git log -n1 | head -n1 | cut -d" " -f2')
-      output.strip
-    else
-      'fake-sha'
-    end
+    run('git log -n1 | head -n1 | cut -d" " -f2', :nondestructive).strip
   end
 
   def git_commit(action, title, *files)
