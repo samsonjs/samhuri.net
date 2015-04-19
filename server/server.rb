@@ -132,6 +132,15 @@ get '/months' do
   JSON.generate(months: blog.months)
 end
 
+# list drafts
+get '/posts/drafts' do
+  posts = blog.drafts
+
+  status 200
+  headers 'Content-Type' => 'application/json'
+  JSON.generate(posts: posts.map(&:fields))
+end
+
 # list published posts
 get '/posts/:year/?:month?' do |year, month|
   posts =
@@ -151,15 +160,6 @@ get '/posts' do
   posts = blog.months.map do |year, month|
     blog.posts_for_month(year, month)
   end.flatten
-
-  status 200
-  headers 'Content-Type' => 'application/json'
-  JSON.generate(posts: posts.map(&:fields))
-end
-
-# list drafts
-get '/drafts' do
-  posts = blog.drafts
 
   status 200
   headers 'Content-Type' => 'application/json'
@@ -195,7 +195,7 @@ get '/posts/:year/:month/:id' do |year, month, id|
 end
 
 # get a draft
-get '/drafts/:id' do |id|
+get '/posts/drafts/:id' do |id|
   begin
     post = blog.get_draft(id)
   rescue HarpBlog::InvalidDataError => e
@@ -223,7 +223,7 @@ get '/drafts/:id' do |id|
 end
 
 # make a draft
-post '/drafts' do
+post '/posts/drafts' do
   unless authenticated?(request['Auth'])
     status 403
     return 'forbidden'
@@ -288,7 +288,7 @@ put '/posts/:year/:month/:id' do |year, month, id|
 end
 
 # update a draft
-put '/drafts/:id' do |id|
+put '/posts/drafts/:id' do |id|
   unless authenticated?(request['Auth'])
     status 403
     return 'forbidden'
@@ -328,7 +328,7 @@ delete '/posts/:year/:month/:id' do |year, month, id|
 end
 
 # delete a draft
-delete '/drafts/:id' do |id|
+delete '/posts/drafts/:id' do |id|
   unless authenticated?(request['Auth'])
     status 403
     return 'forbidden'
@@ -339,7 +339,7 @@ delete '/drafts/:id' do |id|
 end
 
 # publish a post
-post '/drafts/:id/publish' do |id|
+post '/posts/drafts/:id/publish' do |id|
   unless authenticated?(request['Auth'])
     status 403
     return 'forbidden'
