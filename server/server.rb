@@ -176,7 +176,7 @@ get '/posts/:year/:month/:id' do |year, month, id|
       JSON.generate(post: post.fields)
     elsif request.accept?('text/html')
       status 302
-      headers "Location: #{$config[:preview_url]}/posts/#{year}/#{month}/#{id}"
+      headers 'Location'=> "#{$config[:preview_url]}/posts/#{year}/#{month}/#{id}"
     else
       status 400
       "content not available in an acceptable format: #{request.accept.join(', ')}"
@@ -203,7 +203,7 @@ get '/drafts/:id' do |id|
       JSON.generate(post: post.fields)
     elsif request.accept?('text/html')
       status 302
-      headers "Location: #{$config[:preview_url]}/posts/drafts/#{id}"
+      headers 'Location' => "#{$config[:preview_url]}/posts/drafts/#{id}"
     else
       status 400
       "content not available in an acceptable format: #{request.accept.join(', ')}"
