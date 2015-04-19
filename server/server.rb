@@ -174,7 +174,7 @@ get '/posts/:year/:month/:id' do |year, month, id|
     elsif request.accept?('text/html')
       status 200
       headers 'Content-Type' => 'text/html'
-      blog.get_post_html(year, month, id)
+      blog.preview_post(year, month, id)
     else
       status 400
       "content not available in an acceptable format: #{request.accept.join(', ')}"
@@ -202,7 +202,7 @@ get '/drafts/:id' do |id|
     elsif request.accept?('text/html')
       status 200
       headers 'Content-Type' => 'text/html'
-      blog.get_draft_html(id)
+      blog.preview_draft(id)
     else
       status 400
       "content not available in an acceptable format: #{request.accept.join(', ')}"
