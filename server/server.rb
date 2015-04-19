@@ -74,12 +74,12 @@ blog = HarpBlog.new($config[:path], $config[:dry_run])
 
 before do
   if request.body.size > 0
-    type = request['HTTP_CONTENT_TYPE']
     @fields =
       case
-      when type =~ /^application\/json\b/
+      when request.accept?('application/json')
         request.body.rewind
-        JSON.parse(request.body.read)
+        json = request.body.read
+        JSON.parse(json)
       else
         params
       end
