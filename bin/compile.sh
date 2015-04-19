@@ -34,7 +34,7 @@ function compile_rss() {
 }
 
 function munge_html() {
-  for FILE in "$TARGET"/*.html "$TARGET"/posts/*/*/*.html "$TARGET"/projects/*.html; do
+  for FILE in "$TARGET"/*.html "$TARGET"/posts/*/*/*.html "$TARGET"/posts/drafts/*.html "$TARGET"/projects/*.html; do
     [[ "${FILE##*/}" = "index.html" ]] && continue
 
     # make posts available without an .html extension
