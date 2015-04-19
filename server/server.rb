@@ -308,14 +308,14 @@ get '/posts/:year/:month/:id' do |year, month, id|
   end
 
   if post
-    if request.accept?('application/json')
-      status 200
-      headers 'Content-Type' => 'application/json'
-      JSON.generate(post: post.fields)
-    elsif request.accept?('text/html')
+    if request.accept?('text/html')
       status 302
       headers 'Location'=> "#{$config[:preview_url]}/posts/#{year}/#{month}/#{id}"
       nil
+    elsif request.accept?('application/json')
+      status 200
+      headers 'Content-Type' => 'application/json'
+      JSON.generate(post: post.fields)
     else
       status 400
       "content not available in an acceptable format: #{request.accept.join(', ')}"
