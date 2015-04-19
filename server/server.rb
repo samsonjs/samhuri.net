@@ -94,6 +94,12 @@ after do
   end
 end
 
+# favicon
+get '/favicon.ico' do
+  status 302
+  headers 'Location' => "#{$config[:preview_url]}/favicon.ico"
+end
+
 # status
 get '/status' do
   status 200
