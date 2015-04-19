@@ -368,9 +368,7 @@ class HarpBlog
       puts ">>> write file '#{filename}', contents:"
       puts data
     else
-      File.open(filename, 'w') do |f|
-        f.puts(data)
-      end
+      File.write(filename, data)
     end
   end
 

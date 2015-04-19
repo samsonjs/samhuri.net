@@ -46,7 +46,7 @@ class CSSInliner
       end
     end
 
-    File.open(html_path, 'w') { |f| f.puts(doc.to_html) }
+    File.write(html_path, doc.to_html)
   end
 
 end

@@ -49,11 +49,11 @@ class Blag
       }.delete_if { |k, v| v.nil? }
     end
     json = JSON.pretty_generate data
-    File.open(data_file, 'w') { |f| f.puts json }
+    File.write(data_file, json)
   end
 
   def generate_rss
-    File.open(rss_file, 'w') { |f| f.puts feed_xml.target! }
+    File.write(rss_file, feed_xml.target!)
   end
 
   def latest_posts(n = @num_posts)
