@@ -2,7 +2,7 @@ all: compile
 
 compile:
 	@echo
-	./bin/compile.sh
+	./bin/compile.sh .
 
 publish: compile
 	@echo

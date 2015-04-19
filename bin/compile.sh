@@ -1,22 +1,23 @@
-#!/bin/bash
+#!/bin/zsh
 
 # bail on errors
 set -e
 
 DIR=$(dirname "$0")
 HARP="node_modules/harp/bin/harp"
-TARGET="${1:-www}"
+BLOG_DIR="${1:-${DIR}/..}"
+TARGET="${BLOG_DIR%/}/${2:-www}"
 
 function main() {
   echo "* compile rss feed"
   compile_rss
 
-  echo "* harp compile . $TARGET"
+  echo "* harp compile $BLOG_DIR $TARGET"
   rm -rf "$TARGET"
-  "$HARP" compile . "$TARGET"
+  "$HARP" compile "$BLOG_DIR" "$TARGET"
 
   # clean up temporary feed
-  rm public/feed.xml
+  rm $BLOG_DIR/public/feed.xml
 
   echo "* munge html files to make them available without an extension"
   munge_html
@@ -29,7 +30,7 @@ function main() {
 }
 
 function compile_rss() {
-  ruby -w $DIR/rss.rb public
+  ruby -w $DIR/rss.rb $BLOG_DIR/public
 }
 
 function munge_html() {
