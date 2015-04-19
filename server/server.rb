@@ -177,6 +177,7 @@ get '/posts/:year/:month/:id' do |year, month, id|
     elsif request.accept?('text/html')
       status 302
       headers 'Location'=> "#{$config[:preview_url]}/posts/#{year}/#{month}/#{id}"
+      nil
     else
       status 400
       "content not available in an acceptable format: #{request.accept.join(', ')}"
@@ -204,6 +205,7 @@ get '/drafts/:id' do |id|
     elsif request.accept?('text/html')
       status 302
       headers 'Location' => "#{$config[:preview_url]}/posts/drafts/#{id}"
+      nil
     else
       status 400
       "content not available in an acceptable format: #{request.accept.join(', ')}"
