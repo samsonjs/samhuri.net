@@ -84,14 +84,6 @@ class HarpBlog
     read_post('drafts', id, draft: true)
   end
 
-  def preview_post(year, month, id)
-    read_rendered_post(File.join(year, month), id)
-  end
-
-  def preview_draft(id)
-    read_rendered_post('drafts', id)
-  end
-
   def create_post(title, body, url, extra_fields = nil)
     if !title || title.strip.length == 0
       title = find_title(url)
@@ -191,10 +183,6 @@ class HarpBlog
     path_for(*args)
   end
 
-  def rendered_post_path(dir, id)
-    path_for('www/posts', dir, id, 'index.html')
-  end
-
   def read_posts(post_dir, extra_fields = nil)
     extra_fields ||= {}
     post_data = read_post_data(post_path(post_dir))
@@ -231,17 +219,6 @@ class HarpBlog
     elsif File.exist?(post_filename)
       message = "missing metadata for #{post_dir}/#{id}: #{post_dir}/_data.json"
       $stderr.puts "[HarpBlog#read_post] #{message}"
-      raise InvalidDataError.new(message)
-    end
-  end
-
-  def read_rendered_post(post_dir, id)
-    post_filename = rendered_post_path(post_dir, id)
-    if File.exists?(post_filename)
-      File.read(post_filename)
-    else
-      message = "missing rendered HTML for post #{post_dir}/#{id} at path #{post_filename}"
-      $stderr.puts "[HarpBlog#read_rendered_post] #{message}"
       raise InvalidDataError.new(message)
     end
   end

@@ -14,6 +14,7 @@ CONFIG_DEFAULTS = {
   host: '127.0.0.1',
   hostname: `hostname --fqdn`.strip,
   port: 6706,
+  preview_port: 5000,
 }
 
 def env_value(name)
@@ -36,6 +37,8 @@ $config.each_key do |name|
     $config[name] = value
   end
 end
+
+$config[:preview_url] = "http://#{$config[:hostname]}:#{$config[:preview_port]}"
 
 unless File.directory?($config[:path])
   raise RuntimeError.new("file not found: #{$config[:path]}")
@@ -172,9 +175,8 @@ get '/posts/:year/:month/:id' do |year, month, id|
       headers 'Content-Type' => 'application/json'
       JSON.generate(post: post.fields)
     elsif request.accept?('text/html')
-      status 200
-      headers 'Content-Type' => 'text/html'
-      blog.preview_post(year, month, id)
+      status 302
+      headers "Location: #{$config[:preview_url]}/posts/#{year}/#{month}/#{id}"
     else
       status 400
       "content not available in an acceptable format: #{request.accept.join(', ')}"
@@ -200,9 +202,8 @@ get '/drafts/:id' do |id|
       headers 'Content-Type' => 'application/json'
       JSON.generate(post: post.fields)
     elsif request.accept?('text/html')
-      status 200
-      headers 'Content-Type' => 'text/html'
-      blog.preview_draft(id)
+      status 302
+      headers "Location: #{$config[:preview_url]}/posts/drafts/#{id}"
     else
       status 400
       "content not available in an acceptable format: #{request.accept.join(', ')}"
