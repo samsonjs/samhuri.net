@@ -132,6 +132,11 @@ get '/months' do
   JSON.generate(months: blog.months)
 end
 
+
+##############
+### Drafts ###
+##############
+
 # list drafts
 get '/posts/drafts' do
   posts = blog.drafts
@@ -140,6 +145,133 @@ get '/posts/drafts' do
   headers 'Content-Type' => 'application/json'
   JSON.generate(posts: posts.map(&:fields))
 end
+
+# get a draft
+get '/posts/drafts/:id' do |id|
+  begin
+    post = blog.get_draft(id)
+  rescue HarpBlog::InvalidDataError => e
+    status 500
+    return "Failed to get draft, invalid data on disk: #{e.message}"
+  end
+
+  if post
+    if request.accept?('text/html')
+      status 302
+      headers 'Location' => "#{$config[:preview_url]}/posts/drafts/#{id}"
+      nil
+    elsif request.accept?('application/json')
+      status 200
+      headers 'Content-Type' => 'application/json'
+      JSON.generate(post: post.fields)
+    else
+      status 400
+      "content not available in an acceptable format: #{request.accept.join(', ')}"
+    end
+  else
+    status 404
+    'not found'
+  end
+end
+
+# make a draft
+post '/posts/drafts' do
+  unless authenticated?(request.env['HTTP_AUTH'])
+    status 403
+    return 'forbidden'
+  end
+
+  id, title, body, link = @fields.values_at('id', 'title', 'body', 'link')
+  begin
+    if post = blog.create_post(title, body, link, id: id, draft: true)
+      url = url_for(post.url)
+      status 201
+      headers 'Location' => url, 'Content-Type' => 'application/json'
+      JSON.generate(post: post.fields)
+    else
+      status 500
+      'failed to create post'
+    end
+  rescue HarpBlog::PostExistsError => e
+    post = HarpBlog::Post.new({
+      title: title,
+      body: body,
+      link: link,
+    })
+    status 409
+    "refusing to clobber existing draft, update it instead: #{post.url}"
+  rescue HarpBlog::PostSaveError => e
+    status 500
+    if orig_err = e.original_error
+      "#{e.message} -- #{orig_err.class}: #{orig_err.message}"
+    else
+      "Failed to create draft: #{e.message}"
+    end
+  end
+end
+
+# update a draft
+put '/posts/drafts/:id' do |id|
+  unless authenticated?(request.env['HTTP_AUTH'])
+    status 403
+    return 'forbidden'
+  end
+
+  title, body, link = @fields.values_at('title', 'body', 'link')
+  begin
+    if post = blog.get_draft(id)
+      blog.update_post(post, title, body, link)
+      status 204
+    else
+      status 404
+      'not found'
+    end
+  rescue HarpBlog::InvalidDataError => e
+    status 500
+    "Failed to update draft, invalid data on disk: #{e.message}"
+  rescue HarpBlog::PostSaveError => e
+    status 500
+    if orig_err = e.original_error
+      "#{e.message} -- #{orig_err.class}: #{orig_err.message}"
+    else
+      "Failed to update draft: #{e.message}"
+    end
+  end
+end
+
+# delete a draft
+delete '/posts/drafts/:id' do |id|
+  unless authenticated?(request.env['HTTP_AUTH'])
+    status 403
+    return 'forbidden'
+  end
+
+  blog.delete_draft(id)
+  status 204
+end
+
+# publish a post
+post '/posts/drafts/:id/publish' do |id|
+  unless authenticated?(request.env['HTTP_AUTH'])
+    status 403
+    return 'forbidden'
+  end
+
+  if post = blog.get_draft(id)
+    new_post = blog.publish_post(post)
+    status 201
+    headers 'Location' => url_for(new_post.url), 'Content-Type' => 'application/json'
+    JSON.generate(post: new_post.fields)
+  else
+    status 404
+    'not found'
+  end
+end
+
+
+#######################
+### Published Posts ###
+#######################
 
 # list published posts
 get '/posts/:year/?:month?' do |year, month|
@@ -194,70 +326,6 @@ get '/posts/:year/:month/:id' do |year, month, id|
   end
 end
 
-# get a draft
-get '/posts/drafts/:id' do |id|
-  begin
-    post = blog.get_draft(id)
-  rescue HarpBlog::InvalidDataError => e
-    status 500
-    return "Failed to get draft, invalid data on disk: #{e.message}"
-  end
-
-  if post
-    if request.accept?('application/json')
-      status 200
-      headers 'Content-Type' => 'application/json'
-      JSON.generate(post: post.fields)
-    elsif request.accept?('text/html')
-      status 302
-      headers 'Location' => "#{$config[:preview_url]}/posts/drafts/#{id}"
-      nil
-    else
-      status 400
-      "content not available in an acceptable format: #{request.accept.join(', ')}"
-    end
-  else
-    status 404
-    'not found'
-  end
-end
-
-# make a draft
-post '/posts/drafts' do
-  unless authenticated?(request.env['HTTP_AUTH'])
-    status 403
-    return 'forbidden'
-  end
-
-  id, title, body, link = @fields.values_at('id', 'title', 'body', 'link')
-  begin
-    if post = blog.create_post(title, body, link, id: id, draft: true)
-      url = url_for(post.url)
-      status 201
-      headers 'Location' => url, 'Content-Type' => 'application/json'
-      JSON.generate(post: post.fields)
-    else
-      status 500
-      'failed to create post'
-    end
-  rescue HarpBlog::PostExistsError => e
-    post = HarpBlog::Post.new({
-      title: title,
-      body: body,
-      link: link,
-    })
-    status 409
-    "refusing to clobber existing draft, update it instead: #{post.url}"
-  rescue HarpBlog::PostSaveError => e
-    status 500
-    if orig_err = e.original_error
-      "#{e.message} -- #{orig_err.class}: #{orig_err.message}"
-    else
-      "Failed to create draft: #{e.message}"
-    end
-  end
-end
-
 # update a post
 put '/posts/:year/:month/:id' do |year, month, id|
   unless authenticated?(request.env['HTTP_AUTH'])
@@ -287,35 +355,6 @@ put '/posts/:year/:month/:id' do |year, month, id|
   end
 end
 
-# update a draft
-put '/posts/drafts/:id' do |id|
-  unless authenticated?(request.env['HTTP_AUTH'])
-    status 403
-    return 'forbidden'
-  end
-
-  title, body, link = @fields.values_at('title', 'body', 'link')
-  begin
-    if post = blog.get_draft(id)
-      blog.update_post(post, title, body, link)
-      status 204
-    else
-      status 404
-      'not found'
-    end
-  rescue HarpBlog::InvalidDataError => e
-    status 500
-    "Failed to update draft, invalid data on disk: #{e.message}"
-  rescue HarpBlog::PostSaveError => e
-    status 500
-    if orig_err = e.original_error
-      "#{e.message} -- #{orig_err.class}: #{orig_err.message}"
-    else
-      "Failed to update draft: #{e.message}"
-    end
-  end
-end
-
 # delete a post
 delete '/posts/:year/:month/:id' do |year, month, id|
   unless authenticated?(request.env['HTTP_AUTH'])
@@ -325,35 +364,6 @@ delete '/posts/:year/:month/:id' do |year, month, id|
 
   blog.delete_post(year, month, id)
   status 204
-end
-
-# delete a draft
-delete '/posts/drafts/:id' do |id|
-  unless authenticated?(request.env['HTTP_AUTH'])
-    status 403
-    return 'forbidden'
-  end
-
-  blog.delete_draft(id)
-  status 204
-end
-
-# publish a post
-post '/posts/drafts/:id/publish' do |id|
-  unless authenticated?(request.env['HTTP_AUTH'])
-    status 403
-    return 'forbidden'
-  end
-
-  if post = blog.get_draft(id)
-    new_post = blog.publish_post(post)
-    status 201
-    headers 'Location' => url_for(new_post.url), 'Content-Type' => 'application/json'
-    JSON.generate(post: new_post.fields)
-  else
-    status 404
-    'not found'
-  end
 end
 
 # unpublish a post
