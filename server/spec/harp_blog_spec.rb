@@ -167,6 +167,16 @@ RSpec.describe HarpBlog do
     end
   end
 
+  describe "#preview_post" do
+    it "should return some HTML" do
+      @blog.compile
+      first_post_path = File.join(TEST_BLOG_PATH, 'www/posts/2006/02/first-post/index.html')
+      expected_html = File.read(first_post_path)
+      html = @blog.preview_post('2006', '02', 'first-post')
+      expect(html).to eq(expected_html)
+    end
+  end
+
   describe '#create_post' do
     it "should create a link post when a link is given" do
       title = 'test post'
