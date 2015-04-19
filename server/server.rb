@@ -109,7 +109,7 @@ end
 
 # publish the site
 post '/publish' do
-  unless authenticated?(request['Auth'])
+  unless authenticated?(request.env['HTTP_AUTH'])
     status 403
     return 'forbidden'
   end
@@ -224,7 +224,7 @@ end
 
 # make a draft
 post '/posts/drafts' do
-  unless authenticated?(request['Auth'])
+  unless authenticated?(request.env['HTTP_AUTH'])
     status 403
     return 'forbidden'
   end
@@ -260,7 +260,7 @@ end
 
 # update a post
 put '/posts/:year/:month/:id' do |year, month, id|
-  unless authenticated?(request['Auth'])
+  unless authenticated?(request.env['HTTP_AUTH'])
     status 403
     return 'forbidden'
   end
@@ -289,7 +289,7 @@ end
 
 # update a draft
 put '/posts/drafts/:id' do |id|
-  unless authenticated?(request['Auth'])
+  unless authenticated?(request.env['HTTP_AUTH'])
     status 403
     return 'forbidden'
   end
@@ -318,7 +318,7 @@ end
 
 # delete a post
 delete '/posts/:year/:month/:id' do |year, month, id|
-  unless authenticated?(request['Auth'])
+  unless authenticated?(request.env['HTTP_AUTH'])
     status 403
     return 'forbidden'
   end
@@ -329,7 +329,7 @@ end
 
 # delete a draft
 delete '/posts/drafts/:id' do |id|
-  unless authenticated?(request['Auth'])
+  unless authenticated?(request.env['HTTP_AUTH'])
     status 403
     return 'forbidden'
   end
@@ -340,7 +340,7 @@ end
 
 # publish a post
 post '/posts/drafts/:id/publish' do |id|
-  unless authenticated?(request['Auth'])
+  unless authenticated?(request.env['HTTP_AUTH'])
     status 403
     return 'forbidden'
   end
@@ -358,7 +358,7 @@ end
 
 # unpublish a post
 post '/posts/:year/:month/:id/unpublish' do |year, month, id|
-  unless authenticated?(request['Auth'])
+  unless authenticated?(request.env['HTTP_AUTH'])
     status 403
     return 'forbidden'
   end
