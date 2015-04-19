@@ -377,7 +377,7 @@ class HarpBlog
 
   def git_commit(action, title, *files)
     quoted_files = files.map { |f| "\"#{quote(f)}\"" }
-    message = "#{action} '#{quote(title)}'"
+    message = "#{action} '#{quote(title || 'Untitled')}'"
     run("git add -A #{quoted_files.join(' ')} && git commit -m \"#{message}\"")
   end
 
