@@ -168,7 +168,10 @@ class HarpBlog
   end
 
   def compile_if_mutated
-    compile if @mutated
+    if @mutated
+      compile
+      true
+    end
   end
 
 
