@@ -55,7 +55,7 @@ class HarpBlog
   def months
     years.map do |year|
       # hack: month dirs (and only month dirs) are always 2 characters in length
-      Dir[post_path(year, '??')].map { |x| [year, File.basename(x)] }
+      Dir[post_path("#{year}/??")].map { |x| [year, File.basename(x)] }
     end.flatten(1).sort
   end
 
@@ -185,8 +185,10 @@ class HarpBlog
     File.join(@path, *components)
   end
 
-  def post_path(*components)
-    path_for('public/posts', *components)
+  def post_path(dir, id = nil)
+    args = ['public/posts', dir]
+    args << "#{id}.md" if id
+    path_for(*args)
   end
 
   def drafts_path(*components)
@@ -203,14 +205,14 @@ class HarpBlog
       unless extra_fields[:draft]
         fields[:slug] = id
       end
-      post_filename = post_path(post_dir, "#{id}.md")
+      post_filename = post_path(post_dir, id)
       fields[:body] = File.read(post_filename)
       Post.new(fields.merge(extra_fields))
     end
   end
 
   def read_post(post_dir, id, extra_fields = nil)
-    post_filename = post_path(post_dir, "#{id}.md")
+    post_filename = post_path(post_dir, id)
     post_data = read_post_data(post_path(post_dir))
     if File.exist?(post_filename) && fields = post_data[id]
       fields[:body] = File.read(post_filename)
