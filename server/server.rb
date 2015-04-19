@@ -51,7 +51,7 @@ end
 $auth = Auth.new(File.expand_path('../auth.json', __FILE__))
 def authenticated?(auth)
   if $config[:auth]
-    username, password = auth.split('|')
+    username, password = auth.to_s.split('|')
     $auth.authenticated?(username, password)
   else
     true
