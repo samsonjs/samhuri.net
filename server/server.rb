@@ -291,7 +291,7 @@ end
 get '/posts' do
   posts = blog.months.map do |year, month|
     blog.posts_for_month(year, month)
-  end.flatten
+  end.flatten.reverse
 
   status 200
   headers 'Content-Type' => 'application/json'
