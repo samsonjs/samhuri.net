@@ -114,10 +114,11 @@ class HarpBlog
     end
   end
 
-  def update_post(post, title, body, link)
+  def update_post(post, title, body, link, timestamp = nil)
     post.title = title
     post.body = body
     post.link = link
+    post.timestamp = timestamp if timestamp
     save_post('update post', post)
   end
 

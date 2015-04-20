@@ -220,7 +220,7 @@ put '/posts/drafts/:id' do |id|
   title, body, link = @fields.values_at('title', 'body', 'link')
   begin
     if post = blog.get_draft(id)
-      blog.update_post(post, title, body, link)
+      blog.update_post(post, title, body, link, Time.now.to_i)
       status 204
     else
       status 404
