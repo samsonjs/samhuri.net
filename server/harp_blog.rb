@@ -86,10 +86,7 @@ class HarpBlog
 
   def create_post(title, body, url, extra_fields = nil)
     if !title || title.strip.length == 0
-      title = find_title(url)
-    end
-    unless title
-      raise "cannot find title for #{url}"
+      title = url && find_title(url) or 'Untitled'
     end
     extra_fields ||= {}
     fields = extra_fields.merge({
