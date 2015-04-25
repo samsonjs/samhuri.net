@@ -409,7 +409,7 @@ class HarpBlog
 
   def git_update(remote = 'origin')
     if run "git update #{remote}", :nondestructive
-      File.unlink origin_updated_path
+      File.unlink origin_updated_path if origin_updated?
     end
   end
 
