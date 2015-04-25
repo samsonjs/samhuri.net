@@ -374,16 +374,17 @@ class HarpBlog
   def run(cmd, safety = :destructive)
     if safety == :destructive && @dry_run
       puts ">>> cd '#{@path}' && #{cmd}"
-      true
+      [true, '']
     else
-      `cd '#{@path}' && #{cmd} 2>&1`
-      $?.success?
+      output = `cd '#{@path}' && #{cmd} 2>&1`
+      [$?.success?, output]
     end
   end
 
   def git_sha
     update_if_needed
-    run('git log -n1 | head -n1 | cut -d" " -f2', :nondestructive).strip
+    _, output = run 'git log -n1 | head -n1 | cut -d" " -f2', :nondestructive
+    output.strip
   end
 
   def git_commit(action, title, *files)
@@ -397,8 +398,9 @@ class HarpBlog
     run("git reset --hard #{args}")
   end
 
-  def git_push
-    run("git push")
+  def git_push force = false
+    args = force ? '-f' : nil
+    run "git push #{args}"
   end
 
   def origin_updated_path

@@ -233,15 +233,6 @@ RSpec.describe HarpBlog do
       post = @blog.create_post(" \t\n", nil, 'http://samhuri.net')
       expect(post.title).to eq(@mock_title)
     end
-
-    it "should push the new post to the origin repo" do
-      title = 'fetch now'
-      body = 'blah blah blah'
-      post = @blog.create_post(title, body, nil)
-      local_sha = git_sha(TEST_BLOG_PATH)
-      origin_sha = git_sha(TEST_BLOG_ORIGIN_PATH)
-      expect(origin_sha).to eq(local_sha)
-    end
   end
 
   describe '#update_post' do
