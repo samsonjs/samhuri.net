@@ -374,8 +374,10 @@ class HarpBlog
   def run(cmd, safety = :destructive)
     if safety == :destructive && @dry_run
       puts ">>> cd '#{@path}' && #{cmd}"
+      true
     else
       `cd '#{@path}' && #{cmd} 2>&1`
+      $?.success?
     end
   end
 
@@ -404,7 +406,9 @@ class HarpBlog
   end
 
   def git_update(remote = 'origin')
-    run "git update #{remote} && rm #{origin_updated_path}"
+    if run "git update #{remote}", :nondestructive
+      File.unlink origin_updated_path
+    end
   end
 
   def origin_updated?
