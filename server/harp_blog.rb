@@ -49,10 +49,12 @@ class HarpBlog
   end
 
   def years
+    update_if_needed
     Dir[post_path('20*')].map { |x| File.basename(x) }.sort
   end
 
   def months
+    update_if_needed
     years.map do |year|
       # hack: month dirs (and only month dirs) are always 2 characters in length
       Dir[post_path("#{year}/??")].map { |x| [year, File.basename(x)] }
@@ -152,6 +154,11 @@ class HarpBlog
     run("make #{target}")
   end
 
+  def sync
+    update_if_needed
+    git_push
+  end
+
   def compile
     run('make compile')
     @mutated = false
@@ -165,7 +172,9 @@ class HarpBlog
   end
 
 
-  private
+############################################################################################
+  private ##################################################################################
+############################################################################################
 
   def find_title(url)
     @title_finder.find_title(url)
@@ -182,6 +191,7 @@ class HarpBlog
   end
 
   def read_posts(post_dir, extra_fields = nil)
+    update_if_needed
     extra_fields ||= {}
     post_data = read_post_data(post_path(post_dir))
     post_data.sort_by do |k, v|
@@ -198,6 +208,7 @@ class HarpBlog
   end
 
   def read_post(post_dir, id, extra_fields = nil)
+    update_if_needed
     post_filename = post_path(post_dir, id)
     post_data = read_post_data(post_path(post_dir))
     if File.exist?(post_filename) && fields = post_data[id]
@@ -222,13 +233,10 @@ class HarpBlog
   end
 
   def save_post(action, post)
-    git_fetch
-    git_reset_hard('origin/master')
-
+    update_if_needed
     begin
       write_post(post)
       git_commit(action, post.title, post_path(post.dir))
-      git_push
       @mutated = true
       post
 
@@ -238,6 +246,15 @@ class HarpBlog
       git_reset_hard
       raise PostSaveError.new('failed to save post', e)
     end
+  end
+
+  def delete_post_from_dir(post_dir, id)
+    update_if_needed
+    post_dir = post_path(post_dir)
+    delete_post_body(post_dir, id)
+    delete_post_index(post_dir, id)
+    git_commit('delete', id, post_path(post_dir))
+    @mutated = true
   end
 
   def write_post(post)
@@ -254,13 +271,6 @@ class HarpBlog
       delete_post_body(post_dir, post.id)
       raise e
     end
-  end
-
-  def delete_post_from_dir(post_dir, id)
-    post_dir = post_path(post_dir)
-    delete_post_body(post_dir, id)
-    delete_post_index(post_dir, id)
-    @mutated = true
   end
 
   def write_post_body(dir, id, body)
@@ -370,6 +380,7 @@ class HarpBlog
   end
 
   def git_sha
+    update_if_needed
     run('git log -n1 | head -n1 | cut -d" " -f2', :nondestructive).strip
   end
 
@@ -379,18 +390,25 @@ class HarpBlog
     run("git add -A #{quoted_files.join(' ')} && git commit -m \"#{message}\"")
   end
 
-  def git_fetch
-    run('git fetch')
-  end
-
   def git_reset_hard(ref = nil)
     args = ref ? "'#{ref}'" : ''
     run("git reset --hard #{args}")
   end
 
-  def git_push(force = false)
-    args = force ? '-f' : ''
-    run("git push #{args}")
+  def git_push
+    run("git push")
+  end
+
+  def git_update(remote = 'origin')
+    run("git update #{remote} && rm origin-updated")
+  end
+
+  def origin_updated?
+    File.exist?('origin-updated')
+  end
+
+  def update_if_needed
+    git_update if origin_updated?
   end
 
 end

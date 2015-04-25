@@ -118,6 +118,18 @@ post '/publish' do
   status 204
 end
 
+# sync with github
+post '/sync' do
+  unless authenticated?(request.env['HTTP_AUTH'])
+    status 403
+    return 'forbidden'
+  end
+
+  blog.sync
+  status 204
+  nil
+end
+
 # list years
 get '/years' do
   status 200
