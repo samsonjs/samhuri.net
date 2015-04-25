@@ -399,12 +399,16 @@ class HarpBlog
     run("git push")
   end
 
+  def origin_updated_path
+    File.join @path, 'origin-updated'
+  end
+
   def git_update(remote = 'origin')
-    run("git update #{remote} && rm origin-updated")
+    run "git update #{remote} && rm #{origin_updated_path}"
   end
 
   def origin_updated?
-    File.exist?('origin-updated')
+    File.exist? origin_updated_path
   end
 
   def update_if_needed
