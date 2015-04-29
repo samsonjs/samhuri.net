@@ -387,7 +387,7 @@ post '/posts/:year/:month/:id/unpublish' do |year, month, id|
 
   if post = blog.get_post(year, month, id)
     new_post = blog.unpublish_post(post)
-    status 201
+    status 200
     headers 'Location' => url_for(new_post.url), 'Content-Type' => 'application/json'
     JSON.generate(post: new_post.fields)
   else
