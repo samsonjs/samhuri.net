@@ -21,9 +21,18 @@ ExpiresDefault A259200
   Header append Cache-Control "private, must-revalidate"
 </FilesMatch>
 
+
+################
+### Rewrites ###
+################
+RewriteEngine On
+
+# Redirect http to https
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+
 # Make super old posts redirect properly.
 #   e.g. http://sami.samhuri.net/2007/6/23/emacs-for-textmate-junkies
-RewriteEngine On
 RewriteRule ^posts/([0-9][0-9][0-9][0-9])/([0-9])/[0-9]/(.*)$ /posts/$1/0$2/$3 [R=301]
 RewriteRule ^posts/([0-9][0-9][0-9][0-9])/([0-9])/[0-9][0-9]/(.*)$ /posts/$1/0$2/$3 [R=301]
 RewriteRule ^posts/([0-9][0-9][0-9][0-9])/([0-9][0-9])/[0-9]/(.*)$ /posts/$1/$2/$3 [R=301]
