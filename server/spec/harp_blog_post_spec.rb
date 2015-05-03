@@ -8,7 +8,7 @@ RSpec.describe HarpBlog::Post do
   before :all do
     @post_fields = {
         title: 'samhuri.net',
-        link: 'http://samhuri.net',
+        link: 'https://samhuri.net',
         body: 'this site is sick',
     }
     @post_slug = 'samhuri-net'

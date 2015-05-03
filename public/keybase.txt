@@ -4,11 +4,11 @@ https://keybase.io/samsonjs
 
 I hereby claim:
 
-  * I am an admin of http://samhuri.net
+  * I am an admin of https://samhuri.net
   * I am samsonjs (https://keybase.io/samsonjs) on keybase.
   * I have a public key with fingerprint BBED 74DD 17DB 7C8F 7664  4FE2 0522 38DD 367F 2A76
 
-To claim this, I am signing this object:
+To do so, I am signing this object:
 
 {
     "body": {
@@ -16,45 +16,47 @@ To claim this, I am signing this object:
             "fingerprint": "bbed74dd17db7c8f76644fe2052238dd367f2a76",
             "host": "keybase.io",
             "key_id": "052238dd367f2a76",
+            "kid": "0101aac046bd370929210140a4ad115771b2474168ce5133dc0b7a0a580dccd2e9ac0a",
             "uid": "25b680ae659b316bdce367b13f236900",
             "username": "samsonjs"
         },
         "service": {
             "hostname": "samhuri.net",
-            "protocol": "http:"
+            "protocol": "https:"
         },
         "type": "web_service_binding",
         "version": 1
     },
-    "ctime": 1398721942,
+    "ctime": 1430693548,
     "expire_in": 157680000,
-    "prev": "b1e8262765e3cce79be1740d17ce3ce87119f7e4744c71a94f8875cb491969f2",
-    "seqno": 2,
+    "prev": "be101663b075e83d97d0d55140f36744fb167f5d3f8769c8aebb4947fcadb8a3",
+    "seqno": 9,
     "tag": "signature"
 }
 
-with the aforementioned key, yielding the PGP signature:
+which yields the signature:
 
 -----BEGIN PGP MESSAGE-----
-Version: Keybase OpenPGP v0.1.12
+Version: Keybase OpenPGP v2.0.8
 Comment: https://keybase.io/crypto
 
-yMHmAnicbZFbSBRhFMd3NS03Q/FB6CGiT4OyRXdmZ+ebWcmXKFi1YtFIxVrm8s3u
-VDuzzsxurcsGBV2g1dCwTe2iWUgQUlEmmJdki8g06cFAyHoIpUIw6ymI9Rspemle
-hvmf3//855yT2pRpsVn3vi//XFtQMG2dHF8OW2qOTl2NAV4Vo8AdA8fR2kuSFT/S
-QpqsGMANeB6JkBJFAoo8FBgJ0jRFSYh0uEjSyYiik4YSyUEa2EFA1U0HbsNzOiqV
-VazhD58sYvU/fHitQLp4mnFwiHaxvJOgeVFAmOEJp0Q6adbhMEEdaQoXRJjWuaCu
-Ksd0ELcDrEZkAauxteh/RCCsyaUKMrA1pKmGKqgncCFgGCG36TOiIRM8iXjfnxY+
-XlZEPDY2RJCmy6oC3AQmBUM2exJOloEkwVKkHaBTIVlDPtkkXBD/OX7MGBQxl0Ug
-hqRJSLuQUxAQZHlEQMqBl4eHEhADCYKVIKIgRQmQ4FhKYhjoEniKJVialUicr6Mm
-RQVunGRwfnMc2a9wRlhDID4x3rjOYrVZsrMyzMNZbDn5f8+59cz6dIBvbNnjzY9+
-fziW9kf7hkcS1smZmScNUlFydmV2Z5WyNNX6Icbm3htpmm5runCu9+vb5pa2Bz37
-QNbgEXdZ53J5g23b3e2HMsev5RRNXHzdWz8c7O+GO5iBsbqeoa7LBx/lDxXvfnPa
-c6mresPt+p/dvXXz+vVk6UqqYvPH4gH5eWXVs6R3xmMZiosdanHOHeLpjcpoza5P
-i3JJwPvN81tPPf6Rkepo0BMZrV3paIJNDi/NlbC+/njtr9qiA7cOZ6faz6bb8gYL
-vwStRvv+K575xQGyzzr1YqPafHMhYO98V3H/5Xz5XKG3ZSGRV/GKGh3NbSXPi8FI
-dRmxZRUO8hJq
-=7TfG
+yMIcAnicbVJrSBVBFL5qT0ML6SE9pBbMskvMPmf3ZhCVmkFiaQg9uM3szHo3dfd6
+715NTSQho4c/giQrIkoRISEKwjR/qCVUSkhdKyQiKQsiColEsLRZK/rT/BnmnO/7
+zjnfnIcJcZ74mMyXW94XJCU9jRno3Rbx7M9qba/msE0qOV81V0xnL8O0imgoGDIt
+h/NxGFMCJUJ4SDDUVQMqiiQZVACyIIgqIaICDQFBhfNyATvsMpgMRmG62bRZjD38
+JmHR/+CLfyd4wCOkA0nBRIRAEzSBRSSAJER4XoaQx4IEJV5RdSrzokh0gCECSFYB
+0XUiUI2REZOLzMoJMlZUgKgia1jkmaZOWUnMi4YgKhoALjBMQxYqpQwdRqVh2zoa
+5mq8HIuWmzp1LXAn+YcIRELmZos6jBoM2Y6t2yUsEXCcYNjnEp3KoIusoNj/R8OP
+TYswGxmjnIbCpm1xPp4hdcd0RXlJBIomypLq5eixoBmiftNFyJC1zo5bh5a75lNm
+haKIGECZqiLRIAFElpk7BhuK/QPmmZ0yEQ0VKpquIoqxpEnQ0BHBKhI5d6oyy+Z8
+GmsTFbnzmEUWciIhytX09Rya44mJ98ybG+sugid+4ZK/69EcXeC5OJNfdTzd8njG
+M85JYM9Yc0O/MaadmeKvlNXfccYX3V1+eE/VlluDjUkXmi6kX+38SN40vuhpr/eu
+PBLbvab2S+HoCt+NK9vavg9/q8hu+NwCHsdkqcl9yz6MXF/9o3d88cnW8g2n+2+d
+SH5QEin9eepsVqBp/t73adHU6cQOkNkxFb20dP2nxdtHXkwMXB8ce6V9nOyyW7hz
++QF4GePJrIJ3j4ZuvM4UJ/yf80a6RtvX595OvXYvuyajkd4szMkhKdO1TW11DWk5
+0aEva+Pg1oRFX43cro3Dz/d1Hhi+v7t7XUXd3NTo+YPGql0pecnPvDsSRxNzNo1U
+vh3qmHlyu7lj5y+c8ipk
+=BWBO
 -----END PGP MESSAGE-----
 
 And finally, I am proving ownership of this host by posting or
@@ -63,3 +65,4 @@ appending to this document.
 View my publicly-auditable identity here: https://keybase.io/samsonjs
 
 ==================================================================
+

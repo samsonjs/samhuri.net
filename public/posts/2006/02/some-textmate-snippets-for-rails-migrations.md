@@ -64,7 +64,7 @@ I'll be adding more snippets and macros. There should be a central place where t
 
 <div id="comment-2" class="comment">
   <div class="name">
-    <a href="http://samhuri.net">Sami Samhuri</a>
+    <a href="https://samhuri.net">Sami Samhuri</a>
   </div>
   <span class="date" title="2006-02-19 18:48:00 -0800">Feb 19, 2006</span>
   <div class="body">

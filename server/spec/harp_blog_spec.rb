@@ -171,7 +171,7 @@ RSpec.describe HarpBlog do
     it "should create a link post when a link is given" do
       title = 'test post'
       body = 'check this out'
-      link = 'http://samhuri.net'
+      link = 'https://samhuri.net'
       post = @blog.create_post(title, body, link)
       expect(post).to be_truthy
       expect(post.link?).to be_truthy
@@ -227,10 +227,10 @@ RSpec.describe HarpBlog do
     end
 
     it "should fetch titles if necessary" do
-      post = @blog.create_post(nil, nil, 'http://samhuri.net')
+      post = @blog.create_post(nil, nil, 'https://samhuri.net')
       expect(post.title).to eq(@mock_title)
       @blog.delete_post(post.time.year.to_s, post.padded_month, post.slug)
-      post = @blog.create_post(" \t\n", nil, 'http://samhuri.net')
+      post = @blog.create_post(" \t\n", nil, 'https://samhuri.net')
       expect(post.title).to eq(@mock_title)
     end
   end
@@ -306,7 +306,7 @@ RSpec.describe HarpBlog do
       id = 'this-draft-is-a-keeper'
       title = 'a-shiny-new-post'
       body = 'blah blah blah'
-      link = 'http://samhuri.net'
+      link = 'https://samhuri.net'
       draft = @blog.create_post(title, body, link, id: id, draft: true)
       post = @blog.publish_post(draft)
       expect(post).to be_truthy
@@ -350,7 +350,7 @@ RSpec.describe HarpBlog do
     it "should raise an error for drafts" do
       title = 'a-shiny-new-post'
       body = 'blah blah blah'
-      link = 'http://samhuri.net'
+      link = 'https://samhuri.net'
       post = @blog.create_post(title, body, link, draft: true)
       expect { @blog.unpublish_post(post) }.to raise_error
     end

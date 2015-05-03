@@ -1,7 +1,7 @@
 /* SITE */
 
 Site name:  samhuri.net
-Site URL:   http://samhuri.net
+Site URL:   https://samhuri.net
 Contact:    sami@samhuri.net
 Twitter:    @_sjs
 Location:   Victoria, British Columbia, Canada

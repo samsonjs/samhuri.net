@@ -54,7 +54,7 @@
 
 <p>&nbsp;</p>
 <div align="center">
-<a href="http://samhuri.net/Chalk/images/background.jpg"><img height="473" src="http://samhuri.net/Chalk/images/background.jpg" style="border: 0;" width="512" /></a><br />
+<a href="https://samhuri.net/Chalk/images/background.jpg"><img height="473" src="https://samhuri.net/Chalk/images/background.jpg" style="border: 0;" width="512" /></a><br />
 background.jpg 1024x946px</div>
 
 <p>The background is the blackboard itself, and is almost square at 1024x946. The cork border and light switch are there too. This is set as the background-image of the html element and is positioned at a negative x or y in order to centre it properly. <a href="https://developer.mozilla.org/En/CSS/Media_queries">CSS media queries</a> are used to detect the screen's orientation. This way the same image is used for both orientations, clever.</p>
@@ -75,7 +75,7 @@ background.jpg 1024x946px</div>
 
 <p>&nbsp;</p>
 <div align="center" id="sprites">
-<img height="534" src="http://samhuri.net/Chalk/images/chalk-sprites.png" width="502" /><br />
+<img height="534" src="https://samhuri.net/Chalk/images/chalk-sprites.png" width="502" /><br />
 chalk-sprites.png </div>
 
 <p>Sprites are used for all the other elements: ledge, chalk, eraser, tool indicator, share button, instructions, and close button (to leave the sharing mode). Positioned using CSS, standard stuff. There is white text alongside those green arrows. If you want to see it we'll have to <a href="#" onclick="document.getElementById('sprites').style.backgroundColor = '#000'; return false">change the background to black</a>.</p>
@@ -183,7 +183,7 @@ chalk-sprites.png </div>
 <p>&nbsp;</p>
 <h2>That's it!</h2>
 
-<p>That about covers it. Don't have an iPad? <a href="http://samhuri.net/Chalk/index.html">Play around with it anyway</a>, but be warned that you can't draw anything. You can select chalk and the eraser and hit the light switch. I instinctively tried touching my MacBook's display but alas it doesn't magically respond to touches, lame.</p>
+<p>That about covers it. Don't have an iPad? <a href="https://samhuri.net/Chalk/index.html">Play around with it anyway</a>, but be warned that you can't draw anything. You can select chalk and the eraser and hit the light switch. I instinctively tried touching my MacBook's display but alas it doesn't magically respond to touches, lame.</p>
 
 <p>Have fun drawing. Thanks to 37signals for a beautiful (and useful) example of a few modern web technologies.</p>
 
@@ -280,7 +280,7 @@ addLineNumbersToAllGists();
 
 <div id="comment-6" class="comment">
   <div class="name">
-    <a href="http://samhuri.net">sjs</a>
+    <a href="https://samhuri.net">sjs</a>
   </div>
   <span class="date" title="2010-11-05 11:35:27 -0700">Nov 05, 2010</span>
   <div class="body">
