@@ -1,6 +1,8 @@
 DefaultType text/plain
 AddType audio/mp4 m4r
 AddType application/rss+xml rss
+# for /projects/samhuri.net ... sigh
+AddType text/html net
 SetOutputFilter DEFLATE
 AddDefaultCharset utf-8
 
