@@ -96,7 +96,7 @@ class HarpBlog
     end
 
     def date
-      @date ||= time.strftime('%B %d, %Y')
+      @date ||= time.strftime('%B %-d, %Y')
     end
 
     def tags
