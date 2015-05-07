@@ -77,12 +77,11 @@ class HarpBlog
     end
 
     def url
-      @url ||=
-          if draft?
-            "/posts/drafts/#{id}"
-          else
-            "/posts/#{time.year}/#{padded_month}/#{slug}"
-          end
+      if draft?
+        "/posts/drafts/#{id}"
+      else
+        "/posts/#{time.year}/#{padded_month}/#{slug}"
+      end
     end
 
     def slug

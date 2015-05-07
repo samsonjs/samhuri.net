@@ -186,7 +186,7 @@ get '/posts/drafts/:id' do |id|
   end
 end
 
-# make a draft
+# make a draft, and optionally publish it immediately
 post '/posts/drafts' do
   unless authenticated?(request.env['HTTP_AUTH'])
     status 403
@@ -196,6 +196,10 @@ post '/posts/drafts' do
   id, title, body, link = @fields.values_at('id', 'title', 'body', 'link')
   begin
     if post = blog.create_post(title, body, link, id: id, draft: true)
+      if @fields['publish'] == 'true'
+        post = blog.publish_post(post)
+        blog.publish(@fields['env'])
+      end
       url = url_for(post.url)
       status 201
       headers 'Location' => url, 'Content-Type' => 'application/json'
