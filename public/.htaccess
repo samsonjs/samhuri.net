@@ -31,6 +31,7 @@ RewriteEngine On
 
 # Redirect http to https
 RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} !beta\.samhuri\.net [NC]
 RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 
 # Make super old posts redirect properly.
