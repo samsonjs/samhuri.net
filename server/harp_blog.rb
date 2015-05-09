@@ -253,7 +253,7 @@ class HarpBlog
     post_dir = post_path(post_dir)
     delete_post_body(post_dir, id)
     delete_post_index(post_dir, id)
-    git_commit('delete', id, post_path(post_dir))
+    git_commit('delete', id, post_dir)
     @mutated = true
   end
 
