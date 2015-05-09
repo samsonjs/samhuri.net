@@ -13,7 +13,7 @@ function main() {
   compile_rss
 
   echo "* harp compile $BLOG_DIR $TARGET"
-  rm -rf "$TARGET"
+  rm -rf "$TARGET/*" "$TARGET/.*"
   "$HARP" compile "$BLOG_DIR" "$TARGET"
 
   # clean up temporary feed
