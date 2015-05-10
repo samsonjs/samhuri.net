@@ -206,7 +206,7 @@ post '/posts/drafts' do
   id, title, body, link = @fields.values_at('id', 'title', 'body', 'link')
   begin
     if post = blog.create_post(title, body, link, id: id, draft: true)
-      if @fields['publish'] == 'true'
+      if @fields['env']
         post = blog.publish_post(post)
         blog.publish(@fields['env'])
       end
