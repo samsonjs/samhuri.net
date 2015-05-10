@@ -83,14 +83,24 @@ before do
       else
         params
       end
+  else
+    @fields = {}
   end
 end
 
 after do
-  start = Time.now
-  if blog.compile_if_mutated
-    duration = Time.now.to_f - start.to_f
-    puts "Compiled blog in #{duration.round}ms"
+  @wait_for_compilation ||= @fields['wait']
+  compile = -> {
+    start = Time.now
+    if blog.compile_if_mutated
+      duration = Time.now.to_f - start.to_f
+      puts "Compiled blog in #{duration.round(2)}s"
+    end
+  }
+  if @wait_for_compilation
+    compile.call
+  else
+    Thread.new &compile
   end
 end
 
@@ -275,6 +285,7 @@ post '/posts/drafts/:id/publish' do |id|
 
   if post = blog.get_draft(id)
     new_post = blog.publish_post(post)
+    @wait_for_compilation = true
     status 201
     headers 'Location' => url_for(new_post.url), 'Content-Type' => 'application/json'
     JSON.generate(post: new_post.fields)
@@ -391,6 +402,7 @@ post '/posts/:year/:month/:id/unpublish' do |year, month, id|
 
   if post = blog.get_post(year, month, id)
     new_post = blog.unpublish_post(post)
+    @wait_for_compilation = true
     status 200
     headers 'Location' => url_for(new_post.url), 'Content-Type' => 'application/json'
     JSON.generate(post: new_post.fields)

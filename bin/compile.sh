@@ -7,6 +7,21 @@ DIR=$(dirname "$0")
 HARP="node_modules/harp/bin/harp"
 BLOG_DIR="${1:-${DIR}/..}"
 TARGET="${BLOG_DIR%/}/${2:-www}"
+LOCK_FILE="$BLOG_DIR/compile.lock"
+
+if [[ -e "$LOCK_FILE" ]]; then
+  echo "Bailing, another compilation is running"
+  exit 1
+fi
+
+function lock {
+  echo $$ >| "$LOCK_FILE"
+}
+function delete_lock_file {
+	rm -f "$LOCK_FILE"
+}
+trap delete_lock_file SIGHUP SIGINT SIGTERM SIGEXIT
+lock
 
 function main() {
   echo "* compile rss feed"
@@ -27,6 +42,8 @@ function main() {
 
   echo "* minify js"
   minify_js
+
+  delete_lock_file
 }
 
 function compile_rss() {

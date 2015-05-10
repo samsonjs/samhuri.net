@@ -160,15 +160,17 @@ class HarpBlog
   end
 
   def compile
-    run('make compile')
-    @mutated = false
+    success, output = run('make compile')
+    if success
+      @mutated = false
+    else
+      puts output
+    end
+    success
   end
 
   def compile_if_mutated
-    if @mutated
-      compile
-      true
-    end
+    compile if @mutated
   end
 
 
