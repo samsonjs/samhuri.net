@@ -17,6 +17,28 @@
   },
   "posts": [
     {
+      "title": "→ Importing Modules in LLDB",
+      "date": "May 12, 2015",
+      "timestamp": 1431396215,
+      "tags": [
+
+      ],
+      "author": "Sami Samhuri",
+      "url": "/posts/2015/05/importing-modules-in-lldb",
+      "link": "http://furbo.org/2015/05/11/an-import-ant-change-in-xcode/"
+    },
+    {
+      "title": "→ Apple Watch Human Interface Guidelines",
+      "date": "May 10, 2015",
+      "timestamp": 1431223039,
+      "tags": [
+
+      ],
+      "author": "Sami Samhuri",
+      "url": "/posts/2015/05/apple-watch-human-interface-guidelines",
+      "link": "https://developer.apple.com/watch/human-interface-guidelines/"
+    },
+    {
       "title": "Structure of an Ember app",
       "date": "3rd February, 2014",
       "timestamp": 1391479549,
@@ -105,26 +127,6 @@
       ],
       "url": "/posts/2012/01/yak-shaving",
       "link": "http://blog.hasmanythrough.com/2012/1/4/yak-shaving"
-    },
-    {
-      "title": "→ The Broken Pixel Theory",
-      "date": "25th December, 2011",
-      "timestamp": 1324868060,
-      "tags": [
-
-      ],
-      "url": "/posts/2011/12/the-broken-pixel-theory",
-      "link": "http://jtaby.com/2011/12/25/the-broken-pixel-theory.html"
-    },
-    {
-      "title": "→ New Release of Firefox for Android, Optimized for Tablets",
-      "date": "22nd December, 2011",
-      "timestamp": 1324868051,
-      "tags": [
-
-      ],
-      "url": "/posts/2011/12/new-release-of-firefox-for-android-optimized-for-tablets",
-      "link": "http://daringfireball.net/linked/2011/12/22/firefox-android"
     }
   ]
 }
