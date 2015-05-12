@@ -11,18 +11,6 @@
 
     ]
   },
-  "test": {
-    "id": "test",
-    "author": "Sami Samhuri",
-    "title": "Test",
-    "date": "May 10, 2015",
-    "timestamp": 1431291912,
-    "link": "http://twitter.com/darylginn/status/595716688638824448",
-    "url": "/posts/2015/05/test",
-    "tags": [
-
-    ]
-  },
   "importing-modules-in-lldb": {
     "id": "importing-modules-in-lldb",
     "author": "Sami Samhuri",
