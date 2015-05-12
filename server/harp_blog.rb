@@ -86,11 +86,13 @@ class HarpBlog
     read_post('drafts', id, draft: true)
   end
 
-  def create_post(title, body, url, extra_fields = nil)
+  def create_post(title, body, url, extra_fields = nil, options = nil)
     if !title || title.strip.length == 0
       title = url && find_title(url) or 'Untitled'
     end
     extra_fields ||= {}
+    options ||= {}
+    options[:commit] = true unless options.has_key?(:commit)
     fields = extra_fields.merge({
       title: title,
       link: url,
@@ -109,7 +111,11 @@ class HarpBlog
     if existing_post
       raise PostExistsError.new("post exists: #{post.dir}/#{post.id}")
     else
-      save_post('create post', post)
+      save_post(post)
+      if options[:commit]
+        git_commit("create post '#{post.title}'", [post_path(post.dir)])
+      end
+      post
     end
   end
 
@@ -118,21 +124,31 @@ class HarpBlog
     post.body = body
     post.link = link
     post.timestamp = timestamp if timestamp
-    save_post('update post', post)
+    save_post(post)
+    git_commit("update post '#{post.title}'", [post_path(post.dir)])
+    post
   end
 
   def delete_post(year, month, id)
-    delete_post_from_dir(File.join(year, month), id)
+    dir = File.join(year, month)
+    delete_post_from_dir(dir, id)
+    git_commit("delete post #{year}/#{month}/#{id}", [post_path(dir)])
   end
 
-  def delete_draft(id)
+  def delete_draft(id, options = nil)
+    options ||= {}
+    options[:commit] = true unless options.has_key?(:commit)
     delete_post_from_dir('drafts', id)
+    if options[:commit]
+      git_commit("delete draft #{id}", [post_path('drafts')])
+    end
   end
 
   def publish_post(post)
     if post.draft?
-      new_post = create_post(post.title, post.body, post.link)
+      new_post = create_post(post.title, post.body, post.link, {}, {commit: false})
       delete_post_from_dir('drafts', post.id)
+      git_commit("publish '#{quote(post.title)}'", [post_path('drafts'), post_path(new_post.dir), root_data_path])
       new_post
     else
       raise PostAlreadyPublishedError.new("post is already published: #{post.dir}/#{post.id}")
@@ -143,15 +159,19 @@ class HarpBlog
     if post.draft?
       raise PostNotPublishedError.new("post is not published: #{post.dir}/#{post.id}")
     else
-      new_post = create_post(post.title, post.body, post.link, draft: true)
+      new_post = create_post(post.title, post.body, post.link, {draft: true}, {commit: false})
       delete_post_from_dir(post.dir, post.id)
+      git_commit("unpublish '#{quote(post.title)}'", [post_path(post.dir), post_path('drafts'), root_data_path])
       new_post
     end
   end
 
   def publish(env)
-    target = env.to_s == 'production' ? 'publish' : 'publish_beta'
-    run("make #{target}")
+    is_prod = env.to_s == 'production'
+    target = is_prod ? 'publish' : 'publish_beta'
+    success, output = run("make #{target}")
+    commit_root_data if is_prod
+    [success, output]
   end
 
   def sync
@@ -184,6 +204,10 @@ class HarpBlog
 
   def path_for(*components)
     File.join(@path, *components)
+  end
+
+   def root_data_path
+    path_for('public/_data.json')
   end
 
   def post_path(dir, id = nil)
@@ -234,11 +258,10 @@ class HarpBlog
     end
   end
 
-  def save_post(action, post)
+  def save_post(post)
     update_if_needed
     begin
       write_post(post)
-      git_commit(action, post.title, post_path(post.dir))
       post
 
     rescue => e
@@ -254,7 +277,6 @@ class HarpBlog
     post_dir = post_path(post_dir)
     delete_post_body(post_dir, id)
     delete_post_index(post_dir, id)
-    git_commit('delete', id, post_dir)
   end
 
   def write_post(post)
@@ -309,6 +331,10 @@ class HarpBlog
       source = File.join(dir, '../../2006/index.ejs')
       cp(source, yearly_index_filename)
     end
+  end
+
+  def commit_root_data
+    git_commit('commit root _data.json', [root_data_path])
   end
 
   def read_post_data(dir)
@@ -387,12 +413,16 @@ class HarpBlog
     output.strip
   end
 
-  def git_commit(action, title, *files)
+  def git_commit(message, files)
     quoted_files = files.map { |f| "\"#{quote(f)}\"" }
-    message = "#{action} '#{quote(title || 'Untitled')}'"
-    success, _ = run("git add -A #{quoted_files.join(' ')} && git commit -m \"#{message}\"")
-    @mutated = true if success
-    success
+    puts ">>> git add -A #{quoted_files.join(' ')} && git commit -m \"#{message}\""
+    success, output = run("git add -A #{quoted_files.join(' ')} && git commit -m \"#{message}\"")
+    if success
+      @mutated = true
+    else
+      puts output
+    end
+    [success, output]
   end
 
   def git_reset_hard(ref = nil)
