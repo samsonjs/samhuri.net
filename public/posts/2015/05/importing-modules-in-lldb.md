@@ -1,0 +1,1 @@
+It's great that Apple added this but I don't understand why Foundation and UIKit aren't imported automatically when you're writing an iOS app.
