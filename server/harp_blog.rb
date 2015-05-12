@@ -206,7 +206,7 @@ class HarpBlog
     File.join(@path, *components)
   end
 
-   def root_data_path
+  def root_data_path
     path_for('public/_data.json')
   end
 

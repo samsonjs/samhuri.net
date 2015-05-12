@@ -100,7 +100,7 @@ after do
   if @wait_for_compilation
     compile.call
   else
-    fork &compile
+    fork(&compile)
   end
 end
 
