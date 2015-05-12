@@ -100,7 +100,7 @@ after do
   if @wait_for_compilation
     compile.call
   else
-    Thread.new &compile
+    fork &compile
   end
 end
 
@@ -124,7 +124,7 @@ post '/publish' do
     return 'forbidden'
   end
 
-  Thread.new do
+  fork do
     blog.publish(@fields['env'])
   end
   status 204
@@ -210,7 +210,7 @@ post '/posts/drafts' do
     if post = blog.create_post(title, body, link, id: id, draft: true)
       if @fields['env']
         post = blog.publish_post(post)
-        Thread.new do
+        fork do
           blog.publish(@fields['env'])
         end
         @wait_for_compilation = false
