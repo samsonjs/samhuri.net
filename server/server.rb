@@ -124,7 +124,9 @@ post '/publish' do
     return 'forbidden'
   end
 
-  blog.publish(@fields['env'])
+  Thread.new do
+    blog.publish(@fields['env'])
+  end
   status 204
 end
 
@@ -208,7 +210,10 @@ post '/posts/drafts' do
     if post = blog.create_post(title, body, link, id: id, draft: true)
       if @fields['env']
         post = blog.publish_post(post)
-        blog.publish(@fields['env'])
+        Thread.new do
+          blog.publish(@fields['env'])
+        end
+        @wait_for_compilation = false
       end
       url = url_for(post.url)
       status 201
