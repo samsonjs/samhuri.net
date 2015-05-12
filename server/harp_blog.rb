@@ -239,7 +239,6 @@ class HarpBlog
     begin
       write_post(post)
       git_commit(action, post.title, post_path(post.dir))
-      @mutated = true
       post
 
     rescue => e
@@ -256,7 +255,6 @@ class HarpBlog
     delete_post_body(post_dir, id)
     delete_post_index(post_dir, id)
     git_commit('delete', id, post_dir)
-    @mutated = true
   end
 
   def write_post(post)
@@ -392,7 +390,9 @@ class HarpBlog
   def git_commit(action, title, *files)
     quoted_files = files.map { |f| "\"#{quote(f)}\"" }
     message = "#{action} '#{quote(title || 'Untitled')}'"
-    run("git add -A #{quoted_files.join(' ')} && git commit -m \"#{message}\"")
+    success, _ = run("git add -A #{quoted_files.join(' ')} && git commit -m \"#{message}\"")
+    @mutated = true if success
+    success
   end
 
   def git_reset_hard(ref = nil)
