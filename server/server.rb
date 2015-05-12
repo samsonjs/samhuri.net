@@ -73,7 +73,6 @@ set :port, $config[:port]
 blog = HarpBlog.new($config[:path], $config[:dry_run])
 
 before do
-  @wait_for_compilation = @fields['wait']
   if request.body.size > 0
     @fields =
       case
@@ -87,6 +86,7 @@ before do
   else
     @fields = {}
   end
+  @wait_for_compilation = @fields['wait']
 end
 
 after do
