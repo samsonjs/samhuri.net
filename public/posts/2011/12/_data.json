@@ -34,14 +34,16 @@
     "link": "http://calendar.perfplanet.com/2011/i-see-http/"
   },
   "my-kind-of-feature-checklist": {
+    "id": "my-kind-of-feature-checklist",
+    "author": "Sami Samhuri",
     "title": "My kind of feature checklist",
     "date": "19th December, 2011",
     "timestamp": 1324354805,
+    "link": "http://www.marco.org/2011/12/19/amazon-kindle-vs-ipad",
+    "url": "/posts/2011/12/my-kind-of-feature-checklist",
     "tags": [
 
-    ],
-    "url": "/posts/2011/12/my-kind-of-feature-checklist",
-    "link": "http://www.marco.org/2011/12/19/amazon-kindle-vs-ipad"
+    ]
   },
   "new-release-of-firefox-for-android-optimized-for-tablets": {
     "title": "New Release of Firefox for Android, Optimized for Tablets",
