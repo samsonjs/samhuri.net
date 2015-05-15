@@ -17,6 +17,17 @@
   },
   "posts": [
     {
+      "title": "→ Constraints and Transforms in iOS 8",
+      "date": "May 15, 2015",
+      "timestamp": 1431699995,
+      "tags": [
+
+      ],
+      "author": "Sami Samhuri",
+      "url": "/posts/2015/05/constraints-and-transforms-in-ios-8",
+      "link": "http://revealapp.com/blog/constraints-and-transforms.html"
+    },
+    {
       "title": "→ Importing Modules in LLDB",
       "date": "May 12, 2015",
       "timestamp": 1431396215,
@@ -117,16 +128,6 @@
       ],
       "url": "/posts/2012/01/the-40-standup-desk",
       "link": "http://opensoul.org/blog/archives/2012/01/09/the-40-standup-desk/"
-    },
-    {
-      "title": "→ Yak shaving",
-      "date": "4th January, 2012",
-      "timestamp": 1325712240,
-      "tags": [
-
-      ],
-      "url": "/posts/2012/01/yak-shaving",
-      "link": "http://blog.hasmanythrough.com/2012/1/4/yak-shaving"
     }
   ]
 }
