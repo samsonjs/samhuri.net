@@ -170,7 +170,11 @@ class HarpBlog
     is_prod = env.to_s == 'production'
     target = is_prod ? 'publish' : 'publish_beta'
     success, output = run("make #{target}")
-    commit_root_data if is_prod
+    if is_prod
+      commit_root_data
+    else
+      run("git checkout #{root_data_path}")
+    end
     [success, output]
   end
 
