@@ -124,9 +124,7 @@ post '/publish' do
     return 'forbidden'
   end
 
-  fork do
-    blog.publish(@fields['env'])
-  end
+  blog.publish(@fields['env'])
   status 204
 end
 
