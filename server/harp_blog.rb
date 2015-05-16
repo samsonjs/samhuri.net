@@ -150,6 +150,7 @@ class HarpBlog
     if post.draft?
       new_post = create_post(post.title, post.body, post.link, {}, {commit: false})
       delete_post_from_dir('drafts', post.id)
+      build_rss
       git_commit("publish '#{quote(post.title)}'", [post_path('drafts'), post_path(new_post.dir), root_data_path])
       new_post
     else
@@ -163,6 +164,7 @@ class HarpBlog
     else
       new_post = create_post(post.title, post.body, post.link, {draft: true}, {commit: false})
       delete_post_from_dir(post.dir, post.id)
+      build_rss
       git_commit("unpublish '#{quote(post.title)}'", [post_path(post.dir), post_path('drafts'), root_data_path])
       new_post
     end
@@ -452,6 +454,10 @@ class HarpBlog
 
   def update_if_needed
     git_update if origin_updated?
+  end
+
+  def build_rss
+    run 'make rss'
   end
 
 end

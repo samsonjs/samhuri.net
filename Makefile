@@ -1,5 +1,9 @@
 all: compile
 
+rss:
+	@echo
+	ruby -w ./bin/rss.rb public
+
 compile:
 	@echo
 	./bin/compile.sh .
