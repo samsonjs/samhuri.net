@@ -41,10 +41,12 @@ class HarpBlog
   end
 
   def status
+    local = local_version
+    remote = remote_version
     {
-      'local-version' => local_version,
-      'remote-version' => remote_version,
-      'dirty' => dirty?,
+      'local-version' => local,
+      'remote-version' => remote,
+      'dirty' => local != remote,
     }
   end
 
