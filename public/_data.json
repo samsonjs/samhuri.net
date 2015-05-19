@@ -17,6 +17,17 @@
   },
   "posts": [
     {
+      "title": "→ A bitcoin miner in every device and in every hand",
+      "date": "May 19, 2015",
+      "timestamp": 1432004034,
+      "tags": [
+
+      ],
+      "author": "Sami Samhuri",
+      "url": "/posts/2015/05/a-bitcoin-miner-in-every-device-and-in-every-hand",
+      "link": "https://medium.com/@21dotco/a-bitcoin-miner-in-every-device-and-in-every-hand-e315b40f2821"
+    },
+    {
       "title": "→ Constraints and Transforms in iOS 8",
       "date": "May 15, 2015",
       "timestamp": 1431699995,
@@ -118,16 +129,6 @@
       ],
       "url": "/posts/2012/01/recovering-from-a-computer-science-education",
       "link": "http://prog21.dadgum.com/123.html"
-    },
-    {
-      "title": "→ The $40 Standup Desk",
-      "date": "9th January, 2012",
-      "timestamp": 1326097000,
-      "tags": [
-
-      ],
-      "url": "/posts/2012/01/the-40-standup-desk",
-      "link": "http://opensoul.org/blog/archives/2012/01/09/the-40-standup-desk/"
     }
   ]
 }
