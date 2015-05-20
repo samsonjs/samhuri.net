@@ -1,14 +1,12 @@
 {
   "ember-structure": {
-    "id": "ember-structure",
-    "author": "Sami Samhuri",
     "title": "Structure of an Ember app",
     "date": "3rd February, 2014",
     "timestamp": 1391479549,
-    "link": null,
-    "url": "/posts/2014/02/ember-structure",
     "tags": [
       "ember.js"
-    ]
+    ],
+    "author": "Sami Samhuri",
+    "url": "/posts/2014/02/ember-structure"
   }
 }
