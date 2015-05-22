@@ -7,7 +7,7 @@ All is not lost.  A kind soul left <a href="https://bugs.launchpad.net/ubuntu/+s
  * libmp4v2-0
  * libmp4v2-dev
 
-Download those 4 .deb files and install them.  You can ignore any advise to use an older version in the official repo.  Once you have those installed, download and build the latest version of gtkpod from their <a href="http://sourceforge.net/svn/?group_id=67873">Subversion repo</a>.
+Download those 4 .deb files and install them.  You can ignore any advice to use an older version in the official repo.  Once you have those installed, download and build the latest version of gtkpod from their <a href="http://sourceforge.net/svn/?group_id=67873">Subversion repo</a>.
 
 Now that you know what to do I'll give you what you probably wanted at the beginning.  As long as you have wget, subversion, and use a Bourne-like shell this should work for you.
 
