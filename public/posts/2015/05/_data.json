@@ -46,5 +46,17 @@
     "tags": [
 
     ]
+  },
+  "lenovo-thinkpad-x1-carbon": {
+    "id": "lenovo-thinkpad-x1-carbon",
+    "author": "Sami Samhuri",
+    "title": "Lenovo ThinkPad X1 Carbon",
+    "date": "May 22, 2015",
+    "timestamp": 1432254989,
+    "link": "http://www.anandtech.com/show/9264/the-lenovo-thinkpad-x1-carbon-review-2015",
+    "url": "/posts/2015/05/lenovo-thinkpad-x1-carbon",
+    "tags": [
+
+    ]
   }
 }

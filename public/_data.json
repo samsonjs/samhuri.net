@@ -17,6 +17,17 @@
   },
   "posts": [
     {
+      "title": "→ Lenovo ThinkPad X1 Carbon",
+      "date": "May 22, 2015",
+      "timestamp": 1432254989,
+      "tags": [
+
+      ],
+      "author": "Sami Samhuri",
+      "url": "/posts/2015/05/lenovo-thinkpad-x1-carbon",
+      "link": "http://www.anandtech.com/show/9264/the-lenovo-thinkpad-x1-carbon-review-2015"
+    },
+    {
       "title": "→ A bitcoin miner in every device and in every hand",
       "date": "May 19, 2015",
       "timestamp": 1432004034,
@@ -119,16 +130,6 @@
       ],
       "url": "/posts/2012/01/sopa-lives-and-mpaa-calls-protests-an-abuse-of-power",
       "link": "http://arstechnica.com/tech-policy/news/2012/01/sopa-livesand-mpaa-calls-protests-an-abuse-of-power.ars"
-    },
-    {
-      "title": "→ Recovering From a Computer Science Education",
-      "date": "17th January, 2012",
-      "timestamp": 1326787200,
-      "tags": [
-
-      ],
-      "url": "/posts/2012/01/recovering-from-a-computer-science-education",
-      "link": "http://prog21.dadgum.com/123.html"
     }
   ]
 }
