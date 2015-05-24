@@ -17,6 +17,17 @@
   },
   "posts": [
     {
+      "title": "→ Undocumented CoreStorage Commands",
+      "date": "May 24, 2015",
+      "timestamp": 1432436316,
+      "tags": [
+
+      ],
+      "author": "Sami Samhuri",
+      "url": "/posts/2015/05/undocumented-corestorage-commands",
+      "link": "http://blog.fosketts.net/2011/08/05/undocumented-corestorage-commands/"
+    },
+    {
       "title": "→ Lenovo ThinkPad X1 Carbon",
       "date": "May 22, 2015",
       "timestamp": 1432254989,
@@ -120,16 +131,6 @@
       ],
       "url": "/posts/2012/01/fujitsu-has-lost-their-mind",
       "link": "http://tablet-news.com/2012/01/17/fujitsu-lifebook-2013-concept-incorporates-a-tablet-for-a-keyboard-phone-and-digital-camera/"
-    },
-    {
-      "title": "→ SOPA lives - and MPAA calls protests an \"abuse of power\"",
-      "date": "17th January, 2012",
-      "timestamp": 1326797200,
-      "tags": [
-
-      ],
-      "url": "/posts/2012/01/sopa-lives-and-mpaa-calls-protests-an-abuse-of-power",
-      "link": "http://arstechnica.com/tech-policy/news/2012/01/sopa-livesand-mpaa-calls-protests-an-abuse-of-power.ars"
     }
   ]
 }
