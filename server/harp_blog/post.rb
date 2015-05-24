@@ -96,7 +96,20 @@ class HarpBlog
     end
 
     def date
-      @date ||= time.strftime('%B %-d, %Y')
+      @date ||= time.strftime("#{ordinalize(time.day)} %B, %Y")
+    end
+
+    def ordinalize(n)
+      case
+      when n % 10 == 1 && n != 11
+        "#{n}st"
+      when n % 10 == 2 && n != 12
+        "#{n}nd"
+      when n % 10 == 3 && n != 13
+        "#{n}rd"
+      else
+        "#{n}th"
+      end
     end
 
     def tags
