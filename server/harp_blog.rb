@@ -224,7 +224,7 @@ class HarpBlog
     extra_fields ||= {}
     post_data = read_post_data(post_path(post_dir))
     post_data.sort_by do |k, v|
-      (v['timestamp'] || Time.now).to_i
+      -(v['timestamp'] || Time.now).to_i
     end.map do |id, fields|
       fields[:id] = id
       unless extra_fields[:draft]
