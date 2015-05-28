@@ -17,6 +17,17 @@
   },
   "posts": [
     {
+      "title": "→ GitHub Flow Like a Pro",
+      "date": "28th May, 2015",
+      "timestamp": 1432824147,
+      "tags": [
+
+      ],
+      "author": "Sami Samhuri",
+      "url": "/posts/2015/05/github-flow-like-a-pro",
+      "link": "http://haacked.com/archive/2014/07/28/github-flow-aliases/"
+    },
+    {
       "title": "→ Magical Wristband",
       "date": "27th May, 2015",
       "timestamp": 1432703849,
@@ -117,21 +128,6 @@
       ],
       "author": "Sami Samhuri",
       "url": "/posts/2013/09/linky"
-    },
-    {
-      "title": "Zelda Tones for iOS",
-      "date": "6th March, 2013",
-      "timestamp": 1362624673,
-      "tags": [
-        "zelda",
-        "nintendo",
-        "pacman",
-        "ringtones",
-        "tones",
-        "ios"
-      ],
-      "author": "Sami Samhuri",
-      "url": "/posts/2013/03/zelda-tones-for-ios"
     }
   ]
 }
