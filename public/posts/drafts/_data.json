@@ -20,5 +20,17 @@
 
     ],
     "author": "Sami Samhuri"
+  },
+  "CFECFE79-059C-468C-B1D0-8F553F552CA5": {
+    "id": "CFECFE79-059C-468C-B1D0-8F553F552CA5",
+    "author": "Sami Samhuri",
+    "title": "Debugging Layouts with Recursive View Descriptions in Xcode",
+    "date": "2nd June, 2015",
+    "timestamp": 1433288135,
+    "link": "http://jeffreysambells.com/2013/01/24/debugging-layouts-with-recursive-view-descriptions-in-xcode",
+    "url": "/posts/drafts/CFECFE79-059C-468C-B1D0-8F553F552CA5",
+    "tags": [
+
+    ]
   }
 }
