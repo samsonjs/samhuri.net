@@ -17,6 +17,17 @@
   },
   "posts": [
     {
+      "title": "→ Debugging Layouts with Recursive View Descriptions in Xcode",
+      "date": "2nd June, 2015",
+      "timestamp": 1433288135,
+      "tags": [
+
+      ],
+      "author": "Sami Samhuri",
+      "url": "/posts/2015/06/debugging-layouts-with-recursive-view-descriptions-in-xcode",
+      "link": "http://jeffreysambells.com/2013/01/24/debugging-layouts-with-recursive-view-descriptions-in-xcode"
+    },
+    {
       "title": "→ The Unofficial Guide to xcconfig files",
       "date": "1st June, 2015",
       "timestamp": 1433171811,
@@ -114,16 +125,6 @@
       "author": "Sami Samhuri",
       "url": "/posts/2015/05/apple-watch-human-interface-guidelines",
       "link": "https://developer.apple.com/watch/human-interface-guidelines/"
-    },
-    {
-      "title": "Structure of an Ember app",
-      "date": "3rd February, 2014",
-      "timestamp": 1391479549,
-      "tags": [
-        "ember.js"
-      ],
-      "author": "Sami Samhuri",
-      "url": "/posts/2014/02/ember-structure"
     }
   ]
 }
