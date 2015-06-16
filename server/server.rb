@@ -14,16 +14,19 @@ CONFIG_DEFAULTS = {
   host: '127.0.0.1',
   hostname: `hostname --fqdn`.strip,
   port: 6706,
+  external_port: 6706,
+  external_ssl: false,
   preview_port: 5000,
+  preview_ssl: false,
 }
 
 def env_value(name)
   env_name = "BLOG_#{name.to_s.upcase}"
   raw_value = ENV[env_name]
   case name
-  when :auth, :dry_run
+  when :auth, :dry_run, :preview_ssl, :external_ssl
     raw_value ? raw_value.to_i != 0 : false
-  when :port
+  when :port, :external_port, :preview_port
     raw_value ? raw_value.to_i : nil
   else
     raw_value
@@ -38,7 +41,15 @@ $config.each_key do |name|
   end
 end
 
-$config[:preview_url] = "http://#{$config[:hostname]}:#{$config[:preview_port]}"
+if $config[:external_ssl] && $config[:external_port] == 80
+  $config[:external_port] = 443
+end
+if !$config[:external_ssl] && $config[:external_port] == 443
+  $config[:external_ssl] = true
+end
+
+proto = $config[:preview_ssl] ? 'https' : 'http'
+$config[:preview_url] = "#{proto}://#{$config[:hostname]}:#{$config[:preview_port]}"
 
 unless File.directory?($config[:path])
   raise RuntimeError.new("file not found: #{$config[:path]}")
@@ -59,7 +70,8 @@ def authenticated?(auth)
 end
 
 host = $config[:hostname] || $config[:host]
-$url_root = "http://#{host}:#{$config[:port]}/"
+proto = $config[:external_ssl] ? 'https' : 'http'
+$url_root = "#{proto}://#{host}:#{$config[:external_port]}/"
 puts "URL root: #{$url_root}"
 def url_for(*components)
   File.join($url_root, *components)
