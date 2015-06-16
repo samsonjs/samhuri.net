@@ -73,7 +73,7 @@ class HarpBlog
   end
 
   def posts_for_month(year, month)
-    read_posts(File.join(year, month))
+    read_posts(File.join(year, month)).sort_by(&:timestamp)
   end
 
   def drafts
@@ -223,9 +223,7 @@ class HarpBlog
     update_if_needed
     extra_fields ||= {}
     post_data = read_post_data(post_path(post_dir))
-    post_data.sort_by do |k, v|
-      (v['timestamp'] || Time.now).to_i
-    end.map do |id, fields|
+    post_data.map do |id, fields|
       fields[:id] = id
       unless extra_fields[:draft]
         fields[:slug] = id
