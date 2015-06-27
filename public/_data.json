@@ -17,6 +17,16 @@
   },
   "posts": [
     {
+      "title": "The Case for Native",
+      "date": "27th June, 2015",
+      "timestamp": 1435424497,
+      "tags": [
+
+      ],
+      "author": "Sami Samhuri",
+      "url": "/posts/2015/06/the-case-for-native"
+    },
+    {
       "title": "→ Debugging Layouts with Recursive View Descriptions in Xcode",
       "date": "2nd June, 2015",
       "timestamp": 1433288135,
@@ -114,17 +124,6 @@
       "author": "Sami Samhuri",
       "url": "/posts/2015/05/importing-modules-in-lldb",
       "link": "http://furbo.org/2015/05/11/an-import-ant-change-in-xcode/"
-    },
-    {
-      "title": "→ Apple Watch Human Interface Guidelines",
-      "date": "10th May, 2015",
-      "timestamp": 1431223039,
-      "tags": [
-
-      ],
-      "author": "Sami Samhuri",
-      "url": "/posts/2015/05/apple-watch-human-interface-guidelines",
-      "link": "https://developer.apple.com/watch/human-interface-guidelines/"
     }
   ]
 }

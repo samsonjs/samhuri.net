@@ -1,18 +1,4 @@
 {
-  "the-case-for-native": {
-    "title": "The Case for Native",
-    "timestamp": 1307084400,
-    "tags": [
-      "titanium",
-      "native",
-      "mobile",
-      "apps",
-      "platforms",
-      "android",
-      "ios"
-    ],
-    "author": "Sami Samhuri"
-  },
   "mach-o-symbol-and-relocation-tables": {
     "title": "Mach-O Symbol and Relocation Tables",
     "timestamp": 1296547200,
