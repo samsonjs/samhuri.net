@@ -5,7 +5,7 @@ verbosity of gluing together the UI. I have learned to like
 JavaScript over the years as I learned that despite its
 warts [there are good parts](http://ca.video.yahoo.com/watch/630959/2974197)
 too. If you squint just right you can see that it's scheme with
-Algol syntax. HTML and CSS are what they are, but with WebKit running hi
+Algol syntax. HTML and CSS are what they are, but with WebKit running
 the show and only a single engine to target it's not that bad. I've
 gone from Eclipse to Emacs for the coding itself and highly recommend
 Emacs for Mojo development. There is nothing that I miss from the
