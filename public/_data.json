@@ -17,6 +17,17 @@
   },
   "posts": [
     {
+      "title": "→ Swift: New stuff in Xcode 7 Beta 3",
+      "date": "9th July, 2015",
+      "timestamp": 1436458633,
+      "tags": [
+
+      ],
+      "author": "Sami Samhuri",
+      "url": "/posts/2015/07/swift-new-stuff-in-xcode-7-beta-3",
+      "link": "http://ericasadun.com/2015/07/08/swift-new-stuff-in-xcode-7-beta-3/"
+    },
+    {
       "title": "→ Scripts to Rule Them All",
       "date": "1st July, 2015",
       "timestamp": 1435761424,
@@ -114,17 +125,6 @@
       "author": "Sami Samhuri",
       "url": "/posts/2015/05/constraints-and-transforms-in-ios-8",
       "link": "http://revealapp.com/blog/constraints-and-transforms.html"
-    },
-    {
-      "title": "→ Importing Modules in LLDB",
-      "date": "12th May, 2015",
-      "timestamp": 1431396215,
-      "tags": [
-
-      ],
-      "author": "Sami Samhuri",
-      "url": "/posts/2015/05/importing-modules-in-lldb",
-      "link": "http://furbo.org/2015/05/11/an-import-ant-change-in-xcode/"
     }
   ]
 }
