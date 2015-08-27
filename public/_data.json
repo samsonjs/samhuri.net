@@ -17,6 +17,17 @@
   },
   "posts": [
     {
+      "title": "→ Cloak's Updated Privacy Policy",
+      "date": "27th August, 2015",
+      "timestamp": 1440644214,
+      "tags": [
+
+      ],
+      "author": "Sami Samhuri",
+      "url": "/posts/2015/08/cloaks-updated-privacy-policy",
+      "link": "https://blog.getcloak.com/2015/08/25/updated-privacy-policy/"
+    },
+    {
       "title": "→ Acorn 5's Live Help Search",
       "date": "25th August, 2015",
       "timestamp": 1440478827,
@@ -114,17 +125,6 @@
       "author": "Sami Samhuri",
       "url": "/posts/2015/05/lenovo-thinkpad-x1-carbon",
       "link": "http://www.anandtech.com/show/9264/the-lenovo-thinkpad-x1-carbon-review-2015"
-    },
-    {
-      "title": "→ A bitcoin miner in every device and in every hand",
-      "date": "19th May, 2015",
-      "timestamp": 1432004034,
-      "tags": [
-
-      ],
-      "author": "Sami Samhuri",
-      "url": "/posts/2015/05/a-bitcoin-miner-in-every-device-and-in-every-hand",
-      "link": "https://medium.com/@21dotco/a-bitcoin-miner-in-every-device-and-in-every-hand-e315b40f2821"
     }
   ]
 }
