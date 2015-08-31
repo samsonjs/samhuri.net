@@ -77,6 +77,12 @@
           var d = new Date(repo.updatedAt)
           var updated = d.getDate() + ' ' + Months[d.getMonth()] + ', ' + d.getFullYear()
           text('updated', updated)
+
+          data.set('stars', repo.stargazersCount)
+          updateStars(repo.stargazersCount)
+
+          data.set('forks', repo.forksCount)
+          updateN('fork', repo.forksCount)
         })
         .fetchLanguages(function(err, langs) {
           if (err) {
@@ -92,22 +98,6 @@
           } else {
             data.set('contributors', users)
             updateContributors(users)
-          }
-        })
-        .fetchWatchers(function(err, users) {
-          if (err) {
-            text('nstar', '?')
-          } else {
-            data.set('stars', users)
-            updateStars(users.length)
-          }
-        })
-        .fetchForks(function(err, repos) {
-          if (err) {
-            text('nfork', '?')
-          } else {
-            data.set('forks', repos)
-            updateN('fork', repos.length)
           }
         })
     } else {
