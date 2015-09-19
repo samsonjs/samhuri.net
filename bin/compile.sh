@@ -3,6 +3,8 @@
 # bail on errors
 set -e
 
+export PATH="$HOME/.rbenv/shims:$PATH"
+
 DIR=$(dirname "$0")
 HARP="node_modules/harp/bin/harp"
 BLOG_DIR="${1:-${DIR}/..}"

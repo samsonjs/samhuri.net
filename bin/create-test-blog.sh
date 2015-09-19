@@ -2,6 +2,8 @@
 
 set -e # bail on errors
 
+export PATH="$HOME/.rbenv/shims:$PATH"
+
 BLOG_PATH="$1"
 ORIGIN_BLOG_PATH="${BLOG_PATH}-origin.git"
 if [[ -e "$BLOG_PATH" ]]; then
