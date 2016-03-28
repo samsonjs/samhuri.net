@@ -17,6 +17,17 @@
   },
   "posts": [
     {
+      "title": "→ Moving Beyond the OOP Obsession",
+      "date": "28th March, 2016",
+      "timestamp": 1459181327,
+      "tags": [
+
+      ],
+      "author": "Sami Samhuri",
+      "url": "/posts/2016/03/moving-beyond-the-oop-obsession",
+      "link": "http://prog21.dadgum.com/218.html"
+    },
+    {
       "title": "→ Cloak's Updated Privacy Policy",
       "date": "27th August, 2015",
       "timestamp": 1440644214,
@@ -114,17 +125,6 @@
       "author": "Sami Samhuri",
       "url": "/posts/2015/05/undocumented-corestorage-commands",
       "link": "http://blog.fosketts.net/2011/08/05/undocumented-corestorage-commands/"
-    },
-    {
-      "title": "→ Lenovo ThinkPad X1 Carbon",
-      "date": "22nd May, 2015",
-      "timestamp": 1432254989,
-      "tags": [
-
-      ],
-      "author": "Sami Samhuri",
-      "url": "/posts/2015/05/lenovo-thinkpad-x1-carbon",
-      "link": "http://www.anandtech.com/show/9264/the-lenovo-thinkpad-x1-carbon-review-2015"
     }
   ]
 }
