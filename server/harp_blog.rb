@@ -115,7 +115,7 @@ class HarpBlog
     else
       save_post(post)
       if options[:commit]
-        git_commit("create post '#{post.title}'", [post_path(post.dir)])
+        git_commit("create post '#{post.title}'", [year_index_path(post.year), post_path(post.dir)])
       end
       post
     end
@@ -211,6 +211,10 @@ class HarpBlog
 
   def root_data_path
     path_for('public/_data.json')
+  end
+
+  def year_index_path(year)
+    path_for('public/posts', year, 'index.ejs')
   end
 
   def post_path(dir, id = nil)
