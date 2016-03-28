@@ -9,6 +9,7 @@ class HarpBlog
     FIELDS.each { |f| attr_accessor f }
 
     def initialize(fields = nil)
+      @timestamp = nil
       if fields
         FIELDS.each do |k|
           if v = fields[k.to_s] || fields[k.to_sym]
