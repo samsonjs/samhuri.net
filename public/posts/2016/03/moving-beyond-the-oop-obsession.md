@@ -1,1 +1,1 @@
-I really like this style of modularity in C. Using delegation and other patterns you can go a really long way without inheritance too.
+I really like this style of modularity in C and Lisp. Using delegation and other patterns you can go a really long way without inheritance too.
