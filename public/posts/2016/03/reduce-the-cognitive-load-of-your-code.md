@@ -1,0 +1,1 @@
+This is all good advice. I should use more intermediate variables for longer conditions.

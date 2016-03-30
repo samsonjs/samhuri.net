@@ -17,6 +17,17 @@
   },
   "posts": [
     {
+      "title": "→ Reduce the cognitive load of your code",
+      "date": "30th March, 2016",
+      "timestamp": 1459347029,
+      "tags": [
+
+      ],
+      "author": "Sami Samhuri",
+      "url": "/posts/2016/03/reduce-the-cognitive-load-of-your-code",
+      "link": "http://chrismm.com/blog/how-to-reduce-the-cognitive-load-of-your-code/"
+    },
+    {
       "title": "→ Moving Beyond the OOP Obsession",
       "date": "28th March, 2016",
       "timestamp": 1459181327,
@@ -114,17 +125,6 @@
       "author": "Sami Samhuri",
       "url": "/posts/2015/05/magical-wristband",
       "link": "http://www.wired.com/2015/03/disney-magicband/"
-    },
-    {
-      "title": "→ Undocumented CoreStorage Commands",
-      "date": "24th May, 2015",
-      "timestamp": 1432436316,
-      "tags": [
-
-      ],
-      "author": "Sami Samhuri",
-      "url": "/posts/2015/05/undocumented-corestorage-commands",
-      "link": "http://blog.fosketts.net/2011/08/05/undocumented-corestorage-commands/"
     }
   ]
 }
