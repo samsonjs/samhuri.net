@@ -17,17 +17,6 @@
   },
   "posts": [
     {
-      "title": "→ Comparing Reactive and Traditional",
-      "date": "9th April, 2016",
-      "timestamp": 1460185460,
-      "tags": [
-
-      ],
-      "author": "Sami Samhuri",
-      "url": "/posts/2016/04/were-it-not-for-all-the-enthusiasm-for-functional-programming-in-recent-years-swift-might-not-have-filter-and-map-functions",
-      "link": "http://inessential.com/2016/04/08/comparing_reactive_and_traditional"
-    },
-    {
       "title": "→ Reduce the cognitive load of your code",
       "date": "30th March, 2016",
       "timestamp": 1459347029,
@@ -125,6 +114,17 @@
       "author": "Sami Samhuri",
       "url": "/posts/2015/05/github-flow-like-a-pro",
       "link": "http://haacked.com/archive/2014/07/28/github-flow-aliases/"
+    },
+    {
+      "title": "→ Magical Wristband",
+      "date": "27th May, 2015",
+      "timestamp": 1432703849,
+      "tags": [
+
+      ],
+      "author": "Sami Samhuri",
+      "url": "/posts/2015/05/magical-wristband",
+      "link": "http://www.wired.com/2015/03/disney-magicband/"
     }
   ]
 }
