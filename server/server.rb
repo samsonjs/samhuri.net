@@ -16,7 +16,7 @@ CONFIG_DEFAULTS = {
   port: 6706,
   external_port: 6706,
   external_ssl: false,
-  preview_port: 5000,
+  preview_port: 9000,
   preview_ssl: false,
 }
 
@@ -112,7 +112,7 @@ after do
   if @wait_for_compilation
     compile.call
   else
-    fork(&compile)
+    Thread.new(&compile)
   end
 end
 
@@ -218,10 +218,10 @@ post '/posts/drafts' do
   id, title, body, link = @fields.values_at('id', 'title', 'body', 'link')
   begin
     if post = blog.create_post(title, body, link, id: id, draft: true)
-      if @fields['env']
+      if env = @fields['env']
         post = blog.publish_post(post)
-        fork do
-          blog.publish(@fields['env'])
+        Thread.new do
+          blog.publish(env)
         end
         @wait_for_compilation = false
       end
