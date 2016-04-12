@@ -115,7 +115,7 @@ class HarpBlog
     else
       save_post(post)
       if options[:commit]
-        git_commit("create post '#{post.title}'", [year_index_path(post.year), post_path(post.dir)])
+        git_commit("create post '#{post.title}'", [year_index_path("#{post.time.year}"), post_path(post.dir)])
       end
       post
     end
