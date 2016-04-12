@@ -35,7 +35,3 @@ Unfortunately they also failed to get as good of a result as many others.
 > I found that the surgery was actually very entertaining! It’s kinda like your eyes are going through a car wash. After popping a Valium, you relax and just lay on your back while the surgeon does everything. Thanks to plenty of freezing drops, you can’t even tell when the surgeon touches your eye – you just watch it all unfold like a movie.
 
 [anson]: http://www.ansonkao.com/blog/2015/10/01/the-prk-recovery-experience/
-
-----
-
-Exciting times ahead next week.
