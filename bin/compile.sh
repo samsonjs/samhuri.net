@@ -54,7 +54,15 @@ function compile_rss() {
 
 function munge_html() {
   for FILE in "$TARGET"/*.html "$TARGET"/posts/*/*/*.html "$TARGET"/posts/drafts/*.html "$TARGET"/projects/*.html; do
-    [[ "${FILE##*/}" = "index.html" ]] && continue
+    FILENAME="${FILE##*/}"
+    case "$FILENAME" in
+    index.html)
+      continue
+      ;;
+    missing.html)
+      continue
+      ;;
+    esac
 
     # make posts available without an .html extension
     FILE_DIR="${FILE%.html}"
