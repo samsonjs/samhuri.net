@@ -15,6 +15,9 @@
   "about": {
     "title": "About me"
   },
+  "cv": {
+    "title": "Curriculum vitae"
+  },
   "posts": [
     {
       "title": "Tales of PRK Laser Eye Surgery",

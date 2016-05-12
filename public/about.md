@@ -1,4 +1,3 @@
-
 I'm Sami Samhuri, a software developer and general technology geek. Sometimes
 I write my thoughts and post my projects here. I moved to [Victoria, BC][vic]
 in 2003 to study computer science at the [University of Victoria][uvic], and
@@ -61,20 +60,22 @@ Scheme, PHP, [Objective-J][objj], [Motorola 6800][m6800] assembly, and of course
 [elisp]: https://github.com/samsonjs/elisp.js
 [mojoext]: https://github.com/samsonjs/Mojo.Ext
 
-You can learn more about my career on [Zerply][]. Which I can barely write
-with a straight face. *Zerply?*
+## Curriculum vitae
 
-[Zerply]: http://zerply.com/sjs/
-
+Have a look at my [work history](/cv).
 
 ## Where you can find me
 
 - GitHub: [samsonjs][gh]
+- [Stack Overflow][so]
 - Twitter: [@_sjs][twttr]
+- Instagram: [@samsonjs][ig]
 - Email: [sami@samhuri.net][email]
 
-[twttr]: https://twitter.com/_sjs
 [gh]: https://github.com/samsonjs
+[so]: http://stackoverflow.com/users/188752/sami-samhuri
+[twttr]: https://twitter.com/_sjs
+[ig]: https://www.instagram.com/samsonjs/
 [email]: mailto:sami@samhuri.net
 
 ## So meta
