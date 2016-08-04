@@ -1,0 +1,15 @@
+{
+  "ios-git-pre-commit-hook": {
+    "id": "ios-git-pre-commit-hook",
+    "author": "Sami Samhuri",
+    "title": "A git pre-commit hook for iOS",
+    "date": "4th August, 2016",
+    "timestamp": 1470328683,
+    "link": null,
+    "url": "/posts/2016/08/ios-git-pre-commit-hook",
+    "tags": [
+      "ios",
+      "git"
+    ]
+  }
+}

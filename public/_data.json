@@ -20,6 +20,17 @@
   },
   "posts": [
     {
+      "title": "A git pre-commit hook for iOS",
+      "date": "4th August, 2016",
+      "timestamp": 1470328683,
+      "tags": [
+        "ios",
+        "git"
+      ],
+      "author": "Sami Samhuri",
+      "url": "/posts/2016/08/ios-git-pre-commit-hook"
+    },
+    {
       "title": "Tales of PRK Laser Eye Surgery",
       "date": "12th April, 2016",
       "timestamp": 1460433173,
@@ -116,17 +127,6 @@
       "author": "Sami Samhuri",
       "url": "/posts/2015/06/the-unofficial-guide-to-xcconfig-files",
       "link": "http://pewpewthespells.com/blog/xcconfig_guide.html?utm_campaign=iOS%2BDev%2BWeekly&utm_source=iOS_Dev_Weekly_Issue_200"
-    },
-    {
-      "title": "→ GitHub Flow Like a Pro",
-      "date": "28th May, 2015",
-      "timestamp": 1432824147,
-      "tags": [
-
-      ],
-      "author": "Sami Samhuri",
-      "url": "/posts/2015/05/github-flow-like-a-pro",
-      "link": "http://haacked.com/archive/2014/07/28/github-flow-aliases/"
     }
   ]
 }
