@@ -85,7 +85,7 @@ That's all there is to it. If we don't exit early then all the code runs.
 
 ## General Unixy goodness
 
-Error output should be directed to stderr, not stdout. I littered a bunch of `>&2`s around to rectify that situation.
+Error output should be directed to stderr, not stdout. I littered a bunch of `>&2` around to rectify that situation.
 
 ## Final countdown
 
