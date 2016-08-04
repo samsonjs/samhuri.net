@@ -1,6 +1,6 @@
 [Krzysztof Zabłocki][kztwitter] wrote [a nice article on using a git pre-commit hook to catch mistakes in iOS projects][link] before you push those mistakes out to the whole team/world. It's a great idea! But the shell script has some problems, so let's fix those.
 
-If you don't care what I did, why, or how, then you can just [see the updated script][gist].
+If you don't care what I did or why then you can just [see the updated script][gist].
 
 [kztwitter]: https://twitter.com/merowing_
 [link]: http://merowing.info/2016/08/setting-up-pre-commit-hook-for-ios/
