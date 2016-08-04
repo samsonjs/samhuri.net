@@ -41,7 +41,9 @@ First ignore the fact I'm talking to a shell script. I don't get out much. Anywa
     if diff-index $test_glob | grep '^+' | egrep "$test_pattern" >/dev/null 2>&1
     ...
 
-and
+_Pro tip: I wrapped test_pattern with `\b` to only match word boundaries to reduce false positives._
+
+And:
 
     misplaced_pattern='misplaced="YES"'
     misplaced_glob=('*.xib' '*.storyboard')
@@ -57,7 +59,7 @@ Then we need to show where the errors are by using `git grep`, with an `|| true`
     git grep -E "$test_pattern" $test_glob || true >&2
     echo '----' >&2
 
-end for misplaced views:
+And for misplaced views:
 
     echo "COMMIT REJECTED for misplaced views. Correct them before committing." >&2
     git grep -E "$misplaced_pattern" $misplaced_glob || true >&2
