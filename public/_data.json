@@ -20,7 +20,18 @@
   },
   "posts": [
     {
-      "title": "A git pre-commit hook for iOS",
+      "title": "Easy Optimization Wins",
+      "date": "10th August, 2016",
+      "timestamp": 1470850249,
+      "tags": [
+        "ios",
+        "git"
+      ],
+      "author": "Sami Samhuri",
+      "url": "/posts/2016/08/easy-optimization-wins"
+    },
+    {
+      "title": "A Git Pre-commit Hook for iOS",
       "date": "4th August, 2016",
       "timestamp": 1470328683,
       "tags": [
@@ -116,17 +127,6 @@
       "author": "Sami Samhuri",
       "url": "/posts/2015/06/debugging-layouts-with-recursive-view-descriptions-in-xcode",
       "link": "http://jeffreysambells.com/2013/01/24/debugging-layouts-with-recursive-view-descriptions-in-xcode"
-    },
-    {
-      "title": "→ The Unofficial Guide to xcconfig files",
-      "date": "1st June, 2015",
-      "timestamp": 1433171811,
-      "tags": [
-
-      ],
-      "author": "Sami Samhuri",
-      "url": "/posts/2015/06/the-unofficial-guide-to-xcconfig-files",
-      "link": "http://pewpewthespells.com/blog/xcconfig_guide.html?utm_campaign=iOS%2BDev%2BWeekly&utm_source=iOS_Dev_Weekly_Issue_200"
     }
   ]
 }
