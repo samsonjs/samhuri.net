@@ -42,6 +42,6 @@ The for loops are still `O(n)` and now we've shifted some work outside of those 
 
 Putting the constant back in let's see how many operations it now takes to get an array of all videos sorted by date. Again saying we have a modest collection of 1,000 videos, that'll be `2 * 1,000 * log 1000` &rarr; `2,000 * 3` &rarr; `6,000` operations to do the whole thing. A far cry from 1,000,000!
 
-Getting practical, in this case running the original function against **4,990 videos takes 29.653 seconds** on an iPhone 4S. Running the new function against the same set of videos takes **58 milliseconds or 0.058 seconds**.
+Getting practical, in this case running the original function against **4,990 videos takes 29.653 seconds** on an iPhone 4S. Running the new function against the same set of videos takes **4.792 seconds**. Still not great and there's room for improvement, but that was a big, easy win already.
 
 Mind your algorithms folks, it makes a huge difference in the real world.
