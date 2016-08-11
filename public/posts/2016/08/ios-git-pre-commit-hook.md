@@ -37,7 +37,7 @@ Ok great so this script tells me there are errors. Well, script, what exactly _a
 First ignore the fact I'm talking to a shell script. I don't get out much. Anyway... now we need to pull out the regular expressions and globs so we can reuse them to show what the actual errors are if we find any.
 
     test_pattern='\b(fdescribe|fit|fcontext|xdescribe|xit|xcontext)\b'
-    test_glob=('*Tests.swift' '*Specs.swift')
+    test_glob='*Tests.swift *Specs.swift'
     if diff-index $test_glob | grep '^+' | egrep "$test_pattern" >/dev/null 2>&1
     ...
 
@@ -46,7 +46,7 @@ _Pro tip: I wrapped test_pattern with `\b` to only match word boundaries to redu
 And:
 
     misplaced_pattern='misplaced="YES"'
-    misplaced_glob=('*.xib' '*.storyboard')
+    misplaced_glob='*.xib *.storyboard'
     if diff-index $misplaced_glob | grep '^+' | egrep "$misplaced_pattern" >/dev/null 2>&1
     ...
 
@@ -108,7 +108,7 @@ Here's the whole thing put together:
     failed=0
     
     test_pattern='\b(fdescribe|fit|fcontext|xdescribe|xit|xcontext)\b'
-    test_glob=('*Tests.swift' '*Specs.swift')
+    test_glob='*Tests.swift *Specs.swift'
     if diff-index $test_glob | grep '^+' | egrep "$test_pattern" >/dev/null 2>&1
     then
       echo "COMMIT REJECTED for fdescribe/fit/fcontext/xdescribe/xit/xcontext." >&2
@@ -119,7 +119,7 @@ Here's the whole thing put together:
     fi
     
     misplaced_pattern='misplaced="YES"'
-    misplaced_glob=('*.xib' '*.storyboard')
+    misplaced_glob='*.xib *.storyboard'
     if diff-index $misplaced_glob | grep '^+' | egrep "$misplaced_pattern" >/dev/null 2>&1
     then
       echo "COMMIT REJECTED for misplaced views. Correct them before committing." >&2
