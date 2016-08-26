@@ -3,8 +3,8 @@
   "description": "samhuri.net",
   "version": "0.1.0",
   "dependencies": {
-    "harp": "^0.20.1",
+    "harp": "^0.20.3",
     "thepusher": "^0.1.4",
-    "uglify-js": "^2.6.1"
+    "uglify-js": "^2.7.3"
   }
 }
