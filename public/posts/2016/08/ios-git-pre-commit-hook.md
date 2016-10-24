@@ -36,12 +36,12 @@ Ok great so this script tells me there are errors. Well, script, what exactly _a
 
 First ignore the fact I'm talking to a shell script. I don't get out much. Anyway... now we need to pull out the regular expressions and globs so we can reuse them to show what the actual errors are if we find any.
 
-    test_pattern='\b(fdescribe|fit|fcontext|xdescribe|xit|xcontext)\b'
+    test_pattern='^\+\s*\b(fdescribe|fit|fcontext|xdescribe|xit|xcontext)\('
     test_glob='*Tests.swift *Specs.swift'
-    if diff-index $test_glob | grep '^+' | egrep "$test_pattern" >/dev/null 2>&1
+    if diff-index $test_glob | egrep "$test_pattern" >/dev/null 2>&1
     ...
 
-_Pro tip: I wrapped test_pattern with `\b` to only match word boundaries to reduce false positives._
+_Pro tip: I prefixed test_pattern with `\b` to only match word boundaries to reduce false positives._
 
 And:
 
@@ -52,11 +52,11 @@ And:
 
 You may notice that I snuck in `*Specs.swift` as well. Let's not be choosy about file naming.
 
-Then we need to show where the errors are by using `git grep`, with an `|| true` at the end because the whole script fails if any single command fails, and `git grep` regularly exits with non-zero status (I didn't look into why that is).
+Then we need to show where the errors are by using `diff-indef`, with an `|| true` at the end because the whole script fails if any single command fails, and `git diff-index` regularly exits with non-zero status (I didn't look into why that is).
 
     echo "COMMIT REJECTED for fdescribe/fit/fcontext/xdescribe/xit/xcontext." >&2
     echo "Remove focused and disabled tests before committing." >&2
-    git grep -E "$test_pattern" $test_glob || true >&2
+    diff-index $test_glob | egrep -2 "$test_pattern" || true >&2
     echo '----' >&2
 
 And for misplaced views:
@@ -107,13 +107,13 @@ Here's the whole thing put together:
     
     failed=0
     
-    test_pattern='\b(fdescribe|fit|fcontext|xdescribe|xit|xcontext)\b'
+    test_pattern='^\+\s*\b(fdescribe|fit|fcontext|xdescribe|xit|xcontext)\('
     test_glob='*Tests.swift *Specs.swift'
-    if diff-index $test_glob | grep '^+' | egrep "$test_pattern" >/dev/null 2>&1
+    if diff-index $test_glob | egrep "$test_pattern" >/dev/null 2>&1
     then
       echo "COMMIT REJECTED for fdescribe/fit/fcontext/xdescribe/xit/xcontext." >&2
       echo "Remove focused and disabled tests before committing." >&2
-      git grep -E "$test_pattern" $test_glob || true >&2
+      diff-index $test_glob | egrep -2 "$test_pattern" || true >&2
       echo '----' >&2
       failed=1
     fi
