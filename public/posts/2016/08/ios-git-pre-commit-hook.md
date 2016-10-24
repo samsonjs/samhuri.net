@@ -41,7 +41,7 @@ First ignore the fact I'm talking to a shell script. I don't get out much. Anywa
     if diff-index $test_glob | egrep "$test_pattern" >/dev/null 2>&1
     ...
 
-_Pro tip: I prefixed test_pattern with `\b` to only match word boundaries to reduce false positives._
+_Pro tip: I prefixed test\_pattern with `\b` to only match word boundaries to reduce false positives._
 
 And:
 
