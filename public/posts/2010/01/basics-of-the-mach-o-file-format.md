@@ -61,7 +61,7 @@ Mac).</p>
 <a href="/posts/2010/01/working-with-c-style-structs-in-ruby">
 CStruct</a> we define the Mach header like so:</p>
 
-<script src="http://gist.github.com/280635.js"></script>
+<script src="https://gist.github.com/280635.js"></script>
 
 
 <h2>Segments</h2>
@@ -82,7 +82,7 @@ e.g. \_\_DATA or \_\_TEXT </p>
 <p>The code exposes some more details about segment commands, but should
 be easy enough to follow.</p>
 
-<script src="http://gist.github.com/280642.js"></script>
+<script src="https://gist.github.com/280642.js"></script>
 
 
 <h2>Sections</h2>
@@ -105,7 +105,7 @@ two underscores, e.g. \_\_bss or \_\_text</p>
 
 <p>Finally, the Ruby code describing section structs:</p>
 
-<script src="http://gist.github.com/280643.js"></script>
+<script src="https://gist.github.com/280643.js"></script>
 
 
 <h2>macho.rb</h2>
