@@ -43,7 +43,7 @@ class HarpBlog
     alias_method :draft?, :draft
 
     def author
-      @author ||= 'Sami Samhuri'
+      @author ||= 'Sami J. Samhuri'
     end
 
     def time

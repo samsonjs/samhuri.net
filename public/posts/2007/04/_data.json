@@ -8,7 +8,7 @@
       "mac os x",
       "windows"
     ],
-    "author": "Sami Samhuri",
+    "author": "Sami J. Samhuri",
     "url": "/posts/2007/04/a-triple-booting-schizophrenic-macbook"
   },
   "activerecord-base_find_or_create-and-find_or_initialize": {
@@ -21,7 +21,7 @@
       "rails",
       "ruby"
     ],
-    "author": "Sami Samhuri",
+    "author": "Sami J. Samhuri",
     "url": "/posts/2007/04/activerecord-base_find_or_create-and-find_or_initialize"
   },
   "getting-to-know-vista": {
@@ -31,7 +31,7 @@
     "tags": [
       "windows"
     ],
-    "author": "Sami Samhuri",
+    "author": "Sami J. Samhuri",
     "url": "/posts/2007/04/getting-to-know-vista"
   },
   "quickly-inserting-millions-of-rows-with-mysql-innodb": {
@@ -42,7 +42,7 @@
       "linux",
       "mysql"
     ],
-    "author": "Sami Samhuri",
+    "author": "Sami J. Samhuri",
     "url": "/posts/2007/04/quickly-inserting-millions-of-rows-with-mysql-innodb"
   },
   "funny-how-code-can-be-beautiful": {
@@ -52,7 +52,7 @@
     "tags": [
       "haskell"
     ],
-    "author": "Sami Samhuri",
+    "author": "Sami J. Samhuri",
     "url": "/posts/2007/04/funny-how-code-can-be-beautiful"
   }
 }

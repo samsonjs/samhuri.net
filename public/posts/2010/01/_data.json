@@ -8,7 +8,7 @@
       "cstruct",
       "compiler"
     ],
-    "author": "Sami Samhuri",
+    "author": "Sami J. Samhuri",
     "url": "/posts/2010/01/working-with-c-style-structs-in-ruby"
   },
   "basics-of-the-mach-o-file-format": {
@@ -20,7 +20,7 @@
       "os x",
       "compiler"
     ],
-    "author": "Sami Samhuri",
+    "author": "Sami J. Samhuri",
     "url": "/posts/2010/01/basics-of-the-mach-o-file-format"
   },
   "a-preview-of-mach-o-file-generation": {
@@ -33,7 +33,7 @@
       "os x",
       "compiler"
     ],
-    "author": "Sami Samhuri",
+    "author": "Sami J. Samhuri",
     "url": "/posts/2010/01/a-preview-of-mach-o-file-generation"
   }
 }
