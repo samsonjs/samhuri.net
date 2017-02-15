@@ -29,6 +29,14 @@ ExpiresDefault A259200
 ################
 RewriteEngine On
 
+# Expose DreamHost stats
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_URI} ^/(stats|failed_auth\.html).*$ [NC]
+RewriteRule . - [L]
+</IfModule>
+
 # Redirect http to https
 RewriteCond %{HTTPS} off
 RewriteCond %{HTTP_HOST} !beta\.samhuri\.net [NC]
