@@ -27,14 +27,15 @@ lock
 
 function main() {
   echo "* compile rss feed"
-  compile_rss
+  compile_feeds
 
   echo "* harp compile $BLOG_DIR $TARGET"
   rm -rf "$TARGET/*" "$TARGET/.*"
   "$HARP" compile "$BLOG_DIR" "$TARGET"
 
-  # clean up temporary feed
+  # clean up temporary feeds
   rm $BLOG_DIR/public/feed.xml
+  rm $BLOG_DIR/public/feed.json
 
   echo "* munge html files to make them available without an extension"
   munge_html
@@ -48,8 +49,8 @@ function main() {
   delete_lock_file
 }
 
-function compile_rss() {
-  ruby -w $DIR/rss.rb $BLOG_DIR/public
+function compile_feeds() {
+  ruby -w $DIR/feeds.rb $BLOG_DIR/public
 }
 
 function munge_html() {
