@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.7.0
+version: v1.7.1
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
@@ -20,3 +20,32 @@ patch:
   'npm:uglify-js:20151024':
     - harp > terraform > jade > transformers > uglify-js:
         patched: '2017-04-21T04:58:35.183Z'
+  'npm:ms:20170412':
+    - harp > send > debug > ms:
+        patched: '2017-05-26T03:22:08.496Z'
+    - harp > send > ms:
+        patched: '2017-05-26T03:22:08.496Z'
+    - harp > connect > debug > ms:
+        patched: '2017-05-26T03:22:08.496Z'
+    - harp > connect > express-session > debug > ms:
+        patched: '2017-05-26T03:22:08.496Z'
+    - harp > connect > finalhandler > debug > ms:
+        patched: '2017-05-26T03:22:08.496Z'
+    - harp > connect > morgan > debug > ms:
+        patched: '2017-05-26T03:22:08.496Z'
+    - harp > connect > serve-index > debug > ms:
+        patched: '2017-05-26T03:22:08.496Z'
+    - harp > connect > connect-timeout > ms:
+        patched: '2017-05-26T03:22:08.496Z'
+    - harp > connect > body-parser > debug > ms:
+        patched: '2017-05-26T03:22:08.496Z'
+    - harp > connect > compression > debug > ms:
+        patched: '2017-05-26T03:22:08.496Z'
+    - harp > connect > connect-timeout > debug > ms:
+        patched: '2017-05-26T03:22:08.496Z'
+    - harp > connect > serve-static > send > debug > ms:
+        patched: '2017-05-26T03:22:08.496Z'
+    - harp > connect > serve-static > send > ms:
+        patched: '2017-05-26T03:22:08.496Z'
+    - harp > connect > serve-favicon > ms:
+        patched: '2017-05-26T03:22:08.496Z'
