@@ -10,7 +10,9 @@
 @screen-medium: 40rem; /* ~ 640px */
 @screen-large: 64rem;  /* ~ 1024px */
 
-body { font-size: 100%; }
+body {
+  font-size: 100%;
+}
 
 @media (min-width: @screen-medium) {
   body { font-size: 112%; }
@@ -224,15 +226,6 @@ header.primary {
   } /* nav */
 } /* header.primary */
 
-/* Improve colours in mobile Safari ... wish I could include desktop Safari somehow */
-@media screen and (-webkit-min-device-pixel-ratio: 2) {
-  header.primary nav {
-    a, a:visited {
-      color: lighten(@highlight, 10%);
-    }
-  }
-}
-
 footer {
   padding: 1rem 0;
   text-align: center;
@@ -244,6 +237,20 @@ footer {
   }
 }
 
+/* iPhone X */
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+  body {
+    padding-bottom: constant(safe-area-inset-bottom);
+  }
+}
+@media only screen and (orientation: landscape) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+  .container {
+    padding: 0 constant(safe-area-inset-right) 0 constant(safe-area-inset-left);
+  }
+  header.primary {
+    padding: 0.4rem constant(safe-area-inset-right) 0.4rem constant(safe-area-inset-left);
+  }
+}
 
 /**
  * Archive
