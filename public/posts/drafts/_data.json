@@ -22,5 +22,18 @@
     "tags": [
 
     ]
+  },
+  "security-through-obscurity-is-still-not-a-best-practice": {
+    "id": "security-through-obscurity-is-still-not-a-best-practice",
+    "author": "Sami J. Samhuri",
+    "title": "security-through-obscurity-is-still-not-a-best-practice",
+    "date": "20th August, 2017",
+    "timestamp": 1503246688,
+    "link": null,
+    "url": "/posts/2017/08/security-through-obscurity-is-still-not-a-best-practice",
+    "tags": [
+      "rails",
+      "security"
+    ]
   }
 }
