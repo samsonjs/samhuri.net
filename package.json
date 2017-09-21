@@ -3,7 +3,7 @@
   "description": "samhuri.net",
   "version": "0.1.0",
   "dependencies": {
-    "harp": "^0.23.0",
+    "harp": "^0.24.0",
     "thepusher": "^0.1.4",
     "uglify-js": "^3.0.9",
     "snyk": "^1.30.1"
