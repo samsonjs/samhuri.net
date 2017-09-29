@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.7.0
+version: v1.7.1
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
@@ -20,3 +20,24 @@ patch:
   'npm:uglify-js:20151024':
     - harp > terraform > jade > transformers > uglify-js:
         patched: '2017-04-21T04:58:35.183Z'
+  'npm:debug:20170905':
+    - harp > connect > debug:
+        patched: '2017-09-29T03:22:08.982Z'
+    - harp > connect > express-session > debug:
+        patched: '2017-09-29T03:22:08.982Z'
+    - harp > connect > finalhandler > debug:
+        patched: '2017-09-29T03:22:08.982Z'
+    - harp > connect > morgan > debug:
+        patched: '2017-09-29T03:22:08.982Z'
+    - harp > connect > serve-index > debug:
+        patched: '2017-09-29T03:22:08.982Z'
+    - harp > send > debug:
+        patched: '2017-09-29T03:22:08.982Z'
+    - harp > connect > body-parser > debug:
+        patched: '2017-09-29T03:22:08.982Z'
+    - harp > connect > compression > debug:
+        patched: '2017-09-29T03:22:08.982Z'
+    - harp > connect > connect-timeout > debug:
+        patched: '2017-09-29T03:22:08.982Z'
+    - harp > connect > serve-static > send > debug:
+        patched: '2017-09-29T03:22:08.982Z'
