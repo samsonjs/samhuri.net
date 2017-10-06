@@ -20,6 +20,17 @@
   },
   "posts": [
     {
+      "title": "A nil-coalescing alternative for Swift",
+      "date": "6th October, 2017",
+      "timestamp": 1507324813,
+      "tags": [
+        "ios",
+        "swift"
+      ],
+      "author": "Sami J. Samhuri",
+      "url": "/posts/2017/10/swift-optional-or"
+    },
+    {
       "title": "Easy Optimization Wins",
       "date": "10th August, 2016",
       "timestamp": 1470850249,
@@ -116,17 +127,6 @@
       "author": "Sami J. Samhuri",
       "url": "/posts/2015/07/scripts-to-rule-them-all",
       "link": "http://githubengineering.com/scripts-to-rule-them-all/"
-    },
-    {
-      "title": "→ Debugging Layouts with Recursive View Descriptions in Xcode",
-      "date": "2nd June, 2015",
-      "timestamp": 1433288135,
-      "tags": [
-
-      ],
-      "author": "Sami J. Samhuri",
-      "url": "/posts/2015/06/debugging-layouts-with-recursive-view-descriptions-in-xcode",
-      "link": "http://jeffreysambells.com/2013/01/24/debugging-layouts-with-recursive-view-descriptions-in-xcode"
     }
   ]
 }
