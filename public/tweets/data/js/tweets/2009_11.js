@@ -470,7 +470,7 @@ Grailbird.data.tweets_2009_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "jonnay, born on 3rd",
+      "name" : "\uD83D\uDC30bunwitch dorror\uD83D\uDC7B",
       "screen_name" : "jonnay",
       "indices" : [ 3, 10 ],
       "id_str" : "817328",
@@ -503,7 +503,7 @@ Grailbird.data.tweets_2009_11 =
     "id" : 5907000124,
     "created_at" : "2009-11-21 01:38:49 +0000",
     "user" : {
-      "name" : "jonnay, but \uD83D\uDC07\uD83D\uDC6F\u200D\u2642\uD83D\uDC07",
+      "name" : "\uD83D\uDC30bunwitch dorror\uD83D\uDC7B",
       "screen_name" : "jonnay",
       "protected" : false,
       "id_str" : "817328",

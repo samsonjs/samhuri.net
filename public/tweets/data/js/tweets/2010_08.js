@@ -311,7 +311,7 @@ Grailbird.data.tweets_2010_08 =
     "id" : 21270897515,
     "created_at" : "2010-08-16 00:13:43 +0000",
     "user" : {
-      "name" : "Nick Swizzle Small",
+      "name" : "Nick Small",
       "screen_name" : "nickjsiii",
       "protected" : false,
       "id_str" : "11768402",
@@ -787,7 +787,7 @@ Grailbird.data.tweets_2010_08 =
       "screen_name" : "chuq",
       "protected" : false,
       "id_str" : "13217612",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/758031386066333696\/vSq-AvJq_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/878288211339902976\/dDvof4nb_normal.jpg",
       "id" : 13217612,
       "verified" : false
     }
@@ -807,7 +807,7 @@ Grailbird.data.tweets_2010_08 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "zach is ill",
+      "name" : "Zach Carter",
       "screen_name" : "zii",
       "indices" : [ 0, 4 ],
       "id_str" : "12712742",
@@ -840,7 +840,7 @@ Grailbird.data.tweets_2010_08 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "zach is ill",
+      "name" : "Zach Carter",
       "screen_name" : "zii",
       "indices" : [ 1, 5 ],
       "id_str" : "12712742",

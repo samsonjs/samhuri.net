@@ -34,7 +34,7 @@ Grailbird.data.tweets_2016_02 =
       "screen_name" : "amar47shah",
       "protected" : false,
       "id_str" : "426783122",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/851360355490164736\/gUnTvs0M_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/868581215716114432\/q_2FuBvJ_normal.jpg",
       "id" : 426783122,
       "verified" : false
     }
@@ -828,7 +828,7 @@ Grailbird.data.tweets_2016_02 =
       "screen_name" : "stroughtonsmith",
       "protected" : false,
       "id_str" : "15267898",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/839220483350487040\/1JNTuxrF_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/914535586068910081\/Sj94rKBY_normal.jpg",
       "id" : 15267898,
       "verified" : true
     }
@@ -879,7 +879,7 @@ Grailbird.data.tweets_2016_02 =
       "screen_name" : "stroughtonsmith",
       "protected" : false,
       "id_str" : "15267898",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/839220483350487040\/1JNTuxrF_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/914535586068910081\/Sj94rKBY_normal.jpg",
       "id" : 15267898,
       "verified" : true
     }
@@ -930,7 +930,7 @@ Grailbird.data.tweets_2016_02 =
       "screen_name" : "stroughtonsmith",
       "protected" : false,
       "id_str" : "15267898",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/839220483350487040\/1JNTuxrF_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/914535586068910081\/Sj94rKBY_normal.jpg",
       "id" : 15267898,
       "verified" : true
     }
@@ -1695,10 +1695,6 @@ Grailbird.data.tweets_2016_02 =
       "id" : 696531629838209024,
       "media_url_https" : "https:\/\/pbs.twimg.com\/media\/CaqT07NUkAA1svs.jpg",
       "sizes" : [ {
-        "h" : 450,
-        "resize" : "fit",
-        "w" : 600
-      }, {
         "h" : 1080,
         "resize" : "fit",
         "w" : 1440
@@ -1707,13 +1703,17 @@ Grailbird.data.tweets_2016_02 =
         "resize" : "crop",
         "w" : 150
       }, {
-        "h" : 255,
+        "h" : 510,
         "resize" : "fit",
-        "w" : 340
+        "w" : 680
       }, {
-        "h" : 768,
+        "h" : 900,
         "resize" : "fit",
-        "w" : 1024
+        "w" : 1200
+      }, {
+        "h" : 1080,
+        "resize" : "fit",
+        "w" : 1440
       } ],
       "display_url" : "pic.twitter.com\/pJhHWiRdqA"
     } ],
@@ -1739,10 +1739,6 @@ Grailbird.data.tweets_2016_02 =
         "id" : 696531629838209024,
         "media_url_https" : "https:\/\/pbs.twimg.com\/media\/CaqT07NUkAA1svs.jpg",
         "sizes" : [ {
-          "h" : 450,
-          "resize" : "fit",
-          "w" : 600
-        }, {
           "h" : 1080,
           "resize" : "fit",
           "w" : 1440
@@ -1751,13 +1747,17 @@ Grailbird.data.tweets_2016_02 =
           "resize" : "crop",
           "w" : 150
         }, {
-          "h" : 255,
+          "h" : 510,
           "resize" : "fit",
-          "w" : 340
+          "w" : 680
         }, {
-          "h" : 768,
+          "h" : 900,
           "resize" : "fit",
-          "w" : 1024
+          "w" : 1200
+        }, {
+          "h" : 1080,
+          "resize" : "fit",
+          "w" : 1440
         } ],
         "display_url" : "pic.twitter.com\/pJhHWiRdqA"
       } ],
@@ -1973,7 +1973,7 @@ Grailbird.data.tweets_2016_02 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Nate Cook \uD83D\uDE05",
+      "name" : "Nate Cook \uD83C\uDF42",
       "screen_name" : "nnnnnnnn",
       "indices" : [ 0, 9 ],
       "id_str" : "4365311",
@@ -2080,7 +2080,7 @@ Grailbird.data.tweets_2016_02 =
       "screen_name" : "malgorithms",
       "protected" : false,
       "id_str" : "12229772",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/722409518081130496\/Q13k-rT6_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/916052872952995840\/Z3AvozIu_normal.jpg",
       "id" : 12229772,
       "verified" : false
     }

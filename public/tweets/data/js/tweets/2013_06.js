@@ -63,7 +63,7 @@ Grailbird.data.tweets_2013_06 =
     "id" : 345749874563751936,
     "created_at" : "2013-06-15 03:49:28 +0000",
     "user" : {
-      "name" : "Play On! Canada",
+      "name" : "Play On!",
       "screen_name" : "HNICPlayOn",
       "protected" : false,
       "id_str" : "226701299",
@@ -272,25 +272,25 @@ Grailbird.data.tweets_2013_06 =
       "id" : 348194634918424577,
       "media_url_https" : "https:\/\/pbs.twimg.com\/media\/BNUJLPcCcAEcCrE.jpg",
       "sizes" : [ {
-        "h" : 388,
-        "resize" : "fit",
-        "w" : 600
-      }, {
         "h" : 802,
         "resize" : "fit",
         "w" : 1240
+      }, {
+        "h" : 440,
+        "resize" : "fit",
+        "w" : 680
       }, {
         "h" : 150,
         "resize" : "crop",
         "w" : 150
       }, {
-        "h" : 220,
+        "h" : 802,
         "resize" : "fit",
-        "w" : 340
+        "w" : 1240
       }, {
-        "h" : 662,
+        "h" : 776,
         "resize" : "fit",
-        "w" : 1024
+        "w" : 1200
       } ],
       "display_url" : "pic.twitter.com\/XhizylDrHA"
     } ],
@@ -1120,25 +1120,25 @@ Grailbird.data.tweets_2013_06 =
       "id" : 342672384479883264,
       "media_url_https" : "https:\/\/pbs.twimg.com\/media\/BMFqt9dCcAA9MmR.jpg",
       "sizes" : [ {
-        "h" : 255,
-        "resize" : "fit",
-        "w" : 340
-      }, {
-        "h" : 450,
-        "resize" : "fit",
-        "w" : 600
-      }, {
         "h" : 150,
         "resize" : "crop",
         "w" : 150
       }, {
-        "h" : 768,
+        "h" : 1536,
         "resize" : "fit",
-        "w" : 1024
+        "w" : 2048
+      }, {
+        "h" : 900,
+        "resize" : "fit",
+        "w" : 1200
       }, {
         "h" : 1536,
         "resize" : "fit",
         "w" : 2048
+      }, {
+        "h" : 510,
+        "resize" : "fit",
+        "w" : 680
       } ],
       "display_url" : "pic.twitter.com\/hjdmQMpvJp"
     } ],

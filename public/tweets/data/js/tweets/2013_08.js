@@ -216,7 +216,7 @@ Grailbird.data.tweets_2013_08 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Sebastiaan de With",
+      "name" : "Webastiaan the Sith",
       "screen_name" : "sdw",
       "indices" : [ 3, 7 ],
       "id_str" : "6503412",
@@ -248,7 +248,7 @@ Grailbird.data.tweets_2013_08 =
     "id" : 373504285436166144,
     "created_at" : "2013-08-30 17:55:35 +0000",
     "user" : {
-      "name" : "Sebastiaan de With",
+      "name" : "Webastiaan the Sith",
       "screen_name" : "sdw",
       "protected" : false,
       "id_str" : "6503412",
@@ -370,7 +370,7 @@ Grailbird.data.tweets_2013_08 =
       "id_str" : "6596872",
       "id" : 6596872
     }, {
-      "name" : "Peter Cohen",
+      "name" : "Supeternatural Cohen",
       "screen_name" : "flargh",
       "indices" : [ 36, 43 ],
       "id_str" : "2960721",
@@ -491,7 +491,7 @@ Grailbird.data.tweets_2013_08 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "wwwtxt (1980-94)",
+      "name" : "WWWTXT (1980-94)",
       "screen_name" : "wwwtxt",
       "indices" : [ 3, 10 ],
       "id_str" : "207756340",
@@ -518,11 +518,11 @@ Grailbird.data.tweets_2013_08 =
     "id" : 372063452388683776,
     "created_at" : "2013-08-26 18:30:14 +0000",
     "user" : {
-      "name" : "wwwtxt (1980-94)",
+      "name" : "WWWTXT (1980-94)",
       "screen_name" : "wwwtxt",
       "protected" : false,
       "id_str" : "207756340",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000328039060\/306deca90d2cf629aec0b51423f11a02_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/914078053776494592\/QGsViIib_normal.jpg",
       "id" : 207756340,
       "verified" : false
     }
@@ -542,7 +542,7 @@ Grailbird.data.tweets_2013_08 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "wwwtxt (1980-94)",
+      "name" : "WWWTXT (1980-94)",
       "screen_name" : "wwwtxt",
       "indices" : [ 3, 10 ],
       "id_str" : "207756340",
@@ -569,11 +569,11 @@ Grailbird.data.tweets_2013_08 =
     "id" : 372062674085236736,
     "created_at" : "2013-08-26 18:27:08 +0000",
     "user" : {
-      "name" : "wwwtxt (1980-94)",
+      "name" : "WWWTXT (1980-94)",
       "screen_name" : "wwwtxt",
       "protected" : false,
       "id_str" : "207756340",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000328039060\/306deca90d2cf629aec0b51423f11a02_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/914078053776494592\/QGsViIib_normal.jpg",
       "id" : 207756340,
       "verified" : false
     }
@@ -739,7 +739,7 @@ Grailbird.data.tweets_2013_08 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Dan Benjamin \uD83E\uDD20",
+      "name" : "Dan Benjamin \uD83D\uDC0D",
       "screen_name" : "danbenjamin",
       "indices" : [ 0, 12 ],
       "id_str" : "5905672",
@@ -772,7 +772,7 @@ Grailbird.data.tweets_2013_08 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Dan Benjamin \uD83E\uDD20",
+      "name" : "Dan Benjamin \uD83D\uDC0D",
       "screen_name" : "danbenjamin",
       "indices" : [ 0, 12 ],
       "id_str" : "5905672",
@@ -805,7 +805,7 @@ Grailbird.data.tweets_2013_08 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Neven Mrgan",
+      "name" : "mrgan!",
       "screen_name" : "mrgan",
       "indices" : [ 3, 9 ],
       "id_str" : "35293",
@@ -838,11 +838,11 @@ Grailbird.data.tweets_2013_08 =
     "id" : 371478284736790529,
     "created_at" : "2013-08-25 03:44:59 +0000",
     "user" : {
-      "name" : "Neven Mrgan",
+      "name" : "mrgan!",
       "screen_name" : "mrgan",
       "protected" : false,
       "id_str" : "35293",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/839856305015676929\/Cbf5FntI_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/914585912507428864\/-s_wTdcj_normal.jpg",
       "id" : 35293,
       "verified" : true
     }
@@ -911,7 +911,7 @@ Grailbird.data.tweets_2013_08 =
       "id_str" : "14802451",
       "id" : 14802451
     }, {
-      "name" : "\u0265\u0254\u0131\u026Do\u029E \u029E\u0279\u0250\u026F",
+      "name" : "Mark Kolich",
       "screen_name" : "markkolich",
       "indices" : [ 12, 23 ],
       "id_str" : "22196723",
@@ -956,7 +956,7 @@ Grailbird.data.tweets_2013_08 =
       "id_str" : "14802451",
       "id" : 14802451
     }, {
-      "name" : "\u0265\u0254\u0131\u026Do\u029E \u029E\u0279\u0250\u026F",
+      "name" : "Mark Kolich",
       "screen_name" : "markkolich",
       "indices" : [ 12, 23 ],
       "id_str" : "22196723",
@@ -1001,7 +1001,7 @@ Grailbird.data.tweets_2013_08 =
       "id_str" : "14802451",
       "id" : 14802451
     }, {
-      "name" : "\u0265\u0254\u0131\u026Do\u029E \u029E\u0279\u0250\u026F",
+      "name" : "Mark Kolich",
       "screen_name" : "markkolich",
       "indices" : [ 12, 23 ],
       "id_str" : "22196723",
@@ -1117,7 +1117,7 @@ Grailbird.data.tweets_2013_08 =
       "id_str" : "14165170",
       "id" : 14165170
     }, {
-      "name" : "\uD83D\uDE37 \uD83C\uDF55",
+      "name" : "\uD83C\uDF83\uD83D\uDE31 || \uD83D\uDC68\u200D\u2695\uFE0F\uD83C\uDF55",
       "screen_name" : "DrPizza",
       "indices" : [ 12, 20 ],
       "id_str" : "11375732",
@@ -1150,7 +1150,7 @@ Grailbird.data.tweets_2013_08 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "wwwtxt (1980-94)",
+      "name" : "WWWTXT (1980-94)",
       "screen_name" : "wwwtxt",
       "indices" : [ 3, 10 ],
       "id_str" : "207756340",
@@ -1177,11 +1177,11 @@ Grailbird.data.tweets_2013_08 =
     "id" : 370941278458236928,
     "created_at" : "2013-08-23 16:11:07 +0000",
     "user" : {
-      "name" : "wwwtxt (1980-94)",
+      "name" : "WWWTXT (1980-94)",
       "screen_name" : "wwwtxt",
       "protected" : false,
       "id_str" : "207756340",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000328039060\/306deca90d2cf629aec0b51423f11a02_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/914078053776494592\/QGsViIib_normal.jpg",
       "id" : 207756340,
       "verified" : false
     }
@@ -1201,7 +1201,7 @@ Grailbird.data.tweets_2013_08 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "wwwtxt (1980-94)",
+      "name" : "WWWTXT (1980-94)",
       "screen_name" : "wwwtxt",
       "indices" : [ 3, 10 ],
       "id_str" : "207756340",
@@ -1228,11 +1228,11 @@ Grailbird.data.tweets_2013_08 =
     "id" : 370940257422032896,
     "created_at" : "2013-08-23 16:07:03 +0000",
     "user" : {
-      "name" : "wwwtxt (1980-94)",
+      "name" : "WWWTXT (1980-94)",
       "screen_name" : "wwwtxt",
       "protected" : false,
       "id_str" : "207756340",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000328039060\/306deca90d2cf629aec0b51423f11a02_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/914078053776494592\/QGsViIib_normal.jpg",
       "id" : 207756340,
       "verified" : false
     }
@@ -1285,6 +1285,12 @@ Grailbird.data.tweets_2013_08 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
+      "name" : "Michael Griffin",
+      "screen_name" : "MikeGriffin_",
+      "indices" : [ 0, 13 ],
+      "id_str" : "857747654448644101",
+      "id" : 857747654448644101
+    }, {
       "name" : "The Loop",
       "screen_name" : "theloop",
       "indices" : [ 14, 22 ],
@@ -1325,7 +1331,7 @@ Grailbird.data.tweets_2013_08 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "\u0265\u0254\u0131\u026Do\u029E \u029E\u0279\u0250\u026F",
+      "name" : "Mark Kolich",
       "screen_name" : "markkolich",
       "indices" : [ 0, 11 ],
       "id_str" : "22196723",
@@ -1364,7 +1370,7 @@ Grailbird.data.tweets_2013_08 =
       "id_str" : "14802451",
       "id" : 14802451
     }, {
-      "name" : "\u0265\u0254\u0131\u026Do\u029E \u029E\u0279\u0250\u026F",
+      "name" : "Mark Kolich",
       "screen_name" : "markkolich",
       "indices" : [ 12, 23 ],
       "id_str" : "22196723",
@@ -1403,7 +1409,7 @@ Grailbird.data.tweets_2013_08 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "?B|",
+      "name" : "notb",
       "screen_name" : "brycebot",
       "indices" : [ 3, 12 ],
       "id_str" : "28501846",
@@ -1447,11 +1453,11 @@ Grailbird.data.tweets_2013_08 =
     "in_reply_to_screen_name" : "TooTallNate",
     "in_reply_to_user_id_str" : "277724842",
     "user" : {
-      "name" : "?B|",
+      "name" : "notb",
       "screen_name" : "brycebot",
       "protected" : false,
       "id_str" : "28501846",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000762550370\/c7a0e609f8be80f27fd2c9a328280459_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/905899227695300608\/F0Gjg7VL_normal.jpg",
       "id" : 28501846,
       "verified" : false
     }
@@ -1528,7 +1534,7 @@ Grailbird.data.tweets_2013_08 =
       "id_str" : "29255412",
       "id" : 29255412
     }, {
-      "name" : "isaacs",
+      "name" : "isaacs \uD83D\uDC99\uD83D\uDC9C\uD83D\uDC96\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08",
       "screen_name" : "izs",
       "indices" : [ 15, 19 ],
       "id_str" : "8038312",
@@ -1632,7 +1638,7 @@ Grailbird.data.tweets_2013_08 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Neven Mrgan",
+      "name" : "mrgan!",
       "screen_name" : "mrgan",
       "indices" : [ 0, 6 ],
       "id_str" : "35293",
@@ -1876,17 +1882,17 @@ Grailbird.data.tweets_2013_08 =
         "resize" : "fit",
         "w" : 768
       }, {
-        "h" : 800,
+        "h" : 1024,
         "resize" : "fit",
-        "w" : 600
+        "w" : 768
       }, {
         "h" : 1024,
         "resize" : "fit",
         "w" : 768
       }, {
-        "h" : 453,
+        "h" : 680,
         "resize" : "fit",
-        "w" : 340
+        "w" : 510
       } ],
       "display_url" : "pic.twitter.com\/aHgPaY9GHP"
     } ],

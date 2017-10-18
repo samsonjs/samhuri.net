@@ -78,7 +78,7 @@ Grailbird.data.tweets_2016_12 =
       "id_str" : "408246807",
       "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/662690256559464448\/M7RzZNyf_normal.jpg",
       "id" : 408246807,
-      "verified" : false
+      "verified" : true
     }
   },
   "id" : 815317804177989633,
@@ -197,7 +197,7 @@ Grailbird.data.tweets_2016_12 =
       "screen_name" : "ProductHunt",
       "protected" : false,
       "id_str" : "2208027565",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/848627565564645377\/iQt1ab4U_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/875436016428916736\/1WwdUVmB_normal.jpg",
       "id" : 2208027565,
       "verified" : true
     }
@@ -279,7 +279,7 @@ Grailbird.data.tweets_2016_12 =
       "id_str" : "35067687",
       "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/667423318513983490\/rYsZX5Fj_normal.jpg",
       "id" : 35067687,
-      "verified" : false
+      "verified" : true
     }
   },
   "id" : 814673010716090369,
@@ -372,7 +372,7 @@ Grailbird.data.tweets_2016_12 =
       "screen_name" : "sarahmei",
       "protected" : false,
       "id_str" : "14164724",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/731640298820894720\/SD43wVMV_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/900926526182445058\/qOi3HTwf_normal.jpg",
       "id" : 14164724,
       "verified" : true
     }
@@ -926,7 +926,7 @@ Grailbird.data.tweets_2016_12 =
       "screen_name" : "evadne",
       "protected" : false,
       "id_str" : "15614100",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/2246294748\/6603BCF2-2CDC-45B8-981C-FFA56AEB7329_normal",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/903029224965058561\/81mhqDTL_normal.jpg",
       "id" : 15614100,
       "verified" : false
     }
@@ -1106,7 +1106,7 @@ Grailbird.data.tweets_2016_12 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "\uD83C\uDFC4",
+      "name" : "\uD83C\uDFC4\uD83C\uDF0E",
       "screen_name" : "macatbook",
       "indices" : [ 0, 10 ],
       "id_str" : "22406953",
@@ -1139,7 +1139,7 @@ Grailbird.data.tweets_2016_12 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003ETwitter for iPad\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "\uD83C\uDFC4",
+      "name" : "\uD83C\uDFC4\uD83C\uDF0E",
       "screen_name" : "macatbook",
       "indices" : [ 0, 10 ],
       "id_str" : "22406953",
@@ -1227,7 +1227,7 @@ Grailbird.data.tweets_2016_12 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jeff Nadeau",
+      "name" : "Death Nadeau \uD83C\uDF83",
       "screen_name" : "jnadeau",
       "indices" : [ 0, 8 ],
       "id_str" : "2741981",
@@ -1589,7 +1589,7 @@ Grailbird.data.tweets_2016_12 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "\uD83C\uDFC4",
+      "name" : "\uD83C\uDFC4\uD83C\uDF0E",
       "screen_name" : "macatbook",
       "indices" : [ 0, 10 ],
       "id_str" : "22406953",
@@ -1810,7 +1810,7 @@ Grailbird.data.tweets_2016_12 =
       "screen_name" : "mariofusco",
       "protected" : false,
       "id_str" : "142589904",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/758704602812452864\/_U-PR9S0_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/919473329354010625\/AwG2CHyv_normal.jpg",
       "id" : 142589904,
       "verified" : false
     }
@@ -1879,7 +1879,7 @@ Grailbird.data.tweets_2016_12 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Brian Gesiak",
+      "name" : "a sexy brian costume",
       "screen_name" : "modocache",
       "indices" : [ 3, 13 ],
       "id_str" : "192478064",
@@ -1906,7 +1906,7 @@ Grailbird.data.tweets_2016_12 =
     "id" : 806706197046755329,
     "created_at" : "2016-12-08 03:45:19 +0000",
     "user" : {
-      "name" : "Brian Gesiak",
+      "name" : "a sexy brian costume",
       "screen_name" : "modocache",
       "protected" : false,
       "id_str" : "192478064",

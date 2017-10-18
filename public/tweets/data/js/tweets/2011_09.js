@@ -75,7 +75,7 @@ Grailbird.data.tweets_2011_09 =
   "source" : "\u003Ca href=\"http:\/\/kiwi-app.net\" rel=\"nofollow\"\u003EKiwi\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Phil",
+      "name" : "Philipp Fehre",
       "screen_name" : "ischi",
       "indices" : [ 0, 6 ],
       "id_str" : "12510462",
@@ -108,7 +108,7 @@ Grailbird.data.tweets_2011_09 =
   "source" : "\u003Ca href=\"http:\/\/kiwi-app.net\" rel=\"nofollow\"\u003EKiwi\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Phil",
+      "name" : "Philipp Fehre",
       "screen_name" : "ischi",
       "indices" : [ 0, 6 ],
       "id_str" : "12510462",
@@ -147,7 +147,7 @@ Grailbird.data.tweets_2011_09 =
   "source" : "\u003Ca href=\"http:\/\/kiwi-app.net\" rel=\"nofollow\"\u003EKiwi\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Phil",
+      "name" : "Philipp Fehre",
       "screen_name" : "ischi",
       "indices" : [ 0, 6 ],
       "id_str" : "12510462",

@@ -63,57 +63,6 @@ Grailbird.data.tweets_2013_11 =
 }, {
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
-    "user_mentions" : [ {
-      "name" : "\u041F\u0435\u043F\u0435\u043B\u0435\u0432a \u0415\u043B\u0435\u043D\u0430",
-      "screen_name" : "angelinamagnum",
-      "indices" : [ 3, 18 ],
-      "id_str" : "2833368891",
-      "id" : 2833368891
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "405548460596015104",
-  "text" : "RT @angelinamagnum: If you are a dev writing code that you expect other devs to use you may be surprised to find that you are working on us\u2026",
-  "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
-    "entities" : {
-      "user_mentions" : [ ],
-      "media" : [ ],
-      "hashtags" : [ ],
-      "urls" : [ ]
-    },
-    "geo" : { },
-    "id_str" : "405450793605533697",
-    "text" : "If you are a dev writing code that you expect other devs to use you may be surprised to find that you are working on user experience design.",
-    "id" : 405450793605533697,
-    "created_at" : "2013-11-26 21:39:36 +0000",
-    "user" : {
-      "name" : "Ghost in the Machine",
-      "screen_name" : "hopefulcyborg",
-      "protected" : false,
-      "id_str" : "58708498",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/847187490997796865\/W1YQWwWi_normal.jpg",
-      "id" : 58708498,
-      "verified" : false
-    }
-  },
-  "id" : 405548460596015104,
-  "created_at" : "2013-11-27 04:07:42 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
-  "entities" : {
     "user_mentions" : [ ],
     "media" : [ {
       "expanded_url" : "https:\/\/twitter.com\/_sjs\/status\/405160374518833152\/photo\/1",
@@ -128,17 +77,17 @@ Grailbird.data.tweets_2013_11 =
         "resize" : "fit",
         "w" : 908
       }, {
-        "h" : 96,
-        "resize" : "fit",
-        "w" : 340
-      }, {
         "h" : 150,
         "resize" : "crop",
         "w" : 150
       }, {
-        "h" : 170,
+        "h" : 257,
         "resize" : "fit",
-        "w" : 600
+        "w" : 908
+      }, {
+        "h" : 192,
+        "resize" : "fit",
+        "w" : 680
       }, {
         "h" : 257,
         "resize" : "fit",
@@ -167,7 +116,7 @@ Grailbird.data.tweets_2013_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003ETwitter for iPad\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "David Hicks",
+      "name" : "Dave Ghost Dicks",
       "screen_name" : "ALL_CAPS",
       "indices" : [ 0, 9 ],
       "id_str" : "35745942",
@@ -662,9 +611,9 @@ Grailbird.data.tweets_2013_11 =
         "resize" : "fit",
         "w" : 518
       }, {
-        "h" : 261,
+        "h" : 398,
         "resize" : "fit",
-        "w" : 340
+        "w" : 518
       } ],
       "display_url" : "pic.twitter.com\/uOMDLqTjKc"
     } ],
@@ -703,9 +652,9 @@ Grailbird.data.tweets_2013_11 =
           "resize" : "fit",
           "w" : 518
         }, {
-          "h" : 261,
+          "h" : 398,
           "resize" : "fit",
-          "w" : 340
+          "w" : 518
         } ],
         "display_url" : "pic.twitter.com\/uOMDLqTjKc"
       } ],
@@ -765,13 +714,13 @@ Grailbird.data.tweets_2013_11 =
         "resize" : "fit",
         "w" : 448
       }, {
+        "h" : 598,
+        "resize" : "fit",
+        "w" : 448
+      }, {
         "h" : 150,
         "resize" : "crop",
         "w" : 150
-      }, {
-        "h" : 454,
-        "resize" : "fit",
-        "w" : 340
       }, {
         "h" : 598,
         "resize" : "fit",
@@ -806,13 +755,13 @@ Grailbird.data.tweets_2013_11 =
           "resize" : "fit",
           "w" : 448
         }, {
+          "h" : 598,
+          "resize" : "fit",
+          "w" : 448
+        }, {
           "h" : 150,
           "resize" : "crop",
           "w" : 150
-        }, {
-          "h" : 454,
-          "resize" : "fit",
-          "w" : 340
         }, {
           "h" : 598,
           "resize" : "fit",
@@ -944,7 +893,7 @@ Grailbird.data.tweets_2013_11 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"https:\/\/play.google.com\/store\/apps\/details?id=com.dwdesign.tweetings\" rel=\"nofollow\"\u003ETweetings for  Android\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/play.google.com\/store\/apps\/details?id=com.dwdesign.tweetings\" rel=\"nofollow\"\u003ETweetings for Android Holo\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Jake Archibald",
@@ -1200,13 +1149,13 @@ Grailbird.data.tweets_2013_11 =
         "resize" : "fit",
         "w" : 577
       }, {
-        "h" : 603,
-        "resize" : "fit",
-        "w" : 340
-      }, {
         "h" : 150,
         "resize" : "crop",
         "w" : 150
+      }, {
+        "h" : 680,
+        "resize" : "fit",
+        "w" : 383
       }, {
         "h" : 1024,
         "resize" : "fit",
@@ -1593,7 +1542,7 @@ Grailbird.data.tweets_2013_11 =
       "id_str" : "668863",
       "id" : 668863
     }, {
-      "name" : "Alex's Matchneer",
+      "name" : "Alex Matchneer",
       "screen_name" : "machty",
       "indices" : [ 24, 31 ],
       "id_str" : "18740111",
@@ -1610,7 +1559,7 @@ Grailbird.data.tweets_2013_11 =
     "source" : "\u003Ca href=\"http:\/\/bufferapp.com\" rel=\"nofollow\"\u003EBuffer\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
-        "name" : "Alex's Matchneer",
+        "name" : "Alex Matchneer",
         "screen_name" : "machty",
         "indices" : [ 11, 18 ],
         "id_str" : "18740111",
@@ -1776,7 +1725,7 @@ Grailbird.data.tweets_2013_11 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "\u0265\u0254\u0131\u026Do\u029E \u029E\u0279\u0250\u026F",
+      "name" : "Mark Kolich",
       "screen_name" : "markkolich",
       "indices" : [ 0, 11 ],
       "id_str" : "22196723",
@@ -2511,7 +2460,7 @@ Grailbird.data.tweets_2013_11 =
       "screen_name" : "marcoarment",
       "protected" : false,
       "id_str" : "14231571",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1282173124\/untitled-158-2_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/917397034294038528\/mCGc9IjP_normal.jpg",
       "id" : 14231571,
       "verified" : true
     }

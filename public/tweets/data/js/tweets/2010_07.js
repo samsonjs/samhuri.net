@@ -188,7 +188,7 @@ Grailbird.data.tweets_2010_07 =
       "screen_name" : "lunafiko",
       "protected" : false,
       "id_str" : "14273142",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/850626294702252032\/cXCQ0vVd_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/865667126408773632\/QX5O6RhU_normal.jpg",
       "id" : 14273142,
       "verified" : false
     }
@@ -281,7 +281,7 @@ Grailbird.data.tweets_2010_07 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "zach is ill",
+      "name" : "Zach Carter",
       "screen_name" : "zii",
       "indices" : [ 0, 4 ],
       "id_str" : "12712742",
@@ -598,7 +598,7 @@ Grailbird.data.tweets_2010_07 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "zach is ill",
+      "name" : "Zach Carter",
       "screen_name" : "zii",
       "indices" : [ 0, 4 ],
       "id_str" : "12712742",
@@ -769,7 +769,7 @@ Grailbird.data.tweets_2010_07 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "jbr \uD83E\uDD20",
+      "name" : "jackal\uD83D\uDD78scarestein\uD83C\uDFC3",
       "screen_name" : "jacobrothstein",
       "indices" : [ 3, 18 ],
       "id_str" : "27302287",
@@ -796,7 +796,7 @@ Grailbird.data.tweets_2010_07 =
     "id" : 18171089437,
     "created_at" : "2010-07-10 04:02:35 +0000",
     "user" : {
-      "name" : "jbr \uD83E\uDD20",
+      "name" : "jackal\uD83D\uDD78scarestein\uD83C\uDFC3",
       "screen_name" : "jacobrothstein",
       "protected" : false,
       "id_str" : "27302287",

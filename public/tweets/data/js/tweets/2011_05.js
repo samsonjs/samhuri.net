@@ -671,7 +671,7 @@ Grailbird.data.tweets_2011_05 =
       "id_str" : "12599412",
       "id" : 12599412
     }, {
-      "name" : "Dan Benjamin \uD83E\uDD20",
+      "name" : "Dan Benjamin \uD83D\uDC0D",
       "screen_name" : "danbenjamin",
       "indices" : [ 84, 96 ],
       "id_str" : "5905672",
@@ -964,7 +964,7 @@ Grailbird.data.tweets_2011_05 =
       "screen_name" : "elliottkember",
       "protected" : false,
       "id_str" : "903351",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/833789605405003778\/VdwaRcg1_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/859955508760920064\/K69yZap8_normal.jpg",
       "id" : 903351,
       "verified" : true
     }
@@ -1048,7 +1048,7 @@ Grailbird.data.tweets_2011_05 =
       "screen_name" : "bryanl",
       "protected" : false,
       "id_str" : "659933",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/842712305603395584\/RFLhcc2R_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/915933811468390400\/e9ddfd-7_normal.jpg",
       "id" : 659933,
       "verified" : false
     }
@@ -1582,57 +1582,6 @@ Grailbird.data.tweets_2011_05 =
   "created_at" : "2011-05-24 19:52:57 +0000",
   "in_reply_to_screen_name" : "bryan_kyle",
   "in_reply_to_user_id_str" : "14864447",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/seesmic.com\/\" rel=\"nofollow\"\u003ESeesmic\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "Benjamin Black Swan",
-      "screen_name" : "b6n",
-      "indices" : [ 3, 7 ],
-      "id_str" : "16031975",
-      "id" : 16031975
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "73107434562007041",
-  "text" : "RT @b6n: Early customers are as important as early hires.  Recruit both carefully!",
-  "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/www.echofon.com\/\" rel=\"nofollow\"\u003EEchofon\u003C\/a\u003E",
-    "entities" : {
-      "user_mentions" : [ ],
-      "media" : [ ],
-      "hashtags" : [ ],
-      "urls" : [ ]
-    },
-    "geo" : { },
-    "id_str" : "73107211563433984",
-    "text" : "Early customers are as important as early hires.  Recruit both carefully!",
-    "id" : 73107211563433984,
-    "created_at" : "2011-05-24 19:24:52 +0000",
-    "user" : {
-      "name" : "Benjamin Black Swan",
-      "screen_name" : "b6n",
-      "protected" : false,
-      "id_str" : "16031975",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/743197627718635520\/3wBAwvyC_normal.jpg",
-      "id" : 16031975,
-      "verified" : false
-    }
-  },
-  "id" : 73107434562007041,
-  "created_at" : "2011-05-24 19:25:45 +0000",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -2470,7 +2419,7 @@ Grailbird.data.tweets_2011_05 =
   "source" : "\u003Ca href=\"http:\/\/kiwi-app.net\" rel=\"nofollow\"\u003EKiwi\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "isaacs",
+      "name" : "isaacs \uD83D\uDC99\uD83D\uDC9C\uD83D\uDC96\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08",
       "screen_name" : "izs",
       "indices" : [ 0, 4 ],
       "id_str" : "8038312",
@@ -3736,7 +3685,7 @@ Grailbird.data.tweets_2011_05 =
       "id_str" : "143883",
       "id" : 143883
     }, {
-      "name" : "Jeff Waugh",
+      "name" : "Jeff Waugh \uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08\u270A\uD83C\uDFFB",
       "screen_name" : "jdub",
       "indices" : [ 69, 74 ],
       "id_str" : "4690301",
@@ -3759,7 +3708,7 @@ Grailbird.data.tweets_2011_05 =
     "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
-        "name" : "Jeff Waugh",
+        "name" : "Jeff Waugh \uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08\u270A\uD83C\uDFFB",
         "screen_name" : "jdub",
         "indices" : [ 56, 61 ],
         "id_str" : "4690301",
@@ -3836,7 +3785,7 @@ Grailbird.data.tweets_2011_05 =
       "screen_name" : "thomasfuchs",
       "protected" : false,
       "id_str" : "6927562",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/767372427026464768\/5Prq7opQ_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/918433182906830848\/NwsKygmV_normal.jpg",
       "id" : 6927562,
       "verified" : true
     }
@@ -4520,7 +4469,7 @@ Grailbird.data.tweets_2011_05 =
   "source" : "\u003Ca href=\"http:\/\/seesmic.com\/\" rel=\"nofollow\"\u003ESeesmic\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Wil Shipley",
+      "name" : "\uD835\uDEA0\uD835\uDE92\uD835\uDE95 \uD835\uDE9C\uD835\uDE91\uD835\uDE92\uD835\uDE99\uD835\uDE95\uD835\uDE8E\uD835\uDEA2",
       "screen_name" : "wilshipley",
       "indices" : [ 3, 14 ],
       "id_str" : "2911221",
@@ -4547,7 +4496,7 @@ Grailbird.data.tweets_2011_05 =
     "id" : 67020587352064000,
     "created_at" : "2011-05-08 00:18:47 +0000",
     "user" : {
-      "name" : "Wil Shipley",
+      "name" : "\uD835\uDEA0\uD835\uDE92\uD835\uDE95 \uD835\uDE9C\uD835\uDE91\uD835\uDE92\uD835\uDE99\uD835\uDE95\uD835\uDE8E\uD835\uDEA2",
       "screen_name" : "wilshipley",
       "protected" : false,
       "id_str" : "2911221",
@@ -5912,7 +5861,7 @@ Grailbird.data.tweets_2011_05 =
       "screen_name" : "vivsharma",
       "protected" : false,
       "id_str" : "14148574",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/846077313489895424\/s8ZbUo5L_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/868463877108924421\/5XzyfOO8_normal.jpg",
       "id" : 14148574,
       "verified" : false
     }

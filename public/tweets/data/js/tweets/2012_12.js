@@ -306,7 +306,7 @@ Grailbird.data.tweets_2012_12 =
       "id_str" : "14231571",
       "id" : 14231571
     }, {
-      "name" : "Dan Benjamin \uD83E\uDD20",
+      "name" : "Dan Benjamin \uD83D\uDC0D",
       "screen_name" : "danbenjamin",
       "indices" : [ 13, 25 ],
       "id_str" : "5905672",
@@ -381,7 +381,7 @@ Grailbird.data.tweets_2012_12 =
       "id_str" : "372982253",
       "id" : 372982253
     }, {
-      "name" : "Dan Benjamin \uD83E\uDD20",
+      "name" : "Dan Benjamin \uD83D\uDC0D",
       "screen_name" : "danbenjamin",
       "indices" : [ 66, 78 ],
       "id_str" : "5905672",

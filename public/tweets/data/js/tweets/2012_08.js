@@ -365,7 +365,7 @@ Grailbird.data.tweets_2012_08 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "\u0265\u0254\u0131\u026Do\u029E \u029E\u0279\u0250\u026F",
+      "name" : "Mark Kolich",
       "screen_name" : "markkolich",
       "indices" : [ 0, 11 ],
       "id_str" : "22196723",
@@ -487,9 +487,9 @@ Grailbird.data.tweets_2012_08 =
         "resize" : "fit",
         "w" : 570
       }, {
-        "h" : 44,
+        "h" : 73,
         "resize" : "fit",
-        "w" : 340
+        "w" : 570
       }, {
         "h" : 73,
         "resize" : "fit",

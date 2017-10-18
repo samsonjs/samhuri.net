@@ -1145,7 +1145,7 @@ Grailbird.data.tweets_2009_12 =
       "id_str" : "54403950",
       "id" : 54403950
     }, {
-      "name" : "David Strack",
+      "name" : "Strackula \uD83E\uDD87",
       "screen_name" : "rmxdave",
       "indices" : [ 15, 23 ],
       "id_str" : "9027732",
@@ -1174,7 +1174,7 @@ Grailbird.data.tweets_2009_12 =
     "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
-        "name" : "David Strack",
+        "name" : "Strackula \uD83E\uDD87",
         "screen_name" : "rmxdave",
         "indices" : [ 3, 11 ],
         "id_str" : "9027732",

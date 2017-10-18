@@ -591,7 +591,7 @@ Grailbird.data.tweets_2010_05 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "zach is ill",
+      "name" : "Zach Carter",
       "screen_name" : "zii",
       "indices" : [ 3, 7 ],
       "id_str" : "12712742",
@@ -630,11 +630,11 @@ Grailbird.data.tweets_2010_05 =
     "id" : 14652351912,
     "created_at" : "2010-05-24 22:48:17 +0000",
     "user" : {
-      "name" : "zach is ill",
+      "name" : "Zach Carter",
       "screen_name" : "zii",
       "protected" : false,
       "id_str" : "12712742",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/850471004262383616\/4bWS5-E7_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/880992273101578240\/ib3GlMDp_normal.jpg",
       "id" : 12712742,
       "verified" : false
     }
@@ -720,7 +720,7 @@ Grailbird.data.tweets_2010_05 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "isaacs",
+      "name" : "isaacs \uD83D\uDC99\uD83D\uDC9C\uD83D\uDC96\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08",
       "screen_name" : "izs",
       "indices" : [ 3, 7 ],
       "id_str" : "8038312",
@@ -747,11 +747,11 @@ Grailbird.data.tweets_2010_05 =
     "id" : 14646836334,
     "created_at" : "2010-05-24 20:57:44 +0000",
     "user" : {
-      "name" : "isaacs",
+      "name" : "isaacs \uD83D\uDC99\uD83D\uDC9C\uD83D\uDC96\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08",
       "screen_name" : "izs",
       "protected" : false,
       "id_str" : "8038312",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/765345750427414529\/hxSFDEmc_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/917536371085950976\/MIuNwAAR_normal.png",
       "id" : 8038312,
       "verified" : true
     }
@@ -810,57 +810,6 @@ Grailbird.data.tweets_2010_05 =
   "id_str" : "14518843441",
   "text" : "About to watch a haggis hurling competition. The record is 190 ft!",
   "id" : 14518843441,
-  "created_at" : "2010-05-22 00:00:00 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "Andy G\uD83C\uDDFA\uD83C\uDDF8 V. USA\uD83D\uDC37",
-      "screen_name" : "argv0",
-      "indices" : [ 3, 9 ],
-      "id_str" : "6509982",
-      "id" : 6509982
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "14521573978",
-  "text" : "RT @argv0: Look at your DB.  Now back to me.  Now back at your DB.  Now back to me.  I'm the DB your DB could scale like if your DB was  ...",
-  "retweeted_status" : {
-    "source" : "\u003Ca href=\"https:\/\/about.twitter.com\/products\/tweetdeck\" rel=\"nofollow\"\u003ETweetDeck\u003C\/a\u003E",
-    "entities" : {
-      "user_mentions" : [ ],
-      "media" : [ ],
-      "hashtags" : [ ],
-      "urls" : [ ]
-    },
-    "geo" : { },
-    "id_str" : "14521160441",
-    "text" : "Look at your DB.  Now back to me.  Now back at your DB.  Now back to me.  I'm the DB your DB could scale like if your DB was Basho Riak.",
-    "id" : 14521160441,
-    "created_at" : "2010-05-22 23:04:37 +0000",
-    "user" : {
-      "name" : "A. Robinson Gross",
-      "screen_name" : "argv0",
-      "protected" : false,
-      "id_str" : "6509982",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/853303726118916097\/zaoLLw9n_normal.jpg",
-      "id" : 6509982,
-      "verified" : false
-    }
-  },
-  "id" : 14521573978,
   "created_at" : "2010-05-22 00:00:00 +0000",
   "user" : {
     "name" : "Sami Samhuri",
@@ -1712,7 +1661,7 @@ Grailbird.data.tweets_2010_05 =
       "id_str" : "12497",
       "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000261649705\/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg",
       "id" : 12497,
-      "verified" : false
+      "verified" : true
     }
   },
   "id" : 13556062187,

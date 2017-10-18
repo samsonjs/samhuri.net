@@ -263,7 +263,7 @@ Grailbird.data.tweets_2011_04 =
   "source" : "\u003Ca href=\"http:\/\/kiwi-app.net\" rel=\"nofollow\"\u003EKiwi\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "isaacs",
+      "name" : "isaacs \uD83D\uDC99\uD83D\uDC9C\uD83D\uDC96\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08",
       "screen_name" : "izs",
       "indices" : [ 3, 7 ],
       "id_str" : "8038312",
@@ -300,11 +300,11 @@ Grailbird.data.tweets_2011_04 =
     "id" : 64425378097266688,
     "created_at" : "2011-04-30 20:26:21 +0000",
     "user" : {
-      "name" : "isaacs",
+      "name" : "isaacs \uD83D\uDC99\uD83D\uDC9C\uD83D\uDC96\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08",
       "screen_name" : "izs",
       "protected" : false,
       "id_str" : "8038312",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/765345750427414529\/hxSFDEmc_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/917536371085950976\/MIuNwAAR_normal.png",
       "id" : 8038312,
       "verified" : true
     }
@@ -976,7 +976,7 @@ Grailbird.data.tweets_2011_04 =
   "source" : "\u003Ca href=\"http:\/\/kiwi-app.net\" rel=\"nofollow\"\u003EKiwi\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Sean Cribbs",
+      "name" : "Tales From the Cribb",
       "screen_name" : "seancribbs",
       "indices" : [ 0, 11 ],
       "id_str" : "14939200",
@@ -1015,7 +1015,7 @@ Grailbird.data.tweets_2011_04 =
       "id_str" : "780561",
       "id" : 780561
     }, {
-      "name" : "Sean Cribbs",
+      "name" : "Tales From the Cribb",
       "screen_name" : "seancribbs",
       "indices" : [ 14, 25 ],
       "id_str" : "14939200",
@@ -2081,7 +2081,7 @@ Grailbird.data.tweets_2011_04 =
   "source" : "\u003Ca href=\"http:\/\/kiwi-app.net\" rel=\"nofollow\"\u003EKiwi\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Firefox \uD83E\uDD8A\uD83C\uDF0D",
+      "name" : "Firefox \uD83D\uDD25",
       "screen_name" : "firefox",
       "indices" : [ 3, 11 ],
       "id_str" : "2142731",
@@ -2108,7 +2108,7 @@ Grailbird.data.tweets_2011_04 =
     "id" : 53853038066147329,
     "created_at" : "2011-04-01 16:15:39 +0000",
     "user" : {
-      "name" : "Firefox \uD83E\uDD8A\uD83C\uDF0D",
+      "name" : "Firefox \uD83D\uDD25",
       "screen_name" : "firefox",
       "protected" : false,
       "id_str" : "2142731",

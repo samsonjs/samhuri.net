@@ -135,7 +135,7 @@ Grailbird.data.tweets_2011_12 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "ghost prison",
+      "name" : "annika backstrom",
       "screen_name" : "abackstrom",
       "indices" : [ 3, 14 ],
       "id_str" : "3621751",
@@ -172,11 +172,11 @@ Grailbird.data.tweets_2011_12 =
     "id" : 151504628784185344,
     "created_at" : "2011-12-27 03:28:12 +0000",
     "user" : {
-      "name" : "ghost prison",
+      "name" : "annika backstrom",
       "screen_name" : "abackstrom",
       "protected" : false,
       "id_str" : "3621751",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/616532569056784384\/wn2ggTfA_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/918671102427193344\/fEBI8wyY_normal.jpg",
       "id" : 3621751,
       "verified" : false
     }
@@ -288,7 +288,7 @@ Grailbird.data.tweets_2011_12 =
       "screen_name" : "rands",
       "protected" : false,
       "id_str" : "30923",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/823630828995346432\/OsEvhRyK_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/879352807228399621\/qtcNEE0n_normal.jpg",
       "id" : 30923,
       "verified" : true
     }
@@ -781,14 +781,6 @@ Grailbird.data.tweets_2011_12 =
         "resize" : "fit",
         "w" : 768
       }, {
-        "h" : 453,
-        "resize" : "fit",
-        "w" : 340
-      }, {
-        "h" : 800,
-        "resize" : "fit",
-        "w" : 600
-      }, {
         "h" : 150,
         "resize" : "crop",
         "w" : 150
@@ -796,6 +788,14 @@ Grailbird.data.tweets_2011_12 =
         "h" : 1024,
         "resize" : "fit",
         "w" : 768
+      }, {
+        "h" : 1024,
+        "resize" : "fit",
+        "w" : 768
+      }, {
+        "h" : 680,
+        "resize" : "fit",
+        "w" : 510
       } ],
       "display_url" : "pic.twitter.com\/4PV3JzWG"
     } ],
@@ -1127,7 +1127,7 @@ Grailbird.data.tweets_2011_12 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Se\u00F1or Yak Shaver\uD83C\uDDF3\uD83C\uDDF1",
+      "name" : "Tane Piper",
       "screen_name" : "tanepiper",
       "indices" : [ 0, 10 ],
       "id_str" : "20693",

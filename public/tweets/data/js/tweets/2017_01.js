@@ -9,11 +9,11 @@ Grailbird.data.tweets_2017_01 =
       "id_str" : "14270439",
       "id" : 14270439
     }, {
-      "name" : "Gil Desmarais",
+      "name" : "Gil",
       "screen_name" : "giLL0r",
       "indices" : [ 16, 23 ],
-      "id_str" : "22187095",
-      "id" : 22187095
+      "id_str" : "859342783500386304",
+      "id" : 859342783500386304
     } ],
     "media" : [ ],
     "hashtags" : [ ],
@@ -74,7 +74,7 @@ Grailbird.data.tweets_2017_01 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "OMIOTEK",
+      "name" : "your friend alex",
       "screen_name" : "omiotaco",
       "indices" : [ 0, 9 ],
       "id_str" : "445150610",
@@ -784,7 +784,7 @@ Grailbird.data.tweets_2017_01 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Fight nazis or GTFO",
+      "name" : "\uD83D\uDC7B Phlegm Parrot",
       "screen_name" : "gembarrett",
       "indices" : [ 0, 11 ],
       "id_str" : "43727347",
@@ -817,7 +817,7 @@ Grailbird.data.tweets_2017_01 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Fight nazis or GTFO",
+      "name" : "\uD83D\uDC7B Phlegm Parrot",
       "screen_name" : "gembarrett",
       "indices" : [ 0, 11 ],
       "id_str" : "43727347",
@@ -850,7 +850,7 @@ Grailbird.data.tweets_2017_01 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Fight nazis or GTFO",
+      "name" : "\uD83D\uDC7B Phlegm Parrot",
       "screen_name" : "gembarrett",
       "indices" : [ 0, 11 ],
       "id_str" : "43727347",
@@ -977,13 +977,13 @@ Grailbird.data.tweets_2017_01 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Fight nazis or GTFO",
+      "name" : "\uD83D\uDC7B Phlegm Parrot",
       "screen_name" : "gembarrett",
       "indices" : [ 0, 11 ],
       "id_str" : "43727347",
       "id" : 43727347
     }, {
-      "name" : "hannah \uD83C\uDF39",
+      "name" : "hannah",
       "screen_name" : "oceanseyye",
       "indices" : [ 12, 23 ],
       "id_str" : "1201665662",
@@ -1003,57 +1003,6 @@ Grailbird.data.tweets_2017_01 =
   "created_at" : "2017-01-20 14:03:07 +0000",
   "in_reply_to_screen_name" : "gembarrett",
   "in_reply_to_user_id_str" : "43727347",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "Kris Markel",
-      "screen_name" : "existopher",
-      "indices" : [ 3, 14 ],
-      "id_str" : "191922437",
-      "id" : 191922437
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "821766582732877824",
-  "text" : "RT @existopher: I had a problem involving text parsing and capture, so I used a regex. Now I have an elegant and domain appropriate solutio\u2026",
-  "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
-    "entities" : {
-      "user_mentions" : [ ],
-      "media" : [ ],
-      "hashtags" : [ ],
-      "urls" : [ ]
-    },
-    "geo" : { },
-    "id_str" : "821503015957843969",
-    "text" : "I had a problem involving text parsing and capture, so I used a regex. Now I have an elegant and domain appropriate solution to my problem.",
-    "id" : 821503015957843969,
-    "created_at" : "2017-01-17 23:42:36 +0000",
-    "user" : {
-      "name" : "Kris Markel",
-      "screen_name" : "existopher",
-      "protected" : false,
-      "id_str" : "191922437",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/660980867611815936\/2oUrk18B_normal.jpg",
-      "id" : 191922437,
-      "verified" : false
-    }
-  },
-  "id" : 821766582732877824,
-  "created_at" : "2017-01-18 17:09:55 +0000",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -1504,7 +1453,7 @@ Grailbird.data.tweets_2017_01 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Zach Waldowski",
+      "name" : "Black WalDIEski \uD83C\uDF11\u26B0\uFE0F",
       "screen_name" : "zwaldowski",
       "indices" : [ 0, 11 ],
       "id_str" : "18553922",
@@ -1570,7 +1519,7 @@ Grailbird.data.tweets_2017_01 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "vixentael \uD83D\uDD11\uD83D\uDEE1\uD83D\uDCBB",
+      "name" : "vixentael \uD83D\uDCBB\uD83E\uDD84",
       "screen_name" : "vixentael",
       "indices" : [ 0, 10 ],
       "id_str" : "536639805",
@@ -1675,7 +1624,7 @@ Grailbird.data.tweets_2017_01 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "jbr \uD83E\uDD20",
+      "name" : "jackal\uD83D\uDD78scarestein\uD83C\uDFC3",
       "screen_name" : "jacobrothstein",
       "indices" : [ 0, 15 ],
       "id_str" : "27302287",
@@ -1708,7 +1657,7 @@ Grailbird.data.tweets_2017_01 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "jbr \uD83E\uDD20",
+      "name" : "jackal\uD83D\uDD78scarestein\uD83C\uDFC3",
       "screen_name" : "jacobrothstein",
       "indices" : [ 0, 15 ],
       "id_str" : "27302287",
@@ -1774,7 +1723,7 @@ Grailbird.data.tweets_2017_01 =
       "id_str" : "2941119764",
       "id" : 2941119764
     }, {
-      "name" : "Mark Bramhill \uD83D\uDCFB",
+      "name" : "\uD835\uDD78\uD835\uDD86\uD835\uDD97\uD835\uDC24 \uD835\uDD6D\uD835\uDD97\uD835\uDD86\uD835\uDD92\uD835\uDD8D\uD835\uDD94\uD835\uDD9C\uD835\uDD91 \uD83C\uDF15\uD83D\uDC3A",
       "screen_name" : "mcbramhill",
       "indices" : [ 43, 54 ],
       "id_str" : "432194612",
@@ -1887,7 +1836,7 @@ Grailbird.data.tweets_2017_01 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Joe Groff",
+      "name" : "[joe groff];",
       "screen_name" : "jckarter",
       "indices" : [ 0, 9 ],
       "id_str" : "18559099",
@@ -2160,7 +2109,7 @@ Grailbird.data.tweets_2017_01 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Zach Waldowski",
+      "name" : "Black WalDIEski \uD83C\uDF11\u26B0\uFE0F",
       "screen_name" : "zwaldowski",
       "indices" : [ 0, 11 ],
       "id_str" : "18553922",

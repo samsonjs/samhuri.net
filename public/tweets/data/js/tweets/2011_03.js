@@ -219,7 +219,7 @@ Grailbird.data.tweets_2011_03 =
       "screen_name" : "kpdecker",
       "protected" : false,
       "id_str" : "17259752",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/493401149907546112\/6lRSA1GQ_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/891289470141693956\/2GFSMKw1_normal.jpg",
       "id" : 17259752,
       "verified" : false
     }
@@ -321,7 +321,7 @@ Grailbird.data.tweets_2011_03 =
       "screen_name" : "jonathanstark",
       "protected" : false,
       "id_str" : "7198302",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/848008404379553792\/tB8RS5r3_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/900181993299857408\/2tWkb4b8_normal.jpg",
       "id" : 7198302,
       "verified" : false
     }
@@ -1694,7 +1694,7 @@ Grailbird.data.tweets_2011_03 =
   "source" : "\u003Ca href=\"http:\/\/seesmic.com\/\" rel=\"nofollow\"\u003ESeesmic\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Shaun Ruigrok",
+      "name" : "Shaun \uD83C\uDD85\uD83C\uDD7E\uD83C\uDD83\uD83C\uDD74 \uD83C\uDD88\uD83C\uDD74\uD83C\uDD82 \uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08",
       "screen_name" : "Shaun_R",
       "indices" : [ 0, 8 ],
       "id_str" : "14365611",

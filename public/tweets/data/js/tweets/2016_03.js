@@ -450,7 +450,7 @@ Grailbird.data.tweets_2016_03 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Joe Fabisevich \uD83D\uDC36\uD83D\uDC33\u2122",
+      "name" : "Joe Fabisevich \uD83D\uDC36\uD83C\uDDF5\uD83C\uDDF7\uD83D\uDC33\u2122",
       "screen_name" : "mergesort",
       "indices" : [ 0, 10 ],
       "id_str" : "26178841",
@@ -495,7 +495,7 @@ Grailbird.data.tweets_2016_03 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Fight nazis or GTFO",
+      "name" : "\uD83D\uDC7B Phlegm Parrot",
       "screen_name" : "gembarrett",
       "indices" : [ 3, 14 ],
       "id_str" : "43727347",
@@ -522,7 +522,7 @@ Grailbird.data.tweets_2016_03 =
     "id" : 712392149178961920,
     "created_at" : "2016-03-22 21:34:58 +0000",
     "user" : {
-      "name" : "Fight nazis or GTFO",
+      "name" : "\uD83D\uDC7B Phlegm Parrot",
       "screen_name" : "gembarrett",
       "protected" : false,
       "id_str" : "43727347",
@@ -843,21 +843,21 @@ Grailbird.data.tweets_2016_03 =
       "id" : 707695130854031360,
       "media_url_https" : "https:\/\/pbs.twimg.com\/media\/CdI8-NPUAAAWBpq.jpg",
       "sizes" : [ {
-        "h" : 579,
+        "h" : 385,
         "resize" : "fit",
-        "w" : 1024
+        "w" : 680
+      }, {
+        "h" : 679,
+        "resize" : "fit",
+        "w" : 1200
       }, {
         "h" : 150,
         "resize" : "crop",
         "w" : 150
       }, {
-        "h" : 192,
+        "h" : 784,
         "resize" : "fit",
-        "w" : 340
-      }, {
-        "h" : 339,
-        "resize" : "fit",
-        "w" : 600
+        "w" : 1386
       }, {
         "h" : 784,
         "resize" : "fit",
@@ -895,14 +895,6 @@ Grailbird.data.tweets_2016_03 =
       "id" : 707694282627375104,
       "media_url_https" : "https:\/\/pbs.twimg.com\/media\/CdI8M1WUYAACmoY.jpg",
       "sizes" : [ {
-        "h" : 51,
-        "resize" : "fit",
-        "w" : 340
-      }, {
-        "h" : 90,
-        "resize" : "fit",
-        "w" : 600
-      }, {
         "h" : 132,
         "resize" : "crop",
         "w" : 132
@@ -910,6 +902,14 @@ Grailbird.data.tweets_2016_03 =
         "h" : 132,
         "resize" : "fit",
         "w" : 880
+      }, {
+        "h" : 132,
+        "resize" : "fit",
+        "w" : 880
+      }, {
+        "h" : 102,
+        "resize" : "fit",
+        "w" : 680
       }, {
         "h" : 132,
         "resize" : "fit",

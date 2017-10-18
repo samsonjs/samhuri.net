@@ -114,7 +114,7 @@ Grailbird.data.tweets_2016_04 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "josh avant",
+      "name" : "super josh avant x",
       "screen_name" : "joshavant",
       "indices" : [ 0, 10 ],
       "id_str" : "123978606",
@@ -245,9 +245,9 @@ Grailbird.data.tweets_2016_04 =
         "id" : 720944262309941248,
         "media_url_https" : "https:\/\/pbs.twimg.com\/media\/CgFO_KHXEAAWQz_.jpg",
         "sizes" : [ {
-          "h" : 395,
+          "h" : 920,
           "resize" : "fit",
-          "w" : 600
+          "w" : 1397
         }, {
           "h" : 920,
           "resize" : "fit",
@@ -257,13 +257,13 @@ Grailbird.data.tweets_2016_04 =
           "resize" : "crop",
           "w" : 150
         }, {
-          "h" : 674,
+          "h" : 790,
           "resize" : "fit",
-          "w" : 1024
+          "w" : 1200
         }, {
-          "h" : 224,
+          "h" : 448,
           "resize" : "fit",
-          "w" : 340
+          "w" : 680
         } ],
         "display_url" : "pic.twitter.com\/1l6X31hv3Y"
       } ],
@@ -280,7 +280,7 @@ Grailbird.data.tweets_2016_04 =
       "screen_name" : "tdierks",
       "protected" : false,
       "id_str" : "15845390",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/58209917\/s561589873_98909_9565_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/867170721423908865\/ReXcZP2R_normal.jpg",
       "id" : 15845390,
       "verified" : false
     }

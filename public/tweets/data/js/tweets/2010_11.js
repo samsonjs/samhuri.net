@@ -707,7 +707,7 @@ Grailbird.data.tweets_2010_11 =
     "in_reply_to_screen_name" : "BCTransit",
     "in_reply_to_user_id_str" : "67042447",
     "user" : {
-      "name" : "\uD83C\uDFC4",
+      "name" : "\uD83C\uDFC4\uD83C\uDF0E",
       "screen_name" : "macatbook",
       "protected" : false,
       "id_str" : "22406953",
@@ -1672,7 +1672,7 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Marine Todd Le Pen",
+      "name" : "patch -p1 punkin.dif",
       "screen_name" : "moonpolysoft",
       "indices" : [ 36, 49 ],
       "id_str" : "14204623",
@@ -1928,7 +1928,7 @@ Grailbird.data.tweets_2010_11 =
       "screen_name" : "isntitvacant",
       "protected" : false,
       "id_str" : "15394440",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/668015451243327489\/6G04zB-4_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/914324901011480576\/uOiPyzDc_normal.jpg",
       "id" : 15394440,
       "verified" : false
     }
@@ -3848,7 +3848,7 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "jbr \uD83E\uDD20",
+      "name" : "jackal\uD83D\uDD78scarestein\uD83C\uDFC3",
       "screen_name" : "jacobrothstein",
       "indices" : [ 0, 15 ],
       "id_str" : "27302287",
@@ -3903,7 +3903,7 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "jbr \uD83E\uDD20",
+      "name" : "jackal\uD83D\uDD78scarestein\uD83C\uDFC3",
       "screen_name" : "jacobrothstein",
       "indices" : [ 0, 15 ],
       "id_str" : "27302287",
@@ -3942,7 +3942,7 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "jbr \uD83E\uDD20",
+      "name" : "jackal\uD83D\uDD78scarestein\uD83C\uDFC3",
       "screen_name" : "jacobrothstein",
       "indices" : [ 0, 15 ],
       "id_str" : "27302287",
@@ -4263,7 +4263,7 @@ Grailbird.data.tweets_2010_11 =
       "screen_name" : "peterc",
       "protected" : false,
       "id_str" : "33493",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/838548323585961988\/TnvST4XM_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/902223244320755714\/FX8yzxQD_normal.jpg",
       "id" : 33493,
       "verified" : false
     }
@@ -4930,7 +4930,7 @@ Grailbird.data.tweets_2010_11 =
       "id_str" : "1341781",
       "id" : 1341781
     }, {
-      "name" : "jbr \uD83E\uDD20",
+      "name" : "jackal\uD83D\uDD78scarestein\uD83C\uDFC3",
       "screen_name" : "jacobrothstein",
       "indices" : [ 40, 55 ],
       "id_str" : "27302287",
@@ -4953,7 +4953,7 @@ Grailbird.data.tweets_2010_11 =
         "id_str" : "1341781",
         "id" : 1341781
       }, {
-        "name" : "jbr \uD83E\uDD20",
+        "name" : "jackal\uD83D\uDD78scarestein\uD83C\uDFC3",
         "screen_name" : "jacobrothstein",
         "indices" : [ 26, 41 ],
         "id_str" : "27302287",
@@ -5080,7 +5080,7 @@ Grailbird.data.tweets_2010_11 =
       "screen_name" : "marcoarment",
       "protected" : false,
       "id_str" : "14231571",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1282173124\/untitled-158-2_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/917397034294038528\/mCGc9IjP_normal.jpg",
       "id" : 14231571,
       "verified" : true
     }
@@ -5235,7 +5235,7 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "jbr \uD83E\uDD20",
+      "name" : "jackal\uD83D\uDD78scarestein\uD83C\uDFC3",
       "screen_name" : "jacobrothstein",
       "indices" : [ 3, 18 ],
       "id_str" : "27302287",
@@ -5262,7 +5262,7 @@ Grailbird.data.tweets_2010_11 =
     "id" : 2157046266863616,
     "created_at" : "2010-11-10 00:34:14 +0000",
     "user" : {
-      "name" : "jbr \uD83E\uDD20",
+      "name" : "jackal\uD83D\uDD78scarestein\uD83C\uDFC3",
       "screen_name" : "jacobrothstein",
       "protected" : false,
       "id_str" : "27302287",
@@ -5469,7 +5469,7 @@ Grailbird.data.tweets_2010_11 =
     "id" : 2023394778292224,
     "created_at" : "2010-11-09 15:43:09 +0000",
     "user" : {
-      "name" : "Changelog",
+      "name" : "The Changelog",
       "screen_name" : "changelog",
       "protected" : false,
       "id_str" : "90286855",
@@ -6093,7 +6093,7 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "jbr \uD83E\uDD20",
+      "name" : "jackal\uD83D\uDD78scarestein\uD83C\uDFC3",
       "screen_name" : "jacobrothstein",
       "indices" : [ 0, 15 ],
       "id_str" : "27302287",
@@ -6595,7 +6595,7 @@ Grailbird.data.tweets_2010_11 =
       "screen_name" : "SteveStreza",
       "protected" : false,
       "id_str" : "658643",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/823672050640416768\/T3Va_rMy_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/919096611019489280\/eF9MvfqL_normal.jpg",
       "id" : 658643,
       "verified" : true
     }

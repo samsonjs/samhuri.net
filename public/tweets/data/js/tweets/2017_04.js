@@ -1,9 +1,9 @@
 Grailbird.data.tweets_2017_04 = 
-[ {
+ [ {
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Dan Moren",
+      "name" : "2017, but forever",
       "screen_name" : "dmoren",
       "indices" : [ 0, 7 ],
       "id_str" : "668243",
@@ -48,7 +48,7 @@ Grailbird.data.tweets_2017_04 =
       "id_str" : "2786220516",
       "id" : 2786220516
     }, {
-      "name" : "Dan Moren",
+      "name" : "2017, but forever",
       "screen_name" : "dmoren",
       "indices" : [ 16, 23 ],
       "id_str" : "668243",
@@ -266,7 +266,7 @@ Grailbird.data.tweets_2017_04 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "\uD83C\uDFC4",
+      "name" : "\uD83C\uDFC4\uD83C\uDF0E",
       "screen_name" : "macatbook",
       "indices" : [ 0, 10 ],
       "id_str" : "22406953",
@@ -299,7 +299,7 @@ Grailbird.data.tweets_2017_04 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Joe Groff",
+      "name" : "[joe groff];",
       "screen_name" : "jckarter",
       "indices" : [ 3, 12 ],
       "id_str" : "18559099",
@@ -326,11 +326,11 @@ Grailbird.data.tweets_2017_04 =
     "id" : 854540059197952000,
     "created_at" : "2017-04-19 03:40:01 +0000",
     "user" : {
-      "name" : "Joe Groff",
+      "name" : "[joe groff];",
       "screen_name" : "jckarter",
       "protected" : false,
       "id_str" : "18559099",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/853476093969309696\/UvkXdC-l_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/914907528294686721\/nbK0AVfv_normal.jpg",
       "id" : 18559099,
       "verified" : false
     }
@@ -620,7 +620,7 @@ Grailbird.data.tweets_2017_04 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Nicholas Rempel \uD83D\uDE80",
+      "name" : "Nicholas Rempel \uD83C\uDF83",
       "screen_name" : "nbrempel",
       "indices" : [ 0, 9 ],
       "id_str" : "1400951646",

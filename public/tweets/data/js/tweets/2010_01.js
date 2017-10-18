@@ -1433,7 +1433,7 @@ Grailbird.data.tweets_2010_01 =
       "screen_name" : "chuq",
       "protected" : false,
       "id_str" : "13217612",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/758031386066333696\/vSq-AvJq_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/878288211339902976\/dDvof4nb_normal.jpg",
       "id" : 13217612,
       "verified" : false
     }
@@ -1487,7 +1487,7 @@ Grailbird.data.tweets_2010_01 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Lori Todd \uD83D\uDD2E",
+      "name" : "Lori Todd \uD83D\uDDA4",
       "screen_name" : "loritodd",
       "indices" : [ 0, 9 ],
       "id_str" : "9511932",
@@ -3443,7 +3443,7 @@ Grailbird.data.tweets_2010_01 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "zach is ill",
+      "name" : "Zach Carter",
       "screen_name" : "zii",
       "indices" : [ 36, 40 ],
       "id_str" : "12712742",

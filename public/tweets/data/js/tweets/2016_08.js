@@ -71,7 +71,7 @@ Grailbird.data.tweets_2016_08 =
       "screen_name" : "Catfish_Man",
       "protected" : false,
       "id_str" : "15444008",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/779581705292165120\/QOHPKKZv_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/877087638389379072\/nAnRi8MZ_normal.jpg",
       "id" : 15444008,
       "verified" : false
     }
@@ -1074,7 +1074,7 @@ Grailbird.data.tweets_2016_08 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Strong Bad",
+      "name" : "Strangled Badly",
       "screen_name" : "StrongBadActual",
       "indices" : [ 3, 19 ],
       "id_str" : "382221144",
@@ -1143,7 +1143,7 @@ Grailbird.data.tweets_2016_08 =
     "id" : 766087355174260737,
     "created_at" : "2016-08-18 01:40:33 +0000",
     "user" : {
-      "name" : "Strong Bad",
+      "name" : "Strangled Badly",
       "screen_name" : "StrongBadActual",
       "protected" : false,
       "id_str" : "382221144",
@@ -2245,7 +2245,7 @@ Grailbird.data.tweets_2016_08 =
       "id_str" : "408246807",
       "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/662690256559464448\/M7RzZNyf_normal.jpg",
       "id" : 408246807,
-      "verified" : false
+      "verified" : true
     }
   },
   "id" : 762416984654880769,
@@ -2395,7 +2395,7 @@ Grailbird.data.tweets_2016_08 =
       "id_str" : "15444008",
       "id" : 15444008
     }, {
-      "name" : "z\u034A\u0318\u0316a\u0313\u0365\u032F\u0323c\u0314\u0346\u0302\u033Ch\u0363\u0311\u0342 \u270C",
+      "name" : "zachary \u270C",
       "screen_name" : "zadr",
       "indices" : [ 23, 28 ],
       "id_str" : "7700222",

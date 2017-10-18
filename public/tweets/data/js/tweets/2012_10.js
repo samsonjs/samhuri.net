@@ -3,7 +3,7 @@ Grailbird.data.tweets_2012_10 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "THE VOID",
+      "name" : "hostname amy.tobey",
       "screen_name" : "AlTobey",
       "indices" : [ 3, 11 ],
       "id_str" : "146248951",
@@ -30,11 +30,11 @@ Grailbird.data.tweets_2012_10 =
     "id" : 263771862125928448,
     "created_at" : "2012-10-31 22:38:07 +0000",
     "user" : {
-      "name" : "THE VOID",
+      "name" : "hostname amy.tobey",
       "screen_name" : "AlTobey",
       "protected" : false,
       "id_str" : "146248951",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/773337188171780096\/caFkUAIq_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/891367683022663680\/-lIUG_Yp_normal.jpg",
       "id" : 146248951,
       "verified" : false
     }
@@ -342,7 +342,7 @@ Grailbird.data.tweets_2012_10 =
       "screen_name" : "the_webhamster",
       "protected" : false,
       "id_str" : "207536489",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/837475358060457984\/CCrtsL11_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/899693781896835074\/_QwFQfN-_normal.jpg",
       "id" : 207536489,
       "verified" : false
     }

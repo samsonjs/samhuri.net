@@ -37,7 +37,7 @@ Grailbird.data.tweets_2013_05 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jamie Forrest",
+      "name" : "Jamie Forrest \uD83C\uDDFA\uD83C\uDDF8",
       "screen_name" : "jamieforrest",
       "indices" : [ 3, 16 ],
       "id_str" : "14069034",
@@ -64,11 +64,11 @@ Grailbird.data.tweets_2013_05 =
     "id" : 334279984321544192,
     "created_at" : "2013-05-14 12:12:13 +0000",
     "user" : {
-      "name" : "Jamie Forrest",
+      "name" : "Jamie Forrest \uD83C\uDDFA\uD83C\uDDF8",
       "screen_name" : "jamieforrest",
       "protected" : false,
       "id_str" : "14069034",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831318562765684738\/vVfdCynI_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/896701895468883968\/Xwpse17g_normal.jpg",
       "id" : 14069034,
       "verified" : false
     }
@@ -303,7 +303,7 @@ Grailbird.data.tweets_2013_05 =
       "screen_name" : "JeremiahLee",
       "protected" : false,
       "id_str" : "14538587",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/798798468496003072\/rFjHf66P_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/885777206206754817\/o-nwipOQ_normal.jpg",
       "id" : 14538587,
       "verified" : false
     }
@@ -880,14 +880,6 @@ Grailbird.data.tweets_2013_05 =
         "resize" : "fit",
         "w" : 768
       }, {
-        "h" : 453,
-        "resize" : "fit",
-        "w" : 340
-      }, {
-        "h" : 800,
-        "resize" : "fit",
-        "w" : 600
-      }, {
         "h" : 150,
         "resize" : "crop",
         "w" : 150
@@ -895,6 +887,14 @@ Grailbird.data.tweets_2013_05 =
         "h" : 1024,
         "resize" : "fit",
         "w" : 768
+      }, {
+        "h" : 1024,
+        "resize" : "fit",
+        "w" : 768
+      }, {
+        "h" : 680,
+        "resize" : "fit",
+        "w" : 510
       } ],
       "display_url" : "pic.twitter.com\/RJ9P4OFHeN"
     } ],

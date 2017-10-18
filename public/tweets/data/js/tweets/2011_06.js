@@ -3,7 +3,7 @@ Grailbird.data.tweets_2011_06 =
   "source" : "\u003Ca href=\"http:\/\/kiwi-app.net\" rel=\"nofollow\"\u003EKiwi\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Phil",
+      "name" : "Philipp Fehre",
       "screen_name" : "ischi",
       "indices" : [ 0, 6 ],
       "id_str" : "12510462",
@@ -36,7 +36,7 @@ Grailbird.data.tweets_2011_06 =
   "source" : "\u003Ca href=\"http:\/\/kiwi-app.net\" rel=\"nofollow\"\u003EKiwi\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Phil",
+      "name" : "Philipp Fehre",
       "screen_name" : "ischi",
       "indices" : [ 0, 6 ],
       "id_str" : "12510462",
@@ -496,7 +496,7 @@ Grailbird.data.tweets_2011_06 =
   "source" : "\u003Ca href=\"http:\/\/kiwi-app.net\" rel=\"nofollow\"\u003EKiwi\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "isaacs",
+      "name" : "isaacs \uD83D\uDC99\uD83D\uDC9C\uD83D\uDC96\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08",
       "screen_name" : "izs",
       "indices" : [ 0, 4 ],
       "id_str" : "8038312",
@@ -982,7 +982,7 @@ Grailbird.data.tweets_2011_06 =
   "source" : "\u003Ca href=\"http:\/\/kiwi-app.net\" rel=\"nofollow\"\u003EKiwi\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Dan Benjamin \uD83E\uDD20",
+      "name" : "Dan Benjamin \uD83D\uDC0D",
       "screen_name" : "danbenjamin",
       "indices" : [ 0, 12 ],
       "id_str" : "5905672",
@@ -1867,7 +1867,7 @@ Grailbird.data.tweets_2011_06 =
   "source" : "\u003Ca href=\"http:\/\/kiwi-app.net\" rel=\"nofollow\"\u003EKiwi\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Francis \uD83D\uDC08 Gulotta",
+      "name" : "fix(wpa): lol",
       "screen_name" : "reconbot",
       "indices" : [ 4, 13 ],
       "id_str" : "14082200",
@@ -2170,7 +2170,7 @@ Grailbird.data.tweets_2011_06 =
   "source" : "\u003Ca href=\"http:\/\/kiwi-app.net\" rel=\"nofollow\"\u003EKiwi\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "isaacs",
+      "name" : "isaacs \uD83D\uDC99\uD83D\uDC9C\uD83D\uDC96\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08",
       "screen_name" : "izs",
       "indices" : [ 3, 7 ],
       "id_str" : "8038312",
@@ -2197,11 +2197,11 @@ Grailbird.data.tweets_2011_06 =
     "id" : 77806627964723200,
     "created_at" : "2011-06-06 18:38:40 +0000",
     "user" : {
-      "name" : "isaacs",
+      "name" : "isaacs \uD83D\uDC99\uD83D\uDC9C\uD83D\uDC96\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08",
       "screen_name" : "izs",
       "protected" : false,
       "id_str" : "8038312",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/765345750427414529\/hxSFDEmc_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/917536371085950976\/MIuNwAAR_normal.png",
       "id" : 8038312,
       "verified" : true
     }
@@ -2486,7 +2486,7 @@ Grailbird.data.tweets_2011_06 =
   "source" : "\u003Ca href=\"http:\/\/kiwi-app.net\" rel=\"nofollow\"\u003EKiwi\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Appcelerator",
+      "name" : "Axway Appcelerator",
       "screen_name" : "appcelerator",
       "indices" : [ 0, 13 ],
       "id_str" : "9662352",
@@ -2519,7 +2519,7 @@ Grailbird.data.tweets_2011_06 =
   "source" : "\u003Ca href=\"http:\/\/kiwi-app.net\" rel=\"nofollow\"\u003EKiwi\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Appcelerator",
+      "name" : "Axway Appcelerator",
       "screen_name" : "appcelerator",
       "indices" : [ 0, 13 ],
       "id_str" : "9662352",
@@ -2558,7 +2558,7 @@ Grailbird.data.tweets_2011_06 =
       "id_str" : "25891747",
       "id" : 25891747
     }, {
-      "name" : "Appcelerator",
+      "name" : "Axway Appcelerator",
       "screen_name" : "appcelerator",
       "indices" : [ 36, 49 ],
       "id_str" : "9662352",

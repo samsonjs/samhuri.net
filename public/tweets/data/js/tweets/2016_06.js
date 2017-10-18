@@ -530,7 +530,7 @@ Grailbird.data.tweets_2016_06 =
       "screen_name" : "feministy",
       "protected" : false,
       "id_str" : "7039892",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831506570685001728\/xo5clzzg_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/876925277787443200\/8nmwdmMC_normal.jpg",
       "id" : 7039892,
       "verified" : false
     }
@@ -852,7 +852,7 @@ Grailbird.data.tweets_2016_06 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "wwwtxt (1980-94)",
+      "name" : "WWWTXT (1980-94)",
       "screen_name" : "wwwtxt",
       "indices" : [ 3, 10 ],
       "id_str" : "207756340",
@@ -879,11 +879,11 @@ Grailbird.data.tweets_2016_06 =
     "id" : 515933157242470400,
     "created_at" : "2014-09-27 18:37:04 +0000",
     "user" : {
-      "name" : "wwwtxt (1980-94)",
+      "name" : "WWWTXT (1980-94)",
       "screen_name" : "wwwtxt",
       "protected" : false,
       "id_str" : "207756340",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000328039060\/306deca90d2cf629aec0b51423f11a02_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/914078053776494592\/QGsViIib_normal.jpg",
       "id" : 207756340,
       "verified" : false
     }
@@ -1531,7 +1531,7 @@ Grailbird.data.tweets_2016_06 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Ivan Andriollo",
+      "name" : "Ivan Andriollo \uD83C\uDDEA\uD83C\uDDFA",
       "screen_name" : "ivanandriollo",
       "indices" : [ 0, 14 ],
       "id_str" : "22913041",
@@ -1991,7 +1991,7 @@ Grailbird.data.tweets_2016_06 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Brian Gesiak",
+      "name" : "a sexy brian costume",
       "screen_name" : "modocache",
       "indices" : [ 0, 10 ],
       "id_str" : "192478064",
@@ -3055,7 +3055,7 @@ Grailbird.data.tweets_2016_06 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Joe Groff",
+      "name" : "[joe groff];",
       "screen_name" : "jckarter",
       "indices" : [ 3, 12 ],
       "id_str" : "18559099",
@@ -3099,11 +3099,11 @@ Grailbird.data.tweets_2016_06 =
     "in_reply_to_screen_name" : "fzwob",
     "in_reply_to_user_id_str" : "383365996",
     "user" : {
-      "name" : "Joe Groff",
+      "name" : "[joe groff];",
       "screen_name" : "jckarter",
       "protected" : false,
       "id_str" : "18559099",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/853476093969309696\/UvkXdC-l_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/914907528294686721\/nbK0AVfv_normal.jpg",
       "id" : 18559099,
       "verified" : false
     }
@@ -3202,6 +3202,67 @@ Grailbird.data.tweets_2016_06 =
   "created_at" : "2016-06-13 19:59:58 +0000",
   "in_reply_to_screen_name" : "_sjs",
   "in_reply_to_user_id_str" : "4777951",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Anna Shtengelova",
+      "screen_name" : "ashtengelova",
+      "indices" : [ 3, 16 ],
+      "id_str" : "2792599332",
+      "id" : 2792599332
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ {
+      "indices" : [ 39, 62 ],
+      "url" : "https:\/\/t.co\/jKKdVEjYvX",
+      "expanded_url" : "https:\/\/developer.apple.com\/ios\/human-interface-guidelines\/",
+      "display_url" : "developer.apple.com\/ios\/human-inte\u2026"
+    } ]
+  },
+  "geo" : { },
+  "id_str" : "742445881387929600",
+  "text" : "RT @ashtengelova: Shiny new iOS HIG! \uD83C\uDF1F https:\/\/t.co\/jKKdVEjYvX",
+  "retweeted_status" : {
+    "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
+    "entities" : {
+      "user_mentions" : [ ],
+      "media" : [ ],
+      "hashtags" : [ ],
+      "urls" : [ {
+        "indices" : [ 21, 44 ],
+        "url" : "https:\/\/t.co\/jKKdVEjYvX",
+        "expanded_url" : "https:\/\/developer.apple.com\/ios\/human-interface-guidelines\/",
+        "display_url" : "developer.apple.com\/ios\/human-inte\u2026"
+      } ]
+    },
+    "geo" : { },
+    "id_str" : "742445532593823744",
+    "text" : "Shiny new iOS HIG! \uD83C\uDF1F https:\/\/t.co\/jKKdVEjYvX",
+    "id" : 742445532593823744,
+    "created_at" : "2016-06-13 19:56:23 +0000",
+    "user" : {
+      "name" : "Anna Shtengelova",
+      "screen_name" : "ashtengelova",
+      "protected" : false,
+      "id_str" : "2792599332",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/608702116509540352\/dHRr4_oo_normal.jpg",
+      "id" : 2792599332,
+      "verified" : false
+    }
+  },
+  "id" : 742445881387929600,
+  "created_at" : "2016-06-13 19:57:46 +0000",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -3641,7 +3702,7 @@ Grailbird.data.tweets_2016_06 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Tanya X. Short",
+      "name" : "Tanya's Skeleton",
       "screen_name" : "tanyaxshort",
       "indices" : [ 3, 15 ],
       "id_str" : "477205806",
@@ -3668,11 +3729,11 @@ Grailbird.data.tweets_2016_06 =
     "id" : 741752072257691648,
     "created_at" : "2016-06-11 22:00:49 +0000",
     "user" : {
-      "name" : "Tanya X. Short",
+      "name" : "Tanya's Skeleton",
       "screen_name" : "tanyaxshort",
       "protected" : false,
       "id_str" : "477205806",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/850099255364775938\/yUjBA0rC_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/916848421469868032\/UYw4IiZ6_normal.jpg",
       "id" : 477205806,
       "verified" : true
     }
@@ -4078,7 +4139,7 @@ Grailbird.data.tweets_2016_06 =
       "id_str" : "921389774",
       "id" : 921389774
     }, {
-      "name" : "\uD83C\uDFC4",
+      "name" : "\uD83C\uDFC4\uD83C\uDF0E",
       "screen_name" : "macatbook",
       "indices" : [ 25, 35 ],
       "id_str" : "22406953",
@@ -4280,7 +4341,7 @@ Grailbird.data.tweets_2016_06 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Fight nazis or GTFO",
+      "name" : "\uD83D\uDC7B Phlegm Parrot",
       "screen_name" : "gembarrett",
       "indices" : [ 0, 11 ],
       "id_str" : "43727347",

@@ -1107,14 +1107,6 @@ Grailbird.data.tweets_2012_02 =
         "resize" : "fit",
         "w" : 768
       }, {
-        "h" : 453,
-        "resize" : "fit",
-        "w" : 340
-      }, {
-        "h" : 800,
-        "resize" : "fit",
-        "w" : 600
-      }, {
         "h" : 150,
         "resize" : "crop",
         "w" : 150
@@ -1122,6 +1114,14 @@ Grailbird.data.tweets_2012_02 =
         "h" : 1024,
         "resize" : "fit",
         "w" : 768
+      }, {
+        "h" : 1024,
+        "resize" : "fit",
+        "w" : 768
+      }, {
+        "h" : 680,
+        "resize" : "fit",
+        "w" : 510
       } ],
       "display_url" : "pic.twitter.com\/7hQAZJOw"
     } ],
@@ -2053,7 +2053,7 @@ Grailbird.data.tweets_2012_02 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "\uD83E\uDD43 David Chartier \uD83E\uDD43",
+      "name" : "David Chartier \uD83E\uDD43",
       "screen_name" : "chartier",
       "indices" : [ 3, 12 ],
       "id_str" : "35383",
@@ -2090,11 +2090,11 @@ Grailbird.data.tweets_2012_02 =
     "id" : 165497489552707585,
     "created_at" : "2012-02-03 18:10:50 +0000",
     "user" : {
-      "name" : "\uD83E\uDD43 David Chartier \uD83E\uDD43",
+      "name" : "David Chartier \uD83E\uDD43",
       "screen_name" : "chartier",
       "protected" : false,
       "id_str" : "35383",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/849983799437910016\/jDoDAZzg_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/918141338088083456\/YvQvZSKt_normal.jpg",
       "id" : 35383,
       "verified" : true
     }
@@ -2155,7 +2155,7 @@ Grailbird.data.tweets_2012_02 =
       "screen_name" : "typeoneerror",
       "protected" : false,
       "id_str" : "11973362",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/810629507728044032\/KC9N72d__normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/872004130826362881\/9RRxQHYL_normal.jpg",
       "id" : 11973362,
       "verified" : false
     }
@@ -2279,7 +2279,7 @@ Grailbird.data.tweets_2012_02 =
       "screen_name" : "adamstac",
       "protected" : false,
       "id_str" : "816954",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/2691433309\/c6b807d4c05e097931a482358fc10dfd_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/863265661203697664\/3pwwJO2e_normal.jpg",
       "id" : 816954,
       "verified" : false
     }
@@ -2358,7 +2358,7 @@ Grailbird.data.tweets_2012_02 =
       "screen_name" : "0x00A",
       "protected" : false,
       "id_str" : "95938827",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/843963093864603648\/zTr2gD8t_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/895001508349128704\/gFxzeC4L_normal.jpg",
       "id" : 95938827,
       "verified" : false
     }
@@ -2644,7 +2644,7 @@ Grailbird.data.tweets_2012_02 =
       "screen_name" : "maccaw",
       "protected" : false,
       "id_str" : "2006261",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/658880981017882629\/nlXSOJnc_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/918603761861328896\/MSXrAULz_normal.jpg",
       "id" : 2006261,
       "verified" : true
     }

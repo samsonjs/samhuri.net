@@ -2473,7 +2473,7 @@ Grailbird.data.tweets_2011_07 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Firefox \uD83E\uDD8A\uD83C\uDF0D",
+      "name" : "Firefox \uD83D\uDD25",
       "screen_name" : "firefox",
       "indices" : [ 0, 8 ],
       "id_str" : "2142731",
@@ -4293,7 +4293,7 @@ Grailbird.data.tweets_2011_07 =
       "id_str" : "123323498",
       "id" : 123323498
     }, {
-      "name" : "Mike Sherov",
+      "name" : "Mi-ghoul Were-ov",
       "screen_name" : "mikesherov",
       "indices" : [ 25, 36 ],
       "id_str" : "4241651",
@@ -4327,7 +4327,7 @@ Grailbird.data.tweets_2011_07 =
       "id_str" : "123323498",
       "id" : 123323498
     }, {
-      "name" : "Mike Sherov",
+      "name" : "Mi-ghoul Were-ov",
       "screen_name" : "mikesherov",
       "indices" : [ 25, 36 ],
       "id_str" : "4241651",
@@ -4388,7 +4388,7 @@ Grailbird.data.tweets_2011_07 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Dustin Diaz",
+      "name" : "No I Diaz",
       "screen_name" : "ded",
       "indices" : [ 0, 4 ],
       "id_str" : "1199081",
@@ -4829,7 +4829,7 @@ Grailbird.data.tweets_2011_07 =
       "screen_name" : "mislav",
       "protected" : false,
       "id_str" : "7516242",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/500395960648749056\/A6trldA8_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/860184226632802307\/GjiGS87W_normal.jpg",
       "id" : 7516242,
       "verified" : false
     }
@@ -5702,7 +5702,7 @@ Grailbird.data.tweets_2011_07 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "\u26A1\uFE0F",
+      "name" : "\uD83C\uDF08",
       "screen_name" : "t",
       "indices" : [ 0, 2 ],
       "id_str" : "11628",
@@ -5900,7 +5900,7 @@ Grailbird.data.tweets_2011_07 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Dan Benjamin \uD83E\uDD20",
+      "name" : "Dan Benjamin \uD83D\uDC0D",
       "screen_name" : "danbenjamin",
       "indices" : [ 0, 12 ],
       "id_str" : "5905672",
@@ -5937,7 +5937,7 @@ Grailbird.data.tweets_2011_07 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Honza Pokorn\u00FD",
+      "name" : "Honza Pokorn\u00FD \uD83C\uDDE8\uD83C\uDDE6",
       "screen_name" : "_honza",
       "indices" : [ 0, 7 ],
       "id_str" : "15277447",
@@ -6581,57 +6581,6 @@ Grailbird.data.tweets_2011_07 =
   "text" : "If you have Google+ drag more than one person to a circle right now.",
   "id" : 89534809449299968,
   "created_at" : "2011-07-09 03:22:16 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "Benjamin Black Swan",
-      "screen_name" : "b6n",
-      "indices" : [ 3, 7 ],
-      "id_str" : "16031975",
-      "id" : 16031975
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "89497363021971457",
-  "text" : "RT @b6n: For me, it's either false dichotomies or nothing at all.",
-  "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/www.echofon.com\/\" rel=\"nofollow\"\u003EEchofon\u003C\/a\u003E",
-    "entities" : {
-      "user_mentions" : [ ],
-      "media" : [ ],
-      "hashtags" : [ ],
-      "urls" : [ ]
-    },
-    "geo" : { },
-    "id_str" : "89497134390460416",
-    "text" : "For me, it's either false dichotomies or nothing at all.",
-    "id" : 89497134390460416,
-    "created_at" : "2011-07-09 00:52:34 +0000",
-    "user" : {
-      "name" : "Benjamin Black Swan",
-      "screen_name" : "b6n",
-      "protected" : false,
-      "id_str" : "16031975",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/743197627718635520\/3wBAwvyC_normal.jpg",
-      "id" : 16031975,
-      "verified" : false
-    }
-  },
-  "id" : 89497363021971457,
-  "created_at" : "2011-07-09 00:53:28 +0000",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -7963,7 +7912,7 @@ Grailbird.data.tweets_2011_07 =
       "screen_name" : "tjholowaychuk",
       "protected" : false,
       "id_str" : "29255412",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000226613002\/36623ae09f553713c575c97c77544b49_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/909953369694859265\/BOakwKQY_normal.jpg",
       "id" : 29255412,
       "verified" : false
     }
@@ -8510,7 +8459,7 @@ Grailbird.data.tweets_2011_07 =
   "source" : "\u003Ca href=\"http:\/\/kiwi-app.net\" rel=\"nofollow\"\u003EKiwi\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "zach is ill",
+      "name" : "Zach Carter",
       "screen_name" : "zii",
       "indices" : [ 0, 4 ],
       "id_str" : "12712742",
@@ -8667,7 +8616,7 @@ Grailbird.data.tweets_2011_07 =
       "screen_name" : "marcoarment",
       "protected" : false,
       "id_str" : "14231571",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1282173124\/untitled-158-2_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/917397034294038528\/mCGc9IjP_normal.jpg",
       "id" : 14231571,
       "verified" : true
     }
