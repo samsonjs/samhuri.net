@@ -240,15 +240,15 @@ footer {
 /* iPhone X */
 @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
   body {
-    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
   }
 }
 @media only screen and (orientation: landscape) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
   .container {
-    padding: 0 constant(safe-area-inset-right) 0 constant(safe-area-inset-left);
+    padding: 0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
   }
   header.primary {
-    padding: 0.4rem constant(safe-area-inset-right) 0.4rem constant(safe-area-inset-left);
+    padding: 0.4rem env(safe-area-inset-right) 0.4rem env(safe-area-inset-left);
   }
 }
 
