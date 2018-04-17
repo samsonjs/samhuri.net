@@ -944,6 +944,31 @@ Grailbird.data.tweets_2010_10 =
     "verified" : false
   }
 }, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : {
+    "type" : "Point",
+    "coordinates" : [ 48.47153013, -123.32695609 ]
+  },
+  "id_str" : "29132023240",
+  "text" : "Of course this would happen at the end of a Friday. Thanks Murph!",
+  "id" : 29132023240,
+  "created_at" : "2010-10-29 00:00:00 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
@@ -969,7 +994,7 @@ Grailbird.data.tweets_2010_10 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "isaacs \uD83D\uDC99\uD83D\uDC9C\uD83D\uDC96\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08",
+      "name" : "\uD835\uDD40\uD835\uDD64\uD835\uDD52\uD835\uDD52\uD835\uDD54 \u2124. \uD835\uDD4A\uD835\uDD54\uD835\uDD59\uD835\uDD5D\uD835\uDD66\uD835\uDD56\uD835\uDD65\uD835\uDD56\uD835\uDD63 \uD83D\uDC99\uD83D\uDC9C\uD83D\uDC96\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08",
       "screen_name" : "izs",
       "indices" : [ 0, 4 ],
       "id_str" : "8038312",
@@ -1119,31 +1144,6 @@ Grailbird.data.tweets_2010_10 =
   "created_at" : "2010-10-29 00:00:00 +0000",
   "in_reply_to_screen_name" : "SelfServeApps",
   "in_reply_to_user_id_str" : "95698494",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : {
-    "type" : "Point",
-    "coordinates" : [ 48.47153013, -123.32695609 ]
-  },
-  "id_str" : "29132023240",
-  "text" : "Of course this would happen at the end of a Friday. Thanks Murph!",
-  "id" : 29132023240,
-  "created_at" : "2010-10-29 00:00:00 +0000",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -1565,7 +1565,7 @@ Grailbird.data.tweets_2010_10 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003ETwitter for iPad\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mathias Meyer",
+      "name" : "Mathias \u00AF\\_(\u30C4)_\/\u00AF Meyer",
       "screen_name" : "roidrage",
       "indices" : [ 3, 12 ],
       "id_str" : "14658472",
@@ -1592,7 +1592,7 @@ Grailbird.data.tweets_2010_10 =
     "id" : 28791548232,
     "created_at" : "2010-10-26 13:40:48 +0000",
     "user" : {
-      "name" : "Mathias Meyer",
+      "name" : "Mathias \u00AF\\_(\u30C4)_\/\u00AF Meyer",
       "screen_name" : "roidrage",
       "protected" : false,
       "id_str" : "14658472",
@@ -1638,7 +1638,7 @@ Grailbird.data.tweets_2010_10 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Sam Stephenson",
+      "name" : "Sam Stephenson \uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08",
       "screen_name" : "sstephenson",
       "indices" : [ 0, 12 ],
       "id_str" : "6707392",
@@ -1928,7 +1928,7 @@ Grailbird.data.tweets_2010_10 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003ETwitter for iPad\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "jackal\uD83D\uDD78scarestein\uD83C\uDFC3",
+      "name" : "jbr",
       "screen_name" : "jacobrothstein",
       "indices" : [ 3, 18 ],
       "id_str" : "27302287",
@@ -1955,7 +1955,7 @@ Grailbird.data.tweets_2010_10 =
     "id" : 28541909390,
     "created_at" : "2010-10-23 23:08:44 +0000",
     "user" : {
-      "name" : "jackal\uD83D\uDD78scarestein\uD83C\uDFC3",
+      "name" : "jbr",
       "screen_name" : "jacobrothstein",
       "protected" : false,
       "id_str" : "27302287",
@@ -2435,6 +2435,39 @@ Grailbird.data.tweets_2010_10 =
     "verified" : false
   }
 }, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Jim Roepcke",
+      "screen_name" : "JimRoepcke",
+      "indices" : [ 0, 11 ],
+      "id_str" : "894911",
+      "id" : 894911
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "27784155226",
+  "geo" : { },
+  "id_str" : "27784410092",
+  "in_reply_to_user_id" : 894911,
+  "text" : "@JimRoepcke You're gonna be doing a lot of doobie-rolling when you're *living in a van, down by the river!!*",
+  "id" : 27784410092,
+  "in_reply_to_status_id" : 27784155226,
+  "created_at" : "2010-10-19 00:00:00 +0000",
+  "in_reply_to_screen_name" : "JimRoepcke",
+  "in_reply_to_user_id_str" : "894911",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
@@ -2645,39 +2678,6 @@ Grailbird.data.tweets_2010_10 =
 }, {
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
-    "user_mentions" : [ {
-      "name" : "Jim Roepcke",
-      "screen_name" : "JimRoepcke",
-      "indices" : [ 0, 11 ],
-      "id_str" : "894911",
-      "id" : 894911
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "in_reply_to_status_id_str" : "27784155226",
-  "geo" : { },
-  "id_str" : "27784410092",
-  "in_reply_to_user_id" : 894911,
-  "text" : "@JimRoepcke You're gonna be doing a lot of doobie-rolling when you're *living in a van, down by the river!!*",
-  "id" : 27784410092,
-  "in_reply_to_status_id" : 27784155226,
-  "created_at" : "2010-10-19 00:00:00 +0000",
-  "in_reply_to_screen_name" : "JimRoepcke",
-  "in_reply_to_user_id_str" : "894911",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
-  "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
     "hashtags" : [ ],
@@ -2759,7 +2759,7 @@ Grailbird.data.tweets_2010_10 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "xno\u0279\u01DD\u0283 u\u0250\u0131\u0279q",
+      "name" : "xno\u0279\u01DD\u0283 u\u0250\u0131\u0279q \uD83D\uDC8E",
       "screen_name" : "brianleroux",
       "indices" : [ 0, 12 ],
       "id_str" : "676363",
@@ -3017,7 +3017,7 @@ Grailbird.data.tweets_2010_10 =
       "screen_name" : "peterc",
       "protected" : false,
       "id_str" : "33493",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/902223244320755714\/FX8yzxQD_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/951912849839882241\/8jDqFjFS_normal.jpg",
       "id" : 33493,
       "verified" : false
     }
@@ -3157,7 +3157,7 @@ Grailbird.data.tweets_2010_10 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Bobby McKenna",
+      "name" : "bobby",
       "screen_name" : "clashmore",
       "indices" : [ 3, 13 ],
       "id_str" : "430974664",
@@ -3184,11 +3184,11 @@ Grailbird.data.tweets_2010_10 =
     "id" : 27361842996,
     "created_at" : "2010-10-14 17:35:41 +0000",
     "user" : {
-      "name" : "bobby \uD83D\uDEBD",
+      "name" : "bobby",
       "screen_name" : "bobby",
       "protected" : false,
       "id_str" : "17983820",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/908438483395645440\/lsp6GN2S_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/984010303619977219\/l7m9oOXK_normal.jpg",
       "id" : 17983820,
       "verified" : false
     }
@@ -3604,7 +3604,7 @@ Grailbird.data.tweets_2010_10 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Thomas Fuchs",
+      "name" : "Thomas Fuchs \uD83E\uDD95",
       "screen_name" : "thomasfuchs",
       "indices" : [ 1, 13 ],
       "id_str" : "6927562",
@@ -3646,7 +3646,7 @@ Grailbird.data.tweets_2010_10 =
       "id_str" : "9885102",
       "id" : 9885102
     }, {
-      "name" : "\u212D\u0251\u2148\u1D64\u02E2",
+      "name" : "Edge Case \u212D\u0251\u2148\u1D64\u02E2",
       "screen_name" : "Caius",
       "indices" : [ 14, 20 ],
       "id_str" : "5857812",
@@ -3663,7 +3663,7 @@ Grailbird.data.tweets_2010_10 =
     "source" : "\u003Ca href=\"http:\/\/www.echofon.com\/\" rel=\"nofollow\"\u003EEchofon\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
-        "name" : "\u212D\u0251\u2148\u1D64\u02E2",
+        "name" : "Edge Case \u212D\u0251\u2148\u1D64\u02E2",
         "screen_name" : "Caius",
         "indices" : [ 3, 9 ],
         "id_str" : "5857812",
@@ -3683,7 +3683,7 @@ Grailbird.data.tweets_2010_10 =
       "screen_name" : "drnic",
       "protected" : false,
       "id_str" : "9885102",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/844401686038896641\/I1QIEnMa_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/955646013292789761\/8YTWwI3l_normal.jpg",
       "id" : 9885102,
       "verified" : false
     }
@@ -3899,6 +3899,34 @@ Grailbird.data.tweets_2010_10 =
 }, {
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
+    "user_mentions" : [ ],
+    "media" : [ ],
+    "hashtags" : [ {
+      "text" : "vim",
+      "indices" : [ 64, 68 ]
+    }, {
+      "text" : "emacs",
+      "indices" : [ 69, 75 ]
+    } ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "26522561497",
+  "text" : "This might sound weird but is there a vimscript mode for Emacs? #vim #emacs",
+  "id" : 26522561497,
+  "created_at" : "2010-10-06 00:00:00 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
+  "entities" : {
     "user_mentions" : [ {
       "name" : "Mitchell Hashimoto",
       "screen_name" : "mitchellh",
@@ -4032,85 +4060,6 @@ Grailbird.data.tweets_2010_10 =
   "id_str" : "26582217878",
   "text" : "Rebooted last night and Instachrome stopped working, perhaps because Chrome updated itself. Reinstalled the extension -&gt; fixed. #instapaper",
   "id" : 26582217878,
-  "created_at" : "2010-10-06 00:00:00 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "tom robinson",
-      "screen_name" : "tlrobinson",
-      "indices" : [ 3, 14 ],
-      "id_str" : "14206068",
-      "id" : 14206068
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "26588923267",
-  "text" : "RT @tlrobinson: Writing recursive asynchronous code makes my head hurt.",
-  "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
-    "entities" : {
-      "user_mentions" : [ ],
-      "media" : [ ],
-      "hashtags" : [ ],
-      "urls" : [ ]
-    },
-    "geo" : { },
-    "id_str" : "26584875031",
-    "text" : "Writing recursive asynchronous code makes my head hurt.",
-    "id" : 26584875031,
-    "created_at" : "2010-10-06 21:04:53 +0000",
-    "user" : {
-      "name" : "tom robinson",
-      "screen_name" : "tlrobinson",
-      "protected" : false,
-      "id_str" : "14206068",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000853310157\/a0e3b1296ad4bad4a668803a54a79afd_normal.jpeg",
-      "id" : 14206068,
-      "verified" : false
-    }
-  },
-  "id" : 26588923267,
-  "created_at" : "2010-10-06 00:00:00 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ ],
-    "media" : [ ],
-    "hashtags" : [ {
-      "text" : "vim",
-      "indices" : [ 64, 68 ]
-    }, {
-      "text" : "emacs",
-      "indices" : [ 69, 75 ]
-    } ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "26522561497",
-  "text" : "This might sound weird but is there a vimscript mode for Emacs? #vim #emacs",
-  "id" : 26522561497,
   "created_at" : "2010-10-06 00:00:00 +0000",
   "user" : {
     "name" : "Sami Samhuri",

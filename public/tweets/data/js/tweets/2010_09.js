@@ -47,7 +47,7 @@ Grailbird.data.tweets_2010_09 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Bruce Swedal",
+      "name" : "Bruce Wayne Swedal",
       "screen_name" : "swedal",
       "indices" : [ 3, 10 ],
       "id_str" : "7350652",
@@ -74,7 +74,7 @@ Grailbird.data.tweets_2010_09 =
     "id" : 25898221598,
     "created_at" : "2010-09-29 16:30:36 +0000",
     "user" : {
-      "name" : "Bruce Swedal",
+      "name" : "Bruce Wayne Swedal",
       "screen_name" : "swedal",
       "protected" : false,
       "id_str" : "7350652",
@@ -735,7 +735,7 @@ Grailbird.data.tweets_2010_09 =
       "screen_name" : "mathias",
       "protected" : false,
       "id_str" : "532923",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1255767431\/kung-fu_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/952797845534453760\/HRhT4f_5_normal.jpg",
       "id" : 532923,
       "verified" : true
     }
@@ -1082,7 +1082,7 @@ Grailbird.data.tweets_2010_09 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "@rem ~ offline \uD83D\uDDA4",
+      "name" : "@rem",
       "screen_name" : "rem",
       "indices" : [ 3, 7 ],
       "id_str" : "648873",
@@ -1121,7 +1121,7 @@ Grailbird.data.tweets_2010_09 =
     "id" : 25605392653,
     "created_at" : "2010-09-26 16:41:36 +0000",
     "user" : {
-      "name" : "@rem ~ offline \uD83D\uDDA4",
+      "name" : "@rem",
       "screen_name" : "rem",
       "protected" : false,
       "id_str" : "648873",
@@ -1145,7 +1145,7 @@ Grailbird.data.tweets_2010_09 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003ETwitter for iPad\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Yehuda Katz",
+      "name" : "Yehuda Katz \uD83E\uDD68",
       "screen_name" : "wycats",
       "indices" : [ 3, 10 ],
       "id_str" : "8526432",
@@ -1172,7 +1172,7 @@ Grailbird.data.tweets_2010_09 =
     "id" : 25626080353,
     "created_at" : "2010-09-26 21:39:07 +0000",
     "user" : {
-      "name" : "Yehuda Katz",
+      "name" : "Yehuda Katz \uD83E\uDD68",
       "screen_name" : "wycats",
       "protected" : false,
       "id_str" : "8526432",
@@ -1205,6 +1205,57 @@ Grailbird.data.tweets_2010_09 =
   "text" : "Really impressive work by Mozilla. They're almost fast! http:\/\/arewefastyet.com\/ JM+TM just passed Nitro at v8bench.",
   "id" : 25451990447,
   "created_at" : "2010-09-25 00:00:00 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003ETwitter for iPad\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Hacker News",
+      "screen_name" : "newsycombinator",
+      "indices" : [ 3, 19 ],
+      "id_str" : "14335498",
+      "id" : 14335498
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "25408426670",
+  "text" : "RT @newsycombinator: Node.js: a short history http:\/\/j.mp\/bhqSi7",
+  "retweeted_status" : {
+    "source" : "\u003Ca href=\"http:\/\/www.steer.me\" rel=\"nofollow\"\u003Enewsycombinator\u003C\/a\u003E",
+    "entities" : {
+      "user_mentions" : [ ],
+      "media" : [ ],
+      "hashtags" : [ ],
+      "urls" : [ ]
+    },
+    "geo" : { },
+    "id_str" : "25368955288",
+    "text" : "Node.js: a short history http:\/\/j.mp\/bhqSi7",
+    "id" : 25368955288,
+    "created_at" : "2010-09-24 03:00:05 +0000",
+    "user" : {
+      "name" : "Hacker News",
+      "screen_name" : "newsycombinator",
+      "protected" : false,
+      "id_str" : "14335498",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/469397708986269696\/iUrYEOpJ_normal.png",
+      "id" : 14335498,
+      "verified" : false
+    }
+  },
+  "id" : 25408426670,
+  "created_at" : "2010-09-24 00:00:00 +0000",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -1416,7 +1467,7 @@ Grailbird.data.tweets_2010_09 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "giles",
+      "name" : "too much future make it stop",
       "screen_name" : "gilesgoatboy",
       "indices" : [ 34, 47 ],
       "id_str" : "1341781",
@@ -1433,57 +1484,6 @@ Grailbird.data.tweets_2010_09 =
   "id_str" : "25383184930",
   "text" : "Uh oh, up way too late because of @gilesgoatboy and his video on vim-in-irb http:\/\/bit.ly\/dmwlZg ... stay tuned for #nodejs repl goodness.",
   "id" : 25383184930,
-  "created_at" : "2010-09-24 00:00:00 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003ETwitter for iPad\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "Hacker News",
-      "screen_name" : "newsycombinator",
-      "indices" : [ 3, 19 ],
-      "id_str" : "14335498",
-      "id" : 14335498
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "25408426670",
-  "text" : "RT @newsycombinator: Node.js: a short history http:\/\/j.mp\/bhqSi7",
-  "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/www.steer.me\" rel=\"nofollow\"\u003Enewsycombinator\u003C\/a\u003E",
-    "entities" : {
-      "user_mentions" : [ ],
-      "media" : [ ],
-      "hashtags" : [ ],
-      "urls" : [ ]
-    },
-    "geo" : { },
-    "id_str" : "25368955288",
-    "text" : "Node.js: a short history http:\/\/j.mp\/bhqSi7",
-    "id" : 25368955288,
-    "created_at" : "2010-09-24 03:00:05 +0000",
-    "user" : {
-      "name" : "Hacker News",
-      "screen_name" : "newsycombinator",
-      "protected" : false,
-      "id_str" : "14335498",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/469397708986269696\/iUrYEOpJ_normal.png",
-      "id" : 14335498,
-      "verified" : false
-    }
-  },
-  "id" : 25408426670,
   "created_at" : "2010-09-24 00:00:00 +0000",
   "user" : {
     "name" : "Sami Samhuri",
@@ -1542,7 +1542,7 @@ Grailbird.data.tweets_2010_09 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Tales From the Cribb",
+      "name" : "sean cribbs",
       "screen_name" : "seancribbs",
       "indices" : [ 0, 11 ],
       "id_str" : "14939200",
@@ -1578,7 +1578,7 @@ Grailbird.data.tweets_2010_09 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Tales From the Cribb",
+      "name" : "sean cribbs",
       "screen_name" : "seancribbs",
       "indices" : [ 0, 11 ],
       "id_str" : "14939200",
@@ -1614,7 +1614,7 @@ Grailbird.data.tweets_2010_09 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Tales From the Cribb",
+      "name" : "sean cribbs",
       "screen_name" : "seancribbs",
       "indices" : [ 3, 14 ],
       "id_str" : "14939200",
@@ -1641,7 +1641,7 @@ Grailbird.data.tweets_2010_09 =
     "id" : 25317257681,
     "created_at" : "2010-09-23 15:31:23 +0000",
     "user" : {
-      "name" : "Tales From the Cribb",
+      "name" : "sean cribbs",
       "screen_name" : "seancribbs",
       "protected" : false,
       "id_str" : "14939200",
@@ -2129,7 +2129,7 @@ Grailbird.data.tweets_2010_09 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Thomas H. Pt\u00E1\u010Dek",
+      "name" : "Thomas H. Ptacek",
       "screen_name" : "tqbf",
       "indices" : [ 3, 8 ],
       "id_str" : "9395312",
@@ -2156,11 +2156,11 @@ Grailbird.data.tweets_2010_09 =
     "id" : 24818193150,
     "created_at" : "2010-09-18 03:37:22 +0000",
     "user" : {
-      "name" : "Thomas H. Pt\u00E1\u010Dek",
+      "name" : "Thomas H. Ptacek",
       "screen_name" : "tqbf",
       "protected" : false,
       "id_str" : "9395312",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/763466249107939328\/No7KoyMS_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/937809576912601088\/sJbSGoAh_normal.jpg",
       "id" : 9395312,
       "verified" : false
     }
@@ -2213,7 +2213,7 @@ Grailbird.data.tweets_2010_09 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mathias Meyer",
+      "name" : "Mathias \u00AF\\_(\u30C4)_\/\u00AF Meyer",
       "screen_name" : "roidrage",
       "indices" : [ 3, 12 ],
       "id_str" : "14658472",
@@ -2246,7 +2246,7 @@ Grailbird.data.tweets_2010_09 =
     "id" : 24785569749,
     "created_at" : "2010-09-17 19:25:23 +0000",
     "user" : {
-      "name" : "Mathias Meyer",
+      "name" : "Mathias \u00AF\\_(\u30C4)_\/\u00AF Meyer",
       "screen_name" : "roidrage",
       "protected" : false,
       "id_str" : "14658472",

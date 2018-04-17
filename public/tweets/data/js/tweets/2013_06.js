@@ -272,14 +272,6 @@ Grailbird.data.tweets_2013_06 =
       "id" : 348194634918424577,
       "media_url_https" : "https:\/\/pbs.twimg.com\/media\/BNUJLPcCcAEcCrE.jpg",
       "sizes" : [ {
-        "h" : 802,
-        "resize" : "fit",
-        "w" : 1240
-      }, {
-        "h" : 440,
-        "resize" : "fit",
-        "w" : 680
-      }, {
         "h" : 150,
         "resize" : "crop",
         "w" : 150
@@ -291,7 +283,16 @@ Grailbird.data.tweets_2013_06 =
         "h" : 776,
         "resize" : "fit",
         "w" : 1200
+      }, {
+        "h" : 802,
+        "resize" : "fit",
+        "w" : 1240
+      }, {
+        "h" : 440,
+        "resize" : "fit",
+        "w" : 680
       } ],
+      "media_alt" : "",
       "display_url" : "pic.twitter.com\/XhizylDrHA"
     } ],
     "hashtags" : [ ],
@@ -1040,7 +1041,7 @@ Grailbird.data.tweets_2013_06 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "TJ Holowaychuk",
+      "name" : "TJ Holowaychuk \uD83D\uDC25",
       "screen_name" : "tjholowaychuk",
       "indices" : [ 0, 14 ],
       "id_str" : "29255412",
@@ -1128,18 +1129,19 @@ Grailbird.data.tweets_2013_06 =
         "resize" : "fit",
         "w" : 2048
       }, {
-        "h" : 900,
-        "resize" : "fit",
-        "w" : 1200
-      }, {
         "h" : 1536,
         "resize" : "fit",
         "w" : 2048
+      }, {
+        "h" : 900,
+        "resize" : "fit",
+        "w" : 1200
       }, {
         "h" : 510,
         "resize" : "fit",
         "w" : 680
       } ],
+      "media_alt" : "",
       "display_url" : "pic.twitter.com\/hjdmQMpvJp"
     } ],
     "hashtags" : [ ],

@@ -103,7 +103,7 @@ Grailbird.data.tweets_2017_06 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Steve T-S",
+      "name" : "Steve Troughton-Smith",
       "screen_name" : "stroughtonsmith",
       "indices" : [ 0, 16 ],
       "id_str" : "15267898",
@@ -322,26 +322,27 @@ Grailbird.data.tweets_2017_06 =
         "id" : 874364617086119937,
         "media_url_https" : "https:\/\/pbs.twimg.com\/ext_tw_video_thumb\/874364617086119937\/pu\/img\/MSVZweA9xrqe2RFD.jpg",
         "sizes" : [ {
-          "h" : 604,
+          "h" : 150,
+          "resize" : "crop",
+          "w" : 150
+        }, {
+          "h" : 680,
           "resize" : "fit",
-          "w" : 340
+          "w" : 383
         }, {
           "h" : 1280,
           "resize" : "fit",
           "w" : 720
         }, {
-          "h" : 0,
+          "h" : 1200,
           "resize" : "fit",
-          "w" : 0
+          "w" : 675
         }, {
-          "h" : 150,
-          "resize" : "crop",
-          "w" : 150
-        }, {
-          "h" : 1067,
+          "h" : 1280,
           "resize" : "fit",
-          "w" : 600
+          "w" : 720
         } ],
+        "media_alt" : "",
         "display_url" : "pic.twitter.com\/A34j3sTkNl"
       } ],
       "hashtags" : [ ],
@@ -499,9 +500,9 @@ Grailbird.data.tweets_2017_06 =
       "id" : 874317687748345856,
       "media_url_https" : "https:\/\/pbs.twimg.com\/media\/DCIzTf8UwAAm8YF.jpg",
       "sizes" : [ {
-        "h" : 199,
-        "resize" : "fit",
-        "w" : 680
+        "h" : 150,
+        "resize" : "crop",
+        "w" : 150
       }, {
         "h" : 352,
         "resize" : "fit",
@@ -511,14 +512,15 @@ Grailbird.data.tweets_2017_06 =
         "resize" : "fit",
         "w" : 1576
       }, {
-        "h" : 150,
-        "resize" : "crop",
-        "w" : 150
+        "h" : 199,
+        "resize" : "fit",
+        "w" : 680
       }, {
         "h" : 462,
         "resize" : "fit",
         "w" : 1576
       } ],
+      "media_alt" : "",
       "display_url" : "pic.twitter.com\/v0ri8DDJ55"
     } ],
     "hashtags" : [ ],
@@ -548,7 +550,7 @@ Grailbird.data.tweets_2017_06 =
       "id_str" : "9088822",
       "id" : 9088822
     }, {
-      "name" : "Black WalDIEski \uD83C\uDF11\u26B0\uFE0F",
+      "name" : "Squeezer of Cows",
       "screen_name" : "zwaldowski",
       "indices" : [ 9, 20 ],
       "id_str" : "18553922",
@@ -647,26 +649,27 @@ Grailbird.data.tweets_2017_06 =
       "id" : 873210292121071617,
       "media_url_https" : "https:\/\/pbs.twimg.com\/media\/DB5EIlwXcAEUrZH.jpg",
       "sizes" : [ {
+        "h" : 150,
+        "resize" : "crop",
+        "w" : 150
+      }, {
         "h" : 2880,
         "resize" : "fit",
         "w" : 5120
-      }, {
-        "h" : 675,
-        "resize" : "fit",
-        "w" : 1200
       }, {
         "h" : 383,
         "resize" : "fit",
         "w" : 680
       }, {
+        "h" : 675,
+        "resize" : "fit",
+        "w" : 1200
+      }, {
         "h" : 1152,
         "resize" : "fit",
         "w" : 2048
-      }, {
-        "h" : 150,
-        "resize" : "crop",
-        "w" : 150
       } ],
+      "media_alt" : "",
       "display_url" : "pic.twitter.com\/myDddz550G"
     } ],
     "hashtags" : [ ],
@@ -688,26 +691,27 @@ Grailbird.data.tweets_2017_06 =
         "id" : 873210292121071617,
         "media_url_https" : "https:\/\/pbs.twimg.com\/media\/DB5EIlwXcAEUrZH.jpg",
         "sizes" : [ {
+          "h" : 150,
+          "resize" : "crop",
+          "w" : 150
+        }, {
           "h" : 2880,
           "resize" : "fit",
           "w" : 5120
-        }, {
-          "h" : 675,
-          "resize" : "fit",
-          "w" : 1200
         }, {
           "h" : 383,
           "resize" : "fit",
           "w" : 680
         }, {
+          "h" : 675,
+          "resize" : "fit",
+          "w" : 1200
+        }, {
           "h" : 1152,
           "resize" : "fit",
           "w" : 2048
-        }, {
-          "h" : 150,
-          "resize" : "crop",
-          "w" : 150
         } ],
+        "media_alt" : "",
         "display_url" : "pic.twitter.com\/myDddz550G"
       } ],
       "hashtags" : [ ],
@@ -723,7 +727,7 @@ Grailbird.data.tweets_2017_06 =
       "screen_name" : "arekholko",
       "protected" : false,
       "id_str" : "119078936",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/589392297294364672\/P3YuoC8a_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/980958980347453448\/GbfxZNS2_normal.jpg",
       "id" : 119078936,
       "verified" : false
     }
@@ -743,7 +747,7 @@ Grailbird.data.tweets_2017_06 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "John Feminella",
+      "name" : "John Feminella \u232C",
       "screen_name" : "jxxf",
       "indices" : [ 3, 8 ],
       "id_str" : "19463693",
@@ -769,14 +773,6 @@ Grailbird.data.tweets_2017_06 =
         "id" : 871000270569951232,
         "media_url_https" : "https:\/\/pbs.twimg.com\/media\/DBZqIZ6XUAAXkFg.jpg",
         "sizes" : [ {
-          "h" : 1200,
-          "resize" : "fit",
-          "w" : 911
-        }, {
-          "h" : 680,
-          "resize" : "fit",
-          "w" : 516
-        }, {
           "h" : 150,
           "resize" : "crop",
           "w" : 150
@@ -788,7 +784,16 @@ Grailbird.data.tweets_2017_06 =
           "h" : 1896,
           "resize" : "fit",
           "w" : 1440
+        }, {
+          "h" : 680,
+          "resize" : "fit",
+          "w" : 516
+        }, {
+          "h" : 1200,
+          "resize" : "fit",
+          "w" : 911
         } ],
+        "media_alt" : "",
         "display_url" : "pic.twitter.com\/GCYWwBdRIy"
       }, {
         "expanded_url" : "https:\/\/twitter.com\/jxxf\/status\/871000661869154304\/photo\/1",
@@ -799,9 +804,9 @@ Grailbird.data.tweets_2017_06 =
         "id" : 871000444553883648,
         "media_url_https" : "https:\/\/pbs.twimg.com\/media\/DBZqSiDXcAAoUoM.jpg",
         "sizes" : [ {
-          "h" : 1131,
+          "h" : 534,
           "resize" : "fit",
-          "w" : 1440
+          "w" : 680
         }, {
           "h" : 1131,
           "resize" : "fit",
@@ -811,14 +816,15 @@ Grailbird.data.tweets_2017_06 =
           "resize" : "crop",
           "w" : 150
         }, {
-          "h" : 534,
+          "h" : 1131,
           "resize" : "fit",
-          "w" : 680
+          "w" : 1440
         }, {
           "h" : 943,
           "resize" : "fit",
           "w" : 1200
         } ],
+        "media_alt" : "",
         "display_url" : "pic.twitter.com\/GCYWwBdRIy"
       }, {
         "expanded_url" : "https:\/\/twitter.com\/jxxf\/status\/871000661869154304\/photo\/1",
@@ -829,26 +835,27 @@ Grailbird.data.tweets_2017_06 =
         "id" : 871000549356965888,
         "media_url_https" : "https:\/\/pbs.twimg.com\/media\/DBZqYoeXkAA1a5s.jpg",
         "sizes" : [ {
+          "h" : 150,
+          "resize" : "crop",
+          "w" : 150
+        }, {
           "h" : 696,
           "resize" : "fit",
           "w" : 1200
+        }, {
+          "h" : 835,
+          "resize" : "fit",
+          "w" : 1440
         }, {
           "h" : 394,
           "resize" : "fit",
           "w" : 680
         }, {
-          "h" : 150,
-          "resize" : "crop",
-          "w" : 150
-        }, {
-          "h" : 835,
-          "resize" : "fit",
-          "w" : 1440
-        }, {
           "h" : 835,
           "resize" : "fit",
           "w" : 1440
         } ],
+        "media_alt" : "",
         "display_url" : "pic.twitter.com\/GCYWwBdRIy"
       } ],
       "hashtags" : [ ],
@@ -860,7 +867,7 @@ Grailbird.data.tweets_2017_06 =
     "id" : 871000661869154304,
     "created_at" : "2017-06-03 13:48:34 +0000",
     "user" : {
-      "name" : "John Feminella",
+      "name" : "John Feminella \u232C",
       "screen_name" : "jxxf",
       "protected" : false,
       "id_str" : "19463693",

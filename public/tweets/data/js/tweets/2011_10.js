@@ -893,7 +893,7 @@ Grailbird.data.tweets_2011_10 =
       "id_str" : "14417477",
       "id" : 14417477
     }, {
-      "name" : "Jon Picnic",
+      "name" : "Picnic Coffee",
       "screen_name" : "PiCNiC_Coffee",
       "indices" : [ 41, 55 ],
       "id_str" : "165975834",
@@ -910,7 +910,7 @@ Grailbird.data.tweets_2011_10 =
     "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
-        "name" : "Jon Picnic",
+        "name" : "Picnic Coffee",
         "screen_name" : "PiCNiC_Coffee",
         "indices" : [ 24, 38 ],
         "id_str" : "165975834",
@@ -1011,7 +1011,7 @@ Grailbird.data.tweets_2011_10 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003ETwitter for Android\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jonathan Stark",
+      "name" : "Jonathan Stark \uD83D\uDE0E\uD83D\uDC4D",
       "screen_name" : "jonathanstark",
       "indices" : [ 0, 14 ],
       "id_str" : "7198302",
@@ -1085,7 +1085,7 @@ Grailbird.data.tweets_2011_10 =
       "screen_name" : "mraleph",
       "protected" : false,
       "id_str" : "53010195",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/428865653903081472\/XqtZKTVu_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/961923701641039872\/TWwOK7mW_normal.jpg",
       "id" : 53010195,
       "verified" : false
     }

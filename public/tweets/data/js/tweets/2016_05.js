@@ -249,12 +249,6 @@ Grailbird.data.tweets_2016_05 =
       "indices" : [ 0, 10 ],
       "id_str" : "74837444",
       "id" : 74837444
-    }, {
-      "name" : "Jonathan Zdziarski",
-      "screen_name" : "JZdziarski",
-      "indices" : [ 11, 22 ],
-      "id_str" : "851803288198455297",
-      "id" : 851803288198455297
     } ],
     "media" : [ ],
     "hashtags" : [ ],

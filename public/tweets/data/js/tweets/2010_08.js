@@ -8,9 +8,9 @@ Grailbird.data.tweets_2010_08 =
     "urls" : [ ]
   },
   "geo" : { },
-  "id_str" : "22673362598",
-  "text" : "I'm glad I found a workaround but Apple really needs to fix this. Wish I could check the status of filed bug reports that get closed \"dupe\".",
-  "id" : 22673362598,
+  "id_str" : "22673150711",
+  "text" : "Workaround for stuck MBP trackpad: disable Dragging in trackpad prefs, then re-enable. That unstuck it for me just now. Hooray, no reboot.",
+  "id" : 22673150711,
   "created_at" : "2010-09-01 00:00:00 +0000",
   "user" : {
     "name" : "Sami Samhuri",
@@ -30,9 +30,9 @@ Grailbird.data.tweets_2010_08 =
     "urls" : [ ]
   },
   "geo" : { },
-  "id_str" : "22673150711",
-  "text" : "Workaround for stuck MBP trackpad: disable Dragging in trackpad prefs, then re-enable. That unstuck it for me just now. Hooray, no reboot.",
-  "id" : 22673150711,
+  "id_str" : "22673362598",
+  "text" : "I'm glad I found a workaround but Apple really needs to fix this. Wish I could check the status of filed bug reports that get closed \"dupe\".",
+  "id" : 22673362598,
   "created_at" : "2010-09-01 00:00:00 +0000",
   "user" : {
     "name" : "Sami Samhuri",
@@ -787,7 +787,7 @@ Grailbird.data.tweets_2010_08 =
       "screen_name" : "chuq",
       "protected" : false,
       "id_str" : "13217612",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/878288211339902976\/dDvof4nb_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/951920187925659648\/HJ1V55q5_normal.jpg",
       "id" : 13217612,
       "verified" : false
     }
@@ -965,57 +965,6 @@ Grailbird.data.tweets_2010_08 =
   "text" : "Looks like a bit of column A and a bit of column B.",
   "id" : 21103222767,
   "created_at" : "2010-08-13 00:00:00 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "Sam Stephenson",
-      "screen_name" : "sstephenson",
-      "indices" : [ 3, 15 ],
-      "id_str" : "6707392",
-      "id" : 6707392
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "20939389257",
-  "text" : "RT @sstephenson: Stay looks handy for switching between internal and external displays: http:\/\/cordlessdog.com\/stay\/",
-  "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/www.echofon.com\/\" rel=\"nofollow\"\u003EEchofon\u003C\/a\u003E",
-    "entities" : {
-      "user_mentions" : [ ],
-      "media" : [ ],
-      "hashtags" : [ ],
-      "urls" : [ ]
-    },
-    "geo" : { },
-    "id_str" : "20934106284",
-    "text" : "Stay looks handy for switching between internal and external displays: http:\/\/cordlessdog.com\/stay\/",
-    "id" : 20934106284,
-    "created_at" : "2010-08-12 01:30:50 +0000",
-    "user" : {
-      "name" : "Sam Stephenson",
-      "screen_name" : "sstephenson",
-      "protected" : false,
-      "id_str" : "6707392",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/736761202181689345\/vdVKW0Gw_normal.jpg",
-      "id" : 6707392,
-      "verified" : false
-    }
-  },
-  "id" : 20939389257,
-  "created_at" : "2010-08-12 00:00:00 +0000",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",

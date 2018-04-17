@@ -1117,7 +1117,7 @@ Grailbird.data.tweets_2013_04 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Cabel Sasser",
+      "name" : "Cabel Maxfield Sasser",
       "screen_name" : "cabel",
       "indices" : [ 3, 9 ],
       "id_str" : "1919231",
@@ -1149,7 +1149,7 @@ Grailbird.data.tweets_2013_04 =
     "id" : 322087418419351552,
     "created_at" : "2013-04-10 20:43:19 +0000",
     "user" : {
-      "name" : "Cabel Sasser",
+      "name" : "Cabel Maxfield Sasser",
       "screen_name" : "cabel",
       "protected" : false,
       "id_str" : "1919231",
@@ -1857,7 +1857,7 @@ Grailbird.data.tweets_2013_04 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "John-David Dalton",
+      "name" : "John-David \u201Cjust works\u201D Dalton",
       "screen_name" : "jdalton",
       "indices" : [ 3, 11 ],
       "id_str" : "14272162",
@@ -1884,7 +1884,7 @@ Grailbird.data.tweets_2013_04 =
     "id" : 319880183714811905,
     "created_at" : "2013-04-04 18:32:33 +0000",
     "user" : {
-      "name" : "John-David Dalton",
+      "name" : "John-David \u201Cjust works\u201D Dalton",
       "screen_name" : "jdalton",
       "protected" : false,
       "id_str" : "14272162",

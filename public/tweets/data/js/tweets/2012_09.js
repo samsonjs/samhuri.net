@@ -229,7 +229,7 @@ Grailbird.data.tweets_2012_09 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "TJ Holowaychuk",
+      "name" : "TJ Holowaychuk \uD83D\uDC25",
       "screen_name" : "tjholowaychuk",
       "indices" : [ 0, 14 ],
       "id_str" : "29255412",
@@ -322,7 +322,7 @@ Grailbird.data.tweets_2012_09 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Salvatore Sanfilippo",
+      "name" : "ANTIREZ",
       "screen_name" : "antirez",
       "indices" : [ 0, 8 ],
       "id_str" : "5813712",
@@ -840,7 +840,7 @@ Grailbird.data.tweets_2012_09 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Salvatore Sanfilippo",
+      "name" : "ANTIREZ",
       "screen_name" : "antirez",
       "indices" : [ 3, 11 ],
       "id_str" : "5813712",
@@ -867,7 +867,7 @@ Grailbird.data.tweets_2012_09 =
     "id" : 247659596079067136,
     "created_at" : "2012-09-17 11:33:43 +0000",
     "user" : {
-      "name" : "Salvatore Sanfilippo",
+      "name" : "ANTIREZ",
       "screen_name" : "antirez",
       "protected" : false,
       "id_str" : "5813712",
@@ -954,7 +954,7 @@ Grailbird.data.tweets_2012_09 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "John-David Dalton",
+      "name" : "John-David \u201Cjust works\u201D Dalton",
       "screen_name" : "jdalton",
       "indices" : [ 0, 8 ],
       "id_str" : "14272162",
@@ -1024,17 +1024,9 @@ Grailbird.data.tweets_2012_09 =
       "id" : 245906155539419136,
       "media_url_https" : "https:\/\/pbs.twimg.com\/media\/A2miWHkCUAAa25m.jpg",
       "sizes" : [ {
-        "h" : 960,
-        "resize" : "fit",
-        "w" : 640
-      }, {
         "h" : 150,
         "resize" : "crop",
         "w" : 150
-      }, {
-        "h" : 960,
-        "resize" : "fit",
-        "w" : 640
       }, {
         "h" : 680,
         "resize" : "fit",
@@ -1043,7 +1035,16 @@ Grailbird.data.tweets_2012_09 =
         "h" : 960,
         "resize" : "fit",
         "w" : 640
+      }, {
+        "h" : 960,
+        "resize" : "fit",
+        "w" : 640
+      }, {
+        "h" : 960,
+        "resize" : "fit",
+        "w" : 640
       } ],
+      "media_alt" : "",
       "display_url" : "pic.twitter.com\/r2YbEHHg"
     } ],
     "hashtags" : [ ],
@@ -1210,17 +1211,17 @@ Grailbird.data.tweets_2012_09 =
       "id" : 243538985933217792,
       "media_url_https" : "https:\/\/pbs.twimg.com\/media\/A2E5atmCIAAi5t6.jpg",
       "sizes" : [ {
-        "h" : 768,
-        "resize" : "fit",
-        "w" : 1024
-      }, {
-        "h" : 768,
-        "resize" : "fit",
-        "w" : 1024
-      }, {
         "h" : 150,
         "resize" : "crop",
         "w" : 150
+      }, {
+        "h" : 768,
+        "resize" : "fit",
+        "w" : 1024
+      }, {
+        "h" : 768,
+        "resize" : "fit",
+        "w" : 1024
       }, {
         "h" : 768,
         "resize" : "fit",
@@ -1230,6 +1231,7 @@ Grailbird.data.tweets_2012_09 =
         "resize" : "fit",
         "w" : 680
       } ],
+      "media_alt" : "",
       "display_url" : "pic.twitter.com\/1YKFB7Ow"
     } ],
     "hashtags" : [ ],

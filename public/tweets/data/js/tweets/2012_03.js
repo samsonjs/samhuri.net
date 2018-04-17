@@ -97,7 +97,7 @@ Grailbird.data.tweets_2012_03 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Yehuda Katz",
+      "name" : "Yehuda Katz \uD83E\uDD68",
       "screen_name" : "wycats",
       "indices" : [ 3, 10 ],
       "id_str" : "8526432",
@@ -146,7 +146,7 @@ Grailbird.data.tweets_2012_03 =
     "id" : 185763559064612867,
     "created_at" : "2012-03-30 16:20:58 +0000",
     "user" : {
-      "name" : "Yehuda Katz",
+      "name" : "Yehuda Katz \uD83E\uDD68",
       "screen_name" : "wycats",
       "protected" : false,
       "id_str" : "8526432",
@@ -221,7 +221,7 @@ Grailbird.data.tweets_2012_03 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "John-David Dalton",
+      "name" : "John-David \u201Cjust works\u201D Dalton",
       "screen_name" : "jdalton",
       "indices" : [ 0, 8 ],
       "id_str" : "14272162",
@@ -613,14 +613,15 @@ Grailbird.data.tweets_2012_03 =
         "resize" : "fit",
         "w" : 816
       }, {
-        "h" : 510,
-        "resize" : "fit",
-        "w" : 680
-      }, {
         "h" : 612,
         "resize" : "fit",
         "w" : 816
+      }, {
+        "h" : 510,
+        "resize" : "fit",
+        "w" : 680
       } ],
+      "media_alt" : "",
       "display_url" : "pic.twitter.com\/Qdt5PsD4"
     } ],
     "hashtags" : [ ],
@@ -713,14 +714,6 @@ Grailbird.data.tweets_2012_03 =
         "resize" : "fit",
         "w" : 484
       }, {
-        "h" : 648,
-        "resize" : "fit",
-        "w" : 484
-      }, {
-        "h" : 648,
-        "resize" : "fit",
-        "w" : 484
-      }, {
         "h" : 150,
         "resize" : "crop",
         "w" : 150
@@ -728,7 +721,16 @@ Grailbird.data.tweets_2012_03 =
         "h" : 648,
         "resize" : "fit",
         "w" : 484
+      }, {
+        "h" : 648,
+        "resize" : "fit",
+        "w" : 484
+      }, {
+        "h" : 648,
+        "resize" : "fit",
+        "w" : 484
       } ],
+      "media_alt" : "",
       "display_url" : "pic.twitter.com\/sK8KLpQO"
     } ],
     "hashtags" : [ ],
@@ -1278,7 +1280,7 @@ Grailbird.data.tweets_2012_03 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "TJ Holowaychuk",
+      "name" : "TJ Holowaychuk \uD83D\uDC25",
       "screen_name" : "tjholowaychuk",
       "indices" : [ 0, 14 ],
       "id_str" : "29255412",

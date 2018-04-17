@@ -31,7 +31,7 @@ Grailbird.data.tweets_2011_09 =
       "id_str" : "20079975",
       "id" : 20079975
     }, {
-      "name" : "Kris Kowal",
+      "name" : "Kris Kowal\u00A0\uD83E\uDDD9\uD83C\uDFFB\u200D\u2642\uFE0F\uD83E\uDDDD\uD83C\uDFFB\u200D\u2640\uFE0F",
       "screen_name" : "kriskowal",
       "indices" : [ 9, 19 ],
       "id_str" : "6585632",

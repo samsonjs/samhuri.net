@@ -514,7 +514,7 @@ Grailbird.data.tweets_2017_07 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Vincent Lombardi",
+      "name" : "CasualDadhole",
       "screen_name" : "padre_vincent",
       "indices" : [ 0, 14 ],
       "id_str" : "395092966",

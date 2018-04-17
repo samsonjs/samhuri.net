@@ -470,7 +470,7 @@ Grailbird.data.tweets_2009_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "\uD83D\uDC30bunwitch dorror\uD83D\uDC7B",
+      "name" : "\uD83D\uDC30 jonnay \uD83D\uDC30 this bun ain't big, it's LORJ",
       "screen_name" : "jonnay",
       "indices" : [ 3, 10 ],
       "id_str" : "817328",
@@ -503,11 +503,11 @@ Grailbird.data.tweets_2009_11 =
     "id" : 5907000124,
     "created_at" : "2009-11-21 01:38:49 +0000",
     "user" : {
-      "name" : "\uD83D\uDC30bunwitch dorror\uD83D\uDC7B",
+      "name" : "\uD83D\uDC30 jonnay \uD83D\uDC30 this bun ain't big, it's LORJ",
       "screen_name" : "jonnay",
       "protected" : false,
       "id_str" : "817328",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/552353119149912064\/2dkU2097_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/953823068954140673\/vd3Wnmrv_normal.jpg",
       "id" : 817328,
       "verified" : false
     }
@@ -795,7 +795,7 @@ Grailbird.data.tweets_2009_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Dan Piponi",
+      "name" : "\u2202an pd piponi",
       "screen_name" : "sigfpe",
       "indices" : [ 3, 10 ],
       "id_str" : "16748247",
@@ -822,11 +822,11 @@ Grailbird.data.tweets_2009_11 =
     "id" : 5845019882,
     "created_at" : "2009-11-19 01:57:34 +0000",
     "user" : {
-      "name" : "Dan Piponi",
+      "name" : "\u2202an pd piponi",
       "screen_name" : "sigfpe",
       "protected" : false,
       "id_str" : "16748247",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/833805426701373440\/39dts4t1_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/964584182532878337\/3OkjdHwm_normal.jpg",
       "id" : 16748247,
       "verified" : false
     }

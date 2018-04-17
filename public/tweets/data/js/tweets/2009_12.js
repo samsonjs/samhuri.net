@@ -528,7 +528,7 @@ Grailbird.data.tweets_2009_12 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Dan Piponi",
+      "name" : "\u2202an pd piponi",
       "screen_name" : "sigfpe",
       "indices" : [ 0, 7 ],
       "id_str" : "16748247",
@@ -1106,7 +1106,7 @@ Grailbird.data.tweets_2009_12 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Dan Piponi",
+      "name" : "\u2202an pd piponi",
       "screen_name" : "sigfpe",
       "indices" : [ 0, 7 ],
       "id_str" : "16748247",
@@ -1145,11 +1145,11 @@ Grailbird.data.tweets_2009_12 =
       "id_str" : "54403950",
       "id" : 54403950
     }, {
-      "name" : "Strackula \uD83E\uDD87",
+      "name" : "David Strack",
       "screen_name" : "rmxdave",
       "indices" : [ 15, 23 ],
-      "id_str" : "9027732",
-      "id" : 9027732
+      "id_str" : "774021501020413952",
+      "id" : 774021501020413952
     }, {
       "name" : "phonedog_noah",
       "screen_name" : "phonedog_noah",
@@ -1174,11 +1174,11 @@ Grailbird.data.tweets_2009_12 =
     "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
-        "name" : "Strackula \uD83E\uDD87",
+        "name" : "David Strack",
         "screen_name" : "rmxdave",
         "indices" : [ 3, 11 ],
-        "id_str" : "9027732",
-        "id" : 9027732
+        "id_str" : "774021501020413952",
+        "id" : 774021501020413952
       }, {
         "name" : "phonedog_noah",
         "screen_name" : "phonedog_noah",
@@ -1254,7 +1254,7 @@ Grailbird.data.tweets_2009_12 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jamie Zawinski",
+      "name" : "j\u0355\u0320\u0326\u032A\u0355\u0313\u035B\u030A\u033E\u0304\u0345w\u0327\u0327\u0333\u032A\u0318\u034A\u030B\u0357\u033E\u0362\u0360z\u0322\u0318\u031E\u0348\u033A\u031E\u0329\u0313\u033D\u0310\u030B\u0357\u0306\u030B\u031A\u035F\u035C",
       "screen_name" : "jwz",
       "indices" : [ 24, 28 ],
       "id_str" : "7190742",
@@ -1370,28 +1370,6 @@ Grailbird.data.tweets_2009_12 =
     "urls" : [ ]
   },
   "geo" : { },
-  "id_str" : "6469119192",
-  "text" : "If the rain stays away I don't mind the cold that much really. It's nice when it's a bit brisk.",
-  "id" : 6469119192,
-  "created_at" : "2009-12-08 00:00:00 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
   "id_str" : "6451807743",
   "text" : "Looking for a room or apartment in Victoria this month. Lots of good places! Now to make some appointments to see them.",
   "id" : 6451807743,
@@ -1417,6 +1395,28 @@ Grailbird.data.tweets_2009_12 =
   "id_str" : "6451979179",
   "text" : "ars: Artists' lawsuit: major record labels are the real pirates http:\/\/tinyurl.com\/y8spqph (about time!)",
   "id" : 6451979179,
+  "created_at" : "2009-12-08 00:00:00 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "6469119192",
+  "text" : "If the rain stays away I don't mind the cold that much really. It's nice when it's a bit brisk.",
+  "id" : 6469119192,
   "created_at" : "2009-12-08 00:00:00 +0000",
   "user" : {
     "name" : "Sami Samhuri",

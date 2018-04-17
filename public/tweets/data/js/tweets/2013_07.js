@@ -9,7 +9,7 @@ Grailbird.data.tweets_2013_07 =
       "id_str" : "636923",
       "id" : 636923
     }, {
-      "name" : "Dan Benjamin \uD83D\uDC0D",
+      "name" : "Dan Benjamin \uD83E\uDD85\uD83D\uDC0D",
       "screen_name" : "danbenjamin",
       "indices" : [ 10, 22 ],
       "id_str" : "5905672",
@@ -121,7 +121,7 @@ Grailbird.data.tweets_2013_07 =
       "screen_name" : "mraleph",
       "protected" : false,
       "id_str" : "53010195",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/428865653903081472\/XqtZKTVu_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/961923701641039872\/TWwOK7mW_normal.jpg",
       "id" : 53010195,
       "verified" : false
     }
@@ -243,7 +243,7 @@ Grailbird.data.tweets_2013_07 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Stephanie",
+      "name" : "Stuffanie",
       "screen_name" : "CcSteff",
       "indices" : [ 3, 11 ],
       "id_str" : "14336349",
@@ -270,7 +270,7 @@ Grailbird.data.tweets_2013_07 =
     "id" : 360911874931433472,
     "created_at" : "2013-07-26 23:57:51 +0000",
     "user" : {
-      "name" : "Stephanie",
+      "name" : "Stuffanie",
       "screen_name" : "CcSteff",
       "protected" : false,
       "id_str" : "14336349",
@@ -593,7 +593,7 @@ Grailbird.data.tweets_2013_07 =
       "screen_name" : "raganwald",
       "protected" : false,
       "id_str" : "18137723",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/853400781726371840\/QjvdLTYQ_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/981971516668592128\/46_3g0gG_normal.jpg",
       "id" : 18137723,
       "verified" : false
     }
@@ -682,7 +682,7 @@ Grailbird.data.tweets_2013_07 =
       "screen_name" : "chockenberry",
       "protected" : false,
       "id_str" : "36183",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/918169267526238208\/06lyF7FP_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/925763991820836864\/nmUFyJez_normal.jpg",
       "id" : 36183,
       "verified" : false
     }
@@ -767,7 +767,7 @@ Grailbird.data.tweets_2013_07 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "fogus",
+      "name" : "F.O.G.U.S",
       "screen_name" : "fogus",
       "indices" : [ 0, 6 ],
       "id_str" : "14375110",
@@ -1213,11 +1213,11 @@ Grailbird.data.tweets_2013_07 =
     "id" : 354631845415104514,
     "created_at" : "2013-07-09 16:03:15 +0000",
     "user" : {
-      "name" : "paolo fragomeni",
+      "name" : "paolo f.",
       "screen_name" : "0x00A",
       "protected" : false,
       "id_str" : "95938827",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/895001508349128704\/gFxzeC4L_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/936582635010314240\/Mf7nJiWc_normal.jpg",
       "id" : 95938827,
       "verified" : false
     }

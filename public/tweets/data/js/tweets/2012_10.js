@@ -3,11 +3,11 @@ Grailbird.data.tweets_2012_10 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "hostname amy.tobey",
+      "name" : "Amy Tobey",
       "screen_name" : "AlTobey",
       "indices" : [ 3, 11 ],
-      "id_str" : "146248951",
-      "id" : 146248951
+      "id_str" : "977369470862704641",
+      "id" : 977369470862704641
     } ],
     "media" : [ ],
     "hashtags" : [ ],
@@ -30,8 +30,8 @@ Grailbird.data.tweets_2012_10 =
     "id" : 263771862125928448,
     "created_at" : "2012-10-31 22:38:07 +0000",
     "user" : {
-      "name" : "hostname amy.tobey",
-      "screen_name" : "AlTobey",
+      "name" : "Miss Tobey",
+      "screen_name" : "MissAmyTobey",
       "protected" : false,
       "id_str" : "146248951",
       "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/891367683022663680\/-lIUG_Yp_normal.jpg",
@@ -311,7 +311,7 @@ Grailbird.data.tweets_2012_10 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Duke of Rumford \uD83C\uDDE8\uD83C\uDDE6",
+      "name" : "The Doodle \uD83C\uDDE8\uD83C\uDDE6",
       "screen_name" : "the_webhamster",
       "indices" : [ 3, 18 ],
       "id_str" : "207536489",
@@ -338,7 +338,7 @@ Grailbird.data.tweets_2012_10 =
     "id" : 256954058131267584,
     "created_at" : "2012-10-13 03:06:36 +0000",
     "user" : {
-      "name" : "Duke of Rumford \uD83C\uDDE8\uD83C\uDDE6",
+      "name" : "The Doodle \uD83C\uDDE8\uD83C\uDDE6",
       "screen_name" : "the_webhamster",
       "protected" : false,
       "id_str" : "207536489",
@@ -425,7 +425,7 @@ Grailbird.data.tweets_2012_10 =
   "source" : "\u003Ca href=\"http:\/\/kiwi-app.net\" rel=\"nofollow\"\u003EKiwi\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "TJ Holowaychuk",
+      "name" : "TJ Holowaychuk \uD83D\uDC25",
       "screen_name" : "tjholowaychuk",
       "indices" : [ 0, 14 ],
       "id_str" : "29255412",

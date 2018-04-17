@@ -99,6 +99,28 @@ Grailbird.data.tweets_2010_07 =
     "verified" : false
   }
 }, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "19533135493",
+  "text" : "YYC -&gt; YYJ ... Back to reality",
+  "id" : 19533135493,
+  "created_at" : "2010-07-26 00:00:00 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
@@ -122,28 +144,6 @@ Grailbird.data.tweets_2010_07 =
   "created_at" : "2010-07-26 00:00:00 +0000",
   "in_reply_to_screen_name" : "mayolaycamp",
   "in_reply_to_user_id_str" : "159816349",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "19533135493",
-  "text" : "YYC -&gt; YYJ ... Back to reality",
-  "id" : 19533135493,
-  "created_at" : "2010-07-26 00:00:00 +0000",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -188,7 +188,7 @@ Grailbird.data.tweets_2010_07 =
       "screen_name" : "lunafiko",
       "protected" : false,
       "id_str" : "14273142",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/865667126408773632\/QX5O6RhU_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/928419904385990657\/tza-LEdZ_normal.jpg",
       "id" : 14273142,
       "verified" : false
     }
@@ -235,11 +235,11 @@ Grailbird.data.tweets_2010_07 =
     "id" : 18749654267,
     "created_at" : "2010-07-17 07:01:11 +0000",
     "user" : {
-      "name" : "Alexis Ohanian \uD83D\uDDFD",
+      "name" : "Alexis Ohanian Sr.",
       "screen_name" : "alexisohanian",
       "protected" : false,
       "id_str" : "811350",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/819412587137769472\/26I1zqqk_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/975128915533426688\/JEGHXFiz_normal.jpg",
       "id" : 811350,
       "verified" : true
     }
@@ -314,7 +314,7 @@ Grailbird.data.tweets_2010_07 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Action Jay",
+      "name" : "Action Jay: The New Batch",
       "screen_name" : "action_jay",
       "indices" : [ 0, 11 ],
       "id_str" : "6608642",
@@ -347,7 +347,7 @@ Grailbird.data.tweets_2010_07 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Action Jay",
+      "name" : "Action Jay: The New Batch",
       "screen_name" : "action_jay",
       "indices" : [ 0, 11 ],
       "id_str" : "6608642",
@@ -380,7 +380,7 @@ Grailbird.data.tweets_2010_07 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Action Jay",
+      "name" : "Action Jay: The New Batch",
       "screen_name" : "action_jay",
       "indices" : [ 0, 11 ],
       "id_str" : "6608642",
@@ -578,7 +578,7 @@ Grailbird.data.tweets_2010_07 =
       "screen_name" : "sroucheray",
       "protected" : false,
       "id_str" : "42421507",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000137131481\/2b55a9c9aaf18f4423dae994fb9dae70_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/948657236959748096\/rjaN3z_e_normal.jpg",
       "id" : 42421507,
       "verified" : false
     }
@@ -769,7 +769,7 @@ Grailbird.data.tweets_2010_07 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "jackal\uD83D\uDD78scarestein\uD83C\uDFC3",
+      "name" : "jbr",
       "screen_name" : "jacobrothstein",
       "indices" : [ 3, 18 ],
       "id_str" : "27302287",
@@ -796,7 +796,7 @@ Grailbird.data.tweets_2010_07 =
     "id" : 18171089437,
     "created_at" : "2010-07-10 04:02:35 +0000",
     "user" : {
-      "name" : "jackal\uD83D\uDD78scarestein\uD83C\uDFC3",
+      "name" : "jbr",
       "screen_name" : "jacobrothstein",
       "protected" : false,
       "id_str" : "27302287",

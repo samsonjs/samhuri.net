@@ -272,7 +272,7 @@ Grailbird.data.tweets_2016_11 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jeff Nadeau \uD83D\uDC7B",
+      "name" : "jeff, denizen of the pond",
       "screen_name" : "jnadeau",
       "indices" : [ 3, 11 ],
       "id_str" : "2741981",
@@ -304,7 +304,7 @@ Grailbird.data.tweets_2016_11 =
     "id" : 799769496068100096,
     "created_at" : "2016-11-19 00:21:21 +0000",
     "user" : {
-      "name" : "Jeff Nadeau \uD83D\uDC7B",
+      "name" : "jeff, denizen of the pond",
       "screen_name" : "jnadeau",
       "protected" : false,
       "id_str" : "2741981",
@@ -328,7 +328,7 @@ Grailbird.data.tweets_2016_11 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Chai Guy",
+      "name" : "Chai Guy \uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08 \u24CB",
       "screen_name" : "yaccin",
       "indices" : [ 0, 7 ],
       "id_str" : "23505101",
@@ -812,7 +812,7 @@ Grailbird.data.tweets_2016_11 =
       "id_str" : "19745636",
       "id" : 19745636
     }, {
-      "name" : "Jose Cheyo Jimenez",
+      "name" : "Ch\u00E9yo Jim\u00E9nez",
       "screen_name" : "masters3d",
       "indices" : [ 8, 18 ],
       "id_str" : "15990332",
@@ -1096,6 +1096,7 @@ Grailbird.data.tweets_2016_11 =
         "resize" : "fit",
         "w" : 379
       } ],
+      "media_alt" : "",
       "display_url" : "pic.twitter.com\/j4a5htbaKx"
     } ],
     "hashtags" : [ ],
@@ -1653,7 +1654,7 @@ Grailbird.data.tweets_2016_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "\uD835\uDD78\uD835\uDD86\uD835\uDD97\uD835\uDC24 \uD835\uDD6D\uD835\uDD97\uD835\uDD86\uD835\uDD92\uD835\uDD8D\uD835\uDD94\uD835\uDD9C\uD835\uDD91 \uD83C\uDF15\uD83D\uDC3A",
+      "name" : "Mark Bramhill \uD83D\uDC93",
       "screen_name" : "mcbramhill",
       "indices" : [ 31, 42 ],
       "id_str" : "432194612",

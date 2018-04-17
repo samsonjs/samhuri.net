@@ -114,7 +114,7 @@ Grailbird.data.tweets_2016_04 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "super josh avant x",
+      "name" : "josh avant",
       "screen_name" : "joshavant",
       "indices" : [ 0, 10 ],
       "id_str" : "123978606",
@@ -245,17 +245,17 @@ Grailbird.data.tweets_2016_04 =
         "id" : 720944262309941248,
         "media_url_https" : "https:\/\/pbs.twimg.com\/media\/CgFO_KHXEAAWQz_.jpg",
         "sizes" : [ {
-          "h" : 920,
-          "resize" : "fit",
-          "w" : 1397
-        }, {
-          "h" : 920,
-          "resize" : "fit",
-          "w" : 1397
-        }, {
           "h" : 150,
           "resize" : "crop",
           "w" : 150
+        }, {
+          "h" : 920,
+          "resize" : "fit",
+          "w" : 1397
+        }, {
+          "h" : 920,
+          "resize" : "fit",
+          "w" : 1397
         }, {
           "h" : 790,
           "resize" : "fit",
@@ -265,6 +265,7 @@ Grailbird.data.tweets_2016_04 =
           "resize" : "fit",
           "w" : 680
         } ],
+        "media_alt" : "",
         "display_url" : "pic.twitter.com\/1l6X31hv3Y"
       } ],
       "hashtags" : [ ],
@@ -850,7 +851,7 @@ Grailbird.data.tweets_2016_04 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Cabel Sasser",
+      "name" : "Cabel Maxfield Sasser",
       "screen_name" : "cabel",
       "indices" : [ 0, 6 ],
       "id_str" : "1919231",

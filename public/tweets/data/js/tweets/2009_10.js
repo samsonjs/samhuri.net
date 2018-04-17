@@ -159,6 +159,39 @@ Grailbird.data.tweets_2009_10 =
     "hashtags" : [ ],
     "urls" : [ ]
   },
+  "in_reply_to_status_id_str" : "4876200327",
+  "geo" : { },
+  "id_str" : "4877094591",
+  "in_reply_to_user_id" : 894911,
+  "text" : "@JimRoepcke shame!  Every solution seems like a hack.",
+  "id" : 4877094591,
+  "in_reply_to_status_id" : 4876200327,
+  "created_at" : "2009-10-15 00:00:00 +0000",
+  "in_reply_to_screen_name" : "JimRoepcke",
+  "in_reply_to_user_id_str" : "894911",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Jim Roepcke",
+      "screen_name" : "JimRoepcke",
+      "indices" : [ 0, 11 ],
+      "id_str" : "894911",
+      "id" : 894911
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
   "in_reply_to_status_id_str" : "4877166818",
   "geo" : { },
   "id_str" : "4880878300",
@@ -191,39 +224,6 @@ Grailbird.data.tweets_2009_10 =
   "text" : "Found this little guy at witty beach in the forest. He's really skinny and ate a ton. Hope he's not claimed. :)  http:\/\/yfrog.com\/76kruj",
   "id" : 4880997373,
   "created_at" : "2009-10-15 00:00:00 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "Jim Roepcke",
-      "screen_name" : "JimRoepcke",
-      "indices" : [ 0, 11 ],
-      "id_str" : "894911",
-      "id" : 894911
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "in_reply_to_status_id_str" : "4876200327",
-  "geo" : { },
-  "id_str" : "4877094591",
-  "in_reply_to_user_id" : 894911,
-  "text" : "@JimRoepcke shame!  Every solution seems like a hack.",
-  "id" : 4877094591,
-  "in_reply_to_status_id" : 4876200327,
-  "created_at" : "2009-10-15 00:00:00 +0000",
-  "in_reply_to_screen_name" : "JimRoepcke",
-  "in_reply_to_user_id_str" : "894911",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",

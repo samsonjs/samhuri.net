@@ -77,9 +77,9 @@ Grailbird.data.tweets_2013_11 =
         "resize" : "fit",
         "w" : 908
       }, {
-        "h" : 150,
-        "resize" : "crop",
-        "w" : 150
+        "h" : 257,
+        "resize" : "fit",
+        "w" : 908
       }, {
         "h" : 257,
         "resize" : "fit",
@@ -89,10 +89,11 @@ Grailbird.data.tweets_2013_11 =
         "resize" : "fit",
         "w" : 680
       }, {
-        "h" : 257,
-        "resize" : "fit",
-        "w" : 908
+        "h" : 150,
+        "resize" : "crop",
+        "w" : 150
       } ],
+      "media_alt" : "",
       "display_url" : "pic.twitter.com\/aenTH3JfBn"
     } ],
     "hashtags" : [ ],
@@ -116,7 +117,7 @@ Grailbird.data.tweets_2013_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003ETwitter for iPad\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Dave Ghost Dicks",
+      "name" : "David Hicks",
       "screen_name" : "ALL_CAPS",
       "indices" : [ 0, 9 ],
       "id_str" : "35745942",
@@ -259,57 +260,6 @@ Grailbird.data.tweets_2013_11 =
   },
   "id" : 403960188475957248,
   "created_at" : "2013-11-22 18:56:28 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "tom robinson",
-      "screen_name" : "tlrobinson",
-      "indices" : [ 3, 14 ],
-      "id_str" : "14206068",
-      "id" : 14206068
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "403947320657457152",
-  "text" : "RT @tlrobinson: Rappers can't make it rain Bitcoins, but they can sign a message with a rich Bitcoin address' private key provably attestin\u2026",
-  "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
-    "entities" : {
-      "user_mentions" : [ ],
-      "media" : [ ],
-      "hashtags" : [ ],
-      "urls" : [ ]
-    },
-    "geo" : { },
-    "id_str" : "403923535661236224",
-    "text" : "Rappers can't make it rain Bitcoins, but they can sign a message with a rich Bitcoin address' private key provably attesting to their wealth",
-    "id" : 403923535661236224,
-    "created_at" : "2013-11-22 16:30:50 +0000",
-    "user" : {
-      "name" : "tom robinson",
-      "screen_name" : "tlrobinson",
-      "protected" : false,
-      "id_str" : "14206068",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000853310157\/a0e3b1296ad4bad4a668803a54a79afd_normal.jpeg",
-      "id" : 14206068,
-      "verified" : false
-    }
-  },
-  "id" : 403947320657457152,
-  "created_at" : "2013-11-22 18:05:20 +0000",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -477,7 +427,7 @@ Grailbird.data.tweets_2013_11 =
       "screen_name" : "raganwald",
       "protected" : false,
       "id_str" : "18137723",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/853400781726371840\/QjvdLTYQ_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/981971516668592128\/46_3g0gG_normal.jpg",
       "id" : 18137723,
       "verified" : false
     }
@@ -519,67 +469,6 @@ Grailbird.data.tweets_2013_11 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "tom robinson",
-      "screen_name" : "tlrobinson",
-      "indices" : [ 3, 14 ],
-      "id_str" : "14206068",
-      "id" : 14206068
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ {
-      "indices" : [ 94, 116 ],
-      "url" : "http:\/\/t.co\/rca33ZjPPx",
-      "expanded_url" : "http:\/\/bitcoinwisdom.com\/markets\/mtgox\/btcusd",
-      "display_url" : "bitcoinwisdom.com\/markets\/mtgox\/\u2026"
-    } ]
-  },
-  "geo" : { },
-  "id_str" : "402627149854543873",
-  "text" : "RT @tlrobinson: If Bitcoin volatility entertains you, this is entertaining as hell right now: http:\/\/t.co\/rca33ZjPPx",
-  "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
-    "entities" : {
-      "user_mentions" : [ ],
-      "media" : [ ],
-      "hashtags" : [ ],
-      "urls" : [ {
-        "indices" : [ 78, 100 ],
-        "url" : "http:\/\/t.co\/rca33ZjPPx",
-        "expanded_url" : "http:\/\/bitcoinwisdom.com\/markets\/mtgox\/btcusd",
-        "display_url" : "bitcoinwisdom.com\/markets\/mtgox\/\u2026"
-      } ]
-    },
-    "geo" : { },
-    "id_str" : "402614497015115776",
-    "text" : "If Bitcoin volatility entertains you, this is entertaining as hell right now: http:\/\/t.co\/rca33ZjPPx",
-    "id" : 402614497015115776,
-    "created_at" : "2013-11-19 01:49:10 +0000",
-    "user" : {
-      "name" : "tom robinson",
-      "screen_name" : "tlrobinson",
-      "protected" : false,
-      "id_str" : "14206068",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000853310157\/a0e3b1296ad4bad4a668803a54a79afd_normal.jpeg",
-      "id" : 14206068,
-      "verified" : false
-    }
-  },
-  "id" : 402627149854543873,
-  "created_at" : "2013-11-19 02:39:27 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
       "name" : "April 7, 2015",
       "screen_name" : "dmost",
       "indices" : [ 3, 9 ],
@@ -599,22 +488,23 @@ Grailbird.data.tweets_2013_11 =
         "resize" : "fit",
         "w" : 518
       }, {
+        "h" : 398,
+        "resize" : "fit",
+        "w" : 518
+      }, {
+        "h" : 398,
+        "resize" : "fit",
+        "w" : 518
+      }, {
+        "h" : 398,
+        "resize" : "fit",
+        "w" : 518
+      }, {
         "h" : 150,
         "resize" : "crop",
         "w" : 150
-      }, {
-        "h" : 398,
-        "resize" : "fit",
-        "w" : 518
-      }, {
-        "h" : 398,
-        "resize" : "fit",
-        "w" : 518
-      }, {
-        "h" : 398,
-        "resize" : "fit",
-        "w" : 518
       } ],
+      "media_alt" : "",
       "display_url" : "pic.twitter.com\/uOMDLqTjKc"
     } ],
     "hashtags" : [ ],
@@ -640,22 +530,23 @@ Grailbird.data.tweets_2013_11 =
           "resize" : "fit",
           "w" : 518
         }, {
+          "h" : 398,
+          "resize" : "fit",
+          "w" : 518
+        }, {
+          "h" : 398,
+          "resize" : "fit",
+          "w" : 518
+        }, {
+          "h" : 398,
+          "resize" : "fit",
+          "w" : 518
+        }, {
           "h" : 150,
           "resize" : "crop",
           "w" : 150
-        }, {
-          "h" : 398,
-          "resize" : "fit",
-          "w" : 518
-        }, {
-          "h" : 398,
-          "resize" : "fit",
-          "w" : 518
-        }, {
-          "h" : 398,
-          "resize" : "fit",
-          "w" : 518
         } ],
+        "media_alt" : "",
         "display_url" : "pic.twitter.com\/uOMDLqTjKc"
       } ],
       "hashtags" : [ ],
@@ -710,14 +601,6 @@ Grailbird.data.tweets_2013_11 =
         "resize" : "fit",
         "w" : 448
       }, {
-        "h" : 598,
-        "resize" : "fit",
-        "w" : 448
-      }, {
-        "h" : 598,
-        "resize" : "fit",
-        "w" : 448
-      }, {
         "h" : 150,
         "resize" : "crop",
         "w" : 150
@@ -725,7 +608,16 @@ Grailbird.data.tweets_2013_11 =
         "h" : 598,
         "resize" : "fit",
         "w" : 448
+      }, {
+        "h" : 598,
+        "resize" : "fit",
+        "w" : 448
+      }, {
+        "h" : 598,
+        "resize" : "fit",
+        "w" : 448
       } ],
+      "media_alt" : "",
       "display_url" : "pic.twitter.com\/RSn7WufBqL"
     } ],
     "hashtags" : [ ],
@@ -751,14 +643,6 @@ Grailbird.data.tweets_2013_11 =
           "resize" : "fit",
           "w" : 448
         }, {
-          "h" : 598,
-          "resize" : "fit",
-          "w" : 448
-        }, {
-          "h" : 598,
-          "resize" : "fit",
-          "w" : 448
-        }, {
           "h" : 150,
           "resize" : "crop",
           "w" : 150
@@ -766,7 +650,16 @@ Grailbird.data.tweets_2013_11 =
           "h" : 598,
           "resize" : "fit",
           "w" : 448
+        }, {
+          "h" : 598,
+          "resize" : "fit",
+          "w" : 448
+        }, {
+          "h" : 598,
+          "resize" : "fit",
+          "w" : 448
         } ],
+        "media_alt" : "",
         "display_url" : "pic.twitter.com\/RSn7WufBqL"
       } ],
       "hashtags" : [ ],
@@ -1149,6 +1042,14 @@ Grailbird.data.tweets_2013_11 =
         "resize" : "fit",
         "w" : 577
       }, {
+        "h" : 1024,
+        "resize" : "fit",
+        "w" : 577
+      }, {
+        "h" : 1024,
+        "resize" : "fit",
+        "w" : 577
+      }, {
         "h" : 150,
         "resize" : "crop",
         "w" : 150
@@ -1156,15 +1057,8 @@ Grailbird.data.tweets_2013_11 =
         "h" : 680,
         "resize" : "fit",
         "w" : 383
-      }, {
-        "h" : 1024,
-        "resize" : "fit",
-        "w" : 577
-      }, {
-        "h" : 1024,
-        "resize" : "fit",
-        "w" : 577
       } ],
+      "media_alt" : "",
       "display_url" : "pic.twitter.com\/DViwfPX56u"
     } ],
     "hashtags" : [ ],
@@ -1542,11 +1436,11 @@ Grailbird.data.tweets_2013_11 =
       "id_str" : "668863",
       "id" : 668863
     }, {
-      "name" : "Alex Matchneer",
+      "name" : "Machty_Sx",
       "screen_name" : "machty",
       "indices" : [ 24, 31 ],
-      "id_str" : "18740111",
-      "id" : 18740111
+      "id_str" : "961332937064157187",
+      "id" : 961332937064157187
     } ],
     "media" : [ ],
     "hashtags" : [ ],
@@ -1559,11 +1453,11 @@ Grailbird.data.tweets_2013_11 =
     "source" : "\u003Ca href=\"http:\/\/bufferapp.com\" rel=\"nofollow\"\u003EBuffer\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
-        "name" : "Alex Matchneer",
+        "name" : "Machty_Sx",
         "screen_name" : "machty",
         "indices" : [ 11, 18 ],
-        "id_str" : "18740111",
-        "id" : 18740111
+        "id_str" : "961332937064157187",
+        "id" : 961332937064157187
       } ],
       "media" : [ ],
       "hashtags" : [ ],
@@ -1847,18 +1741,6 @@ Grailbird.data.tweets_2013_11 =
       "indices" : [ 14, 19 ],
       "id_str" : "4777951",
       "id" : 4777951
-    }, {
-      "name" : "Janie Larson",
-      "screen_name" : "picturelife",
-      "indices" : [ 20, 32 ],
-      "id_str" : "1489526450",
-      "id" : 1489526450
-    }, {
-      "name" : "Loom",
-      "screen_name" : "TeamLoom",
-      "indices" : [ 33, 42 ],
-      "id_str" : "1375739545",
-      "id" : 1375739545
     } ],
     "media" : [ ],
     "hashtags" : [ ],
@@ -1876,12 +1758,6 @@ Grailbird.data.tweets_2013_11 =
         "indices" : [ 0, 5 ],
         "id_str" : "4777951",
         "id" : 4777951
-      }, {
-        "name" : "Janie Larson",
-        "screen_name" : "picturelife",
-        "indices" : [ 6, 18 ],
-        "id_str" : "1489526450",
-        "id" : 1489526450
       }, {
         "name" : "Loom",
         "screen_name" : "TeamLoom",
@@ -1934,12 +1810,6 @@ Grailbird.data.tweets_2013_11 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Janie Larson",
-      "screen_name" : "picturelife",
-      "indices" : [ 7, 19 ],
-      "id_str" : "1489526450",
-      "id" : 1489526450
-    }, {
       "name" : "Loom",
       "screen_name" : "TeamLoom",
       "indices" : [ 40, 49 ],
@@ -1991,12 +1861,6 @@ Grailbird.data.tweets_2013_11 =
       "indices" : [ 95, 104 ],
       "id_str" : "1375739545",
       "id" : 1375739545
-    }, {
-      "name" : "Janie Larson",
-      "screen_name" : "picturelife",
-      "indices" : [ 106, 118 ],
-      "id_str" : "1489526450",
-      "id" : 1489526450
     } ],
     "media" : [ ],
     "hashtags" : [ ],
@@ -2260,7 +2124,7 @@ Grailbird.data.tweets_2013_11 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Hacker News Onion",
+      "name" : "HackerNewsOnion",
       "screen_name" : "HackerNewsOnion",
       "indices" : [ 3, 19 ],
       "id_str" : "1263967268",
@@ -2287,11 +2151,11 @@ Grailbird.data.tweets_2013_11 =
     "id" : 397539910501924865,
     "created_at" : "2013-11-05 01:44:35 +0000",
     "user" : {
-      "name" : "Hacker News Onion",
+      "name" : "HackerNewsOnion",
       "screen_name" : "HackerNewsOnion",
       "protected" : false,
       "id_str" : "1263967268",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/3374120487\/e4f509a5ea232cd5b80f9cbac23d9432_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/937618982626037760\/SNb7WO0u_normal.jpg",
       "id" : 1263967268,
       "verified" : false
     }

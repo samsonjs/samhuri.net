@@ -262,7 +262,7 @@ Grailbird.data.tweets_2010_01 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Dan Piponi",
+      "name" : "\u2202an pd piponi",
       "screen_name" : "sigfpe",
       "indices" : [ 3, 10 ],
       "id_str" : "16748247",
@@ -289,11 +289,11 @@ Grailbird.data.tweets_2010_01 =
     "id" : 8303411333,
     "created_at" : "2010-01-28 01:26:22 +0000",
     "user" : {
-      "name" : "Dan Piponi",
+      "name" : "\u2202an pd piponi",
       "screen_name" : "sigfpe",
       "protected" : false,
       "id_str" : "16748247",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/833805426701373440\/39dts4t1_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/964584182532878337\/3OkjdHwm_normal.jpg",
       "id" : 16748247,
       "verified" : false
     }
@@ -507,6 +507,67 @@ Grailbird.data.tweets_2010_01 =
   "created_at" : "2010-01-28 00:00:00 +0000",
   "in_reply_to_screen_name" : "lunafiko",
   "in_reply_to_user_id_str" : "14273142",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "In Memoriam",
+      "screen_name" : "grooveshark",
+      "indices" : [ 14, 26 ],
+      "id_str" : "732373899233660929",
+      "id" : 732373899233660929
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "8282849475",
+  "text" : "&lt;3 the new @grooveshark so far! previous tracks can be restored. column browser for artist\/album. and i thought i was in love before! ;-)",
+  "id" : 8282849475,
+  "created_at" : "2010-01-27 00:00:00 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Aivars",
+      "screen_name" : "evilman_",
+      "indices" : [ 0, 9 ],
+      "id_str" : "284469804",
+      "id" : 284469804
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "8284365682",
+  "geo" : { },
+  "id_str" : "8285026676",
+  "in_reply_to_user_id" : 89704018,
+  "text" : "@Evilman_ It should work unless JavaScript is disabled. What browser & version are you using? I'm at work but I'll try & fix it soon for ya!",
+  "id" : 8285026676,
+  "in_reply_to_status_id" : 8284365682,
+  "created_at" : "2010-01-27 00:00:00 +0000",
+  "in_reply_to_screen_name" : "RamiLaaksonen",
+  "in_reply_to_user_id_str" : "89704018",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -779,67 +840,6 @@ Grailbird.data.tweets_2010_01 =
   },
   "id" : 8282793034,
   "created_at" : "2010-01-27 00:00:00 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "In Memoriam",
-      "screen_name" : "grooveshark",
-      "indices" : [ 14, 26 ],
-      "id_str" : "732373899233660929",
-      "id" : 732373899233660929
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "8282849475",
-  "text" : "&lt;3 the new @grooveshark so far! previous tracks can be restored. column browser for artist\/album. and i thought i was in love before! ;-)",
-  "id" : 8282849475,
-  "created_at" : "2010-01-27 00:00:00 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "Aivars",
-      "screen_name" : "evilman_",
-      "indices" : [ 0, 9 ],
-      "id_str" : "284469804",
-      "id" : 284469804
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "in_reply_to_status_id_str" : "8284365682",
-  "geo" : { },
-  "id_str" : "8285026676",
-  "in_reply_to_user_id" : 89704018,
-  "text" : "@Evilman_ It should work unless JavaScript is disabled. What browser & version are you using? I'm at work but I'll try & fix it soon for ya!",
-  "id" : 8285026676,
-  "in_reply_to_status_id" : 8284365682,
-  "created_at" : "2010-01-27 00:00:00 +0000",
-  "in_reply_to_screen_name" : "RamiLaaksonen",
-  "in_reply_to_user_id_str" : "89704018",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -1433,7 +1433,7 @@ Grailbird.data.tweets_2010_01 =
       "screen_name" : "chuq",
       "protected" : false,
       "id_str" : "13217612",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/878288211339902976\/dDvof4nb_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/951920187925659648\/HJ1V55q5_normal.jpg",
       "id" : 13217612,
       "verified" : false
     }
@@ -1817,7 +1817,7 @@ Grailbird.data.tweets_2010_01 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Dan Piponi",
+      "name" : "\u2202an pd piponi",
       "screen_name" : "sigfpe",
       "indices" : [ 0, 7 ],
       "id_str" : "16748247",
@@ -1850,7 +1850,7 @@ Grailbird.data.tweets_2010_01 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Dan Piponi",
+      "name" : "\u2202an pd piponi",
       "screen_name" : "sigfpe",
       "indices" : [ 0, 7 ],
       "id_str" : "16748247",
@@ -2080,6 +2080,50 @@ Grailbird.data.tweets_2010_01 =
 }, {
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
+    "user_mentions" : [ ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "7893652393",
+  "text" : "For once I'm actually a bit sad I'm not still in Ontario.",
+  "id" : 7893652393,
+  "created_at" : "2010-01-18 00:00:00 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "7893719461",
+  "text" : "Done reading and writing about Mach-O for today. I'm starting to go cross-eyed.",
+  "id" : 7893719461,
+  "created_at" : "2010-01-18 00:00:00 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
+  "entities" : {
     "user_mentions" : [ {
       "name" : "TUAW",
       "screen_name" : "TUAW",
@@ -2132,7 +2176,7 @@ Grailbird.data.tweets_2010_01 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "giles",
+      "name" : "too much future make it stop",
       "screen_name" : "gilesgoatboy",
       "indices" : [ 0, 13 ],
       "id_str" : "1341781",
@@ -2223,50 +2267,6 @@ Grailbird.data.tweets_2010_01 =
   "id_str" : "7893631081",
   "text" : "RT @igrigorik: ha! nothing like a RESTful API for your local liquor store (LCBO): http:\/\/bit.ly\/6ye3nn (for canucks, at least..) :-)",
   "id" : 7893631081,
-  "created_at" : "2010-01-18 00:00:00 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "7893652393",
-  "text" : "For once I'm actually a bit sad I'm not still in Ontario.",
-  "id" : 7893652393,
-  "created_at" : "2010-01-18 00:00:00 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "7893719461",
-  "text" : "Done reading and writing about Mach-O for today. I'm starting to go cross-eyed.",
-  "id" : 7893719461,
   "created_at" : "2010-01-18 00:00:00 +0000",
   "user" : {
     "name" : "Sami Samhuri",
@@ -3477,39 +3477,6 @@ Grailbird.data.tweets_2010_01 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "giles",
-      "screen_name" : "gilesgoatboy",
-      "indices" : [ 0, 13 ],
-      "id_str" : "1341781",
-      "id" : 1341781
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "in_reply_to_status_id_str" : "7319403764",
-  "geo" : { },
-  "id_str" : "7323770241",
-  "in_reply_to_user_id" : 1341781,
-  "text" : "@gilesgoatboy Bad choice of words on my part. I simply meant that the US is predominantly a capitalist society.",
-  "id" : 7323770241,
-  "in_reply_to_status_id" : 7319403764,
-  "created_at" : "2010-01-03 00:00:00 +0000",
-  "in_reply_to_screen_name" : "gilesgoatboy",
-  "in_reply_to_user_id_str" : "1341781",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
       "name" : "tom robinson",
       "screen_name" : "tlrobinson",
       "indices" : [ 3, 14 ],
@@ -3538,7 +3505,7 @@ Grailbird.data.tweets_2010_01 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "giles",
+      "name" : "too much future make it stop",
       "screen_name" : "gilesgoatboy",
       "indices" : [ 37, 50 ],
       "id_str" : "1341781",
@@ -3553,6 +3520,39 @@ Grailbird.data.tweets_2010_01 =
   "text" : "Absolute capitalism doesn't work. RT @gilesgoatboy: http:\/\/www.good.is\/post\/cost-of-health-care-by-country-as-compared-to-life-expectancy",
   "id" : 7318084854,
   "created_at" : "2010-01-03 00:00:00 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "too much future make it stop",
+      "screen_name" : "gilesgoatboy",
+      "indices" : [ 0, 13 ],
+      "id_str" : "1341781",
+      "id" : 1341781
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "7319403764",
+  "geo" : { },
+  "id_str" : "7323770241",
+  "in_reply_to_user_id" : 1341781,
+  "text" : "@gilesgoatboy Bad choice of words on my part. I simply meant that the US is predominantly a capitalist society.",
+  "id" : 7323770241,
+  "in_reply_to_status_id" : 7319403764,
+  "created_at" : "2010-01-03 00:00:00 +0000",
+  "in_reply_to_screen_name" : "gilesgoatboy",
+  "in_reply_to_user_id_str" : "1341781",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",

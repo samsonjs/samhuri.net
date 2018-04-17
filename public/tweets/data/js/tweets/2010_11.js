@@ -50,7 +50,7 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "ryah",
+      "name" : "not here",
       "screen_name" : "ryah",
       "indices" : [ 11, 16 ],
       "id_str" : "967076702",
@@ -800,7 +800,7 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/kiwi-app.net\" rel=\"nofollow\"\u003EKiwi\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Thomas Fuchs",
+      "name" : "Thomas Fuchs \uD83E\uDD95",
       "screen_name" : "thomasfuchs",
       "indices" : [ 0, 12 ],
       "id_str" : "6927562",
@@ -1181,7 +1181,7 @@ Grailbird.data.tweets_2010_11 =
       "screen_name" : "holman",
       "protected" : false,
       "id_str" : "11322372",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/822539344288350209\/fX0Xi3oZ_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/941033976583503878\/zywhUZGs_normal.jpg",
       "id" : 11322372,
       "verified" : true
     }
@@ -1201,7 +1201,7 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Sam Stephenson",
+      "name" : "Sam Stephenson \uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08",
       "screen_name" : "sstephenson",
       "indices" : [ 0, 12 ],
       "id_str" : "6707392",
@@ -1672,7 +1672,7 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "patch -p1 punkin.dif",
+      "name" : "Ted Nuget",
       "screen_name" : "moonpolysoft",
       "indices" : [ 36, 49 ],
       "id_str" : "14204623",
@@ -1700,7 +1700,7 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "TJ Holowaychuk",
+      "name" : "TJ Holowaychuk \uD83D\uDC25",
       "screen_name" : "tjholowaychuk",
       "indices" : [ 0, 14 ],
       "id_str" : "29255412",
@@ -2308,7 +2308,7 @@ Grailbird.data.tweets_2010_11 =
       "id_str" : "663463",
       "id" : 663463
     }, {
-      "name" : "ryah",
+      "name" : "not here",
       "screen_name" : "ryah",
       "indices" : [ 14, 19 ],
       "id_str" : "967076702",
@@ -2325,7 +2325,7 @@ Grailbird.data.tweets_2010_11 =
     "source" : "\u003Ca href=\"http:\/\/hibariapp.com\" rel=\"nofollow\"\u003EHibari\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
-        "name" : "ryah",
+        "name" : "not here",
         "screen_name" : "ryah",
         "indices" : [ 0, 5 ],
         "id_str" : "967076702",
@@ -2444,7 +2444,7 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/kiwi-app.net\" rel=\"nofollow\"\u003EKiwi\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Salvatore Sanfilippo",
+      "name" : "ANTIREZ",
       "screen_name" : "antirez",
       "indices" : [ 0, 8 ],
       "id_str" : "5813712",
@@ -3227,7 +3227,7 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "xno\u0279\u01DD\u0283 u\u0250\u0131\u0279q",
+      "name" : "xno\u0279\u01DD\u0283 u\u0250\u0131\u0279q \uD83D\uDC8E",
       "screen_name" : "brianleroux",
       "indices" : [ 3, 15 ],
       "id_str" : "676363",
@@ -3254,11 +3254,11 @@ Grailbird.data.tweets_2010_11 =
     "id" : 4646758718111745,
     "created_at" : "2010-11-16 21:27:28 +0000",
     "user" : {
-      "name" : "xno\u0279\u01DD\u0283 u\u0250\u0131\u0279q",
+      "name" : "xno\u0279\u01DD\u0283 u\u0250\u0131\u0279q \uD83D\uDC8E",
       "screen_name" : "brianleroux",
       "protected" : false,
       "id_str" : "676363",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/675381240128602112\/hqOTM9i3_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/963494548012916736\/pCrryYUw_normal.jpg",
       "id" : 676363,
       "verified" : false
     }
@@ -3848,7 +3848,7 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "jackal\uD83D\uDD78scarestein\uD83C\uDFC3",
+      "name" : "jbr",
       "screen_name" : "jacobrothstein",
       "indices" : [ 0, 15 ],
       "id_str" : "27302287",
@@ -3903,13 +3903,13 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "jackal\uD83D\uDD78scarestein\uD83C\uDFC3",
+      "name" : "jbr",
       "screen_name" : "jacobrothstein",
       "indices" : [ 0, 15 ],
       "id_str" : "27302287",
       "id" : 27302287
     }, {
-      "name" : "TJ Holowaychuk",
+      "name" : "TJ Holowaychuk \uD83D\uDC25",
       "screen_name" : "tjholowaychuk",
       "indices" : [ 16, 30 ],
       "id_str" : "29255412",
@@ -3942,13 +3942,13 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "jackal\uD83D\uDD78scarestein\uD83C\uDFC3",
+      "name" : "jbr",
       "screen_name" : "jacobrothstein",
       "indices" : [ 0, 15 ],
       "id_str" : "27302287",
       "id" : 27302287
     }, {
-      "name" : "TJ Holowaychuk",
+      "name" : "TJ Holowaychuk \uD83D\uDC25",
       "screen_name" : "tjholowaychuk",
       "indices" : [ 126, 140 ],
       "id_str" : "29255412",
@@ -3981,7 +3981,7 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "TJ Holowaychuk",
+      "name" : "TJ Holowaychuk \uD83D\uDC25",
       "screen_name" : "tjholowaychuk",
       "indices" : [ 0, 14 ],
       "id_str" : "29255412",
@@ -4147,7 +4147,7 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mathias Meyer",
+      "name" : "Mathias \u00AF\\_(\u30C4)_\/\u00AF Meyer",
       "screen_name" : "roidrage",
       "indices" : [ 3, 12 ],
       "id_str" : "14658472",
@@ -4191,7 +4191,7 @@ Grailbird.data.tweets_2010_11 =
     "in_reply_to_screen_name" : "peterc",
     "in_reply_to_user_id_str" : "33493",
     "user" : {
-      "name" : "Mathias Meyer",
+      "name" : "Mathias \u00AF\\_(\u30C4)_\/\u00AF Meyer",
       "screen_name" : "roidrage",
       "protected" : false,
       "id_str" : "14658472",
@@ -4221,7 +4221,7 @@ Grailbird.data.tweets_2010_11 =
       "id_str" : "33493",
       "id" : 33493
     }, {
-      "name" : "Mathias Meyer",
+      "name" : "Mathias \u00AF\\_(\u30C4)_\/\u00AF Meyer",
       "screen_name" : "roidrage",
       "indices" : [ 12, 21 ],
       "id_str" : "14658472",
@@ -4238,7 +4238,7 @@ Grailbird.data.tweets_2010_11 =
     "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
-        "name" : "Mathias Meyer",
+        "name" : "Mathias \u00AF\\_(\u30C4)_\/\u00AF Meyer",
         "screen_name" : "roidrage",
         "indices" : [ 0, 9 ],
         "id_str" : "14658472",
@@ -4263,7 +4263,7 @@ Grailbird.data.tweets_2010_11 =
       "screen_name" : "peterc",
       "protected" : false,
       "id_str" : "33493",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/902223244320755714\/FX8yzxQD_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/951912849839882241\/8jDqFjFS_normal.jpg",
       "id" : 33493,
       "verified" : false
     }
@@ -4283,7 +4283,7 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mathias Meyer",
+      "name" : "Mathias \u00AF\\_(\u30C4)_\/\u00AF Meyer",
       "screen_name" : "roidrage",
       "indices" : [ 3, 12 ],
       "id_str" : "14658472",
@@ -4310,7 +4310,7 @@ Grailbird.data.tweets_2010_11 =
     "id" : 3921192981372928,
     "created_at" : "2010-11-14 21:24:19 +0000",
     "user" : {
-      "name" : "Mathias Meyer",
+      "name" : "Mathias \u00AF\\_(\u30C4)_\/\u00AF Meyer",
       "screen_name" : "roidrage",
       "protected" : false,
       "id_str" : "14658472",
@@ -4365,7 +4365,7 @@ Grailbird.data.tweets_2010_11 =
       "screen_name" : "getify",
       "protected" : false,
       "id_str" : "16686076",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/848955317136248840\/rcFY8W_a_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/938120772932923392\/O7aZNh4w_normal.jpg",
       "id" : 16686076,
       "verified" : false
     }
@@ -4744,60 +4744,6 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "tom robinson",
-      "screen_name" : "tlrobinson",
-      "indices" : [ 3, 14 ],
-      "id_str" : "14206068",
-      "id" : 14206068
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "2862699633446913",
-  "text" : "RT @tlrobinson: You should never see multiple \"alert()\"s from the same JavaScript context on the screen at once, right? http:\/\/bit.ly\/di ...",
-  "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
-    "entities" : {
-      "user_mentions" : [ ],
-      "media" : [ ],
-      "hashtags" : [ {
-        "text" : "wtfjs",
-        "indices" : [ 125, 131 ]
-      } ],
-      "urls" : [ ]
-    },
-    "geo" : { },
-    "id_str" : "2862092545695745",
-    "text" : "You should never see multiple \"alert()\"s from the same JavaScript context on the screen at once, right? http:\/\/bit.ly\/dir1W7 #wtfjs",
-    "id" : 2862092545695745,
-    "created_at" : "2010-11-11 23:15:50 +0000",
-    "user" : {
-      "name" : "tom robinson",
-      "screen_name" : "tlrobinson",
-      "protected" : false,
-      "id_str" : "14206068",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000853310157\/a0e3b1296ad4bad4a668803a54a79afd_normal.jpeg",
-      "id" : 14206068,
-      "verified" : false
-    }
-  },
-  "id" : 2862699633446913,
-  "created_at" : "2010-11-11 23:18:15 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
       "name" : "Jim Roepcke",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
@@ -4898,7 +4844,7 @@ Grailbird.data.tweets_2010_11 =
       "screen_name" : "SubtleGradient",
       "protected" : false,
       "id_str" : "14405464",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/566657299\/thomas-aylott-75_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/974751815680983040\/6zOfX-Ls_normal.jpg",
       "id" : 14405464,
       "verified" : false
     }
@@ -4924,13 +4870,13 @@ Grailbird.data.tweets_2010_11 =
       "id_str" : "795244",
       "id" : 795244
     }, {
-      "name" : "giles",
+      "name" : "too much future make it stop",
       "screen_name" : "gilesgoatboy",
       "indices" : [ 14, 27 ],
       "id_str" : "1341781",
       "id" : 1341781
     }, {
-      "name" : "jackal\uD83D\uDD78scarestein\uD83C\uDFC3",
+      "name" : "jbr",
       "screen_name" : "jacobrothstein",
       "indices" : [ 40, 55 ],
       "id_str" : "27302287",
@@ -4947,13 +4893,13 @@ Grailbird.data.tweets_2010_11 =
     "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
-        "name" : "giles",
+        "name" : "too much future make it stop",
         "screen_name" : "gilesgoatboy",
         "indices" : [ 0, 13 ],
         "id_str" : "1341781",
         "id" : 1341781
       }, {
-        "name" : "jackal\uD83D\uDD78scarestein\uD83C\uDFC3",
+        "name" : "jbr",
         "screen_name" : "jacobrothstein",
         "indices" : [ 26, 41 ],
         "id_str" : "27302287",
@@ -4998,7 +4944,7 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "giles",
+      "name" : "too much future make it stop",
       "screen_name" : "gilesgoatboy",
       "indices" : [ 3, 16 ],
       "id_str" : "1341781",
@@ -5025,7 +4971,7 @@ Grailbird.data.tweets_2010_11 =
     "id" : 2520070060253184,
     "created_at" : "2010-11-11 00:36:46 +0000",
     "user" : {
-      "name" : "giles",
+      "name" : "too much future make it stop",
       "screen_name" : "gilesgoatboy",
       "protected" : false,
       "id_str" : "1341781",
@@ -5235,7 +5181,7 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "jackal\uD83D\uDD78scarestein\uD83C\uDFC3",
+      "name" : "jbr",
       "screen_name" : "jacobrothstein",
       "indices" : [ 3, 18 ],
       "id_str" : "27302287",
@@ -5262,7 +5208,7 @@ Grailbird.data.tweets_2010_11 =
     "id" : 2157046266863616,
     "created_at" : "2010-11-10 00:34:14 +0000",
     "user" : {
-      "name" : "jackal\uD83D\uDD78scarestein\uD83C\uDFC3",
+      "name" : "jbr",
       "screen_name" : "jacobrothstein",
       "protected" : false,
       "id_str" : "27302287",
@@ -5397,7 +5343,7 @@ Grailbird.data.tweets_2010_11 =
       "id_str" : "473142109",
       "id" : 473142109
     }, {
-      "name" : "A. Robinson Gross",
+      "name" : "a\u0338\u030C\u0360\u0304\u0351\u0314\u033F\u031D\u0347\u0348n\u0336\u0344\u0307\u0340\u0312\u0307\u0345d\u0336\u0309\u0340\u0300\u0304\u0311\u035D\u0349y\u0336\u0342\u0304\u0301\u034B\u031F\u031E\u0353\u031E",
       "screen_name" : "argv0",
       "indices" : [ 85, 91 ],
       "id_str" : "6509982",
@@ -5432,7 +5378,7 @@ Grailbird.data.tweets_2010_11 =
     "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
-        "name" : "A. Robinson Gross",
+        "name" : "a\u0338\u030C\u0360\u0304\u0351\u0314\u033F\u031D\u0347\u0348n\u0336\u0344\u0307\u0340\u0312\u0307\u0345d\u0336\u0309\u0340\u0300\u0304\u0311\u035D\u0349y\u0336\u0342\u0304\u0301\u034B\u031F\u031E\u0353\u031E",
         "screen_name" : "argv0",
         "indices" : [ 66, 72 ],
         "id_str" : "6509982",
@@ -5469,11 +5415,11 @@ Grailbird.data.tweets_2010_11 =
     "id" : 2023394778292224,
     "created_at" : "2010-11-09 15:43:09 +0000",
     "user" : {
-      "name" : "The Changelog",
+      "name" : "Changelog",
       "screen_name" : "changelog",
       "protected" : false,
       "id_str" : "90286855",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/785644845838675968\/3cxeLxCy_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/976117293179584515\/Yqd_Stzc_normal.jpg",
       "id" : 90286855,
       "verified" : false
     }
@@ -5866,7 +5812,7 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mathias Meyer",
+      "name" : "Mathias \u00AF\\_(\u30C4)_\/\u00AF Meyer",
       "screen_name" : "roidrage",
       "indices" : [ 0, 9 ],
       "id_str" : "14658472",
@@ -5997,7 +5943,7 @@ Grailbird.data.tweets_2010_11 =
       "screen_name" : "mathias",
       "protected" : false,
       "id_str" : "532923",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1255767431\/kung-fu_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/952797845534453760\/HRhT4f_5_normal.jpg",
       "id" : 532923,
       "verified" : true
     }
@@ -6093,7 +6039,7 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "jackal\uD83D\uDD78scarestein\uD83C\uDFC3",
+      "name" : "jbr",
       "screen_name" : "jacobrothstein",
       "indices" : [ 0, 15 ],
       "id_str" : "27302287",
@@ -6157,7 +6103,7 @@ Grailbird.data.tweets_2010_11 =
       "screen_name" : "saikatc",
       "protected" : false,
       "id_str" : "41154223",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000333885433\/4bf5add513eebe0d67ae287d9593bf36_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/979414359666581504\/8Yd_3t-G_normal.jpg",
       "id" : 41154223,
       "verified" : false
     }
@@ -6315,120 +6261,6 @@ Grailbird.data.tweets_2010_11 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "Sam Stephenson",
-      "screen_name" : "sstephenson",
-      "indices" : [ 3, 15 ],
-      "id_str" : "6707392",
-      "id" : 6707392
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "569167153467393",
-  "text" : "RT @sstephenson: The JS that powers Chalk is written in CoffeeScript, compiled and served on-the-fly with Brochure: http:\/\/github.com\/ss ...",
-  "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
-    "entities" : {
-      "user_mentions" : [ ],
-      "media" : [ ],
-      "hashtags" : [ ],
-      "urls" : [ ]
-    },
-    "geo" : { },
-    "id_str" : "553490682216449",
-    "text" : "The JS that powers Chalk is written in CoffeeScript, compiled and served on-the-fly with Brochure: http:\/\/github.com\/sstephenson\/brochure",
-    "id" : 553490682216449,
-    "created_at" : "2010-11-05 14:22:17 +0000",
-    "user" : {
-      "name" : "Sam Stephenson",
-      "screen_name" : "sstephenson",
-      "protected" : false,
-      "id_str" : "6707392",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/736761202181689345\/vdVKW0Gw_normal.jpg",
-      "id" : 6707392,
-      "verified" : false
-    }
-  },
-  "id" : 569167153467393,
-  "created_at" : "2010-11-05 15:24:34 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "Sam Stephenson",
-      "screen_name" : "sstephenson",
-      "indices" : [ 3, 15 ],
-      "id_str" : "6707392",
-      "id" : 6707392
-    }, {
-      "name" : "Sami Samhuri",
-      "screen_name" : "_sjs",
-      "indices" : [ 48, 53 ],
-      "id_str" : "4777951",
-      "id" : 4777951
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "569157116497920",
-  "text" : "RT @sstephenson: Spot-on dissection of Chalk by @_sjs: http:\/\/samisamhuri.blogspot.com\/2010\/11\/37signals-chalk-dissected.html",
-  "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
-    "entities" : {
-      "user_mentions" : [ {
-        "name" : "Sami Samhuri",
-        "screen_name" : "_sjs",
-        "indices" : [ 31, 36 ],
-        "id_str" : "4777951",
-        "id" : 4777951
-      } ],
-      "media" : [ ],
-      "hashtags" : [ ],
-      "urls" : [ ]
-    },
-    "geo" : { },
-    "id_str" : "551993839976448",
-    "text" : "Spot-on dissection of Chalk by @_sjs: http:\/\/samisamhuri.blogspot.com\/2010\/11\/37signals-chalk-dissected.html",
-    "id" : 551993839976448,
-    "created_at" : "2010-11-05 14:16:20 +0000",
-    "user" : {
-      "name" : "Sam Stephenson",
-      "screen_name" : "sstephenson",
-      "protected" : false,
-      "id_str" : "6707392",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/736761202181689345\/vdVKW0Gw_normal.jpg",
-      "id" : 6707392,
-      "verified" : false
-    }
-  },
-  "id" : 569157116497920,
-  "created_at" : "2010-11-05 15:24:32 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
@@ -6564,7 +6396,7 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003ETwitter for iPad\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Steve Streza \uD83C\uDF39",
+      "name" : "Steve Streza \uD83C\uDF39 (he\/they)",
       "screen_name" : "SteveStreza",
       "indices" : [ 3, 15 ],
       "id_str" : "658643",
@@ -6591,7 +6423,7 @@ Grailbird.data.tweets_2010_11 =
     "id" : 375969575604224,
     "created_at" : "2010-11-05 02:36:52 +0000",
     "user" : {
-      "name" : "Steve Streza \uD83C\uDF39",
+      "name" : "Steve Streza \uD83C\uDF39 (he\/they)",
       "screen_name" : "SteveStreza",
       "protected" : false,
       "id_str" : "658643",
@@ -6715,7 +6547,7 @@ Grailbird.data.tweets_2010_11 =
       "screen_name" : "SubtleGradient",
       "protected" : false,
       "id_str" : "14405464",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/566657299\/thomas-aylott-75_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/974751815680983040\/6zOfX-Ls_normal.jpg",
       "id" : 14405464,
       "verified" : false
     }
@@ -6907,7 +6739,7 @@ Grailbird.data.tweets_2010_11 =
       "screen_name" : "dhh",
       "protected" : false,
       "id_str" : "14561327",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/2556368541\/alng5gtlmjhrdlr3qxqv_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/975876868455809024\/eK7mDppU_normal.jpg",
       "id" : 14561327,
       "verified" : true
     }
@@ -6985,7 +6817,7 @@ Grailbird.data.tweets_2010_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "xno\u0279\u01DD\u0283 u\u0250\u0131\u0279q",
+      "name" : "xno\u0279\u01DD\u0283 u\u0250\u0131\u0279q \uD83D\uDC8E",
       "screen_name" : "brianleroux",
       "indices" : [ 0, 12 ],
       "id_str" : "676363",
@@ -7231,57 +7063,6 @@ Grailbird.data.tweets_2010_11 =
     }
   },
   "id" : 29479276705,
-  "created_at" : "2010-11-02 00:00:00 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "Sam Stephenson",
-      "screen_name" : "sstephenson",
-      "indices" : [ 3, 15 ],
-      "id_str" : "6707392",
-      "id" : 6707392
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "29483259436",
-  "text" : "RT @sstephenson: Chalk is a little iPad app we made for fun: http:\/\/bit.ly\/c93xN3",
-  "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
-    "entities" : {
-      "user_mentions" : [ ],
-      "media" : [ ],
-      "hashtags" : [ ],
-      "urls" : [ ]
-    },
-    "geo" : { },
-    "id_str" : "29473292480",
-    "text" : "Chalk is a little iPad app we made for fun: http:\/\/bit.ly\/c93xN3",
-    "id" : 29473292480,
-    "created_at" : "2010-11-02 14:12:54 +0000",
-    "user" : {
-      "name" : "Sam Stephenson",
-      "screen_name" : "sstephenson",
-      "protected" : false,
-      "id_str" : "6707392",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/736761202181689345\/vdVKW0Gw_normal.jpg",
-      "id" : 6707392,
-      "verified" : false
-    }
-  },
-  "id" : 29483259436,
   "created_at" : "2010-11-02 00:00:00 +0000",
   "user" : {
     "name" : "Sami Samhuri",

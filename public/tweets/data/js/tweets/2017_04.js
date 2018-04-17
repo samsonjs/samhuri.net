@@ -3,7 +3,7 @@ Grailbird.data.tweets_2017_04 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "2017, but forever",
+      "name" : "Dan Moren",
       "screen_name" : "dmoren",
       "indices" : [ 0, 7 ],
       "id_str" : "668243",
@@ -48,7 +48,7 @@ Grailbird.data.tweets_2017_04 =
       "id_str" : "2786220516",
       "id" : 2786220516
     }, {
-      "name" : "2017, but forever",
+      "name" : "Dan Moren",
       "screen_name" : "dmoren",
       "indices" : [ 16, 23 ],
       "id_str" : "668243",
@@ -116,6 +116,7 @@ Grailbird.data.tweets_2017_04 =
         "resize" : "fit",
         "w" : 311
       } ],
+      "media_alt" : "",
       "display_url" : "pic.twitter.com\/1EijNLJku2"
     } ],
     "hashtags" : [ ],
@@ -299,7 +300,7 @@ Grailbird.data.tweets_2017_04 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "[joe groff];",
+      "name" : "Joe Groff",
       "screen_name" : "jckarter",
       "indices" : [ 3, 12 ],
       "id_str" : "18559099",
@@ -326,11 +327,11 @@ Grailbird.data.tweets_2017_04 =
     "id" : 854540059197952000,
     "created_at" : "2017-04-19 03:40:01 +0000",
     "user" : {
-      "name" : "[joe groff];",
+      "name" : "Joe Groff",
       "screen_name" : "jckarter",
       "protected" : false,
       "id_str" : "18559099",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/914907528294686721\/nbK0AVfv_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/977666852103995392\/JLjTHaRy_normal.jpg",
       "id" : 18559099,
       "verified" : false
     }
@@ -620,13 +621,13 @@ Grailbird.data.tweets_2017_04 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Nicholas Rempel \uD83C\uDF83",
+      "name" : "Nicholas Rempel",
       "screen_name" : "nbrempel",
       "indices" : [ 0, 9 ],
       "id_str" : "1400951646",
       "id" : 1400951646
     }, {
-      "name" : "Jesse Learmonth",
+      "name" : "Jesse Learmonth \u270C\uD83C\uDFFD\uFE0F",
       "screen_name" : "jesselearmonth",
       "indices" : [ 10, 25 ],
       "id_str" : "16367713",

@@ -102,7 +102,7 @@ Grailbird.data.tweets_2010_02 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "giles",
+      "name" : "too much future make it stop",
       "screen_name" : "gilesgoatboy",
       "indices" : [ 3, 16 ],
       "id_str" : "1341781",
@@ -129,7 +129,7 @@ Grailbird.data.tweets_2010_02 =
     "id" : 9737046519,
     "created_at" : "2010-02-27 17:11:16 +0000",
     "user" : {
-      "name" : "giles",
+      "name" : "too much future make it stop",
       "screen_name" : "gilesgoatboy",
       "protected" : false,
       "id_str" : "1341781",
@@ -219,7 +219,7 @@ Grailbird.data.tweets_2010_02 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "DRMacIver's Monster",
+      "name" : "David R. MacIver",
       "screen_name" : "DRMacIver",
       "indices" : [ 0, 10 ],
       "id_str" : "14368342",
@@ -636,7 +636,7 @@ Grailbird.data.tweets_2010_02 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Tweetie",
+      "name" : "S",
       "screen_name" : "tweetie",
       "indices" : [ 20, 28 ],
       "id_str" : "18044341",
@@ -694,28 +694,6 @@ Grailbird.data.tweets_2010_02 =
     "urls" : [ ]
   },
   "geo" : { },
-  "id_str" : "9192595443",
-  "text" : "iTerm tip: In OS X's keyboard prefs you can map shortcuts for \"Select Previous Tab\" and \"Select Next Tab\" to Cmd-Shift-[ and Cmd-Shift-].",
-  "id" : 9192595443,
-  "created_at" : "2010-02-16 00:00:00 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
   "id_str" : "9164440350",
   "text" : "[re: RWW\/facebook login] firefox's url bar takes you to the 1st goog result, so people get used to typing \"facebook login\" into the url bar.",
   "id" : 9164440350,
@@ -741,6 +719,28 @@ Grailbird.data.tweets_2010_02 =
   "id_str" : "9164471810",
   "text" : "i'm willing to bet that many of the confused users are more victims of firefox's odd behaviour than their own lack of knowledge.",
   "id" : 9164471810,
+  "created_at" : "2010-02-16 00:00:00 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "9192595443",
+  "text" : "iTerm tip: In OS X's keyboard prefs you can map shortcuts for \"Select Previous Tab\" and \"Select Next Tab\" to Cmd-Shift-[ and Cmd-Shift-].",
+  "id" : 9192595443,
   "created_at" : "2010-02-16 00:00:00 +0000",
   "user" : {
     "name" : "Sami Samhuri",
@@ -1199,57 +1199,6 @@ Grailbird.data.tweets_2010_02 =
   "text" : "RT @nocas: teen teaches how to view ip addresses http:\/\/bit.ly\/9p5meP makes us all laugh till we cry :D http:\/\/twitpic.com\/11yg5k",
   "id" : 8781575552,
   "created_at" : "2010-02-07 00:00:00 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "tom robinson",
-      "screen_name" : "tlrobinson",
-      "indices" : [ 3, 14 ],
-      "id_str" : "14206068",
-      "id" : 14206068
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "8705804068",
-  "text" : "RT @tlrobinson: I'm not advocating this, but if you wanted to discourage people from using AdBlock you could put goatse, etc behind your ...",
-  "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
-    "entities" : {
-      "user_mentions" : [ ],
-      "media" : [ ],
-      "hashtags" : [ ],
-      "urls" : [ ]
-    },
-    "geo" : { },
-    "id_str" : "8705344653",
-    "text" : "I'm not advocating this, but if you wanted to discourage people from using AdBlock you could put goatse, etc behind your ads. Just sayin.",
-    "id" : 8705344653,
-    "created_at" : "2010-02-06 02:38:42 +0000",
-    "user" : {
-      "name" : "tom robinson",
-      "screen_name" : "tlrobinson",
-      "protected" : false,
-      "id_str" : "14206068",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000853310157\/a0e3b1296ad4bad4a668803a54a79afd_normal.jpeg",
-      "id" : 14206068,
-      "verified" : false
-    }
-  },
-  "id" : 8705804068,
-  "created_at" : "2010-02-06 00:00:00 +0000",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",

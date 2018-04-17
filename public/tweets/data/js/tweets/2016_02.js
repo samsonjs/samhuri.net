@@ -199,7 +199,7 @@ Grailbird.data.tweets_2016_02 =
       "screen_name" : "JustinTrudeau",
       "protected" : false,
       "id_str" : "14260960",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/816404989392211968\/Wv_8ZDrX_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/950393608221454336\/NbB_X0TG_normal.jpg",
       "id" : 14260960,
       "verified" : true
     }
@@ -797,7 +797,7 @@ Grailbird.data.tweets_2016_02 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Steve T-S",
+      "name" : "Steve Troughton-Smith",
       "screen_name" : "stroughtonsmith",
       "indices" : [ 3, 19 ],
       "id_str" : "15267898",
@@ -824,11 +824,11 @@ Grailbird.data.tweets_2016_02 =
     "id" : 700849276474228736,
     "created_at" : "2016-02-20 01:07:43 +0000",
     "user" : {
-      "name" : "Steve T-S",
+      "name" : "Steve Troughton-Smith",
       "screen_name" : "stroughtonsmith",
       "protected" : false,
       "id_str" : "15267898",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/914535586068910081\/Sj94rKBY_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/923969343087669248\/diAzr2_2_normal.jpg",
       "id" : 15267898,
       "verified" : true
     }
@@ -848,7 +848,7 @@ Grailbird.data.tweets_2016_02 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Steve T-S",
+      "name" : "Steve Troughton-Smith",
       "screen_name" : "stroughtonsmith",
       "indices" : [ 3, 19 ],
       "id_str" : "15267898",
@@ -875,11 +875,11 @@ Grailbird.data.tweets_2016_02 =
     "id" : 700848947816960000,
     "created_at" : "2016-02-20 01:06:24 +0000",
     "user" : {
-      "name" : "Steve T-S",
+      "name" : "Steve Troughton-Smith",
       "screen_name" : "stroughtonsmith",
       "protected" : false,
       "id_str" : "15267898",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/914535586068910081\/Sj94rKBY_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/923969343087669248\/diAzr2_2_normal.jpg",
       "id" : 15267898,
       "verified" : true
     }
@@ -899,7 +899,7 @@ Grailbird.data.tweets_2016_02 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Steve T-S",
+      "name" : "Steve Troughton-Smith",
       "screen_name" : "stroughtonsmith",
       "indices" : [ 3, 19 ],
       "id_str" : "15267898",
@@ -926,11 +926,11 @@ Grailbird.data.tweets_2016_02 =
     "id" : 700848113230159872,
     "created_at" : "2016-02-20 01:03:05 +0000",
     "user" : {
-      "name" : "Steve T-S",
+      "name" : "Steve Troughton-Smith",
       "screen_name" : "stroughtonsmith",
       "protected" : false,
       "id_str" : "15267898",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/914535586068910081\/Sj94rKBY_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/923969343087669248\/diAzr2_2_normal.jpg",
       "id" : 15267898,
       "verified" : true
     }
@@ -1003,26 +1003,27 @@ Grailbird.data.tweets_2016_02 =
       "id" : 700823529051152384,
       "media_url_https" : "https:\/\/pbs.twimg.com\/media\/CbnTSVtUYAAuzWE.jpg",
       "sizes" : [ {
-        "h" : 1334,
+        "h" : 680,
         "resize" : "fit",
-        "w" : 750
-      }, {
-        "h" : 1200,
-        "resize" : "fit",
-        "w" : 675
+        "w" : 382
       }, {
         "h" : 150,
         "resize" : "crop",
         "w" : 150
       }, {
+        "h" : 1200,
+        "resize" : "fit",
+        "w" : 675
+      }, {
         "h" : 1334,
         "resize" : "fit",
         "w" : 750
       }, {
-        "h" : 680,
+        "h" : 1334,
         "resize" : "fit",
-        "w" : 382
+        "w" : 750
       } ],
+      "media_alt" : "",
       "display_url" : "pic.twitter.com\/dmEiwJtRe8"
     } ],
     "hashtags" : [ ],
@@ -1680,7 +1681,7 @@ Grailbird.data.tweets_2016_02 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Especially Heinous",
+      "name" : "Space Force Commander",
       "screen_name" : "sassy_swaggerty",
       "indices" : [ 3, 19 ],
       "id_str" : "177552754",
@@ -1695,17 +1696,9 @@ Grailbird.data.tweets_2016_02 =
       "id" : 696531629838209024,
       "media_url_https" : "https:\/\/pbs.twimg.com\/media\/CaqT07NUkAA1svs.jpg",
       "sizes" : [ {
-        "h" : 1080,
-        "resize" : "fit",
-        "w" : 1440
-      }, {
         "h" : 150,
         "resize" : "crop",
         "w" : 150
-      }, {
-        "h" : 510,
-        "resize" : "fit",
-        "w" : 680
       }, {
         "h" : 900,
         "resize" : "fit",
@@ -1714,7 +1707,16 @@ Grailbird.data.tweets_2016_02 =
         "h" : 1080,
         "resize" : "fit",
         "w" : 1440
+      }, {
+        "h" : 1080,
+        "resize" : "fit",
+        "w" : 1440
+      }, {
+        "h" : 510,
+        "resize" : "fit",
+        "w" : 680
       } ],
+      "media_alt" : "",
       "display_url" : "pic.twitter.com\/pJhHWiRdqA"
     } ],
     "hashtags" : [ {
@@ -1739,17 +1741,9 @@ Grailbird.data.tweets_2016_02 =
         "id" : 696531629838209024,
         "media_url_https" : "https:\/\/pbs.twimg.com\/media\/CaqT07NUkAA1svs.jpg",
         "sizes" : [ {
-          "h" : 1080,
-          "resize" : "fit",
-          "w" : 1440
-        }, {
           "h" : 150,
           "resize" : "crop",
           "w" : 150
-        }, {
-          "h" : 510,
-          "resize" : "fit",
-          "w" : 680
         }, {
           "h" : 900,
           "resize" : "fit",
@@ -1758,7 +1752,16 @@ Grailbird.data.tweets_2016_02 =
           "h" : 1080,
           "resize" : "fit",
           "w" : 1440
+        }, {
+          "h" : 1080,
+          "resize" : "fit",
+          "w" : 1440
+        }, {
+          "h" : 510,
+          "resize" : "fit",
+          "w" : 680
         } ],
+        "media_alt" : "",
         "display_url" : "pic.twitter.com\/pJhHWiRdqA"
       } ],
       "hashtags" : [ {
@@ -1773,11 +1776,11 @@ Grailbird.data.tweets_2016_02 =
     "id" : 696531639804026880,
     "created_at" : "2016-02-08 03:10:58 +0000",
     "user" : {
-      "name" : "Especially Heinous",
+      "name" : "Space Force Commander",
       "screen_name" : "sassy_swaggerty",
       "protected" : false,
       "id_str" : "177552754",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000728861442\/786edc97d08fc3c375bf3b7a02b0a3ec_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/974862249549615104\/kE5eVJ5l_normal.jpg",
       "id" : 177552754,
       "verified" : false
     }
@@ -1973,7 +1976,7 @@ Grailbird.data.tweets_2016_02 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Nate Cook \uD83C\uDF42",
+      "name" : "Nate Cook \u2603\uFE0F",
       "screen_name" : "nnnnnnnn",
       "indices" : [ 0, 9 ],
       "id_str" : "4365311",

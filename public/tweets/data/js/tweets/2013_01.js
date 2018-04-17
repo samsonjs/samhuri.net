@@ -129,7 +129,7 @@ Grailbird.data.tweets_2013_01 =
       "screen_name" : "raganwald",
       "protected" : false,
       "id_str" : "18137723",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/853400781726371840\/QjvdLTYQ_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/981971516668592128\/46_3g0gG_normal.jpg",
       "id" : 18137723,
       "verified" : false
     }
@@ -624,7 +624,7 @@ Grailbird.data.tweets_2013_01 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Aaron Heckmann",
+      "name" : "ajHecky",
       "screen_name" : "aaronheckmann",
       "indices" : [ 3, 17 ],
       "id_str" : "13818902",
@@ -651,7 +651,7 @@ Grailbird.data.tweets_2013_01 =
     "id" : 296060546048999424,
     "created_at" : "2013-01-29 01:01:49 +0000",
     "user" : {
-      "name" : "Aaron Heckmann",
+      "name" : "ajHecky",
       "screen_name" : "aaronheckmann",
       "protected" : false,
       "id_str" : "13818902",
@@ -1359,7 +1359,7 @@ Grailbird.data.tweets_2013_01 =
       "id_str" : "834501828620537856",
       "id" : 834501828620537856
     }, {
-      "name" : "isaacs \uD83D\uDC99\uD83D\uDC9C\uD83D\uDC96\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08",
+      "name" : "\uD835\uDD40\uD835\uDD64\uD835\uDD52\uD835\uDD52\uD835\uDD54 \u2124. \uD835\uDD4A\uD835\uDD54\uD835\uDD59\uD835\uDD5D\uD835\uDD66\uD835\uDD56\uD835\uDD65\uD835\uDD56\uD835\uDD63 \uD83D\uDC99\uD83D\uDC9C\uD83D\uDC96\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08",
       "screen_name" : "izs",
       "indices" : [ 68, 72 ],
       "id_str" : "8038312",
@@ -1376,7 +1376,7 @@ Grailbird.data.tweets_2013_01 =
     "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
-        "name" : "isaacs \uD83D\uDC99\uD83D\uDC9C\uD83D\uDC96\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08",
+        "name" : "\uD835\uDD40\uD835\uDD64\uD835\uDD52\uD835\uDD52\uD835\uDD54 \u2124. \uD835\uDD4A\uD835\uDD54\uD835\uDD59\uD835\uDD5D\uD835\uDD66\uD835\uDD56\uD835\uDD65\uD835\uDD56\uD835\uDD63 \uD83D\uDC99\uD83D\uDC9C\uD83D\uDC96\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08",
         "screen_name" : "izs",
         "indices" : [ 52, 56 ],
         "id_str" : "8038312",
@@ -1392,7 +1392,7 @@ Grailbird.data.tweets_2013_01 =
     "id" : 294851428722282496,
     "created_at" : "2013-01-25 16:57:13 +0000",
     "user" : {
-      "name" : "the spectre of bread",
+      "name" : "invisible chaotic self-modifying biomachine",
       "screen_name" : "edefic",
       "protected" : false,
       "id_str" : "15734539",
@@ -1740,7 +1740,7 @@ Grailbird.data.tweets_2013_01 =
       "id_str" : "532923",
       "id" : 532923
     }, {
-      "name" : "John-David Dalton",
+      "name" : "John-David \u201Cjust works\u201D Dalton",
       "screen_name" : "jdalton",
       "indices" : [ 19, 27 ],
       "id_str" : "14272162",
@@ -1785,7 +1785,7 @@ Grailbird.data.tweets_2013_01 =
       "id_str" : "16144669",
       "id" : 16144669
     }, {
-      "name" : "John-David Dalton",
+      "name" : "John-David \u201Cjust works\u201D Dalton",
       "screen_name" : "jdalton",
       "indices" : [ 19, 27 ],
       "id_str" : "14272162",
@@ -2179,18 +2179,6 @@ Grailbird.data.tweets_2013_01 =
       "id" : 293041571732008960,
       "media_url_https" : "https:\/\/pbs.twimg.com\/media\/BBEXwcOCMAAI4yp.jpg",
       "sizes" : [ {
-        "h" : 243,
-        "resize" : "fit",
-        "w" : 680
-      }, {
-        "h" : 307,
-        "resize" : "fit",
-        "w" : 860
-      }, {
-        "h" : 307,
-        "resize" : "fit",
-        "w" : 860
-      }, {
         "h" : 150,
         "resize" : "crop",
         "w" : 150
@@ -2198,7 +2186,20 @@ Grailbird.data.tweets_2013_01 =
         "h" : 307,
         "resize" : "fit",
         "w" : 860
+      }, {
+        "h" : 307,
+        "resize" : "fit",
+        "w" : 860
+      }, {
+        "h" : 307,
+        "resize" : "fit",
+        "w" : 860
+      }, {
+        "h" : 243,
+        "resize" : "fit",
+        "w" : 680
       } ],
+      "media_alt" : "",
       "display_url" : "pic.twitter.com\/dZ8wli3I"
     } ],
     "hashtags" : [ ],
@@ -2326,7 +2327,7 @@ Grailbird.data.tweets_2013_01 =
       "id_str" : "125027291",
       "id" : 125027291
     }, {
-      "name" : "isaacs \uD83D\uDC99\uD83D\uDC9C\uD83D\uDC96\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08",
+      "name" : "\uD835\uDD40\uD835\uDD64\uD835\uDD52\uD835\uDD52\uD835\uDD54 \u2124. \uD835\uDD4A\uD835\uDD54\uD835\uDD59\uD835\uDD5D\uD835\uDD66\uD835\uDD56\uD835\uDD65\uD835\uDD56\uD835\uDD63 \uD83D\uDC99\uD83D\uDC9C\uD83D\uDC96\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08",
       "screen_name" : "izs",
       "indices" : [ 10, 14 ],
       "id_str" : "8038312",
@@ -2392,7 +2393,7 @@ Grailbird.data.tweets_2013_01 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Tewha \uD83C\uDDE8\uD83C\uDDE6",
+      "name" : "Steve\uD83C\uDDE8\uD83C\uDDE6",
       "screen_name" : "tewha",
       "indices" : [ 0, 6 ],
       "id_str" : "14058316",
@@ -2437,7 +2438,7 @@ Grailbird.data.tweets_2013_01 =
       "id_str" : "894911",
       "id" : 894911
     }, {
-      "name" : "Tewha \uD83C\uDDE8\uD83C\uDDE6",
+      "name" : "Steve\uD83C\uDDE8\uD83C\uDDE6",
       "screen_name" : "tewha",
       "indices" : [ 12, 18 ],
       "id_str" : "14058316",
@@ -2474,7 +2475,7 @@ Grailbird.data.tweets_2013_01 =
       "id_str" : "894911",
       "id" : 894911
     }, {
-      "name" : "Tewha \uD83C\uDDE8\uD83C\uDDE6",
+      "name" : "Steve\uD83C\uDDE8\uD83C\uDDE6",
       "screen_name" : "tewha",
       "indices" : [ 12, 18 ],
       "id_str" : "14058316",
@@ -2548,7 +2549,7 @@ Grailbird.data.tweets_2013_01 =
       "screen_name" : "awbjs",
       "protected" : false,
       "id_str" : "159946057",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/501784749317185537\/4GXPdn0H_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/951497541362700288\/hxugG7vx_normal.jpg",
       "id" : 159946057,
       "verified" : false
     }
@@ -2568,7 +2569,7 @@ Grailbird.data.tweets_2013_01 =
   "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Tewha \uD83C\uDDE8\uD83C\uDDE6",
+      "name" : "Steve\uD83C\uDDE8\uD83C\uDDE6",
       "screen_name" : "tewha",
       "indices" : [ 0, 6 ],
       "id_str" : "14058316",
@@ -2607,7 +2608,7 @@ Grailbird.data.tweets_2013_01 =
   "source" : "\u003Ca href=\"http:\/\/www.apple.com\/\" rel=\"nofollow\"\u003EOS X\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "jackal\uD83D\uDD78scarestein\uD83C\uDFC3",
+      "name" : "jbr",
       "screen_name" : "jacobrothstein",
       "indices" : [ 11, 26 ],
       "id_str" : "27302287",
@@ -3258,7 +3259,7 @@ Grailbird.data.tweets_2013_01 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Debasish Ghosh",
+      "name" : "Debasish (\u09A6\u09C7\u09AC\u09BE\u09B6\u09BF\u09B8\u09CD) Ghosh \uD83C\uDDEE\uD83C\uDDF3",
       "screen_name" : "debasishg",
       "indices" : [ 0, 10 ],
       "id_str" : "6562002",
@@ -3319,7 +3320,7 @@ Grailbird.data.tweets_2013_01 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Debasish Ghosh",
+      "name" : "Debasish (\u09A6\u09C7\u09AC\u09BE\u09B6\u09BF\u09B8\u09CD) Ghosh \uD83C\uDDEE\uD83C\uDDF3",
       "screen_name" : "debasishg",
       "indices" : [ 0, 10 ],
       "id_str" : "6562002",
@@ -3664,7 +3665,7 @@ Grailbird.data.tweets_2013_01 =
       "id_str" : "14231571",
       "id" : 14231571
     }, {
-      "name" : "Glenn Fleishman \uD83D\uDC4B\uD83D\uDEA8\uD83D\uDE91",
+      "name" : "Glenn Fleishman",
       "screen_name" : "GlennF",
       "indices" : [ 128, 135 ],
       "id_str" : "8315692",

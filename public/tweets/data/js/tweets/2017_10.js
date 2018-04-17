@@ -1,5 +1,71 @@
 Grailbird.data.tweets_2017_10 = 
-[ {
+ [ {
+  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Bryn Bodayle",
+      "screen_name" : "brynbodayle",
+      "indices" : [ 0, 12 ],
+      "id_str" : "15204679",
+      "id" : 15204679
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "923716657746362368",
+  "geo" : { },
+  "id_str" : "923716851103801344",
+  "in_reply_to_user_id" : 15204679,
+  "text" : "@brynbodayle I do but only for a couple days and I swear it happened before then too. It\u2019s pretty infrequent for me.",
+  "id" : 923716851103801344,
+  "in_reply_to_status_id" : 923716657746362368,
+  "created_at" : "2017-10-27 01:03:53 +0000",
+  "in_reply_to_screen_name" : "brynbodayle",
+  "in_reply_to_user_id_str" : "15204679",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Bryn Bodayle",
+      "screen_name" : "brynbodayle",
+      "indices" : [ 0, 12 ],
+      "id_str" : "15204679",
+      "id" : 15204679
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "in_reply_to_status_id_str" : "923601283176468480",
+  "geo" : { },
+  "id_str" : "923715946564411393",
+  "in_reply_to_user_id" : 15204679,
+  "text" : "@brynbodayle Yes!",
+  "id" : 923715946564411393,
+  "in_reply_to_status_id" : 923601283176468480,
+  "created_at" : "2017-10-27 01:00:18 +0000",
+  "in_reply_to_screen_name" : "brynbodayle",
+  "in_reply_to_user_id_str" : "15204679",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
@@ -74,7 +140,7 @@ Grailbird.data.tweets_2017_10 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Matthias",
+      "name" : "\uD835\uDD44\uD835\uDD52\uD835\uDD65\uD835\uDD65\uD835\uDD59\uD835\uDD5A\uD835\uDD52\uD835\uDD64",
       "screen_name" : "arrizer",
       "indices" : [ 0, 8 ],
       "id_str" : "10752072",
@@ -107,12 +173,6 @@ Grailbird.data.tweets_2017_10 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Failed Tankie",
-      "screen_name" : "memefiend2",
-      "indices" : [ 0, 11 ],
-      "id_str" : "4846128982",
-      "id" : 4846128982
-    }, {
       "name" : "CBC Politics",
       "screen_name" : "CBCPolitics",
       "indices" : [ 12, 24 ],
@@ -136,7 +196,7 @@ Grailbird.data.tweets_2017_10 =
   "id" : 914612876094038017,
   "in_reply_to_status_id" : 914586691838525440,
   "created_at" : "2017-10-01 22:07:57 +0000",
-  "in_reply_to_screen_name" : "memefiend2",
+  "in_reply_to_screen_name" : "Nazbolol",
   "in_reply_to_user_id_str" : "4846128982",
   "user" : {
     "name" : "Sami Samhuri",
