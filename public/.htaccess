@@ -23,6 +23,8 @@ ExpiresDefault A259200
   Header append Cache-Control "private, must-revalidate"
 </FilesMatch>
 
+# Add HSTS header https://tools.ietf.org/html/rfc6797
+Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
 
 ################
 ### Rewrites ###
