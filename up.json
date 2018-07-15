@@ -1,5 +1,20 @@
 {
   "name": "samhuri-net",
   "profile": "up",
-  "regions": ["ca-central-1"]
+  "regions": ["ca-central-1"],
+
+  "lambda": {
+    "policy": [
+      {
+        "Effect": "Allow",
+        "Resource": "*",
+        "Action": [
+          "dynamodb:Get*",
+          "dynamodb:List*",
+          "dynamodb:PutItem",
+          "dynamodb:DeleteItem"
+        ]
+      }
+    ]
+  }
 }
