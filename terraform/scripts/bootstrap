@@ -1,0 +1,27 @@
+#!/bin/bash
+
+set -euo pipefail
+
+function has_command() {
+  which "$1" >/dev/null 2>/dev/null
+}
+
+function log() {
+  echo "$@" >&2
+}
+
+function brew_install() {
+  if ! has_command brew; then
+    log "* Installing homebrew ..."
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+  brew install "$@"
+}
+
+if ! has_command terraform; then
+  log "* Installing terraform ..."
+  brew_install terraform
+fi
+
+rm -rf .terraform
+terraform init

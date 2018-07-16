@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+env="${1:-test}"
+terraform apply -state-out="${env}.tfstate" \
+                "${env}.tfplan"

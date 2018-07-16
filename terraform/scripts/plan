@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -euo pipefail
+
+env=${1:-test}
+
+terraform plan -var-file="${env}.tfvars" \
+               -var "env=${env}"  \
+               -state="${env}.tfstate"   \
+               -out="${env}.tfplan"
