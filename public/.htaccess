@@ -26,6 +26,15 @@ ExpiresDefault A259200
 # Add HSTS header https://tools.ietf.org/html/rfc6797
 Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
 
+# Block pages from loading when they detect reflected XSS attacks
+Header set X-XSS-Protection "1; mode=block"
+
+# Prevent browsers from incorrectly detecting non-scripts as scripts
+Header set X-Content-Type-Options "nosniff"
+
+# Block site from being framed
+Header set X-Frame-Options "DENY"
+
 ################
 ### Rewrites ###
 ################
