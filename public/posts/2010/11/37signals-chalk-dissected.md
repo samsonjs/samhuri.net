@@ -27,7 +27,7 @@
 
 <p>2k, 61 lines. 10 of which are Google Analytics JavaScript. Let's glance at some of it.<p>
 
-<script src="https://gist.github.com/663655.js?file=chalk.html"></script>
+<script src="https://gist.github.com/663655.js?file=chalk.html" integrity="ehqYRqyTpCUg6YjDKot9ExDBzsGQeG/z5zA/AGwARk+bIRry5GWtM0GrPSNBSZ8v" crossorigin="anonymous"></script>
 
 <p>Standard html5 doctype, and a manifest for <a href="http://diveintohtml5.org/offline.html">application caching</a>.</p>
 
@@ -35,7 +35,7 @@
 
 <p>The interesting thing about the HTML is that without any JavaScript or CSS the document would be a completely blank white page (except for a strange looking share button w/ no title). Talk about progressive enhancement. Here's a look at the HTML:</p>
 
-<script src="https://gist.github.com/663642.js?file=chalk.html"></script>
+<script src="https://gist.github.com/663642.js?file=chalk.html" integrity="/2zaq6161iZrVdj2vMWk9UJh1tn1P5AYcu1wDu+Sae/hZPRRSkPoeSxCFilQY0OK" crossorigin="anonymous"></script>
 
 <p>Onward.</p>
 
@@ -59,16 +59,14 @@ background.jpg 1024x946px</div>
 
 <p>The background is the blackboard itself, and is almost square at 1024x946. The cork border and light switch are there too. This is set as the background-image of the html element and is positioned at a negative x or y in order to centre it properly. <a href="https://developer.mozilla.org/En/CSS/Media_queries">CSS media queries</a> are used to detect the screen's orientation. This way the same image is used for both orientations, clever.</p>
 
-<script src="https://gist.github.com/663656.js?file=chalk-01.css">
-</script>
+<script src="https://gist.github.com/663656.js?file=chalk-01.css" integrity="pppzC38xO2zCUDo3i8TDUOJE+xJVOQICKUrf/WwJ0WQ46YaoAH67MY5Jx+4l1T/+" crossorigin="anonymous"></script>
 
 <p>&nbsp;</p>
 <h3>Chalkboard</h3>
 
 <p>Just a canvas element positioned over the chalkboard using media queries. There's also an image element called "output" used to render an image for sharing.</p>
 
-<script src="https://gist.github.com/663675.js?file=chalk-chalkboard.css">
-</script>
+<script src="https://gist.github.com/663675.js?file=chalk-chalkboard.css" integrity="BX9UFBSGXL1TncyiwyJMw79vWvRL/06rRBRpiSWckzpPhtXIg3JPP0nHTGVrDDOw" crossorigin="anonymous"></script>
 
 <p>&nbsp;</p>
 <h3>Sprites</h3>
@@ -87,8 +85,7 @@ chalk-sprites.png </div>
 
 <p>The dimmers background color is black at 67% opacity. The shade element fades in using -webkit-transition: on its visibility property while the dimmers use CSS3 transitions on their background. The dimmers are positioned using media queries as well, one on each side of the board. Interestingly their parent shade has a height and width of 0. Rather than each having a unique id they just have the class "dim" and the :nth-child pseudo-class selector is used to position them independently.</p>
 
-<script src="https://gist.github.com/663664.js?file=chalk-02.css">
-</script>
+<script src="https://gist.github.com/663664.js?file=chalk-02.css" integrity="DYm5GZcNahZ2E6wvgVdRPEoEckwcaXSGC5WkJ7a9n+sgKfqPXSCrK7oeg1Jkj44m" crossorigin="anonymous"></script>
 
 <p>If you took a look at the HTML before you'll have noticed there's no shade class defined on the body element. Looks like they're using JavaScript to add the shade class to body, triggering the transitions to the visible shades and setting the dimmers backgrounds to black at the same time, causing the fading effect. The shade fades in while the ledge and share button fade out.</p>
 
@@ -99,8 +96,7 @@ chalk-sprites.png </div>
 
 <p>There are 2 layers to the tools on the ledge. There are the images of the tools and their indicators, but also an anchor element for each tool that acts as targets to select them. When tools are select the indicators fade in and out using CSS3 transitions on opacity by adding and removing the class "active" on the tool.</p>
 
-<script src="https://gist.github.com/663693.js?file=chalk-indicators.css">
-</script>
+<script src="https://gist.github.com/663693.js?file=chalk-indicators.css" integrity="lFgXKJuvG2xQO0l7Vl21bkmZb944FpW2qPxrPnIgKvhr0ODCdnLQB6lKF6uI98EU" crossorigin="anonymous"></script>
 
 <p>There are pattern images for each colour of chalk, and one for the the eraser. The eraser "pattern" is the entire blackboard so erasing it doesn't look ugly. I love that kind of attention to detail.<p>
 
@@ -126,7 +122,7 @@ chalk-sprites.png </div>
 <h3>Initialization</h3>
 
 <p>&nbsp;</p>
-<script src="https://gist.github.com/664206.js?file=chalk-init.js"></script>
+<script src="https://gist.github.com/664206.js?file=chalk-init.js" integrity="tbSAEZ/VTMgIt18Rbpfrg+CHEwiF6ycYO+zvaVGvvd1Agot0A6ADUv8OYUrxzDC8" crossorigin="anonymous"></script>
 
 <p>First we get a handle on all the elements and the canvas' 2d drawing context. I almost want to say views and controls as it really feels just like hooking up a controller and view in a desktop GUI app. Sometimes the line between dynamic web page and web app are blurred, not so here. Chalk is 100% app.</p>
 
@@ -138,7 +134,7 @@ chalk-sprites.png </div>
 <h3>Tools</h3>
 
 <p>&nbsp;</p>
-<script src="https://gist.github.com/664214.js?file=chalk-tools.js"></script>
+<script src="https://gist.github.com/664214.js?file=chalk-tools.js" integrity="Sohq8Y7ObQwXkvxCgVQbL1LmL3jNCRWcbmK1CxWPfapBaznfs6riRw+P16tA0Q2I" crossorigin="anonymous"></script>
 
 <p><code>createPattern(name, callback)</code> loads one of the pattern images, chalk-tile-*, and then creates a pattern in the drawing context and passes it to the given callback.</p>
 
@@ -152,7 +148,7 @@ chalk-sprites.png </div>
 <h3>Drawing</h3>
 
 <p>&nbsp;</p>
-<script src="https://gist.github.com/664235.js?file=chalk-drawing.js"></script>
+<script src="https://gist.github.com/664235.js?file=chalk-drawing.js" integrity="26RRKEGNAmNefZzu2YRq57uk5kkUgHjyXINmZW4QN2cPjeUfTZ9CNmcGHxwNpe9c" crossorigin="anonymous"></script>
 
 <p>Drawing is done by listening for touch events on the canvas element. An array of points to draw is initialized to a 1-element array containing <code>null</code>. Null values make the draw function break up the line being drawn by skipping the next point in the array. x and y coords are initialized in touchstart, points are appended to the points array in touchmove, and the touchend handler appends two points and null to the points array to end the line. I'm not sure why <code>[x, y]</code> is used as the points in the touchend handler rather than coords from the event. Please leave a comment if you know why!</p>
 
@@ -164,7 +160,8 @@ chalk-sprites.png </div>
 <h3>Light Switch &amp; Shade</h3>
 
 <p>&nbsp;</p>
-<script src="https://gist.github.com/664260.js?file=chalk-shade.js"></script>
+<script src="https://gist.github.com/664260.js?file=chalk-shade.js" integrity="mJqbDt7at8NZ71dB7ItvDOdAKnEzyfVHTRcz0l10vbA0ts1noJ7p9vms8nY4XmZ1" crossorigin="anonymous"></script>
+
 
 <p>When the light switch is touched (or clicked) the shade class on the body element is toggled. Nothing to it.</p>
 
@@ -172,7 +169,7 @@ chalk-sprites.png </div>
 <h3>Sharing</h3>
 
 <p>&nbsp;</p>
-<script src="https://gist.github.com/664263.js?file=chalk-share.js"></script>
+<script src="https://gist.github.com/664263.js?file=chalk-share.js" integrity="dZjSHFCC1c/tNiNkCbgoA4HRWLhU6Jp6o/Y01moDS475DhFc0P6IKqv/Whv2F67z" crossorigin="anonymous"></script>
 
 <p>The share window is opened after a 10ms delay, just enough time for any drawing to be completed before rendering the image. The image is created by assigning the result of canvas' <code>toDataURL()</code> method to the output image element's src attribute.</p>
 
@@ -187,7 +184,8 @@ chalk-sprites.png </div>
 
 <p>Have fun drawing. Thanks to 37signals for a beautiful (and useful) example of a few modern web technologies.</p>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js" integrity="FCH+BDvbbRK+EjZ1g42eTND9RNJ4HoVNhmJoGkn0lU4Q/0SGQvjt5yQGJKL8B74e" crossorigin="anonymous"></script>
+
 <script>function addLineNumbersToAllGists() {
   $('.gist').each( function() {
       _addLineNumbersToGist('#' + $(this).attr('id'));
