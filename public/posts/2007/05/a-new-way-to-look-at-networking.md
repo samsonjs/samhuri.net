@@ -1,10 +1,8 @@
-<a href="http://en.wikipedia.org/wiki/Van_Jacobson">Van Jacobson</a> gave a <a href="http://video.google.com/videoplay?docid=-6972678839686672840">Google Tech Talk</a> on some of his ideas of how a modern, global network could work more effectively, and with more trust in the data which changes many hands on its journey to its final destination.
+<a href="http://en.wikipedia.org/wiki/Van_Jacobson">Van Jacobson</a> gave a <a href="https://www.youtube.com/watch?v=gqGEMQveoqg">Google Tech Talk</a> on some of his ideas of how a modern, global network could work more effectively, and with more trust in the data which changes many hands on its journey to its final destination.
 
-<div style="width:100%;text-align:center;">
-<embed style="width:400px; height:326px;" type="application/x-shockwave-flash" src="http://video.google.com/googleplayer.swf?docId=-6972678839686672840"> </embed>
-<br>
-<a href="http://video.google.com/videoplay?docid=-6972678839686672840">Watch the talk on Google's site</a>
-</div>
+<p style="width:100%;text-align:center;">
+<a href="https://www.youtube.com/watch?v=gqGEMQveoqg">A New Way to Look at Networking</a>
+</p>
 
 The man is very smart and his ideas are fascinating. He has the experience and knowledge to see the big picture and what can be done to solve some of the new problems we have. He starts with the beginning of the phone networks and then goes on to briefly explain the origins of the <a href="http://en.wikipedia.org/wiki/ARPANET">ARPAnet</a>, which evolved into the modern Internet and TCP/IP and the many other protocols we use daily (often behind the scenes).
 
