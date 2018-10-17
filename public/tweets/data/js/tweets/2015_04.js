@@ -1,6 +1,6 @@
 Grailbird.data.tweets_2015_04 = 
  [ {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "MacRumors.com",
@@ -104,7 +104,7 @@ Grailbird.data.tweets_2015_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Daniel Pasco",
@@ -158,57 +158,6 @@ Grailbird.data.tweets_2015_04 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003ETwitter for iPad\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "CGP Grey",
-      "screen_name" : "cgpgrey",
-      "indices" : [ 3, 11 ],
-      "id_str" : "176774540",
-      "id" : 176774540
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "593749884773257216",
-  "text" : "RT @cgpgrey: There are no words to express how much I hate, and how user unfriendly, the YouTube autoplay feature is.",
-  "retweeted_status" : {
-    "source" : "\u003Ca href=\"https:\/\/about.twitter.com\/products\/tweetdeck\" rel=\"nofollow\"\u003ETweetDeck\u003C\/a\u003E",
-    "entities" : {
-      "user_mentions" : [ ],
-      "media" : [ ],
-      "hashtags" : [ ],
-      "urls" : [ ]
-    },
-    "geo" : { },
-    "id_str" : "593693675777040384",
-    "text" : "There are no words to express how much I hate, and how user unfriendly, the YouTube autoplay feature is.",
-    "id" : 593693675777040384,
-    "created_at" : "2015-04-30 08:29:37 +0000",
-    "user" : {
-      "name" : "CGP Grey",
-      "screen_name" : "cgpgrey",
-      "protected" : false,
-      "id_str" : "176774540",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/953635851212349440\/RvV5aFNp_normal.jpg",
-      "id" : 176774540,
-      "verified" : true
-    }
-  },
-  "id" : 593749884773257216,
-  "created_at" : "2015-04-30 12:12:58 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003ETwitter for iPad\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
       "name" : "apalancat",
       "screen_name" : "apalancat",
       "indices" : [ 0, 10 ],
@@ -245,7 +194,7 @@ Grailbird.data.tweets_2015_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -267,7 +216,7 @@ Grailbird.data.tweets_2015_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Jelly",
@@ -284,7 +233,7 @@ Grailbird.data.tweets_2015_04 =
   "id_str" : "593541082773852161",
   "text" : "RT @jellybeansoup: i just don\u2019t see a way that the interaction would make sense. dense apps are the worst experience.",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -323,7 +272,7 @@ Grailbird.data.tweets_2015_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Jelly",
@@ -346,7 +295,7 @@ Grailbird.data.tweets_2015_04 =
   "id_str" : "593541073017958400",
   "text" : "RT @jellybeansoup: not 24 hours after getting my apple watch, i can all but guarantee that @gifwrapped won\u2019t be getting a watch app.",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "GIFwrapped",
@@ -687,7 +636,7 @@ Grailbird.data.tweets_2015_04 =
   "id_str" : "591779224857366529",
   "text" : "RT @settern: Two-tone glory. http:\/\/t.co\/P4Cp1OwKD6",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ {
@@ -790,7 +739,7 @@ Grailbird.data.tweets_2015_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -829,7 +778,7 @@ Grailbird.data.tweets_2015_04 =
   "id_str" : "591499436288643074",
   "text" : "RT @stroughtonsmith: The Watch\u2019s armv7k CPU was added to the dev tools in 2011, which fits with the timeline. I imagine it\u2019s something here\u2026",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -866,7 +815,7 @@ Grailbird.data.tweets_2015_04 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Charlotte Jackson",
+      "name" : "Charlotte Louise Jackson \uD83E\uDD84",
       "screen_name" : "lottejackson",
       "indices" : [ 0, 13 ],
       "id_str" : "50288691",
@@ -905,12 +854,6 @@ Grailbird.data.tweets_2015_04 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Adrian Linares",
-      "screen_name" : "Adriansweather",
-      "indices" : [ 3, 18 ],
-      "id_str" : "129245360",
-      "id" : 129245360
-    }, {
       "name" : "Joaqu\u00EDn L\u00F3pez-D\u00F3riga",
       "screen_name" : "lopezdoriga",
       "indices" : [ 95, 107 ],
@@ -1007,7 +950,7 @@ Grailbird.data.tweets_2015_04 =
     "created_at" : "2015-04-23 03:09:53 +0000",
     "user" : {
       "name" : "Adrian Linares",
-      "screen_name" : "Adriansweather",
+      "screen_name" : "AdrianLinares28",
       "protected" : false,
       "id_str" : "129245360",
       "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/455867549276594176\/WHaZF_HS_normal.png",
@@ -1132,6 +1075,12 @@ Grailbird.data.tweets_2015_04 =
       "indices" : [ 3, 15 ],
       "id_str" : "717313",
       "id" : 717313
+    }, {
+      "name" : "exmamaku",
+      "screen_name" : "exmamaku",
+      "indices" : [ 94, 103 ],
+      "id_str" : "990847993866792960",
+      "id" : 990847993866792960
     } ],
     "media" : [ ],
     "hashtags" : [ ],
@@ -1148,7 +1097,13 @@ Grailbird.data.tweets_2015_04 =
   "retweeted_status" : {
     "source" : "\u003Ca href=\"http:\/\/arstechnica.com\" rel=\"nofollow\"\u003EArs tweetbot\u003C\/a\u003E",
     "entities" : {
-      "user_mentions" : [ ],
+      "user_mentions" : [ {
+        "name" : "exmamaku",
+        "screen_name" : "exmamaku",
+        "indices" : [ 77, 86 ],
+        "id_str" : "990847993866792960",
+        "id" : 990847993866792960
+      } ],
       "media" : [ ],
       "hashtags" : [ ],
       "urls" : [ {
@@ -1358,7 +1313,7 @@ Grailbird.data.tweets_2015_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/ios\" rel=\"nofollow\"\u003ETwitterrific for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Ars Technica",
@@ -1419,7 +1374,7 @@ Grailbird.data.tweets_2015_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "snarfmason",
@@ -1452,7 +1407,7 @@ Grailbird.data.tweets_2015_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/ios\" rel=\"nofollow\"\u003ETwitterrific for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "snarfmason",
@@ -1485,7 +1440,7 @@ Grailbird.data.tweets_2015_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/ios\" rel=\"nofollow\"\u003ETwitterrific for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "9to5Mac \uF8FF",
@@ -1608,7 +1563,7 @@ Grailbird.data.tweets_2015_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/ios\" rel=\"nofollow\"\u003ETwitterrific for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Sami Samhuri",
@@ -1728,7 +1683,7 @@ Grailbird.data.tweets_2015_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Reginald Braithwaite",
@@ -1980,7 +1935,7 @@ Grailbird.data.tweets_2015_04 =
   "id_str" : "588360858931073024",
   "text" : "RT @awalker_srs: @jamesthomson I believe they call that \"live streaming\".",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "James Thomson",
@@ -2042,7 +1997,7 @@ Grailbird.data.tweets_2015_04 =
   "id_str" : "588360815557746688",
   "text" : "RT @jamesthomson: I want the WWDC Sport\u2026",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -2059,7 +2014,7 @@ Grailbird.data.tweets_2015_04 =
       "screen_name" : "jamesthomson",
       "protected" : false,
       "id_str" : "14169916",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/881251728292761600\/9GemFPkX_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1050713686229360641\/M7Kszw-a_normal.jpg",
       "id" : 14169916,
       "verified" : false
     }
@@ -2093,7 +2048,7 @@ Grailbird.data.tweets_2015_04 =
   "id_str" : "588360795685134338",
   "text" : "RT @jamesthomson: Did a costing of two people going to WWDC, and with flights and hotels, it\u2019s basically in the same price range as the App\u2026",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -2110,7 +2065,7 @@ Grailbird.data.tweets_2015_04 =
       "screen_name" : "jamesthomson",
       "protected" : false,
       "id_str" : "14169916",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/881251728292761600\/9GemFPkX_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1050713686229360641\/M7Kszw-a_normal.jpg",
       "id" : 14169916,
       "verified" : false
     }
@@ -2213,7 +2168,7 @@ Grailbird.data.tweets_2015_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -2235,7 +2190,7 @@ Grailbird.data.tweets_2015_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Jim Rutherford",
@@ -2498,7 +2453,7 @@ Grailbird.data.tweets_2015_04 =
   "id_str" : "587980494320447489",
   "text" : "RT @rilan: Ads in \"free\" apps drain your phone\u2019s battery faster, cause it to run slower, &amp; use more data. http:\/\/t.co\/rDLbfHJ2zA http:\/\/t.c\u2026",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/bufferapp.com\" rel=\"nofollow\"\u003EBuffer\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/buffer.com\" rel=\"nofollow\"\u003EBuffer\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ {
@@ -2836,7 +2791,64 @@ Grailbird.data.tweets_2015_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Mark",
+      "screen_name" : "mdhughes",
+      "indices" : [ 3, 12 ],
+      "id_str" : "14200945",
+      "id" : 14200945
+    } ],
+    "media" : [ ],
+    "hashtags" : [ {
+      "text" : "applewatch",
+      "indices" : [ 50, 61 ]
+    } ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "586694460026658816",
+  "text" : "RT @mdhughes: Watchhole: Jerk who stares at their #applewatch in social interactions.\nWatchdinger: Jerk who has audible alerts from their w\u2026",
+  "retweeted_status" : {
+    "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/ios\" rel=\"nofollow\"\u003ETwitterrific for iOS\u003C\/a\u003E",
+    "entities" : {
+      "user_mentions" : [ ],
+      "media" : [ ],
+      "hashtags" : [ {
+        "text" : "applewatch",
+        "indices" : [ 36, 47 ]
+      } ],
+      "urls" : [ ]
+    },
+    "geo" : { },
+    "id_str" : "586672322209189889",
+    "text" : "Watchhole: Jerk who stares at their #applewatch in social interactions.\nWatchdinger: Jerk who has audible alerts from their watch.",
+    "id" : 586672322209189889,
+    "created_at" : "2015-04-10 23:29:16 +0000",
+    "user" : {
+      "name" : "Mark",
+      "screen_name" : "mdhughes",
+      "protected" : false,
+      "id_str" : "14200945",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/854290493718450176\/SzqdDh_Y_normal.jpg",
+      "id" : 14200945,
+      "verified" : false
+    }
+  },
+  "id" : 586694460026658816,
+  "created_at" : "2015-04-11 00:57:14 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -2858,7 +2870,7 @@ Grailbird.data.tweets_2015_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -3012,7 +3024,7 @@ Grailbird.data.tweets_2015_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -3154,7 +3166,7 @@ Grailbird.data.tweets_2015_04 =
       "id_str" : "385193",
       "id" : 385193
     }, {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 16, 27 ],
       "id_str" : "894911",
@@ -3184,7 +3196,7 @@ Grailbird.data.tweets_2015_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Mashable",
@@ -3217,7 +3229,7 @@ Grailbird.data.tweets_2015_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -3325,7 +3337,7 @@ Grailbird.data.tweets_2015_04 =
   "entities" : {
     "user_mentions" : [ {
       "name" : "Benedict Evans",
-      "screen_name" : "BenedictEvans",
+      "screen_name" : "benedictevans",
       "indices" : [ 3, 17 ],
       "id_str" : "1236101",
       "id" : 1236101
@@ -3352,7 +3364,7 @@ Grailbird.data.tweets_2015_04 =
     "created_at" : "2015-04-02 03:32:29 +0000",
     "user" : {
       "name" : "Benedict Evans",
-      "screen_name" : "BenedictEvans",
+      "screen_name" : "benedictevans",
       "protected" : false,
       "id_str" : "1236101",
       "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/845396356579508224\/1ruiOPLI_normal.jpg",
@@ -3372,7 +3384,7 @@ Grailbird.data.tweets_2015_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],

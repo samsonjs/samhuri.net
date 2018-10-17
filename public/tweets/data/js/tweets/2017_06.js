@@ -78,7 +78,7 @@ Grailbird.data.tweets_2017_06 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -380,7 +380,7 @@ Grailbird.data.tweets_2017_06 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -402,7 +402,7 @@ Grailbird.data.tweets_2017_06 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -434,7 +434,7 @@ Grailbird.data.tweets_2017_06 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -461,7 +461,7 @@ Grailbird.data.tweets_2017_06 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -488,7 +488,7 @@ Grailbird.data.tweets_2017_06 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ {
@@ -550,7 +550,7 @@ Grailbird.data.tweets_2017_06 =
       "id_str" : "9088822",
       "id" : 9088822
     }, {
-      "name" : "Squeezer of Cows",
+      "name" : "Zach Waldowski",
       "screen_name" : "zwaldowski",
       "indices" : [ 9, 20 ],
       "id_str" : "18553922",
@@ -679,7 +679,7 @@ Grailbird.data.tweets_2017_06 =
   "id_str" : "873369828328787968",
   "text" : "RT @arekholko: TIL you can temporarily override User Defaults\u2019 values through \u201CArguments Passed on Launch\u201D. https:\/\/t.co\/myDddz550G",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ {
@@ -747,7 +747,7 @@ Grailbird.data.tweets_2017_06 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "John Feminella \u232C",
+      "name" : "\uD83C\uDF83 John Feminella \u23E3",
       "screen_name" : "jxxf",
       "indices" : [ 3, 8 ],
       "id_str" : "19463693",
@@ -867,7 +867,7 @@ Grailbird.data.tweets_2017_06 =
     "id" : 871000661869154304,
     "created_at" : "2017-06-03 13:48:34 +0000",
     "user" : {
-      "name" : "John Feminella \u232C",
+      "name" : "\uD83C\uDF83 John Feminella \u23E3",
       "screen_name" : "jxxf",
       "protected" : false,
       "id_str" : "19463693",
@@ -891,7 +891,7 @@ Grailbird.data.tweets_2017_06 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "\uD83C\uDFC4\uD83C\uDF0E",
+      "name" : "Web Surfer \uD83C\uDFC4\uD83C\uDF0E",
       "screen_name" : "macatbook",
       "indices" : [ 0, 10 ],
       "id_str" : "22406953",

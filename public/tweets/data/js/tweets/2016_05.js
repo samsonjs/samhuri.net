@@ -249,6 +249,12 @@ Grailbird.data.tweets_2016_05 =
       "indices" : [ 0, 10 ],
       "id_str" : "74837444",
       "id" : 74837444
+    }, {
+      "name" : "Cody",
+      "screen_name" : "JZdziarski",
+      "indices" : [ 11, 22 ],
+      "id_str" : "993447848577454080",
+      "id" : 993447848577454080
     } ],
     "media" : [ ],
     "hashtags" : [ ],
@@ -277,7 +283,7 @@ Grailbird.data.tweets_2016_05 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "\uD83C\uDFC4\uD83C\uDF0E",
+      "name" : "Web Surfer \uD83C\uDFC4\uD83C\uDF0E",
       "screen_name" : "macatbook",
       "indices" : [ 0, 10 ],
       "id_str" : "22406953",

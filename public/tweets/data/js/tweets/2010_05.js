@@ -365,7 +365,7 @@ Grailbird.data.tweets_2010_05 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -398,7 +398,7 @@ Grailbird.data.tweets_2010_05 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -475,7 +475,7 @@ Grailbird.data.tweets_2010_05 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -508,7 +508,7 @@ Grailbird.data.tweets_2010_05 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -591,7 +591,7 @@ Grailbird.data.tweets_2010_05 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Zach Carter",
+      "name" : "zach carter",
       "screen_name" : "zii",
       "indices" : [ 3, 7 ],
       "id_str" : "12712742",
@@ -630,11 +630,11 @@ Grailbird.data.tweets_2010_05 =
     "id" : 14652351912,
     "created_at" : "2010-05-24 22:48:17 +0000",
     "user" : {
-      "name" : "Zach Carter",
+      "name" : "zach carter",
       "screen_name" : "zii",
       "protected" : false,
       "id_str" : "12712742",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/982615078200426497\/njD6-6iU_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1040277390625140741\/iT3Jsv3j_normal.jpg",
       "id" : 12712742,
       "verified" : false
     }
@@ -720,7 +720,7 @@ Grailbird.data.tweets_2010_05 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "\uD835\uDD40\uD835\uDD64\uD835\uDD52\uD835\uDD52\uD835\uDD54 \u2124. \uD835\uDD4A\uD835\uDD54\uD835\uDD59\uD835\uDD5D\uD835\uDD66\uD835\uDD56\uD835\uDD65\uD835\uDD56\uD835\uDD63 \uD83D\uDC99\uD83D\uDC9C\uD83D\uDC96\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08",
+      "name" : "isaacspooky \uD83D\uDC99\uD83D\uDC9C\uD83D\uDC96\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08",
       "screen_name" : "izs",
       "indices" : [ 3, 7 ],
       "id_str" : "8038312",
@@ -747,7 +747,7 @@ Grailbird.data.tweets_2010_05 =
     "id" : 14646836334,
     "created_at" : "2010-05-24 20:57:44 +0000",
     "user" : {
-      "name" : "\uD835\uDD40\uD835\uDD64\uD835\uDD52\uD835\uDD52\uD835\uDD54 \u2124. \uD835\uDD4A\uD835\uDD54\uD835\uDD59\uD835\uDD5D\uD835\uDD66\uD835\uDD56\uD835\uDD65\uD835\uDD56\uD835\uDD63 \uD83D\uDC99\uD83D\uDC9C\uD83D\uDC96\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08",
+      "name" : "isaacspooky \uD83D\uDC99\uD83D\uDC9C\uD83D\uDC96\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08",
       "screen_name" : "izs",
       "protected" : false,
       "id_str" : "8038312",
@@ -1040,16 +1040,11 @@ Grailbird.data.tweets_2010_05 =
     "hashtags" : [ ],
     "urls" : [ ]
   },
-  "in_reply_to_status_id_str" : "14217793600",
   "geo" : { },
   "id_str" : "14232765831",
-  "in_reply_to_user_id" : 14358152,
   "text" : "@mentalguy I remember that feeling. Here are 9 more to blow your mind: http:\/\/en.wikipedia.org\/wiki\/Ontario_(disambiguation)",
   "id" : 14232765831,
-  "in_reply_to_status_id" : 14217793600,
   "created_at" : "2010-05-18 00:00:00 +0000",
-  "in_reply_to_screen_name" : "visiblecode",
-  "in_reply_to_user_id_str" : "14358152",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -1474,7 +1469,7 @@ Grailbird.data.tweets_2010_05 =
   "source" : "\u003Ca href=\"http:\/\/www.echofon.com\/\" rel=\"nofollow\"\u003EEchofon\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -1750,6 +1745,57 @@ Grailbird.data.tweets_2010_05 =
   "created_at" : "2010-05-04 00:00:00 +0000",
   "in_reply_to_screen_name" : "lunafiko",
   "in_reply_to_user_id_str" : "14273142",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/www.echofon.com\/\" rel=\"nofollow\"\u003EEchofon\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "tom robinson",
+      "screen_name" : "tlrobinson",
+      "indices" : [ 3, 14 ],
+      "id_str" : "14206068",
+      "id" : 14206068
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "13217100047",
+  "text" : "RT @tlrobinson: \"Passing callbacks is the *price* of asynchronous API's, not the benefit.\"",
+  "retweeted_status" : {
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
+    "entities" : {
+      "user_mentions" : [ ],
+      "media" : [ ],
+      "hashtags" : [ ],
+      "urls" : [ ]
+    },
+    "geo" : { },
+    "id_str" : "13216605013",
+    "text" : "\"Passing callbacks is the *price* of asynchronous API's, not the benefit.\"",
+    "id" : 13216605013,
+    "created_at" : "2010-05-02 00:33:43 +0000",
+    "user" : {
+      "name" : "tom robinson",
+      "screen_name" : "tlrobinson",
+      "protected" : false,
+      "id_str" : "14206068",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000853310157\/a0e3b1296ad4bad4a668803a54a79afd_normal.jpeg",
+      "id" : 14206068,
+      "verified" : false
+    }
+  },
+  "id" : 13217100047,
+  "created_at" : "2010-05-02 00:00:00 +0000",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",

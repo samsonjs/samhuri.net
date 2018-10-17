@@ -135,67 +135,6 @@ Grailbird.data.tweets_2011_12 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "annika backstrom",
-      "screen_name" : "abackstrom",
-      "indices" : [ 3, 14 ],
-      "id_str" : "3621751",
-      "id" : 3621751
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ {
-      "indices" : [ 48, 68 ],
-      "url" : "http:\/\/t.co\/KeqlGTPz",
-      "expanded_url" : "http:\/\/www.youtube.com\/watch?v=o1-ndsRPxbM&feature=share",
-      "display_url" : "youtube.com\/watch?v=o1-nds\u2026"
-    } ]
-  },
-  "geo" : { },
-  "id_str" : "151782151803772928",
-  "text" : "RT @abackstrom: How to Pronounce Hors d'oeuvres http:\/\/t.co\/KeqlGTPz",
-  "retweeted_status" : {
-    "source" : "\u003Ca href=\"https:\/\/dev.twitter.com\/docs\/tfw\" rel=\"nofollow\"\u003ETwitter for Websites\u003C\/a\u003E",
-    "entities" : {
-      "user_mentions" : [ ],
-      "media" : [ ],
-      "hashtags" : [ ],
-      "urls" : [ {
-        "indices" : [ 32, 52 ],
-        "url" : "http:\/\/t.co\/KeqlGTPz",
-        "expanded_url" : "http:\/\/www.youtube.com\/watch?v=o1-ndsRPxbM&feature=share",
-        "display_url" : "youtube.com\/watch?v=o1-nds\u2026"
-      } ]
-    },
-    "geo" : { },
-    "id_str" : "151504628784185344",
-    "text" : "How to Pronounce Hors d'oeuvres http:\/\/t.co\/KeqlGTPz",
-    "id" : 151504628784185344,
-    "created_at" : "2011-12-27 03:28:12 +0000",
-    "user" : {
-      "name" : "annika backstrom",
-      "screen_name" : "abackstrom",
-      "protected" : false,
-      "id_str" : "3621751",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/918671102427193344\/fEBI8wyY_normal.jpg",
-      "id" : 3621751,
-      "verified" : false
-    }
-  },
-  "id" : 151782151803772928,
-  "created_at" : "2011-12-27 21:50:59 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
       "name" : "Devon Govett",
       "screen_name" : "devongovett",
       "indices" : [ 3, 15 ],
@@ -308,7 +247,7 @@ Grailbird.data.tweets_2011_12 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -443,7 +382,7 @@ Grailbird.data.tweets_2011_12 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -544,7 +483,7 @@ Grailbird.data.tweets_2011_12 =
       "screen_name" : "ChromiumDev",
       "protected" : false,
       "id_str" : "113713261",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1320180647\/chromiumchrome_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1052245957750927360\/ZtouEeNE_normal.jpg",
       "id" : 113713261,
       "verified" : true
     }
@@ -625,7 +564,7 @@ Grailbird.data.tweets_2011_12 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -1085,7 +1024,7 @@ Grailbird.data.tweets_2011_12 =
   "id_str" : "148070457940254721",
   "text" : "RT @macromates: Tip: You can click on an icon in the sidebar to open it instantly. \/cc @gregorysean",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Greg Cox",
@@ -1128,7 +1067,7 @@ Grailbird.data.tweets_2011_12 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Tane Piper\uD83C\uDFF4\uDB40\uDC67\uDB40\uDC62\uDB40\uDC73\uDB40\uDC63\uDB40\uDC74\uDB40\uDC7F\uD83C\uDDF3\uD83C\uDDF1\uD83C\uDDEA\uD83C\uDDFA",
+      "name" : "Tane Piper",
       "screen_name" : "tanepiper",
       "indices" : [ 0, 10 ],
       "id_str" : "20693",
@@ -1180,7 +1119,7 @@ Grailbird.data.tweets_2011_12 =
   "id_str" : "147811105903882240",
   "text" : "RT @macromates: Learn all about the new .tm_properties config files: http:\/\/t.co\/338jaq39",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1242,7 +1181,7 @@ Grailbird.data.tweets_2011_12 =
   "id_str" : "147811090984747010",
   "text" : "RT @macromates: @_sjs \u2303\u2318T \u2192 \u23184 \u2192 enter the shortcut (This isn't new in 2.0, works in 1.x as well, though without the \u23184 shortcut.)",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Sami Samhuri",
@@ -1988,7 +1927,7 @@ Grailbird.data.tweets_2011_12 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -2021,7 +1960,7 @@ Grailbird.data.tweets_2011_12 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -2054,7 +1993,7 @@ Grailbird.data.tweets_2011_12 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -2218,7 +2157,7 @@ Grailbird.data.tweets_2011_12 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 3, 14 ],
       "id_str" : "894911",
@@ -2250,7 +2189,7 @@ Grailbird.data.tweets_2011_12 =
     "id" : 142348849950896129,
     "created_at" : "2011-12-01 21:06:25 +0000",
     "user" : {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "protected" : true,
       "id_str" : "894911",

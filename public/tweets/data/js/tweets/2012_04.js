@@ -3,7 +3,7 @@ Grailbird.data.tweets_2012_04 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Garry #BUIDL Tan",
+      "name" : "Garry BUIDL Tan",
       "screen_name" : "garrytan",
       "indices" : [ 3, 12 ],
       "id_str" : "11768582",
@@ -30,13 +30,13 @@ Grailbird.data.tweets_2012_04 =
     "id" : 197134998548119552,
     "created_at" : "2012-05-01 01:27:00 +0000",
     "user" : {
-      "name" : "Garry #BUIDL Tan",
+      "name" : "Garry BUIDL Tan",
       "screen_name" : "garrytan",
       "protected" : false,
       "id_str" : "11768582",
       "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/943716237682421760\/0sBqTJhG_normal.jpg",
       "id" : 11768582,
-      "verified" : false
+      "verified" : true
     }
   },
   "id" : 197147908364181504,
@@ -87,7 +87,7 @@ Grailbird.data.tweets_2012_04 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -184,7 +184,7 @@ Grailbird.data.tweets_2012_04 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -275,7 +275,7 @@ Grailbird.data.tweets_2012_04 =
       "screen_name" : "marcoarment",
       "protected" : false,
       "id_str" : "14231571",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/917397034294038528\/mCGc9IjP_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1005850629028352000\/jHsNM3wM_normal.jpg",
       "id" : 14231571,
       "verified" : true
     }
@@ -292,7 +292,7 @@ Grailbird.data.tweets_2012_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Teix",
@@ -331,7 +331,7 @@ Grailbird.data.tweets_2012_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Teix",
@@ -397,7 +397,7 @@ Grailbird.data.tweets_2012_04 =
   "id_str" : "195881613580705792",
   "text" : "RT @siracusa: Go Right.  http:\/\/t.co\/GFS0kDya  (via @jchutchins)",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -469,7 +469,7 @@ Grailbird.data.tweets_2012_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Adam Jordens",
@@ -507,7 +507,7 @@ Grailbird.data.tweets_2012_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Adam Jordens",
@@ -609,13 +609,7 @@ Grailbird.data.tweets_2012_04 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "niels bom",
-      "screen_name" : "niels_bom",
-      "indices" : [ 0, 10 ],
-      "id_str" : "3260971",
-      "id" : 3260971
-    }, {
-      "name" : "Steve Streza \uD83C\uDF39 (he\/they)",
+      "name" : "Steve Streza",
       "screen_name" : "SteveStreza",
       "indices" : [ 76, 88 ],
       "id_str" : "658643",
@@ -625,16 +619,11 @@ Grailbird.data.tweets_2012_04 =
     "hashtags" : [ ],
     "urls" : [ ]
   },
-  "in_reply_to_status_id_str" : "195172903074004993",
   "geo" : { },
   "id_str" : "195179308334067712",
-  "in_reply_to_user_id" : 3260971,
   "text" : "@niels_bom Yes, it is! I would love to take credit but I must tip my hat to @SteveStreza (iirc)",
   "id" : 195179308334067712,
-  "in_reply_to_status_id" : 195172903074004993,
   "created_at" : "2012-04-25 15:55:48 +0000",
-  "in_reply_to_screen_name" : "niels_bom",
-  "in_reply_to_user_id_str" : "3260971",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -648,7 +637,7 @@ Grailbird.data.tweets_2012_04 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "i see by my outfit that i am a cowboy",
+      "name" : "Omelas County Chamber of Commerce",
       "screen_name" : "coda",
       "indices" : [ 3, 8 ],
       "id_str" : "637533",
@@ -675,7 +664,7 @@ Grailbird.data.tweets_2012_04 =
     "id" : 194509470561349632,
     "created_at" : "2012-04-23 19:34:06 +0000",
     "user" : {
-      "name" : "i see by my outfit that i am a cowboy",
+      "name" : "Omelas County Chamber of Commerce",
       "screen_name" : "coda",
       "protected" : false,
       "id_str" : "637533",
@@ -729,7 +718,7 @@ Grailbird.data.tweets_2012_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Adam Jordens",
@@ -762,7 +751,7 @@ Grailbird.data.tweets_2012_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Adam Jordens",
@@ -830,7 +819,7 @@ Grailbird.data.tweets_2012_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -852,7 +841,7 @@ Grailbird.data.tweets_2012_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Alex MacCaw",
@@ -861,7 +850,7 @@ Grailbird.data.tweets_2012_04 =
       "id_str" : "1345494948",
       "id" : 1345494948
     }, {
-      "name" : "Thomas Fuchs \uD83E\uDD95",
+      "name" : "Thomas Fuchs \uD83D\uDD77",
       "screen_name" : "thomasfuchs",
       "indices" : [ 127, 139 ],
       "id_str" : "6927562",
@@ -947,7 +936,7 @@ Grailbird.data.tweets_2012_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Mitchell Hashimoto",
@@ -1020,7 +1009,7 @@ Grailbird.data.tweets_2012_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "John Gruber",
@@ -1051,7 +1040,7 @@ Grailbird.data.tweets_2012_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Aaron Bazinet",
@@ -1074,7 +1063,7 @@ Grailbird.data.tweets_2012_04 =
   "id_str" : "193469088733986816",
   "text" : "RT @aaronbazinet: I can no longer hear \u201Cturns out\u201D in a normal conversation without immediately hearing @hotdogsladies repeat it in my h ...",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Merlin Mann",
@@ -1223,7 +1212,7 @@ Grailbird.data.tweets_2012_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -1245,7 +1234,7 @@ Grailbird.data.tweets_2012_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Chrome Developers",
@@ -1476,7 +1465,7 @@ Grailbird.data.tweets_2012_04 =
       "screen_name" : "peterc",
       "protected" : false,
       "id_str" : "33493",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/951912849839882241\/8jDqFjFS_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1045829946801889285\/LPnqEESi_normal.jpg",
       "id" : 33493,
       "verified" : false
     }
@@ -1526,7 +1515,7 @@ Grailbird.data.tweets_2012_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/ios\" rel=\"nofollow\"\u003ETwitterrific for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Sam Soffes",
@@ -1587,7 +1576,7 @@ Grailbird.data.tweets_2012_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -1614,7 +1603,7 @@ Grailbird.data.tweets_2012_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/ios\" rel=\"nofollow\"\u003ETwitterrific for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Jeff Atwood",
@@ -1647,7 +1636,7 @@ Grailbird.data.tweets_2012_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/ios\" rel=\"nofollow\"\u003ETwitterrific for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -1669,11 +1658,11 @@ Grailbird.data.tweets_2012_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Daniel and 10 others",
-      "screen_name" : "TechWraith",
+      "screen_name" : "techwraith",
       "indices" : [ 3, 14 ],
       "id_str" : "14063139",
       "id" : 14063139
@@ -1728,10 +1717,10 @@ Grailbird.data.tweets_2012_04 =
     "created_at" : "2012-04-04 02:16:32 +0000",
     "user" : {
       "name" : "Daniel and 10 others",
-      "screen_name" : "TechWraith",
+      "screen_name" : "techwraith",
       "protected" : false,
       "id_str" : "14063139",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/670352823960211457\/J9rmFp9o_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1049849637585080320\/QtgKw9uH_normal.jpg",
       "id" : 14063139,
       "verified" : false
     }
@@ -1748,7 +1737,7 @@ Grailbird.data.tweets_2012_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -1770,7 +1759,7 @@ Grailbird.data.tweets_2012_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/ios\" rel=\"nofollow\"\u003ETwitterrific for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "ImmigrantPeter",
@@ -1814,7 +1803,7 @@ Grailbird.data.tweets_2012_04 =
       "screen_name" : "petervandijck",
       "protected" : false,
       "id_str" : "823036",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/770774215209476096\/cIRrCVrZ_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1023973131931791360\/J9lB4YEC_normal.jpg",
       "id" : 823036,
       "verified" : false
     }
@@ -1831,7 +1820,7 @@ Grailbird.data.tweets_2012_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/ios\" rel=\"nofollow\"\u003ETwitterrific for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Peter van der Zee",
@@ -1864,7 +1853,7 @@ Grailbird.data.tweets_2012_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/ios\" rel=\"nofollow\"\u003ETwitterrific for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Peter van der Zee",

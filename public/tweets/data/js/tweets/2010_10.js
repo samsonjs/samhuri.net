@@ -38,27 +38,16 @@ Grailbird.data.tweets_2010_10 =
 }, {
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003ETwitter for iPad\u003C\/a\u003E",
   "entities" : {
-    "user_mentions" : [ {
-      "name" : "niels bom",
-      "screen_name" : "niels_bom",
-      "indices" : [ 0, 10 ],
-      "id_str" : "3260971",
-      "id" : 3260971
-    } ],
+    "user_mentions" : [ ],
     "media" : [ ],
     "hashtags" : [ ],
     "urls" : [ ]
   },
-  "in_reply_to_status_id_str" : "29358745907",
   "geo" : { },
   "id_str" : "29374815208",
-  "in_reply_to_user_id" : 3260971,
   "text" : "@niels_bom interesting, who knew people edited files &gt; 1GB with a normal editor. That's massive.",
   "id" : 29374815208,
-  "in_reply_to_status_id" : 29358745907,
   "created_at" : "2010-11-01 00:00:00 +0000",
-  "in_reply_to_screen_name" : "niels_bom",
-  "in_reply_to_user_id_str" : "3260971",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -150,7 +139,7 @@ Grailbird.data.tweets_2010_10 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003ETwitter for iPad\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Antonio Cangiano",
+      "name" : "Antonio Cangiano \uD83D\uDC68\u200D\uD83D\uDCBB\uD83E\uDD51",
       "screen_name" : "acangiano",
       "indices" : [ 3, 13 ],
       "id_str" : "14582359",
@@ -177,7 +166,7 @@ Grailbird.data.tweets_2010_10 =
     "id" : 29373811618,
     "created_at" : "2010-11-01 13:52:16 +0000",
     "user" : {
-      "name" : "Antonio Cangiano",
+      "name" : "Antonio Cangiano \uD83D\uDC68\u200D\uD83D\uDCBB\uD83E\uDD51",
       "screen_name" : "acangiano",
       "protected" : false,
       "id_str" : "14582359",
@@ -200,27 +189,16 @@ Grailbird.data.tweets_2010_10 =
 }, {
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
-    "user_mentions" : [ {
-      "name" : "niels bom",
-      "screen_name" : "niels_bom",
-      "indices" : [ 0, 10 ],
-      "id_str" : "3260971",
-      "id" : 3260971
-    } ],
+    "user_mentions" : [ ],
     "media" : [ ],
     "hashtags" : [ ],
     "urls" : [ ]
   },
-  "in_reply_to_status_id_str" : "29375735737",
   "geo" : { },
   "id_str" : "29377939391",
-  "in_reply_to_user_id" : 3260971,
   "text" : "@niels_bom Hmm, even w\/ syntax highlighting off emacs is slow while editing 1.7MB. TextMate fares much better, at least as good as vim.",
   "id" : 29377939391,
-  "in_reply_to_status_id" : 29375735737,
   "created_at" : "2010-11-01 00:00:00 +0000",
-  "in_reply_to_screen_name" : "niels_bom",
-  "in_reply_to_user_id_str" : "3260971",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -682,7 +660,7 @@ Grailbird.data.tweets_2010_10 =
     "id" : 29163351684,
     "created_at" : "2010-10-30 07:23:23 +0000",
     "user" : {
-      "name" : "Emelia",
+      "name" : "Emelia \uD83D\uDC78\uD83C\uDFFB",
       "screen_name" : "ThisIsMissEm",
       "protected" : false,
       "id_str" : "14063149",
@@ -761,27 +739,16 @@ Grailbird.data.tweets_2010_10 =
 }, {
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
-    "user_mentions" : [ {
-      "name" : "niels bom",
-      "screen_name" : "niels_bom",
-      "indices" : [ 0, 10 ],
-      "id_str" : "3260971",
-      "id" : 3260971
-    } ],
+    "user_mentions" : [ ],
     "media" : [ ],
     "hashtags" : [ ],
     "urls" : [ ]
   },
-  "in_reply_to_status_id_str" : "29167875050",
   "geo" : { },
   "id_str" : "29213269215",
-  "in_reply_to_user_id" : 3260971,
   "text" : "@niels_bom Might be syntax hightlighting the whole file at once instead of the visible viewport, difficulty in incremental parsing.",
   "id" : 29213269215,
-  "in_reply_to_status_id" : 29167875050,
   "created_at" : "2010-10-30 00:00:00 +0000",
-  "in_reply_to_screen_name" : "niels_bom",
-  "in_reply_to_user_id_str" : "3260971",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -794,27 +761,16 @@ Grailbird.data.tweets_2010_10 =
 }, {
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
-    "user_mentions" : [ {
-      "name" : "niels bom",
-      "screen_name" : "niels_bom",
-      "indices" : [ 0, 10 ],
-      "id_str" : "3260971",
-      "id" : 3260971
-    } ],
+    "user_mentions" : [ ],
     "media" : [ ],
     "hashtags" : [ ],
     "urls" : [ ]
   },
-  "in_reply_to_status_id_str" : "29167875050",
   "geo" : { },
   "id_str" : "29213319101",
-  "in_reply_to_user_id" : 3260971,
   "text" : "@niels_bom I'd have test things like turning syntax highlighting off before making an educated guess. Not really sure.",
   "id" : 29213319101,
-  "in_reply_to_status_id" : 29167875050,
   "created_at" : "2010-10-30 00:00:00 +0000",
-  "in_reply_to_screen_name" : "niels_bom",
-  "in_reply_to_user_id_str" : "3260971",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -859,7 +815,7 @@ Grailbird.data.tweets_2010_10 =
       "screen_name" : "rauchg",
       "protected" : false,
       "id_str" : "15540222",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/871555682608136205\/yMs8Gnot_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1029230542716264448\/LgLb--Of_normal.jpg",
       "id" : 15540222,
       "verified" : true
     }
@@ -994,7 +950,7 @@ Grailbird.data.tweets_2010_10 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "\uD835\uDD40\uD835\uDD64\uD835\uDD52\uD835\uDD52\uD835\uDD54 \u2124. \uD835\uDD4A\uD835\uDD54\uD835\uDD59\uD835\uDD5D\uD835\uDD66\uD835\uDD56\uD835\uDD65\uD835\uDD56\uD835\uDD63 \uD83D\uDC99\uD83D\uDC9C\uD83D\uDC96\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08",
+      "name" : "isaacspooky \uD83D\uDC99\uD83D\uDC9C\uD83D\uDC96\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08",
       "screen_name" : "izs",
       "indices" : [ 0, 4 ],
       "id_str" : "8038312",
@@ -1565,7 +1521,7 @@ Grailbird.data.tweets_2010_10 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003ETwitter for iPad\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mathias \u00AF\\_(\u30C4)_\/\u00AF Meyer",
+      "name" : "Mathias\uD83E\uDD18Meyer",
       "screen_name" : "roidrage",
       "indices" : [ 3, 12 ],
       "id_str" : "14658472",
@@ -1592,7 +1548,7 @@ Grailbird.data.tweets_2010_10 =
     "id" : 28791548232,
     "created_at" : "2010-10-26 13:40:48 +0000",
     "user" : {
-      "name" : "Mathias \u00AF\\_(\u30C4)_\/\u00AF Meyer",
+      "name" : "Mathias\uD83E\uDD18Meyer",
       "screen_name" : "roidrage",
       "protected" : false,
       "id_str" : "14658472",
@@ -1785,7 +1741,7 @@ Grailbird.data.tweets_2010_10 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 3, 14 ],
       "id_str" : "894911",
@@ -1824,7 +1780,7 @@ Grailbird.data.tweets_2010_10 =
     "id" : 28726269319,
     "created_at" : "2010-10-25 21:24:52 +0000",
     "user" : {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "protected" : true,
       "id_str" : "894911",
@@ -1928,7 +1884,7 @@ Grailbird.data.tweets_2010_10 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003ETwitter for iPad\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "jbr",
+      "name" : "register and vote!",
       "screen_name" : "jacobrothstein",
       "indices" : [ 3, 18 ],
       "id_str" : "27302287",
@@ -1955,11 +1911,11 @@ Grailbird.data.tweets_2010_10 =
     "id" : 28541909390,
     "created_at" : "2010-10-23 23:08:44 +0000",
     "user" : {
-      "name" : "jbr",
+      "name" : "register and vote!",
       "screen_name" : "jacobrothstein",
       "protected" : false,
       "id_str" : "27302287",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/554130348288643072\/rnI84vFt_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/996296780751912961\/vglv97x-_normal.jpg",
       "id" : 27302287,
       "verified" : false
     }
@@ -1979,7 +1935,7 @@ Grailbird.data.tweets_2010_10 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003ETwitter for iPad\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Benjamin Borowski",
+      "name" : "Benjamin Boorowski \uD83D\uDC7B",
       "screen_name" : "typeoneerror",
       "indices" : [ 0, 13 ],
       "id_str" : "11973362",
@@ -2438,7 +2394,7 @@ Grailbird.data.tweets_2010_10 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -2602,7 +2558,7 @@ Grailbird.data.tweets_2010_10 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -2701,7 +2657,7 @@ Grailbird.data.tweets_2010_10 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -2759,7 +2715,7 @@ Grailbird.data.tweets_2010_10 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "xno\u0279\u01DD\u0283 u\u0250\u0131\u0279q \uD83D\uDC8E",
+      "name" : "xno\u0279\u01DD\u0283 u\u0250\u0131\u0279q \uD83C\uDF83",
       "screen_name" : "brianleroux",
       "indices" : [ 0, 12 ],
       "id_str" : "676363",
@@ -3017,7 +2973,7 @@ Grailbird.data.tweets_2010_10 =
       "screen_name" : "peterc",
       "protected" : false,
       "id_str" : "33493",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/951912849839882241\/8jDqFjFS_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1045829946801889285\/LPnqEESi_normal.jpg",
       "id" : 33493,
       "verified" : false
     }
@@ -3137,7 +3093,7 @@ Grailbird.data.tweets_2010_10 =
       "screen_name" : "cyberdelia",
       "protected" : false,
       "id_str" : "82843",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/460624781876797440\/d6Q5-TKx_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/987941002508828672\/jJ5L6AGC_normal.jpg",
       "id" : 82843,
       "verified" : false
     }
@@ -3184,7 +3140,7 @@ Grailbird.data.tweets_2010_10 =
     "id" : 27361842996,
     "created_at" : "2010-10-14 17:35:41 +0000",
     "user" : {
-      "name" : "bobby",
+      "name" : "wichita onlineman",
       "screen_name" : "bobby",
       "protected" : false,
       "id_str" : "17983820",
@@ -3291,7 +3247,7 @@ Grailbird.data.tweets_2010_10 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -3546,7 +3502,7 @@ Grailbird.data.tweets_2010_10 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -3604,7 +3560,7 @@ Grailbird.data.tweets_2010_10 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Thomas Fuchs \uD83E\uDD95",
+      "name" : "Thomas Fuchs \uD83D\uDD77",
       "screen_name" : "thomasfuchs",
       "indices" : [ 1, 13 ],
       "id_str" : "6927562",
@@ -4016,7 +3972,7 @@ Grailbird.data.tweets_2010_10 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -4060,6 +4016,57 @@ Grailbird.data.tweets_2010_10 =
   "id_str" : "26582217878",
   "text" : "Rebooted last night and Instachrome stopped working, perhaps because Chrome updated itself. Reinstalled the extension -&gt; fixed. #instapaper",
   "id" : 26582217878,
+  "created_at" : "2010-10-06 00:00:00 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "tom robinson",
+      "screen_name" : "tlrobinson",
+      "indices" : [ 3, 14 ],
+      "id_str" : "14206068",
+      "id" : 14206068
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "26588923267",
+  "text" : "RT @tlrobinson: Writing recursive asynchronous code makes my head hurt.",
+  "retweeted_status" : {
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
+    "entities" : {
+      "user_mentions" : [ ],
+      "media" : [ ],
+      "hashtags" : [ ],
+      "urls" : [ ]
+    },
+    "geo" : { },
+    "id_str" : "26584875031",
+    "text" : "Writing recursive asynchronous code makes my head hurt.",
+    "id" : 26584875031,
+    "created_at" : "2010-10-06 21:04:53 +0000",
+    "user" : {
+      "name" : "tom robinson",
+      "screen_name" : "tlrobinson",
+      "protected" : false,
+      "id_str" : "14206068",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000853310157\/a0e3b1296ad4bad4a668803a54a79afd_normal.jpeg",
+      "id" : 14206068,
+      "verified" : false
+    }
+  },
+  "id" : 26588923267,
   "created_at" : "2010-10-06 00:00:00 +0000",
   "user" : {
     "name" : "Sami Samhuri",

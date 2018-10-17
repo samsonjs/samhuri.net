@@ -190,7 +190,7 @@ Grailbird.data.tweets_2015_12 =
       "screen_name" : "MitchHawes",
       "protected" : false,
       "id_str" : "32311137",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000550437325\/698593f5f14bd6f461effd34419026a5_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1001217741620101121\/HiSk5a1Y_normal.jpg",
       "id" : 32311137,
       "verified" : false
     }
@@ -536,7 +536,7 @@ Grailbird.data.tweets_2015_12 =
   "id_str" : "681145970214612992",
   "text" : "RT @stroughtonsmith: All the App Store problems are 100% fixable. None of it is hardware, none of it is software; all ideology &amp; respect is\u2026",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -783,7 +783,7 @@ Grailbird.data.tweets_2015_12 =
   "id_str" : "680914235203825664",
   "text" : "RT @fyrite: Stoked I got a @EdmontonOilers @Nail10_1993 jersey for Xmas - and will be at the game tonight in Van! #GoOilers https:\/\/t.co\/Ww\u2026",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/ios\" rel=\"nofollow\"\u003ETwitterrific for iOS\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Edmonton Oilers",
@@ -1052,7 +1052,7 @@ Grailbird.data.tweets_2015_12 =
   "id_str" : "679906255385694208",
   "text" : "RT @evadne: https:\/\/t.co\/eywoJchYTR my head spins. Complexity begets workaround. Workaround begets suffering. Suffering begets fancy blog p\u2026",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1563,7 +1563,7 @@ Grailbird.data.tweets_2015_12 =
       "screen_name" : "JustinTrudeau",
       "protected" : false,
       "id_str" : "14260960",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/950393608221454336\/NbB_X0TG_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1049800491381665792\/roFCXYgS_normal.jpg",
       "id" : 14260960,
       "verified" : true
     }
@@ -1829,7 +1829,7 @@ Grailbird.data.tweets_2015_12 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -1859,7 +1859,7 @@ Grailbird.data.tweets_2015_12 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "s \u029C \uF8FF \u1D18 s",
@@ -2103,7 +2103,7 @@ Grailbird.data.tweets_2015_12 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -2346,7 +2346,7 @@ Grailbird.data.tweets_2015_12 =
   "id_str" : "672073706974285825",
   "text" : "RT @merowing_: Sometimes we can achieve desired effect with little code, I wrote about Headspace dot https:\/\/t.co\/QMleREQDBB",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -2368,7 +2368,7 @@ Grailbird.data.tweets_2015_12 =
       "screen_name" : "merowing_",
       "protected" : false,
       "id_str" : "289246577",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619395184082714624\/oTl1W51O_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1036876946448232449\/yqhZsnBS_normal.jpg",
       "id" : 289246577,
       "verified" : true
     }

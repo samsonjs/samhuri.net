@@ -142,7 +142,7 @@ Grailbird.data.tweets_2017_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "narwhal for reddit",
@@ -170,7 +170,7 @@ Grailbird.data.tweets_2017_04 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Frank A. Krueger",
@@ -267,7 +267,7 @@ Grailbird.data.tweets_2017_04 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "\uD83C\uDFC4\uD83C\uDF0E",
+      "name" : "Web Surfer \uD83C\uDFC4\uD83C\uDF0E",
       "screen_name" : "macatbook",
       "indices" : [ 0, 10 ],
       "id_str" : "22406953",
@@ -300,7 +300,7 @@ Grailbird.data.tweets_2017_04 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Joe Groff",
+      "name" : "reabstraction thunk golem",
       "screen_name" : "jckarter",
       "indices" : [ 3, 12 ],
       "id_str" : "18559099",
@@ -327,11 +327,11 @@ Grailbird.data.tweets_2017_04 =
     "id" : 854540059197952000,
     "created_at" : "2017-04-19 03:40:01 +0000",
     "user" : {
-      "name" : "Joe Groff",
+      "name" : "reabstraction thunk golem",
       "screen_name" : "jckarter",
       "protected" : false,
       "id_str" : "18559099",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/977666852103995392\/JLjTHaRy_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1047539884141961216\/_VvMpnNX_normal.jpg",
       "id" : 18559099,
       "verified" : false
     }
@@ -627,7 +627,7 @@ Grailbird.data.tweets_2017_04 =
       "id_str" : "1400951646",
       "id" : 1400951646
     }, {
-      "name" : "Jesse Learmonth \u270C\uD83C\uDFFD\uFE0F",
+      "name" : "Jesse Learmonth \u270C\uD83C\uDFFD\uFE0F\uD83C\uDDE8\uD83C\uDDE6",
       "screen_name" : "jesselearmonth",
       "indices" : [ 10, 25 ],
       "id_str" : "16367713",

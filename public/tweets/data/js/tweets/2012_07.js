@@ -1,6 +1,6 @@
 Grailbird.data.tweets_2012_07 = 
  [ {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Tap for Tap",
@@ -39,7 +39,7 @@ Grailbird.data.tweets_2012_07 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Grisha Kruglov",
@@ -83,7 +83,7 @@ Grailbird.data.tweets_2012_07 =
       "screen_name" : "lunafiko",
       "protected" : false,
       "id_str" : "14273142",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/928419904385990657\/tza-LEdZ_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1046532256402006016\/kCncnA_7_normal.jpg",
       "id" : 14273142,
       "verified" : false
     }
@@ -128,7 +128,7 @@ Grailbird.data.tweets_2012_07 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -150,7 +150,7 @@ Grailbird.data.tweets_2012_07 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "John Siracusa",
@@ -172,7 +172,7 @@ Grailbird.data.tweets_2012_07 =
   "id_str" : "228309946507329536",
   "text" : "RT @siracusa: Nerds\u2026 http:\/\/t.co\/aP38wtln",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -264,7 +264,7 @@ Grailbird.data.tweets_2012_07 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Wynn Netherland",
@@ -319,7 +319,7 @@ Grailbird.data.tweets_2012_07 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "ANTIREZ",
@@ -373,7 +373,7 @@ Grailbird.data.tweets_2012_07 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "TJ Holowaychuk \uD83D\uDC25",
+      "name" : "TJ Holowaychuk \uD83D\uDE43",
       "screen_name" : "tjholowaychuk",
       "indices" : [ 0, 14 ],
       "id_str" : "29255412",
@@ -552,7 +552,7 @@ Grailbird.data.tweets_2012_07 =
   "id_str" : "224595246779088897",
   "text" : "RT @peterc: A story about a useful *zero* byte program that sold for \u00A35 a go in the 80s: http:\/\/t.co\/obmLPff3 (I loved the Tatung Einstein!)",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/bufferapp.com\" rel=\"nofollow\"\u003EBuffer\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/buffer.com\" rel=\"nofollow\"\u003EBuffer\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -574,64 +574,13 @@ Grailbird.data.tweets_2012_07 =
       "screen_name" : "peterc",
       "protected" : false,
       "id_str" : "33493",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/951912849839882241\/8jDqFjFS_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1045829946801889285\/LPnqEESi_normal.jpg",
       "id" : 33493,
       "verified" : false
     }
   },
   "id" : 224595246779088897,
   "created_at" : "2012-07-15 20:04:14 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "Chris Beckmann",
-      "screen_name" : "ChrisBeckmann",
-      "indices" : [ 3, 17 ],
-      "id_str" : "55486012",
-      "id" : 55486012
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "224163617682096128",
-  "text" : "RT @ChrisBeckmann: The 1989 Game Boy has 0.23% the display resolution of an iPhone 4S. It sold 117.69 million units.",
-  "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
-    "entities" : {
-      "user_mentions" : [ ],
-      "media" : [ ],
-      "hashtags" : [ ],
-      "urls" : [ ]
-    },
-    "geo" : { },
-    "id_str" : "223996324792635394",
-    "text" : "The 1989 Game Boy has 0.23% the display resolution of an iPhone 4S. It sold 117.69 million units.",
-    "id" : 223996324792635394,
-    "created_at" : "2012-07-14 04:24:20 +0000",
-    "user" : {
-      "name" : "Chris Beckmann",
-      "screen_name" : "ChrisBeckmann",
-      "protected" : false,
-      "id_str" : "55486012",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/937707630444781568\/Iq2Btkgi_normal.jpg",
-      "id" : 55486012,
-      "verified" : true
-    }
-  },
-  "id" : 224163617682096128,
-  "created_at" : "2012-07-14 15:29:05 +0000",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -805,7 +754,7 @@ Grailbird.data.tweets_2012_07 =
       "screen_name" : "RealRonHoward",
       "protected" : false,
       "id_str" : "125481462",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/966039590464180224\/msPw4BjW_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1012088938440212480\/sqKBvT7y_normal.jpg",
       "id" : 125481462,
       "verified" : true
     }
@@ -924,10 +873,10 @@ Grailbird.data.tweets_2012_07 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Dan Benjamin \uD83E\uDD85\uD83D\uDC0D",
+      "name" : "\uD835\uDE73\uD835\uDE8A\uD835\uDE97 \uD835\uDE71\uD835\uDE8E\uD835\uDE97\uD835\uDE93\uD835\uDE8A\uD835\uDE96\uD835\uDE92\uD835\uDE97",
       "screen_name" : "danbenjamin",
       "indices" : [ 113, 125 ],
       "id_str" : "5905672",
@@ -1022,7 +971,7 @@ Grailbird.data.tweets_2012_07 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -1055,7 +1004,7 @@ Grailbird.data.tweets_2012_07 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -1085,10 +1034,10 @@ Grailbird.data.tweets_2012_07 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -1131,7 +1080,7 @@ Grailbird.data.tweets_2012_07 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for iOS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",

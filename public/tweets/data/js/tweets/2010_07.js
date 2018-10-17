@@ -188,7 +188,7 @@ Grailbird.data.tweets_2010_07 =
       "screen_name" : "lunafiko",
       "protected" : false,
       "id_str" : "14273142",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/928419904385990657\/tza-LEdZ_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1046532256402006016\/kCncnA_7_normal.jpg",
       "id" : 14273142,
       "verified" : false
     }
@@ -235,7 +235,7 @@ Grailbird.data.tweets_2010_07 =
     "id" : 18749654267,
     "created_at" : "2010-07-17 07:01:11 +0000",
     "user" : {
-      "name" : "Alexis Ohanian Sr.",
+      "name" : "Alexis Ohanian Sr. \uD83D\uDE80",
       "screen_name" : "alexisohanian",
       "protected" : false,
       "id_str" : "811350",
@@ -281,7 +281,7 @@ Grailbird.data.tweets_2010_07 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Zach Carter",
+      "name" : "zach carter",
       "screen_name" : "zii",
       "indices" : [ 0, 4 ],
       "id_str" : "12712742",
@@ -314,7 +314,7 @@ Grailbird.data.tweets_2010_07 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Action Jay: The New Batch",
+      "name" : "Action Jay: Spooky Boi",
       "screen_name" : "action_jay",
       "indices" : [ 0, 11 ],
       "id_str" : "6608642",
@@ -347,7 +347,7 @@ Grailbird.data.tweets_2010_07 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Action Jay: The New Batch",
+      "name" : "Action Jay: Spooky Boi",
       "screen_name" : "action_jay",
       "indices" : [ 0, 11 ],
       "id_str" : "6608642",
@@ -380,7 +380,7 @@ Grailbird.data.tweets_2010_07 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Action Jay: The New Batch",
+      "name" : "Action Jay: Spooky Boi",
       "screen_name" : "action_jay",
       "indices" : [ 0, 11 ],
       "id_str" : "6608642",
@@ -468,7 +468,7 @@ Grailbird.data.tweets_2010_07 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 3, 14 ],
       "id_str" : "894911",
@@ -495,7 +495,7 @@ Grailbird.data.tweets_2010_07 =
     "id" : 18553204783,
     "created_at" : "2010-07-14 22:29:15 +0000",
     "user" : {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "protected" : true,
       "id_str" : "894911",
@@ -598,7 +598,7 @@ Grailbird.data.tweets_2010_07 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Zach Carter",
+      "name" : "zach carter",
       "screen_name" : "zii",
       "indices" : [ 0, 4 ],
       "id_str" : "12712742",
@@ -675,7 +675,7 @@ Grailbird.data.tweets_2010_07 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -736,7 +736,7 @@ Grailbird.data.tweets_2010_07 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -769,7 +769,7 @@ Grailbird.data.tweets_2010_07 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "jbr",
+      "name" : "register and vote!",
       "screen_name" : "jacobrothstein",
       "indices" : [ 3, 18 ],
       "id_str" : "27302287",
@@ -796,11 +796,11 @@ Grailbird.data.tweets_2010_07 =
     "id" : 18171089437,
     "created_at" : "2010-07-10 04:02:35 +0000",
     "user" : {
-      "name" : "jbr",
+      "name" : "register and vote!",
       "screen_name" : "jacobrothstein",
       "protected" : false,
       "id_str" : "27302287",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/554130348288643072\/rnI84vFt_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/996296780751912961\/vglv97x-_normal.jpg",
       "id" : 27302287,
       "verified" : false
     }
@@ -886,7 +886,7 @@ Grailbird.data.tweets_2010_07 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -950,7 +950,7 @@ Grailbird.data.tweets_2010_07 =
       "screen_name" : "opera",
       "protected" : false,
       "id_str" : "1541461",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/825347670218768385\/70k0cyif_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/996741012558106624\/z3vSsJn2_normal.jpg",
       "id" : 1541461,
       "verified" : true
     }

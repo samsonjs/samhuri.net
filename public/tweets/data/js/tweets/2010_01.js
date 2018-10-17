@@ -520,6 +520,57 @@ Grailbird.data.tweets_2010_01 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
+      "name" : "TUAW",
+      "screen_name" : "TUAW",
+      "indices" : [ 3, 8 ],
+      "id_str" : "678953",
+      "id" : 678953
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "8282793034",
+  "text" : "RT @TUAW: The Onion: Frantic Steve Jobs Stays Up All Night... http:\/\/www.theonion.com\/%63ontent\/news_briefs\/frantic_steve_jobs_stays_up",
+  "retweeted_status" : {
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
+    "entities" : {
+      "user_mentions" : [ ],
+      "media" : [ ],
+      "hashtags" : [ ],
+      "urls" : [ ]
+    },
+    "geo" : { },
+    "id_str" : "8282485260",
+    "text" : "The Onion: Frantic Steve Jobs Stays Up All Night... http:\/\/www.theonion.com\/%63ontent\/news_briefs\/frantic_steve_jobs_stays_up",
+    "id" : 8282485260,
+    "created_at" : "2010-01-27 15:16:56 +0000",
+    "user" : {
+      "name" : "TUAW",
+      "screen_name" : "TUAW",
+      "protected" : false,
+      "id_str" : "678953",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/562857032789659648\/NM9kLUx1_normal.png",
+      "id" : 678953,
+      "verified" : true
+    }
+  },
+  "id" : 8282793034,
+  "created_at" : "2010-01-27 00:00:00 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
       "name" : "In Memoriam",
       "screen_name" : "grooveshark",
       "indices" : [ 14, 26 ],
@@ -788,57 +839,6 @@ Grailbird.data.tweets_2010_01 =
   "id_str" : "8282119469",
   "text" : "Too dark to get up. wtf am I doing.",
   "id" : 8282119469,
-  "created_at" : "2010-01-27 00:00:00 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "TUAW",
-      "screen_name" : "TUAW",
-      "indices" : [ 3, 8 ],
-      "id_str" : "678953",
-      "id" : 678953
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "8282793034",
-  "text" : "RT @TUAW: The Onion: Frantic Steve Jobs Stays Up All Night... http:\/\/www.theonion.com\/%63ontent\/news_briefs\/frantic_steve_jobs_stays_up",
-  "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
-    "entities" : {
-      "user_mentions" : [ ],
-      "media" : [ ],
-      "hashtags" : [ ],
-      "urls" : [ ]
-    },
-    "geo" : { },
-    "id_str" : "8282485260",
-    "text" : "The Onion: Frantic Steve Jobs Stays Up All Night... http:\/\/www.theonion.com\/%63ontent\/news_briefs\/frantic_steve_jobs_stays_up",
-    "id" : 8282485260,
-    "created_at" : "2010-01-27 15:16:56 +0000",
-    "user" : {
-      "name" : "TUAW",
-      "screen_name" : "TUAW",
-      "protected" : false,
-      "id_str" : "678953",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/562857032789659648\/NM9kLUx1_normal.png",
-      "id" : 678953,
-      "verified" : true
-    }
-  },
-  "id" : 8282793034,
   "created_at" : "2010-01-27 00:00:00 +0000",
   "user" : {
     "name" : "Sami Samhuri",
@@ -1402,7 +1402,7 @@ Grailbird.data.tweets_2010_01 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Chuq Von Rospach",
+      "name" : "Chuq \"Artisanal Gerunds\" Von Rospach",
       "screen_name" : "chuq",
       "indices" : [ 3, 8 ],
       "id_str" : "13217612",
@@ -1429,7 +1429,7 @@ Grailbird.data.tweets_2010_01 =
     "id" : 8098350229,
     "created_at" : "2010-01-23 04:00:30 +0000",
     "user" : {
-      "name" : "Chuq Von Rospach",
+      "name" : "Chuq \"Artisanal Gerunds\" Von Rospach",
       "screen_name" : "chuq",
       "protected" : false,
       "id_str" : "13217612",
@@ -1487,7 +1487,7 @@ Grailbird.data.tweets_2010_01 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Lori Todd \uD83D\uDDA4",
+      "name" : "Lori Todd \uD83C\uDF35",
       "screen_name" : "loritodd",
       "indices" : [ 0, 9 ],
       "id_str" : "9511932",
@@ -1762,7 +1762,7 @@ Grailbird.data.tweets_2010_01 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -2080,6 +2080,34 @@ Grailbird.data.tweets_2010_01 =
 }, {
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
+    "user_mentions" : [ {
+      "name" : "Ilya Grigorik",
+      "screen_name" : "igrigorik",
+      "indices" : [ 3, 13 ],
+      "id_str" : "9980812",
+      "id" : 9980812
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "7893631081",
+  "text" : "RT @igrigorik: ha! nothing like a RESTful API for your local liquor store (LCBO): http:\/\/bit.ly\/6ye3nn (for canucks, at least..) :-)",
+  "id" : 7893631081,
+  "created_at" : "2010-01-18 00:00:00 +0000",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
+  "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
     "hashtags" : [ ],
@@ -2176,7 +2204,7 @@ Grailbird.data.tweets_2010_01 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "too much future make it stop",
+      "name" : "2018",
       "screen_name" : "gilesgoatboy",
       "indices" : [ 0, 13 ],
       "id_str" : "1341781",
@@ -2239,34 +2267,6 @@ Grailbird.data.tweets_2010_01 =
   "id_str" : "7885033611",
   "text" : "I feel stupid for spending all afternoon trying to do something that seemed so wrong. Should have re-read the ABI after an 8 month hiatus.",
   "id" : 7885033611,
-  "created_at" : "2010-01-18 00:00:00 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "Ilya Grigorik",
-      "screen_name" : "igrigorik",
-      "indices" : [ 3, 13 ],
-      "id_str" : "9980812",
-      "id" : 9980812
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "7893631081",
-  "text" : "RT @igrigorik: ha! nothing like a RESTful API for your local liquor store (LCBO): http:\/\/bit.ly\/6ye3nn (for canucks, at least..) :-)",
-  "id" : 7893631081,
   "created_at" : "2010-01-18 00:00:00 +0000",
   "user" : {
     "name" : "Sami Samhuri",
@@ -2601,7 +2601,7 @@ Grailbird.data.tweets_2010_01 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Chuq Von Rospach",
+      "name" : "Chuq \"Artisanal Gerunds\" Von Rospach",
       "screen_name" : "chuq",
       "indices" : [ 0, 5 ],
       "id_str" : "13217612",
@@ -3443,7 +3443,7 @@ Grailbird.data.tweets_2010_01 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Zach Carter",
+      "name" : "zach carter",
       "screen_name" : "zii",
       "indices" : [ 36, 40 ],
       "id_str" : "12712742",
@@ -3505,7 +3505,7 @@ Grailbird.data.tweets_2010_01 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "too much future make it stop",
+      "name" : "2018",
       "screen_name" : "gilesgoatboy",
       "indices" : [ 37, 50 ],
       "id_str" : "1341781",
@@ -3533,7 +3533,7 @@ Grailbird.data.tweets_2010_01 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "too much future make it stop",
+      "name" : "2018",
       "screen_name" : "gilesgoatboy",
       "indices" : [ 0, 13 ],
       "id_str" : "1341781",

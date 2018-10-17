@@ -199,7 +199,7 @@ Grailbird.data.tweets_2016_02 =
       "screen_name" : "JustinTrudeau",
       "protected" : false,
       "id_str" : "14260960",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/950393608221454336\/NbB_X0TG_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1049800491381665792\/roFCXYgS_normal.jpg",
       "id" : 14260960,
       "verified" : true
     }
@@ -811,7 +811,7 @@ Grailbird.data.tweets_2016_02 =
   "id_str" : "700866707716308992",
   "text" : "RT @stroughtonsmith: I\u2019d really love to know why they picked a caps lock key over an escape key. ChromeOS (for instance) does away with cap\u2026",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -862,7 +862,7 @@ Grailbird.data.tweets_2016_02 =
   "id_str" : "700866635511369732",
   "text" : "RT @stroughtonsmith: Not having an escape key also means that any apps that implement an esc keyboard shortcut need to add a second way to \u2026",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -913,7 +913,7 @@ Grailbird.data.tweets_2016_02 =
   "id_str" : "700866608047099904",
   "text" : "RT @stroughtonsmith: Not putting an escape button on the iPad Pro Smart Keyboard is another bizarre choice - it leaves users no universal \u2018\u2026",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1560,7 +1560,7 @@ Grailbird.data.tweets_2016_02 =
   "id_str" : "699257124468056064",
   "text" : "RT @siracusa: As you watch the churn in the Swift language and the many source-incompatible changes, remember stories like this: https:\/\/t.\u2026",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1661,132 +1661,13 @@ Grailbird.data.tweets_2016_02 =
       "screen_name" : "terhechte",
       "protected" : false,
       "id_str" : "6473172",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/470279059084025857\/zLklF_WF_normal.jpeg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1016338328235532293\/5Nwff3FT_normal.jpg",
       "id" : 6473172,
       "verified" : false
     }
   },
   "id" : 698180292079591424,
   "created_at" : "2016-02-12 16:22:07 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "Space Force Commander",
-      "screen_name" : "sassy_swaggerty",
-      "indices" : [ 3, 19 ],
-      "id_str" : "177552754",
-      "id" : 177552754
-    } ],
-    "media" : [ {
-      "expanded_url" : "https:\/\/twitter.com\/sassy_swaggerty\/status\/696531639804026880\/photo\/1",
-      "indices" : [ 76, 99 ],
-      "url" : "https:\/\/t.co\/pJhHWiRdqA",
-      "media_url" : "http:\/\/pbs.twimg.com\/media\/CaqT07NUkAA1svs.jpg",
-      "id_str" : "696531629838209024",
-      "id" : 696531629838209024,
-      "media_url_https" : "https:\/\/pbs.twimg.com\/media\/CaqT07NUkAA1svs.jpg",
-      "sizes" : [ {
-        "h" : 150,
-        "resize" : "crop",
-        "w" : 150
-      }, {
-        "h" : 900,
-        "resize" : "fit",
-        "w" : 1200
-      }, {
-        "h" : 1080,
-        "resize" : "fit",
-        "w" : 1440
-      }, {
-        "h" : 1080,
-        "resize" : "fit",
-        "w" : 1440
-      }, {
-        "h" : 510,
-        "resize" : "fit",
-        "w" : 680
-      } ],
-      "media_alt" : "",
-      "display_url" : "pic.twitter.com\/pJhHWiRdqA"
-    } ],
-    "hashtags" : [ {
-      "text" : "SuperBowl50",
-      "indices" : [ 63, 75 ]
-    } ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "696532020084641792",
-  "text" : "RT @sassy_swaggerty: Old Eli lookin like he bet against Peyton #SuperBowl50 https:\/\/t.co\/pJhHWiRdqA",
-  "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003ETwitter for Android\u003C\/a\u003E",
-    "entities" : {
-      "user_mentions" : [ ],
-      "media" : [ {
-        "expanded_url" : "https:\/\/twitter.com\/sassy_swaggerty\/status\/696531639804026880\/photo\/1",
-        "indices" : [ 55, 78 ],
-        "url" : "https:\/\/t.co\/pJhHWiRdqA",
-        "media_url" : "http:\/\/pbs.twimg.com\/media\/CaqT07NUkAA1svs.jpg",
-        "id_str" : "696531629838209024",
-        "id" : 696531629838209024,
-        "media_url_https" : "https:\/\/pbs.twimg.com\/media\/CaqT07NUkAA1svs.jpg",
-        "sizes" : [ {
-          "h" : 150,
-          "resize" : "crop",
-          "w" : 150
-        }, {
-          "h" : 900,
-          "resize" : "fit",
-          "w" : 1200
-        }, {
-          "h" : 1080,
-          "resize" : "fit",
-          "w" : 1440
-        }, {
-          "h" : 1080,
-          "resize" : "fit",
-          "w" : 1440
-        }, {
-          "h" : 510,
-          "resize" : "fit",
-          "w" : 680
-        } ],
-        "media_alt" : "",
-        "display_url" : "pic.twitter.com\/pJhHWiRdqA"
-      } ],
-      "hashtags" : [ {
-        "text" : "SuperBowl50",
-        "indices" : [ 42, 54 ]
-      } ],
-      "urls" : [ ]
-    },
-    "geo" : { },
-    "id_str" : "696531639804026880",
-    "text" : "Old Eli lookin like he bet against Peyton #SuperBowl50 https:\/\/t.co\/pJhHWiRdqA",
-    "id" : 696531639804026880,
-    "created_at" : "2016-02-08 03:10:58 +0000",
-    "user" : {
-      "name" : "Space Force Commander",
-      "screen_name" : "sassy_swaggerty",
-      "protected" : false,
-      "id_str" : "177552754",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/974862249549615104\/kE5eVJ5l_normal.jpg",
-      "id" : 177552754,
-      "verified" : false
-    }
-  },
-  "id" : 696532020084641792,
-  "created_at" : "2016-02-08 03:12:29 +0000",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -1817,7 +1698,7 @@ Grailbird.data.tweets_2016_02 =
   "id_str" : "696531822847471616",
   "text" : "RT @fyrite: Looks like Eli bet on the Panthers #SuperBowl50",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/ios\" rel=\"nofollow\"\u003ETwitterrific for iOS\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1976,7 +1857,7 @@ Grailbird.data.tweets_2016_02 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Nate Cook \u2603\uFE0F",
+      "name" : "Nate Oooooooo \uD83D\uDC7B",
       "screen_name" : "nnnnnnnn",
       "indices" : [ 0, 9 ],
       "id_str" : "4365311",
@@ -2109,7 +1990,7 @@ Grailbird.data.tweets_2016_02 =
       "id_str" : "22022613",
       "id" : 22022613
     }, {
-      "name" : "\u262D\uD83D\uDE80\uD83D\uDC15 Bodil \uD83D\uDC15\uD83D\uDE80\u262D",
+      "name" : "Bodil",
       "screen_name" : "bodil",
       "indices" : [ 9, 15 ],
       "id_str" : "12503922",

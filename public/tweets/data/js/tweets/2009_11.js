@@ -470,7 +470,7 @@ Grailbird.data.tweets_2009_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "\uD83D\uDC30 jonnay \uD83D\uDC30 this bun ain't big, it's LORJ",
+      "name" : "\uD83D\uDC30 jonnay \uD83D\uDC7B smoopy bunny \uD83D\uDC6F\u200D\u2642\uFE0F",
       "screen_name" : "jonnay",
       "indices" : [ 3, 10 ],
       "id_str" : "817328",
@@ -503,11 +503,11 @@ Grailbird.data.tweets_2009_11 =
     "id" : 5907000124,
     "created_at" : "2009-11-21 01:38:49 +0000",
     "user" : {
-      "name" : "\uD83D\uDC30 jonnay \uD83D\uDC30 this bun ain't big, it's LORJ",
+      "name" : "\uD83D\uDC30 jonnay \uD83D\uDC7B smoopy bunny \uD83D\uDC6F\u200D\u2642\uFE0F",
       "screen_name" : "jonnay",
       "protected" : false,
       "id_str" : "817328",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/953823068954140673\/vd3Wnmrv_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1042562580538044416\/LCfqyQuC_normal.jpg",
       "id" : 817328,
       "verified" : false
     }
@@ -1138,7 +1138,7 @@ Grailbird.data.tweets_2009_11 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",

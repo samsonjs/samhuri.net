@@ -3,63 +3,7 @@ Grailbird.data.tweets_2018_02 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Will Strafach",
-      "screen_name" : "chronic",
-      "indices" : [ 3, 11 ],
-      "id_str" : "86315276",
-      "id" : 86315276
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "968367541893713920",
-  "text" : "RT @chronic: I am most curious about this one. iOS apps are generally not supposed to do much in the background, yet the packet tunnel prov\u2026",
-  "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
-    "entities" : {
-      "user_mentions" : [ ],
-      "media" : [ ],
-      "hashtags" : [ ],
-      "urls" : [ {
-        "indices" : [ 269, 292 ],
-        "url" : "https:\/\/t.co\/eJfuD1rkEu",
-        "expanded_url" : "https:\/\/twitter.com\/chronic\/status\/968255384401203200",
-        "display_url" : "twitter.com\/chronic\/status\u2026"
-      } ]
-    },
-    "geo" : { },
-    "id_str" : "968256765744775168",
-    "text" : "I am most curious about this one. iOS apps are generally not supposed to do much in the background, yet the packet tunnel provider creates a pretty big loophole in this restriction. I am surprised Apple is OK with it being utilized to perform uploads of tracking data. https:\/\/t.co\/eJfuD1rkEu",
-    "id" : 968256765744775168,
-    "created_at" : "2018-02-26 22:49:36 +0000",
-    "user" : {
-      "name" : "Will Strafach",
-      "screen_name" : "chronic",
-      "protected" : false,
-      "id_str" : "86315276",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000791789535\/2245bcbc880d6f21265bd912b0d15500_normal.jpeg",
-      "id" : 86315276,
-      "verified" : true
-    }
-  },
-  "id" : 968367541893713920,
-  "created_at" : "2018-02-27 06:09:48 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -201,7 +145,7 @@ Grailbird.data.tweets_2018_02 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Benjamin Borowski",
+      "name" : "Benjamin Boorowski \uD83D\uDC7B",
       "screen_name" : "typeoneerror",
       "indices" : [ 0, 13 ],
       "id_str" : "11973362",
@@ -231,7 +175,7 @@ Grailbird.data.tweets_2018_02 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ {
@@ -289,7 +233,7 @@ Grailbird.data.tweets_2018_02 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],

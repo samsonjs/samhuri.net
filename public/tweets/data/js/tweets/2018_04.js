@@ -1,5 +1,5 @@
 Grailbird.data.tweets_2018_04 = 
-[ {
+ [ {
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
@@ -62,7 +62,7 @@ Grailbird.data.tweets_2018_04 =
   "id_str" : "982511683561111552",
   "text" : "RT @MH3129: .@Twitter, I am blind and I rely on third-party apps like @Twitterrific and OpenTween because your website and iOS app are not\u2026",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"https:\/\/sourceforge.jp\/projects\/opentween\/\" rel=\"nofollow\"\u003EOpenTween\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/www.opentween.org\/\" rel=\"nofollow\"\u003EOpenTween\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Twitter",
@@ -145,7 +145,7 @@ Grailbird.data.tweets_2018_04 =
   "id_str" : "982294566320525312",
   "text" : "RT @chockenberry: If you love your third-party Twitter app, I\u2019ve got some really shitty news for you: https:\/\/t.co\/W1C21QSnZW \n\n#BreakingMy\u2026",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -260,7 +260,7 @@ Grailbird.data.tweets_2018_04 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "\uD83C\uDFC4\uD83C\uDF0E",
+      "name" : "Web Surfer \uD83C\uDFC4\uD83C\uDF0E",
       "screen_name" : "macatbook",
       "indices" : [ 0, 10 ],
       "id_str" : "22406953",

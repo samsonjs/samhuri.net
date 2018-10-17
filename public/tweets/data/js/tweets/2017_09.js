@@ -258,13 +258,13 @@ Grailbird.data.tweets_2017_09 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Norris",
+      "name" : "justnorris",
       "screen_name" : "justnorris",
       "indices" : [ 0, 11 ],
       "id_str" : "20395932",
       "id" : 20395932
     }, {
-      "name" : "TJ Holowaychuk \uD83D\uDC25",
+      "name" : "TJ Holowaychuk \uD83D\uDE43",
       "screen_name" : "tjholowaychuk",
       "indices" : [ 12, 26 ],
       "id_str" : "29255412",

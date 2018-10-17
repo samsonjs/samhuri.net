@@ -60,7 +60,7 @@ Grailbird.data.tweets_2011_02 =
       "id_str" : "636923",
       "id" : 636923
     }, {
-      "name" : "\uD835\uDEA0\uD835\uDE92\uD835\uDE95 \uD835\uDE9C\uD835\uDE91\uD835\uDE92\uD835\uDE99\uD835\uDE95\uD835\uDE8E\uD835\uDEA2",
+      "name" : "\uD835\uDEA0\uD835\uDE92\uD835\uDE95 \uD835\uDE9C\uD835\uDE99\uD835\uDE98\uD835\uDE98\uD835\uDE94\uD835\uDE95\uD835\uDE8E\uD835\uDEA2",
       "screen_name" : "wilshipley",
       "indices" : [ 41, 52 ],
       "id_str" : "2911221",
@@ -99,7 +99,7 @@ Grailbird.data.tweets_2011_02 =
       "id_str" : "636923",
       "id" : 636923
     }, {
-      "name" : "\uD835\uDEA0\uD835\uDE92\uD835\uDE95 \uD835\uDE9C\uD835\uDE91\uD835\uDE92\uD835\uDE99\uD835\uDE95\uD835\uDE8E\uD835\uDEA2",
+      "name" : "\uD835\uDEA0\uD835\uDE92\uD835\uDE95 \uD835\uDE9C\uD835\uDE99\uD835\uDE98\uD835\uDE98\uD835\uDE94\uD835\uDE95\uD835\uDE8E\uD835\uDEA2",
       "screen_name" : "wilshipley",
       "indices" : [ 10, 21 ],
       "id_str" : "2911221",
@@ -275,7 +275,7 @@ Grailbird.data.tweets_2011_02 =
       "screen_name" : "foresmac",
       "protected" : false,
       "id_str" : "471323",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/813239950602895360\/04pvLVQA_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1046889578567745536\/fd8sUuhZ_normal.jpg",
       "id" : 471323,
       "verified" : false
     }
@@ -451,7 +451,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "\uD835\uDC6A\uD835\uDC73\uD835\uDC70\uD835\uDC75\uD835\uDC7B \uD835\uDC6C\uD835\uDC6A\uD835\uDC72\uD835\uDC6C\uD835\uDC79",
+      "name" : "BAT MANE",
       "screen_name" : "CLINT",
       "indices" : [ 0, 6 ],
       "id_str" : "45993",
@@ -533,7 +533,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "xno\u0279\u01DD\u0283 u\u0250\u0131\u0279q \uD83D\uDC8E",
+      "name" : "xno\u0279\u01DD\u0283 u\u0250\u0131\u0279q \uD83C\uDF83",
       "screen_name" : "brianleroux",
       "indices" : [ 3, 15 ],
       "id_str" : "676363",
@@ -560,11 +560,11 @@ Grailbird.data.tweets_2011_02 =
     "id" : 40215306840440832,
     "created_at" : "2011-02-23 01:04:10 +0000",
     "user" : {
-      "name" : "xno\u0279\u01DD\u0283 u\u0250\u0131\u0279q \uD83D\uDC8E",
+      "name" : "xno\u0279\u01DD\u0283 u\u0250\u0131\u0279q \uD83C\uDF83",
       "screen_name" : "brianleroux",
       "protected" : false,
       "id_str" : "676363",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/963494548012916736\/pCrryYUw_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1039923377186787328\/7Q0UIR8Q_normal.jpg",
       "id" : 676363,
       "verified" : false
     }
@@ -707,7 +707,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 63, 74 ],
       "id_str" : "894911",
@@ -773,7 +773,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "TJ Holowaychuk \uD83D\uDC25",
+      "name" : "TJ Holowaychuk \uD83D\uDE43",
       "screen_name" : "tjholowaychuk",
       "indices" : [ 0, 14 ],
       "id_str" : "29255412",
@@ -806,7 +806,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "TJ Holowaychuk \uD83D\uDC25",
+      "name" : "TJ Holowaychuk \uD83D\uDE43",
       "screen_name" : "tjholowaychuk",
       "indices" : [ 3, 17 ],
       "id_str" : "29255412",
@@ -833,11 +833,11 @@ Grailbird.data.tweets_2011_02 =
     "id" : 39834931026866177,
     "created_at" : "2011-02-21 23:52:42 +0000",
     "user" : {
-      "name" : "TJ Holowaychuk \uD83D\uDC25",
+      "name" : "TJ Holowaychuk \uD83D\uDE43",
       "screen_name" : "tjholowaychuk",
       "protected" : false,
       "id_str" : "29255412",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/909953369694859265\/BOakwKQY_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1039990224271630338\/Z6BmVyLy_normal.jpg",
       "id" : 29255412,
       "verified" : false
     }
@@ -915,7 +915,7 @@ Grailbird.data.tweets_2011_02 =
   "id_str" : "39043793386741760",
   "text" : "RT @TonyClement_MP: I would like to see Macleans' parent Rogers return the annual taxpayer subsidy returned: is that asking too much @ac ...",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/ios\" rel=\"nofollow\"\u003ETwitterrific for iOS\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Andrew Coyne",
@@ -938,7 +938,7 @@ Grailbird.data.tweets_2011_02 =
       "screen_name" : "TonyclementCPC",
       "protected" : false,
       "id_str" : "121483664",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/985661696235552768\/fOnw2kBa_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1047566787745914881\/o2-eVKrj_normal.jpg",
       "id" : 121483664,
       "verified" : true
     }
@@ -1394,7 +1394,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "\uD835\uDEA0\uD835\uDE92\uD835\uDE95 \uD835\uDE9C\uD835\uDE91\uD835\uDE92\uD835\uDE99\uD835\uDE95\uD835\uDE8E\uD835\uDEA2",
+      "name" : "\uD835\uDEA0\uD835\uDE92\uD835\uDE95 \uD835\uDE9C\uD835\uDE99\uD835\uDE98\uD835\uDE98\uD835\uDE94\uD835\uDE95\uD835\uDE8E\uD835\uDEA2",
       "screen_name" : "wilshipley",
       "indices" : [ 0, 11 ],
       "id_str" : "2911221",
@@ -1844,7 +1844,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003ETwitter for Android\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Mathias \u00AF\\_(\u30C4)_\/\u00AF Meyer",
+      "name" : "Mathias\uD83E\uDD18Meyer",
       "screen_name" : "roidrage",
       "indices" : [ 3, 12 ],
       "id_str" : "14658472",
@@ -1871,7 +1871,7 @@ Grailbird.data.tweets_2011_02 =
     "id" : 37196767728500736,
     "created_at" : "2011-02-14 17:09:35 +0000",
     "user" : {
-      "name" : "Mathias \u00AF\\_(\u30C4)_\/\u00AF Meyer",
+      "name" : "Mathias\uD83E\uDD18Meyer",
       "screen_name" : "roidrage",
       "protected" : false,
       "id_str" : "14658472",
@@ -1895,7 +1895,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/seesmic.com\/\" rel=\"nofollow\"\u003ESeesmic\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Oliver Steele",
+      "name" : "ows",
       "screen_name" : "osteele",
       "indices" : [ 3, 11 ],
       "id_str" : "13835862",
@@ -1922,11 +1922,11 @@ Grailbird.data.tweets_2011_02 =
     "id" : 37031252255055872,
     "created_at" : "2011-02-14 06:11:53 +0000",
     "user" : {
-      "name" : "Oliver Steele",
+      "name" : "ows",
       "screen_name" : "osteele",
       "protected" : false,
       "id_str" : "13835862",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/782396513142071296\/xVIO_KF-_normal.jpg",
+      "profile_image_url_https" : "https:\/\/abs.twimg.com\/sticky\/default_profile_images\/default_profile_normal.png",
       "id" : 13835862,
       "verified" : false
     }
@@ -1946,7 +1946,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003ETwitter for Android\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Steve Streza \uD83C\uDF39 (he\/they)",
+      "name" : "Steve Streza",
       "screen_name" : "SteveStreza",
       "indices" : [ 3, 15 ],
       "id_str" : "658643",
@@ -1960,7 +1960,7 @@ Grailbird.data.tweets_2011_02 =
   "id_str" : "37010133695340544",
   "text" : "RT @SteveStreza: The Grammy's end, Reddit goes down. Tide goes in, tide goes out. Never a miscommunication.",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -1973,7 +1973,7 @@ Grailbird.data.tweets_2011_02 =
     "id" : 37007356093153280,
     "created_at" : "2011-02-14 04:36:55 +0000",
     "user" : {
-      "name" : "Steve Streza \uD83C\uDF39 (he\/they)",
+      "name" : "Steve Streza",
       "screen_name" : "SteveStreza",
       "protected" : false,
       "id_str" : "658643",
@@ -2028,7 +2028,7 @@ Grailbird.data.tweets_2011_02 =
       "screen_name" : "ActuallyNPH",
       "protected" : false,
       "id_str" : "90420314",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/794749304003039232\/I1wn8Awo_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1045049020794761231\/9EXXIIk6_normal.jpg",
       "id" : 90420314,
       "verified" : true
     }
@@ -2081,7 +2081,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -2114,7 +2114,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -2177,7 +2177,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -2241,7 +2241,7 @@ Grailbird.data.tweets_2011_02 =
       "screen_name" : "peterc",
       "protected" : false,
       "id_str" : "33493",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/951912849839882241\/8jDqFjFS_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1045829946801889285\/LPnqEESi_normal.jpg",
       "id" : 33493,
       "verified" : false
     }
@@ -2305,7 +2305,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "\uD835\uDC6A\uD835\uDC73\uD835\uDC70\uD835\uDC75\uD835\uDC7B \uD835\uDC6C\uD835\uDC6A\uD835\uDC72\uD835\uDC6C\uD835\uDC79",
+      "name" : "BAT MANE",
       "screen_name" : "CLINT",
       "indices" : [ 3, 9 ],
       "id_str" : "45993",
@@ -2332,11 +2332,11 @@ Grailbird.data.tweets_2011_02 =
     "id" : 36117736358678528,
     "created_at" : "2011-02-11 17:41:54 +0000",
     "user" : {
-      "name" : "\uD835\uDC6A\uD835\uDC73\uD835\uDC70\uD835\uDC75\uD835\uDC7B \uD835\uDC6C\uD835\uDC6A\uD835\uDC72\uD835\uDC6C\uD835\uDC79",
+      "name" : "BAT MANE",
       "screen_name" : "CLINT",
       "protected" : false,
       "id_str" : "45993",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/943903629597065216\/2Wj3ms6s_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1016503793763176448\/MX6A2iJV_normal.jpg",
       "id" : 45993,
       "verified" : false
     }
@@ -2387,7 +2387,7 @@ Grailbird.data.tweets_2011_02 =
       "screen_name" : "github",
       "protected" : false,
       "id_str" : "13334762",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/616309728688238592\/pBeeJQDQ_normal.png",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1017516299143041024\/fLFdcGsl_normal.jpg",
       "id" : 13334762,
       "verified" : true
     }
@@ -2564,7 +2564,7 @@ Grailbird.data.tweets_2011_02 =
       "id_str" : "4777951",
       "id" : 4777951
     }, {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 6, 17 ],
       "id_str" : "894911",
@@ -2630,7 +2630,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -2740,7 +2740,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -2773,7 +2773,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Bryan Haggerty \u270D\uFE0F",
+      "name" : "Bryan Haggerty",
       "screen_name" : "bhaggs",
       "indices" : [ 0, 7 ],
       "id_str" : "1692881",
@@ -2832,7 +2832,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Robey [Album Version]",
+      "name" : "\uFF9B\uFF70\uFF8B\uFF9E",
       "screen_name" : "robey",
       "indices" : [ 3, 9 ],
       "id_str" : "9213742",
@@ -2859,7 +2859,7 @@ Grailbird.data.tweets_2011_02 =
     "id" : 35545494906351616,
     "created_at" : "2011-02-10 03:48:01 +0000",
     "user" : {
-      "name" : "Robey [Album Version]",
+      "name" : "\uFF9B\uFF70\uFF8B\uFF9E",
       "screen_name" : "robey",
       "protected" : false,
       "id_str" : "9213742",
@@ -3038,7 +3038,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Bryan Haggerty \u270D\uFE0F",
+      "name" : "Bryan Haggerty",
       "screen_name" : "bhaggs",
       "indices" : [ 0, 7 ],
       "id_str" : "1692881",
@@ -3071,7 +3071,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Bryan Haggerty \u270D\uFE0F",
+      "name" : "Bryan Haggerty",
       "screen_name" : "bhaggs",
       "indices" : [ 3, 10 ],
       "id_str" : "1692881",
@@ -3115,7 +3115,7 @@ Grailbird.data.tweets_2011_02 =
     "in_reply_to_screen_name" : "_sjs",
     "in_reply_to_user_id_str" : "4777951",
     "user" : {
-      "name" : "Bryan Haggerty \u270D\uFE0F",
+      "name" : "Bryan Haggerty",
       "screen_name" : "bhaggs",
       "protected" : false,
       "id_str" : "1692881",
@@ -3342,7 +3342,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "\uD835\uDC6A\uD835\uDC73\uD835\uDC70\uD835\uDC75\uD835\uDC7B \uD835\uDC6C\uD835\uDC6A\uD835\uDC72\uD835\uDC6C\uD835\uDC79",
+      "name" : "BAT MANE",
       "screen_name" : "CLINT",
       "indices" : [ 0, 6 ],
       "id_str" : "45993",
@@ -3375,7 +3375,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003ETwitter for Android\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Kris Kowal\u00A0\uD83E\uDDD9\uD83C\uDFFB\u200D\u2642\uFE0F\uD83E\uDDDD\uD83C\uDFFB\u200D\u2640\uFE0F",
+      "name" : "Alatar the Blue\u00A0\uD83E\uDDD9\uD83C\uDFFB\u200D\u2642\uFE0F\uD83E\uDDDD\uD83C\uDFFB\u200D\u2640\uFE0F",
       "screen_name" : "kriskowal",
       "indices" : [ 3, 13 ],
       "id_str" : "6585632",
@@ -3402,7 +3402,7 @@ Grailbird.data.tweets_2011_02 =
     "id" : 35130529372180480,
     "created_at" : "2011-02-09 00:19:05 +0000",
     "user" : {
-      "name" : "Kris Kowal\u00A0\uD83E\uDDD9\uD83C\uDFFB\u200D\u2642\uFE0F\uD83E\uDDDD\uD83C\uDFFB\u200D\u2640\uFE0F",
+      "name" : "Alatar the Blue\u00A0\uD83E\uDDD9\uD83C\uDFFB\u200D\u2642\uFE0F\uD83E\uDDDD\uD83C\uDFFB\u200D\u2640\uFE0F",
       "screen_name" : "kriskowal",
       "protected" : false,
       "id_str" : "6585632",
@@ -3599,7 +3599,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 3, 14 ],
       "id_str" : "894911",
@@ -3631,7 +3631,7 @@ Grailbird.data.tweets_2011_02 =
     "id" : 34756455840092162,
     "created_at" : "2011-02-07 23:32:39 +0000",
     "user" : {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "protected" : true,
       "id_str" : "894911",
@@ -4110,7 +4110,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Benjamin Borowski",
+      "name" : "Benjamin Boorowski \uD83D\uDC7B",
       "screen_name" : "typeoneerror",
       "indices" : [ 0, 13 ],
       "id_str" : "11973362",
@@ -4143,7 +4143,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Benjamin Borowski",
+      "name" : "Benjamin Boorowski \uD83D\uDC7B",
       "screen_name" : "typeoneerror",
       "indices" : [ 0, 13 ],
       "id_str" : "11973362",
@@ -4176,7 +4176,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Benjamin Borowski",
+      "name" : "Benjamin Boorowski \uD83D\uDC7B",
       "screen_name" : "typeoneerror",
       "indices" : [ 0, 13 ],
       "id_str" : "11973362",
@@ -4209,7 +4209,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Benjamin Borowski",
+      "name" : "Benjamin Boorowski \uD83D\uDC7B",
       "screen_name" : "typeoneerror",
       "indices" : [ 0, 13 ],
       "id_str" : "11973362",
@@ -4568,7 +4568,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Benjamin Borowski",
+      "name" : "Benjamin Boorowski \uD83D\uDC7B",
       "screen_name" : "typeoneerror",
       "indices" : [ 3, 16 ],
       "id_str" : "11973362",
@@ -4612,11 +4612,11 @@ Grailbird.data.tweets_2011_02 =
     "in_reply_to_screen_name" : "_sjs",
     "in_reply_to_user_id_str" : "4777951",
     "user" : {
-      "name" : "Benjamin Borowski",
+      "name" : "Benjamin Boorowski \uD83D\uDC7B",
       "screen_name" : "typeoneerror",
       "protected" : false,
       "id_str" : "11973362",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/872004130826362881\/9RRxQHYL_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1032497574488420353\/y7sRwlhw_normal.jpg",
       "id" : 11973362,
       "verified" : false
     }
@@ -4718,7 +4718,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003ETwitter for Android\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "\uD835\uDEA0\uD835\uDE92\uD835\uDE95 \uD835\uDE9C\uD835\uDE91\uD835\uDE92\uD835\uDE99\uD835\uDE95\uD835\uDE8E\uD835\uDEA2",
+      "name" : "\uD835\uDEA0\uD835\uDE92\uD835\uDE95 \uD835\uDE9C\uD835\uDE99\uD835\uDE98\uD835\uDE98\uD835\uDE94\uD835\uDE95\uD835\uDE8E\uD835\uDEA2",
       "screen_name" : "wilshipley",
       "indices" : [ 3, 14 ],
       "id_str" : "2911221",
@@ -4732,7 +4732,7 @@ Grailbird.data.tweets_2011_02 =
   "id_str" : "32957522725834753",
   "text" : "RT @wilshipley: Microsoft: \u201CWe didn\u2019t copy Google, unless by \u2018copy\u2019 you mean \u2018watch what they did and then do the same thing.\u2019 Then, yah ...",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
@@ -4745,11 +4745,11 @@ Grailbird.data.tweets_2011_02 =
     "id" : 32954689918074880,
     "created_at" : "2011-02-03 00:13:05 +0000",
     "user" : {
-      "name" : "\uD835\uDEA0\uD835\uDE92\uD835\uDE95 \uD835\uDE9C\uD835\uDE91\uD835\uDE92\uD835\uDE99\uD835\uDE95\uD835\uDE8E\uD835\uDEA2",
+      "name" : "\uD835\uDEA0\uD835\uDE92\uD835\uDE95 \uD835\uDE9C\uD835\uDE99\uD835\uDE98\uD835\uDE98\uD835\uDE94\uD835\uDE95\uD835\uDE8E\uD835\uDEA2",
       "screen_name" : "wilshipley",
       "protected" : false,
       "id_str" : "2911221",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/964058293306970112\/pfc-Jpsc_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/993626676302000129\/tjoG13J4_normal.jpg",
       "id" : 2911221,
       "verified" : true
     }
@@ -4791,7 +4791,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Benjamin Borowski",
+      "name" : "Benjamin Boorowski \uD83D\uDC7B",
       "screen_name" : "typeoneerror",
       "indices" : [ 126, 139 ],
       "id_str" : "11973362",
@@ -4828,7 +4828,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Benjamin Borowski",
+      "name" : "Benjamin Boorowski \uD83D\uDC7B",
       "screen_name" : "typeoneerror",
       "indices" : [ 0, 13 ],
       "id_str" : "11973362",
@@ -4861,7 +4861,7 @@ Grailbird.data.tweets_2011_02 =
   "source" : "\u003Ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Benjamin Borowski",
+      "name" : "Benjamin Boorowski \uD83D\uDC7B",
       "screen_name" : "typeoneerror",
       "indices" : [ 0, 13 ],
       "id_str" : "11973362",

@@ -104,7 +104,7 @@ Grailbird.data.tweets_2016_03 =
       "id_str" : "75079616",
       "id" : 75079616
     }, {
-      "name" : "Pinboard",
+      "name" : "Dork Money Defeats Dark Money",
       "screen_name" : "Pinboard",
       "indices" : [ 63, 72 ],
       "id_str" : "55525953",
@@ -144,7 +144,7 @@ Grailbird.data.tweets_2016_03 =
         "id_str" : "75079616",
         "id" : 75079616
       }, {
-        "name" : "Pinboard",
+        "name" : "Dork Money Defeats Dark Money",
         "screen_name" : "Pinboard",
         "indices" : [ 51, 60 ],
         "id_str" : "55525953",
@@ -266,7 +266,7 @@ Grailbird.data.tweets_2016_03 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -299,7 +299,7 @@ Grailbird.data.tweets_2016_03 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Pinboard",
+      "name" : "Dork Money Defeats Dark Money",
       "screen_name" : "Pinboard",
       "indices" : [ 3, 12 ],
       "id_str" : "55525953",
@@ -326,7 +326,7 @@ Grailbird.data.tweets_2016_03 =
     "id" : 713778334774140928,
     "created_at" : "2016-03-26 17:23:11 +0000",
     "user" : {
-      "name" : "Pinboard",
+      "name" : "Dork Money Defeats Dark Money",
       "screen_name" : "Pinboard",
       "protected" : false,
       "id_str" : "55525953",
@@ -450,7 +450,7 @@ Grailbird.data.tweets_2016_03 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "J\u20DDO\u20DDE\u20DD Fabisevich \uD83D\uDC36\uD83D\uDC2F\u26BE\uFE0F\uD83C\uDDF5\uD83C\uDDF7\uD83D\uDC31\uD83D\uDC33\u2122",
+      "name" : "Joe Fabisevich \uD83D\uDC26\uD83D\uDC2F\uD83D\uDC33\u2122",
       "screen_name" : "mergesort",
       "indices" : [ 0, 10 ],
       "id_str" : "26178841",
@@ -495,7 +495,7 @@ Grailbird.data.tweets_2016_03 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "\uD83D\uDD95\uD83E\uDDD0\uD83D\uDD95",
+      "name" : "\uD83D\uDC8E not Jen or Jem",
       "screen_name" : "gembarrett",
       "indices" : [ 3, 14 ],
       "id_str" : "43727347",
@@ -522,11 +522,11 @@ Grailbird.data.tweets_2016_03 =
     "id" : 712392149178961920,
     "created_at" : "2016-03-22 21:34:58 +0000",
     "user" : {
-      "name" : "\uD83D\uDD95\uD83E\uDDD0\uD83D\uDD95",
+      "name" : "\uD83D\uDC8E not Jen or Jem",
       "screen_name" : "gembarrett",
       "protected" : false,
       "id_str" : "43727347",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/820806575430504448\/JhIS2Mtd_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1000030066951311360\/0GzKoAqh_normal.jpg",
       "id" : 43727347,
       "verified" : false
     }
@@ -571,7 +571,7 @@ Grailbird.data.tweets_2016_03 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ ],
     "media" : [ ],
@@ -598,10 +598,10 @@ Grailbird.data.tweets_2016_03 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -631,7 +631,7 @@ Grailbird.data.tweets_2016_03 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Stephen Hackett",
@@ -762,7 +762,7 @@ Grailbird.data.tweets_2016_03 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -801,7 +801,7 @@ Grailbird.data.tweets_2016_03 =
       "id_str" : "22961921",
       "id" : 22961921
     }, {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 77, 88 ],
       "id_str" : "894911",

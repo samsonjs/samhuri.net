@@ -39,7 +39,7 @@ Grailbird.data.tweets_2018_01 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "EwaM",
@@ -522,7 +522,7 @@ Grailbird.data.tweets_2018_01 =
       "screen_name" : "Cupcakes_n_Rap",
       "protected" : false,
       "id_str" : "146317151",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/986249395661402112\/mw_GVQWC_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1029938486718210049\/CZWoRBXU_normal.jpg",
       "id" : 146317151,
       "verified" : false
     }
@@ -584,7 +584,7 @@ Grailbird.data.tweets_2018_01 =
       "screen_name" : "Cupcakes_n_Rap",
       "protected" : false,
       "id_str" : "146317151",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/986249395661402112\/mw_GVQWC_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1029938486718210049\/CZWoRBXU_normal.jpg",
       "id" : 146317151,
       "verified" : false
     }
@@ -640,7 +640,7 @@ Grailbird.data.tweets_2018_01 =
       "screen_name" : "Cupcakes_n_Rap",
       "protected" : false,
       "id_str" : "146317151",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/986249395661402112\/mw_GVQWC_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1029938486718210049\/CZWoRBXU_normal.jpg",
       "id" : 146317151,
       "verified" : false
     }
@@ -657,7 +657,7 @@ Grailbird.data.tweets_2018_01 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Alan",

@@ -152,11 +152,11 @@ Grailbird.data.tweets_2010_04 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Z",
+      "name" : "Enrico Lamperti",
       "screen_name" : "zimmund",
       "indices" : [ 0, 8 ],
-      "id_str" : "6217862",
-      "id" : 6217862
+      "id_str" : "54332899",
+      "id" : 54332899
     } ],
     "media" : [ ],
     "hashtags" : [ ],
@@ -170,7 +170,7 @@ Grailbird.data.tweets_2010_04 =
   "id" : 12654628856,
   "in_reply_to_status_id" : 12654445157,
   "created_at" : "2010-04-22 00:00:00 +0000",
-  "in_reply_to_screen_name" : "zimmund",
+  "in_reply_to_screen_name" : "elamperti",
   "in_reply_to_user_id_str" : "6217862",
   "user" : {
     "name" : "Sami Samhuri",
@@ -304,6 +304,75 @@ Grailbird.data.tweets_2010_04 =
   "created_at" : "2010-04-20 00:00:00 +0000",
   "in_reply_to_screen_name" : "lunafiko",
   "in_reply_to_user_id_str" : "14273142",
+  "user" : {
+    "name" : "Sami Samhuri",
+    "screen_name" : "_sjs",
+    "protected" : false,
+    "id_str" : "4777951",
+    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
+    "id" : 4777951,
+    "verified" : false
+  }
+}, {
+  "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "tom robinson",
+      "screen_name" : "tlrobinson",
+      "indices" : [ 3, 14 ],
+      "id_str" : "14206068",
+      "id" : 14206068
+    }, {
+      "name" : "BrendanEich",
+      "screen_name" : "BrendanEich",
+      "indices" : [ 17, 29 ],
+      "id_str" : "9533042",
+      "id" : 9533042
+    } ],
+    "media" : [ ],
+    "hashtags" : [ {
+      "text" : "jsconf",
+      "indices" : [ 33, 40 ]
+    } ],
+    "urls" : [ ]
+  },
+  "geo" : { },
+  "id_str" : "12421964589",
+  "text" : "RT @tlrobinson: .@brendaneich at #jsconf talking about awesome new features slated for next edition of JS. Detail on the ECMA wiki: http ...",
+  "retweeted_status" : {
+    "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
+    "entities" : {
+      "user_mentions" : [ {
+        "name" : "BrendanEich",
+        "screen_name" : "BrendanEich",
+        "indices" : [ 1, 13 ],
+        "id_str" : "9533042",
+        "id" : 9533042
+      } ],
+      "media" : [ ],
+      "hashtags" : [ {
+        "text" : "jsconf",
+        "indices" : [ 17, 24 ]
+      } ],
+      "urls" : [ ]
+    },
+    "geo" : { },
+    "id_str" : "12419872636",
+    "text" : ".@brendaneich at #jsconf talking about awesome new features slated for next edition of JS. Detail on the ECMA wiki: http:\/\/is.gd\/bywUR",
+    "id" : 12419872636,
+    "created_at" : "2010-04-18 21:54:38 +0000",
+    "user" : {
+      "name" : "tom robinson",
+      "screen_name" : "tlrobinson",
+      "protected" : false,
+      "id_str" : "14206068",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000853310157\/a0e3b1296ad4bad4a668803a54a79afd_normal.jpeg",
+      "id" : 14206068,
+      "verified" : false
+    }
+  },
+  "id" : 12421964589,
+  "created_at" : "2010-04-18 00:00:00 +0000",
   "user" : {
     "name" : "Sami Samhuri",
     "screen_name" : "_sjs",
@@ -510,7 +579,7 @@ Grailbird.data.tweets_2010_04 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -651,7 +720,7 @@ Grailbird.data.tweets_2010_04 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -838,7 +907,7 @@ Grailbird.data.tweets_2010_04 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -1183,7 +1252,7 @@ Grailbird.data.tweets_2010_04 =
       "id_str" : "14273142",
       "id" : 14273142
     }, {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 39, 50 ],
       "id_str" : "894911",
@@ -1304,7 +1373,7 @@ Grailbird.data.tweets_2010_04 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Zach Carter",
+      "name" : "zach carter",
       "screen_name" : "zii",
       "indices" : [ 86, 90 ],
       "id_str" : "12712742",

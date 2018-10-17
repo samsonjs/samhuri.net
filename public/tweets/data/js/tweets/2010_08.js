@@ -531,7 +531,7 @@ Grailbird.data.tweets_2010_08 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -564,7 +564,7 @@ Grailbird.data.tweets_2010_08 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -689,7 +689,7 @@ Grailbird.data.tweets_2010_08 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jim Roepcke",
+      "name" : "@JimRoepcke@mastadon.social",
       "screen_name" : "JimRoepcke",
       "indices" : [ 0, 11 ],
       "id_str" : "894911",
@@ -756,7 +756,7 @@ Grailbird.data.tweets_2010_08 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Chuq Von Rospach",
+      "name" : "Chuq \"Artisanal Gerunds\" Von Rospach",
       "screen_name" : "chuq",
       "indices" : [ 3, 8 ],
       "id_str" : "13217612",
@@ -783,7 +783,7 @@ Grailbird.data.tweets_2010_08 =
     "id" : 21076393639,
     "created_at" : "2010-08-13 16:13:36 +0000",
     "user" : {
-      "name" : "Chuq Von Rospach",
+      "name" : "Chuq \"Artisanal Gerunds\" Von Rospach",
       "screen_name" : "chuq",
       "protected" : false,
       "id_str" : "13217612",
@@ -807,7 +807,7 @@ Grailbird.data.tweets_2010_08 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Zach Carter",
+      "name" : "zach carter",
       "screen_name" : "zii",
       "indices" : [ 0, 4 ],
       "id_str" : "12712742",
@@ -840,7 +840,7 @@ Grailbird.data.tweets_2010_08 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETweetie for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Zach Carter",
+      "name" : "zach carter",
       "screen_name" : "zii",
       "indices" : [ 1, 5 ],
       "id_str" : "12712742",
@@ -1097,7 +1097,7 @@ Grailbird.data.tweets_2010_08 =
   "source" : "\u003Ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003ETwitter Web Client\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Randy Luecke",
+      "name" : "Randy Luecke\uD83E\uDD26\uD83C\uDFFC\u200D\u2642\uFE0F",
       "screen_name" : "me1000",
       "indices" : [ 3, 10 ],
       "id_str" : "8675502",
@@ -1124,7 +1124,7 @@ Grailbird.data.tweets_2010_08 =
     "id" : 20096336109,
     "created_at" : "2010-08-01 23:39:09 +0000",
     "user" : {
-      "name" : "Randy Luecke",
+      "name" : "Randy Luecke\uD83E\uDD26\uD83C\uDFFC\u200D\u2642\uFE0F",
       "screen_name" : "me1000",
       "protected" : false,
       "id_str" : "8675502",

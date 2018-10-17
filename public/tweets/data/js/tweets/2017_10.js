@@ -140,7 +140,7 @@ Grailbird.data.tweets_2017_10 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "\uD835\uDD44\uD835\uDD52\uD835\uDD65\uD835\uDD65\uD835\uDD59\uD835\uDD5A\uD835\uDD52\uD835\uDD64",
+      "name" : "Matthias",
       "screen_name" : "arrizer",
       "indices" : [ 0, 8 ],
       "id_str" : "10752072",
@@ -196,7 +196,7 @@ Grailbird.data.tweets_2017_10 =
   "id" : 914612876094038017,
   "in_reply_to_status_id" : 914586691838525440,
   "created_at" : "2017-10-01 22:07:57 +0000",
-  "in_reply_to_screen_name" : "Nazbolol",
+  "in_reply_to_screen_name" : "warsnortle",
   "in_reply_to_user_id_str" : "4846128982",
   "user" : {
     "name" : "Sami Samhuri",

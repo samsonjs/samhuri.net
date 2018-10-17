@@ -9,7 +9,7 @@ Grailbird.data.tweets_2017_11 =
       "id_str" : "235707661",
       "id" : 235707661
     }, {
-      "name" : "jessie frazelle",
+      "name" : "jessie frazelle \uD83D\uDC69\uD83C\uDFFC\u200D\uD83D\uDE80",
       "screen_name" : "jessfraz",
       "indices" : [ 13, 22 ],
       "id_str" : "285428413",
@@ -81,7 +81,7 @@ Grailbird.data.tweets_2017_11 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "NSNateParser",
+      "name" : "Nate, but slightly spookier",
       "screen_name" : "thenatekirby",
       "indices" : [ 0, 13 ],
       "id_str" : "1628814223",
@@ -147,7 +147,7 @@ Grailbird.data.tweets_2017_11 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jurie Horneman",
+      "name" : "Lurid Tortureman \uD83E\uDDDB\uD83C\uDFFB\u200D\u2642\uFE0F",
       "screen_name" : "jurieongames",
       "indices" : [ 0, 13 ],
       "id_str" : "18920834",
@@ -180,7 +180,7 @@ Grailbird.data.tweets_2017_11 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Jurie Horneman",
+      "name" : "Lurid Tortureman",
       "screen_name" : "jurieongames",
       "indices" : [ 0, 13 ],
       "id_str" : "18920834",
@@ -375,7 +375,7 @@ Grailbird.data.tweets_2017_11 =
     "verified" : false
   }
 }, {
-  "source" : "\u003Ca href=\"http:\/\/twitterrific.com\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
+  "source" : "\u003Ca href=\"https:\/\/twitterrific.com\/mac\" rel=\"nofollow\"\u003ETwitterrific for Mac\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
       "name" : "Accidental Tech Podcast",

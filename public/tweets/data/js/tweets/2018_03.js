@@ -36,7 +36,7 @@ Grailbird.data.tweets_2018_03 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "jbr",
+      "name" : "register and vote!",
       "screen_name" : "jacobrothstein",
       "indices" : [ 0, 15 ],
       "id_str" : "27302287",
@@ -137,7 +137,7 @@ Grailbird.data.tweets_2018_03 =
       "screen_name" : "josh_wingrove",
       "protected" : false,
       "id_str" : "164075542",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/955209380894519296\/tj563YJl_normal.jpg",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1040322666308067328\/6IjkZA69_normal.jpg",
       "id" : 164075542,
       "verified" : true
     }
@@ -204,7 +204,7 @@ Grailbird.data.tweets_2018_03 =
   "id_str" : "973780157080260608",
   "text" : "RT @snarfmason: Reading @mattly on timezones was a nice reminder that time zones exist for a reason, concepts of time like \"noon\" are meani\u2026",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ {
         "name" : "Matthew Lyon",
@@ -279,68 +279,7 @@ Grailbird.data.tweets_2018_03 =
   "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
   "entities" : {
     "user_mentions" : [ {
-      "name" : "Will Strafach",
-      "screen_name" : "chronic",
-      "indices" : [ 3, 11 ],
-      "id_str" : "86315276",
-      "id" : 86315276
-    } ],
-    "media" : [ ],
-    "hashtags" : [ ],
-    "urls" : [ ]
-  },
-  "geo" : { },
-  "id_str" : "971202944912666624",
-  "text" : "RT @chronic: random fun fact: I believe some of the binaries were code signed by Apple employee dev certs in that first build. one was a gu\u2026",
-  "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E",
-    "entities" : {
-      "user_mentions" : [ ],
-      "media" : [ ],
-      "hashtags" : [ ],
-      "urls" : [ {
-        "indices" : [ 165, 188 ],
-        "url" : "https:\/\/t.co\/Vv0eNLI51D",
-        "expanded_url" : "http:\/\/mac.com",
-        "display_url" : "mac.com"
-      } ]
-    },
-    "in_reply_to_status_id_str" : "971157315566161920",
-    "geo" : { },
-    "id_str" : "971158111758241794",
-    "in_reply_to_user_id" : 86315276,
-    "text" : "random fun fact: I believe some of the binaries were code signed by Apple employee dev certs in that first build. one was a guy named Eric something. I saw it was a https:\/\/t.co\/Vv0eNLI51D address so added him on AIM and he blocked me.",
-    "id" : 971158111758241794,
-    "in_reply_to_status_id" : 971157315566161920,
-    "created_at" : "2018-03-06 22:58:31 +0000",
-    "in_reply_to_screen_name" : "chronic",
-    "in_reply_to_user_id_str" : "86315276",
-    "user" : {
-      "name" : "Will Strafach",
-      "screen_name" : "chronic",
-      "protected" : false,
-      "id_str" : "86315276",
-      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/378800000791789535\/2245bcbc880d6f21265bd912b0d15500_normal.jpeg",
-      "id" : 86315276,
-      "verified" : true
-    }
-  },
-  "id" : 971202944912666624,
-  "created_at" : "2018-03-07 01:56:40 +0000",
-  "user" : {
-    "name" : "Sami Samhuri",
-    "screen_name" : "_sjs",
-    "protected" : false,
-    "id_str" : "4777951",
-    "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/619352398314647552\/7MsKJeYK_normal.jpg",
-    "id" : 4777951,
-    "verified" : false
-  }
-}, {
-  "source" : "\u003Ca href=\"http:\/\/tapbots.com\/tweetbot\" rel=\"nofollow\"\u003ETweetbot for i\u039FS\u003C\/a\u003E",
-  "entities" : {
-    "user_mentions" : [ {
-      "name" : "Patrick McCarron",
+      "name" : "Pat \"Trick-or-treat\" McCarron",
       "screen_name" : "McCarron",
       "indices" : [ 0, 9 ],
       "id_str" : "770391",
@@ -449,7 +388,7 @@ Grailbird.data.tweets_2018_03 =
   "id_str" : "969728586318995456",
   "text" : "RT @_inside: \uD83E\uDD13 post alert: How I discovered Instagram's upcoming video calling feature on\u00A0iOS https:\/\/t.co\/Dpv2dfGCWk",
   "retweeted_status" : {
-    "source" : "\u003Ca href=\"http:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
+    "source" : "\u003Ca href=\"https:\/\/tapbots.com\/software\/tweetbot\/mac\" rel=\"nofollow\"\u003ETweetbot for Mac\u003C\/a\u003E",
     "entities" : {
       "user_mentions" : [ ],
       "media" : [ ],
