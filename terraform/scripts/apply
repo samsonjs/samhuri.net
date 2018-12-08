@@ -2,6 +2,6 @@
 
 set -e
 
-env="${1:-test}"
+env="${1:-beta}"
 terraform apply -state-out="${env}.tfstate" \
                 "${env}.tfplan"

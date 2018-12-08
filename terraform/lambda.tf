@@ -24,8 +24,8 @@ resource "aws_lambda_function" "blog_render" {
   filename = "lambda-blog-render.zip"
   source_code_hash = "${base64sha256(file("lambda-blog-render.zip"))}"
   role = "${aws_iam_role.lambda.arn}"
-  handler = "???"
-  runtime = "go1.x"
+  handler = "main.handler"
+  runtime = "ruby2.5"
 
   tags {
     App = "samhuri.net"

@@ -44,7 +44,7 @@ RewriteCond %{HTTPS} off
 RewriteCond %{HTTP_HOST} !beta\.samhuri\.net [NC]
 RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 
-# Make super old posts redirect properly.
+# Make super old posts redirect properly by dropping the day and only keeping the year and month.
 #   e.g. http://sami.samhuri.net/2007/6/23/emacs-for-textmate-junkies
 RewriteRule ^posts/([0-9][0-9][0-9][0-9])/([0-9])/[0-9]/(.*)$ /posts/$1/0$2/$3 [R=301]
 RewriteRule ^posts/([0-9][0-9][0-9][0-9])/([0-9])/[0-9][0-9]/(.*)$ /posts/$1/0$2/$3 [R=301]

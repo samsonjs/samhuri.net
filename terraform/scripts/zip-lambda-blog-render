@@ -1,0 +1,5 @@
+#!/bin/bash
+
+pushd lambda-blog-render
+zip -Try ../lambda-blog-render.zip main.rb vendor
+popd

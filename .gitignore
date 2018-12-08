@@ -1,6 +1,1 @@
-.bundle
-node_modules
 www
-server/auth.json
-server/test-blog*
-origin-updated

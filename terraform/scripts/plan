@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-env=${1:-test}
+env=${1:-beta}
 
 terraform plan -var-file="${env}.tfvars" \
                -var "env=${env}"  \

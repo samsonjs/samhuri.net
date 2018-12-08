@@ -1,0 +1,2 @@
+RewriteEngine On
+RewriteRule ^(.*)$ https://samhuri.net/posts/$1 [R=301,L]

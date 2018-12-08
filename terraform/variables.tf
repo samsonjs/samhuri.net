@@ -1,5 +1,5 @@
 variable "env" {
-  default = "test"
+  default = "beta"
   description = "Environment name"
 }
 
