@@ -5,7 +5,7 @@
   "dependencies": {
     "harp": "^0.29.0",
     "thepusher": "^0.1.4",
-    "uglify-js": "^3.3.7"
+    "uglify-js": "^3.4.9"
   },
   "scripts": {}
 }
