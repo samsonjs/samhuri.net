@@ -1,10 +1,28 @@
 ### Work History
 
+**[1 Second Everyday](https://1se.co)**<br>
+_CTO_<br>
+June 2016 - present
+
+As the first tech hire I brought our primary product in-house, an iOS app that was built by contractors. I moved ahead with new features while refactoring the inner parts. This improved the architecture and mode it much more reliable and robust. I modernized the Objective-C code while writing new code in Swift.
+
+After that I began building a team of developers and we created a service using Ruby on Rails that provides accounts, subscription management, and backup to our mobile apps; and brought our Android app in-house, completely rewriting it for version 3.0. We migrated our entire UI from landscape to portrait orientation on iOS, and also made the switch from a paid-up-front app to one with a subscription service.
+
+I designed and built out our infrastructure for the service on AWS, fully managed using Terraform. It consists of many AWS services including VPC, RDS Aurora (Postgres), ElasticBeanstalk, S3, ElastiCache (Redis), SQS, Lambda, and CloudFront.
+
+As of fall 2019 the tech team has 8 developers across Android, iOS, and services.
+
+**Accolades**
+
+- 2017: Won a Webby for Best Use of Mobile Camera
+
+- 2019: Closed a round of funding with Indie VC
+
 **[Mashable](http://mashable.com)**<br>
 _iOS Engineer_<br>
 March 2014 - April 2016
 
-Worked on a rewrite of the [Mashable iOS app][mashable] and other iOS projects.
+Worked on a rewrite of the [Mashable iOS app][mashable] and other iOS projects that were cancelled before launch after 2 years of development, and were covered under NDA.
 
 [mashable]: https://itunes.apple.com/ca/app/mashable/id910775754?mt=8
 
