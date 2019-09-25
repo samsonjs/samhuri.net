@@ -75,26 +75,32 @@ img {
 
 /**
  * Site styles
+ * Light mode is the default
  */
 
 // colors
-@background: #f7f7f7;
-@text: #222;
-@highlight: #a00;
+@light-background: #f7f7f7;
+@light-text: #222;
+@light-highlight: #a00;
+@light-separator-grey: #ddd;
+
+@dark-background: #000;
+@dark-text: #ddd;
+@dark-highlight: #900;
+@dark-separator-grey: #ddd;
 
 @email-white: #fff;
 @rss-orange: #f60;
 @twitter-blue: #4099ff;
 @github-blue: #4183c4;
 
-@separator-grey: #ddd;
-
 // font weight
 @weight-thin: 400;
 
+// main styles
 body {
-  background-color: @background;
-  color: @text;
+  background-color: @light-background;
+  color: @light-text;
   font-family: 'museo-sans', 'Helvetica Neue', 'Verdana', 'Roboto', sans-serif;
 }
 
@@ -107,11 +113,11 @@ nav {
 }
 
 a {
-  color: lighten(@highlight, 5%);
+  color: lighten(@light-highlight, 5%);
 }
 
 a:visited {
-  color: @highlight;
+  color: @light-highlight;
 }
 
 hr {
@@ -119,15 +125,15 @@ hr {
   height: 0;
   margin: 0 auto;
   border: 0;
-  border-top: 1px solid @separator-grey;
+  border-top: 1px solid @light-separator-grey;
 }
 
 header.primary {
-  background-color: darken(@text, 5%);
-  color: @background;
+  background-color: darken(@light-text, 5%);
+  color: @light-background;
   padding: 0.4rem 0.8rem;
-  border-bottom: solid 1px lighten(@text, 40%);
-  box-shadow: 0 0 12px 2px @text;
+  border-bottom: solid 1px lighten(@light-text, 40%);
+  box-shadow: 0 0 12px 2px @light-text;
 
   .title {
     float: left;
@@ -147,23 +153,23 @@ header.primary {
     font-size: 1.3rem;
 
     a, a:visited {
-      color: @background;
+      color: @light-background;
     }
   }
 
   h4 {
     height: 0.8rem;
     font-size: 0.8rem;
-    color: darken(@background, 10%);
+    color: darken(@light-background, 10%);
   }
 
   h4 a {
-    color: darken(@background, 10%);
+    color: darken(@light-background, 10%);
     text-decoration: none;
   }
 
   h4 a:hover {
-    color: @background;
+    color: @light-background;
     text-decoration: underline;
   }
 
@@ -181,7 +187,7 @@ header.primary {
     }
 
     a, a:visited {
-      color: lighten(@highlight, 7%);
+      color: lighten(@light-highlight, 7%);
     }
 
     ul {
@@ -197,7 +203,6 @@ header.primary {
 
       li i.fa {
         font-size: 1.1rem;
-        color: darken(@background, 10%);
 
         -o-transition: 0.2s;
         -ms-transition: 0.2s;
@@ -206,19 +211,19 @@ header.primary {
         transition: 0.2s;
       }
 
-      li.email i.fa:hover {
-        color: @email-white, 10%;
+      li.email i.fa {
+        color: darken(@email-white, 10%);
       }
 
-      li.rss i.fa:hover {
+      li.rss i.fa {
         color: desaturate(@rss-orange, 20%);
       }
 
-      li.twitter i.fa:hover {
+      li.twitter i.fa {
         color: desaturate(@twitter-blue, 20%);
       }
 
-      li.github i.fa:hover {
+      li.github i.fa {
         color: @github-blue;
       }
 
@@ -229,11 +234,11 @@ header.primary {
 footer {
   padding: 1rem 0;
   text-align: center;
-  color: lighten(@text, 30%);
+  color: lighten(@light-text, 30%);
   font-family: 'Helvetica Neue', 'Verdana', 'Roboto', sans-serif;
 
   a, a:visited {
-    color: lighten(@text, 30%);
+    color: lighten(@light-text, 30%);
   }
 }
 
@@ -249,6 +254,65 @@ footer {
   }
   header.primary {
     padding: 0.4rem constant(safe-area-inset-right) 0.4rem constant(safe-area-inset-left);
+  }
+}
+
+// dark mode
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: @dark-background;
+    color: @dark-text;
+  }  
+
+  a {
+    color: lighten(@dark-highlight, 5%);
+  }
+
+  a:visited {
+    color: @dark-highlight;
+  }
+
+  hr {
+    border-top-color: @dark-separator-grey;
+  }
+
+  header.primary {
+    background-color: lighten(@dark-background, 7%);
+    color: @dark-text;
+    border-bottom: solid 1px lighten(@dark-background, 30%);
+    box-shadow: 0 0 12px 2px lighten(@dark-background, 25%);
+
+    h1 {
+      a, a:visited {
+        color: @dark-text;
+      }
+    }
+
+    h4 {
+      color: darken(@dark-text, 10%);
+    }
+
+    h4 a {
+      color: darken(@dark-text, 10%);
+    }
+
+    h4 a:hover {
+      color: @dark-text;
+    }
+    
+    nav {
+      a, a:visited {
+        color: lighten(@dark-highlight, 10%);
+      }
+    }
+  }
+
+  footer {
+    color: darken(@dark-text, 30%);
+
+    a, a:visited {
+      color: darken(@dark-text, 30%);
+    }
   }
 }
 
@@ -276,13 +340,22 @@ ul.archive {
     time {
       font-size: 80%;
       padding-left: 0.5rem;
-      color: lighten(@text, 30%);
+      color: lighten(@light-text, 30%);
     }
 
   } /* li */
 
 } /* ul.archive */
 
+@media (prefers-color-scheme: dark) {
+  ul.archive {
+    li {
+      time {
+        color: darken(@dark-text, 30%);
+      }
+    }
+  }
+}
 
 /**
  * Projects
@@ -354,7 +427,7 @@ article {
 
     time {
       margin-top: 0.3rem;
-      color: lighten(@text, 35%);
+      color: lighten(@light-text, 35%);
       font-family: 'Helvetica Neue', 'Verdana', sans-serif;
     }
 
@@ -364,7 +437,7 @@ article {
 
 p.fin {
   text-align: center;
-  color: darken(@background, 20%);
+  color: darken(@light-background, 20%);
   margin: 1rem 0;
 }
 
@@ -372,7 +445,7 @@ blockquote {
   margin-left: 6%;
   font-family: 'Helvetica Neue', 'Verdana', 'Roboto', sans-serif;
   font-style: italic;
-  color: lighten(@text, 15%);
+  color: lighten(@light-text, 15%);
 }
 
 blockquote:before {
@@ -393,7 +466,7 @@ ul.audio audio {
 }
 
 pre {
-  background-color: darken(@background, 5%);
+  background-color: darken(@light-background, 5%);
   padding: 0.5rem;
 }
 
@@ -403,6 +476,27 @@ pre.line-numbers {
   color: #888;
 }
 
+@media (prefers-color-scheme: dark) {
+  article {
+    header {
+      time {
+        color: darken(@dark-text, 20%);
+      }
+    }
+  }
+
+  p.fin {
+    color: lighten(@dark-background, 30%);
+  }
+
+  blockquote {
+    color: darken(@dark-text, 15%);
+  }
+
+  pre {
+    background-color: lighten(@dark-background, 8%);
+  }
+}
 
 /**
  * Improve embedded Gist styles
