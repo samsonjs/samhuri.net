@@ -32,6 +32,7 @@ body {
   margin: 0 auto;
   max-width: 48rem;
   width: 90%;
+  padding: 0 constant(safe-area-inset-right) 0 constant(safe-area-inset-left);
 }
 
 @media (min-width: @screen-medium) {
@@ -102,6 +103,7 @@ body {
   background-color: @light-background;
   color: @light-text;
   font-family: 'museo-sans', 'Helvetica Neue', 'Verdana', 'Roboto', sans-serif;
+  padding-bottom: constant(safe-area-inset-bottom);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -131,7 +133,7 @@ hr {
 header.primary {
   background-color: darken(@light-text, 5%);
   color: @light-background;
-  padding: 0.4rem 0.8rem;
+  padding: 0.4rem 2.5rem;
   border-bottom: solid 1px lighten(@light-text, 40%);
   box-shadow: 0 0 12px 2px @light-text;
 
@@ -182,7 +184,7 @@ header.primary {
       float: right;
       clear: none;
 
-      padding: 0.65rem 0;
+      padding-top: 0.65rem;
       height: 1rem;
     }
 
@@ -201,15 +203,17 @@ header.primary {
         font-size: 1.3rem;
       }
 
+      li:first-child {
+        padding-left: 0;
+      }
+
+      li:last-child {
+        padding-right: 0;
+      }
+
       li i.fa {
         font-size: 1.4rem;
         padding: 0.2rem;
-
-        -o-transition: 0.2s;
-        -ms-transition: 0.2s;
-        -moz-transition: 0.2s;
-        -webkit-transition: 0.2s;
-        transition: 0.2s;
       }
 
       li.email i.fa {
@@ -240,21 +244,6 @@ footer {
 
   a, a:visited {
     color: lighten(@light-text, 30%);
-  }
-}
-
-/* iPhone X */
-@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
-  body {
-    padding-bottom: constant(safe-area-inset-bottom);
-  }
-}
-@media only screen and (orientation: landscape) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
-  .container {
-    padding: 0 constant(safe-area-inset-right) 0 constant(safe-area-inset-left);
-  }
-  header.primary {
-    padding: 0.4rem constant(safe-area-inset-right) 0.4rem constant(safe-area-inset-left);
   }
 }
 
