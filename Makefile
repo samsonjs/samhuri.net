@@ -25,4 +25,4 @@ clean:
 spec:
 	cd server && rspec -f documentation
 
-.PHONY: compile publish publish_beta test_blog spec
+.PHONY: rss compile publish publish_beta test_blog clean spec

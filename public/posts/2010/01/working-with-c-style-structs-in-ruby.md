@@ -28,11 +28,11 @@ supported by Array#pack is fairly easy to add though.
 First a quick example and then we'll get into the CStruct class itself. In
 C you may write the following to have one struct "inherit" from another:
 
-<script src="https://gist.github.com/279790.js"></script>
+<script src="https://gist.github.com/279790.js" integrity="YxFzbbrt2TOJJW0q8lfvUTM8cYYau3pFyLY6rO2lTP88bfioQJmTcboCd+i2QHCZ" crossorigin="anonymous"></script>
 
 With CStruct in Ruby that translates to:
 
-<script src="https://gist.github.com/279794.js"></script>
+<script src="https://gist.github.com/279794.js" integrity="FlnBwix8W7tFGWzEAMuLWxw5n7mYpeIQ1ka50tSODtlveSO/pwsl79nJvSTjx1dE" crossorigin="anonymous"></script>
 
 CStructs act like Ruby's built-in Struct to a certain extent. They are
 instantiated the same way, by passing values to #new in the same order they
