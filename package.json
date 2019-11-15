@@ -5,7 +5,13 @@
   "dependencies": {
     "harp": "^0.29.0",
     "thepusher": "^0.1.4",
-    "uglify-js": "^3.4.9"
+    "uglify-js": "^3.4.9",
+    "snyk": "^1.41.1"
   },
-  "scripts": {}
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "snyk": true
 }
