@@ -8,7 +8,7 @@ GEM
     css_parser (1.6.0)
       addressable
     diff-lcs (1.3)
-    ffi (1.9.18)
+    ffi (1.11.2)
     formatador (0.2.5)
     guard (2.14.2)
       formatador (>= 0.2.4)
