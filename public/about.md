@@ -1,4 +1,4 @@
-I'm Sami J. Samhuri, a software developer and general technology geek. Sometimes
+I'm Sami Samhuri, a software developer and general technology geek. Sometimes
 I write my thoughts and post my projects here. I moved to [Victoria, BC][vic]
 in 2003 to study computer science at the [University of Victoria][uvic], and
 then dropped out a couple of years later.
@@ -12,7 +12,7 @@ then dropped out a couple of years later.
 I make iOS apps, and I make web apps from front to back mainly with Ruby and
 JavaScript. Sometimes I do some Android work. I dabble with lots of other technologies
 for fun and profit and have been known to do some ops and devops. I've been using
-Linux for over 15 years, and have spent a bit of time with 
+Linux for over 15 years, and have spent a bit of time with
 FreeBSD and OpenBSD along the way.
 
 My public work includes [some open-source projects][proj], and there are even

@@ -1,7 +1,7 @@
 {
   "ios-git-pre-commit-hook": {
     "id": "ios-git-pre-commit-hook",
-    "author": "Sami J. Samhuri",
+    "author": "Sami Samhuri",
     "title": "A Git Pre-commit Hook for iOS",
     "date": "4th August, 2016",
     "timestamp": 1470328683,
@@ -14,7 +14,7 @@
   },
   "easy-optimization-wins": {
     "id": "easy-optimization-wins",
-    "author": "Sami J. Samhuri",
+    "author": "Sami Samhuri",
     "title": "Easy Optimization Wins",
     "date": "10th August, 2016",
     "timestamp": 1470850249,

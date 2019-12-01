@@ -1,7 +1,7 @@
 {
   "mach-o-symbol-and-relocation-tables": {
     "id": "mach-o-symbol-and-relocation-tables",
-    "author": "Sami J. Samhuri",
+    "author": "Sami Samhuri",
     "title": "Mach-O Symbol and Relocation Tables",
     "date": "28th June, 2015",
     "timestamp": 1435527198,
@@ -13,7 +13,7 @@
   },
   "09c2b186-3ce7-445c-89bf-5d5b7f830cd7": {
     "id": "09c2b186-3ce7-445c-89bf-5d5b7f830cd7",
-    "author": "Sami J. Samhuri",
+    "author": "Sami Samhuri",
     "title": "The Case for Native",
     "date": "27th June, 2015",
     "timestamp": 1435424525,
@@ -25,7 +25,7 @@
   },
   "security-through-obscurity-is-still-not-a-best-practice": {
     "id": "security-through-obscurity-is-still-not-a-best-practice",
-    "author": "Sami J. Samhuri",
+    "author": "Sami Samhuri",
     "title": "security-through-obscurity-is-still-not-a-best-practice",
     "date": "20th August, 2017",
     "timestamp": 1503246688,

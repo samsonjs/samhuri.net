@@ -194,7 +194,7 @@ private
       feed_url: "#{root_url}/feed.json",
         author: {
           url: "https://samhuri.net",
-          name: "Sami J. Samhuri",
+          name: "Sami Samhuri",
           avatar: "#{root_url}/images/me.jpg"
       },
       icon: "#{root_url}/images/apple-touch-icon-300.png",
