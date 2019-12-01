@@ -3,50 +3,33 @@
 # bail on errors
 set -e
 
-export PATH="$HOME/.rbenv/shims:$PATH"
+# export PATH="$HOME/.rbenv/shims:$PATH"
 
 DIR=$(dirname "$0")
-HARP="node_modules/harp/bin/harp"
+# HARP="node_modules/harp/bin/harp"
 BLOG_DIR="${1:-${DIR}/..}"
 TARGET="${BLOG_DIR%/}/${2:-www}"
-LOCK_FILE="$BLOG_DIR/compile.lock"
-
-if [[ -e "$LOCK_FILE" ]]; then
-  echo "Bailing, another compilation is running"
-  exit 1
-fi
-
-function lock {
-  echo $$ >| "$LOCK_FILE"
-}
-function delete_lock_file {
-	rm -f "$LOCK_FILE"
-}
-trap delete_lock_file SIGHUP SIGINT SIGTERM SIGEXIT
-lock
 
 function main() {
   echo "* compile rss feed"
-  compile_feeds
+  # compile_feeds
 
-  echo "* harp compile $BLOG_DIR $TARGET"
-  rm -rf "$TARGET/*" "$TARGET/.*"
-  "$HARP" compile "$BLOG_DIR" "$TARGET"
+  # echo "* harp compile $BLOG_DIR $TARGET"
+  # rm -rf "$TARGET/*" "$TARGET/.*"
+  # "$HARP" compile "$BLOG_DIR" "$TARGET"
 
   # clean up temporary feeds
-  rm $BLOG_DIR/public/feed.xml
-  rm $BLOG_DIR/public/feed.json
+  # rm $BLOG_DIR/public/feed.xml
+  # rm $BLOG_DIR/public/feed.json
 
   echo "* munge html files to make them available without an extension"
-  munge_html
+  # munge_html
 
   echo "* inline CSS"
-  ruby -w $DIR/inline-css.rb "$TARGET"
+  # ruby -w $DIR/inline-css.rb "$TARGET"
 
   echo "* minify js"
-  minify_js
-
-  delete_lock_file
+  # minify_js
 }
 
 function compile_feeds() {
@@ -72,10 +55,10 @@ function munge_html() {
   done
 }
 
-function minify_js() {
-  for FILE in "$TARGET"/js/*.js; do
-    $DIR/minify-js.sh "$FILE" > /tmp/minified.js && mv /tmp/minified.js "$FILE" || echo "* failed to minify $FILE"
-  done
-}
+# function minify_js() {
+#   for FILE in "$TARGET"/js/*.js; do
+#     $DIR/minify-js.sh "$FILE" > /tmp/minified.js && mv /tmp/minified.js "$FILE" || echo "* failed to minify $FILE"
+#   done
+# }
 
 main
