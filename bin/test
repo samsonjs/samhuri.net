@@ -8,6 +8,7 @@ cp .build/x86_64-apple-macosx/debug/SiteGenerator ../bin/sitegen
 popd >/dev/null
 
 for site in Tests/test-*; do
+  rm -rf "$site/actual"
   bin/compile "$site/in" "$site/actual" # >/dev/null
   diff -ru "$site/expected" "$site/actual"
   rm -r "$site/actual"
