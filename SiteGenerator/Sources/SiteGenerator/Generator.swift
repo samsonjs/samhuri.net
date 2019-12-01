@@ -45,7 +45,7 @@ public final class Generator {
             fileManager.fileExists(atPath: fileURL.path, isDirectory: &isDir)
             guard !isDir.boolValue else {
                 try renderPath(fileURL.path, to: targetURL.appendingPathComponent(filename))
-                return
+                continue
             }
 
             // Make sure this path exists so we can write to it.
