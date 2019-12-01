@@ -19,9 +19,9 @@ Execution, trying TDD for the first time:
 
     - [x] Write a test harness that renders a site and then checks the output with `diff -r`
 
-    - [ ] Port _layout.ejs to Swift code
+    - [x] Write a site generator that renders www/index.html from site.json
 
-    - [ ] Write a site generator that renders www/index.html from site.json
+    - [ ] Port _layout.ejs to Swift code
 
     - [ ] Add support for CSS files
 

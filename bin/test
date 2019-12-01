@@ -2,8 +2,13 @@
 
 set -e
 
+pushd "SiteGenerator" >/dev/null
+swift build
+cp .build/x86_64-apple-macosx/debug/SiteGenerator ../bin/sitegen
+popd >/dev/null
+
 for site in Tests/test-*; do
-  bin/compile "$site/in" "$site/actual" >/dev/null
-  diff -r "$site/expected" "$site/actual"
+  bin/compile "$site/in" "$site/actual" # >/dev/null
+  diff -ru "$site/expected" "$site/actual"
   rm -r "$site/actual"
 done

@@ -12,4 +12,8 @@ publish_beta: compile
 	@echo
 	./bin/publish --beta --delete
 
-.PHONY: compile publish publish_beta
+test:
+	@echo
+	./bin/test
+
+.PHONY: compile publish publish_beta test

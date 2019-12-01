@@ -8,9 +8,8 @@ SOURCE_DIR="$1"
 TARGET_DIR="$2"
 
 function main() {
-  echo "* copy files from $SOURCE_DIR to $TARGET_DIR"
-  mkdir -p "$TARGET_DIR"
-  cp -rp "$SOURCE_DIR"/* "$TARGET_DIR"
+  echo "* generate site from $SOURCE_DIR into $TARGET_DIR"
+  "$THIS_DIR/sitegen" "$SOURCE_DIR" "$TARGET_DIR"
 
   # echo "* compile rss feed"
   # compile_feeds
