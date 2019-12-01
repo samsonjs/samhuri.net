@@ -8,8 +8,9 @@ The idea is to create a bespoke set of tools, not a general thing like Jekyll. I
 
 This is a plan for migrating from a mix of node.js (harp) and Ruby to Swift. Use Ink, John Sundell's Markdown parser, to render posts, and some other library for generating HTML. Will probably try generating HTML from code because I've never tried it and it seems fun. The pointfree.com guys have one already and Sundell is releasing one Real Soon(tm).
 
-This version will go back to its roots and use headers at the top of markdown files. It was so much easier than indexing everything. Check out [9af9d75][] to see how nice it was back in the day. Perhaps it would even make sense to port that old version to Swift rather than working with the current version. Migrate the last few years' worth of posts over by hand since there isn't a lot there.
+This version will go back to its roots and use headers at the top of markdown files. It was so much easier than indexing everything. Check out [the old repo][old repo] to see how nice it was back in the day. The code that renders it was separate and is available at [9af9d75][].
 
+[old repo]: https://github.com/samsonjs/blog
 [9af9d75]: https://github.com/samsonjs/samhuri.net/tree/9af9d75565133104beb54f1bfdd3d4efe3e16982
 
 Execution, trying TDD for the first time:
@@ -18,25 +19,27 @@ Execution, trying TDD for the first time:
 
     - [ ] Write a test harness that renders a site and then checks the output with `diff -r`
 
-    - [ ] Copy source files to their destination without transformations
+    - [ ] Port _layout.ejs to Swift code
 
-    - [ ] Transform files as needed:
+    - [ ] Write a site generator that renders www/index.html from site.json
 
-        - [ ] LESS -> CSS
+    - [ ] Add support for CSS files
 
-        - [ ] ? -> HTML
+    - [ ] Transform LESS into CSS
 
-            - [ ] \(decide if ? is code or templates (maybe Stencils?))
+    - [ ] Add support for JS files
 
-            - [ ] Port .ejs templates to the new thing
+    - [ ] Migrate projects to the new site generator
+
+    - [ ] Migrate posts to markdown with headers somehow
+
+        - [ ] Define the new format, probably with a folder for each year of posts since I don't write very much
+
+        - [ ] Decide whether to migrate from [9af9d75][] or the current harp format (probably easier to migrate the new format because posts may have been updated since then)
+
+        - [ ] Migrate posts
 
 - [ ] Add a link to the code for samhuri.net somewhere ... so meta (about page?)
-
-- [ ] Migrate posts to markdown with headers somehow
-
-    - [ ] Decide whether to migrate from [9af9d75][] or the current harp format (probably easier to migrate the old format)
-
-    - [ ] Migrate posts
 
 - [ ] Generate RSS feed (ditch mustache templates)
 
