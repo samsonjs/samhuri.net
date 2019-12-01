@@ -22,7 +22,7 @@ end
 def main
   dir = ARGV.shift.to_s
   unless File.directory? dir
-    puts 'usage: feeds.rb <dir>'
+    puts 'usage: feeds <dir>'
     exit 1
   end
   b = Blag.new dir

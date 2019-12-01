@@ -2,14 +2,14 @@ all: compile
 
 compile:
 	@echo
-	./bin/compile.sh .
+	./bin/compile .
 
 publish: compile
 	@echo
-	./bin/publish.sh --delete
+	./bin/publish --delete
 
 publish_beta: compile
 	@echo
-	./bin/publish.sh --beta --delete
+	./bin/publish --beta --delete
 
 .PHONY: compile publish publish_beta
