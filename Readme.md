@@ -17,7 +17,7 @@ Execution, trying TDD for the first time:
 
 - [ ] Replace harp with custom Swift code
 
-    - [ ] Write a test harness that renders a site and then checks the output with `diff -r`
+    - [x] Write a test harness that renders a site and then checks the output with `diff -r`
 
     - [ ] Port _layout.ejs to Swift code
 

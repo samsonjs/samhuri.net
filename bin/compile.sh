@@ -3,41 +3,42 @@
 # bail on errors
 set -e
 
-# export PATH="$HOME/.rbenv/shims:$PATH"
-
-DIR=$(dirname "$0")
-# HARP="node_modules/harp/bin/harp"
-BLOG_DIR="${1:-${DIR}/..}"
-TARGET="${BLOG_DIR%/}/${2:-www}"
+THIS_DIR=$(dirname "$0")
+SOURCE_DIR="$1"
+TARGET_DIR="$2"
 
 function main() {
-  echo "* compile rss feed"
+  echo "* copy files from $SOURCE_DIR to $TARGET_DIR"
+  mkdir -p "$TARGET_DIR"
+  cp -rp "$SOURCE_DIR"/* "$TARGET_DIR"
+
+  # echo "* compile rss feed"
   # compile_feeds
 
-  # echo "* harp compile $BLOG_DIR $TARGET"
-  # rm -rf "$TARGET/*" "$TARGET/.*"
-  # "$HARP" compile "$BLOG_DIR" "$TARGET"
+  # echo "* harp compile $SOURCE_DIR $TARGET_DIR"
+  # rm -rf "$TARGET_DIR/*" "$TARGET_DIR/.*"
+  # "$HARP" compile "$SOURCE_DIR" "$TARGET_DIR"
 
   # clean up temporary feeds
-  # rm $BLOG_DIR/public/feed.xml
-  # rm $BLOG_DIR/public/feed.json
+  # rm $SOURCE_DIR/public/feed.xml
+  # rm $SOURCE_DIR/public/feed.json
 
-  echo "* munge html files to make them available without an extension"
+  # echo "* munge html files to make them available without an extension"
   # munge_html
 
-  echo "* inline CSS"
-  # ruby -w $DIR/inline-css.rb "$TARGET"
+  # echo "* inline CSS"
+  # ruby -w $THIS_DIR/inline-css.rb "$TARGET_DIR"
 
-  echo "* minify js"
+  # echo "* minify js"
   # minify_js
 }
 
 function compile_feeds() {
-  ruby -w $DIR/feeds.rb $BLOG_DIR/public
+  ruby -w $THIS_DIR/feeds.rb $SOURCE_DIR/public
 }
 
 function munge_html() {
-  for FILE in "$TARGET"/*.html "$TARGET"/posts/*/*/*.html "$TARGET"/posts/drafts/*.html "$TARGET"/projects/*.html; do
+  for FILE in "$TARGET_DIR"/*.html "$TARGET_DIR"/posts/*/*/*.html "$TARGET_DIR"/posts/drafts/*.html "$TARGET_DIR"/projects/*.html; do
     FILENAME="${FILE##*/}"
     case "$FILENAME" in
     index.html)
@@ -56,8 +57,8 @@ function munge_html() {
 }
 
 # function minify_js() {
-#   for FILE in "$TARGET"/js/*.js; do
-#     $DIR/minify-js.sh "$FILE" > /tmp/minified.js && mv /tmp/minified.js "$FILE" || echo "* failed to minify $FILE"
+#   for FILE in "$TARGET_DIR"/js/*.js; do
+#     $THIS_DIR/minify-js.sh "$FILE" > /tmp/minified.js && mv /tmp/minified.js "$FILE" || echo "* failed to minify $FILE"
 #   done
 # }
 
