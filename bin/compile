@@ -8,6 +8,8 @@ SOURCE_DIR="$1"
 TARGET_DIR="$2"
 
 function main() {
+  rm -rf "$TARGET_DIR"
+
   echo "* generate site from $SOURCE_DIR into $TARGET_DIR"
   "$THIS_DIR/sitegen" "$SOURCE_DIR" "$TARGET_DIR"
 
