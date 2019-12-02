@@ -1,0 +1,14 @@
+{% extends "samhuri.net.html" %}
+{% block body %}
+<article class="container">
+  <header>
+    <h2><a href="{{ post.link }}">&rarr; {{ post.title }}</a></h2>
+    <time>{{ post.date }}</time>
+    <a class="permalink" href="{{ post.url }}">&infin;</a>
+  </header>
+  {{ post.body }}
+</article>
+<div class="row clearfix">
+  <p class="fin clearfix"><i class="fa fa-code"></i></p>
+</div>
+{% endblock %}

@@ -1,3 +1,5 @@
+{% extends "samhuri.net.html" %}
+{% block body %}
 <div class="container">
 <% var posts = public._data.posts -%>
 <% for (var i in posts) { -%>
@@ -33,3 +35,4 @@
 
 <% } -%>
 </div>
+{% endblock %}
