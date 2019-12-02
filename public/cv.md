@@ -1,3 +1,7 @@
+---
+Title: Curriculum vitae
+---
+
 ### Work History
 
 **[1 Second Everyday](https://1se.co)**<br>
@@ -58,7 +62,7 @@ October 2009 – March 2010
 
 Developed mobile apps for iPhone, Android, and webOS.
 
-Lots of automation, scraping, and glue code using Ruby, Python, and shell scripts.  
+Lots of automation, scraping, and glue code using Ruby, Python, and shell scripts.
 
 **[Guru Logic](https://gurulogic.ca)**<br>
 _Web Developer_<br>
