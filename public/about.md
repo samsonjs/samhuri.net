@@ -3,10 +3,7 @@ Title: About me
 Template: article
 ---
 
-I'm Sami Samhuri, a software developer and general technology geek. Sometimes
-I write my thoughts and post my projects here. I moved to [Victoria, BC][vic]
-in 2003 to study computer science at the [University of Victoria][uvic], and
-then dropped out a couple of years later.
+I'm Sami Samhuri, a software developer and general technology geek. Sometimes I write my thoughts and post my projects here. I moved to [Victoria, BC][vic] in 2003 to study computer science at the [University of Victoria][uvic], and then dropped out a couple of years later.
 
 [vic]: http://en.wikipedia.org/wiki/Victoria,_British_Columbia
 [uvic]: http://uvic.ca
@@ -14,30 +11,9 @@ then dropped out a couple of years later.
 
 ## What I do
 
-I make iOS apps, and I make web apps from front to back mainly with Ruby and
-JavaScript. Sometimes I do some Android work. I dabble with lots of other technologies
-for fun and profit and have been known to do some ops and devops. I've been using
-Linux for over 15 years, and have spent a bit of time with
-FreeBSD and OpenBSD along the way.
+I make iOS apps, and I make web apps from front to back mainly with Ruby and JavaScript. Sometimes I do some Android work. I dabble with lots of other technologies for fun and profit and have been known to do some ops and devops. I've been using Linux for over 15 years, and have spent a bit of time with FreeBSD and OpenBSD along the way.
 
-My public work includes [some open-source projects][proj], and there are even
-more on [GitHub][] but you'll have to wade through ones that I've forked from
-others. At some point or other I've written: [C][], [Objective-C][objc],
-[Swift][], [Java][], Python, [Ruby][], [bash and zsh][sh], [Haskell][], [Lisp][],
-Scheme, PHP, [Objective-J][objj], [Motorola 6800][m6800] assembly, and of course the language everyone loves to hate, the ever
-[maligned][pusher]
-[yet][repl-edit]
-[omnipresent][format]
-[JavaScript][strftime]
-([which][nw]
-[I][kwikemon]
-[kind][deferred]
-[of][gitter]
-[like][batteries]
-[most][deferredviz]
-[of][elisp]
-[the][mojoext]
-[time][node]).
+My public work includes [some open-source projects][proj], and there are even more on [GitHub][] but you'll have to wade through ones that I've forked from others. At some point or other I've written: [C][], [Objective-C][objc], [Swift][], [Java][], Python, [Ruby][], [bash and zsh][sh], [Haskell][], [Lisp][], Scheme, PHP, [Objective-J][objj], [Motorola 6800][m6800] assembly, and of course the language everyone loves to hate, the ever [maligned][pusher] [yet][repl-edit] [omnipresent][format] [JavaScript][strftime] ([which][nw] [I][kwikemon] [kind][deferred] [of][gitter] [like][batteries] [most][deferredviz] [of][elisp] [the][mojoext] [time][node]).
 
 [proj]: /projects
 [GitHub]: https://github.com/samsonjs
@@ -85,15 +61,11 @@ Have a look at my [work history](/cv).
 
 ## So meta
 
-This site is lovingly hand-crafted, tag by tag, and pixel by pixel. It adheres to
-and embraces modern web standards. It is authored in HTML, CSS, and JavaScript
-in conjunction with [Markdown][Markdown] and [LESS][], and then it's all
-compiled with [harp][] before [Apache][] serves it up. The header and body font,
-[Museo Sans][Museo], is provided by [TypeKit][].
+This site is lovingly hand-crafted, tag by tag, and pixel by pixel. It adheres to and embraces modern web standards. It is authored in HTML, CSS, and JavaScript in conjunction with [Markdown][Markdown] and [LESS][], and then it's all compiled with [some custom code][samhuri.net] before [Apache][] serves it up. The header and body font, [Museo Sans][Museo], is provided by [TypeKit][].
 
 [Markdown]: http://daringfireball.net/projects/markdown/
 [LESS]: http://lesscss.org
-[harp]: http://harpjs.com
+[samhuri.net]: https://github.com/samsonjs/samhuri.net
 [Apache]: http://apache.org
 [Museo]: http://www.exljbris.com/museosans.html
 [TypeKit]: https://typekit.com/fonts
