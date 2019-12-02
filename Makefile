@@ -2,7 +2,7 @@ all: compile
 
 compile:
 	@echo
-	./bin/compile .
+	./bin/compile . www
 
 publish: compile
 	@echo

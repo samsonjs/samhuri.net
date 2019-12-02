@@ -33,15 +33,15 @@ Execution, trying TDD for the first time:
 
     - [x] Transform LESS into CSS
 
-    - [ ] Migrate static pages to the new site generator
+    - [x] Migrate static pages to the new site generator
 
         - [x] About
 
-        - [ ] 404 / missing
+        - [x] 404 / missing (configure via .htaccess as well)
 
         - [x] cv
 
-        - [ ] check and delete _data.json
+        - [x] check and delete _data.json
 
     - [ ] Migrate projects to the new site generator
 
@@ -65,7 +65,7 @@ Execution, trying TDD for the first time:
 
         - [ ] Migrate archive
 
-- [ ] Add a link to the code for samhuri.net somewhere ... so meta (about page?)
+- [x] Add a link to the code for samhuri.net somewhere ... so meta (about page?)
 
 - [ ] Generate RSS feed (ditch mustache templates)
 
