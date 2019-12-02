@@ -35,11 +35,11 @@ Execution, trying TDD for the first time:
 
     - [ ] Migrate static pages to the new site generator
 
-        - [ ] About
+        - [x] About
 
         - [ ] 404 / missing
 
-        - [ ] cv
+        - [x] cv
 
         - [ ] check and delete _data.json
 

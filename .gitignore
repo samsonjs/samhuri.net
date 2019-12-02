@@ -1,3 +1,4 @@
 www
 tests/*/actual
 /bin/sitegen
+node_modules

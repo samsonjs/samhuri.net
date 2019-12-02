@@ -1,7 +1,7 @@
 HANDLED  {% if post.link %} -%>
     <article class="container">
       <header>
-        <h2><a href="<%= post.link %>">&rarr; <%= post.title %></a></h2>
+        <h1><a href="<%= post.link %>">&rarr; <%= post.title %></a></h1>
         <time><%= post.date %></time>
         <a class="permalink" href="<%= post.url %>">&infin;</a>
       </header>
@@ -13,7 +13,7 @@ HANDLED  {% if post.link %} -%>
 HANDLED  <% } else if (typeof date != 'undefined' && date !== null) { -%>
     <article class="container">
       <header>
-        <h2><a href="<%= url %>"><%= title %></a></h2>
+        <h1><a href="<%= url %>"><%= title %></a></h1>
         <time><%= date %></time>
       </header>
       <%- yield %>
@@ -23,7 +23,7 @@ HANDLED  <% } else if (typeof date != 'undefined' && date !== null) { -%>
     </div>
 WTF IS THIS?? MUST BE PROJECTS!  <% } else if (typeof title != 'undefined' && title !== null) { -%>
     <article class="container">
-      <h2><%= title %></h2>
+      <h1><%= title %></h1>
       <%- yield %>
     </article>
     <div class="row clearfix">
