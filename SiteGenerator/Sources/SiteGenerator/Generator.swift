@@ -53,25 +53,27 @@ public final class Generator {
             // Make sure this path exists so we can write to it.
             try fileManager.createDirectory(at: targetURL, withIntermediateDirectories: true, attributes: nil)
 
-            // Handle the file, transforming it if necessary.
-            let ext = filename.split(separator: ".").last!
-            switch ext {
+            // Processes the file, transforming it if necessary.
+            try renderOrCopyFile(url: fileURL, targetDir: targetURL)
+        }
+    }
 
-            case "less":
-                let cssURL = targetURL.appendingPathComponent(filename.replacingOccurrences(of: ".less", with: ".css"))
-                try renderLess(from: fileURL, to: cssURL)
+    func renderOrCopyFile(url fileURL: URL, targetDir: URL) throws {
+        let filename = fileURL.lastPathComponent
+        let ext = filename.split(separator: ".").last!
+        switch ext {
+        case "less":
+            let cssURL = targetDir.appendingPathComponent(filename.replacingOccurrences(of: ".less", with: ".css"))
+            try renderLess(from: fileURL, to: cssURL)
 
-            case "md":
-                let htmlURL = targetURL.appendingPathComponent(filename.replacingOccurrences(of: ".md", with: ".html"))
-                try renderMarkdown(from: fileURL, to: htmlURL)
+        case "md":
+            let htmlURL = targetDir.appendingPathComponent(filename.replacingOccurrences(of: ".md", with: ".html"))
+            try renderMarkdown(from: fileURL, to: htmlURL)
 
-            default:
-                // Who knows. Copy the file unchanged.
-                let src = URL(fileURLWithPath: path).appendingPathComponent(filename)
-                let dest = targetURL.appendingPathComponent(filename)
-                try fileManager.copyItem(at: src, to: dest)
-            }
-
+        default:
+            // Who knows. Copy the file unchanged.
+            let dest = targetDir.appendingPathComponent(filename)
+            try fileManager.copyItem(at: fileURL, to: dest)
         }
     }
 
