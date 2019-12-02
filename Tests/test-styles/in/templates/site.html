@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+<head>
+  <title>{{ site.title }}</title>
+{% for style in site.styles %}
+  <link rel="stylesheet" href="{{ style }}">
+{% endfor %}
+</head>
+<body>
+  <h1><a href="{{ site.url }}">{{ site.title }}</a></h1>
+  {{ body }}
+</body>
+</html>

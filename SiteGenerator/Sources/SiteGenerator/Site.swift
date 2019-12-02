@@ -12,6 +12,7 @@ public struct Site: Codable {
     public let email: String
     public let title: String
     public let url: String
+    public let styles: [String]?
 }
 
 public extension Site {

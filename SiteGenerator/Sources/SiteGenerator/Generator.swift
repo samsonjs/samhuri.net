@@ -16,8 +16,9 @@ public final class Generator {
     public let site: Site
     public let sourceURL: URL
 
-    private let renderer: Environment
+    private let lessParser: LessParser
     private let mdParser: MarkdownParser
+    private let templateRenderer: Environment
 
     public init(sourceURL: URL) throws {
         let siteURL = sourceURL.appendingPathComponent("site.json")
@@ -25,9 +26,10 @@ public final class Generator {
         self.sourceURL = sourceURL
 
         let templatesURL = sourceURL.appendingPathComponent("templates")
-        self.renderer = Environment(loader: FileSystemLoader(paths: [Path(templatesURL.path)]))
+        self.templateRenderer = Environment(loader: FileSystemLoader(paths: [Path(templatesURL.path)]))
 
-        self.mdParser = MarkdownParser(modifiers: [])
+        self.lessParser = LessParser()
+        self.mdParser = MarkdownParser()
     }
 
     public func generate(targetURL: URL) throws {
@@ -55,6 +57,10 @@ public final class Generator {
             let ext = filename.split(separator: ".").last!
             switch ext {
 
+            case "less":
+                let cssURL = targetURL.appendingPathComponent(filename.replacingOccurrences(of: ".less", with: ".css"))
+                try renderLess(from: fileURL, to: cssURL)
+
             case "md":
                 let htmlURL = targetURL.appendingPathComponent(filename.replacingOccurrences(of: ".md", with: ".html"))
                 try renderMarkdown(from: fileURL, to: htmlURL, template: "site", context: [:])
@@ -67,6 +73,12 @@ public final class Generator {
             }
 
         }
+    }
+
+    func renderLess(from sourceURL: URL, to targetURL: URL) throws {
+        let less = try String(contentsOf: sourceURL, encoding: .utf8)
+        let css = try lessParser.parse(less)
+        try css.write(to: targetURL, atomically: true, encoding: .utf8)
     }
 
     func renderMarkdown(
@@ -82,7 +94,7 @@ public final class Generator {
         context["site"] = site
         context["body"] = bodyHTML
         context.merge(bodyResult.metadata, uniquingKeysWith: { _, new in new })
-        let siteHTML = try renderer.renderTemplate(name: "\(template).html", context: context)
+        let siteHTML = try templateRenderer.renderTemplate(name: "\(template).html", context: context)
         try siteHTML.write(to: targetURL, atomically: true, encoding: .utf8)
     }
 }
