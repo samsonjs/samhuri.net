@@ -13,8 +13,8 @@ import Stencil
 public final class Generator {
     private let fileManager: FileManager = .default
 
-    public let site: Site
-    public let sourceURL: URL
+    let site: Site
+    let sourceURL: URL
 
     private let lessParser: LessParser
     private let mdParser: MarkdownParser
@@ -63,7 +63,7 @@ public final class Generator {
 
             case "md":
                 let htmlURL = targetURL.appendingPathComponent(filename.replacingOccurrences(of: ".md", with: ".html"))
-                try renderMarkdown(from: fileURL, to: htmlURL, template: "site", context: [:])
+                try renderMarkdown(from: fileURL, to: htmlURL)
 
             default:
                 // Who knows. Copy the file unchanged.
@@ -83,18 +83,52 @@ public final class Generator {
 
     func renderMarkdown(
         from sourceURL: URL,
-        to targetURL: URL,
-        template: String,
-        context: [String: Any]
+        to targetURL: URL
     ) throws {
         let bodyMarkdown = try String(contentsOf: sourceURL, encoding: .utf8)
-        let bodyResult = mdParser.parse(bodyMarkdown)
-        let bodyHTML = bodyResult.html.trimmingCharacters(in: .whitespacesAndNewlines)
-        var context = context
-        context["site"] = site
-        context["body"] = bodyHTML
-        context.merge(bodyResult.metadata, uniquingKeysWith: { _, new in new })
-        let siteHTML = try templateRenderer.renderTemplate(name: "\(template).html", context: context)
+        let bodyHTML = mdParser.html(from: bodyMarkdown).trimmingCharacters(in: .whitespacesAndNewlines)
+        let metadata = try markdownMetadata(from: sourceURL)
+        let context = templateContext(url: sourceURL, metadata: metadata, body: bodyHTML)
+        let siteHTML = try templateRenderer.renderTemplate(name: "\(context.template).html", context: context.dictionary)
         try siteHTML.write(to: targetURL, atomically: true, encoding: .utf8)
+    }
+
+    func markdownMetadata(from url: URL) throws -> [String: String] {
+        let md = try String(contentsOf: url, encoding: .utf8)
+        return mdParser.parse(md).metadata
+    }
+
+    func templateContext(url: URL, metadata: [String: String], body: String) -> TemplateContext {
+        let template = metadata["Template"]
+        let styles = metadata["Styles"]?.split(separator: ",").map { $0.trimmingCharacters(in: .whitespaces) }
+        let scripts = metadata["Scripts"]?.split(separator: ",").map { $0.trimmingCharacters(in: .whitespaces) }
+
+        #warning("FIXME: this is all fucked ... we need to handle index, archive, etc. differently, just make them built in pages and use a templates in templates/archive.html or something like that")
+
+        switch url.lastPathComponent {
+            /*
+        case "index.md":
+            #warning("TODO: fetch recentPosts")
+            let index = Index(template: template, styles: styles, scripts: scripts, recentPosts: [])
+            return .index(index)
+
+        case "archive.md":
+            let archive = Archive(title: "Archive", template: template, styles: styles, scripts: scripts)
+            return .archive(archive)
+        case "projects.md":
+*/
+
+        default:
+            let title = metadata["Title"]!
+            let page = DefaultPage(title: title, template: template, styles: styles ?? [], scripts: scripts ?? [])
+            return TemplateContext(site: site, pageType: .page(page))
+        }
+//        case projects(Projects)
+//        case project(Project)
+//        let title = (metadata["Title"] as? String) ?? ""
+//        case post(Post)
+//        let title = (metadata["Title"] as? String) ?? ""
+//        case page(DefaultPage)
+        let title = (metadata["Title"] as? String) ?? ""
     }
 }

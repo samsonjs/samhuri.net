@@ -21,13 +21,17 @@ Execution, trying TDD for the first time:
 
     - [x] Write a site generator that renders www/index.html from site.json
 
-    - [ ] Port _layout.ejs to Swift code
+    - [x] Add support for site styles
 
-    - [ ] Add support for CSS files
+    - [ ] Add support for page styles
 
-    - [ ] Transform LESS into CSS
+    - [x] Add support for site scripts
 
-    - [ ] Add support for JS files
+    - [ ] Add support for page scripts
+
+    - [x] Add support for CSS files
+
+    - [x] Transform LESS into CSS
 
     - [ ] Migrate projects to the new site generator
 

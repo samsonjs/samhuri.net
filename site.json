@@ -1,6 +1,10 @@
 {
   "title": "samhuri.net",
   "author": "Sami Samhuri",
-  "email": "sami@samhuri.net",
-  "url": "https://samhuri.net"
+  "url": "https://samhuri.net",
+  "styles": [
+    "/css/normalize.css",
+    "/css/style.css"
+  ],
+  "scripts": []
 }

@@ -17,6 +17,6 @@ func main(sourcePath: String, targetPath: String) throws {
 let sourcePath = CommandLine.arguments[1]
 let targetPath = CommandLine.arguments[2]
 
-// TODO: validate args
+#warning("TODO: validate args")
 
 try! main(sourcePath: sourcePath, targetPath: targetPath)

@@ -371,6 +371,8 @@ ul.archive {
 }
 
 body.projects:not(.index) .container {
+  /* FIXME: find out where this is used and do it differently ... this selector sucks */
+  body { background-color: red; }
   h2, h4 {
     text-align: center;
   }
