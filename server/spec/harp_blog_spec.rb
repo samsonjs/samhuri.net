@@ -129,7 +129,7 @@ RSpec.describe HarpBlog do
       first_post_path = File.join(TEST_BLOG_PATH, 'public/posts/2006/02/first-post.md')
       post = @blog.get_post('2006', '02', 'first-post')
       expect(post).to be_truthy
-      expect(post.author).to eq('Sami J. Samhuri')
+      expect(post.author).to eq('Sami Samhuri')
       expect(post.title).to eq('First Post!')
       expect(post.slug).to eq('first-post')
       expect(post.timestamp).to eq(1139368860)

@@ -1,7 +1,7 @@
 {
   "swift-optional-or": {
     "id": "swift-optional-or",
-    "author": "Sami J. Samhuri",
+    "author": "Sami Samhuri",
     "title": "A nil-coalescing alternative for Swift",
     "date": "6th October, 2017",
     "timestamp": 1507324813,
