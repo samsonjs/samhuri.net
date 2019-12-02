@@ -23,17 +23,31 @@ Execution, trying TDD for the first time:
 
     - [x] Add support for site styles
 
-    - [ ] Add support for page styles
+    - [x] Add support for page styles
 
     - [x] Add support for site scripts
 
-    - [ ] Add support for page scripts
+    - [x] Add support for page scripts
 
     - [x] Add support for CSS files
 
     - [x] Transform LESS into CSS
 
+    - [ ] Migrate static pages to the new site generator
+
+        - [ ] About
+
+        - [ ] 404 / missing
+
+        - [ ] cv
+
+        - [ ] check and delete _data.json
+
     - [ ] Migrate projects to the new site generator
+
+        - [ ] Migrate projects page
+
+        - [ ] Migrate project page
 
     - [ ] Migrate posts to markdown with headers somehow
 
@@ -42,6 +56,14 @@ Execution, trying TDD for the first time:
         - [ ] Decide whether to migrate from [9af9d75][] or the current harp format (probably easier to migrate the new format because posts may have been updated since then)
 
         - [ ] Migrate posts
+
+        - [ ] Migrate year indexes
+
+        - [ ] Migrate month indexes
+
+        - [ ] Migrate index / recent posts
+
+        - [ ] Migrate archive
 
 - [ ] Add a link to the code for samhuri.net somewhere ... so meta (about page?)
 

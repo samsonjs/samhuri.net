@@ -15,7 +15,7 @@
   <meta name="msapplication-config" content="/images/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
 
-{% for style in allStyles %}
+{% for style in styles %}
   <link rel="stylesheet" href="{{ style }}">
 {% endfor %}
 
@@ -88,7 +88,7 @@
   	})();
   </script>
 
-{% for script in allScripts %}
+{% for script in scripts %}
   <script defer src="{{ script }}"></script>
 {% endfor %}
 </body>
