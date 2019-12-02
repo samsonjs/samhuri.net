@@ -75,7 +75,7 @@ Execution, trying TDD for the first time:
 
 - [ ] Inline CSS?
 
-- [ ] Minify JS
+- [ ] Minify JS? Now that we're keeping node, why not ...
 
 - [ ] Add a server for local use and simple production setups
 
