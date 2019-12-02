@@ -60,6 +60,11 @@ public final class Generator {
 
     func renderOrCopyFile(url fileURL: URL, targetDir: URL) throws {
         let filename = fileURL.lastPathComponent
+        guard filename != ".DS_Store", filename != ".gitkeep" else {
+            print("Ignoring hidden file \(filename)")
+            return
+        }
+
         let ext = filename.split(separator: ".").last!
         switch ext {
         case "less":
