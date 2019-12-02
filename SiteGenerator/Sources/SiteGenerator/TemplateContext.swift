@@ -24,6 +24,10 @@ struct TemplateContext {
     var template: String {
         page.template ?? site.template
     }
+
+    var currentYear: Int {
+        Calendar.current.dateComponents([.year], from: Date()).year!
+    }
 }
 
 // MARK: - Dictionary form
@@ -38,6 +42,7 @@ extension TemplateContext {
             "body": body,
             "styles": site.styles + page.styles,
             "scripts": site.scripts + page.scripts,
+            "currentYear": currentYear,
         ]
     }
 }

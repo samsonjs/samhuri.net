@@ -1,5 +1,6 @@
 ---
 Title: About me
+Template: article
 ---
 
 I'm Sami Samhuri, a software developer and general technology geek. Sometimes
@@ -97,7 +98,6 @@ compiled with [harp][] before [Apache][] serves it up. The header and body font,
 [Museo]: http://www.exljbris.com/museosans.html
 [TypeKit]: https://typekit.com/fonts
 
-Oh, and a shout out to [Font Awesome][fa] for being awesome.
-<i class="fa fa-thumbs-up" style="color: #ccc"></i>
+Oh, and a shout out to [Font Awesome][fa] for being awesome. <i class="fa fa-thumbs-up" style="color: #ccc"></i>
 
 [fa]: http://fontawesome.io
