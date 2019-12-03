@@ -1,0 +1,16 @@
+{% extends "samhuri.net.html" %}
+{% block body %}
+<article class="container">
+  <h1>Projects</h1>
+
+{% for project in projects %}
+  <div class="project-listing">
+    <h4><a href="{{ project.path }}">{{ project.title }}</a></h4>
+    <p class="description">{{ project.description }}</p>
+  </div>
+{% endfor %}
+</article>
+<div class="row clearfix">
+  <p class="fin"><i class="fa fa-code"></i></p>
+</div>
+{% endblock %}

@@ -354,10 +354,13 @@ ul.archive {
 .project-listing {
   margin-bottom: 1rem;
 
-  h4, p {
-    margin: 0.5rem 0;
+  h4 {
+    margin: 0.5rem 0 1rem;
   }
 
+  p {
+    margin: 0.5rem 0 2rem;
+  }
 }
 
 .project-stats {
@@ -370,10 +373,8 @@ ul.archive {
 
 }
 
-body.projects:not(.index) .container {
-  /* FIXME: find out where this is used and do it differently ... this selector sucks */
-  body { background-color: red; }
-  h2, h4 {
+article.project {
+  h1, h4 {
     text-align: center;
   }
 }

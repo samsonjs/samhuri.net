@@ -1,12 +1,14 @@
 ;(function() {
 
-  if (SJS.projectName) {
-    SJS.ready(initProject)
+  if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', initProject, false)
+  } else if (window.attachEvent) {
+    window.attachEvent('onload', initProject)
   }
 
   function initProject() {
-
-    var data = createObjectStore(SJS.projectName)
+    var projectName = document.getElementById('project').dataset.title
+    var data = createObjectStore(projectName)
 
     function html(id, h) {
       document.getElementById(id).innerHTML = h
@@ -63,11 +65,10 @@
 
     var Months = 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split(' ')
 
-    var t = data.get('t-' + SJS.projectName)
+    var t = data.get('t-' + projectName)
     if (!t || +new Date() - t > 3600 * 1000) {
-      console.log('stale ' + String(t))
-      data.set('t-' + SJS.projectName, +new Date())
-      var repo = GITR.repo('samsonjs', SJS.projectName)
+      data.set('t-' + projectName, +new Date())
+      var repo = GITR.repo('samsonjs', projectName)
       repo
         .fetch(function(err, repo) {
           if (err) {
@@ -102,13 +103,13 @@
         })
     } else {
       try {
-        updateBranches(SJS.projectName, data.get('branches'))
+        updateBranches(projectName, data.get('branches'))
         updateLangs(data.get('langs'))
         updateContributors(data.get('contributors'))
         updateStars(data.get('stars').length)
         updateN('fork', data.get('forks').length)
       } catch (e) {
-        data.set('t-' + SJS.projectName, null)
+        data.set('t-' + projectName, null)
         initProject()
       }
     }

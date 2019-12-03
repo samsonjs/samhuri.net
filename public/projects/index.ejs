@@ -1,8 +1,0 @@
-<% for (var name in public.projects._data) { %>
-<%   var project = public.projects._data[name] %>
-<%   if (name == 'index' || name[0] == '_' || project.hidden) continue %>
-  <div class="project-listing">
-    <h4><a href="/projects/<%= name %>"><%= name %></a></h4>
-    <p class="description"><%= project.description %></p>
-  </div>
-<% } %>

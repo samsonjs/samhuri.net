@@ -43,13 +43,13 @@ Execution, trying TDD for the first time:
 
         - [x] check and delete _data.json
 
-    - [ ] Migrate projects to the new site generator
+    - [x] Migrate projects to the new site generator
 
-        - [ ] Migrate projects page
+        - [x] Migrate projects page
 
-        - [ ] Migrate project page
+        - [x] Migrate project page
 
-        - [ ] Check and delete _data.json
+        - [x] Check and delete _data.json
 
     - [ ] Migrate posts to markdown with headers somehow
 

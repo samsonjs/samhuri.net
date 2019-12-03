@@ -1,0 +1,60 @@
+{
+  "projects": [
+    {
+      "title": "bin",
+      "description": "my collection of scripts in ~/bin"
+    },
+    {
+      "title": "config",
+      "description": "important dot files (zsh, emacs, vim, screen)"
+    },
+    {
+      "title": "compiler",
+      "description": "a compiler targeting x86 in Ruby"
+    },
+    {
+      "title": "lake",
+      "description": "a simple implementation of Scheme in C"
+    },
+    {
+      "title": "strftime",
+      "description": "strftime for JavaScript"
+    },
+    {
+      "title": "format",
+      "description": "printf for JavaScript"
+    },
+    {
+      "title": "gitter",
+      "description": "a GitHub client for Node (v3 API)"
+    },
+    {
+      "title": "mojo.el",
+      "description": "turn emacs into a sweet mojo editor"
+    },
+    {
+      "title": "ThePusher",
+      "description": "Github post-receive hook router"
+    },
+    {
+      "title": "NorthWatcher",
+      "description": "cron for filesystem changes"
+    },
+    {
+      "title": "repl-edit",
+      "description": "edit Node repl commands with your text editor"
+    },
+    {
+      "title": "cheat.el",
+      "description": "cheat from emacs"
+    },
+    {
+      "title": "batteries",
+      "description": "a general purpose node library"
+    },
+    {
+      "title": "samhuri.net",
+      "description": "this site"
+    }
+  ]
+}
