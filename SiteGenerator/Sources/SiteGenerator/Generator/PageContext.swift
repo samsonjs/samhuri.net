@@ -1,17 +1,17 @@
 //
-//  TemplateContext.swift
-//  SiteGenerator
+//  File.swift
+//  
 //
-//  Created by Sami Samhuri on 2019-12-01.
+//  Created by Sami Samhuri on 2019-12-02.
 //
 
 import Foundation
 
-struct TemplateContext {
+struct PageContext {
     let site: Site
+    let body: String
     let page: Page
     let metadata: [String: String]
-    let body: String
 
     var title: String {
         guard !page.title.isEmpty else {
@@ -20,29 +20,23 @@ struct TemplateContext {
 
         return "\(site.title): \(page.title)"
     }
+}
 
+extension PageContext: TemplateContext {
     var template: String {
         page.template ?? site.template
     }
 
-    var currentYear: Int {
-        Calendar.current.dateComponents([.year], from: Date()).year!
-    }
-}
-
-// MARK: - Dictionary form
-
-extension TemplateContext {
     var dictionary: [String: Any] {
         [
             "site": site,
-            "page": page,
-            "metadata": metadata,
             "title": title,
             "body": body,
+            "page": page,
+            "metadata": metadata,
             "styles": site.styles + page.styles,
             "scripts": site.scripts + page.scripts,
-            "currentYear": currentYear,
+            "currentYear": Date.currentYear,
         ]
     }
 }

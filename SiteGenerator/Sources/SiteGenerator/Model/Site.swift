@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct Site {
-    let author: String
-    let title: String
-    let url: String
-    let template: String
-    let styles: [String]
-    let scripts: [String]
+public struct Site {
+    public let author: String
+    public let title: String
+    public let url: String
+    public let template: String
+    public let styles: [String]
+    public let scripts: [String]
 }
 
 extension Site {

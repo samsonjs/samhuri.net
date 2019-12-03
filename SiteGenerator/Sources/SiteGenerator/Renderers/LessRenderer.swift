@@ -1,15 +1,26 @@
 //
-//  LessParser.swift
+//  LessRenderer.swift
 //  SiteGenerator
 //
-//  Created by Sami Samhuri on 2019-12-01.
+//  Created by Sami Samhuri on 2019-12-02.
 //
 
 import Foundation
 
-/// Shells out to lessc on the command line.
-final class LessParser {
-    /// Parses Less and returns CSS.
+public final class LessRenderer: Renderer {
+    public func canRenderFile(named filename: String, withExtension ext: String) -> Bool {
+        ext == "less"
+    }
+
+    /// Parse Less and render it as CSS.
+    public func render(fileURL: URL, targetDir: URL, delegate: RendererDelegate) throws {
+        let filename = fileURL.lastPathComponent
+        let cssURL = targetDir.appendingPathComponent(filename.replacingOccurrences(of: ".less", with: ".css"))
+        let less = try String(contentsOf: fileURL, encoding: .utf8)
+        let css = try parse(less)
+        try css.write(to: cssURL, atomically: true, encoding: .utf8)
+    }
+
     func parse(_ less: String) throws -> String {
         let tempDir = URL(fileURLWithPath: NSTemporaryDirectory())
         defer {
@@ -24,7 +35,8 @@ final class LessParser {
         return try String(contentsOf: cssURL, encoding: .utf8)
     }
 
-    private let lesscPath = URL(fileURLWithPath: #file)
+    let lesscPath = URL(fileURLWithPath: #file)
+        .deletingLastPathComponent()
         .deletingLastPathComponent()
         .appendingPathComponent("node_modules")
         .appendingPathComponent("less")
@@ -33,7 +45,7 @@ final class LessParser {
         .path
 
     @discardableResult
-    private func shell(_ args: String...) -> Int32 {
+    func shell(_ args: String...) -> Int32 {
         let task = Process()
         task.launchPath = "/usr/bin/env"
         task.arguments = args

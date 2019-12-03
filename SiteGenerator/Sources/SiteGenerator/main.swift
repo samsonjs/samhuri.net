@@ -10,7 +10,11 @@ import Foundation
 func main(sourcePath: String, targetPath: String) throws {
     let sourceURL = URL(fileURLWithPath: sourcePath)
     let targetURL = URL(fileURLWithPath: targetPath)
-    let generator = try Generator(sourceURL: sourceURL)
+    let generator = try Generator(
+        sourceURL: sourceURL,
+        plugins: [ProjectsPlugin()],
+        renderers: [LessRenderer(), MarkdownRenderer()]
+    )
     try generator.generate(targetURL: targetURL)
 }
 
