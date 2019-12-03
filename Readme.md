@@ -49,6 +49,8 @@ Execution, trying TDD for the first time:
 
         - [ ] Migrate project page
 
+        - [ ] Check and delete _data.json
+
     - [ ] Migrate posts to markdown with headers somehow
 
         - [ ] Define the new format, probably with a folder for each year of posts since I don't write very much
@@ -65,18 +67,24 @@ Execution, trying TDD for the first time:
 
         - [ ] Migrate archive
 
+        - [ ] Check and delete _data.json filse
+
+    - [ ] Search for other _data.json files and eliminate any that are found
+
 - [x] Add a link to the code for samhuri.net somewhere ... so meta (about page?)
 
-- [ ] Generate RSS feed (ditch mustache templates)
+- [ ] Replace remaining Ruby with Swift
 
-- [ ] Generate JSON feed
+    - [ ] Generate RSS feed (ditch mustache templates)
 
-- [ ] Munge HTML files to make them available without an extension (index.html hack)
+    - [ ] Generate JSON feed
 
-- [ ] Inline CSS?
+    - [ ] Munge HTML files to make them available without an extension (index.html hack)
 
-- [ ] Minify JS? Now that we're keeping node, why not ...
+    - [ ] Inline CSS?
 
-- [ ] Add a server for local use and simple production setups
+    - [ ] Minify JS? Now that we're keeping node, why not ...
+
+- [ ] Add a server for local use and simple production setups (or use a file watcher + `python -m SimpleHTTPServer`?)
 
 - [ ] Figure out an iPad workflow with minimal code. Maybe a small app with some extensions and shortcuts?
