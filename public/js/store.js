@@ -20,9 +20,7 @@
           var val = localStorage[makeKey(key)]
           try {
               while (typeof val === 'string') val = JSON.parse(val)
-          } catch (e) {
-              //console.log('string?')
-          }
+          } catch (e) {}
           return val
         },
         set: function(key, val) {

@@ -223,11 +223,7 @@
     else {
       var self = this
       fetch(this.path, function(err, data) {
-        // console.log('FETCH', self.path, err, data)
-        if (err) {
-          // console.log(err)
-        }
-        else {
+        if (!err) {
           self.data = data
           mixin(self, data)
         }
@@ -246,11 +242,7 @@
     else {
       var self = this
       fetch(this.path + '/' + thing, function(err, data) {
-        // console.log('FETCH SUBRESOURCE', self.path, thing, err, data)
-        if (err) {
-          // console.log(self.path, err)
-        }
-        else {
+        if (!err) {
           self['_' + thing] = data
         }
         if (typeof cb === 'function') {

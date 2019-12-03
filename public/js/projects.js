@@ -101,7 +101,6 @@
           }
         })
     } else {
-      console.log('hit ' + t + ' (' + (+new Date() - t) + ')')
       try {
         updateBranches(SJS.projectName, data.get('branches'))
         updateLangs(data.get('langs'))
