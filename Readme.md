@@ -53,7 +53,7 @@ Execution, trying TDD for the first time:
 
     - [ ] Migrate posts to markdown with headers somehow
 
-        - [ ] Define the new format, probably with a folder for each year of posts since I don't write very much
+        - [ ] Define the new format
 
         - [ ] Decide whether to migrate from [9af9d75][] or the current harp format (probably easier to migrate the new format because posts may have been updated since then)
 
@@ -71,7 +71,7 @@ Execution, trying TDD for the first time:
 
     - [ ] Search for other _data.json files and eliminate any that are found
 
-- [x] Add a link to the code for samhuri.net somewhere ... so meta (about page?)
+- [ ] Consider using Swift for samhuri.net as well, and then making SiteGenerator a package that it uses ... then we can use Plot or pointfree.co's swift-html
 
 - [ ] Replace remaining Ruby with Swift
 
