@@ -8,6 +8,10 @@
 import Foundation
 
 public final class LessRenderer: Renderer {
+    enum Error: Swift.Error {
+        case invalidCSSData(Data)
+    }
+
     public func canRenderFile(named filename: String, withExtension ext: String) -> Bool {
         ext == "less"
     }
@@ -27,12 +31,17 @@ public final class LessRenderer: Renderer {
             _ = try? FileManager.default.removeItem(at: tempDir)
         }
 
-        let timestamp = Date().timeIntervalSince1970
-        let lessURL = tempDir.appendingPathComponent("LessParser-in-\(timestamp).less")
-        let cssURL = tempDir.appendingPathComponent("LessParser-out-\(timestamp).css")
-        try less.write(to: lessURL, atomically: true, encoding: .utf8)
-        shell(lesscPath, lessURL.path, cssURL.path)
-        return try String(contentsOf: cssURL, encoding: .utf8)
+        let lessIn = Pipe()
+        lessIn.fileHandleForWriting.write(Data(less.utf8))
+        try lessIn.fileHandleForWriting.close()
+        let cssOut = Pipe()
+        shell(lesscPath, "-", stdin: lessIn, stdout: cssOut)
+        let cssData = cssOut.fileHandleForReading.readDataToEndOfFile()
+        _ = try? cssOut.fileHandleForReading.close()
+        guard let css = String(data: cssData, encoding: .utf8) else {
+            throw Error.invalidCSSData(cssData)
+        }
+        return css
     }
 
     let lesscPath = URL(fileURLWithPath: #file)
@@ -45,10 +54,13 @@ public final class LessRenderer: Renderer {
         .path
 
     @discardableResult
-    func shell(_ args: String...) -> Int32 {
+    func shell(_ args: String..., stdin: Pipe? = nil, stdout: Pipe? = nil, stderr: Pipe? = nil) -> Int32 {
         let task = Process()
         task.launchPath = "/usr/bin/env"
         task.arguments = args
+        task.standardInput = stdin
+        task.standardOutput = stdout
+        task.standardError = stderr
         task.launch()
         task.waitUntilExit()
         return task.terminationStatus
