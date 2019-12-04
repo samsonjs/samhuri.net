@@ -38,7 +38,7 @@ final class ProjectsPlugin: Plugin {
         }
     }
 
-    func render(targetURL: URL, delegate: PluginDelegate) throws {
+    func render(targetURL: URL, templateRenderer: TemplateRenderer) throws {
         guard !projects.isEmpty else {
             return
         }
@@ -46,13 +46,13 @@ final class ProjectsPlugin: Plugin {
         let projectsDir = targetURL.appendingPathComponent(path)
         try fileManager.createDirectory(at: projectsDir, withIntermediateDirectories: true, attributes: nil)
         let projectsURL = projectsDir.appendingPathComponent("index.html")
-        let projectsHTML = try delegate.renderTemplate(name: "projects", context: ["projects": projects])
+        let projectsHTML = try templateRenderer.renderTemplate(name: "projects", context: ["projects": projects])
         try projectsHTML.write(to: projectsURL, atomically: true, encoding: .utf8)
 
         for project in projects {
             let filename = "\(project.title).html"
             let projectURL = projectsDir.appendingPathComponent(filename)
-            let projectHTML = try delegate.renderTemplate(name: "project", context: ["project": project])
+            let projectHTML = try templateRenderer.renderTemplate(name: "project", context: ["project": project])
             try projectHTML.write(to: projectURL, atomically: true, encoding: .utf8)
         }
     }

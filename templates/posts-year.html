@@ -1,0 +1,27 @@
+{% extends "samhuri.net.html" %}
+
+{% block body %}
+<div class="container">
+  <h2>{{ year }}</h2>
+
+  {% for month in months %}
+  <h3>
+    <a href="/{{ path }}/{{ year }}/{{ month.padded }}">{{ month.name }}</a>
+  </h3>
+
+  <ul class="archive">
+    {% for post in postsByMonth[month.number] %}
+    <li>
+      {% if post.isLink %}
+        <a href="{{ post.path }}">&rarr; {{ post.title }}</a>
+      {% else %}
+        <a href="{{ post.path }}">{{ post.title }}</a>
+      {% endif %}
+      <time>{{ post.date.day }} {{ month.abbreviatedName }}</time>
+    </li>
+    {% endfor %}
+  </ul>
+
+  {% endfor %}
+</div>
+{% endblock %}

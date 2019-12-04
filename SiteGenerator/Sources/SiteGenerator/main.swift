@@ -12,7 +12,7 @@ func main(sourcePath: String, targetPath: String) throws {
     let targetURL = URL(fileURLWithPath: targetPath)
     let generator = try Generator(
         sourceURL: sourceURL,
-        plugins: [ProjectsPlugin()],
+        plugins: [ProjectsPlugin(), PostsPlugin()],
         renderers: [LessRenderer(), MarkdownRenderer()]
     )
     try generator.generate(targetURL: targetURL)

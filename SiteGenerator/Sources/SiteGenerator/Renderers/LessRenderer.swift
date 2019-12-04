@@ -17,7 +17,7 @@ public final class LessRenderer: Renderer {
     }
 
     /// Parse Less and render it as CSS.
-    public func render(fileURL: URL, targetDir: URL, delegate: RendererDelegate) throws {
+    public func render(fileURL: URL, targetDir: URL, templateRenderer: TemplateRenderer) throws {
         let filename = fileURL.lastPathComponent
         let cssURL = targetDir.appendingPathComponent(filename.replacingOccurrences(of: ".less", with: ".css"))
         let less = try String(contentsOf: fileURL, encoding: .utf8)

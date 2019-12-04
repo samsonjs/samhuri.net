@@ -36,7 +36,7 @@ extension PageContext: TemplateContext {
             "metadata": metadata,
             "styles": site.styles + page.styles,
             "scripts": site.scripts + page.scripts,
-            "currentYear": Date.currentYear,
+            "currentYear": Date().year,
         ]
     }
 }

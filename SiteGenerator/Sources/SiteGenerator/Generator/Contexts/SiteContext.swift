@@ -24,7 +24,7 @@ extension SiteContext: TemplateContext {
             "title": site.title,
             "styles": site.styles,
             "scripts": site.scripts,
-            "currentYear": Date.currentYear,
+            "currentYear": Date().year,
         ]
     }
 }

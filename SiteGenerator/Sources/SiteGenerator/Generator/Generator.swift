@@ -6,13 +6,11 @@
 //
 
 import Foundation
-import PathKit
-import Stencil
 
-public final class Generator: PluginDelegate, RendererDelegate {
+public final class Generator {
     // Dependencies
     let fileManager: FileManager = .default
-    let templateRenderer: Environment
+    let templateRenderer: TemplateRenderer
 
     // Site properties
     let site: Site
@@ -21,13 +19,13 @@ public final class Generator: PluginDelegate, RendererDelegate {
     let renderers: [Renderer]
 
     public init(sourceURL: URL, plugins: [Plugin], renderers: [Renderer]) throws {
-        let templatesURL = sourceURL.appendingPathComponent("templates")
-        let templatesPath = Path(templatesURL.path)
-        let loader = FileSystemLoader(paths: [templatesPath])
-        self.templateRenderer = Environment(loader: loader)
-
         let siteURL = sourceURL.appendingPathComponent("site.json")
-        self.site = try Site.decode(from: siteURL)
+        let site = try Site.decode(from: siteURL)
+
+        let templatesURL = sourceURL.appendingPathComponent("templates")
+        self.templateRenderer = SiteTemplateRenderer(site: site, templatesURL: templatesURL)
+
+        self.site = site
         self.sourceURL = sourceURL
         self.plugins = plugins
         self.renderers = renderers
@@ -39,7 +37,7 @@ public final class Generator: PluginDelegate, RendererDelegate {
 
     public func generate(targetURL: URL) throws {
         for plugin in plugins {
-            try plugin.render(targetURL: targetURL, delegate: self)
+            try plugin.render(targetURL: targetURL, templateRenderer: templateRenderer)
         }
 
         let publicURL = sourceURL.appendingPathComponent("public")
@@ -77,7 +75,7 @@ public final class Generator: PluginDelegate, RendererDelegate {
         let ext = String(filename.split(separator: ".").last!)
         for renderer in renderers {
             if renderer.canRenderFile(named: filename, withExtension: ext) {
-                try renderer.render(fileURL: fileURL, targetDir: targetDir, delegate: self)
+                try renderer.render(fileURL: fileURL, targetDir: targetDir, templateRenderer: templateRenderer)
                 return
             }
         }
@@ -85,21 +83,5 @@ public final class Generator: PluginDelegate, RendererDelegate {
         // Not handled by any renderer. Copy the file unchanged.
         let dest = targetDir.appendingPathComponent(filename)
         try fileManager.copyItem(at: fileURL, to: dest)
-    }
-
-    // MARK: - PluginDelegate and RendererDelegate
-
-    public func renderPage(bodyHTML: String, metadata: [String: String]) throws -> String {
-        let page = Page(metadata: metadata)
-        let context = PageContext(site: site, body: bodyHTML, page: page, metadata: metadata)
-        let pageHTML = try templateRenderer.renderTemplate(name: "\(context.template).html", context: context.dictionary)
-        return pageHTML
-    }
-
-    public func renderTemplate(name: String?, context: [String: Any]) throws -> String {
-        let siteContext = SiteContext(site: site, template: name)
-        let contextDict = siteContext.dictionary.merging(context, uniquingKeysWith: { _, new in new })
-        print("Rendering \(siteContext.template) with context \(contextDict)")
-        return try templateRenderer.renderTemplate(name: "\(siteContext.template).html", context: contextDict)
     }
 }
