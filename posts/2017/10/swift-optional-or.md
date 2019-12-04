@@ -1,3 +1,13 @@
+---
+Slug: swift-optional-or
+Author: Sami Samhuri
+Title: A nil-coalescing alternative for Swift
+Date: 6th October, 2017
+Timestamp: 1507324813
+Path_deprecated: /posts/2017/10/swift-optional-or
+Tags: iOS, Swift
+---
+
 Swift compile times leave something to be desired and a common culprit is the affectionately-named [nil-coalescing operator][nilop]. A small extension to `Optional` can improve this without sacrificing a lot of readability.
 
 ```Swift
