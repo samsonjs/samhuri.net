@@ -73,6 +73,10 @@ Execution, trying TDD for the first time:
 
     - [x] Search for other _data.json and .ejs files and eliminate any that are found
 
+- [ ] Link years to year indexes in the posts archive
+
+- [ ] Fix missing days on post dates in the archive and year indexes
+
 - [ ] Find a way to add the site name to HTML titles rendered by plugins
 
 - [ ] Clean up the posts plugin
