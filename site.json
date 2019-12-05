@@ -2,7 +2,6 @@
   "title": "samhuri.net",
   "author": "Sami Samhuri",
   "url": "https://samhuri.net",
-  "template": "samhuri.net",
   "styles": [
     "/css/normalize.css",
     "/css/style.css"

@@ -1,6 +1,5 @@
 ---
 Title: Curriculum vitae
-Template: article
 ---
 
 ### Work History

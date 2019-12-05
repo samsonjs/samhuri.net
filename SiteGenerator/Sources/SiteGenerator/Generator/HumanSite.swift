@@ -22,7 +22,7 @@ extension Site {
         self.author = humanSite.author
         self.title = humanSite.title
         self.url = humanSite.url
-        self.template = humanSite.template ?? "site"
+        self.template = humanSite.template ?? "page"
         self.styles = humanSite.styles ?? []
         self.scripts = humanSite.scripts ?? []
     }

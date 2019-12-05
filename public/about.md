@@ -1,6 +1,5 @@
 ---
 Title: About me
-Template: article
 ---
 
 I'm Sami Samhuri, a software developer and general technology geek. Sometimes I write my thoughts and post my projects here. I moved to [Victoria, BC][vic] in 2003 to study computer science at the [University of Victoria][uvic], and then dropped out a couple of years later.
