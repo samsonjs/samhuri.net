@@ -3,11 +3,6 @@
 # exit on errors
 set -e
 
-bail() {
-    echo fail: $*
-    exit 1
-}
-
 PUBLISH_HOST="samhuri.net"
 PUBLISH_DIR="samhuri.net/public"
 ECHO=0
