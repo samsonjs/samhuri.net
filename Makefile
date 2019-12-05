@@ -1,6 +1,6 @@
-all: compile
+all: blog
 
-compile:
+blog:
 	@echo
 	./bin/compile . www
 
@@ -12,8 +12,12 @@ publish_beta: compile
 	@echo
 	./bin/publish --beta --delete
 
+sitegen:
+	@echo
+	./bin/build-sitegen
+
 test:
 	@echo
 	./bin/test
 
-.PHONY: compile publish publish_beta test
+.PHONY: blog publish publish_beta sitegen test

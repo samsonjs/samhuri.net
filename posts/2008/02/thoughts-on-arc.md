@@ -1,3 +1,11 @@
+---
+Title: Thoughts on Arc
+Author: Sami Samhuri
+Date: 19th February, 2008
+Timestamp: 1203420360
+Tags: lisp arc
+---
+
 *NB: This is just a braindump.  There's nothing profound or particularly insightful in this post.*
 
 You may have heard that <a href="http://www.paulgraham.com/">Paul Graham</a> recently released his pet dialect of Lisp: <a href="http://arclanguage.org/">Arc</a>.  It's a relatively small language consisting of just 4500 lines of code.  In just under <a href="http://arclanguage.com/install">1200 lines</a> of <a href="http://www.plt-scheme.org/">PLT Scheme</a> the core of Arc is defined.  The rest of the language is written in Arc itself.  The heart of that is a file arc.arc, weighing in at 1500 lines.  The remaining 1000-1300 lines are spread between libraries, mainly for writing web apps: html.arc, srv.arc, app.arc, and a few others.
@@ -33,3 +41,4 @@ The app I'm writing is standard CRUD stuff so I haven't done anything cool using
 ### Non-conclusion ###
 
 I feel as though I should have a conclusion, but I don't.  I've only been using Arc for a short time.  It feels nice.  I think Paul is doing a good job on the design by keeping it small, compact, and simple.  Seeing as it's still in its infancy it's just a toy for me, but a toy with some decent potential.  And hopefully an impact on other Lisps.  Common Lisp may have industrial implementations and a 1500 page spec, but Arc is more fun and hackable.  More so than Scheme, too.  I think Arc has out-Schemed Scheme.
+

@@ -1,3 +1,11 @@
+---
+Title: There's nothing regular about regular expressions
+Author: Sami Samhuri
+Date: 10th June, 2006
+Timestamp: 1149928080
+Tags: technology, book, regex
+---
+
 I'm almost half way reading Jeffrey Friedl's book <a href="http://www.oreilly.com/catalog/regex2/">Mastering Regular Expressions</a> and I have to say that for a book on something that could potentially bore you to tears, he really does an excellent job of keeping it interesting. Even though a lot of the examples are contrived (I'm sure out of necessity), he also uses real examples of regexes that he's actually used at <a href="http://www.yahoo.com/">Yahoo!</a>.
 
 As someone who has to know how everything works it's also an excellent lesson in patience, as he frequently says "here, take this knowledge and just accept it for now until I can explain why in the next chapter (or in 3 chapters!)". But it's all with good reason and when he does explain he does it well.
@@ -12,3 +20,4 @@ QOTD, p. 329, about matching nested pairs of parens:
     Wow, that's ugly.
 
 (Don't worry, there's a much better solution on the next 2 pages after that quote.)
+

@@ -1,3 +1,11 @@
+---
+Title: Recent Ruby and Rails Regales
+Author: Sami Samhuri
+Date: 28th June, 2007
+Timestamp: 1183058580
+Tags: rails, rails on rules, regular expressions, ruby, sake, secure associations, regex
+---
+
 Some cool Ruby and [the former on] Rails things are springing up and I haven't written much about the two Rs lately, though I work with them daily.
 
 ### Rails on Rules ###
@@ -17,3 +25,4 @@ I've noticed a trend among some <a href="http://www.railsenvy.com/2007/6/11/ruby
 <a href="http://t-a-w.blogspot.com/">taw</a> taught me a <a href="http://t-a-w.blogspot.com/2007/06/regular-expressions-and-strings-with.html">new technique for simplifying regular expressions</a> by transforming the text in a reversible manner.  In one example he replaced literal strings in SQL - which are easily parsed via a regex - with what he calls embedded objects.  They're just tokens to identify the temporarily removed strings, but the important thing is that they don't interfere with the regexes that operate on the other parts of the SQL, which would have been very difficult to get right with the strings inside it.  If I made it sound complicated just read the post, he explains it well.
 
 If you believe anything <a href="http://steve-yegge.blogspot.com/2007/06/rich-programmer-food.html">Steve Yegge</a> says then that last regex trick may come in handy for Q&#38;D parsing in any language, be it Ruby, NBL, or whataver.
+

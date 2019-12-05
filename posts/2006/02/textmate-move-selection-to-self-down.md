@@ -1,3 +1,11 @@
+---
+Title: TextMate: Move selection to self.down
+Author: Sami Samhuri
+Date: 21st February, 2006
+Timestamp: 1140510360
+Tags: textmate, rails, hacking, hack, macro, rails, textmate
+---
+
 <p><strong>UPDATE:</strong> <em>This is obsolete, see <a href="/posts/2006/02/textmate-insert-text-into-self-down">this post</a> for a better solution.</em></p>
 
 <p><a href="/posts/2006/02/some-textmate-snippets-for-rails-migrations.html#comment-3">Duane's comment</a> prompted me to think about how to get the <code>drop_table</code> and <code>remove_column</code> lines inserted in the right place. I don't think TextMate's snippets are built to do this sort of text manipulation. It would be nicer, but a quick hack will suffice for now.</p><p>Use <acronym title="Migration Create and Drop Table">MCDT</acronym> to insert:</p>
@@ -20,3 +28,4 @@
 
 
 <p>The caveat here is that if there is a <code>create_table</code> or <code>add_column</code> between <code>self.down</code> and the table you just added, it will jump back to the wrong spot. It's still faster than doing it all manually, but should be improved. If you use these exclusively, the order they occur in <code>self.down</code> will be opposite of that in <code>self.up</code>. That means either leaving things backwards or doing the re-ordering manually. =/</p>
+

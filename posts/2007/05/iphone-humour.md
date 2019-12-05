@@ -1,3 +1,11 @@
+---
+Title: iPhone Humour
+Author: Sami Samhuri
+Date: 18th May, 2007
+Timestamp: 1179513240
+Tags: apple, funny, iphone
+---
+
 Love it or hate it - even though it's not even out yet - the iPhone has spawned at least 2 good jokes.
 
 [The other iPhone lawsuit](http://www.geekculture.com/joyoftech/joyarchives/910.html) (GeekCulture.com)
@@ -5,3 +13,4 @@ Love it or hate it - even though it's not even out yet - the iPhone has spawned 
 [A comment on slashdot](http://apple.slashdot.org/comments.pl?sid=235163&cid=19174829):
 
 > "I'm waiting for the iPhone-shuffle, no display, just a button to call a random person on your contacts list."
+

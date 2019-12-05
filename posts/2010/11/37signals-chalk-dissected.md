@@ -1,3 +1,11 @@
+---
+Title: 37signals' Chalk Dissected
+Author: Sami Samhuri
+Date: 4th November, 2010
+Timestamp: 1288854000
+Tags: 37signals, chalk, ipad, javascript, web, html, css, zepto.js
+---
+
 <p><i>Update 2010-11-05: I dove into the JavaScript a little and explained most of it. Sam Stephenson <a href="https://twitter.com/sstephenson/status/553490682216449">tweeted</a> that Chalk is written in <a href="http://jashkenas.github.com/coffee-script/">CoffeeScript</a> and compiled on the fly when served using <a href="https://github.com/sstephenson/brochure">Brochure</a>. That's hot! (for those unaware Sam Stephenson works at 37signals, and is also the man behind <a href="http://www.prototypejs.org/">Prototype</a>.)</i></p>
 
 <p><a href="http://37signals.com/">37signals</a> recently released a blackboard web app for iPad called <a href="http://chalk.37signals.com/">Chalk</a>.</p>

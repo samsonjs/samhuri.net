@@ -1,3 +1,11 @@
+---
+Title: Intelligent Migration Snippets 0.1 for TextMate
+Author: Sami Samhuri
+Date: 22nd February, 2006
+Timestamp: 1140607680
+Tags: mac os x, textmate, rails, hacking, migrations, snippets
+---
+
 *This should be working now. I've tested it under a new user account here.*
 
 *This does requires the syncPeople bundle to be installed to work. That's ok, because you should get the [syncPeople on Rails bundle][syncPeople] anyways.*
@@ -35,3 +43,4 @@ Run **Quick Install.app** to install these commands to your <a [syncPeople on Ra
 This is specific to Rails migrations, but there are probably other uses for something like this. You are free to use and distribute this code.
 
 [syncPeople]: http://blog.inquirylabs.com/
+

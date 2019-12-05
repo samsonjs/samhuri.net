@@ -1,3 +1,11 @@
+---
+Title: Funny how code can be beautiful
+Author: Sami Samhuri
+Date: 30th April, 2007
+Timestamp: 1177942020
+Tags: haskell
+---
+
 While reading a <a href="http://www.haskell.org/tutorial/index.html">Haskell tutorial</a> I came across the following code for defining the <a href="http://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci numbers</a>:
 
     fib = 1 : 1 : [ a + b | (a, b) <- zip fib (tail fib) ]
@@ -16,3 +24,4 @@ Going deeper down the functional rabbit-hole you’ll find things like <a href="
  * <a href="http://web.cecs.pdx.edu/~antoy/Courses/TPFLP/lectures/MONADS/Noel/research/monads.html">What the hell are Monads?</a>
  * <a href="http://en.wikibooks.org/wiki/Programming:Haskell_monads">Monads on WikiBooks</a>
  * <a href="http://www.engr.mun.ca/~theo/Misc/haskell_and_monads.htm">Monads for the Working Haskell Programmer</a>
+

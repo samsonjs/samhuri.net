@@ -1,0 +1,83 @@
+#!/usr/bin/env ruby -w
+# encoding: utf-8
+
+require 'rubygems'
+require 'time'
+require 'bundler/setup'
+require 'builder'
+require 'json'
+require 'rdiscount'
+require 'mustache'
+
+class Hash
+  def compact
+    h = {}
+    each_pair do |k, v|
+      h[k] = v unless v.nil?
+    end
+    h
+  end
+end
+
+def main
+  dir = ARGV.shift.to_s
+  unless File.directory? dir
+    puts 'usage: harp2swift <dir>'
+    exit 1
+  end
+  b = Blag.new dir
+  b.migrate!
+end
+
+class Blag
+
+  def initialize dir
+    @dir = dir
+  end
+
+  def migrate!
+    migrate_posts
+  end
+
+  def migrate_posts
+    Dir[File.join(@dir, 'posts/*/*')].sort.map do |dir|
+      next unless File.directory?(dir) && dir =~ /\/\d\d$/
+      year, month = dir.split('/')[-2..-1]
+      data_json = File.read File.join(dir, '_data.json') rescue nil
+      next unless data_json
+      data = JSON.parse data_json
+      data.each do |slug, post|
+        post_path = File.join dir, "#{slug}.md"
+        plain_md = File.read post_path
+        if plain_md[0, 3] == '---'
+          puts ">>>> Skipping #{post_path} which already has metadata"
+          next
+        end
+        author = post['author'] && post['author'] != "" ? post['author'] : 'Sami Samhuri'
+        headers = {
+          'Title' => post['title'],
+          'Author' => author,
+          'Date' => post['date'],
+          'Timestamp' => post['timestamp'],
+          'Tags' => post['tags'].join(', '),
+        }
+        if post['link']
+          headers['Link'] = post['link']
+        end
+        header_string = headers.map { |name, value| "#{name}: #{value}" }.join("\n")
+        fancy_md = <<-EOT
+---
+#{header_string}
+---
+
+#{plain_md}
+        EOT
+        File.write post_path, fancy_md
+        puts ">>>> Migrated #{post_path}"
+      end
+    end
+  end # def migrate_posts
+
+end # class Blag
+
+main if $0 == __FILE__

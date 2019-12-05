@@ -1,3 +1,12 @@
+---
+Title: My kind of feature checklist
+Author: Sami Samhuri
+Date: 19th December, 2011
+Timestamp: 1324354805
+Tags: 
+Link: http://www.marco.org/2011/12/19/amazon-kindle-vs-ipad
+---
+
 The latest technology I've been learning is Palm's SDK for webOS,
 Mojo. My first impression is that it's a great platform and
 Palm could do a great job of 2.0 if they cut down on some of the

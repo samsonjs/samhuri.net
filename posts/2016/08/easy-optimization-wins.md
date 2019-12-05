@@ -1,3 +1,11 @@
+---
+Title: Easy Optimization Wins
+Author: Sami Samhuri
+Date: 10th August, 2016
+Timestamp: 1470850249
+Tags: ios, git
+---
+
 It's not hard to hide a whole lot of complexity behind a function call, so you have to be very aware of what the functions you are using actually do, and how long they take to do it.
 
 Here's some example code illustrating a big performance problem I found in a codebase I've inherited. We have a dictionary keyed by a string representing a date, e.g. "2016-08-10", and where the values are arrays of videos for that given date. Due to some unimportant product details videos can actually appear in more than one of the array values. The goal is to get an array of all videos, sorted by date, and with no duplicates. So we need to discard duplicates when building the sorted array.

@@ -1,3 +1,11 @@
+---
+Title: A Scheme parser in Haskell: Part 1
+Author: Sami Samhuri
+Date: 3rd May, 2007
+Timestamp: 1178178470
+Tags: coding, haskell
+---
+
 From <a href="http://halogen.note.amherst.edu/~jdtang/scheme_in_48/tutorial/firststeps.html">Write Yourself a Scheme in 48 hours</a>:
 
 <blockquote>
@@ -58,3 +66,4 @@ When I first read about Haskell I was overwhelmed by not knowing anything, and n
 I'm currently working on ex. 3.3.4, which is parsing <a href="http://www.schemers.org/Documents/Standards/R5RS/HTML/r5rs-Z-H-9.html#%_sec_6.3.5">R5RS compliant numbers</a> <em>(e.g. #o12345670, #xff, #d987)</em>. I'll probably write something about that once I figure it out, but in the meantime if you have any hints I'm all ears.
 
 *Update #1: I should do more proof-reading if I'm going to try and explain things. I made some changes in wording.*
+

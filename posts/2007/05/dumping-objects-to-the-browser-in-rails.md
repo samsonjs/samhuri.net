@@ -1,3 +1,11 @@
+---
+Title: Dumping Objects to the Browser in Rails
+Author: Sami Samhuri
+Date: 15th May, 2007
+Timestamp: 1179261480
+Tags: rails
+---
+
 Here's an easy way to solve a problem that may have nagged you as it did me. Simply using <code>foo.inspect</code> to dump out some object to the browser dumps one long string which is barely useful except for short strings and the like. The ideal output is already available using the <a href="http://www.ruby-doc.org/stdlib/libdoc/prettyprint/rdoc/index.html"><code>PrettyPrint</code></a> module so we just need to use it.
 
 
@@ -23,3 +31,4 @@ Alternatively you could do as the extensions folks do and actually define <code>
     <span class="ident">pps</span><span class="punct">.</span><span class="ident">string</span>
   <span class="keyword">end</span>
 <span class="keyword">end</span></code></pre></div>
+

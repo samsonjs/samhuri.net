@@ -1,3 +1,11 @@
+---
+Title: Tales of PRK Laser Eye Surgery
+Author: Sami Samhuri
+Date: 12th April, 2016
+Timestamp: 1460433173
+Tags: 
+---
+
 Today I scheduled PRK laser eye surgery on April 19th. Exciting but also kind of terrifying because the procedure sounds a bit horrific. Most accounts from people don't sound very bad though so the operation itself should be a breeze! I scoured the web for PRK recovery stories to get an idea of what I was in for and found some good quotes.
 
 ----
@@ -35,3 +43,4 @@ Unfortunately they also failed to get as good of a result as many others.
 > I found that the surgery was actually very entertaining! It’s kinda like your eyes are going through a car wash. After popping a Valium, you relax and just lay on your back while the surgeon does everything. Thanks to plenty of freezing drops, you can’t even tell when the surgeon touches your eye – you just watch it all unfold like a movie.
 
 [anson]: http://www.ansonkao.com/blog/2015/10/01/the-prk-recovery-experience/
+

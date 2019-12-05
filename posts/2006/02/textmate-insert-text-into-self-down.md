@@ -1,3 +1,11 @@
+---
+Title: TextMate: Insert text into self.down
+Author: Sami Samhuri
+Date: 21st February, 2006
+Timestamp: 1140562500
+Tags: textmate, rails, hacking, commands, macro, rails, snippets, textmate
+---
+
 <p><em><strong>UPDATE:</strong> I got everything working and it's all packaged up <a href="/posts/2006/02/intelligent-migration-snippets-0_1-for-textmate">here</a>. There's an installation script this time as well.</em></p>
 
 <p>Thanks to <a href="http://thread.gmane.org/gmane.editors.textmate.general/8520">a helpful thread</a> on the TextMate mailing list I have the beginning of a solution to insert text at 2 (or more) locations in a file.</p>
@@ -51,4 +59,5 @@ The macro I'm thinking of to invoke this is tab-triggered and will simply:
 	<li>Select to end of file (<code><strong>⇧⌘↓</strong></code>)</li>
 	<li>Run command "Put in self.down"</li>
 </ul>
+
 

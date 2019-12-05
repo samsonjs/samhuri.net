@@ -1,3 +1,12 @@
+---
+Title: SOPA lives - and MPAA calls protests an "abuse of power"
+Author: Sami Samhuri
+Date: 17th January, 2012
+Timestamp: 1326797200
+Tags: 
+Link: http://arstechnica.com/tech-policy/news/2012/01/sopa-livesand-mpaa-calls-protests-an-abuse-of-power.ars
+---
+
 > rather than coming to the table to find solutions to a problem that all
 now seem to agree is very real and damaging.
 
@@ -28,3 +37,4 @@ Their tactic of choice seems to be to loudly decry "Nuh-uh! Piracy
 *does* hurt us!" and then strong arming everyone worldwide while suing anyone and
 everyone. If times are so tough maybe they should cut some of their budgets
 for lawyers and lobbyists.
+

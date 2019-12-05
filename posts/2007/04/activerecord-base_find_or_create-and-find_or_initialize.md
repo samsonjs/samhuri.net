@@ -1,3 +1,11 @@
+---
+Title: ActiveRecord::Base.find_or_create and find_or_initialize
+Author: Sami Samhuri
+Date: 11th April, 2007
+Timestamp: 1176287040
+Tags: activerecord, coding, rails, ruby
+---
+
 I've extended ActiveRecord with `find_or_create(params)` and `find_or_initialize(params)`. Those are actually just wrappers around `find_or_do(action, params)` which does the heavy lifting.
 
 They work exactly as you'd expect them to work with possibly one gotcha. If you pass in an `id` attribute then it will just find that record directly. If it fails it will try and find the record using the other params as it would have done normally.
@@ -98,3 +106,4 @@ Enough chat, here's the self-explanatory code:
     <span class="r">end</span>
   <span class="r">end</span>
 <span class="r">end</span></code></pre>
+

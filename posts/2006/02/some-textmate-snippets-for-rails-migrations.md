@@ -1,3 +1,11 @@
+---
+Title: Some TextMate snippets for Rails Migrations
+Author: Sami Samhuri
+Date: 18th February, 2006
+Timestamp: 1140331680
+Tags: textmate, rails, hacking, rails, snippets, textmate
+---
+
 My arsenal of snippets and macros in TextMate is building as I read through the rails canon, <a href="http://www.pragmaticprogrammer.com/titles/rails/" title="Agile Web Development With Rails">Agile Web Development...</a> I'm only 150 pages in so I haven't had to add much so far because I started with the bundle found on the <a href="http://wiki.rubyonrails.org/rails/pages/TextMate">rails wiki</a>. The main ones so far are for migrations.
 
 Initially I wrote a snippet for adding a table and one for dropping a table, but I don't want to write it twice every time! If I'm adding a table in **up** then I probably want to drop it in **down**.
@@ -83,3 +91,4 @@ I'll be adding more snippets and macros. There should be a central place where t
     <p>P.S.  I tried several ways to get the combo-snippets to put the pieces inside the right functions but failed.  We'll see tomorrow if Allan (creator of TextMate) has any ideas.</p>
   </div>
 </div>
+

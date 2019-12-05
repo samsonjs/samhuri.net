@@ -34,7 +34,8 @@ final class PostsPlugin: Plugin {
                 do {
                     let markdown = try String(contentsOf: url)
                     let result = markdownParser.parse(markdown)
-                    return try Post(bodyMarkdown: result.html, metadata: result.metadata)
+                    let slug = url.deletingPathExtension().lastPathComponent
+                    return try Post(slug: slug, bodyMarkdown: result.html, metadata: result.metadata)
                 }
                 catch {
                     print("Cannot create post from markdown file \(url): \(error)")
@@ -94,7 +95,11 @@ final class PostsPlugin: Plugin {
 
                 let monthDir = yearDir.appendingPathComponent(month.padded)
                 try fileManager.createDirectory(at: monthDir, withIntermediateDirectories: true, attributes: nil)
-                let context: [String: Any] = ["posts": renderedPosts.map { $0.dictionary }]
+                #warning("FIXME: get the site name out of here somehow")
+                let context: [String: Any] = [
+                    "title": "samhuri.net: \(month.name) \(year)",
+                    "posts": renderedPosts.map { $0.dictionary },
+                ]
                 let monthHTML = try templateRenderer.renderTemplate(name: "posts-month", context: context)
                 let monthURL = monthDir.appendingPathComponent("index.html")
                 try monthHTML.write(to: monthURL, atomically: true, encoding: .utf8)
@@ -107,7 +112,9 @@ final class PostsPlugin: Plugin {
                 dict[month.padded] = renderedPosts.map { $0.dictionary }
             }
             let monthsPadded = months.map { $0.padded }
+            #warning("FIXME: get the site name out of here somehow")
             let context: [String: Any] = [
+                "title": "samhuri.net: \(year)",
                 "path": postsPath,
                 "year": year,
                 "months": monthsPadded,
@@ -132,7 +139,11 @@ final class PostsPlugin: Plugin {
         let postURL = monthDir.appendingPathComponent(filename)
         let bodyHTML = markdownParser.html(from: post.bodyMarkdown)
         let renderedPost = RenderedPost(post: post, body: bodyHTML)
-        let postHTML = try templateRenderer.renderTemplate(name: "post", context: ["post": renderedPost.dictionary])
+        #warning("FIXME: get the site name out of here somehow")
+        let postHTML = try templateRenderer.renderTemplate(name: "post", context: [
+            "title": "samhuri.net: \(renderedPost.post.title)",
+            "post": renderedPost.dictionary,
+        ])
         try postHTML.write(to: postURL, atomically: true, encoding: .utf8)
     }
 

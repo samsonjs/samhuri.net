@@ -46,13 +46,21 @@ final class ProjectsPlugin: Plugin {
         let projectsDir = targetURL.appendingPathComponent(path)
         try fileManager.createDirectory(at: projectsDir, withIntermediateDirectories: true, attributes: nil)
         let projectsURL = projectsDir.appendingPathComponent("index.html")
-        let projectsHTML = try templateRenderer.renderTemplate(name: "projects", context: ["projects": projects])
+        #warning("FIXME: get the site name out of here somehow")
+        let projectsHTML = try templateRenderer.renderTemplate(name: "projects", context: [
+            "title": "samhuri.net: Projects",
+            "projects": projects,
+        ])
         try projectsHTML.write(to: projectsURL, atomically: true, encoding: .utf8)
 
         for project in projects {
             let filename = "\(project.title).html"
             let projectURL = projectsDir.appendingPathComponent(filename)
-            let projectHTML = try templateRenderer.renderTemplate(name: "project", context: ["project": project])
+            #warning("FIXME: get the site name out of here somehow")
+            let projectHTML = try templateRenderer.renderTemplate(name: "project", context: [
+                "title": "samhuri.net: \(project.title)",
+                "project": project,
+            ])
             try projectHTML.write(to: projectURL, atomically: true, encoding: .utf8)
         }
     }

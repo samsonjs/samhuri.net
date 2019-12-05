@@ -1,3 +1,11 @@
+---
+Title: More Scheming with Haskell
+Author: Sami Samhuri
+Date: 14th June, 2007
+Timestamp: 1181783340
+Tags: coding, haskell, scheme
+---
+
 It's been a little while since I wrote about Haskell and the <a href="/posts/2007/05/a-scheme-parser-in-haskell-part-1">Scheme interpreter</a> I've been using to learn and play with both Haskell and Scheme. I finished the tutorial and got myself a working Scheme interpreter and indeed it has been fun to use it for trying out little things now and then. (Normally I would use Emacs or Dr. Scheme for that sort of thing.) There certainly are <a href="http://www.lshift.net/blog/2007/06/11/folds-and-continuation-passing-style">interesting things</a> to try floating around da intranet. And also things to read and learn from, such as <a href="http://cubiclemuses.com/cm/blog/tags/Misp">misp</a> (via <a href="http://moonbase.rydia.net/mental/blog/programming/misp-is-a-lisp">Moonbase</a>).
 
 *I'm going to describe two new features of my Scheme in this post. The second one is more interesting and was more fun to implement (cond).*
@@ -85,3 +93,4 @@ eval env (List (Atom "cond" : List (pred : conseq) : rest)) =
  * __Line 9:__ Anything other than <code>#f</code> is considered true and causes <code>conseq</code> to be evaluated and returned. Like <code>else</code>, <code>conseq</code> can be a sequence of expressions.
 
 So far my Scheme weighs in at 621 lines, 200 more than the tutorial's final code listing. Hopefully I'll keep adding things on my TODO list and it will grow a little bit more. Now that I have <code>cond</code> it will be more fun to expand my stdlib.scm as well.
+

@@ -1,3 +1,11 @@
+---
+Title: A Static URL Shortener Using .htaccess
+Author: Sami Samhuri
+Date: 10th December, 2011
+Timestamp: 1323584949
+Tags: s42.ca, url, shortener, samhuri.net, url shortener
+---
+
 This blog is statically generated. A few Ruby and Node.js scripts along with a Makefile and some duct tape hold it all together. All of [samhuri.net is on Github][GH] if you want to take a look. Most of it is quite minimal, sometimes to a fault. Little improvements are made here and there and the most recent one is a neat [.htaccess][htaccess-wiki] hack. I want to automatically announce new posts on Twitter so short URLs are in order.
 
 I try to strike a reasonable balance between writing everything for this site myself and using libraries. A quick look at a few short URL projects was enough to see they weren't what I was looking for. They were all database backed servers. Comments on this blog are served up dynamically but everything else is static and I try to avoid dynamic behaviour when possible. Comments are moving to a more static system sometime. Anyway I registered the domain [s42.ca][s42] and nabbed [an algorithm for creating the short codes from Jonathan Snook][snook] before diving into TextMate to implement my idea.
@@ -14,3 +22,4 @@ I think this is a pretty neat hack and have not seen this technique anywhere els
 [snook]: http://snook.ca/archives/php/url-shortener
 [RewriteRule]: http://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewriterule
 [scp]: http://en.wikipedia.org/wiki/Secure_copy
+

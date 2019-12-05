@@ -57,7 +57,7 @@ Execution, trying TDD for the first time:
 
         - [x] Decide whether to migrate from [9af9d75][] or the current harp format (probably easier to migrate the new format because posts may have been updated since then)
 
-        - [ ] Migrate posts
+        - [x] Migrate posts
 
         - [x] Migrate year indexes
 
@@ -65,7 +65,9 @@ Execution, trying TDD for the first time:
 
         - [ ] Migrate index / recent posts
 
-        - [ ] Migrate archive
+        - [ ] Migrate archive and put it at /posts/index.html, duh!
+
+        - [ ] 301 redirect /archive to /posts, and update the header link
 
         - [ ] Check and delete _data.json filse
 

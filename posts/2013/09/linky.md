@@ -1,3 +1,11 @@
+---
+Title: Linky
+Author: Sami Samhuri
+Date: 27th September, 2013
+Timestamp: 1380343742
+Tags: linky, north watcher, ruby, gmail, links, notifications
+---
+
 ## Send links from mobile devices to your computers.
 
 The last few months I've been annoyed by my workflow for sending links from my touch devices to my computers. For example if I come across a cool Mac app or an open source project I want to check out, or anything along those lines. Until now I have been mailing links to my work or home addresses, or saving links in Instapaper. The problem with both of those is the same: I have to remember to check something when I arrive at the correct machine. It sounds trivial but I have been annoyed by it nonetheless.
@@ -36,8 +44,8 @@ The filename field is defined as:
 
 And the content is:
 
-    {Subject}<br>
-    {BodyPlain}<br>
+    {Subject}<br/>
+    {BodyPlain}<br/>
 
 That means that when you email links, the subject should contain the title and the body should contain the link on the first line. It's ok if there's stuff after the body (like your signature), they will be ignored later.
 
@@ -72,3 +80,4 @@ You can get `terminal-notifier` with [homebrew](http://brew.sh) in a few seconds
 ## Cool story, bro
 
 It may not be exciting, but as someone who typically suffers from [NIH syndrome](http://en.wikipedia.org/wiki/Not_invented_here) and writes too much from scratch, I found it pretty rewarding to cobble something seemingly complicated together with a bunch of existing components. It didn't take very long and only involved about 10 lines of code. It's not exactly what I wanted but it's surprisingly close. Success!
+

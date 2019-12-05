@@ -1,3 +1,11 @@
+---
+Title: A preview of Mach-O file generation
+Author: Sami Samhuri
+Date: 20th January, 2010
+Timestamp: 1263974400
+Tags: ruby, mach-o, os x, compiler
+---
+
 This month I got back into an x86 compiler I started last May. It lives
 [on github](https://github.com/samsonjs/compiler).
 
@@ -17,3 +25,4 @@ asm/machofile.rb, a library for creating Mach-O files. Using it is quite
 straightforward, an example is in asm/binary.rb, in the #output method.
 
 Definitely time for bed now!
+

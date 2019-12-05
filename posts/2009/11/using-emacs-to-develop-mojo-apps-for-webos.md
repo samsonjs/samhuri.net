@@ -1,3 +1,11 @@
+---
+Title: Using Emacs to Develop Mojo Apps for WebOS
+Author: Sami Samhuri
+Date: 21st November, 2009
+Timestamp: 1258790400
+Tags: emacs, mojo, webos, lisp, javascript
+---
+
 The latest technology I've been learning is Palm's SDK for webOS,
 Mojo. My first impression is that it's a great platform and
 Palm could do a great job of 2.0 if they cut down on some of the
@@ -78,3 +86,4 @@ e.g. mojo-switch-to-view, mojo-switch-to-assistant, things like
 that.  Basically things I miss from the Rails package for Emacs.
 
 Happy hacking!
+

@@ -1,3 +1,11 @@
+---
+Title: A triple-booting, schizophrenic MacBook
+Author: Sami Samhuri
+Date: 4th April, 2007
+Timestamp: 1175754600
+Tags: linux, mac os x, windows
+---
+
 The steps are well documented so I won’t get into detail here but if you have a backup and can wipe your disk all you do is:
 
  * Install OS X to a single partition filling your disk (optionally use your existing OS X intall)
@@ -25,3 +33,4 @@ Oh yeah, I also have a Parallels VM for Windows 3.11. It boots in about second t
   * and/or going through a screwed up mode with a black & white scrambled screen for a seconds before getting to the houndstooth.
 
 Like I said the X.org boys are doing amazing work. Hopefully soon after the current eye-candy craze is over they’ll get to more important work that needs to be done.
+

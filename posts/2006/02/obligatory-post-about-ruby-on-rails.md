@@ -1,3 +1,11 @@
+---
+Title: Obligatory Post about Ruby on Rails
+Author: Sami Samhuri
+Date: 20th February, 2006
+Timestamp: 1140424260
+Tags: rails, coding, hacking, migration, rails, testing
+---
+
 <p><em>I'm a Rails newbie and eager to learn. I welcome any suggestions or criticism you have. You can direct them to <a href="mailto:sjs@uvic.ca">my inbox</a> or leave me a comment below.</em></p>
 
 <p>I finally set myself up with a blog. I mailed my dad the address and mentioned that it was running <a href="http://www.typosphere.org/">Typo</a>, which is written in <a href="http://www.rubyonrails.com/">Ruby on Rails</a>. The fact that it is written in Rails was a big factor in my decision. I am currently reading <a href="http://www.pragmaticprogrammer.com/titles/rails/">Agile Web Development With Rails</a> and it will be great to use Typo as a learning tool, since I will be modifying my blog anyways regardless of what language it's written in.</p>
@@ -204,4 +212,5 @@
 
 
 <p>I love how I've only been coding in Rails for a week or two and I can do so much already. It's natural, concise and takes care of the inane details. I love how I <em>know</em> that I don't even have to explain that migration example. It's plainly clear what it does to the database. It doesn't take long to get the basics down and once you do it goes <strong>fast</strong>.</p>
+
 

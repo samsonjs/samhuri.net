@@ -1,3 +1,11 @@
+---
+Title: Basics of the Mach-O file format
+Author: Sami Samhuri
+Date: 18th January, 2010
+Timestamp: 1263801600
+Tags: mach-o, os x, compiler
+---
+
 <p><i>This post is part of a series on generating basic x86 Mach-O files
 with Ruby.  The
 <a href="/posts/2010/01/working-with-c-style-structs-in-ruby">
@@ -156,3 +164,4 @@ name of \_\_TEXT, and some x86 machine code as the section data, you
 would almost have a useful Mach object file.)</i></p>
 
 <p>Until next time, happy hacking!</p>
+

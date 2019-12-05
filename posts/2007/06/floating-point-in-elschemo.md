@@ -1,3 +1,11 @@
+---
+Title: Floating point in ElSchemo
+Author: Sami Samhuri
+Date: 24th June, 2007
+Timestamp: 1182711180
+Tags: elschemo, haskell, scheme
+---
+
 ### Parsing floating point numbers ###
 
 The first task is extending the <code>LispVal</code> type to grok floats.
@@ -421,3 +429,4 @@ That was a bit of work but now ElSchemo supports floating point numbers, and if 
 
 
 Next time I'll go over some of the special forms I have added, including short-circuiting <code>and</code> and <code>or</code> forms and the full repetoire of <code>let</code>, <code>let*</code>, and <code>letrec</code>. Stay tuned!
+

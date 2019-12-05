@@ -1,3 +1,11 @@
+---
+Title: 5 ways to avoid looking like a jerk on the Internet
+Author: Sami Samhuri
+Date: 30th August, 2007
+Timestamp: 1188487500
+Tags: life, netiquette
+---
+
 Let me begin by stating that these are tips I have gathered by posting in many public forums on the Internet and I have learned most of these rules by making the mistakes myself.  I'm not trying to point fingers at anyone or act all holier-than-thou.  It's a cold, emotionless medium text is.  It can be difficult to accurately convey one's feelings when typing a quick reply somewhere.  <a href="http://www.penny-arcade.com/comic/2004/03/19">John Gabriel's theory</a> certainly plays a part as well, but I'll try and assume that you are generally a nice person.  I also assume that we are talking about a text medium (IRC, forums, Slashdot/Reddit/Digg).  None of that fancy voice or video conferencing stuff!
 
 Also, this is not a guide on how to really be an arrogant prick, but just not look like one when you engage in conversations on the Internet.  It's also not a guide on not being a jerk.  Should you lack basic manners you will have to learn them elsewhere.
@@ -25,3 +33,4 @@ Geeks often come across as know-it-alls.  While most geeks probably do think the
 I'm not saying that we should all stop discussing things we're not experts on, just that we should try harder to keep open minds about things and realize that others may have some insight we do not.  If in doubt, partake in civil discourse and try not to dismiss others without even asking them to back up their claims or ideas.
 
 Cue the comments pointing out how many of these rules I broke in this very post... :)
+

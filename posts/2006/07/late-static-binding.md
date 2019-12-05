@@ -1,3 +1,11 @@
+---
+Title: Late static binding
+Author: Sami Samhuri
+Date: 19th July, 2006
+Timestamp: 1153329780
+Tags: php, coding, coding, php
+---
+
 *Update: This has <a href="http://www.php.net/~derick/meeting-notes.html#late-static-binding-using-this-without-or-perhaps-with-a-different-name">been discussed</a> and will be uh, sort of fixed, in PHP6. You'll be able to use static::my_method() to get the real reference to self in class methods. Not optimal, but still a solution I guess.*
 
 As colder on ##php (freenode) told me today, class methods in PHP don't have what they call late static binding. What's that? It means that this code:
@@ -38,3 +46,4 @@ class Bar extends Foo
 I was told that they had a discussion about this on the internal PHP list, so at least they're thinking about this stuff. Too bad PHP5 doesn't have it. I guess I should just be glad I won't be maintaining this code.
 
 The resident PHP coder said "just make your code simpler", which is what I was trying to do by removing duplication. Too bad that plan sort of backfired. I guess odd things like this are where PHP starts to show that OO was tacked on as an after-thought.
+

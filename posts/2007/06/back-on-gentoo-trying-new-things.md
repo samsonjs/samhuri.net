@@ -1,3 +1,11 @@
+---
+Title: Back on Gentoo, trying new things
+Author: Sami Samhuri
+Date: 18th June, 2007
+Timestamp: 1182215100
+Tags: emacs, gentoo, linux, vim
+---
+
 I started using my Gentoo box for development again and there are a few things about Linux I didn't realize I had been missing.
 
 ### Shell completion is awesome out of the box ###
@@ -17,3 +25,4 @@ In the spirit of switching things up I'm going to forgo my usual routine of usin
 I'm just waiting for a bunch of crap to compile – because I use Gentoo – and soon I'll have a Gtk-enabled Emacs to work in.  If I can paste to and from Firefox then I'll be happy. I'll have to open this in vim or gedit to paste it into Firefox, funny!
 
 I'm also going to try replacing a couple of desktop apps with web alternatives. I'm starting with 2 no-brainers: mail and feeds with Gmail and Google Reader.  I never got into the Gmail craze and never really even used Gmail very much. After looking at the shortcuts I think I can get used to it.  Seeing j/k for up/down is always nice.  Thunderbird is ok but there isn't a mail client on Linux that I really like, except mutt.  That played a part in my Gmail choice.  I hadn't used G-Reader before either and it seems alright, but it'll be hard to beat NetNewsWire.
+

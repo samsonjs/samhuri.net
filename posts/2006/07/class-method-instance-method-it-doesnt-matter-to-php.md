@@ -1,3 +1,11 @@
+---
+Title: Class method? Instance method? It doesn't matter to PHP
+Author: Sami Samhuri
+Date: 21st July, 2006
+Timestamp: 1153493760
+Tags: php, coding
+---
+
 *Update: This has <a href="http://www.php.net/~derick/meeting-notes.html#method-calls">been discussed</a> for PHP6. A little late, but I guess better than never.*
 
 I made a mistake while I was coding, for shame! Anyway this particular mistake was that I invoked a class method on the wrong class. The funny part was that this method was an instance method in the class which I typed by mistake. In the error log I saw something like "Invalid use of $this in class function."
@@ -47,3 +55,4 @@ This is an instance method!
 </code></pre>
 
 What the fuck?! <a href="http://www.php.net/manual/en/language.oop5.static.php">http://www.php.net/manual/en/language.oop5.static.php</a> is lying to everyone.
+

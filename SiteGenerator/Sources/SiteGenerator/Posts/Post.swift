@@ -27,8 +27,8 @@ struct Post {
         let month = dateComponents.month!
         return "/" + [
             "posts",
-            "\(year)",
-            "\(month)",
+            String(format: "%02d", year),
+            String(format: "%02d", month),
             "\(slug)",
         ].joined(separator: "/")
     }
@@ -46,16 +46,16 @@ extension Post {
         case deficientMetadata(missingKeys: [String])
     }
 
-    init(bodyMarkdown: String, metadata: [String: String]) throws {
+    init(slug: String, bodyMarkdown: String, metadata: [String: String]) throws {
+        self.slug = slug
         self.bodyMarkdown = bodyMarkdown
 
-        let requiredKeys = ["Slug", "Title", "Author", "Date", "Timestamp", "Tags", "Path_deprecated"]
+        let requiredKeys = ["Title", "Author", "Date", "Timestamp"]
         let missingKeys = requiredKeys.filter { metadata[$0] == nil }
         guard missingKeys.isEmpty else {
             throw Error.deficientMetadata(missingKeys: missingKeys)
         }
 
-        slug = metadata["Slug"]!
         title = metadata["Title"]!
         author = metadata["Author"]!
         date = Date(timeIntervalSince1970: TimeInterval(metadata["Timestamp"]!)!)
@@ -66,10 +66,12 @@ extension Post {
         else {
             link = nil
         }
-        tags = metadata["Tags"]!.split(separator: ",").map { $0.trimmingCharacters(in: .whitespaces) }
-
-        let handWrittenPath = metadata["Path_deprecated"]!
-        assert(path == handWrittenPath, "FUCK: Generated path (\(path)) doesn't match the hand-written one \(handWrittenPath)")
+        if let string = metadata["Tags"] {
+            tags = string.split(separator: ",").map({ $0.trimmingCharacters(in: .whitespaces) })
+        }
+        else {
+            tags = []
+        }
     }
 }
 

@@ -1,3 +1,11 @@
+---
+Title: Cheat from Emacs
+Author: Sami Samhuri
+Date: 9th August, 2007
+Timestamp: 1186710960
+Tags: Emacs
+---
+
 *Update: I had inadvertently used <code>string-join</code>, a function provided by something in my ~/.emacs.d. The script has been updated to work with a vanilla Emacs (23, but should work with 22 as well).*
 
 *Update #2 [2007.08.10]: Editing cheats and diffs have been implemented.*
@@ -29,3 +37,4 @@ Here's the rundown:
 *(Added)* <del>I may add support for <code>--diff</code> and <code>--edit</code> in the future.</del>
 
 Please do send me your patches so everyone can benefit from them.
+

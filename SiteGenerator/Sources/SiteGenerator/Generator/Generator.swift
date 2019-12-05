@@ -18,6 +18,8 @@ public final class Generator {
     let plugins: [Plugin]
     let renderers: [Renderer]
 
+    let ignoredFilenames = [".DS_Store", ".gitkeep"]
+
     public init(sourceURL: URL, plugins: [Plugin], renderers: [Renderer]) throws {
         let siteURL = sourceURL.appendingPathComponent("site.json")
         let site = try Site.decode(from: siteURL)
@@ -47,6 +49,9 @@ public final class Generator {
     // Recursively copy or render every file in the given path.
     func renderPath(_ path: String, to targetURL: URL) throws {
         for filename in try fileManager.contentsOfDirectory(atPath: path) {
+            guard !ignoredFilenames.contains(filename) else {
+                continue
+            }
 
             // Recurse into subdirectories, updating the target directory as well.
             let fileURL = URL(fileURLWithPath: path).appendingPathComponent(filename)
@@ -60,18 +65,13 @@ public final class Generator {
             // Make sure this path exists so we can write to it.
             try fileManager.createDirectory(at: targetURL, withIntermediateDirectories: true, attributes: nil)
 
-            // Processes the file, transforming it if necessary.
+            // Process the file, transforming it if necessary.
             try renderOrCopyFile(url: fileURL, targetDir: targetURL)
         }
     }
 
     func renderOrCopyFile(url fileURL: URL, targetDir: URL) throws {
         let filename = fileURL.lastPathComponent
-        guard filename != ".DS_Store", filename != ".gitkeep" else {
-            print("Ignoring hidden file \(filename)")
-            return
-        }
-
         let ext = String(filename.split(separator: ".").last!)
         for renderer in renderers {
             if renderer.canRenderFile(named: filename, withExtension: ext) {

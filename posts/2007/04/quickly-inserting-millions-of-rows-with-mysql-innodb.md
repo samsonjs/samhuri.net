@@ -1,3 +1,11 @@
+---
+Title: Quickly inserting millions of rows with MySQL/InnoDB
+Author: Sami Samhuri
+Date: 26th April, 2007
+Timestamp: 1177596360
+Tags: linux, mysql
+---
+
 The absolute first thing you should do is check your MySQL configuration to make sure it’s sane for the system you’re using. I kept getting a ‘The table is too large’ error on my Gentoo box after inserting several million rows because the default config limits the InnoDB tablespace size to 128M. It was also tuned for a box with as little as 64M of RAM. That’s cool for a small VPS or your old Pentium in the corner collecting dust. For a modern server, workstation, or even notebook with gigs of RAM you’ll likely want to make some changes.
 
 ### Tweaking my.cnf ###
@@ -43,3 +51,4 @@ Now you should be able to insert dozens and indeed hundreds of millions of rows 
 The solution now is to execute <code>SET AUTOCOMMIT=0</code> before inserting the data, and then issuing a <code>COMMIT</code> when you’re done. With all that in place I’m inserting 14,000,000 rows into both MyISAM and InnoDB tables in 30 minutes. MyISAM is still ~ 2 min faster, but as I said earlier this is adequate for now. Prior to all this it took several <b>hours</b> to insert 14,000,000 rows so I am happy.
 
 Now you can enjoy the speed MyISAM is known for with your InnoDB tables. Consider the data integrity a bonus! ;-)
+

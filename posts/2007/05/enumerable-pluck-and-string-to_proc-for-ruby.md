@@ -1,3 +1,11 @@
+---
+Title: Enumurable#pluck and String#to_proc for Ruby
+Author: Sami Samhuri
+Date: 10th May, 2007
+Timestamp: 1178838840
+Tags: ruby, extensions
+---
+
 I wanted a method analogous to Prototype's <a href="http://prototypejs.org/api/enumerable/pluck">pluck</a>  and <a href="http://prototypejs.org/api/enumerable/invoke">invoke</a> in Rails for building lists for <a href="http://api.rubyonrails.org/classes/ActionView/Helpers/FormOptionsHelper.html#M000510">options_for_select</a>. Yes, I know about <a href="http://api.rubyonrails.org/classes/ActionView/Helpers/FormOptionsHelper.html#M000511">options_from_collection_for_select</a>.
 
 I wanted something more general that I can use anywhere - not just in Rails - so I wrote one. In a second I'll introduce <code>Enumerable#pluck</code>, but first we need some other methods to help implement it nicely.
@@ -116,3 +124,4 @@ I wrote another version without using the various <code>#to_proc</code> methods 
 It's just icing on the cake considering Ruby's convenient block syntax, but there it is. Do with it what you will. You can change or extend any of these to support drilling down into hashes quite easily too.
 
 *<strong>Update #1:</strong> Fixed a potential performance issue in <code>Enumerable#to_proc</code> by saving the results of <code>to_proc</code> in <code>@procs</code>.*
+

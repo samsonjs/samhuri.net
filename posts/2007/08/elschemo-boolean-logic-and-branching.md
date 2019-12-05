@@ -1,3 +1,11 @@
+---
+Title: ElSchemo: Boolean logic and branching
+Author: Sami Samhuri
+Date: 2nd August, 2007
+Timestamp: 1186073940
+Tags: elschemo, haskell, scheme
+---
+
 I've been developing a Scheme
 interpreter in Haskell called
 <a href="/posts/2007/06/floating-point-in-elschemo">ElSchemo</a>.
@@ -180,3 +188,4 @@ plan on posting the Haskell code and my stdlib.scm in their entirety
 sometime, and I could do that before or after I finish writing about
 the features I've developed beyond the tutorial.  Just let me know in
 the comments.*
+

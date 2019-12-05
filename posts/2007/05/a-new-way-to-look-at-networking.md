@@ -1,3 +1,11 @@
+---
+Title: A New Way to Look at Networking
+Author: Sami Samhuri
+Date: 5th May, 2007
+Timestamp: 1178406600
+Tags: technology, networking
+---
+
 <a href="http://en.wikipedia.org/wiki/Van_Jacobson">Van Jacobson</a> gave a <a href="https://www.youtube.com/watch?v=gqGEMQveoqg">Google Tech Talk</a> on some of his ideas of how a modern, global network could work more effectively, and with more trust in the data which changes many hands on its journey to its final destination.
 
 <p style="width:100%;text-align:center;">
@@ -9,3 +17,4 @@ The man is very smart and his ideas are fascinating. He has the experience and k
 He explains the problems that were faced while using the phone networks for data, and how they were solved by realizing that a new problem had risen and needed a new, different solution. He then goes to explain how the Internet has changed significantly from the time it started off in research centres, schools, and government offices into what it is today (lots of identical bytes being redundantly pushed to many consumers, where broadcast would be more appropriate and efficient).
 
 If you have some time I really suggest watching this talk. I would love to research some of the things he spoke about if I ever got the chance. I'm sure they'll be on my mind anyway and inevitably I'll end up playing around with layering crap onto IPV6 and what not. Deep down I love coding in C and I think developing a protocol would be pretty fun. I'd learn a lot in any case.
+

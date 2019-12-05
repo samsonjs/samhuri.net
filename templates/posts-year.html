@@ -1,13 +1,14 @@
 {% extends "samhuri.net.html" %}
 
 {% block body %}
+
 <div class="container">
-  <h2>{{ year }}</h2>
+  <h1>{{ title }}</h1>
 
 {% for month in months %}
-  <h3>
+  <h2>
     <a href="/{{ path }}/{{ year }}/{{ month }}">{{ monthNames[month] }}</a>
-  </h3>
+  </h2>
 
   <ul class="archive">
   {% for post in postsByMonth[month] %}

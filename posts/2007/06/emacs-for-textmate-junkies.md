@@ -1,3 +1,11 @@
+---
+Title: Emacs for TextMate junkies
+Author: Sami Samhuri
+Date: 23rd June, 2007
+Timestamp: 1182565020
+Tags: emacs, textmate
+---
+
 *Update #1: What I first posted will take out your < key by mistake (it's available via `C-q <`), it has since been revised to Do The Right Thing.*
 
 *Update #2: Thanks to an anonymouse[sic] commenter this code is a little cleaner.*
@@ -126,3 +134,4 @@ attributes are specified then they are only included in the opening tag."
 &darr; <a href="/f/wrap-region.el" alt="wrap-region.el">Download wrap-region.el</a>
 
 That more or less sums up why I like Emacs so much. I wanted that functionality so I implemented it (barely! It was basically done for me), debugged it by immediately evaluating sexps and then trying it out, and then once it worked I reloaded my config and used the wanted feature. That's just awesome, and shows one strength of open source.
+

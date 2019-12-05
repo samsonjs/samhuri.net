@@ -1,3 +1,11 @@
+---
+Title: Working with C-style structs in Ruby
+Author: Sami Samhuri
+Date: 17th January, 2010
+Timestamp: 1263715200
+Tags: ruby, cstruct, compiler
+---
+
 This is the beginning of a series on generating Mach-O object files in
 Ruby. We start small by introducing some Ruby tools that are useful when
 working with binary data. Subsequent articles will cover a subset of the
@@ -60,3 +68,4 @@ but I decided to just go with what I have already so I can get on with the
 more interesting and fun tasks.
 
 *Next in this series: [Basics of the Mach-O file format](/posts/2010/01/basics-of-the-mach-o-file-format)*
+

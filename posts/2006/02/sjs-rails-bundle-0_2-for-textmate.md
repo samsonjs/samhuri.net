@@ -1,3 +1,11 @@
+---
+Title: SJ's Rails Bundle 0.2 for TextMate
+Author: Sami Samhuri
+Date: 23rd February, 2006
+Timestamp: 1140743880
+Tags: textmate, rails, coding, bundle, macros, rails, snippets, textmate
+---
+
 Everything that you've seen posted on my blog is now available in one bundle. Snippets for Rails database migrations and assertions are all included in this bundle.
 
 There are 2 macros for class-end and def-end blocks, bound to <strong>⌃C</strong> and <strong>⌃D</strong> respectively. Type the class or method definition, except for <code>class</code> or <code>def</code>, and then type the keyboard shortcut and the rest is filled in for you.
@@ -21,3 +29,4 @@ Without further ado, here is the bundle:
 <p style="text-align: center;"><img src="/images/download.png" title="Download" alt="Download"> <a href="/f/SJRailsBundle-0.2.dmg">Download SJ's Rails Bundle 0.2</a></p>
 
 This is a work in progress, so any feedback you have is very helpful in making the next release better.
+

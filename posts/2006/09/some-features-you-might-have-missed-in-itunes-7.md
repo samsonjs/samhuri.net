@@ -1,14 +1,22 @@
-<img src="/images/menu.png" style="float: right; margin: 10px;" title="New menu" alt="New menu">
+---
+Title: Some features you might have missed in iTunes 7
+Author: Sami Samhuri
+Date: 22nd September, 2006
+Timestamp: 1158969540
+Tags: apple, apple, itunes
+---
 
 Besides the <a href="http://www.tuaw.com/2006/09/12/walkthrough-itunes-7s-big-new-features/">big changes</a> in <a href="http://www.apple.com/itunes">iTunes 7</a> there have been some minor changes that are still pretty useful.
 
+<p style="text-align: center"><img src="/images/menu.png" title="New menu" alt="New menu"></p>
+
 Here's a quick recap of a few major features:
 
- * <a href="http://sami.samhuri.net/files/coverflow.png">Coverflow</a> built in, new views to flip through album covers and video thumbnails
- * iTunes Music Store is now just the iTunes Store
- * New look, no more brushed metal
- * The menu on the left is more structured and easier to navigate (for me)
- * Games support
+ - <a href="http://sami.samhuri.net/files/coverflow.png">Coverflow</a> built in, new views to flip through album covers and video thumbnails
+ - iTunes Music Store is now just the iTunes Store
+ - New look, no more brushed metal
+ - The menu on the left is more structured and easier to navigate (for me)
+ - Games support
 
 And now some of the smaller gems are listed below.
 
@@ -41,3 +49,4 @@ For videos you can now set the Show, Season Number, Episode Number, and Episode 
 I want to be able to change more than one movie's type to Movie, Music Video, or TV Show at once. Manually doing it for more than one season of a show gets old very fast, and I'm reluctant to write a program to let you do just that but I may if I have time.
 
 I'm sure I have other gripes, but honestly iTunes is a full-featured app and while there's room for improvement they do get a lot right with it as well.
+

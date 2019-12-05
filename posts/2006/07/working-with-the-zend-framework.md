@@ -1,3 +1,11 @@
+---
+Title: Working with the Zend Framework
+Author: Sami Samhuri
+Date: 6th July, 2006
+Timestamp: 1152196560
+Tags: coding, technology, php, framework, php, seekport, zend
+---
+
 At [Seekport](http://translate.google.ca/translate?hl=en&sl=de&u=http://de.wikipedia.org/wiki/Seekport&prev=/search%3Fq%3Dseekport%26client%3Dsafari%26rls%3Den) I'm currently working on an app to handle
 the config of their business-to-business search engine. It's web-based and I'm using PHP, since
 that's what they're re-doing the front-end in. Right now it's a big mess of Perl, the main
@@ -30,3 +38,4 @@ that nothing is coupled.
 So I'll probably be writing some notes here about my experience with this framework. I also
 hope to throw Adobe's [Spry](http://labs.adobe.com/technologies/spry/) into the mix.
 That little JS library is a lot of fun.
+

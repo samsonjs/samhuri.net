@@ -1,3 +1,11 @@
+---
+Title: Getting to know Vista
+Author: Sami Samhuri
+Date: 16th April, 2007
+Timestamp: 1176746940
+Tags: windows
+---
+
 ### It looks pretty good! ###
 
 After figuring out how to minimise the translucency of the window decorations I think Aero looks ok. Window titles, on both windows and the taskbar, can be difficult to read at a glance which is really stupid if you ask me. But it’s better than Luna! They really lay the effects on thick but overall I find it pretty pleasant and it runs well on my MacBook’s Intel 945 video chip.
@@ -55,3 +63,4 @@ The bad:
 ### My conclusion ###
 
 Perhaps the scores of talented developers at Microsoft *can* save them despite their obvious shortcomings in management. .NET seems like a decent platform, but we’ll have to see how I like it once I actually use it. So far I don’t hate Vista and considering the previous versions of Windows that’s a pretty good review coming from me. I’m still recommending Macs to my family and friends, but who knows what the future holds. I don’t hate Vista and by the end of the summer I may even [gasp] like it, and/or .NET. I haven’t used an IDE since VB6 and MS has always had a decent IDE (albeit with a crummy text editor). I’m expecting to enjoy it. If there’s one thing MS knows it’s the value of good dev tools and <a href="http://www.youtube.com/watch?v=d_AP3SGMxxM">developers</a>.
+
