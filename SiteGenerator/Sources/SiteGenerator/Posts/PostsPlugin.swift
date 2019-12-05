@@ -11,13 +11,15 @@ import Ink
 final class PostsPlugin: Plugin {
     let fileManager: FileManager = .default
     let markdownParser = MarkdownParser()
-    let path: String
+    let postsPath: String
+    let recentPostsPath: String
 
     var posts: PostsByYear!
     var sourceURL: URL!
 
-    init(path: String = "posts") {
-        self.path = path
+    init(postsPath: String = "posts", recentPostsPath: String = "index.html") {
+        self.postsPath = postsPath
+        self.recentPostsPath = recentPostsPath
     }
 
     func setUp(sourceURL: URL) throws {
@@ -47,19 +49,19 @@ final class PostsPlugin: Plugin {
             return
         }
 
-        let postsDir = targetURL.appendingPathComponent(path)
-        try renderRecentPosts(postsDir: postsDir, templateRenderer: templateRenderer)
+        let recentPostsURL = targetURL.appendingPathComponent(recentPostsPath)
+        try renderRecentPosts(targetFileURL: recentPostsURL, templateRenderer: templateRenderer)
+
+        let postsDir = targetURL.appendingPathComponent(postsPath)
         try renderYearsAndMonths(postsDir: postsDir, templateRenderer: templateRenderer)
         try renderPostsByDate(postsDir: postsDir, templateRenderer: templateRenderer)
     }
 
-    func renderRecentPosts(postsDir: URL, templateRenderer: TemplateRenderer) throws {
-        print("renderRecentPosts(postsDir: \(postsDir), templateRenderer: \(templateRenderer)")
+    func renderRecentPosts(targetFileURL: URL, templateRenderer: TemplateRenderer) throws {
+        print("renderRecentPosts(targetFileURL: \(targetFileURL), templateRenderer: \(templateRenderer)")
         let recentPosts = posts.flattened().prefix(10)
-        try fileManager.createDirectory(at: postsDir, withIntermediateDirectories: true, attributes: nil)
-        let recentPostsURL = postsDir.appendingPathComponent("index.html")
         let recentPostsHTML = try templateRenderer.renderTemplate(name: "recent-posts", context: ["recentPosts": recentPosts])
-        try recentPostsHTML.write(to: recentPostsURL, atomically: true, encoding: .utf8)
+        try recentPostsHTML.write(to: targetFileURL, atomically: true, encoding: .utf8)
     }
 
     func renderPostsByDate(postsDir: URL, templateRenderer: TemplateRenderer) throws {
@@ -92,7 +94,7 @@ final class PostsPlugin: Plugin {
 
                 let monthDir = yearDir.appendingPathComponent(month.padded)
                 try fileManager.createDirectory(at: monthDir, withIntermediateDirectories: true, attributes: nil)
-                let context: [String: Any] = ["path": path, "month": month, "posts": renderedPosts]
+                let context: [String: Any] = ["path": postsPath, "month": month, "posts": renderedPosts]
                 let monthHTML = try templateRenderer.renderTemplate(name: "posts-month", context: context)
                 let monthURL = monthDir.appendingPathComponent("index.html")
                 try monthHTML.write(to: monthURL, atomically: true, encoding: .utf8)
@@ -106,7 +108,7 @@ final class PostsPlugin: Plugin {
             }
             let monthsPadded = months.map { $0.padded }
             let context: [String: Any] = [
-                "path": path,
+                "path": postsPath,
                 "year": year,
                 "months": monthsPadded,
                 "monthNames": months.reduce(into: [String: String](), { dict, month in
