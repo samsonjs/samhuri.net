@@ -72,3 +72,9 @@ extension Post {
         assert(path == handWrittenPath, "FUCK: Generated path (\(path)) doesn't match the hand-written one \(handWrittenPath)")
     }
 }
+
+extension Post: CustomDebugStringConvertible {
+    var debugDescription: String {
+        "<Post slug=\(slug) title=\"\(title)\" date=\"\(formattedDate)\" link=\(link?.absoluteString ?? "no")>"
+    }
+}

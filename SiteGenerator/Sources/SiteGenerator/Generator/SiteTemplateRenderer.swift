@@ -30,7 +30,7 @@ final class SiteTemplateRenderer: TemplateRenderer {
     func renderTemplate(name: String?, context: [String: Any]) throws -> String {
         let siteContext = SiteContext(site: site, template: name)
         let contextDict = siteContext.dictionary.merging(context, uniquingKeysWith: { _, new in new })
-        print("Rendering \(siteContext.template) with context \(contextDict)")
+        print("Rendering \(siteContext.template) with context keys: \(contextDict.keys.sorted().joined(separator: ", "))")
         return try stencil.renderTemplate(name: "\(siteContext.template).html", context: contextDict)
     }
 }

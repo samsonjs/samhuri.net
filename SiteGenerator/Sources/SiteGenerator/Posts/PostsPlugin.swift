@@ -114,7 +114,7 @@ final class PostsPlugin: Plugin {
     }
 
     private func renderPost(_ post: Post, monthDir: URL, templateRenderer: TemplateRenderer) throws {
-        print("renderPost(\(post), monthDir: \(monthDir), templateRenderer: \(templateRenderer)")
+        print("renderPost(\(post.debugDescription), monthDir: \(monthDir), templateRenderer: \(templateRenderer)")
         try fileManager.createDirectory(at: monthDir, withIntermediateDirectories: true, attributes: nil)
         let filename = "\(post.slug).html"
         let postURL = monthDir.appendingPathComponent(filename)
@@ -130,7 +130,6 @@ final class PostsPlugin: Plugin {
     }
 
     private func enumerateMarkdownFiles(directory: URL) throws -> [URL] {
-        print("enumerateMarkdownFiles(directory: \(directory))")
         return try fileManager.contentsOfDirectory(atPath: directory.path).flatMap { (filename: String) -> [URL] in
             let fileURL = directory.appendingPathComponent(filename)
             var isDir: ObjCBool = false
