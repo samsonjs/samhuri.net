@@ -1,14 +1,14 @@
 all: blog
 
-blog:
+blog: sitegen
 	@echo
 	./bin/compile . www
 
-publish: compile
+publish: blog
 	@echo
 	./bin/publish --delete
 
-publish_beta: compile
+publish_beta: blog
 	@echo
 	./bin/publish --beta --delete
 
@@ -16,7 +16,7 @@ sitegen:
 	@echo
 	./bin/build-sitegen
 
-test:
+test: sitegen
 	@echo
 	./bin/test
 
