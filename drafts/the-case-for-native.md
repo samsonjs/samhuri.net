@@ -1,3 +1,11 @@
+---
+Title: The Case for Native
+Author: Sami Samhuri
+Date: 27th June, 2015
+Timestamp: 1435424525
+Tags:
+---
+
 For the past month I've been using [Appcelerator Titanium](http://www.appcelerator.com/products/) on a two man team. We made a simple iPhone app with a tab bar with embedded nav controllers, just 10 screens or so total. We started porting it to the iPad and Android so have some experience there. It's been a pretty frustrating exercise most days. I had a lot of little complaints but didn't take the time to step back and look at the bigger picture. I love JavaScript and in theory Titanium is awesome and a huge win. I wanted it to be a win but in reality it just hasn't been.
 
 Here are 9 reasons why native is better in the short and long run.

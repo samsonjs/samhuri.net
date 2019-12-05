@@ -50,19 +50,12 @@ final class PostsPlugin: Plugin {
             return
         }
 
-        let recentPostsURL = targetURL.appendingPathComponent(recentPostsPath)
-        try renderRecentPosts(targetFileURL: recentPostsURL, templateRenderer: templateRenderer)
-
         let postsDir = targetURL.appendingPathComponent(postsPath)
-        try renderYearsAndMonths(postsDir: postsDir, templateRenderer: templateRenderer)
         try renderPostsByDate(postsDir: postsDir, templateRenderer: templateRenderer)
-    }
-
-    func renderRecentPosts(targetFileURL: URL, templateRenderer: TemplateRenderer) throws {
-        print("renderRecentPosts(targetFileURL: \(targetFileURL), templateRenderer: \(templateRenderer)")
-        let recentPosts = posts.flattened().prefix(10)
-        let recentPostsHTML = try templateRenderer.renderTemplate(name: "recent-posts", context: ["recentPosts": recentPosts])
-        try recentPostsHTML.write(to: targetFileURL, atomically: true, encoding: .utf8)
+        try renderYears(postsDir: postsDir, templateRenderer: templateRenderer)
+        try renderMonths(postsDir: postsDir, templateRenderer: templateRenderer)
+        try renderArchive(postsDir: postsDir, templateRenderer: templateRenderer)
+        try renderRecentPosts(targetURL: targetURL, templateRenderer: templateRenderer)
     }
 
     func renderPostsByDate(postsDir: URL, templateRenderer: TemplateRenderer) throws {
@@ -75,49 +68,78 @@ final class PostsPlugin: Plugin {
         }
     }
 
-    func renderYearsAndMonths(postsDir: URL, templateRenderer: TemplateRenderer) throws {
-        print("renderYearsAndMonths(postsDir: \(postsDir), templateRenderer: \(templateRenderer)")
+    func renderRecentPosts(targetURL: URL, templateRenderer: TemplateRenderer) throws {
+        print("renderRecentPosts(targetURL: \(targetURL), templateRenderer: \(templateRenderer)")
+        let recentPosts = posts.flattened().prefix(10)
+        let renderedRecentPosts: [[String: Any]] = recentPosts.map { post in
+            let html = markdownParser.html(from: post.bodyMarkdown)
+            return RenderedPost(post: post, body: html).dictionary
+        }
+        #warning("FIXME: get the site name out of here somehow")
+        let recentPostsHTML = try templateRenderer.renderTemplate(name: "recent-posts", context: [
+            "title": "samhuri.net",
+            "recentPosts": renderedRecentPosts,
+        ])
+        let fileURL = targetURL.appendingPathComponent(recentPostsPath)
+        try recentPostsHTML.write(to: fileURL, atomically: true, encoding: .utf8)
+    }
+
+    func renderArchive(postsDir: URL, templateRenderer: TemplateRenderer) throws {
+        print("renderArchive(postsDir: \(postsDir), templateRenderer: \(templateRenderer)")
+        let allYears = posts.byYear.keys.sorted(by: >)
+        let allMonths = (1 ... 12).map(Month.init(_:))
+        let postsByMonthByYearForContext: [[String: Any]] = allYears.map { year in
+            [
+                "number": "\(year)",
+                "months": posts[year].byMonth.keys.sorted(by: >).map { month in
+                    [
+                        "number": month.padded,
+                        "posts": posts[year][month].posts,
+                    ]
+                } as Any,
+            ]
+        }
+        let context: [String: Any] = [
+            "title": "Archive",
+            "path": postsPath,
+            "years": postsByMonthByYearForContext,
+            "monthNames": allMonths.reduce(into: [String: String](), { dict, month in
+                dict[month.padded] = month.name
+            }),
+            "monthAbbreviations": allMonths.reduce(into: [String: String](), { dict, month in
+                dict[month.padded] = month.abbreviatedName
+            }),
+        ]
+        let archiveHTML = try templateRenderer.renderTemplate(name: "posts-archive", context: context)
+        let archiveURL = postsDir.appendingPathComponent("index.html")
+        try archiveHTML.write(to: archiveURL, atomically: true, encoding: .utf8)
+    }
+
+    func renderYears(postsDir: URL, templateRenderer: TemplateRenderer) throws {
+        print("renderYears(postsDir: \(postsDir), templateRenderer: \(templateRenderer)")
         let allMonths = (1 ... 12).map(Month.init(_:))
         for (year, monthPosts) in posts.byYear.sorted(by: { $1.key < $0.key }) {
             let yearDir = postsDir.appendingPathComponent("\(year)")
-            var sortedPostsByMonth: [Month: [RenderedPost]] = [:]
+            var sortedPostsByMonth: [Month: [Post]] = [:]
             for month in allMonths {
                 let sortedPosts = monthPosts[month].posts.sorted(by: { $1.date < $0.date })
-                guard !sortedPosts.isEmpty else {
-                    continue
+                if !sortedPosts.isEmpty {
+                    sortedPostsByMonth[month] = sortedPosts
                 }
-
-                let renderedPosts = sortedPosts.map { post -> RenderedPost in
-                    let bodyHTML = markdownParser.html(from: post.bodyMarkdown)
-                    return RenderedPost(post: post, body: bodyHTML)
-                }
-                sortedPostsByMonth[month] = renderedPosts
-
-                let monthDir = yearDir.appendingPathComponent(month.padded)
-                try fileManager.createDirectory(at: monthDir, withIntermediateDirectories: true, attributes: nil)
-                #warning("FIXME: get the site name out of here somehow")
-                let context: [String: Any] = [
-                    "title": "samhuri.net: \(month.name) \(year)",
-                    "posts": renderedPosts.map { $0.dictionary },
-                ]
-                let monthHTML = try templateRenderer.renderTemplate(name: "posts-month", context: context)
-                let monthURL = monthDir.appendingPathComponent("index.html")
-                try monthHTML.write(to: monthURL, atomically: true, encoding: .utf8)
             }
 
             try fileManager.createDirectory(at: yearDir, withIntermediateDirectories: true, attributes: nil)
             let months = Array(sortedPostsByMonth.keys.sorted().reversed())
-            let postsByMonthForContext: [String: [[String: Any]]] = sortedPostsByMonth.reduce(into: [:]) { dict, pair in
-                let (month, renderedPosts) = pair
-                dict[month.padded] = renderedPosts.map { $0.dictionary }
+            let postsByMonthForContext: [String: [Post]] = sortedPostsByMonth.reduce(into: [:]) { dict, pair in
+                let (month, posts) = pair
+                dict[month.padded] = posts
             }
-            let monthsPadded = months.map { $0.padded }
-            #warning("FIXME: get the site name out of here somehow")
+            #warning("FIXME: get the site name in the head title but not the body title")
             let context: [String: Any] = [
-                "title": "samhuri.net: \(year)",
+                "title": "\(year)",
                 "path": postsPath,
                 "year": year,
-                "months": monthsPadded,
+                "months": months.map { $0.padded },
                 "monthNames": months.reduce(into: [String: String](), { dict, month in
                     dict[month.padded] = month.name
                 }),
@@ -132,6 +154,35 @@ final class PostsPlugin: Plugin {
         }
     }
 
+    func renderMonths(postsDir: URL, templateRenderer: TemplateRenderer) throws {
+        print("renderMonths(postsDir: \(postsDir), templateRenderer: \(templateRenderer)")
+        let allMonths = (1 ... 12).map(Month.init(_:))
+        for (year, monthPosts) in posts.byYear.sorted(by: { $1.key < $0.key }) {
+            let yearDir = postsDir.appendingPathComponent("\(year)")
+            for month in allMonths {
+                let sortedPosts = monthPosts[month].posts.sorted(by: { $1.date < $0.date })
+                guard !sortedPosts.isEmpty else {
+                    continue
+                }
+
+                let renderedPosts = sortedPosts.map { post -> RenderedPost in
+                    let bodyHTML = markdownParser.html(from: post.bodyMarkdown)
+                    return RenderedPost(post: post, body: bodyHTML)
+                }
+                let monthDir = yearDir.appendingPathComponent(month.padded)
+                try fileManager.createDirectory(at: monthDir, withIntermediateDirectories: true, attributes: nil)
+                #warning("FIXME: get the site name in the head title but not the body title")
+                let context: [String: Any] = [
+                    "title": "\(month.name) \(year)",
+                    "posts": renderedPosts.map { $0.dictionary },
+                ]
+                let monthHTML = try templateRenderer.renderTemplate(name: "posts-month", context: context)
+                let monthURL = monthDir.appendingPathComponent("index.html")
+                try monthHTML.write(to: monthURL, atomically: true, encoding: .utf8)
+            }
+        }
+    }
+
     private func renderPost(_ post: Post, monthDir: URL, templateRenderer: TemplateRenderer) throws {
         print("renderPost(\(post.debugDescription), monthDir: \(monthDir), templateRenderer: \(templateRenderer)")
         try fileManager.createDirectory(at: monthDir, withIntermediateDirectories: true, attributes: nil)
@@ -139,9 +190,9 @@ final class PostsPlugin: Plugin {
         let postURL = monthDir.appendingPathComponent(filename)
         let bodyHTML = markdownParser.html(from: post.bodyMarkdown)
         let renderedPost = RenderedPost(post: post, body: bodyHTML)
-        #warning("FIXME: get the site name out of here somehow")
+        #warning("FIXME: get the site name in the head title but not the body title")
         let postHTML = try templateRenderer.renderTemplate(name: "post", context: [
-            "title": "samhuri.net: \(renderedPost.post.title)",
+            "title": "\(renderedPost.post.title)",
             "post": renderedPost.dictionary,
         ])
         try postHTML.write(to: postURL, atomically: true, encoding: .utf8)

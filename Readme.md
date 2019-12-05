@@ -15,7 +15,7 @@ This version will go back to its roots and use headers at the top of markdown fi
 
 Execution, trying TDD for the first time:
 
-- [ ] Replace harp with custom Swift code
+- [x] Replace harp with custom Swift code
 
     - [x] Write a test harness that renders a site and then checks the output with `diff -r`
 
@@ -51,7 +51,7 @@ Execution, trying TDD for the first time:
 
         - [x] Check and delete _data.json
 
-    - [ ] Migrate posts to markdown with headers somehow
+    - [x] Migrate posts to markdown with headers somehow
 
         - [x] Define the new format
 
@@ -63,15 +63,19 @@ Execution, trying TDD for the first time:
 
         - [x] Migrate month indexes
 
-        - [ ] Migrate index / recent posts
+        - [x] Migrate index / recent posts
 
-        - [ ] Migrate archive and put it at /posts/index.html, duh!
+        - [x] Migrate archive and put it at /posts/index.html, duh!
 
-        - [ ] 301 redirect /archive to /posts, and update the header link
+        - [x] 301 redirect /archive to /posts, and update the header link
 
-        - [ ] Check and delete _data.json filse
+        - [x] Check and delete _data.json filse
 
-    - [ ] Search for other _data.json files and eliminate any that are found
+    - [x] Search for other _data.json and .ejs files and eliminate any that are found
+
+- [ ] Find a way to add the site name to HTML titles rendered by plugins
+
+- [ ] Clean up the posts plugin
 
 - [ ] Consider using Swift for samhuri.net as well, and then making SiteGenerator a package that it uses ... then we can use Plot or pointfree.co's swift-html
 

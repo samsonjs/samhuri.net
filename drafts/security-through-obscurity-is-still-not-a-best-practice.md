@@ -1,3 +1,11 @@
+---
+Title: TBD
+Author: Sami Samhuri
+Date: 20th August, 2017
+Timestamp: 1503246688
+Tags: rails, security
+---
+
 A common way to configure a Rails server for different deployment environments is to use environment variables. This is a good practice as described by [The Twelve-Factor App][12factor] and can be applied to any server framework in any language running on a Unix OS. It keeps such secrets out of your code repository which is good, and it also makes it easy to customize your application for different environments. It's a pretty solid technique.
 
 [12factor]: https://12factor.net

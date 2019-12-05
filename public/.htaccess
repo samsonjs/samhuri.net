@@ -79,8 +79,10 @@ Redirect 301 /json-diff http://tlrobinson.net/projects/javascript-fun/jsondiff
 # The great vowel shortage of 1974 is over.
 Redirect 301 /proj /projects
 
+Redirect 301 /archive /posts
+Redirect 301 /archive/index.html /posts
 Redirect 301 /blog/sjs.rss /feed.xml
-Redirect 301 /blog /posts
+Redirect 301 /blog /
 
 # Old naming scheme, incompatible with Harp.
 Redirect 301 /blog/2006.02.08-first-post /posts/2006/02/first-post

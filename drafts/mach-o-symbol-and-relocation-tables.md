@@ -1,3 +1,11 @@
+---
+Title: Mach-O Symbol and Relocation Tables
+Author: Sami Samhuri
+Date: 28th June, 2015
+Timestamp: 1435527198
+Tags:
+---
+
 The latest technology I've been learning is Palm's SDK for webOS,
 Mojo. My first impression is that it's a great platform and
 Palm could do a great job of 2.0 if they cut down on some of the
