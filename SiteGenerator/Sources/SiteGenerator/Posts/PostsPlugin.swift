@@ -128,15 +128,10 @@ final class PostsPlugin: Plugin {
         try fileManager.createDirectory(at: monthDir, withIntermediateDirectories: true, attributes: nil)
         let filename = "\(post.slug).html"
         let postURL = monthDir.appendingPathComponent(filename)
-        let templateName = self.templateName(for: post)
         let bodyHTML = markdownParser.html(from: post.bodyMarkdown)
         let renderedPost = RenderedPost(post: post, body: bodyHTML)
-        let postHTML = try templateRenderer.renderTemplate(name: templateName, context: ["post": renderedPost.dictionary])
+        let postHTML = try templateRenderer.renderTemplate(name: "post", context: ["post": renderedPost.dictionary])
         try postHTML.write(to: postURL, atomically: true, encoding: .utf8)
-    }
-
-    private func templateName(for post: Post) -> String {
-        post.isLink ? "post-link" : "post-text"
     }
 
     private func enumerateMarkdownFiles(directory: URL) throws -> [URL] {

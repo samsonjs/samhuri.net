@@ -1,38 +1,9 @@
 {% extends "samhuri.net.html" %}
+
 {% block body %}
 <div class="container">
-<% var posts = public._data.posts -%>
-<% for (var i in posts) { -%>
-
-  <% var post = posts[i] -%>
-
-  <% if (post.link) { -%>
-
-    <article>
-      <header>
-        <h2><a href="<%= post.link %>"><%= post.title %></a></h2>
-        <time><%= post.date %></time>
-      </header>
-      <%- partial(post.url) %>
-      <p><a class="permalink" href="<%= post.url %>">&infin;</a></p>
-    </article>
-
-  <% } else { -%>
-
-    <article>
-      <header>
-        <h2><a href="<%= post.url %>"><%= post.title %></a></h2>
-        <time><%= post.date %></time>
-      </header>
-      <%- partial(post.url) %>
-    </article>
-
-  <% } -%>
-
-  <div class="row clearfix">
-    <p class="fin"><i class="fa fa-code"></i></p>
-  </div>
-
-<% } -%>
+  {% for post in recentPosts %}
+    {% include "partial-post.html" post %}
+  {% endfor %}
 </div>
 {% endblock %}

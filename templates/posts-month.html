@@ -1,24 +1,7 @@
 {% extends "samhuri.net.html" %}
 
 {% block body %}
-{% for post in posts %}
-<article class="container">
-  <header>
-  {% if post.isLink %}
-    <h2><a href="{{ post.link }}">&rarr; {{ post.title }}</a></h2>
-    <time>{{ post.formattedDate }}</time>
-    <a class="permalink" href="{{ post.path }}">&infin;</a>
-  {% else %}
-    <h2><a href="{{ post.path }}">{{ post.title }}</a></h2>
-    <time>{{ post.formattedDate }}</time>
-  {% endif %}
-  </header>
-
-  {{ post.body }}
-</article>
-<div class="row clearfix">
-  <p class="fin"><i class="fa fa-code"></i></p>
-</div>
-
-{% endfor %}
+  {% for post in posts %}
+    {% include "partial-post.html" post %}
+  {% endfor %}
 {% endblock %}
