@@ -94,7 +94,7 @@ final class PostsPlugin: Plugin {
 
                 let monthDir = yearDir.appendingPathComponent(month.padded)
                 try fileManager.createDirectory(at: monthDir, withIntermediateDirectories: true, attributes: nil)
-                let context: [String: Any] = ["path": postsPath, "month": month, "posts": renderedPosts]
+                let context: [String: Any] = ["posts": renderedPosts.map { $0.dictionary }]
                 let monthHTML = try templateRenderer.renderTemplate(name: "posts-month", context: context)
                 let monthURL = monthDir.appendingPathComponent("index.html")
                 try monthHTML.write(to: monthURL, atomically: true, encoding: .utf8)
