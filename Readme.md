@@ -53,15 +53,15 @@ Execution, trying TDD for the first time:
 
     - [ ] Migrate posts to markdown with headers somehow
 
-        - [ ] Define the new format
+        - [x] Define the new format
 
-        - [ ] Decide whether to migrate from [9af9d75][] or the current harp format (probably easier to migrate the new format because posts may have been updated since then)
+        - [x] Decide whether to migrate from [9af9d75][] or the current harp format (probably easier to migrate the new format because posts may have been updated since then)
 
         - [ ] Migrate posts
 
-        - [ ] Migrate year indexes
+        - [x] Migrate year indexes
 
-        - [ ] Migrate month indexes
+        - [x] Migrate month indexes
 
         - [ ] Migrate index / recent posts
 
