@@ -3,7 +3,7 @@
 {% block body %}
 <article class="container">
   <header>
-    <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+    <h1><a href="{{ post.path }}">{{ post.title }}</a></h1>
     <time>{{ post.formattedDate }}</time>
   </header>
   {{ post.body }}

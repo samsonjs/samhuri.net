@@ -29,18 +29,16 @@ final class PostsPlugin: Plugin {
 
         let posts = try enumerateMarkdownFiles(directory: postsURL)
             .compactMap { (url: URL) -> Post? in
-                guard let result = (try? String(contentsOf: url)).map(markdownParser.parse) else {
-                    return nil
-                }
                 do {
-                    return try Post(bodyMarkdown: "(TEST)", metadata: result.metadata)
+                    let markdown = try String(contentsOf: url)
+                    let result = markdownParser.parse(markdown)
+                    return try Post(bodyMarkdown: result.html, metadata: result.metadata)
                 }
                 catch {
                     print("Cannot create post from markdown file \(url): \(error)")
                     return nil
                 }
             }
-        print("posts: \(posts)")
         self.posts = PostsByYear(posts: posts)
     }
 
@@ -76,12 +74,12 @@ final class PostsPlugin: Plugin {
 
     func renderYearsAndMonths(postsDir: URL, templateRenderer: TemplateRenderer) throws {
         print("renderYearsAndMonths(postsDir: \(postsDir), templateRenderer: \(templateRenderer)")
-        let allMonths = (1 ... 12).reversed().map(Month.init)
+        let allMonths = (1 ... 12).map(Month.init(_:))
         for (year, monthPosts) in posts.byYear.sorted(by: { $1.key < $0.key }) {
             let yearDir = postsDir.appendingPathComponent("\(year)")
-            var sortedPostsByMonth: [Int: [RenderedPost]] = [:]
+            var sortedPostsByMonth: [Month: [RenderedPost]] = [:]
             for month in allMonths {
-                let sortedPosts = monthPosts[month.number].posts.sorted(by: { $1.date < $0.date })
+                let sortedPosts = monthPosts[month].posts.sorted(by: { $1.date < $0.date })
                 guard !sortedPosts.isEmpty else {
                     continue
                 }
@@ -90,7 +88,7 @@ final class PostsPlugin: Plugin {
                     let bodyHTML = markdownParser.html(from: post.bodyMarkdown)
                     return RenderedPost(post: post, body: bodyHTML)
                 }
-                sortedPostsByMonth[month.number] = renderedPosts
+                sortedPostsByMonth[month] = renderedPosts
 
                 let monthDir = yearDir.appendingPathComponent(month.padded)
                 try fileManager.createDirectory(at: monthDir, withIntermediateDirectories: true, attributes: nil)
@@ -101,11 +99,23 @@ final class PostsPlugin: Plugin {
             }
 
             try fileManager.createDirectory(at: yearDir, withIntermediateDirectories: true, attributes: nil)
+            let months = Array(sortedPostsByMonth.keys.sorted().reversed())
+            let postsByMonthForContext: [String: [[String: Any]]] = sortedPostsByMonth.reduce(into: [:]) { dict, pair in
+                let (month, renderedPosts) = pair
+                dict[month.padded] = renderedPosts.map { $0.dictionary }
+            }
+            let monthsPadded = months.map { $0.padded }
             let context: [String: Any] = [
                 "path": path,
                 "year": year,
-                "months": sortedPostsByMonth.keys.sorted().reversed().map(Month.init),
-                "postsByMonth": sortedPostsByMonth,
+                "months": monthsPadded,
+                "monthNames": months.reduce(into: [String: String](), { dict, month in
+                    dict[month.padded] = month.name
+                }),
+                "monthAbbreviations": months.reduce(into: [String: String](), { dict, month in
+                    dict[month.padded] = month.abbreviatedName
+                }),
+                "postsByMonth": postsByMonthForContext,
             ]
             let yearHTML = try templateRenderer.renderTemplate(name: "posts-year", context: context)
             let yearURL = yearDir.appendingPathComponent("index.html")
@@ -121,7 +131,7 @@ final class PostsPlugin: Plugin {
         let templateName = self.templateName(for: post)
         let bodyHTML = markdownParser.html(from: post.bodyMarkdown)
         let renderedPost = RenderedPost(post: post, body: bodyHTML)
-        let postHTML = try templateRenderer.renderTemplate(name: templateName, context: ["post": renderedPost])
+        let postHTML = try templateRenderer.renderTemplate(name: templateName, context: ["post": renderedPost.dictionary])
         try postHTML.write(to: postURL, atomically: true, encoding: .utf8)
     }
 

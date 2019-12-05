@@ -11,17 +11,17 @@ struct RenderedPost {
     let post: Post
     let body: String
 
-    var author: String { post.author }
-
-    var title: String { post.title }
-
-    var date: Date { post.date }
-
-    var formattedDate: String { post.formattedDate }
-
-    var isLink: Bool { post.isLink }
-
-    var link: URL? { post.link }
-
-    var path: String { post.path }
+    var dictionary: [String: Any] {
+        [
+            "author": post.author,
+            "title": post.title,
+            "date": post.date,
+            "day": post.date.day,
+            "formattedDate": post.formattedDate,
+            "isLink": post.isLink,
+            "link": post.link as Any,
+            "path": post.path,
+            "body": body,
+        ]
+    }
 }

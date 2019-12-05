@@ -8,7 +8,7 @@
 import Foundation
 
 struct MonthPosts {
-    let month: Int
+    let month: Month
     var posts: [Post]
 
     var isEmpty: Bool {
@@ -18,9 +18,9 @@ struct MonthPosts {
 
 struct YearPosts {
     let year: Int
-    var byMonth: [Int: MonthPosts]
+    var byMonth: [Month: MonthPosts]
 
-    subscript(month: Int) -> MonthPosts {
+    subscript(month: Month) -> MonthPosts {
         get {
             byMonth[month, default: MonthPosts(month: month, posts: [])]
         }
@@ -56,7 +56,7 @@ struct PostsByYear {
     }
 
     mutating func add(post: Post) {
-        let (year, month) = (post.date.year, post.date.month)
+        let (year, month) = (post.date.year, Month(post.date.month))
         self[year][month].posts.append(post)
     }
 

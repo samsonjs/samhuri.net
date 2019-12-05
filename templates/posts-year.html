@@ -4,24 +4,24 @@
 <div class="container">
   <h2>{{ year }}</h2>
 
-  {% for month in months %}
+{% for month in months %}
   <h3>
-    <a href="/{{ path }}/{{ year }}/{{ month.padded }}">{{ month.name }}</a>
+    <a href="/{{ path }}/{{ year }}/{{ month }}">{{ monthNames[month] }}</a>
   </h3>
 
   <ul class="archive">
-    {% for post in postsByMonth[month.number] %}
+  {% for post in postsByMonth[month] %}
     <li>
-      {% if post.isLink %}
-        <a href="{{ post.path }}">&rarr; {{ post.title }}</a>
-      {% else %}
-        <a href="{{ post.path }}">{{ post.title }}</a>
-      {% endif %}
-      <time>{{ post.date.day }} {{ month.abbreviatedName }}</time>
+    {% if post.isLink %}
+      <a href="{{ post.path }}">&rarr; {{ post.title }}</a>
+    {% else %}
+      <a href="{{ post.path }}">{{ post.title }}</a>
+    {% endif %}
+      <time>{{ post.day }} {{ monthAbbreviations[month] }}</time>
     </li>
-    {% endfor %}
+  {% endfor %}
   </ul>
 
-  {% endfor %}
+{% endfor %}
 </div>
 {% endblock %}
