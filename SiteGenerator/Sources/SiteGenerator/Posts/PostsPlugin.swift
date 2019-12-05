@@ -62,8 +62,8 @@ final class PostsPlugin: Plugin {
         print("renderPostsByDate(postsDir: \(postsDir), templateRenderer: \(templateRenderer)")
         for post in posts.flattened() {
             let monthDir = postsDir
-                .appendingPathComponent(String(format: "%02d", post.date.year))
-                .appendingPathComponent(String(format: "%02d", post.date.month))
+                .appendingPathComponent("\(post.date.year)")
+                .appendingPathComponent(Month(post.date.month).padded)
             try renderPost(post, monthDir: monthDir, templateRenderer: templateRenderer)
         }
     }
@@ -73,11 +73,10 @@ final class PostsPlugin: Plugin {
         let recentPosts = posts.flattened().prefix(10)
         let renderedRecentPosts: [[String: Any]] = recentPosts.map { post in
             let html = markdownParser.html(from: post.bodyMarkdown)
-            return RenderedPost(post: post, body: html).dictionary
+            let path = self.path(for: post)
+            return RenderedPost(path: path, post: post, body: html).dictionary
         }
-        #warning("FIXME: get the site name out of here somehow")
         let recentPostsHTML = try templateRenderer.renderTemplate(name: "recent-posts", context: [
-            "title": "samhuri.net",
             "recentPosts": renderedRecentPosts,
         ])
         let fileURL = targetURL.appendingPathComponent(recentPostsPath)
@@ -88,21 +87,23 @@ final class PostsPlugin: Plugin {
         print("renderArchive(postsDir: \(postsDir), templateRenderer: \(templateRenderer)")
         let allYears = posts.byYear.keys.sorted(by: >)
         let allMonths = (1 ... 12).map(Month.init(_:))
-        let postsByMonthByYearForContext: [[String: Any]] = allYears.map { year in
+        let yearsWithPostsByMonthForContext: [[String: Any]] = allYears.map { year in
             [
-                "number": "\(year)",
-                "months": posts[year].byMonth.keys.sorted(by: >).map { month in
-                    [
-                        "number": month.padded,
-                        "posts": posts[year][month].posts,
+                "path": self.path(year: year),
+                "title": "\(year)",
+                "months": posts[year].byMonth.keys.sorted(by: >).map { (month: Month) -> [String: Any] in
+                    let sortedPosts = posts[year][month].posts.sorted(by: { $0.date > $1.date })
+                    return [
+                        "path": self.path(year: year, month: month),
+                        "title": month.padded,
+                        "posts": sortedPosts.map { $0.dictionary(withPath: self.path(for: $0)) },
                     ]
-                } as Any,
+                },
             ]
         }
         let context: [String: Any] = [
             "title": "Archive",
-            "path": postsPath,
-            "years": postsByMonthByYearForContext,
+            "years": yearsWithPostsByMonthForContext,
             "monthNames": allMonths.reduce(into: [String: String](), { dict, month in
                 dict[month.padded] = month.name
             }),
@@ -130,11 +131,10 @@ final class PostsPlugin: Plugin {
 
             try fileManager.createDirectory(at: yearDir, withIntermediateDirectories: true, attributes: nil)
             let months = Array(sortedPostsByMonth.keys.sorted().reversed())
-            let postsByMonthForContext: [String: [Post]] = sortedPostsByMonth.reduce(into: [:]) { dict, pair in
+            let postsByMonthForContext: [String: [[String: Any]]] = sortedPostsByMonth.reduce(into: [:]) { dict, pair in
                 let (month, posts) = pair
-                dict[month.padded] = posts
+                dict[month.padded] = posts.map { $0.dictionary(withPath: self.path(for: $0)) }
             }
-            #warning("FIXME: get the site name in the head title but not the body title")
             let context: [String: Any] = [
                 "title": "\(year)",
                 "path": postsPath,
@@ -166,12 +166,12 @@ final class PostsPlugin: Plugin {
                 }
 
                 let renderedPosts = sortedPosts.map { post -> RenderedPost in
+                    let path = self.path(for: post)
                     let bodyHTML = markdownParser.html(from: post.bodyMarkdown)
-                    return RenderedPost(post: post, body: bodyHTML)
+                    return RenderedPost(path: path, post: post, body: bodyHTML)
                 }
                 let monthDir = yearDir.appendingPathComponent(month.padded)
                 try fileManager.createDirectory(at: monthDir, withIntermediateDirectories: true, attributes: nil)
-                #warning("FIXME: get the site name in the head title but not the body title")
                 let context: [String: Any] = [
                     "title": "\(month.name) \(year)",
                     "posts": renderedPosts.map { $0.dictionary },
@@ -187,10 +187,10 @@ final class PostsPlugin: Plugin {
         print("renderPost(\(post.debugDescription), monthDir: \(monthDir), templateRenderer: \(templateRenderer)")
         try fileManager.createDirectory(at: monthDir, withIntermediateDirectories: true, attributes: nil)
         let filename = "\(post.slug).html"
+        let path = self.path(for: post)
         let postURL = monthDir.appendingPathComponent(filename)
         let bodyHTML = markdownParser.html(from: post.bodyMarkdown)
-        let renderedPost = RenderedPost(post: post, body: bodyHTML)
-        #warning("FIXME: get the site name in the head title but not the body title")
+        let renderedPost = RenderedPost(path: path, post: post, body: bodyHTML)
         let postHTML = try templateRenderer.renderTemplate(name: "post", context: [
             "title": "\(renderedPost.post.title)",
             "post": renderedPost.dictionary,
@@ -210,5 +210,21 @@ final class PostsPlugin: Plugin {
                 return fileURL.pathExtension == "md" ? [fileURL] : []
             }
         }
+    }
+
+    private func path(for post: Post) -> String {
+        path(year: post.date.year, month: Month(post.date.month), filename: "\(post.slug).html")
+    }
+
+    private func path(year: Int) -> String {
+        "/\(postsPath)/\(year)"
+    }
+
+    private func path(year: Int, month: Month) -> String {
+        path(year: year).appending("/\(month.padded)")
+    }
+
+    private func path(year: Int, month: Month, filename: String) -> String {
+        path(year: year, month: month).appending("/\(filename)")
     }
 }

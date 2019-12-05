@@ -17,20 +17,28 @@ struct Post {
     let tags: [String]
     let bodyMarkdown: String
 
-    var isLink: Bool {
-        link != nil
+    var dictionary: [String: Any] {
+        var result: [String: Any] = [
+            "slug": slug,
+            "title": title,
+            "author": author,
+            "day": date.day,
+            "month": date.month,
+            "year": date.year,
+            "formattedDate": formattedDate,
+            "tags": tags
+        ]
+        if let link = link {
+            result["isLink"] = true
+            result["link"] = link
+        }
+        return result
     }
 
-    var path: String {
-        let dateComponents = Calendar.current.dateComponents([.year, .month], from: date)
-        let year = dateComponents.year!
-        let month = dateComponents.month!
-        return "/" + [
-            "posts",
-            String(format: "%02d", year),
-            String(format: "%02d", month),
-            "\(slug)",
-        ].joined(separator: "/")
+    func dictionary(withPath path: String) -> [String: Any] {
+        var dict = dictionary
+        dict["path"] = path
+        return dict
     }
 }
 

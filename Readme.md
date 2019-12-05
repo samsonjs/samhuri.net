@@ -73,13 +73,15 @@ Execution, trying TDD for the first time:
 
     - [x] Search for other _data.json and .ejs files and eliminate any that are found
 
-- [ ] Link years to year indexes in the posts archive
+- [x] Link years to year indexes in the posts archive
 
-- [ ] Fix missing days on post dates in the archive and year indexes
+- [x] Fix missing days on post dates in the archive and year indexes
 
-- [ ] Find a way to add the site name to HTML titles rendered by plugins
+- [x] Find a way to add the site name to HTML titles rendered by plugins
 
 - [ ] Clean up the posts plugin
+
+    - [ ] Why don't plain data structures always work with Stencil? Maybe computed properties are a no-go but we can at least use structs instead of dictionaries for the actual rendering
 
 - [ ] Consider using Swift for samhuri.net as well, and then making SiteGenerator a package that it uses ... then we can use Plot or pointfree.co's swift-html
 

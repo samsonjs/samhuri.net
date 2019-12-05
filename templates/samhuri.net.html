@@ -6,7 +6,13 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-  <title>{{ title }}</title>
+  {% if title %}
+  <title>{{ site.title }}: {{ title }}</title>
+  {% elif page.title %}
+  <title>{{ site.title }}: {{ page.title }}</title>
+  {% else %}
+  <title>{{ site.title }}</title>
+  {% endif %}
 
   <link rel="icon" type="image/png" href="/images/favicon-32x32.png">
   <link rel="shortcut icon" href="/images/favicon.ico">

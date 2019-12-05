@@ -12,14 +12,6 @@ struct PageContext {
     let body: String
     let page: Page
     let metadata: [String: String]
-
-    var title: String {
-        guard !page.title.isEmpty else {
-            return site.title
-        }
-
-        return "\(site.title): \(page.title)"
-    }
 }
 
 extension PageContext: TemplateContext {
@@ -30,7 +22,6 @@ extension PageContext: TemplateContext {
     var dictionary: [String: Any] {
         [
             "site": site,
-            "title": title,
             "body": body,
             "page": page,
             "metadata": metadata,

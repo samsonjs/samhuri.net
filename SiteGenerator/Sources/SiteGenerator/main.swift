@@ -45,6 +45,6 @@ do {
     exit(0)
 }
 catch {
-    fputs("error: \(error.localizedDescription)", stderr)
+    fputs("error: \(error)", stderr)
     exit(-1)
 }

@@ -46,7 +46,6 @@ final class ProjectsPlugin: Plugin {
         let projectsDir = targetURL.appendingPathComponent(path)
         try fileManager.createDirectory(at: projectsDir, withIntermediateDirectories: true, attributes: nil)
         let projectsURL = projectsDir.appendingPathComponent("index.html")
-        #warning("FIXME: get the site name in the head title but not the body title")
         let projectsHTML = try templateRenderer.renderTemplate(name: "projects", context: [
             "title": "Projects",
             "projects": projects,
@@ -56,7 +55,6 @@ final class ProjectsPlugin: Plugin {
         for project in projects {
             let filename = "\(project.title).html"
             let projectURL = projectsDir.appendingPathComponent(filename)
-            #warning("FIXME: get the site name in the head title but not the body title")
             let projectHTML = try templateRenderer.renderTemplate(name: "project", context: [
                 "title": "\(project.title)",
                 "project": project,

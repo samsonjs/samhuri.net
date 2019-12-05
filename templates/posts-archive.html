@@ -2,24 +2,31 @@
 
 {% block body %}
 
+<div class="container">
+  <h1>{{ title }}</h1>
+</div>
+
 {% for year in years %}
   <div class="container">
-    <h1>{{ year.number }}</h1>
+    <h2><a href="{{ year.path }}">{{ year.title }}</a></h2>
 
   {% for month in year.months %}
-    <h2>
-      <a href="/{{ path }}/{{ year.number }}/{{ month.number }}">{{ monthNames[month.number] }}</a>
-    </h2>
+    <h3>
+      <a href="{{ month.path }}">{{ monthNames[month.title] }}</a>
+    </h3>
 
     <ul class="archive">
     {% for post in month.posts %}
       <li>
       {% if post.isLink %}
-        <a href="{{ post.path }}">&rarr; {{ post.title }}</a>
+        <a href="{{ post.link }}">&rarr; {{ post.title }}</a>
       {% else %}
         <a href="{{ post.path }}">{{ post.title }}</a>
       {% endif %}
-        <time>{{ post.day }} {{ monthAbbreviations[month.number] }}</time>
+        <time>{{ post.day }} {{ monthAbbreviations[month.title] }}</time>
+      {% if post.isLink %}
+        <a class="permalink" href="{{ post.path }}">&infin;</a>
+      {% endif %}
       </li>
     {% endfor %}
     </ul>

@@ -8,6 +8,7 @@
 import Foundation
 
 struct RenderedPost {
+    let path: String
     let post: Post
     let body: String
 
@@ -18,9 +19,8 @@ struct RenderedPost {
             "date": post.date,
             "day": post.date.day,
             "formattedDate": post.formattedDate,
-            "isLink": post.isLink,
             "link": post.link as Any,
-            "path": post.path,
+            "path": path,
             "body": body,
         ]
     }
