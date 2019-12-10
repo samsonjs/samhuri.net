@@ -12,7 +12,7 @@
 
   {% for month in year.months %}
     <h3>
-      <a href="{{ month.path }}">{{ monthNames[month.title] }}</a>
+      <a href="{{ month.path }}">{{ month.name }}</a>
     </h3>
 
     <ul class="archive">
@@ -23,7 +23,7 @@
       {% else %}
         <a href="{{ post.path }}">{{ post.title }}</a>
       {% endif %}
-        <time>{{ post.day }} {{ monthAbbreviations[month.title] }}</time>
+        <time>{{ post.day }} {{ month.abbreviation }}</time>
       {% if post.isLink %}
         <a class="permalink" href="{{ post.path }}">&infin;</a>
       {% endif %}

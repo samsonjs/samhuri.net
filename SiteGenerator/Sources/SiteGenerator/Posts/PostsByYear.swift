@@ -11,6 +11,10 @@ struct MonthPosts {
     let month: Month
     var posts: [Post]
 
+    var title: String {
+        month.padded
+    }
+
     var isEmpty: Bool {
         posts.isEmpty
     }
@@ -20,6 +24,18 @@ struct YearPosts {
     let year: Int
     var byMonth: [Month: MonthPosts]
 
+    var title: String {
+        "\(year)"
+    }
+
+    var isEmpty: Bool {
+        byMonth.isEmpty || byMonth.values.allSatisfy { $0.isEmpty }
+    }
+
+    var months: [Month] {
+        Array(byMonth.keys)
+    }
+
     subscript(month: Month) -> MonthPosts {
         get {
             byMonth[month, default: MonthPosts(month: month, posts: [])]
@@ -27,10 +43,6 @@ struct YearPosts {
         set {
             byMonth[month] = newValue
         }
-    }
-
-    var isEmpty: Bool {
-        byMonth.isEmpty || byMonth.values.allSatisfy { $0.isEmpty }
     }
 }
 
@@ -60,8 +72,8 @@ struct PostsByYear {
         self[year][month].posts.append(post)
     }
 
-    /// Returns posts sorted by reverse date.
+    /// Returns an array of all posts.
     func flattened() -> [Post] {
-        byYear.values.flatMap { $0.byMonth.values.flatMap { $0.posts } }.sorted { $1.date < $0.date }
+        byYear.values.flatMap { $0.byMonth.values.flatMap { $0.posts } }
     }
 }

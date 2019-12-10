@@ -15,76 +15,39 @@ struct Post {
     let formattedDate: String
     let link: URL?
     let tags: [String]
-    let bodyMarkdown: String
+    let body: String
+    let path: String
 
-    var dictionary: [String: Any] {
-        var result: [String: Any] = [
-            "slug": slug,
-            "title": title,
-            "author": author,
-            "day": date.day,
-            "month": date.month,
-            "year": date.year,
-            "formattedDate": formattedDate,
-            "tags": tags
-        ]
-        if let link = link {
-            result["isLink"] = true
-            result["link"] = link
-        }
-        return result
-    }
+    // These are computed properties but are computed eagerly because
+    // Stencil is unable to use real computed properties at this time.
+    let isLink: Bool
+    let day: Int
 
-    func dictionary(withPath path: String) -> [String: Any] {
-        var dict = dictionary
-        dict["path"] = path
-        return dict
-    }
-}
-
-/// Posts are sorted in reverse date order.
-extension Post: Comparable {
-    static func < (lhs: Self, rhs: Self) -> Bool {
-        rhs.date < lhs.date
-    }
-}
-
-extension Post {
-    enum Error: Swift.Error {
-        case deficientMetadata(missingKeys: [String])
-    }
-
-    init(slug: String, bodyMarkdown: String, metadata: [String: String]) throws {
+    init(slug: String, title: String, author: String, date: Date, formattedDate: String, link: URL?, tags: [String], body: String, path: String) {
         self.slug = slug
-        self.bodyMarkdown = bodyMarkdown
+        self.title = title
+        self.author = author
+        self.date = date
+        self.formattedDate = formattedDate
+        self.link = link
+        self.tags = tags
+        self.body = body
+        self.path = path
 
-        let requiredKeys = ["Title", "Author", "Date", "Timestamp"]
-        let missingKeys = requiredKeys.filter { metadata[$0] == nil }
-        guard missingKeys.isEmpty else {
-            throw Error.deficientMetadata(missingKeys: missingKeys)
-        }
+        // Eagerly computed properties
+        self.isLink = link != nil
+        self.day = date.day
+    }
+}
 
-        title = metadata["Title"]!
-        author = metadata["Author"]!
-        date = Date(timeIntervalSince1970: TimeInterval(metadata["Timestamp"]!)!)
-        formattedDate = metadata["Date"]!
-        if let urlString = metadata["Link"] {
-            link = URL(string: urlString)!
-        }
-        else {
-            link = nil
-        }
-        if let string = metadata["Tags"] {
-            tags = string.split(separator: ",").map({ $0.trimmingCharacters(in: .whitespaces) })
-        }
-        else {
-            tags = []
-        }
+extension Post: Comparable {
+    static func <(lhs: Self, rhs: Self) -> Bool {
+        lhs.date < rhs.date
     }
 }
 
 extension Post: CustomDebugStringConvertible {
     var debugDescription: String {
-        "<Post slug=\(slug) title=\"\(title)\" date=\"\(formattedDate)\" link=\(link?.absoluteString ?? "no")>"
+        "<Post path=\(path) title=\"\(title)\" date=\"\(formattedDate)\" link=\(link?.absoluteString ?? "no")>"
     }
 }

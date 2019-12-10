@@ -8,6 +8,8 @@
 import Foundation
 
 struct Month: Equatable {
+    static let all = (1 ... 12).map(Month.init(_:))
+
     static let names = [
         "January", "Februrary", "March", "April",
         "May", "June", "July", "August",
@@ -34,7 +36,7 @@ struct Month: Equatable {
         Month.names[number - 1]
     }
 
-    var abbreviatedName: String {
+    var abbreviation: String {
         String(name.prefix(3))
     }
 }

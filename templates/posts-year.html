@@ -7,18 +7,21 @@
 
 {% for month in months %}
   <h2>
-    <a href="/{{ path }}/{{ year }}/{{ month }}">{{ monthNames[month] }}</a>
+    <a href="{{ month.path }}">{{ month.name }}</a>
   </h2>
 
   <ul class="archive">
-  {% for post in postsByMonth[month] %}
+  {% for post in month.posts %}
     <li>
     {% if post.isLink %}
       <a href="{{ post.path }}">&rarr; {{ post.title }}</a>
     {% else %}
       <a href="{{ post.path }}">{{ post.title }}</a>
     {% endif %}
-      <time>{{ post.day }} {{ monthAbbreviations[month] }}</time>
+      <time>{{ post.day }} {{ month.abbreviation }}</time>
+    {% if post.isLink %}
+      <a class="permalink" href="{{ post.path }}">&infin;</a>
+    {% endif %}
     </li>
   {% endfor %}
   </ul>

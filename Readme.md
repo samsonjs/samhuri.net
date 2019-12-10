@@ -69,7 +69,7 @@ Execution, trying TDD for the first time:
 
         - [x] 301 redirect /archive to /posts, and update the header link
 
-        - [x] Check and delete _data.json filse
+        - [x] Check and delete _data.json files
 
     - [x] Search for other _data.json and .ejs files and eliminate any that are found
 
@@ -79,9 +79,21 @@ Execution, trying TDD for the first time:
 
 - [x] Find a way to add the site name to HTML titles rendered by plugins
 
-- [ ] Clean up the posts plugin
+- [x] Clean up the posts plugin
 
-    - [ ] Why don't plain data structures always work with Stencil? Maybe computed properties are a no-go but we can at least use structs instead of dictionaries for the actual rendering
+    - [x] Why don't plain data structures always work with Stencil? Maybe computed properties are a no-go but we can at least use structs instead of dictionaries for the actual rendering
+
+    - [x] Separate I/O from transformations
+
+    - [x] Factor the core logic out of PostsPlugin ... separate I/O from transformations? Is that an improvement or does it obscure what's happening?
+
+    - [x] Stop validating metadata in Post, do that when rendering markdown
+
+    - [x] Remove RenderedPost
+
+    - [x] Move all dictionary conversions for use in template contexts to extensions
+
+    - [x] Stop using dictionaries for template contexts, use structs w/ computed properties
 
 - [ ] Consider using Swift for samhuri.net as well, and then making SiteGenerator a package that it uses ... then we can use Plot or pointfree.co's swift-html
 
