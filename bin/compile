@@ -10,22 +10,15 @@ TARGET_DIR="$2"
 function main() {
   rm -rf "$TARGET_DIR"
 
-  echo "* generate site from $SOURCE_DIR into $TARGET_DIR"
-  "$THIS_DIR/sitegen" "$SOURCE_DIR" "$TARGET_DIR"
-
   # echo "* compile rss feed"
   # compile_feeds
 
-  # echo "* harp compile $SOURCE_DIR $TARGET_DIR"
-  # rm -rf "$TARGET_DIR/*" "$TARGET_DIR/.*"
-  # "$HARP" compile "$SOURCE_DIR" "$TARGET_DIR"
+  echo "* generate site from $SOURCE_DIR into $TARGET_DIR"
+  "$THIS_DIR/sitegen" "$SOURCE_DIR" "$TARGET_DIR"
 
   # clean up temporary feeds
   # rm $SOURCE_DIR/public/feed.xml
   # rm $SOURCE_DIR/public/feed.json
-
-  # echo "* munge html files to make them available without an extension"
-  # munge_html
 
   # echo "* inline CSS"
   # ruby -w $THIS_DIR/inline-css "$TARGET_DIR"
@@ -36,25 +29,6 @@ function main() {
 
 function compile_feeds() {
   ruby -w $THIS_DIR/feeds $SOURCE_DIR/public
-}
-
-function munge_html() {
-  for FILE in "$TARGET_DIR"/*.html "$TARGET_DIR"/posts/*/*/*.html "$TARGET_DIR"/posts/drafts/*.html "$TARGET_DIR"/projects/*.html; do
-    FILENAME="${FILE##*/}"
-    case "$FILENAME" in
-    index.html)
-      continue
-      ;;
-    missing.html)
-      continue
-      ;;
-    esac
-
-    # make posts available without an .html extension
-    FILE_DIR="${FILE%.html}"
-    mkdir -p "$FILE_DIR"
-    mv "$FILE" "$FILE_DIR/index.html"
-  done
 }
 
 # function minify_js() {

@@ -103,7 +103,7 @@ Execution, trying TDD for the first time:
 
     - [ ] Generate JSON feed
 
-    - [ ] Munge HTML files to make them available without an extension (index.html hack, do it in the SiteGenerator)
+    - [x] Munge HTML files to make them available without an extension (index.html hack, do it in the SiteGenerator)
 
     - [ ] Inline CSS?
 
