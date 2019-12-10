@@ -20,6 +20,8 @@ struct MonthPosts {
     }
 }
 
+// MARK: -
+
 struct YearPosts {
     let year: Int
     var byMonth: [Month: MonthPosts]
@@ -45,6 +47,8 @@ struct YearPosts {
         }
     }
 }
+
+// MARK: -
 
 struct PostsByYear {
     private(set) var byYear: [Int: YearPosts]

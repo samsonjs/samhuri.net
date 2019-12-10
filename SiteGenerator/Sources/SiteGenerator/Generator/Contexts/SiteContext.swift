@@ -17,7 +17,7 @@ struct SiteContext {
     }
 }
 
-extension SiteContext: TemplateContext {
+extension SiteContext {
     var dictionary: [String: Any] {
         [
             "site": site,

@@ -14,7 +14,7 @@ struct PageContext {
     let metadata: [String: String]
 }
 
-extension PageContext: TemplateContext {
+extension PageContext {
     var template: String {
         page.template ?? site.template
     }
