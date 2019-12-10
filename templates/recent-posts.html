@@ -1,9 +1,11 @@
 {% extends "samhuri.net.html" %}
 
 {% block body %}
+
 <div class="container">
-  {% for post in recentPosts %}
-    {% include "partial-post.html" post %}
-  {% endfor %}
+{% for post in recentPosts %}
+  {% include "partial-post.html" post %}
+{% endfor %}
 </div>
+
 {% endblock %}

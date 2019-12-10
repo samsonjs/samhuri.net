@@ -19,13 +19,13 @@ private struct Projects: Codable {
 
 final class ProjectsPlugin: Plugin {
     let fileManager: FileManager = .default
-    let path: String
+    let outputPath: String
 
     var projects: [Project] = []
     var sourceURL: URL!
 
-    init(path: String = "projects") {
-        self.path = path
+    init(outputPath: String = "projects") {
+        self.outputPath = outputPath
     }
 
     func setUp(sourceURL: URL) throws {
@@ -33,7 +33,7 @@ final class ProjectsPlugin: Plugin {
         let projectsURL = sourceURL.appendingPathComponent("projects.json")
         if fileManager.fileExists(atPath: projectsURL.path) {
             self.projects = try Projects.decode(from: projectsURL).projects.map { project in
-                Project(title: project.title, description: project.description, path: "/\(path)/\(project.title).html")
+                Project(title: project.title, description: project.description, path: "/\(outputPath)/\(project.title)")
             }
         }
     }
@@ -43,7 +43,7 @@ final class ProjectsPlugin: Plugin {
             return
         }
 
-        let projectsDir = targetURL.appendingPathComponent(path)
+        let projectsDir = targetURL.appendingPathComponent(outputPath)
         try fileManager.createDirectory(at: projectsDir, withIntermediateDirectories: true, attributes: nil)
         let projectsURL = projectsDir.appendingPathComponent("index.html")
         let projectsHTML = try templateRenderer.renderTemplate(name: "projects", context: [
@@ -53,12 +53,12 @@ final class ProjectsPlugin: Plugin {
         try projectsHTML.write(to: projectsURL, atomically: true, encoding: .utf8)
 
         for project in projects {
-            let filename = "\(project.title).html"
-            let projectURL = projectsDir.appendingPathComponent(filename)
+            let projectURL = projectsDir.appendingPathComponent("\(project.title)/index.html")
             let projectHTML = try templateRenderer.renderTemplate(name: "project", context: [
                 "title": "\(project.title)",
                 "project": project,
             ])
+            try fileManager.createDirectory(at: projectURL.deletingLastPathComponent(), withIntermediateDirectories: true, attributes: nil)
             try projectHTML.write(to: projectURL, atomically: true, encoding: .utf8)
         }
     }

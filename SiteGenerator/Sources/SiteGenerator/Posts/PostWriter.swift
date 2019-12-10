@@ -25,7 +25,7 @@ final class PostWriter {
     }
 
     func urlPathForPost(date: Date, slug: String) -> String {
-        urlPath(year: date.year, month: Month(date.month)).appending("/\(slug).html")
+        urlPath(year: date.year, month: Month(date.month)).appending("/\(slug)")
     }
 }
 
@@ -47,7 +47,7 @@ extension PostWriter {
     }
 
     private func filePath(date: Date, slug: String) -> String {
-        "/\(date.year)/\(Month(date.month).padded)/\(slug).html"
+        "/\(date.year)/\(Month(date.month).padded)/\(slug)/index.html"
     }
 }
 

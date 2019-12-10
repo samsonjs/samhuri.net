@@ -1,0 +1,12 @@
+<article>
+  <header>
+{% if post.isLink %}
+    <h2>&rarr; <a href="{{ post.link }}">{{ post.title }}</a></h2>
+{% else %}
+    <h2><a href="{{ post.path }}">{{ post.title }}</a></h2>
+{% endif %}
+    <time>{{ post.formattedDate }}</time>
+    <a class="permalink" href="{{ post.path }}">&infin;</a>
+  </header>
+  {{ post.body }}
+</article>
