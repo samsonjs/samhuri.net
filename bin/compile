@@ -10,25 +10,14 @@ TARGET_DIR="$2"
 function main() {
   rm -rf "$TARGET_DIR"
 
-  # echo "* compile rss feed"
-  # compile_feeds
-
   echo "* generate site from $SOURCE_DIR into $TARGET_DIR"
   "$THIS_DIR/sitegen" "$SOURCE_DIR" "$TARGET_DIR"
-
-  # clean up temporary feeds
-  # rm $SOURCE_DIR/public/feed.xml
-  # rm $SOURCE_DIR/public/feed.json
 
   # echo "* inline CSS"
   # ruby -w $THIS_DIR/inline-css "$TARGET_DIR"
 
   # echo "* minify js"
   # minify_js
-}
-
-function compile_feeds() {
-  ruby -w $THIS_DIR/feeds $SOURCE_DIR/public
 }
 
 # function minify_js() {
