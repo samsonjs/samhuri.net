@@ -26,7 +26,7 @@ final class RSSFeedPlugin: Plugin {
             return
         }
 
-        try postRepo.readPosts(sourceURL: sourceURL, makePath: rssFeedWriter.urlPathForPost)
+        try postRepo.readPosts(sourceURL: sourceURL)
     }
 
     func render(site: Site, targetURL: URL, templateRenderer: TemplateRenderer) throws {

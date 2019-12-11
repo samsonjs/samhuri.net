@@ -26,7 +26,7 @@ final class JSONFeedPlugin: Plugin {
             return
         }
 
-        try postRepo.readPosts(sourceURL: sourceURL, makePath: jsonFeedWriter.urlPathForPost)
+        try postRepo.readPosts(sourceURL: sourceURL)
     }
 
     func render(site: Site, targetURL: URL, templateRenderer: TemplateRenderer) throws {

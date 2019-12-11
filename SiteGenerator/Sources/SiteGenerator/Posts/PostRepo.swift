@@ -18,12 +18,14 @@ final class PostRepo {
 
     let fileManager: FileManager
     let postTransformer: PostTransformer
+    let outputPath: String
 
     private(set) var posts: PostsByYear!
 
-    init(fileManager: FileManager = .default, postTransformer: PostTransformer = PostTransformer()) {
+    init(fileManager: FileManager = .default, postTransformer: PostTransformer = PostTransformer(), outputPath: String = "posts") {
         self.fileManager = fileManager
         self.postTransformer = postTransformer
+        self.outputPath = outputPath
     }
 
     var isEmpty: Bool {
@@ -43,10 +45,21 @@ final class PostRepo {
         return fileManager.fileExists(atPath: postsURL.path)
     }
 
-    func readPosts(sourceURL: URL, makePath: (Date, _ slug: String) -> String) throws {
+    func readPosts(sourceURL: URL) throws {
         let posts = try readRawPosts(sourceURL: sourceURL)
-            .map { try postTransformer.makePost(from: $0, makePath: makePath) }
-        self.posts = PostsByYear(posts: posts)
+            .map { try postTransformer.makePost(from: $0, makePath: urlPathForPost) }
+        self.posts = PostsByYear(posts: posts, path: "/\(outputPath)")
+    }
+
+    func urlPathForPost(date: Date, slug: String) -> String {
+        // format: /posts/2019/12/first-post
+        [
+            "",
+            outputPath,
+            "\(date.year)",
+            Month(date.month).padded,
+            slug,
+        ].joined(separator: "/")
     }
 
     private func readRawPosts(sourceURL: URL) throws -> [RawPost] {

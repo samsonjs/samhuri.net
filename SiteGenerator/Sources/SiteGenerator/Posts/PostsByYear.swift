@@ -10,6 +10,7 @@ import Foundation
 struct MonthPosts {
     let month: Month
     var posts: [Post]
+    let path: String
 
     var title: String {
         month.padded
@@ -25,6 +26,7 @@ struct MonthPosts {
 struct YearPosts {
     let year: Int
     var byMonth: [Month: MonthPosts]
+    let path: String
 
     var title: String {
         "\(year)"
@@ -40,7 +42,7 @@ struct YearPosts {
 
     subscript(month: Month) -> MonthPosts {
         get {
-            byMonth[month, default: MonthPosts(month: month, posts: [])]
+            byMonth[month, default: MonthPosts(month: month, posts: [], path: "\(path)/\(month.padded)")]
         }
         set {
             byMonth[month] = newValue
@@ -52,15 +54,17 @@ struct YearPosts {
 
 struct PostsByYear {
     private(set) var byYear: [Int: YearPosts]
+    let path: String
 
-    init(posts: [Post]) {
+    init(posts: [Post], path: String) {
         byYear = [:]
+        self.path = path
         posts.forEach { add(post: $0) }
     }
 
     subscript(year: Int) -> YearPosts {
         get {
-            byYear[year, default: YearPosts(year: year, byMonth: [:])]
+            byYear[year, default: YearPosts(year: year, byMonth: [:], path: "\(path)/\(year)")]
         }
         set {
             byYear[year] = newValue

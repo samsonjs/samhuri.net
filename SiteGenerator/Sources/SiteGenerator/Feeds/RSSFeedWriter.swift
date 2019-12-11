@@ -39,26 +39,10 @@ private extension Date {
 final class RSSFeedWriter {
     let fileManager: FileManager
     let feedPath: String
-    let postsPath: String
 
-    init(fileManager: FileManager = .default, feedPath: String = "feed.xml", postsPath: String = "posts") {
+    init(fileManager: FileManager = .default, feedPath: String = "feed.xml") {
         self.fileManager = fileManager
         self.feedPath = feedPath
-        self.postsPath = postsPath
-    }
-
-    #warning("These urlPath methods were copied from PostsPlugin and should possibly be moved somewhere else")
-
-    func urlPath(year: Int) -> String {
-        "/\(postsPath)/\(year)"
-    }
-
-    func urlPath(year: Int, month: Month) -> String {
-        urlPath(year: year).appending("/\(month.padded)")
-    }
-
-    func urlPathForPost(date: Date, slug: String) -> String {
-        urlPath(year: date.year, month: Month(date.month)).appending("/\(slug)")
     }
 
     func writeFeed(_ posts: [Post], site: Site, to targetURL: URL, with templateRenderer: TemplateRenderer) throws {

@@ -15,18 +15,6 @@ final class PostWriter {
         self.fileManager = fileManager
         self.outputPath = outputPath
     }
-
-    func urlPath(year: Int) -> String {
-        "/\(outputPath)/\(year)"
-    }
-
-    func urlPath(year: Int, month: Month) -> String {
-        urlPath(year: year).appending("/\(month.padded)")
-    }
-
-    func urlPathForPost(date: Date, slug: String) -> String {
-        urlPath(year: date.year, month: Month(date.month)).appending("/\(slug)")
-    }
 }
 
 // MARK: - Post pages
@@ -80,7 +68,7 @@ extension PostWriter {
 
     private func contextDictionaryForYearPosts(_ posts: YearPosts) -> [String: Any] {
         [
-            "path": urlPath(year: posts.year),
+            "path": posts.path,
             "title": posts.title,
             "months": posts.months.sorted(by: >).map { month in
                 contextDictionaryForMonthPosts(posts[month], year: posts.year)
@@ -90,7 +78,7 @@ extension PostWriter {
 
     private func contextDictionaryForMonthPosts(_ posts: MonthPosts, year: Int) -> [String: Any] {
         [
-            "path": urlPath(year: year, month: posts.month),
+            "path": posts.path,
             "name": posts.month.name,
             "abbreviation": posts.month.abbreviation,
             "posts": posts.posts.sorted(by: >),
@@ -104,10 +92,10 @@ extension PostWriter {
     func writeYearIndexes(posts: PostsByYear, to targetURL: URL, with templateRenderer: TemplateRenderer) throws {
         for (year, yearPosts) in posts.byYear {
             let months = yearPosts.months.sorted(by: >)
-            let yearDir = targetURL.appendingPathComponent(urlPath(year: year))
+            let yearDir = targetURL.appendingPathComponent(yearPosts.path)
             let context: [String: Any] = [
                 "title": yearPosts.title,
-                "path": urlPath(year: year),
+                "path": yearPosts.path,
                 "year": year,
                 "months": months.map { contextDictionaryForMonthPosts(posts[year][$0], year: year) },
             ]
@@ -125,10 +113,11 @@ extension PostWriter {
     func writeMonthRollups(posts: PostsByYear, to targetURL: URL, with templateRenderer: TemplateRenderer) throws {
         for (year, yearPosts) in posts.byYear {
             for month in yearPosts.months {
-                let monthDir = targetURL.appendingPathComponent(urlPath(year: year, month: month))
+                let monthPosts = yearPosts[month]
+                let monthDir = targetURL.appendingPathComponent(monthPosts.path)
                 let monthHTML = try templateRenderer.renderTemplate(name: "posts-month.html", context: [
                     "title": "\(month.name) \(year)",
-                    "posts": yearPosts[month].posts.sorted(by: >),
+                    "posts": monthPosts.posts.sorted(by: >),
                 ])
                 let monthURL = monthDir.appendingPathComponent("index.html")
                 try fileManager.createDirectory(at: monthDir, withIntermediateDirectories: true, attributes: nil)
