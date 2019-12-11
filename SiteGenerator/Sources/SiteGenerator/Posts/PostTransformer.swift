@@ -10,15 +10,17 @@ import Ink
 
 final class PostTransformer {
     let markdownParser: MarkdownParser
+    let outputPath: String
 
-    init(markdownParser: MarkdownParser = MarkdownParser()) {
+    init(markdownParser: MarkdownParser = MarkdownParser(), outputPath: String = "posts") {
         self.markdownParser = markdownParser
+        self.outputPath = outputPath
     }
 
-    func makePost(from rawPost: RawPost, makePath: (Date, _ slug: String) -> String) throws -> Post {
+    func makePost(from rawPost: RawPost) throws -> Post {
         let result = markdownParser.parse(rawPost.markdown)
         let metadata = try parseMetadata(result.metadata)
-        let path = makePath(metadata.date, rawPost.slug)
+        let path = pathForPost(date: metadata.date, slug: rawPost.slug)
         return Post(
             slug: rawPost.slug,
             title: metadata.title,
@@ -30,6 +32,17 @@ final class PostTransformer {
             body: result.html,
             path: path
         )
+    }
+
+    func pathForPost(date: Date, slug: String) -> String {
+        // format: /posts/2019/12/first-post
+        [
+            "",
+            outputPath,
+            "\(date.year)",
+            Month(date.month).padded,
+            slug,
+        ].joined(separator: "/")
     }
 }
 

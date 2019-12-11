@@ -45,10 +45,6 @@ public final class Generator {
                 return ProjectsPlugin(options: options)
             case .posts:
                 return PostsPlugin(options: options)
-            case .jsonFeed:
-                return JSONFeedPlugin(options: options)
-            case .rssFeed:
-                return RSSFeedPlugin(options: options)
             }
         }
         for plugin in plugins {

@@ -15,16 +15,15 @@ struct RawPost {
 final class PostRepo {
     let postsPath = "posts"
     let recentPostsCount = 10
+    let feedPostsCount = 30
 
     let fileManager: FileManager
-    let postTransformer: PostTransformer
     let outputPath: String
 
     private(set) var posts: PostsByYear!
 
-    init(fileManager: FileManager = .default, postTransformer: PostTransformer = PostTransformer(), outputPath: String = "posts") {
+    init(fileManager: FileManager = .default, outputPath: String = "posts") {
         self.fileManager = fileManager
-        self.postTransformer = postTransformer
         self.outputPath = outputPath
     }
 
@@ -40,26 +39,20 @@ final class PostRepo {
         Array(sortedPosts.prefix(recentPostsCount))
     }
 
+    var postsForFeed: [Post] {
+        Array(sortedPosts.prefix(feedPostsCount))
+    }
+
     func postDataExists(at sourceURL: URL) -> Bool {
         let postsURL = sourceURL.appendingPathComponent(postsPath)
         return fileManager.fileExists(atPath: postsURL.path)
     }
 
     func readPosts(sourceURL: URL) throws {
+        let postTransformer = PostTransformer(outputPath: outputPath)
         let posts = try readRawPosts(sourceURL: sourceURL)
-            .map { try postTransformer.makePost(from: $0, makePath: urlPathForPost) }
+            .map(postTransformer.makePost)
         self.posts = PostsByYear(posts: posts, path: "/\(outputPath)")
-    }
-
-    func urlPathForPost(date: Date, slug: String) -> String {
-        // format: /posts/2019/12/first-post
-        [
-            "",
-            outputPath,
-            "\(date.year)",
-            Month(date.month).padded,
-            slug,
-        ].joined(separator: "/")
     }
 
     private func readRawPosts(sourceURL: URL) throws -> [RawPost] {
