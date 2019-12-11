@@ -33,13 +33,13 @@ public final class Generator {
         self.renderers = renderers
 
         for plugin in plugins {
-            try plugin.setUp(sourceURL: sourceURL)
+            try plugin.setUp(site: site, sourceURL: sourceURL)
         }
     }
 
     public func generate(targetURL: URL) throws {
         for plugin in plugins {
-            try plugin.render(targetURL: targetURL, templateRenderer: templateRenderer)
+            try plugin.render(site: site, targetURL: targetURL, templateRenderer: templateRenderer)
         }
 
         let publicURL = sourceURL.appendingPathComponent("public")

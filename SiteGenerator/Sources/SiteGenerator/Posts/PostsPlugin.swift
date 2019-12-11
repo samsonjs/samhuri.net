@@ -21,7 +21,7 @@ final class PostsPlugin: Plugin {
 
     // MARK: - Plugin methods
 
-    func setUp(sourceURL: URL) throws {
+    func setUp(site: Site, sourceURL: URL) throws {
         guard postRepo.postDataExists(at: sourceURL) else {
             return
         }
@@ -29,7 +29,7 @@ final class PostsPlugin: Plugin {
         try postRepo.readPosts(sourceURL: sourceURL, makePath: postWriter.urlPathForPost)
     }
 
-    func render(targetURL: URL, templateRenderer: TemplateRenderer) throws {
+    func render(site: Site, targetURL: URL, templateRenderer: TemplateRenderer) throws {
         guard !postRepo.isEmpty else {
             return
         }

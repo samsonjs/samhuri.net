@@ -34,7 +34,7 @@ final class PostWriter {
 extension PostWriter {
     func writePosts(_ posts: [Post], to targetURL: URL, with templateRenderer: TemplateRenderer) throws {
         for post in posts {
-            let postHTML = try templateRenderer.renderTemplate(name: "post", context: [
+            let postHTML = try templateRenderer.renderTemplate(name: "post.html", context: [
                 "title": post.title,
                 "post": post,
             ])
@@ -55,7 +55,7 @@ extension PostWriter {
 
 extension PostWriter {
     func writeRecentPosts(_ recentPosts: [Post], to targetURL: URL, with templateRenderer: TemplateRenderer) throws {
-        let recentPostsHTML = try templateRenderer.renderTemplate(name: "recent-posts", context: [
+        let recentPostsHTML = try templateRenderer.renderTemplate(name: "recent-posts.html", context: [
             "recentPosts": recentPosts,
         ])
         let fileURL = targetURL.appendingPathComponent("index.html")
@@ -69,7 +69,7 @@ extension PostWriter {
 extension PostWriter {
     func writeArchive(posts: PostsByYear, to targetURL: URL, with templateRenderer: TemplateRenderer) throws {
         let allYears = posts.byYear.keys.sorted(by: >)
-        let archiveHTML = try templateRenderer.renderTemplate(name: "posts-archive", context: [
+        let archiveHTML = try templateRenderer.renderTemplate(name: "posts-archive.html", context: [
             "title": "Archive",
             "years": allYears.map { contextDictionaryForYearPosts(posts[$0]) },
         ])
@@ -111,7 +111,7 @@ extension PostWriter {
                 "year": year,
                 "months": months.map { contextDictionaryForMonthPosts(posts[year][$0], year: year) },
             ]
-            let yearHTML = try templateRenderer.renderTemplate(name: "posts-year", context: context)
+            let yearHTML = try templateRenderer.renderTemplate(name: "posts-year.html", context: context)
             let yearURL = yearDir.appendingPathComponent("index.html")
             try fileManager.createDirectory(at: yearDir, withIntermediateDirectories: true, attributes: nil)
             try yearHTML.write(to: yearURL, atomically: true, encoding: .utf8)
@@ -126,7 +126,7 @@ extension PostWriter {
         for (year, yearPosts) in posts.byYear {
             for month in yearPosts.months {
                 let monthDir = targetURL.appendingPathComponent(urlPath(year: year, month: month))
-                let monthHTML = try templateRenderer.renderTemplate(name: "posts-month", context: [
+                let monthHTML = try templateRenderer.renderTemplate(name: "posts-month.html", context: [
                     "title": "\(month.name) \(year)",
                     "posts": yearPosts[month].posts.sorted(by: >),
                 ])

@@ -1,0 +1,7 @@
+<div id="article">
+  <p class="time">{{ post.date }}</p>
+  {{ post.body }}
+  {% if post.isLink %}
+  <p><a class="permalink" href="{{ post.url }}">&infin;</a></p>
+  {% endif %}
+</div>

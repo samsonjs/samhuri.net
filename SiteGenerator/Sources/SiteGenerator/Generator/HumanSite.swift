@@ -10,8 +10,10 @@ import Foundation
 /// This is used to make the JSON simpler to write with optionals.
 struct HumanSite: Codable {
     let author: String
+    let email: String
     let title: String
-    let url: String
+    let description: String?
+    let url: URL
     let template: String?
     let styles: [String]?
     let scripts: [String]?
@@ -19,11 +21,15 @@ struct HumanSite: Codable {
 
 extension Site {
     init(humanSite: HumanSite) {
-        self.author = humanSite.author
-        self.title = humanSite.title
-        self.url = humanSite.url
-        self.template = humanSite.template ?? "page"
-        self.styles = humanSite.styles ?? []
-        self.scripts = humanSite.scripts ?? []
+        self.init(
+            author: humanSite.author,
+            email: humanSite.email,
+            title: humanSite.title,
+            description: humanSite.description,
+            url: humanSite.url,
+            template: humanSite.template ?? "page",
+            styles: humanSite.styles ?? [],
+            scripts: humanSite.scripts ?? []
+        )
     }
 }

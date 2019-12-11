@@ -9,11 +9,13 @@ let package = Package(
         .macOS(.v10_15),
     ],
     dependencies: [
-        .package(url: "https://github.com/stencilproject/Stencil.git", from: "0.13.0"),
+        .package(url: "https://github.com/IBM-Swift/swift-html-entities.git", from: "3.0.0"),
         .package(url: "https://github.com/johnsundell/ink.git", from: "0.1.0"),
+        .package(url: "https://github.com/stencilproject/Stencil.git", from: "0.13.0"),
     ],
     targets: [
         .target( name: "SiteGenerator", dependencies: [
+            "HTMLEntities",
             "Ink",
             "Stencil",
         ]),

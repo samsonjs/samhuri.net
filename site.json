@@ -1,6 +1,8 @@
 {
   "title": "samhuri.net",
+  "description": "just some blog",
   "author": "Sami Samhuri",
+  "email": "sami@samhuri.net",
   "url": "https://samhuri.net",
   "styles": [
     "/css/normalize.css",

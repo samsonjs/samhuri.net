@@ -105,6 +105,8 @@ Execution, trying TDD for the first time:
 
     - [x] Munge HTML files to make them available without an extension (index.html hack, do it in the SiteGenerator)
 
+    - [ ] Use perf tools on beta.samhuri.net and compare to samhuri.net to see if inlining css and minifying JS is actually worthwhile
+
     - [ ] Inline CSS?
 
     - [ ] Minify JS? Now that we're keeping node, why not ...

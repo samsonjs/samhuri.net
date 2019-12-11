@@ -28,7 +28,7 @@ final class ProjectsPlugin: Plugin {
         self.outputPath = outputPath
     }
 
-    func setUp(sourceURL: URL) throws {
+    func setUp(site: Site, sourceURL: URL) throws {
         self.sourceURL = sourceURL
         let projectsURL = sourceURL.appendingPathComponent("projects.json")
         if fileManager.fileExists(atPath: projectsURL.path) {
@@ -38,7 +38,7 @@ final class ProjectsPlugin: Plugin {
         }
     }
 
-    func render(targetURL: URL, templateRenderer: TemplateRenderer) throws {
+    func render(site: Site, targetURL: URL, templateRenderer: TemplateRenderer) throws {
         guard !projects.isEmpty else {
             return
         }
@@ -46,7 +46,7 @@ final class ProjectsPlugin: Plugin {
         let projectsDir = targetURL.appendingPathComponent(outputPath)
         try fileManager.createDirectory(at: projectsDir, withIntermediateDirectories: true, attributes: nil)
         let projectsURL = projectsDir.appendingPathComponent("index.html")
-        let projectsHTML = try templateRenderer.renderTemplate(name: "projects", context: [
+        let projectsHTML = try templateRenderer.renderTemplate(name: "projects.html", context: [
             "title": "Projects",
             "projects": projects,
         ])
@@ -54,7 +54,7 @@ final class ProjectsPlugin: Plugin {
 
         for project in projects {
             let projectURL = projectsDir.appendingPathComponent("\(project.title)/index.html")
-            let projectHTML = try templateRenderer.renderTemplate(name: "project", context: [
+            let projectHTML = try templateRenderer.renderTemplate(name: "project.html", context: [
                 "title": "\(project.title)",
                 "project": project,
             ])
