@@ -3,14 +3,14 @@ Title: Tales of PRK Laser Eye Surgery
 Author: Sami Samhuri
 Date: 12th April, 2016
 Timestamp: 1460433173
-Tags: 
+Tags:
 ---
 
 Today I scheduled PRK laser eye surgery on April 19th. Exciting but also kind of terrifying because the procedure sounds a bit horrific. Most accounts from people don't sound very bad though so the operation itself should be a breeze! I scoured the web for PRK recovery stories to get an idea of what I was in for and found some good quotes.
 
 ----
 
-[Munchkin](munchkin) had the surgery in South Africa 2 weeks prior to flying to the UK. Doesn't sound like the best idea.
+[Munchkin][munchkin] had the surgery in South Africa 2 weeks prior to flying to the UK. Doesn't sound like the best idea.
 
 > The journey back to the UK was tricky. I couldn’t quite make out the signs in the airport, and I had to walk right up to boards to read them.
 
@@ -22,7 +22,7 @@ Unfortunately they also failed to get as good of a result as many others.
 
 ----
 
-[lechlitnerd on reddit](lech):
+[lechlitnerd on reddit][lech]:
 
 > Now, everyone has their own thresholds for pain. And before the procedure, I knew that PRK would have its discomforts. But I was not prepared for this searing pain. I woke up from my nap, and it felt like someone had rubbed chili peppers in my eyes. They burned!
 
@@ -30,7 +30,7 @@ Unfortunately they also failed to get as good of a result as many others.
 
 ----
 
-[Alex Tran](alex)'s Scout leaders may not have been that great at campfire safety.
+[Alex Tran][alex]'s Scout leaders may not have been that great at campfire safety.
 
 > At this point, I was ready for the laser. I heard the machine rev up and the laser started zapping quickly. Luckily I was able to keep my eye completely still so the laser didn’t stop at all. It took about 35 seconds, zap by zap. There was no pain but you could definitely smell the burning eyeball. The smell reminded me of scout camp.
 
@@ -38,7 +38,7 @@ Unfortunately they also failed to get as good of a result as many others.
 
 ----
 
-[Anson Kao](anson) had a pretty good reaction to the Valium. If only we all could be this lucky.
+[Anson Kao][anson] had a pretty good reaction to the Valium. If only we all could be this lucky.
 
 > I found that the surgery was actually very entertaining! It’s kinda like your eyes are going through a car wash. After popping a Valium, you relax and just lay on your back while the surgeon does everything. Thanks to plenty of freezing drops, you can’t even tell when the surgeon touches your eye – you just watch it all unfold like a movie.
 
