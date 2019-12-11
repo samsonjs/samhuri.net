@@ -53,11 +53,19 @@ final class RSSFeedWriter {
         )
         let renderedPosts: [FeedPost] = try posts.map { post in
             let title = post.isLink ? "→ \(post.title)" : post.title
+            let author: String = {
+                if let email = site.email {
+                    return "\(email) (\(post.author))"
+                }
+                else {
+                    return post.author
+                }
+            }()
             let url = site.url.appendingPathComponent(post.path)
             return FeedPost(
                 title: title.htmlEscape(useNamedReferences: true),
                 date: post.date.rfc822.htmlEscape(useNamedReferences: true),
-                author: "\(site.email) (\(post.author))".htmlEscape(useNamedReferences: true),
+                author: author.htmlEscape(useNamedReferences: true),
                 link: (post.link ?? url).absoluteString.htmlEscape(useNamedReferences: true),
                 guid: url.absoluteString.htmlEscape(useNamedReferences: true),
                 body: try templateRenderer.renderTemplate(name: "feed-post.html", context: [

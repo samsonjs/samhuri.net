@@ -10,7 +10,7 @@ import Foundation
 /// This is used to make the JSON simpler to write with optionals.
 struct HumanSite: Codable {
     let author: String
-    let email: String
+    let email: String?
     let title: String
     let description: String?
     let url: URL

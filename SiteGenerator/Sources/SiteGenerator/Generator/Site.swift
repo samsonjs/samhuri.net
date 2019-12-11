@@ -9,7 +9,7 @@ import Foundation
 
 public struct Site {
     public let author: String
-    public let email: String
+    public let email: String?
     public let title: String
     public let description: String?
     public let url: URL
