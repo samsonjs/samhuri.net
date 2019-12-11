@@ -13,7 +13,7 @@ func main(sourcePath: String, targetPath: String) throws {
     let targetURL = URL(fileURLWithPath: targetPath)
     let generator = try Generator(
         sourceURL: sourceURL,
-        plugins: [ProjectsPlugin(), PostsPlugin(), RSSFeedPlugin()],
+        plugins: [ProjectsPlugin(), PostsPlugin(), RSSFeedPlugin(), JSONFeedPlugin()],
         renderers: [LessRenderer(), MarkdownRenderer()]
     )
     try generator.generate(targetURL: targetURL)

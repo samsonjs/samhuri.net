@@ -8,5 +8,8 @@
     "/css/normalize.css",
     "/css/style.css"
   ],
-  "scripts": []
+  "scripts": [],
+  "icon": "images/apple-touch-icon-300.png",
+  "favicon": "images/apple-touch-icon-80.png",
+  "avatar": "images/me.jpg",
 }

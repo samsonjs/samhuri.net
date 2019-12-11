@@ -17,6 +17,9 @@ struct HumanSite: Codable {
     let template: String?
     let styles: [String]?
     let scripts: [String]?
+    let avatar: String?
+    let icon: String?
+    let favicon: String?
 }
 
 extension Site {
@@ -29,7 +32,10 @@ extension Site {
             url: humanSite.url,
             template: humanSite.template ?? "page",
             styles: humanSite.styles ?? [],
-            scripts: humanSite.scripts ?? []
+            scripts: humanSite.scripts ?? [],
+            avatarPath: humanSite.avatar,
+            iconPath: humanSite.icon,
+            faviconPath: humanSite.favicon
         )
     }
 }

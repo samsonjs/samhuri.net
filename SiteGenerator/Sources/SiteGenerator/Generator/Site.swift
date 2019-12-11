@@ -16,6 +16,11 @@ public struct Site {
     public let template: String
     public let styles: [String]
     public let scripts: [String]
+
+    // Used for JSON feed
+    public let avatarPath: String?
+    public let iconPath: String?
+    public let faviconPath: String?
 }
 
 extension Site {
