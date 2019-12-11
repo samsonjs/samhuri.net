@@ -99,9 +99,9 @@ Execution, trying TDD for the first time:
 
 - [ ] Replace remaining Ruby with Swift
 
-    - [ ] Generate RSS feed (ditch mustache templates)
+    - [x] Generate RSS feed (ditch mustache templates)
 
-    - [ ] Generate JSON feed
+    - [x] Generate JSON feed
 
     - [x] Munge HTML files to make them available without an extension (index.html hack, do it in the SiteGenerator)
 
