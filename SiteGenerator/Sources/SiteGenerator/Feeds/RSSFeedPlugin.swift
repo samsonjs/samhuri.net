@@ -9,14 +9,14 @@ import Foundation
 
 final class RSSFeedPlugin: Plugin {
     let postRepo: PostRepo
-    let rssWriter: RSSWriter
+    let rssFeedWriter: RSSFeedWriter
 
     init(
         postRepo: PostRepo = PostRepo(),
-        rssWriter: RSSWriter = RSSWriter()
+        rssFeedWriter: RSSFeedWriter = RSSFeedWriter()
     ) {
         self.postRepo = postRepo
-        self.rssWriter = rssWriter
+        self.rssFeedWriter = rssFeedWriter
     }
 
     // MARK: - Plugin methods
@@ -26,7 +26,7 @@ final class RSSFeedPlugin: Plugin {
             return
         }
 
-        try postRepo.readPosts(sourceURL: sourceURL, makePath: rssWriter.urlPathForPost)
+        try postRepo.readPosts(sourceURL: sourceURL, makePath: rssFeedWriter.urlPathForPost)
     }
 
     func render(site: Site, targetURL: URL, templateRenderer: TemplateRenderer) throws {
@@ -34,6 +34,6 @@ final class RSSFeedPlugin: Plugin {
             return
         }
 
-        try rssWriter.writeFeed(postRepo.postsForFeed, site: site, to: targetURL, with: templateRenderer)
+        try rssFeedWriter.writeFeed(postRepo.postsForFeed, site: site, to: targetURL, with: templateRenderer)
     }
 }
