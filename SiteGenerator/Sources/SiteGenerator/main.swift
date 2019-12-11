@@ -8,12 +8,12 @@
 import Darwin
 import Foundation
 
-func main(sourcePath: String, targetPath: String) throws {
+func main(sourcePath: String, targetPath: String, siteURLOverride: URL?) throws {
     let sourceURL = URL(fileURLWithPath: sourcePath)
     let targetURL = URL(fileURLWithPath: targetPath)
     let generator = try Generator(
         sourceURL: sourceURL,
-        plugins: [ProjectsPlugin(), PostsPlugin(), RSSFeedPlugin(), JSONFeedPlugin()],
+        siteURLOverride: siteURLOverride,
         renderers: [LessRenderer(), MarkdownRenderer()]
     )
     try generator.generate(targetURL: targetURL)
@@ -37,11 +37,24 @@ let targetPath = CommandLine.arguments[2]
 let targetExists = FileManager.default.fileExists(atPath: targetPath)
 guard !targetExists else {
     print("error: Refusing to clobber existing target \(targetPath)")
-    exit(2)
+    exit(3)
+}
+
+let siteURLOverride: URL?
+if CommandLine.argc > 3, CommandLine.arguments[3].isEmpty == false {
+    let urlString = CommandLine.arguments[3]
+    guard let url = URL(string: urlString) else {
+        print("error: invalid site URL \(urlString)")
+        exit(4)
+    }
+    siteURLOverride = url
+}
+else {
+    siteURLOverride = nil
 }
 
 do {
-    try main(sourcePath: sourcePath, targetPath: targetPath)
+    try main(sourcePath: sourcePath, targetPath: targetPath, siteURLOverride: siteURLOverride)
     exit(0)
 }
 catch {

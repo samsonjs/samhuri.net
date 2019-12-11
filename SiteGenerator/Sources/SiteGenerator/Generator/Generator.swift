@@ -20,9 +20,13 @@ public final class Generator {
 
     let ignoredFilenames = [".DS_Store", ".gitkeep"]
 
-    public init(sourceURL: URL, renderers: [Renderer]) throws {
+    public init(sourceURL: URL, siteURLOverride: URL? = nil, renderers: [Renderer]) throws {
         let siteURL = sourceURL.appendingPathComponent("site.json")
-        let site = try Site.decode(from: siteURL)
+        var site = try Site.decode(from: siteURL)
+        if let url = siteURLOverride {
+            print("Overriding site URL \(site.url) with \(url)")
+            site.url = url
+        }
 
         let templatesURL = sourceURL.appendingPathComponent("templates")
         self.templateRenderer = SiteTemplateRenderer(site: site, templatesURL: templatesURL)

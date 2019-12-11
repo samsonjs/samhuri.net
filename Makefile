@@ -8,8 +8,10 @@ publish: blog
 	@echo
 	./bin/publish --delete
 
-publish_beta: blog
+publish_beta:
 	@echo
+	./bin/build-sitegen
+	./bin/compile . www "https://beta.samhuri.net"
 	./bin/publish --beta --delete
 
 sitegen:

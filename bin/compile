@@ -6,12 +6,13 @@ set -e
 THIS_DIR=$(dirname "$0")
 SOURCE_DIR="$1"
 TARGET_DIR="$2"
+URL_OVERRIDE="$3"
 
 function main() {
   rm -rf "$TARGET_DIR"
 
   echo "* generate site from $SOURCE_DIR into $TARGET_DIR"
-  "$THIS_DIR/sitegen" "$SOURCE_DIR" "$TARGET_DIR"
+  "$THIS_DIR/sitegen" "$SOURCE_DIR" "$TARGET_DIR" "$URL_OVERRIDE"
 
   # echo "* inline CSS"
   # ruby -w $THIS_DIR/inline-css "$TARGET_DIR"
