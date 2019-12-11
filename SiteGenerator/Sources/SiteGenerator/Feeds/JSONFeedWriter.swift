@@ -40,8 +40,6 @@ final class JSONFeedWriter {
     let feedPath: String
     let postsPath: String
 
-    var baseURL: URL!
-
     init(fileManager: FileManager = .default, feedPath: String = "feed.json", postsPath: String = "posts") {
         self.fileManager = fileManager
         self.feedPath = feedPath

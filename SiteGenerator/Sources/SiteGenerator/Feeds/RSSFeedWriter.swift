@@ -41,8 +41,6 @@ final class RSSFeedWriter {
     let feedPath: String
     let postsPath: String
 
-    var baseURL: URL!
-
     init(fileManager: FileManager = .default, feedPath: String = "feed.xml", postsPath: String = "posts") {
         self.fileManager = fileManager
         self.feedPath = feedPath
