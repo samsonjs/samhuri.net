@@ -21,6 +21,15 @@ final class JSONFeedPlugin: Plugin {
 
     // MARK: - Plugin methods
 
+    convenience init(options: [String: Any]) {
+        if let feedPath = options["feed_path"] as? String {
+            self.init(jsonFeedWriter: JSONFeedWriter(feedPath: feedPath))
+        }
+        else {
+            self.init()
+        }
+    }
+
     func setUp(site: Site, sourceURL: URL) throws {
         guard postRepo.postDataExists(at: sourceURL) else {
             return

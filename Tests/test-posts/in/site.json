@@ -1,5 +1,8 @@
 {
   "author": "Hunter S. Thompson",
   "title": "gonzo journalism",
-  "url": "http://example.net"
+  "url": "http://example.net",
+  "plugins": {
+    "posts": {}
+  }
 }

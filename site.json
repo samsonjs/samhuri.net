@@ -12,4 +12,11 @@
   "icon": "images/apple-touch-icon-300.png",
   "favicon": "images/apple-touch-icon-80.png",
   "avatar": "images/me.jpg",
+  "plugins": {
+    "projects": {},
+    "posts": {
+      "json_feed": "feed.json",
+      "rss_feed": "feed.xml"
+    }
+  }
 }

@@ -21,6 +21,8 @@ public struct Site {
     public let avatarPath: String?
     public let iconPath: String?
     public let faviconPath: String?
+
+    public let plugins: [SitePlugin: [String: Any]]
 }
 
 extension Site {

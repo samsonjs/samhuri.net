@@ -20,6 +20,7 @@ struct HumanSite: Codable {
     let avatar: String?
     let icon: String?
     let favicon: String?
+    let plugins: [String: [String: String]]?
 }
 
 extension Site {
@@ -35,7 +36,15 @@ extension Site {
             scripts: humanSite.scripts ?? [],
             avatarPath: humanSite.avatar,
             iconPath: humanSite.icon,
-            faviconPath: humanSite.favicon
+            faviconPath: humanSite.favicon,
+            plugins: (humanSite.plugins ?? [:]).reduce(into: [:], { dict, pair in
+                let (name, options) = pair
+                guard let sitePlugin = SitePlugin(rawValue: name) else {
+                    print("warning: unknown site plugin \"\(name)\"")
+                    return
+                }
+                dict[sitePlugin] = options
+            })
         )
     }
 }

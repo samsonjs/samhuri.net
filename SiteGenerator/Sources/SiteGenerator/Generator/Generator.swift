@@ -15,12 +15,12 @@ public final class Generator {
     // Site properties
     let site: Site
     let sourceURL: URL
-    let plugins: [Plugin]
+    var plugins: [Plugin] = []
     let renderers: [Renderer]
 
     let ignoredFilenames = [".DS_Store", ".gitkeep"]
 
-    public init(sourceURL: URL, plugins: [Plugin], renderers: [Renderer]) throws {
+    public init(sourceURL: URL, renderers: [Renderer]) throws {
         let siteURL = sourceURL.appendingPathComponent("site.json")
         let site = try Site.decode(from: siteURL)
 
@@ -29,9 +29,24 @@ public final class Generator {
 
         self.site = site
         self.sourceURL = sourceURL
-        self.plugins = plugins
         self.renderers = renderers
 
+        try initializePlugins()
+    }
+
+    private func initializePlugins() throws {
+        plugins = site.plugins.map { (sitePlugin, options) in
+            switch sitePlugin {
+            case .projects:
+                return ProjectsPlugin(options: options)
+            case .posts:
+                return PostsPlugin(options: options)
+            case .jsonFeed:
+                return JSONFeedPlugin(options: options)
+            case .rssFeed:
+                return RSSFeedPlugin(options: options)
+            }
+        }
         for plugin in plugins {
             try plugin.setUp(site: site, sourceURL: sourceURL)
         }

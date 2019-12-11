@@ -21,6 +21,15 @@ final class PostsPlugin: Plugin {
 
     // MARK: - Plugin methods
 
+    convenience init(options: [String: Any]) {
+        if let outputPath = options["path"] as? String {
+            self.init(postWriter: PostWriter(outputPath: outputPath))
+        }
+        else {
+            self.init()
+        }
+    }
+
     func setUp(site: Site, sourceURL: URL) throws {
         guard postRepo.postDataExists(at: sourceURL) else {
             return
