@@ -13,12 +13,12 @@
       if (timeout) clearTimeout(timeout);
       timeout = setTimeout(saveNote, 100);
     });
-	restoreNote();
-	note.focus();
+  restoreNote();
+  note.focus();
   });
   function saveNote() {
     localStorage.note = note.innerText;
-	timeout = null;
+  timeout = null;
   }
   function restoreNote() {
     note.innerText = localStorage.note || '';

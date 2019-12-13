@@ -70,7 +70,7 @@ Now that you have your activations backed up you need to have the correct ones c
 
 If you have XP Pro then you can get it to run using the Group Policy editor. Save the activate.bat script provided here anywhere and then have it run as a system service. Go Start -> Run... -> gpedit.msc [enter] Computer Configuration -> Windows Settings -> Scripts (Startup/Shutdown) -> Startup -> Add.
 
-	<p>If you have XP Home then the best you can do is run this script from your Startup folder (Start -> All Programs -> Startup), but that is not really going to work because eventually Windows will not even let you log in until you activate it. What a P.O.S.</p>
+  <p>If you have XP Home then the best you can do is run this script from your Startup folder (Start -> All Programs -> Startup), but that is not really going to work because eventually Windows will not even let you log in until you activate it. What a P.O.S.</p>
 
    @echo off
 

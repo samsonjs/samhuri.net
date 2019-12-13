@@ -42,10 +42,10 @@ Tags: textmate, rails, hacking, commands, macro, rails, snippets, textmate
 
 <ul>
 <li><strong>Save:</strong> Nothing</li>
-	<li><strong>Input:</strong> Selected Text or Nothing</li>
-	<li><strong>Output:</strong> Insert as Snippet</li>
-	<li><strong>Activation:</strong> Whatever you want, I'm going to use a macro described below and leave this empty</li>
-	<li><strong>Scope Selector:</strong> source.ruby.rails</li>
+  <li><strong>Input:</strong> Selected Text or Nothing</li>
+  <li><strong>Output:</strong> Insert as Snippet</li>
+  <li><strong>Activation:</strong> Whatever you want, I'm going to use a macro described below and leave this empty</li>
+  <li><strong>Scope Selector:</strong> source.ruby.rails</li>
 </ul>
 
 
@@ -55,9 +55,9 @@ Tags: textmate, rails, hacking, commands, macro, rails, snippets, textmate
 The macro I'm thinking of to invoke this is tab-triggered and will simply:
 <ul>
 <li>Select word (<code><strong>⌃W</strong></code>)</li>
-	<li>Delete (<code><strong>⌫</strong></code>)</li>
-	<li>Select to end of file (<code><strong>⇧⌘↓</strong></code>)</li>
-	<li>Run command "Put in self.down"</li>
+  <li>Delete (<code><strong>⌫</strong></code>)</li>
+  <li>Select to end of file (<code><strong>⇧⌘↓</strong></code>)</li>
+  <li>Run command "Put in self.down"</li>
 </ul>
 
 

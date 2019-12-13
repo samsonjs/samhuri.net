@@ -64,9 +64,9 @@ Tags: rails, coding, hacking, migration, rails, testing
 
 <ol>
 <li>Separating data, function, and design</li>
-	<li>Readability (which is underrated) </li>
-	<li>Database migrations</li>
-	<li>Testing is so easy it hurts</li>
+  <li>Readability (which is underrated) </li>
+  <li>Database migrations</li>
+  <li>Testing is so easy it hurts</li>
 </ol>
 
 

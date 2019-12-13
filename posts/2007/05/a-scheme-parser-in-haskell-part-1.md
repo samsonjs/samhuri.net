@@ -9,7 +9,7 @@ Tags: coding, haskell
 From <a href="http://halogen.note.amherst.edu/~jdtang/scheme_in_48/tutorial/firststeps.html">Write Yourself a Scheme in 48 hours</a>:
 
 <blockquote>
-	<p>Basically, a monad is a way of saying "there's some extra information attached to this value, which most functions don't need to worry about". In this example, the "extra information" is the fact that this action performs IO, and the basic value is nothing, represented as "()". Monadic values are often called "actions", because the easiest way to think about the IO monad is a sequencing of actions that each might affect the outside world.</p>
+  <p>Basically, a monad is a way of saying "there's some extra information attached to this value, which most functions don't need to worry about". In this example, the "extra information" is the fact that this action performs IO, and the basic value is nothing, represented as "()". Monadic values are often called "actions", because the easiest way to think about the IO monad is a sequencing of actions that each might affect the outside world.</p>
 </blockquote>
 
 I really like this tutorial. I'm only on part 3.3 of 12, <a href="http://halogen.note.amherst.edu/~jdtang/scheme_in_48/tutorial/parser.html">parsing</a>, but I'm new to Haskell so I'm learning left, right & centre. The exercises are taking me hours of reading and experimenting, and it's lots of fun! ghc's errors are usually quite helpful and of course ghci is a big help as well.
@@ -28,7 +28,7 @@ Okay that's pretty simple right? Let's break it down, first looking at the right
  * <code>liftM</code> is concisely and effectively defined <a href="http://members.chello.nl/hjgtuyl/tourdemonad.html#liftM">elsewhere</a>, and I'll borrow their description:
 
 <blockquote>
-	<p><code>liftM f m</code> lets a non-monadic function <code>f</code> operate on the contents of monad <code>m</code></p>
+  <p><code>liftM f m</code> lets a non-monadic function <code>f</code> operate on the contents of monad <code>m</code></p>
 </blockquote>
 
 <code>liftM</code>'s type is also quite telling: <code>liftM :: (Monad m) =&gt; (a -&gt; b) -&gt; (m a -&gt; m b)</code>
