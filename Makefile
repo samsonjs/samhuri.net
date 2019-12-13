@@ -2,17 +2,19 @@ all: blog
 
 blog: sitegen
 	@echo
-	./bin/compile . www
+	rm -rf www
+	./bin/sitegen . www
 
 publish: blog
 	@echo
-	./bin/publish --delete
+	./bin/publish --delete www/
 
 publish_beta:
 	@echo
 	./bin/build-sitegen
-	./bin/compile . www "https://beta.samhuri.net"
-	./bin/publish --beta --delete
+	rm -rf www
+	./bin/sitegen . www "https://beta.samhuri.net"
+	./bin/publish --beta --delete www/
 
 sitegen:
 	@echo

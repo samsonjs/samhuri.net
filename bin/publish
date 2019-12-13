@@ -50,5 +50,4 @@ if [[ $ECHO -eq 1 ]]; then
   echo "$CMD"
 fi
 
-cp .git/$(cat .git/HEAD | cut -d' ' -f2) www/version.txt
 $CMD
