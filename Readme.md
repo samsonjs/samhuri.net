@@ -111,6 +111,8 @@ Execution, trying TDD for the first time:
 
     - [x] Minify JS? Now that we're keeping node, why not ... Nope! Ditched node too
 
+- [ ] Munge relative URLs in the RSS and JSON feeds to be absolute instead
+
 - [ ] Add a server for local use and simple production setups (or use a file watcher + `python -m SimpleHTTPServer`?)
 
 - [ ] Figure out an iPad workflow with minimal code. Maybe a small app with some extensions and shortcuts?
