@@ -295,6 +295,11 @@ footer a, footer a:visited {
  * Archive
  */
 
+h2.year a, h2.year a:visited,
+h2.month a, h2.month a:visited {
+  color: #000;
+}
+
 ul.archive {
   padding-left: 0;
   margin-left: 5%;
@@ -323,6 +328,11 @@ ul.archive li time {
 }
 
 @media (prefers-color-scheme: dark) {
+  h2.year a, h2.year a:visited,
+  h2.month a, h2.month a:visited {
+    color: #ddd;
+  }
+
   ul.archive li time {
     color: #919191;
   }
