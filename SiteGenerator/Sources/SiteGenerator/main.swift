@@ -14,7 +14,7 @@ func main(sourcePath: String, targetPath: String, siteURLOverride: URL?) throws 
     let generator = try Generator(
         sourceURL: sourceURL,
         siteURLOverride: siteURLOverride,
-        renderers: [LessRenderer(), MarkdownRenderer()]
+        renderers: [MarkdownRenderer()]
     )
     try generator.generate(targetURL: targetURL)
 }

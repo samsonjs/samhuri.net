@@ -1,9 +1,0 @@
-{
-  "author": "A man has no name",
-  "title": "Valar Morghulis",
-  "url": "http://example.net",
-  "styles": [
-    "/css/reset.css",
-    "/css/my-stuff.css",
-  ]
-}
