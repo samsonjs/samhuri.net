@@ -5,7 +5,6 @@
 //  Created by Sami Samhuri on 2019-12-10.
 //
 
-import HTMLEntities
 import Foundation
 
 private struct FeedSite {
@@ -47,9 +46,9 @@ final class RSSFeedWriter {
 
     func writeFeed(_ posts: [Post], site: Site, to targetURL: URL, with templateRenderer: TemplateRenderer) throws {
         let feedSite = FeedSite(
-            title: site.title.htmlEscape(useNamedReferences: true),
-            description: site.description?.htmlEscape(useNamedReferences: true),
-            url: site.url.absoluteString.htmlEscape(useNamedReferences: true)
+            title: site.title.escapedForXML(),
+            description: site.description?.escapedForXML(),
+            url: site.url.absoluteString.escapedForXML()
         )
         let renderedPosts: [FeedPost] = try posts.map { post in
             let title = post.isLink ? "→ \(post.title)" : post.title
@@ -63,19 +62,19 @@ final class RSSFeedWriter {
             }()
             let url = site.url.appendingPathComponent(post.path)
             return FeedPost(
-                title: title.htmlEscape(useNamedReferences: true),
-                date: post.date.rfc822.htmlEscape(useNamedReferences: true),
-                author: author.htmlEscape(useNamedReferences: true),
-                link: (post.link ?? url).absoluteString.htmlEscape(useNamedReferences: true),
-                guid: url.absoluteString.htmlEscape(useNamedReferences: true),
+                title: title.escapedForXML(),
+                date: post.date.rfc822.escapedForXML(),
+                author: author.escapedForXML(),
+                link: (post.link ?? url).absoluteString.escapedForXML(),
+                guid: url.absoluteString.escapedForXML(),
                 body: try templateRenderer.renderTemplate(name: "feed-post.html", context: [
                     "post": post,
-                ]).htmlEscape(useNamedReferences: true)
+                ]).escapedForXML()
             )
         }
         let feedXML = try templateRenderer.renderTemplate(name: "feed.xml", context: [
             "site": feedSite,
-            "feedURL": site.url.appendingPathComponent(feedPath).absoluteString.htmlEscape(useNamedReferences: true),
+            "feedURL": site.url.appendingPathComponent(feedPath).absoluteString.escapedForXML(),
             "posts": renderedPosts,
         ])
         let feedURL = targetURL.appendingPathComponent(feedPath)

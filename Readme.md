@@ -97,7 +97,7 @@ Execution, trying TDD for the first time:
 
 - [ ] Consider using Swift for samhuri.net as well, and then making SiteGenerator a package that it uses ... then we can use Plot or pointfree.co's swift-html
 
-- [ ] Replace remaining Ruby with Swift
+- [x] Replace remaining Ruby with Swift
 
     - [x] Generate RSS feed (ditch mustache templates)
 

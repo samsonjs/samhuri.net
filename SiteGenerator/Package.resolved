@@ -36,15 +36,6 @@
           "revision": "0e9a78d6584e3812cd9c09494d5c7b483e8f533c",
           "version": "0.13.1"
         }
-      },
-      {
-        "package": "HTMLEntities",
-        "repositoryURL": "https://github.com/IBM-Swift/swift-html-entities.git",
-        "state": {
-          "branch": null,
-          "revision": "744c094976355aa96ca61b9b60ef0a38e979feb7",
-          "version": "3.0.14"
-        }
       }
     ]
   },
