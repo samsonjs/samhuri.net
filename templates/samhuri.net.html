@@ -22,19 +22,13 @@
   <meta name="msapplication-config" content="/images/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
 
-{% for style in styles %}
-  <link rel="stylesheet" href="{{ style }}">
-{% endfor %}
-
   <link rel="author" type="text/plain" href="/humans.txt">
   <link rel="alternate" type="application/rss+xml" href="{{ site.url }}/feed.xml" title="{{ site.title }}">
   <link rel="alternate" type="application/json" href="{{ site.url }}/feed.json" title="{{ site.title }}">
 
-  <link rel="dns-prefetch" href="https://gist.github.com">
-
   <link rel="dns-prefetch" href="https://use.typekit.net">
-  <script src="https://use.typekit.net/tcm1whv.js" crossorigin="anonymous"></script>
-  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <link rel="dns-prefetch" href="https://netdna.bootstrapcdn.com">
+  <link rel="dns-prefetch" href="https://gist.github.com">
 </head>
 
 {% if bodyClassNames %}
@@ -70,15 +64,30 @@
     &copy; 2006 - {{ currentYear }} <a href="/about">{{ site.author }}</a>
   </footer>
 
+{% for style in styles %}
   <script type="text/javascript">
-  	(function() {
-  		var css = document.createElement('link');
-  		css.href = '//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css';
-  		css.rel = 'stylesheet';
-  		css.type = 'text/css';
-  		document.getElementsByTagName('head')[0].appendChild(css);
-  	})();
+    (function() {
+      var css = document.createElement('link');
+      css.href = '{{ style }}';
+      css.rel = 'stylesheet';
+      css.type = 'text/css';
+      document.getElementsByTagName('head')[0].appendChild(css);
+    })();
   </script>
+{% endfor %}
+
+  <script type="text/javascript">
+    (function() {
+      var css = document.createElement('link');
+      css.href = '//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css';
+      css.rel = 'stylesheet';
+      css.type = 'text/css';
+      document.getElementsByTagName('head')[0].appendChild(css);
+    })();
+  </script>
+
+  <script src="https://use.typekit.net/tcm1whv.js" crossorigin="anonymous"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
 {% for script in scripts %}
   <script defer src="{{ script }}"></script>
