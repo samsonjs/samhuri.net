@@ -94,6 +94,7 @@ body {
   background-color: #f7f7f7;
   color: #222;
   font-family: 'museo-sans', 'Helvetica Neue', 'Verdana', 'Roboto', sans-serif;
+  font-display: swap;
   padding-bottom: constant(safe-area-inset-bottom);
 }
 
@@ -139,6 +140,7 @@ header.primary h1, header.primary h4 {
   padding: 0;
   word-wrap: break-word;
   font-family: 'museo-sans', 'Helvetica Neue', 'Verdana', 'Roboto', sans-serif;
+  font-display: swap;
   font-weight: normal;
 }
 
