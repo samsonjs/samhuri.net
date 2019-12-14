@@ -13,10 +13,10 @@ public final class SiteGenerator {
     let templateRenderer: TemplateRenderer
 
     // Site properties
-    let site: Site
-    let sourceURL: URL
-    var plugins: [Plugin] = []
-    let renderers: [Renderer]
+    public let site: Site
+    public let sourceURL: URL
+    public private(set) var plugins: [Plugin] = []
+    public let renderers: [Renderer]
 
     let ignoredFilenames = [".DS_Store", ".gitkeep"]
 
@@ -39,17 +39,16 @@ public final class SiteGenerator {
     }
 
     private func initializePlugins() throws {
-        plugins = site.plugins.map { (sitePlugin, options) in
-            switch sitePlugin {
-            case .projects:
-                return ProjectsPlugin(options: options)
-            case .posts:
-                return PostsPlugin(options: options)
-            }
+        plugins = site.plugins.map { pair in
+            let (sitePlugin, options) = pair
+            return sitePlugin.construct(options: options)
         }
-        for plugin in plugins {
-            try plugin.setUp(site: site, sourceURL: sourceURL)
-        }
+        try plugins.forEach(addPlugin)
+    }
+
+    public func addPlugin(_ plugin: Plugin) throws {
+        try plugin.setUp(site: site, sourceURL: sourceURL)
+        plugins.append(plugin)
     }
 
     public func generate(targetURL: URL) throws {
