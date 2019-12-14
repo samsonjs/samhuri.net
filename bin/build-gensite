@@ -1,0 +1,6 @@
+#!/bin/bash
+
+pushd "gensite" >/dev/null
+swift build
+cp .build/x86_64-apple-macosx/debug/gensite ../bin/gensite
+popd >/dev/null

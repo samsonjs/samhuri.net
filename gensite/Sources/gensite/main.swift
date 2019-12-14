@@ -1,22 +1,19 @@
 //
 //  main.swift
-//  SiteGenerator
+//  gensite
 //
 //  Created by Sami Samhuri on 2019-12-01.
 //
 
 import Darwin
 import Foundation
+import samhuri_net
 
 func main(sourcePath: String, targetPath: String, siteURLOverride: URL?) throws {
     let sourceURL = URL(fileURLWithPath: sourcePath)
     let targetURL = URL(fileURLWithPath: targetPath)
-    let generator = try Generator(
-        sourceURL: sourceURL,
-        siteURLOverride: siteURLOverride,
-        renderers: [MarkdownRenderer()]
-    )
-    try generator.generate(targetURL: targetURL)
+    let site = samhuri_net()
+    try site.generate(sourceURL: sourceURL, targetURL: targetURL, siteURLOverride: siteURLOverride)
 }
 
 guard CommandLine.arguments.count >= 3 else {

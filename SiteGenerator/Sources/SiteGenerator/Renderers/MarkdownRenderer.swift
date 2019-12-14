@@ -12,6 +12,8 @@ public final class MarkdownRenderer: Renderer {
     let fileManager: FileManager = .default
     let markdownParser = MarkdownParser()
 
+    public init() {}
+
     public func canRenderFile(named filename: String, withExtension ext: String) -> Bool {
         ext == "md"
     }

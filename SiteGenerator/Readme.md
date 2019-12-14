@@ -1,5 +1,5 @@
 # SiteGenerator
 
-A static site generator for [samhuri.net](https://samhuri.net).
+A static site generator.
 
 See https://github.com/samsonjs/samhuri.net for details.

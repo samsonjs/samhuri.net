@@ -1,9 +1,9 @@
 all: blog
 
-blog: sitegen
+blog: gensite
 	@echo
 	rm -rf www
-	./bin/sitegen . www
+	./bin/gensite . www
 
 publish: blog
 	@echo
@@ -11,17 +11,17 @@ publish: blog
 
 publish_beta:
 	@echo
-	./bin/build-sitegen
+	./bin/build-gensite
 	rm -rf www
-	./bin/sitegen . www "https://beta.samhuri.net"
+	./bin/gensite . www "https://beta.samhuri.net"
 	./bin/publish --beta --delete www/
 
-sitegen:
+gensite:
 	@echo
-	./bin/build-sitegen
+	./bin/build-gensite
 
-test: sitegen
+test: gensite
 	@echo
 	./bin/test
 
-.PHONY: blog publish publish_beta sitegen test
+.PHONY: blog publish publish_beta gensite test

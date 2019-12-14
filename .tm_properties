@@ -1,2 +1,2 @@
-exclude = "{$exclude,SiteGenerator,www,tweets,wayback,actual,node_modules}"
+exclude = "{$exclude,SiteGenerator,www,tweets,wayback,actual}"
 include = "{$include,.gitignore}"

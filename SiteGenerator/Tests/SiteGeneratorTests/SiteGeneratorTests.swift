@@ -1,5 +1,5 @@
 import XCTest
-import class Foundation.Bundle
+@testable import SiteGenerator
 
 final class SiteGeneratorTests: XCTestCase {
     func testExample() throws {

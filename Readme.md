@@ -95,7 +95,7 @@ Execution, trying TDD for the first time:
 
     - [x] Stop using dictionaries for template contexts, use structs w/ computed properties
 
-- [ ] Consider using Swift for samhuri.net as well, and then making SiteGenerator a package that it uses ... then we can use Plot or pointfree.co's swift-html
+- [x] Consider using Swift for samhuri.net as well, and then making SiteGenerator a package that it uses ... then we can use Plot or pointfree.co's swift-html
 
 - [x] Replace remaining Ruby with Swift
 
@@ -110,6 +110,24 @@ Execution, trying TDD for the first time:
     - [x] Inline CSS? Nope
 
     - [x] Minify JS? Now that we're keeping node, why not ... Nope! Ditched node too
+
+- [ ] Convert to a system of packages: SiteGenerator, samhuri_net, and gensite (executable)
+
+    - [x] Create new packages and distribute the code accordingly
+
+    - [ ] Replace site.json with Swift code
+
+    - [ ] Replace page template with Swift code
+
+    - [ ] Replace projects.json with Swift code
+
+    - [ ] Replace project templates with Swift code
+
+    - [ ] Replace post templates with Swift code
+
+    - [ ] Replace RSS feed template with Swift code
+
+    - [ ] Remove stencil
 
 - [ ] Munge relative URLs in the RSS and JSON feeds to be absolute instead
 

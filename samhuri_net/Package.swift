@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "SiteGenerator",
+    name: "samhuri_net",
     platforms: [
         .macOS(.v10_15),
         .iOS(.v13),
@@ -12,24 +12,22 @@ let package = Package(
     products: [
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(
-            name: "SiteGenerator",
-            targets: ["SiteGenerator"]),
+            name: "samhuri_net",
+            targets: ["samhuri_net"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/johnsundell/ink.git", from: "0.1.0"),
-        .package(url: "https://github.com/stencilproject/Stencil.git", from: "0.13.0"),
+        .package(path: "../SiteGenerator"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
-            name: "SiteGenerator",
+            name: "samhuri_net",
             dependencies: [
-                "Ink",
-                "Stencil",
+                "SiteGenerator",
         ]),
         .testTarget(
-            name: "SiteGeneratorTests",
-            dependencies: ["SiteGenerator"]),
+            name: "samhuri_netTests",
+            dependencies: ["samhuri_net"]),
     ]
 )

@@ -1,6 +1,0 @@
-#!/bin/bash
-
-pushd "SiteGenerator" >/dev/null
-swift build
-cp .build/x86_64-apple-macosx/debug/SiteGenerator ../bin/sitegen
-popd >/dev/null

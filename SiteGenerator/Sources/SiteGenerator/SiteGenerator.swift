@@ -1,5 +1,5 @@
 //
-//  Generator.swift
+//  SiteGenerator.swift
 //  SiteGenerator
 //
 //  Created by Sami Samhuri on 2019-12-01.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class Generator {
+public final class SiteGenerator {
     // Dependencies
     let fileManager: FileManager = .default
     let templateRenderer: TemplateRenderer
