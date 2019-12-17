@@ -37,11 +37,11 @@ private struct FeedItem: Codable {
 
 final class JSONFeedWriter {
     let fileManager: FileManager
-    let feedPath: String
+    let jsonFeed: JSONFeed
 
-    init(fileManager: FileManager = .default, feedPath: String = "feed.json") {
+    init(fileManager: FileManager = .default, feed: JSONFeed) {
         self.fileManager = fileManager
-        self.feedPath = feedPath
+        self.jsonFeed = feed
     }
 
     func writeFeed(_ posts: [Post], site: Site, to targetURL: URL, with templateRenderer: TemplateRenderer) throws {
@@ -60,21 +60,21 @@ final class JSONFeedWriter {
                 tags: post.tags
             )
         }
-        let avatar = site.avatarPath.map(site.url.appendingPathComponent)
+        let avatar = jsonFeed.avatarPath.map(site.url.appendingPathComponent)
         let feed: Feed = Feed(
             title: site.title,
             home_page_url: site.url.absoluteString,
-            feed_url: site.url.appendingPathComponent(feedPath).absoluteString,
+            feed_url: site.url.appendingPathComponent(jsonFeed.path).absoluteString,
             author: FeedAuthor(name: site.author, avatar: avatar?.absoluteString, url: site.url.absoluteString),
-            icon: site.iconPath.map(site.url.appendingPathComponent)?.absoluteString,
-            favicon: site.faviconPath.map(site.url.appendingPathComponent)?.absoluteString,
+            icon: jsonFeed.iconPath.map(site.url.appendingPathComponent)?.absoluteString,
+            favicon: jsonFeed.faviconPath.map(site.url.appendingPathComponent)?.absoluteString,
             items: items
         )
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .iso8601
         encoder.outputFormatting = [.prettyPrinted, .withoutEscapingSlashes]
         let feedJSON = try encoder.encode(feed)
-        let feedURL = targetURL.appendingPathComponent(feedPath)
+        let feedURL = targetURL.appendingPathComponent(jsonFeed.path)
         try feedJSON.write(to: feedURL, options: [.atomic])
     }
 }

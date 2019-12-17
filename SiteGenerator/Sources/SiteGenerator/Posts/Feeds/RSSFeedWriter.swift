@@ -37,11 +37,11 @@ private extension Date {
 
 final class RSSFeedWriter {
     let fileManager: FileManager
-    let feedPath: String
+    let feed: RSSFeed
 
-    init(fileManager: FileManager = .default, feedPath: String = "feed.xml") {
+    init(fileManager: FileManager = .default, feed: RSSFeed) {
         self.fileManager = fileManager
-        self.feedPath = feedPath
+        self.feed = feed
     }
 
     func writeFeed(_ posts: [Post], site: Site, to targetURL: URL, with templateRenderer: TemplateRenderer) throws {
@@ -74,10 +74,10 @@ final class RSSFeedWriter {
         }
         let feedXML = try templateRenderer.renderTemplate(name: "feed.xml", context: [
             "site": feedSite,
-            "feedURL": site.url.appendingPathComponent(feedPath).absoluteString.escapedForXML(),
+            "feedURL": site.url.appendingPathComponent(feed.path).absoluteString.escapedForXML(),
             "posts": renderedPosts,
         ])
-        let feedURL = targetURL.appendingPathComponent(feedPath)
+        let feedURL = targetURL.appendingPathComponent(feed.path)
         try feedXML.write(to: feedURL, atomically: true, encoding: .utf8)
     }
 }

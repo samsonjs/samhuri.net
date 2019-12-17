@@ -20,16 +20,16 @@ final class SiteTemplateRenderer: TemplateRenderer {
         self.stencil = Environment(loader: loader)
     }
 
-    func renderPage(bodyHTML: String, metadata: [String: String]) throws -> String {
+    func renderPage(template: String, bodyHTML: String, metadata: [String: String]) throws -> String {
         let page = Page(metadata: metadata)
         let context = PageContext(site: site, body: bodyHTML, page: page, metadata: metadata)
-        let pageHTML = try stencil.renderTemplate(name: "\(context.template).html", context: context.dictionary)
+        let pageHTML = try stencil.renderTemplate(name: template, context: context.dictionary)
         return pageHTML
     }
 
-    func renderTemplate(name: String?, context: [String: Any]) throws -> String {
-        let siteContext = SiteContext(site: site, template: name)
+    func renderTemplate(name: String, context: [String: Any]) throws -> String {
+        let siteContext = SiteContext(site: site)
         let contextDict = siteContext.dictionary.merging(context, uniquingKeysWith: { _, new in new })
-        return try stencil.renderTemplate(name: siteContext.template, context: contextDict)
+        return try stencil.renderTemplate(name: name, context: contextDict)
     }
 }

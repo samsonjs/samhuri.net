@@ -9,11 +9,9 @@ import Foundation
 
 struct SiteContext {
     let site: Site
-    let template: String
 
-    init(site: Site, template: String? = nil) {
+    init(site: Site) {
         self.site = site
-        self.template = template ?? site.template
     }
 }
 

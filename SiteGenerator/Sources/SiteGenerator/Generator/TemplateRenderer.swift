@@ -8,6 +8,6 @@
 import Foundation
 
 public protocol TemplateRenderer: AnyObject {
-    func renderPage(bodyHTML: String, metadata: [String: String]) throws -> String
-    func renderTemplate(name: String?, context: [String: Any]) throws -> String
+    func renderPage(template: String, bodyHTML: String, metadata: [String: String]) throws -> String
+    func renderTemplate(name: String, context: [String: Any]) throws -> String
 }

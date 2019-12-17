@@ -115,7 +115,7 @@ Execution, trying TDD for the first time:
 
     - [x] Create new packages and distribute the code accordingly
 
-    - [ ] Replace site.json with Swift code
+    - [x] Replace site.json with Swift code
 
     - [ ] Replace page template with Swift code
 

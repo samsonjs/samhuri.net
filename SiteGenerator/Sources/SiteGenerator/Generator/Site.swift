@@ -12,23 +12,31 @@ public struct Site {
     public let email: String?
     public let title: String
     public let description: String?
-    public var url: URL
-    public let template: String
+    public let url: URL
     public let styles: [String]
     public let scripts: [String]
+    public let renderers: [Renderer]
+    public let plugins: [Plugin]
 
-    // Used for JSON feed
-    public let avatarPath: String?
-    public let iconPath: String?
-    public let faviconPath: String?
-
-    public let plugins: [SitePlugin: [String: Any]]
-}
-
-extension Site {
-    static func decode(from url: URL) throws -> Site {
-        let json = try Data(contentsOf: url)
-        let humanSite = try JSONDecoder().decode(HumanSite.self, from: json)
-        return Site(humanSite: humanSite)
+    public init(
+        author: String,
+        email: String?,
+        title: String,
+        description: String?,
+        url: URL,
+        styles: [String],
+        scripts: [String],
+        renderers: [Renderer],
+        plugins: [Plugin]
+    ) {
+        self.author = author
+        self.email = email
+        self.title = title
+        self.description = description
+        self.url = url
+        self.styles = styles
+        self.scripts = scripts
+        self.renderers = renderers
+        self.plugins = plugins
     }
 }

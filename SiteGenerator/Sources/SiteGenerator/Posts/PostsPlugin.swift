@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class PostsPlugin: Plugin {
+public final class PostsPlugin: Plugin {
     let postRepo: PostRepo
     let postWriter: PostWriter
     let jsonFeedWriter: JSONFeedWriter?
@@ -41,7 +41,8 @@ final class PostsPlugin: Plugin {
 
         let jsonFeedWriter: JSONFeedWriter?
         if let jsonFeedPath = options["json_feed"] as? String {
-            jsonFeedWriter = JSONFeedWriter(feedPath: jsonFeedPath)
+            let jsonFeed = JSONFeed(path: jsonFeedPath, avatarPath: nil, iconPath: nil, faviconPath: nil)
+            jsonFeedWriter = JSONFeedWriter(feed: jsonFeed)
         }
         else {
             jsonFeedWriter = nil
@@ -49,7 +50,8 @@ final class PostsPlugin: Plugin {
 
         let rssFeedWriter: RSSFeedWriter?
         if let rssFeedPath = options["rss_feed"] as? String {
-            rssFeedWriter = RSSFeedWriter(feedPath: rssFeedPath)
+            let rssFeed = RSSFeed(path: rssFeedPath)
+            rssFeedWriter = RSSFeedWriter(feed: rssFeed)
         }
         else {
             rssFeedWriter = nil
@@ -58,7 +60,7 @@ final class PostsPlugin: Plugin {
         self.init(postRepo: postRepo, postWriter: postWriter, jsonFeedWriter: jsonFeedWriter, rssFeedWriter: rssFeedWriter)
     }
 
-    func setUp(site: Site, sourceURL: URL) throws {
+    public func setUp(site: Site, sourceURL: URL) throws {
         guard postRepo.postDataExists(at: sourceURL) else {
             return
         }
@@ -66,7 +68,7 @@ final class PostsPlugin: Plugin {
         try postRepo.readPosts(sourceURL: sourceURL)
     }
 
-    func render(site: Site, targetURL: URL, templateRenderer: TemplateRenderer) throws {
+    public func render(site: Site, targetURL: URL, templateRenderer: TemplateRenderer) throws {
         guard !postRepo.isEmpty else {
             return
         }

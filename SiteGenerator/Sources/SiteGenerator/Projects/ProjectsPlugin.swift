@@ -24,8 +24,8 @@ final class ProjectsPlugin: Plugin {
     var projects: [Project] = []
     var sourceURL: URL!
 
-    init(outputPath: String = "projects") {
-        self.outputPath = outputPath
+    init(outputPath: String? = nil) {
+        self.outputPath = outputPath ?? "projects"
     }
 
     convenience init(options: [String: Any]) {

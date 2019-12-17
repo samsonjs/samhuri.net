@@ -15,44 +15,27 @@ public final class SiteGenerator {
     // Site properties
     public let site: Site
     public let sourceURL: URL
-    public private(set) var plugins: [Plugin] = []
-    public let renderers: [Renderer]
 
     let ignoredFilenames = [".DS_Store", ".gitkeep"]
 
-    public init(sourceURL: URL, siteURLOverride: URL? = nil, renderers: [Renderer]) throws {
-        let siteURL = sourceURL.appendingPathComponent("site.json")
-        var site = try Site.decode(from: siteURL)
-        if let url = siteURLOverride {
-            print("Overriding site URL \(site.url) with \(url)")
-            site.url = url
-        }
+    public init(sourceURL: URL, site: Site) throws {
+        self.site = site
+        self.sourceURL = sourceURL
 
         let templatesURL = sourceURL.appendingPathComponent("templates")
         self.templateRenderer = SiteTemplateRenderer(site: site, templatesURL: templatesURL)
-
-        self.site = site
-        self.sourceURL = sourceURL
-        self.renderers = renderers
 
         try initializePlugins()
     }
 
     private func initializePlugins() throws {
-        plugins = site.plugins.map { pair in
-            let (sitePlugin, options) = pair
-            return sitePlugin.construct(options: options)
+        for plugin in site.plugins {
+            try plugin.setUp(site: site, sourceURL: sourceURL)
         }
-        try plugins.forEach(addPlugin)
-    }
-
-    public func addPlugin(_ plugin: Plugin) throws {
-        try plugin.setUp(site: site, sourceURL: sourceURL)
-        plugins.append(plugin)
     }
 
     public func generate(targetURL: URL) throws {
-        for plugin in plugins {
+        for plugin in site.plugins {
             try plugin.render(site: site, targetURL: targetURL, templateRenderer: templateRenderer)
         }
 
@@ -87,7 +70,7 @@ public final class SiteGenerator {
     func renderOrCopyFile(url fileURL: URL, targetDir: URL) throws {
         let filename = fileURL.lastPathComponent
         let ext = String(filename.split(separator: ".").last!)
-        for renderer in renderers {
+        for renderer in site.renderers {
             if renderer.canRenderFile(named: filename, withExtension: ext) {
                 try renderer.render(fileURL: fileURL, targetDir: targetDir, templateRenderer: templateRenderer)
                 return

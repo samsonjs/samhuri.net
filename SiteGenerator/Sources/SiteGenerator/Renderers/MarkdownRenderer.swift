@@ -11,8 +11,11 @@ import Ink
 public final class MarkdownRenderer: Renderer {
     let fileManager: FileManager = .default
     let markdownParser = MarkdownParser()
+    let defaultTemplate: String
 
-    public init() {}
+    public init(defaultTemplate: String) {
+        self.defaultTemplate = defaultTemplate
+    }
 
     public func canRenderFile(named filename: String, withExtension ext: String) -> Bool {
         ext == "md"
@@ -23,7 +26,7 @@ public final class MarkdownRenderer: Renderer {
         let bodyMarkdown = try String(contentsOf: fileURL, encoding: .utf8)
         let bodyHTML = markdownParser.html(from: bodyMarkdown).trimmingCharacters(in: .whitespacesAndNewlines)
         let metadata = try markdownMetadata(from: fileURL)
-        let pageHTML = try templateRenderer.renderPage(bodyHTML: bodyHTML, metadata: metadata)
+        let pageHTML = try templateRenderer.renderPage(template: defaultTemplate, bodyHTML: bodyHTML, metadata: metadata)
 
         let mdFilename = fileURL.lastPathComponent
         let htmlPath: String

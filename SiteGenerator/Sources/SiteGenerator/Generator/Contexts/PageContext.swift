@@ -15,10 +15,6 @@ struct PageContext {
 }
 
 extension PageContext {
-    var template: String {
-        page.template ?? site.template
-    }
-
     var dictionary: [String: Any] {
         [
             "site": site,
