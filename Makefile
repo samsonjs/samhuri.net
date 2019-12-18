@@ -20,8 +20,4 @@ gensite:
 	@echo
 	./bin/build-gensite
 
-test: gensite
-	@echo
-	./bin/test
-
-.PHONY: blog publish publish_beta gensite test
+.PHONY: blog publish publish_beta gensite

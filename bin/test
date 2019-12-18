@@ -1,9 +1,0 @@
-#!/bin/bash
-
-set -e
-
-for site in Tests/test-*; do
-  bin/gensite "$site/in" "$site/actual"
-  diff -bru "$site/expected" "$site/actual"
-  rm -r "$site/actual"
-done
