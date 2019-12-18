@@ -10,11 +10,11 @@ let package = Package(
         .iOS(.v13),
     ],
     dependencies: [
-        .package(path: "../samhuri_net"),
+        .package(path: "../samhuri.net"),
     ],
     targets: [
         .target( name: "gensite", dependencies: [
-            "samhuri_net",
+            "samhuri.net",
         ]),
         .testTarget(name: "gensiteTests", dependencies: ["gensite"]),
     ]

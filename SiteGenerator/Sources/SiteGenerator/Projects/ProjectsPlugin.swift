@@ -20,22 +20,17 @@ private struct Projects: Codable {
 final class ProjectsPlugin: Plugin {
     let fileManager: FileManager = .default
     let outputPath: String
+    let templateRenderer: ProjectsTemplateRenderer
 
     var projects: [Project] = []
     var sourceURL: URL!
 
-    init(outputPath: String? = nil) {
+    init(templateRenderer: ProjectsTemplateRenderer, outputPath: String? = nil) {
+        self.templateRenderer = templateRenderer
         self.outputPath = outputPath ?? "projects"
     }
 
-    convenience init(options: [String: Any]) {
-        if let outputPath = options["path"] as? String {
-            self.init(outputPath: outputPath)
-        }
-        else {
-            self.init()
-        }
-    }
+    // MARK: - Plugin methods
 
     func setUp(site: Site, sourceURL: URL) throws {
         self.sourceURL = sourceURL
@@ -47,7 +42,7 @@ final class ProjectsPlugin: Plugin {
         }
     }
 
-    func render(site: Site, targetURL: URL, templateRenderer: TemplateRenderer) throws {
+    func render(site: Site, targetURL: URL) throws {
         guard !projects.isEmpty else {
             return
         }
@@ -55,7 +50,7 @@ final class ProjectsPlugin: Plugin {
         let projectsDir = targetURL.appendingPathComponent(outputPath)
         try fileManager.createDirectory(at: projectsDir, withIntermediateDirectories: true, attributes: nil)
         let projectsURL = projectsDir.appendingPathComponent("index.html")
-        let projectsHTML = try templateRenderer.renderTemplate(name: "projects.html", context: [
+        let projectsHTML = try templateRenderer.renderTemplate(.projects, site: site, context: [
             "title": "Projects",
             "projects": projects,
         ])
@@ -63,7 +58,7 @@ final class ProjectsPlugin: Plugin {
 
         for project in projects {
             let projectURL = projectsDir.appendingPathComponent("\(project.title)/index.html")
-            let projectHTML = try templateRenderer.renderTemplate(name: "project.html", context: [
+            let projectHTML = try templateRenderer.renderTemplate(.project, site: site, context: [
                 "title": "\(project.title)",
                 "project": project,
             ])

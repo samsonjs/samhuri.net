@@ -1,11 +1,12 @@
 //
 //  SiteContext.swift
-//  SiteGenerator
+//  samhuri.net
 //
 //  Created by Sami Samhuri on 2019-12-01.
 //
 
 import Foundation
+import SiteGenerator
 
 struct SiteContext {
     let site: Site

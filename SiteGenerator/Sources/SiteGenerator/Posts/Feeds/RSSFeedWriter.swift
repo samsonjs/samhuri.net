@@ -44,7 +44,7 @@ final class RSSFeedWriter {
         self.feed = feed
     }
 
-    func writeFeed(_ posts: [Post], site: Site, to targetURL: URL, with templateRenderer: TemplateRenderer) throws {
+    func writeFeed(_ posts: [Post], for site: Site, to targetURL: URL, with templateRenderer: PostsTemplateRenderer) throws {
         let feedSite = FeedSite(
             title: site.title.escapedForXML(),
             description: site.description?.escapedForXML(),
@@ -67,12 +67,12 @@ final class RSSFeedWriter {
                 author: author.escapedForXML(),
                 link: (post.link ?? url).absoluteString.escapedForXML(),
                 guid: url.absoluteString.escapedForXML(),
-                body: try templateRenderer.renderTemplate(name: "feed-post.html", context: [
+                body: try templateRenderer.renderTemplate(.feedPost, site: site, context: [
                     "post": post,
                 ]).escapedForXML()
             )
         }
-        let feedXML = try templateRenderer.renderTemplate(name: "feed.xml", context: [
+        let feedXML = try templateRenderer.renderTemplate(.rssFeed, site: site, context: [
             "site": feedSite,
             "feedURL": site.url.appendingPathComponent(feed.path).absoluteString.escapedForXML(),
             "posts": renderedPosts,

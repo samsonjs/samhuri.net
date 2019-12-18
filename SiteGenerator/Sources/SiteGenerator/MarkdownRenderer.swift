@@ -11,10 +11,10 @@ import Ink
 public final class MarkdownRenderer: Renderer {
     let fileManager: FileManager = .default
     let markdownParser = MarkdownParser()
-    let defaultTemplate: String
+    let pageRenderer: MarkdownPageRenderer
 
-    public init(defaultTemplate: String) {
-        self.defaultTemplate = defaultTemplate
+    public init(pageRenderer: MarkdownPageRenderer) {
+        self.pageRenderer = pageRenderer
     }
 
     public func canRenderFile(named filename: String, withExtension ext: String) -> Bool {
@@ -22,11 +22,11 @@ public final class MarkdownRenderer: Renderer {
     }
 
     /// Parse Markdown and render it as HTML, running it through a Stencil template.
-    public func render(fileURL: URL, targetDir: URL, templateRenderer: TemplateRenderer) throws {
+    public func render(site: Site, fileURL: URL, targetDir: URL) throws {
         let bodyMarkdown = try String(contentsOf: fileURL, encoding: .utf8)
         let bodyHTML = markdownParser.html(from: bodyMarkdown).trimmingCharacters(in: .whitespacesAndNewlines)
         let metadata = try markdownMetadata(from: fileURL)
-        let pageHTML = try templateRenderer.renderPage(template: defaultTemplate, bodyHTML: bodyHTML, metadata: metadata)
+        let pageHTML = try pageRenderer.renderPage(site: site, bodyHTML: bodyHTML, metadata: metadata)
 
         let mdFilename = fileURL.lastPathComponent
         let htmlPath: String

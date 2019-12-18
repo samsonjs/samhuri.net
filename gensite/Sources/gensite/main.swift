@@ -9,13 +9,6 @@ import Darwin
 import Foundation
 import samhuri_net
 
-func main(sourcePath: String, targetPath: String, siteURLOverride: URL?) throws {
-    let sourceURL = URL(fileURLWithPath: sourcePath)
-    let targetURL = URL(fileURLWithPath: targetPath)
-    let site = samhuri_net()
-    try site.generate(sourceURL: sourceURL, targetURL: targetURL, siteURLOverride: siteURLOverride)
-}
-
 guard CommandLine.arguments.count >= 3 else {
     let name = CommandLine.arguments[0]
     fputs("Usage: \(name) <site dir> <target dir>", stderr)
@@ -51,7 +44,10 @@ else {
 }
 
 do {
-    try main(sourcePath: sourcePath, targetPath: targetPath, siteURLOverride: siteURLOverride)
+    let sourceURL = URL(fileURLWithPath: sourcePath)
+    let targetURL = URL(fileURLWithPath: targetPath)
+    let site = samhuri.net(siteURLOverride: siteURLOverride)
+    try site.generate(sourceURL: sourceURL, targetURL: targetURL)
     exit(0)
 }
 catch {

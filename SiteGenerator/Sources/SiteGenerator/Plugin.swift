@@ -10,5 +10,5 @@ import Foundation
 public protocol Plugin {
     func setUp(site: Site, sourceURL: URL) throws
 
-    func render(site: Site, targetURL: URL, templateRenderer: TemplateRenderer) throws
+    func render(site: Site, targetURL: URL) throws
 }

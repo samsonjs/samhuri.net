@@ -8,17 +8,20 @@
 import Foundation
 
 public final class PostsPlugin: Plugin {
+    let templateRenderer: PostsTemplateRenderer
     let postRepo: PostRepo
     let postWriter: PostWriter
     let jsonFeedWriter: JSONFeedWriter?
     let rssFeedWriter: RSSFeedWriter?
 
     init(
+        templateRenderer: PostsTemplateRenderer,
         postRepo: PostRepo = PostRepo(),
         postWriter: PostWriter = PostWriter(),
         jsonFeedWriter: JSONFeedWriter?,
         rssFeedWriter: RSSFeedWriter?
     ) {
+        self.templateRenderer = templateRenderer
         self.postRepo = postRepo
         self.postWriter = postWriter
         self.jsonFeedWriter = jsonFeedWriter
@@ -26,39 +29,6 @@ public final class PostsPlugin: Plugin {
     }
 
     // MARK: - Plugin methods
-
-    convenience init(options: [String: Any]) {
-        let postRepo: PostRepo
-        let postWriter: PostWriter
-        if let outputPath = options["path"] as? String {
-            postRepo = PostRepo(outputPath: outputPath)
-            postWriter = PostWriter(outputPath: outputPath)
-        }
-        else {
-            postRepo = PostRepo()
-            postWriter = PostWriter()
-        }
-
-        let jsonFeedWriter: JSONFeedWriter?
-        if let jsonFeedPath = options["json_feed"] as? String {
-            let jsonFeed = JSONFeed(path: jsonFeedPath, avatarPath: nil, iconPath: nil, faviconPath: nil)
-            jsonFeedWriter = JSONFeedWriter(feed: jsonFeed)
-        }
-        else {
-            jsonFeedWriter = nil
-        }
-
-        let rssFeedWriter: RSSFeedWriter?
-        if let rssFeedPath = options["rss_feed"] as? String {
-            let rssFeed = RSSFeed(path: rssFeedPath)
-            rssFeedWriter = RSSFeedWriter(feed: rssFeed)
-        }
-        else {
-            rssFeedWriter = nil
-        }
-
-        self.init(postRepo: postRepo, postWriter: postWriter, jsonFeedWriter: jsonFeedWriter, rssFeedWriter: rssFeedWriter)
-    }
 
     public func setUp(site: Site, sourceURL: URL) throws {
         guard postRepo.postDataExists(at: sourceURL) else {
@@ -68,17 +38,17 @@ public final class PostsPlugin: Plugin {
         try postRepo.readPosts(sourceURL: sourceURL)
     }
 
-    public func render(site: Site, targetURL: URL, templateRenderer: TemplateRenderer) throws {
+    public func render(site: Site, targetURL: URL) throws {
         guard !postRepo.isEmpty else {
             return
         }
 
-        try postWriter.writeRecentPosts(postRepo.recentPosts, to: targetURL, with: templateRenderer)
-        try postWriter.writePosts(postRepo.sortedPosts, to: targetURL, with: templateRenderer)
-        try postWriter.writeArchive(posts: postRepo.posts, to: targetURL, with: templateRenderer)
-        try postWriter.writeYearIndexes(posts: postRepo.posts, to: targetURL, with: templateRenderer)
-        try postWriter.writeMonthRollups(posts: postRepo.posts, to: targetURL, with: templateRenderer)
-        try jsonFeedWriter?.writeFeed(postRepo.postsForFeed, site: site, to: targetURL, with: templateRenderer)
-        try rssFeedWriter?.writeFeed(postRepo.postsForFeed, site: site, to: targetURL, with: templateRenderer)
+        try postWriter.writeRecentPosts(postRepo.recentPosts, for: site, to: targetURL, with: templateRenderer)
+        try postWriter.writePosts(postRepo.sortedPosts, for: site, to: targetURL, with: templateRenderer)
+        try postWriter.writeArchive(posts: postRepo.posts, for: site, to: targetURL, with: templateRenderer)
+        try postWriter.writeYearIndexes(posts: postRepo.posts, for: site, to: targetURL, with: templateRenderer)
+        try postWriter.writeMonthRollups(posts: postRepo.posts, for: site, to: targetURL, with: templateRenderer)
+        try jsonFeedWriter?.writeFeed(postRepo.postsForFeed, for: site, to: targetURL, with: templateRenderer)
+        try rssFeedWriter?.writeFeed(postRepo.postsForFeed, for: site, to: targetURL, with: templateRenderer)
     }
 }

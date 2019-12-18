@@ -8,11 +8,14 @@
 import Foundation
 
 public final class PostsPluginBuilder {
+    private let templateRenderer: PostsTemplateRenderer
     private var path: String?
     private var jsonFeed: JSONFeed?
     private var rssFeed: RSSFeed?
 
-    public init() {}
+    public init(templateRenderer: PostsTemplateRenderer) {
+        self.templateRenderer = templateRenderer
+    }
 
     public func path(_ path: String) -> PostsPluginBuilder {
         precondition(self.path == nil, "path is already defined")
@@ -71,6 +74,7 @@ public final class PostsPluginBuilder {
         }
 
         return PostsPlugin(
+            templateRenderer: templateRenderer,
             postRepo: postRepo,
             postWriter: postWriter,
             jsonFeedWriter: jsonFeedWriter,

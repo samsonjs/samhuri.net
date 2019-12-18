@@ -1,7 +1,7 @@
 import XCTest
 
-import samhuri_netTests
+import samhuri.net.Tests
 
 var tests = [XCTestCaseEntry]()
-tests += samhuri_netTests.allTests()
+tests += samhuri.net.Tests.allTests()
 XCTMain(tests)

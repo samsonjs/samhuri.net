@@ -10,5 +10,5 @@ import Foundation
 public protocol Renderer {
     func canRenderFile(named filename: String, withExtension ext: String) -> Bool
 
-    func render(fileURL: URL, targetDir: URL, templateRenderer: TemplateRenderer) throws
+    func render(site: Site, fileURL: URL, targetDir: URL) throws
 }

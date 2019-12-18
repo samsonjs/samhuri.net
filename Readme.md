@@ -117,6 +117,8 @@ Execution, trying TDD for the first time:
 
     - [x] Replace site.json with Swift code
 
+    - [x] Move template rendering from SiteGenerator to samhuri.net
+
     - [ ] Replace page template with Swift code
 
     - [ ] Replace projects.json with Swift code

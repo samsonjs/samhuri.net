@@ -85,16 +85,16 @@ public final class SiteBuilder {
 // MARK: - Markdown
 
 public extension SiteBuilder {
-    func renderMarkdown(defaultTemplate: String) -> SiteBuilder {
-        renderer(MarkdownRenderer(defaultTemplate: defaultTemplate))
+    func renderMarkdown(pageRenderer: MarkdownPageRenderer) -> SiteBuilder {
+        renderer(MarkdownRenderer(pageRenderer: pageRenderer))
     }
 }
 
 // MARK: - Projects
 
 public extension SiteBuilder {
-    func projects(path: String? = nil) -> SiteBuilder {
-        plugin(ProjectsPlugin(outputPath: path))
+    func projects(templateRenderer: ProjectsTemplateRenderer, path: String? = nil) -> SiteBuilder {
+        plugin(ProjectsPlugin(templateRenderer: templateRenderer, outputPath: path))
     }
 }
 

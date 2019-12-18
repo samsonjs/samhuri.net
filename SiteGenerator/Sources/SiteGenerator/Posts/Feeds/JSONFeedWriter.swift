@@ -44,7 +44,7 @@ final class JSONFeedWriter {
         self.jsonFeed = feed
     }
 
-    func writeFeed(_ posts: [Post], site: Site, to targetURL: URL, with templateRenderer: TemplateRenderer) throws {
+    func writeFeed(_ posts: [Post], for site: Site, to targetURL: URL, with templateRenderer: PostsTemplateRenderer) throws {
         let items: [FeedItem] = try posts.map { post in
             let url = site.url.appendingPathComponent(post.path)
             return FeedItem(
@@ -54,7 +54,7 @@ final class JSONFeedWriter {
                 url: url.absoluteString,
                 external_url: post.link?.absoluteString,
                 author: FeedAuthor(name: post.author, avatar: nil, url: nil),
-                content_html: try templateRenderer.renderTemplate(name: "feed-post.html", context: [
+                content_html: try templateRenderer.renderTemplate(.feedPost, site: site, context: [
                     "post": post,
                 ]),
                 tags: post.tags

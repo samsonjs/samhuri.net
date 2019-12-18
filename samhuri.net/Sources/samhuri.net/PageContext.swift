@@ -1,11 +1,12 @@
 //
-//  File.swift
-//  
+//  PageContext.swift
+//  samhuri.net
 //
 //  Created by Sami Samhuri on 2019-12-02.
 //
 
 import Foundation
+import SiteGenerator
 
 struct PageContext {
     let site: Site

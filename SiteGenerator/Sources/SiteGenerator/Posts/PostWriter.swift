@@ -20,9 +20,9 @@ final class PostWriter {
 // MARK: - Post pages
 
 extension PostWriter {
-    func writePosts(_ posts: [Post], to targetURL: URL, with templateRenderer: TemplateRenderer) throws {
+    func writePosts(_ posts: [Post], for site: Site, to targetURL: URL, with templateRenderer: PostsTemplateRenderer) throws {
         for post in posts {
-            let postHTML = try templateRenderer.renderTemplate(name: "post.html", context: [
+            let postHTML = try templateRenderer.renderTemplate(.post, site: site, context: [
                 "title": post.title,
                 "post": post,
             ])
@@ -42,8 +42,8 @@ extension PostWriter {
 // MARK: - Recent posts page
 
 extension PostWriter {
-    func writeRecentPosts(_ recentPosts: [Post], to targetURL: URL, with templateRenderer: TemplateRenderer) throws {
-        let recentPostsHTML = try templateRenderer.renderTemplate(name: "recent-posts.html", context: [
+    func writeRecentPosts(_ recentPosts: [Post], for site: Site, to targetURL: URL, with templateRenderer: PostsTemplateRenderer) throws {
+        let recentPostsHTML = try templateRenderer.renderTemplate(.recentPosts, site: site, context: [
             "recentPosts": recentPosts,
         ])
         let fileURL = targetURL.appendingPathComponent("index.html")
@@ -55,9 +55,9 @@ extension PostWriter {
 // MARK: - Post archive page
 
 extension PostWriter {
-    func writeArchive(posts: PostsByYear, to targetURL: URL, with templateRenderer: TemplateRenderer) throws {
+    func writeArchive(posts: PostsByYear, for site: Site, to targetURL: URL, with templateRenderer: PostsTemplateRenderer) throws {
         let allYears = posts.byYear.keys.sorted(by: >)
-        let archiveHTML = try templateRenderer.renderTemplate(name: "posts-archive.html", context: [
+        let archiveHTML = try templateRenderer.renderTemplate(.archive, site: site, context: [
             "title": "Archive",
             "years": allYears.map { contextDictionaryForYearPosts(posts[$0]) },
         ])
@@ -89,7 +89,7 @@ extension PostWriter {
 // MARK: - Yearly post index pages
 
 extension PostWriter {
-    func writeYearIndexes(posts: PostsByYear, to targetURL: URL, with templateRenderer: TemplateRenderer) throws {
+    func writeYearIndexes(posts: PostsByYear, for site: Site, to targetURL: URL, with templateRenderer: PostsTemplateRenderer) throws {
         for (year, yearPosts) in posts.byYear {
             let months = yearPosts.months.sorted(by: >)
             let yearDir = targetURL.appendingPathComponent(yearPosts.path)
@@ -99,7 +99,7 @@ extension PostWriter {
                 "year": year,
                 "months": months.map { contextDictionaryForMonthPosts(posts[year][$0], year: year) },
             ]
-            let yearHTML = try templateRenderer.renderTemplate(name: "posts-year.html", context: context)
+            let yearHTML = try templateRenderer.renderTemplate(.yearPosts, site: site, context: context)
             let yearURL = yearDir.appendingPathComponent("index.html")
             try fileManager.createDirectory(at: yearDir, withIntermediateDirectories: true, attributes: nil)
             try yearHTML.write(to: yearURL, atomically: true, encoding: .utf8)
@@ -110,12 +110,12 @@ extension PostWriter {
 // MARK: - Monthly post roll-up pages
 
 extension PostWriter {
-    func writeMonthRollups(posts: PostsByYear, to targetURL: URL, with templateRenderer: TemplateRenderer) throws {
+    func writeMonthRollups(posts: PostsByYear, for site: Site, to targetURL: URL, with templateRenderer: PostsTemplateRenderer) throws {
         for (year, yearPosts) in posts.byYear {
             for month in yearPosts.months {
                 let monthPosts = yearPosts[month]
                 let monthDir = targetURL.appendingPathComponent(monthPosts.path)
-                let monthHTML = try templateRenderer.renderTemplate(name: "posts-month.html", context: [
+                let monthHTML = try templateRenderer.renderTemplate(.monthPosts, site: site, context: [
                     "title": "\(month.name) \(year)",
                     "posts": monthPosts.posts.sorted(by: >),
                 ])

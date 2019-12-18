@@ -10,7 +10,6 @@ import Foundation
 public final class SiteGenerator {
     // Dependencies
     let fileManager: FileManager = .default
-    let templateRenderer: TemplateRenderer
 
     // Site properties
     public let site: Site
@@ -21,9 +20,6 @@ public final class SiteGenerator {
     public init(sourceURL: URL, site: Site) throws {
         self.site = site
         self.sourceURL = sourceURL
-
-        let templatesURL = sourceURL.appendingPathComponent("templates")
-        self.templateRenderer = SiteTemplateRenderer(site: site, templatesURL: templatesURL)
 
         try initializePlugins()
     }
@@ -36,7 +32,7 @@ public final class SiteGenerator {
 
     public func generate(targetURL: URL) throws {
         for plugin in site.plugins {
-            try plugin.render(site: site, targetURL: targetURL, templateRenderer: templateRenderer)
+            try plugin.render(site: site, targetURL: targetURL)
         }
 
         let publicURL = sourceURL.appendingPathComponent("public")
@@ -72,7 +68,7 @@ public final class SiteGenerator {
         let ext = String(filename.split(separator: ".").last!)
         for renderer in site.renderers {
             if renderer.canRenderFile(named: filename, withExtension: ext) {
-                try renderer.render(fileURL: fileURL, targetDir: targetDir, templateRenderer: templateRenderer)
+                try renderer.render(site: site, fileURL: fileURL, targetDir: targetDir)
                 return
             }
         }
