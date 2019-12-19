@@ -23,13 +23,14 @@ public extension samhuri {
                 .build()
 
             return SiteBuilder(
-                author: "Sami Samhuri",
-                email: "sami@samhuri.net",
                 title: "samhuri.net",
                 description: "just some blog",
+                author: "Sami Samhuri",
+                email: "sami@samhuri.net",
                 url: siteURLOverride ?? URL(string: "https://samhuri.net")!
             )
                 .styles("/css/normalize.css", "/css/style.css")
+                .styles("https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css")
                 .renderMarkdown(pageRenderer: renderer)
                 .projects(templateRenderer: renderer)
                 .plugin(postsPlugin)

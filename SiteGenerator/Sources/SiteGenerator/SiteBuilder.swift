@@ -8,12 +8,11 @@
 import Foundation
 
 public final class SiteBuilder {
-    private let author: String
     private let title: String
+    private let description: String?
+    private let author: String
+    private let email: String
     private let url: URL
-
-    private var email: String?
-    private var description: String?
 
     private var styles: [String] = []
     private var scripts: [String] = []
@@ -22,29 +21,17 @@ public final class SiteBuilder {
     private var renderers: [Renderer] = []
 
     public init(
-        author: String,
-        email: String? = nil,
         title: String,
         description: String? = nil,
+        author: String,
+        email: String,
         url: URL
     ) {
-        self.author = author
-        self.email = email
         self.title = title
         self.description = description
-        self.url = url
-    }
-
-    public func email(_ email: String) -> SiteBuilder {
-        precondition(self.email == nil, "email is already defined")
+        self.author = author
         self.email = email
-        return self
-    }
-
-    public func description(_ description: String) -> SiteBuilder {
-        precondition(self.description == nil, "description is already defined")
-        self.description = description
-        return self
+        self.url = url
     }
 
     public func styles(_ styles: String...) -> SiteBuilder {

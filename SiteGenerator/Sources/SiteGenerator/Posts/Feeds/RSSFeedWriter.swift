@@ -52,14 +52,7 @@ final class RSSFeedWriter {
         )
         let renderedPosts: [FeedPost] = try posts.map { post in
             let title = post.isLink ? "→ \(post.title)" : post.title
-            let author: String = {
-                if let email = site.email {
-                    return "\(email) (\(post.author))"
-                }
-                else {
-                    return post.author
-                }
-            }()
+            let author = "\(site.email) (\(post.author))"
             let url = site.url.appendingPathComponent(post.path)
             return FeedPost(
                 title: title.escapedForXML(),
