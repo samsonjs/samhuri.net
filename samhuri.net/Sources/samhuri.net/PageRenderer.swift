@@ -25,6 +25,7 @@ final class PageRenderer {
 
     func siteTemplate(body: Node<HTML.BodyContext>, context: TemplateContext) -> HTML {
         HTML(.lang("en"),
+             .comment("meow"),
             .head(
                 .encoding(.utf8),
                 .viewport(.accordingToDevice),
