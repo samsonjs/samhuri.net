@@ -76,17 +76,3 @@ public extension SiteBuilder {
         renderer(MarkdownRenderer(pageRenderer: pageRenderer))
     }
 }
-
-// MARK: - Projects
-
-public extension SiteBuilder {
-    func projects(templateRenderer: ProjectsTemplateRenderer, path: String? = nil) -> SiteBuilder {
-        plugin(ProjectsPlugin(templateRenderer: templateRenderer, outputPath: path))
-    }
-}
-
-// MARK: - Posts
-
-public extension SiteBuilder {
-    // anything nice we can do there?
-}

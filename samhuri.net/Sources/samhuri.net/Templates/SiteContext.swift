@@ -11,11 +11,7 @@ import SiteGenerator
 struct SiteContext: TemplateContext {
     let site: Site
     let subtitle: String?
-
-    init(site: Site, subtitle: String? = nil) {
-        self.site = site
-        self.subtitle = subtitle
-    }
+    let templateAssets: TemplateAssets
 
     var title: String {
         guard let subtitle = subtitle else {
@@ -23,18 +19,6 @@ struct SiteContext: TemplateContext {
         }
 
         return "\(site.title): \(subtitle)"
-    }
-
-    var styles: [URL] {
-        site.styles.map { style in
-            style.hasPrefix("http") ? URL(string: style)! : url(for: style)
-        }
-    }
-
-    var scripts: [URL] {
-        site.scripts.map { script in
-            script.hasPrefix("http") ? URL(string: script)! : url(for: script)
-        }
     }
 }
 

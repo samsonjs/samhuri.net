@@ -6,11 +6,11 @@
 //
 
 import Foundation
+import SiteGenerator
 
 struct Page {
     let title: String
-    let styles: [String]
-    let scripts: [String]
+    let templateAssets: TemplateAssets
 }
 
 extension Page {
@@ -22,6 +22,6 @@ extension Page {
             .split(separator: ",")
             .map { $0.trimmingCharacters(in: .whitespaces) }
         let title = metadata["Title", default: ""]
-        self.init(title: title, styles: styles, scripts: scripts)
+        self.init(title: title, templateAssets: TemplateAssets(scripts: scripts, styles: styles))
     }
 }

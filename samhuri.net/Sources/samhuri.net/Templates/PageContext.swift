@@ -18,16 +18,8 @@ struct PageContext: TemplateContext {
         "\(site.title): \(page.title)"
     }
 
-    var styles: [URL] {
-        (site.styles + page.styles).map { style in
-            style.hasPrefix("http") ? URL(string: style)! : url(for: style)
-        }
-    }
-
-    var scripts: [URL] {
-        (site.scripts + page.scripts).map { script in
-            script.hasPrefix("http") ? URL(string: script)! : url(for: script)
-        }
+    var templateAssets: TemplateAssets {
+        page.templateAssets
     }
 }
 
@@ -39,8 +31,8 @@ extension PageContext {
             "body": body,
             "page": page,
             "metadata": metadata,
-            "styles": site.styles + page.styles,
-            "scripts": site.scripts + page.scripts,
+            "styles": site.styles + templateAssets.styles,
+            "scripts": site.scripts + templateAssets.scripts,
             "currentYear": Date().year,
         ]
     }

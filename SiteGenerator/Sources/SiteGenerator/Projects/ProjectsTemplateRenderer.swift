@@ -7,11 +7,7 @@
 
 import Foundation
 
-public enum ProjectTemplate {
-    case project
-    case projects
-}
-
 public protocol ProjectsTemplateRenderer {
-    func renderTemplate(_ template: ProjectTemplate, site: Site, context: [String: Any]) throws -> String
+    func renderProjects(_ projects: [Project], site: Site, assets: TemplateAssets) throws -> String
+    func renderProject(_ project: Project, site: Site, assets: TemplateAssets) throws -> String
 }

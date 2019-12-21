@@ -22,15 +22,17 @@ final class PageRenderer {
         let loader = FileSystemLoader(paths: [templatesPath])
         self.stencil = Environment(loader: loader)
     }
+
+    func render(_ body: Node<HTML.BodyContext>, context: TemplateContext) -> String {
+        Template.site(body: body, context: context).render(indentedBy: .spaces(2))
+    }
 }
 
 extension PageRenderer: MarkdownPageRenderer {
     func renderPage(site: Site, bodyHTML: String, metadata: [String: String]) throws -> String {
-        let page = Page(metadata: metadata)
-        let context = PageContext(site: site, body: bodyHTML, page: page, metadata: metadata)
-        let body: Node<HTML.BodyContext> = .page(title: page.title, bodyHTML: bodyHTML)
-        return Template.site(body: body, context: context)
-            .render(indentedBy: .spaces(2))
+        let pageTitle = metadata["Title", default: ""]
+        let context = SiteContext(site: site, subtitle: pageTitle, templateAssets: .none())
+        return render(.page(title: pageTitle, bodyHTML: bodyHTML), context: context)
     }
 }
 
@@ -58,34 +60,21 @@ extension PostTemplate {
 
 extension PageRenderer: PostsTemplateRenderer {
     func renderTemplate(_ template: PostTemplate, site: Site, context: [String : Any]) throws -> String {
-        let siteContext = SiteContext(site: site)
+        let siteContext = SiteContext(site: site, subtitle: nil, templateAssets: .none())
         let contextDict = siteContext.dictionary.merging(context, uniquingKeysWith: { _, new in new })
         return try stencil.renderTemplate(name: template.htmlFilename, context: contextDict)
-    }
-}
-
-extension ProjectTemplate {
-    @available(*, deprecated)
-    var htmlFilename: String {
-        switch self {
-        case .project:
-            return "project.html"
-        case .projects:
-            return "projects.html"
-        }
     }
 }
 
 extension PageRenderer: ProjectsTemplateRenderer {
-    func renderTemplate(_ template: ProjectTemplate, site: Site, context: [String : Any]) throws -> String {
-        let siteContext = SiteContext(site: site)
-        let contextDict = siteContext.dictionary.merging(context, uniquingKeysWith: { _, new in new })
-        return try stencil.renderTemplate(name: template.htmlFilename, context: contextDict)
+    func renderProjects(_ projects: [Project], site: Site, assets: TemplateAssets) throws -> String {
+        let context = SiteContext(site: site, subtitle: "Projects", templateAssets: assets)
+        return render(.projects(projects), context: context)
     }
-}
 
-extension Date {
-    var year: Int {
-        Calendar.current.dateComponents([.year], from: self).year!
+    func renderProject(_ project: Project, site: Site, assets: TemplateAssets) throws -> String {
+        let projectContext = ProjectContext(project: project, site: site, templateAssets: assets)
+        let context = SiteContext(site: site, subtitle: project.title, templateAssets: assets)
+        return render(.project(projectContext), context: context)
     }
 }

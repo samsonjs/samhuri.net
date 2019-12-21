@@ -121,9 +121,9 @@ Execution, trying TDD for the first time:
 
     - [x] Replace page template with Swift code
 
-    - [ ] Replace projects.json with Swift code
+    - [x] Replace projects.json with Swift code
 
-    - [ ] Replace project templates with Swift code
+    - [x] Replace project templates with Swift code
 
     - [ ] Replace post templates with Swift code
 
