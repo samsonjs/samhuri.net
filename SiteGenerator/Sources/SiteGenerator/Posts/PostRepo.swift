@@ -79,7 +79,7 @@ final class PostRepo {
         return try fileManager.contentsOfDirectory(atPath: directory.path).flatMap { (filename: String) -> [URL] in
             let fileURL = directory.appendingPathComponent(filename)
             var isDir: ObjCBool = false
-            fileManager.fileExists(atPath: fileURL.path, isDirectory: &isDir)
+            _ = fileManager.fileExists(atPath: fileURL.path, isDirectory: &isDir)
             if isDir.boolValue {
                 return try enumerateMarkdownFiles(directory: fileURL)
             }

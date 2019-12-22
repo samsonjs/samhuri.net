@@ -49,7 +49,7 @@ public final class SiteGenerator {
             // Recurse into subdirectories, updating the target directory as well.
             let fileURL = URL(fileURLWithPath: path).appendingPathComponent(filename)
             var isDir: ObjCBool = false
-            fileManager.fileExists(atPath: fileURL.path, isDirectory: &isDir)
+            _ = fileManager.fileExists(atPath: fileURL.path, isDirectory: &isDir)
             guard !isDir.boolValue else {
                 try renderPath(fileURL.path, to: targetURL.appendingPathComponent(filename))
                 continue
