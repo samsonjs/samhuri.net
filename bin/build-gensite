@@ -3,9 +3,9 @@
 set -euo pipefail
 
 if [[ $(uname) = "Linux" ]]; then
-    build_platform_dir="x86_64-unknown-linux"
+  build_platform_dir="x86_64-unknown-linux"
 else
-    build_platform_dir="x86_64-apple-macosx"
+  build_platform_dir="x86_64-apple-macosx"
 fi
 
 pushd "gensite" >/dev/null
