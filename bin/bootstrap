@@ -8,8 +8,8 @@ SWIFT_DIR=swift-$SWIFT_VERSION-RELEASE-ubuntu18.04
 SWIFT_FILENAME=$SWIFT_DIR.tar.gz
 
 if [[ $(uname) = "Linux" ]]; then
-  if which swiftc >/dev/null 2>/dev/null; then
-    echo "*** swift is installed: $(swift --version | head -n1)"
+  if which swift >/dev/null 2>/dev/null && swift --version | grep $SWIFT_VERSION >/dev/null 2>/dev/null; then
+    echo "*** swift $SWIFT_VERSION is installed"
   else
     echo "*** installing swift"
     pushd $HOME
