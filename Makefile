@@ -1,19 +1,23 @@
 all: blog
 
-blog: gensite
+debug: gensite
 	@echo
-	rm -rf www
+	./bin/gensite . www http://localhost:8000
+
+beta: gensite
+	@echo
+	./bin/gensite . www https://beta.samhuri.net
+
+release: gensite
+	@echo
 	./bin/gensite . www
 
-publish: blog
+publish: release
 	@echo
 	./bin/publish --delete www/
 
-publish_beta:
+publish_beta: beta
 	@echo
-	./bin/build-gensite
-	rm -rf www
-	./bin/gensite . www "https://beta.samhuri.net"
 	./bin/publish --beta --delete www/
 
 gensite:
