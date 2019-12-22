@@ -1,2 +1,2 @@
-exclude = "{$exclude,SiteGenerator,www,tweets,wayback,actual}"
+exclude = "{$exclude,SiteGenerator,samhuri.net,gensite,www,tweets,wayback,actual}"
 include = "{$include,.gitignore}"
