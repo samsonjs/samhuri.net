@@ -1,27 +1,46 @@
-all: blog
+all: debug
 
-debug: gensite
+debug:
 	@echo
-	./bin/gensite . www http://localhost:8000
+	bin/build-gensite
+	bin/gensite . www http://localhost:8000
 
-beta: gensite
+beta: clean_blog
 	@echo
-	./bin/gensite . www https://beta.samhuri.net
+	bin/build-gensite
+	bin/gensite . www https://beta.samhuri.net
 
-release: gensite
+release: clean_blog
 	@echo
-	./bin/gensite . www
+	bin/build-gensite
+	bin/gensite . www
 
 publish: release
 	@echo
-	./bin/publish --delete www/
+	bin/publish --delete www/
 
 publish_beta: beta
 	@echo
-	./bin/publish --beta --delete www/
+	bin/publish --beta --delete www/
 
-gensite:
+clean: clean_blog
+
+clean_blog:
 	@echo
-	./bin/build-gensite
+	rm -rf www/* www/.htaccess
 
-.PHONY: blog publish publish_beta gensite
+clean_swift:
+	@echo
+	rm -rf gensite/.build
+	rm -rf $HOME/Library/Developer/Xcode/DerivedData/gensite-ewvaffkhpgybjtfpkcxyucwdpmfl
+	rm -rf SiteGenerator/.build
+	rm -rf $HOME/Library/Developer/Xcode/DerivedData/SiteGenerator-ftomcgvdmmvedteooctyccrevcyn
+	rm -rf samhuri.net/.build
+	rm -rf $HOME/Library/Developer/Xcode/DerivedData/samhuri-fvrlgfanofqywqevrqijjltaldjd
+
+serve:
+	@echo
+	cd www
+	python -m SimpleHTTPServer
+
+.PHONY: debug beta release publish publish_beta clean clean_blog clean_swift serve

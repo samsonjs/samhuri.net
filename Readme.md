@@ -149,4 +149,4 @@ Execution, trying TDD for the first time:
 
 - [x] Add a server for local use and simple production setups (or use a file watcher + `python -m SimpleHTTPServer`?)
 
-- [ ] Figure out an iPad workflow with minimal code. Maybe a small app with some extensions and shortcuts? This is going to be much more difficult with templates as Swift code. Use a Linux VM instead with Shell
+- [ ] Figure out an iPad workflow with minimal code. Maybe a small app with some extensions and shortcuts? This is going to be much more difficult with templates as Swift code. Use a Linux VM instead with ShellFish
