@@ -1,6 +1,12 @@
 #!/bin/bash
 
+if [[ $(uname) = "Linux" ]]; then
+    build_platform_dir="x86_64-unknown-linux"
+else
+    build_platform_dir="x86_64-apple-macosx"
+fi
+
 pushd "gensite" >/dev/null
 swift build
-cp .build/x86_64-apple-macosx/debug/gensite ../bin/gensite
+cp .build/$build_platform_dir/debug/gensite ../bin/gensite
 popd >/dev/null
