@@ -23,11 +23,6 @@ guard sourceExists, isDir.boolValue else {
 }
 
 let targetPath = CommandLine.arguments[2]
-let targetExists = FileManager.default.fileExists(atPath: targetPath)
-guard !targetExists else {
-    print("error: Refusing to clobber existing target \(targetPath)")
-    exit(3)
-}
 
 let siteURLOverride: URL?
 if CommandLine.argc > 3, CommandLine.arguments[3].isEmpty == false {
