@@ -127,12 +127,26 @@ Execution, trying TDD for the first time:
 
     - [ ] Replace post templates with Swift code
 
+        - [x] Archive
+
+        - [ ] Year posts
+
+        - [ ] Month posts
+
+        - [ ] Post
+
+        - [ ] Feed post
+
+            - [ ] Munge relative URLs in the RSS and JSON feeds to be absolute instead
+
+        - [ ] Recent posts
+
+        - [ ] RSS feed
+
     - [ ] Replace RSS feed template with Swift code
 
     - [ ] Remove stencil
 
-- [ ] Munge relative URLs in the RSS and JSON feeds to be absolute instead
+- [x] Add a server for local use and simple production setups (or use a file watcher + `python -m SimpleHTTPServer`?)
 
-- [ ] Add a server for local use and simple production setups (or use a file watcher + `python -m SimpleHTTPServer`?)
-
-- [ ] Figure out an iPad workflow with minimal code. Maybe a small app with some extensions and shortcuts?
+- [ ] Figure out an iPad workflow with minimal code. Maybe a small app with some extensions and shortcuts? This is going to be much more difficult with templates as Swift code. Use a Linux VM instead with Shell
