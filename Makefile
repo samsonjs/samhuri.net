@@ -40,7 +40,6 @@ clean_swift:
 
 serve:
 	@echo
-	cd www
-	python -m SimpleHTTPServer
+	cd www && python -m SimpleHTTPServer
 
 .PHONY: debug beta release publish publish_beta clean clean_blog clean_swift serve
