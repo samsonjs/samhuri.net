@@ -16,8 +16,7 @@ let package = Package(
             targets: ["samhuri.net"]),
     ],
     dependencies: [
-        .package(path: "../SiteGenerator"),
-        .package(url: "https://github.com/stencilproject/Stencil.git", from: "0.13.0"),
+        .package(url: "https://github.com/johnsundell/ink.git", from: "0.2.0"),
         .package(url: "https://github.com/johnsundell/plot.git", from: "0.2.0"),
     ],
     targets: [
@@ -26,9 +25,8 @@ let package = Package(
         .target(
             name: "samhuri.net",
             dependencies: [
+                "Ink",
                 "Plot",
-                "SiteGenerator",
-                "Stencil",
         ]),
         .testTarget(
             name: "samhuri.netTests",

@@ -1,5 +1,4 @@
 import Foundation
-import SiteGenerator
 
 public enum samhuri {}
 
@@ -53,8 +52,7 @@ public extension samhuri {
                 email: "sami@samhuri.net",
                 url: siteURLOverride ?? URL(string: "https://samhuri.net")!
             )
-                .styles("normalize.css", "style.css")
-                .styles("https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css")
+                .styles("normalize.css", "style.css", "font-awesome.min.css")
                 .renderMarkdown(pageRenderer: renderer)
                 .plugin(projectsPlugin)
                 .plugin(postsPlugin)
@@ -62,8 +60,7 @@ public extension samhuri {
         }
 
         public func generate(sourceURL: URL, targetURL: URL) throws {
-            let templatesURL = sourceURL.appendingPathComponent("templates")
-            let renderer = PageRenderer(templatesURL: templatesURL)
+            let renderer = PageRenderer()
             let site = buildSite(renderer: renderer)
             let generator = try SiteGenerator(sourceURL: sourceURL, site: site)
             try generator.generate(targetURL: targetURL)

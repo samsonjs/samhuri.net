@@ -111,7 +111,7 @@ Execution, trying TDD for the first time:
 
     - [x] Minify JS? Now that we're keeping node, why not ... Nope! Ditched node too
 
-- [ ] Convert to a system of packages: SiteGenerator, samhuri_net, and gensite (executable)
+- [x] Convert to a system of packages: SiteGenerator, samhuri_net, and gensite (executable)
 
     - [x] Create new packages and distribute the code accordingly
 
@@ -125,27 +125,27 @@ Execution, trying TDD for the first time:
 
     - [x] Replace project templates with Swift code
 
-    - [ ] Replace post templates with Swift code
+    - [x] Replace post templates with Swift code
 
         - [x] Archive
 
-        - [ ] Year posts
+        - [x] Year posts
 
-        - [ ] Month posts
+        - [x] Month posts
 
-        - [ ] Post
+        - [x] Post
 
-        - [ ] Feed post
+        - [x] Recent posts
 
-            - [ ] Munge relative URLs in the RSS and JSON feeds to be absolute instead
+    - [x] Replace RSS feed with Swift code
 
-        - [ ] Recent posts
+        - [x] Feed post template
 
-        - [ ] RSS feed
+        - [x] RSS feed template
 
-    - [ ] Replace RSS feed template with Swift code
+        - [x] Munge relative URLs in the RSS and JSON feeds to be absolute instead
 
-    - [ ] Remove stencil
+    - [x] Remove stencil
 
 - [x] Add a server for local use and simple production setups (or use a file watcher + `python -m SimpleHTTPServer`?)
 

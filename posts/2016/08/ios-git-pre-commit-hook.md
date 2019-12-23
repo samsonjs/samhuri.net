@@ -18,13 +18,13 @@ If you don't care what I did or why then you can just [see the updated script][g
 
 The diff command is repeated. This is any easy win:
 
-<pre>
+```bash
 diff-index() {
     git diff-index -p -M --cached HEAD -- "$@"
 }
 
 if diff-index '*Tests.swift' | ...
-</pre>
+```
 
 You get the idea.
 
@@ -34,7 +34,9 @@ One problem is that the bootstrap script uses an absolute path when creating a s
 
 That's easily fixed by using a relative path to your pre-commit hook, like so:
 
-<pre>ln -s ../../scripts/pre-commit.sh .git/hooks/pre-commit</pre>
+```bash
+ln -s ../../scripts/pre-commit.sh .git/hooks/pre-commit
+```
 
 Ah, this is more flexible! Of course if you ever move the script itself then it's on you to update the symlink and bootstrap.sh, but that was already the case anyway.
 
@@ -46,42 +48,42 @@ Ok great so this script tells me there are errors. Well, script, what exactly _a
 
 First ignore the fact I'm talking to a shell script. I don't get out much. Anyway... now we need to pull out the regular expressions and globs so we can reuse them to show what the actual errors are if we find any.
 
-<pre>
+```bash
 test_pattern='^\+\s*\b(fdescribe|fit|fcontext|xdescribe|xit|xcontext)\('
 test_glob='*Tests.swift *Specs.swift'
 if diff-index $test_glob | egrep "$test_pattern" >/dev/null 2>&1
 ...
-</pre>
+```
 
 _Pro tip: I prefixed test\_pattern with `\b` to only match word boundaries to reduce false positives._
 
 And:
 
-<pre>
+```bash
 misplaced_pattern='misplaced="YES"'
 misplaced_glob='*.xib *.storyboard'
 if diff-index $misplaced_glob | grep '^+' | egrep "$misplaced_pattern" >/dev/null 2>&1
 ...
-</pre>
+```
 
 You may notice that I snuck in `*Specs.swift` as well. Let's not be choosy about file naming.
 
 Then we need to show where the errors are by using `diff-indef`, with an `|| true` at the end because the whole script fails if any single command fails, and `git diff-index` regularly exits with non-zero status (I didn't look into why that is).
 
-<pre>
+```bash
 echo "COMMIT REJECTED for fdescribe/fit/fcontext/xdescribe/xit/xcontext." >&2
 echo "Remove focused and disabled tests before committing." >&2
 diff-index $test_glob | egrep -2 "$test_pattern" || true >&2
 echo '----' >&2
-</pre>
+```
 
 And for misplaced views:
 
-<pre>
+```bash
 echo "COMMIT REJECTED for misplaced views. Correct them before committing." >&2
 git grep -E "$misplaced_pattern" $misplaced_glob || true >&2
 echo '----' >&2
-</pre>
+```
 
 ## Fix all the things, at once
 
@@ -91,15 +93,21 @@ The first step is to exit at the end using a code in a variable that is set to 1
 
 Up top:
 
-<pre>failed=0</pre>
+```bash
+failed=0
+```
 
 In the middle, where we detect errors:
 
-<pre>failed=1</pre>
+```bash
+failed=1
+```
 
 And at the bottom:
 
-<pre>exit $failed</pre>
+```bash
+exit $failed
+```
 
 That's all there is to it. If we don't exit early then all the code runs.
 
@@ -113,7 +121,7 @@ Those were all the obvious improvements in my mind and now I'm using this modifi
 
 Here's the whole thing put together:
 
-<pre>
+```bash
 #!/usr/bin/env bash
 #
 # Based on http://merowing.info/2016/08/setting-up-pre-commit-hook-for-ios/
@@ -148,4 +156,4 @@ then
 fi
 
 exit $failed
-</pre>
+```

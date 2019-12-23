@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SiteGenerator
 
 struct Page {
     let title: String

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SiteGenerator
 
 protocol TemplateContext {
     // Concrete requirements, must be implemented

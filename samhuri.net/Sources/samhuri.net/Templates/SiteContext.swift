@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SiteGenerator
 
 struct SiteContext: TemplateContext {
     let site: Site

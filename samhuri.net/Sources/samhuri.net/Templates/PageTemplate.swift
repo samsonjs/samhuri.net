@@ -1,6 +1,6 @@
 //
-//  PartialTemplates.swift
-//  
+//  PageTemplate.swift
+//  samhuri.net
 //
 //  Created by Sami Samhuri on 2019-12-19.
 //
@@ -9,7 +9,7 @@ import Foundation
 import Plot
 
 extension Node where Context == HTML.BodyContext {
-    static func page(title: String, bodyHTML: String) -> Node<HTML.BodyContext> {
+    static func page(title: String, bodyHTML: String) -> Self {
         .group([
             .article(.class("container"),
                 .h1(.text(title)),
