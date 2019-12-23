@@ -40,14 +40,15 @@ while [[ $# > 0 ]]; do
   [[ $BREAK_WHILE -eq 1 ]] && break
 done
 
+declare -a CMD
 if [[ $# -eq 0 ]]; then
-  CMD="rsync -aKv $RSYNC_OPTS www/ $PUBLISH_HOST:$PUBLISH_DIR"
+  CMD=(rsync -aKv -e "ssh -4" $RSYNC_OPTS www/ $PUBLISH_HOST:$PUBLISH_DIR)
 else
-  CMD="rsync -aKv $RSYNC_OPTS $@ $PUBLISH_HOST:$PUBLISH_DIR"
+  CMD=(rsync -aKv -e "ssh -4" $RSYNC_OPTS $@ $PUBLISH_HOST:$PUBLISH_DIR)
 fi
 
 if [[ $ECHO -eq 1 ]]; then
-  echo "$CMD"
+  echo "${CMD[@]}"
 fi
 
-$CMD
+"${CMD[@]}"
