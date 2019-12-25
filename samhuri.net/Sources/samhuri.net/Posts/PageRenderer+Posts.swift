@@ -26,7 +26,7 @@ extension PageRenderer: PostsTemplateRenderer {
 
     func renderPost(_ post: Post, site: Site, assets: TemplateAssets) throws -> String {
         let context = SiteContext(site: site, subtitle: post.title, templateAssets: assets)
-        return render(.post(post), context: context)
+        return render(.post(post, articleClass: "container"), context: context)
     }
 
     func renderRecentPosts(_ posts: [Post], site: Site, assets: TemplateAssets) throws -> String {

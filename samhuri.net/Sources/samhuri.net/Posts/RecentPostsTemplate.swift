@@ -11,7 +11,7 @@ import Plot
 extension Node where Context == HTML.BodyContext {
     static func recentPosts(_ posts: [Post]) -> Self {
         .div(.class("container"),
-             .group(posts.map(post))
+             .group(posts.map { self.post($0) })
         )
     }
 }

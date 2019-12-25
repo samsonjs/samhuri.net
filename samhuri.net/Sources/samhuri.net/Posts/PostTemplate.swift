@@ -9,9 +9,9 @@ import Foundation
 import Plot
 
 extension Node where Context == HTML.BodyContext {
-    static func post(_ post: Post) -> Self {
+    static func post(_ post: Post, articleClass: String = "") -> Self {
         .group([
-            .article(
+            .article(.class(articleClass),
                 .header(
                     .h2(postTitleLink(post)),
                     .time(.text(post.formattedDate)),
