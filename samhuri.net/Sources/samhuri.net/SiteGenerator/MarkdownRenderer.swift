@@ -10,11 +10,13 @@ import Ink
 
 final class MarkdownRenderer: Renderer {
     let fileManager: FileManager = .default
+    let fileWriter: FileWriting
     let markdownParser = MarkdownParser()
     let pageRenderer: MarkdownPageRenderer
 
-    init(pageRenderer: MarkdownPageRenderer) {
+    init(pageRenderer: MarkdownPageRenderer, fileWriter: FileWriting = FileWriter()) {
         self.pageRenderer = pageRenderer
+        self.fileWriter = fileWriter
     }
 
     func canRenderFile(named filename: String, withExtension ext: String) -> Bool {
@@ -37,8 +39,7 @@ final class MarkdownRenderer: Renderer {
             htmlPath = mdFilename.replacingOccurrences(of: ".md", with: "/index.html")
         }
         let htmlURL = targetDir.appendingPathComponent(htmlPath)
-        try fileManager.createDirectory(at: htmlURL.deletingLastPathComponent(), withIntermediateDirectories: true, attributes: nil)
-        try pageHTML.write(to: htmlURL, atomically: true, encoding: .utf8)
+        try fileWriter.write(string: pageHTML, to: htmlURL)
     }
 
     func markdownMetadata(from url: URL) throws -> [String: String] {

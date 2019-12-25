@@ -59,7 +59,7 @@ final class PostsPluginBuilder {
 
         let jsonFeedWriter: JSONFeedWriter?
         if let jsonFeed = jsonFeed {
-            jsonFeedWriter = JSONFeedWriter(feed: jsonFeed)
+            jsonFeedWriter = JSONFeedWriter(jsonFeed: jsonFeed)
         }
         else {
             jsonFeedWriter = nil
@@ -67,7 +67,7 @@ final class PostsPluginBuilder {
 
         let rssFeedWriter: RSSFeedWriter?
         if let rssFeed = rssFeed {
-            rssFeedWriter = RSSFeedWriter(feed: rssFeed)
+            rssFeedWriter = RSSFeedWriter(rssFeed: rssFeed)
         }
         else {
             rssFeedWriter = nil

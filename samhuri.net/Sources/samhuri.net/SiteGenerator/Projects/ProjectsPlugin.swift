@@ -13,7 +13,7 @@ struct PartialProject {
 }
 
 final class ProjectsPlugin: Plugin {
-    let fileManager: FileManager = .default
+    let fileWriter: FileWriting
     let outputPath: String
     let partialProjects: [PartialProject]
     let templateRenderer: ProjectsTemplateRenderer
@@ -26,12 +26,14 @@ final class ProjectsPlugin: Plugin {
         projects: [PartialProject],
         templateRenderer: ProjectsTemplateRenderer,
         projectAssets: TemplateAssets,
-        outputPath: String? = nil
+        outputPath: String? = nil,
+        fileWriter: FileWriting = FileWriter()
     ) {
         self.partialProjects = projects
         self.templateRenderer = templateRenderer
         self.projectAssets = projectAssets
         self.outputPath = outputPath ?? "projects"
+        self.fileWriter = fileWriter
     }
 
     // MARK: - Plugin methods
@@ -53,16 +55,14 @@ final class ProjectsPlugin: Plugin {
         }
 
         let projectsDir = targetURL.appendingPathComponent(outputPath)
-        try fileManager.createDirectory(at: projectsDir, withIntermediateDirectories: true, attributes: nil)
         let projectsURL = projectsDir.appendingPathComponent("index.html")
         let projectsHTML = try templateRenderer.renderProjects(projects, site: site, assets: .none())
-        try projectsHTML.write(to: projectsURL, atomically: true, encoding: .utf8)
+        try fileWriter.write(string: projectsHTML, to: projectsURL)
 
         for project in projects {
             let projectURL = projectsDir.appendingPathComponent("\(project.title)/index.html")
             let projectHTML = try templateRenderer.renderProject(project, site: site, assets: projectAssets)
-            try fileManager.createDirectory(at: projectURL.deletingLastPathComponent(), withIntermediateDirectories: true, attributes: nil)
-            try projectHTML.write(to: projectURL, atomically: true, encoding: .utf8)
+            try fileWriter.write(string: projectHTML, to: projectURL)
         }
     }
 }
