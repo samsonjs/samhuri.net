@@ -19,7 +19,7 @@ final class PostTransformer {
 
     func makePost(from rawPost: RawPost) throws -> Post {
         let result = markdownParser.parse(rawPost.markdown)
-        let metadata = try parseMetadata(result.metadata)
+        let metadata = try parseMetadata(result.metadata, slug: rawPost.slug)
         let path = pathForPost(date: metadata.date, slug: rawPost.slug)
         return Post(
             slug: rawPost.slug,
@@ -57,15 +57,15 @@ struct ParsedMetadata {
 
 extension PostTransformer {
     enum Error: Swift.Error {
-        case deficientMetadata(missingKeys: [String])
+        case deficientMetadata(slug: String, missingKeys: [String], metadata: [String: String])
         case invalidTimestamp(String)
     }
 
-    func parseMetadata(_ metadata: [String: String]) throws -> ParsedMetadata {
+    func parseMetadata(_ metadata: [String: String], slug: String) throws -> ParsedMetadata {
         let requiredKeys = ["Title", "Author", "Date", "Timestamp"]
         let missingKeys = requiredKeys.filter { metadata[$0] == nil }
         guard missingKeys.isEmpty else {
-            throw Error.deficientMetadata(missingKeys: missingKeys)
+            throw Error.deficientMetadata(slug: slug, missingKeys: missingKeys, metadata: metadata)
         }
         guard let timeInterval = TimeInterval(metadata["Timestamp"]!) else {
             throw Error.invalidTimestamp(metadata["Timestamp"]!)
