@@ -153,22 +153,14 @@ Execution, trying TDD for the first time:
 
     - [x] Try using iSH to build the site locally on the iPad (shocker: doesn't work)
 
-    - [ ] Build with http://ocean.gurulogic.ca:8000 as the base URL with `make ipad`
+    - [x] Build with http://ocean.gurulogic.ca:8000 as the base URL with `make ocean`
 
-    - [ ] Set up a file watcher to build the site when posts change
+    - [x] Set up a file watcher to build the site when posts change
 
-    - [ ] Find good ssh and/or sftp apps for the iPad: ShellFish? Shell? Termius? Blink?
+    - [ ] Find good ssh and/or sftp apps for the iPad: Prompt? ShellFish? Shelly? Termius? Blink?
 
     - [ ] Find a good Swift editor for the iPad? Or just use vim via ssh? Textastic? Textor?
 
     - [ ] Find a good markdown editor for the iPad
 
-    - [ ] Set up an http endpoint to build the site? Is that even useful for anything?
-
-- [ ] Fix margin on post template
-
-- [ ] Render drafts in debug builds
-
-    - [ ] Render list of drafts
-
-    - [ ] Render drafts
+- [x] Fix margin on post template
