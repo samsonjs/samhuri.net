@@ -5,6 +5,11 @@ debug:
 	bin/build-gensite
 	bin/gensite . www http://localhost:8000
 
+ocean:
+	@echo
+	bin/build-gensite
+	bin/gensite . www http://ocean.gurulogic.ca:8000
+
 beta: clean_blog
 	@echo
 	bin/build-gensite
@@ -42,4 +47,4 @@ serve:
 	@echo
 	cd www && python -m SimpleHTTPServer
 
-.PHONY: debug beta release publish publish_beta clean clean_blog clean_swift serve
+.PHONY: debug ocean beta release publish publish_beta clean clean_blog clean_swift serve
