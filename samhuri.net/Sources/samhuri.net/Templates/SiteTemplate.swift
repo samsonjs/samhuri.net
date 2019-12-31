@@ -10,7 +10,8 @@ import Plot
 
 enum Template {
     static func site(body: Node<HTML.BodyContext>, context: TemplateContext) -> HTML {
-        HTML(.lang("en"),
+        HTML(
+            .lang("en"),
             .comment("meow"),
             .head(
                 .encoding(.utf8),
@@ -30,7 +31,10 @@ enum Template {
                 .meta(.name("theme-color"), .content("#ffffff")),
                 .link(.rel(.dnsPrefetch), .href("https://use.typekit.net")),
                 .link(.rel(.dnsPrefetch), .href("https://netdna.bootstrapcdn.com")),
-                .link(.rel(.dnsPrefetch), .href("https://gist.github.com"))
+                .link(.rel(.dnsPrefetch), .href("https://gist.github.com")),
+                .group(context.styles.map { url in
+                    .link(.rel(.stylesheet), .type("text/css"), .href(url))
+                })
             ),
             .body(
                 .header(.class("primary"),
@@ -59,8 +63,6 @@ enum Template {
                     "© 2006 - \(context.currentYear)",
                     .a(.href(context.url(for: "about")), .text(context.site.author))
                 ),
-
-                .asyncStylesheetLinks(context.styles),
 
                 .group(context.scripts.map { script in
                     .script(.attribute(named: "defer"), .src(script))

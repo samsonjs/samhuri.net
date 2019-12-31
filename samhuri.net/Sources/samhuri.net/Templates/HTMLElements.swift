@@ -25,23 +25,6 @@ extension Node where Context == HTML.HeadContext {
 }
 
 extension Node where Context == HTML.BodyContext {
-    static func asyncStylesheetLinks(_ urls: [URLRepresentable]) -> Self {
-        .script("""
-            (function() {
-              var urls = [\(urls.map { "'\($0)'" }.joined(separator: ", "))];
-              urls.forEach(function(url) {
-                  var css = document.createElement('link');
-                  css.href = url;
-                  css.rel = 'stylesheet';
-                  css.type = 'text/css';
-                  document.getElementsByTagName('head')[0].appendChild(css);
-              });
-            })();
-        """)
-    }
-}
-
-extension Node where Context == HTML.BodyContext {
     static func time(_ nodes: Node<HTML.BodyContext>...) -> Self {
         .element(named: "time", nodes: nodes)
     }
