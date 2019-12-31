@@ -17,10 +17,10 @@ protocol FileWriting {
 
 extension FileWriting {
     func write(data: Data, to fileURL: URL) throws {
-        try write(data: data, to: fileURL, permissions: .default)
+        try write(data: data, to: fileURL, permissions: .fileDefault)
     }
 
     func write(string: String, to fileURL: URL) throws {
-        try write(string: string, to: fileURL, permissions: .default)
+        try write(string: string, to: fileURL, permissions: .fileDefault)
     }
 }

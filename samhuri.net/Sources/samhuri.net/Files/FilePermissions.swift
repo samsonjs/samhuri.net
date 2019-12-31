@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FilePermissions: CustomStringConvertible {
+struct FilePermissions: Equatable, CustomStringConvertible {
     let user: Permissions
     let group: Permissions
     let other: Permissions
@@ -16,15 +16,22 @@ struct FilePermissions: CustomStringConvertible {
         [user, group, other].map { $0.description }.joined()
     }
 
-    static let `default`: FilePermissions = "rw-r--r--"
+    static let fileDefault: FilePermissions = "rw-r--r--"
     static let directoryDefault: FilePermissions = "rwxr-xr-x"
 }
 
 extension FilePermissions {
-    init(string: String) {
-        user = Permissions(string: String(string.prefix(3)))
-        group = Permissions(string: String(string.dropFirst(3).prefix(3)))
-        other = Permissions(string: String(string.dropFirst(6).prefix(3)))
+    init?(string: String) {
+        guard let user = Permissions(string: String(string.prefix(3))),
+              let group = Permissions(string: String(string.dropFirst(3).prefix(3))),
+              let other = Permissions(string: String(string.dropFirst(6).prefix(3)))
+        else {
+            return nil
+        }
+
+        self.user = user
+        self.group = group
+        self.other = other
     }
 }
 
@@ -34,14 +41,14 @@ extension FilePermissions: RawRepresentable {
     }
 
     init(rawValue: Int16) {
-        user = Permissions(rawValue: rawValue >> 6 & 7)
-        group = Permissions(rawValue: rawValue >> 3 & 7)
-        other = Permissions(rawValue: rawValue >> 0 & 7)
+        user = Permissions(rawValue: rawValue >> 6 & 0b111)
+        group = Permissions(rawValue: rawValue >> 3 & 0b111)
+        other = Permissions(rawValue: rawValue >> 0 & 0b111)
     }
 }
 
 extension FilePermissions: ExpressibleByStringLiteral {
     init(stringLiteral value: String) {
-        self.init(string: value)
+        self.init(string: value)!
     }
 }

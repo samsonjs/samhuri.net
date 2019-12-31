@@ -10,6 +10,10 @@ import Foundation
 struct Permissions: OptionSet {
     let rawValue: Int16
 
+    static let none = Permissions(rawValue: 0)
+
+    // These raw values match those used by Unix file systems and must not be changed.
+
     static let execute = Permissions(rawValue: 1 << 0)
     static let write = Permissions(rawValue: 1 << 1)
     static let read = Permissions(rawValue: 1 << 2)
@@ -18,16 +22,34 @@ struct Permissions: OptionSet {
         self.rawValue = rawValue
     }
 
-    init(string: String) {
+    init?(string: String) {
         self.init(rawValue: 0)
-        if string[string.startIndex] == "r" {
+
+        switch string[string.startIndex] {
+        case "r":
             insert(.read)
+        case "-":
+            break
+        default:
+            return nil
         }
-        if string[string.index(string.startIndex, offsetBy: 1)] == "w" {
+
+        switch string[string.index(string.startIndex, offsetBy: 1)] {
+        case "w":
             insert(.write)
+        case "-":
+            break
+        default:
+            return nil
         }
-        if string[string.index(string.startIndex, offsetBy: 2)] == "x" {
+
+        switch string[string.index(string.startIndex, offsetBy: 2)] {
+        case "x":
             insert(.execute)
+        case "-":
+            break
+        default:
+            return nil
         }
     }
 }
@@ -44,6 +66,6 @@ extension Permissions: CustomStringConvertible {
 
 extension Permissions: ExpressibleByStringLiteral {
     init(stringLiteral value: String) {
-        self.init(string: value)
+        self.init(string: value)!
     }
 }

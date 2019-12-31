@@ -13,6 +13,8 @@ protocol DirectoryCreating {
 
 extension FileManager: DirectoryCreating {
     func createDirectory(at url: URL) throws {
-        try createDirectory(at: url, withIntermediateDirectories: true, attributes: [.posixPermissions: FilePermissions.directoryDefault.rawValue])
+        try createDirectory(at: url, withIntermediateDirectories: true, attributes: [
+            .posixPermissions: FilePermissions.directoryDefault.rawValue,
+        ])
     }
 }
