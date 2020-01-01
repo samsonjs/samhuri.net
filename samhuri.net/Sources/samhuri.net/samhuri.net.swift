@@ -13,7 +13,7 @@ public extension samhuri {
         func buildSite(renderer: PageRenderer) -> Site {
             let projectsPlugin = ProjectsPluginBuilder(templateRenderer: renderer)
                 .path("projects")
-                .projectAssets(TemplateAssets(scripts: [
+                .assets(TemplateAssets(scripts: [
                     "https://ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js",
                     "gitter.js",
                     "store.js",

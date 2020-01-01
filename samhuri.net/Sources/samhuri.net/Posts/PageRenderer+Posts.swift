@@ -9,35 +9,36 @@ import Foundation
 import Plot
 
 extension PageRenderer: PostsTemplateRenderer {
-    func renderArchive(postsByYear: PostsByYear, site: Site, assets: TemplateAssets) throws -> String {
-        let context = SiteContext(site: site, subtitle: "Archive", templateAssets: assets)
+    func renderArchive(postsByYear: PostsByYear, site: Site) throws -> String {
+        let context = SiteContext(site: site, subtitle: "Archive")
         return render(.archive(postsByYear), context: context)
     }
 
-    func renderYearPosts(_ yearPosts: YearPosts, site: Site, assets: TemplateAssets) throws -> String {
-        let context = SiteContext(site: site, subtitle: yearPosts.title, templateAssets: assets)
+    func renderYearPosts(_ yearPosts: YearPosts, site: Site) throws -> String {
+        let context = SiteContext(site: site, subtitle: yearPosts.title)
         return render(.yearPosts(yearPosts), context: context)
     }
 
-    func renderMonthPosts(_ posts: MonthPosts, site: Site, assets: TemplateAssets) throws -> String {
+    func renderMonthPosts(_ posts: MonthPosts, site: Site) throws -> String {
+        let assets = posts.posts.templateAssets
         let context = SiteContext(site: site, subtitle: "\(posts.month.name) \(posts.year)", templateAssets: assets)
         return render(.monthPosts(posts), context: context)
     }
 
-    func renderPost(_ post: Post, site: Site, assets: TemplateAssets) throws -> String {
-        let context = SiteContext(site: site, subtitle: post.title, templateAssets: assets)
+    func renderPost(_ post: Post, site: Site) throws -> String {
+        let context = SiteContext(site: site, subtitle: post.title, templateAssets: post.templateAssets)
         return render(.post(post, articleClass: "container"), context: context)
     }
 
-    func renderRecentPosts(_ posts: [Post], site: Site, assets: TemplateAssets) throws -> String {
-        let context = SiteContext(site: site, subtitle: nil, templateAssets: assets)
+    func renderRecentPosts(_ posts: [Post], site: Site) throws -> String {
+        let context = SiteContext(site: site, subtitle: nil, templateAssets: posts.templateAssets)
         return render(.recentPosts(posts), context: context)
     }
 
     // MARK: - Feeds
 
-    func renderFeedPost(_ post: Post, site: Site, assets: TemplateAssets) throws -> String {
-        let context = SiteContext(site: site, subtitle: post.title, templateAssets: assets)
+    func renderFeedPost(_ post: Post, site: Site) throws -> String {
+        let context = SiteContext(site: site, subtitle: post.title, templateAssets: post.templateAssets)
         let url = site.url.appendingPathComponent(post.path)
         // Turn relative URLs into absolute ones.
         return Node.feedPost(post, url: url, styles: context.styles)
@@ -46,7 +47,7 @@ extension PageRenderer: PostsTemplateRenderer {
             .replacingOccurrences(of: "src=\"/", with: "src=\"\(site.url)/")
     }
 
-    func renderRSSFeed(posts: [Post], feedURL: URL, site: Site, assets: TemplateAssets) throws -> String {
+    func renderRSSFeed(posts: [Post], feedURL: URL, site: Site) throws -> String {
         try RSS(
             .title(site.title),
             .if(site.description != nil, .description(site.description!)),
@@ -61,7 +62,7 @@ extension PageRenderer: PostsTemplateRenderer {
                     .element(named: "author", text: post.author),
                     .link(url),
                     .guid(.text(url.absoluteString), .isPermaLink(true)),
-                    .content(try renderFeedPost(post, site: site, assets: assets))
+                    .content(try renderFeedPost(post, site: site))
                 )
             })
         ).render(indentedBy: .spaces(2))

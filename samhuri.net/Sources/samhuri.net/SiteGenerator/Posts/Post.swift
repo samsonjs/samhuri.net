@@ -15,23 +15,17 @@ struct Post {
     let formattedDate: String
     let link: URL?
     let tags: [String]
+    let scripts: [String]
+    let styles: [String]
     let body: String
     let path: String
 
-    init(slug: String, title: String, author: String, date: Date, formattedDate: String, link: URL?, tags: [String], body: String, path: String) {
-        self.slug = slug
-        self.title = title
-        self.author = author
-        self.date = date
-        self.formattedDate = formattedDate
-        self.link = link
-        self.tags = tags
-        self.body = body
-        self.path = path
-    }
-
     var isLink: Bool {
         link != nil
+    }
+
+    var templateAssets: TemplateAssets {
+        TemplateAssets(scripts: scripts, styles: styles)
     }
 }
 

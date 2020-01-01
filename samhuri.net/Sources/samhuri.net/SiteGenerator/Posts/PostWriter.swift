@@ -22,7 +22,7 @@ final class PostWriter {
 extension PostWriter {
     func writePosts(_ posts: [Post], for site: Site, to targetURL: URL, with templateRenderer: PostsTemplateRenderer) throws {
         for post in posts {
-            let postHTML = try templateRenderer.renderPost(post, site: site, assets: .none())
+            let postHTML = try templateRenderer.renderPost(post, site: site)
             let postURL = targetURL
                 .appendingPathComponent(outputPath)
                 .appendingPathComponent(filePath(date: post.date, slug: post.slug))
@@ -39,7 +39,7 @@ extension PostWriter {
 
 extension PostWriter {
     func writeRecentPosts(_ recentPosts: [Post], for site: Site, to targetURL: URL, with templateRenderer: PostsTemplateRenderer) throws {
-        let recentPostsHTML = try templateRenderer.renderRecentPosts(recentPosts, site: site, assets: .none())
+        let recentPostsHTML = try templateRenderer.renderRecentPosts(recentPosts, site: site)
         let fileURL = targetURL.appendingPathComponent("index.html")
         try fileWriter.write(string: recentPostsHTML, to: fileURL)
     }
@@ -49,7 +49,7 @@ extension PostWriter {
 
 extension PostWriter {
     func writeArchive(posts: PostsByYear, for site: Site, to targetURL: URL, with templateRenderer: PostsTemplateRenderer) throws {
-        let archiveHTML = try templateRenderer.renderArchive(postsByYear: posts, site: site, assets: .none())
+        let archiveHTML = try templateRenderer.renderArchive(postsByYear: posts, site: site)
         let archiveURL = targetURL.appendingPathComponent(outputPath).appendingPathComponent("index.html")
         try fileWriter.write(string: archiveHTML, to: archiveURL)
     }
@@ -61,7 +61,7 @@ extension PostWriter {
     func writeYearIndexes(posts: PostsByYear, for site: Site, to targetURL: URL, with templateRenderer: PostsTemplateRenderer) throws {
         for yearPosts in posts.byYear.values {
             let yearDir = targetURL.appendingPathComponent(yearPosts.path)
-            let yearHTML = try templateRenderer.renderYearPosts(yearPosts, site: site, assets: .none())
+            let yearHTML = try templateRenderer.renderYearPosts(yearPosts, site: site)
             let yearURL = yearDir.appendingPathComponent("index.html")
             try fileWriter.write(string: yearHTML, to: yearURL)
         }
@@ -75,7 +75,7 @@ extension PostWriter {
         for yearPosts in posts.byYear.values {
             for monthPosts in yearPosts.byMonth.values {
                 let monthDir = targetURL.appendingPathComponent(monthPosts.path)
-                let monthHTML = try templateRenderer.renderMonthPosts(monthPosts, site: site, assets: .none())
+                let monthHTML = try templateRenderer.renderMonthPosts(monthPosts, site: site)
                 let monthURL = monthDir.appendingPathComponent("index.html")
                 try fileWriter.write(string: monthHTML, to: monthURL)
             }

@@ -8,19 +8,19 @@
 import Foundation
 
 protocol PostsTemplateRenderer {
-    func renderArchive(postsByYear: PostsByYear, site: Site, assets: TemplateAssets) throws -> String
+    func renderArchive(postsByYear: PostsByYear, site: Site) throws -> String
 
-    func renderYearPosts(_ yearPosts: YearPosts, site: Site, assets: TemplateAssets) throws -> String
+    func renderYearPosts(_ yearPosts: YearPosts, site: Site) throws -> String
 
-    func renderMonthPosts(_ posts: MonthPosts, site: Site, assets: TemplateAssets) throws -> String
+    func renderMonthPosts(_ posts: MonthPosts, site: Site) throws -> String
 
-    func renderPost(_ post: Post, site: Site, assets: TemplateAssets) throws -> String
+    func renderPost(_ post: Post, site: Site) throws -> String
 
-    func renderRecentPosts(_ posts: [Post], site: Site, assets: TemplateAssets) throws -> String
+    func renderRecentPosts(_ posts: [Post], site: Site) throws -> String
 
     // MARK: - Feeds
 
-    func renderFeedPost(_ post: Post, site: Site, assets: TemplateAssets) throws -> String
+    func renderFeedPost(_ post: Post, site: Site) throws -> String
 
-    func renderRSSFeed(posts: [Post], feedURL: URL, site: Site, assets: TemplateAssets) throws -> String
+    func renderRSSFeed(posts: [Post], feedURL: URL, site: Site) throws -> String
 }

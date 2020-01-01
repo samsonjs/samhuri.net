@@ -4,6 +4,7 @@ Author: Sami Samhuri
 Date: 15th May, 2007
 Timestamp: 1179261480
 Tags: rails
+Styles: typocode.css
 ---
 
 Here's an easy way to solve a problem that may have nagged you as it did me. Simply using <code>foo.inspect</code> to dump out some object to the browser dumps one long string which is barely useful except for short strings and the like. The ideal output is already available using the <a href="http://www.ruby-doc.org/stdlib/libdoc/prettyprint/rdoc/index.html"><code>PrettyPrint</code></a> module so we just need to use it.

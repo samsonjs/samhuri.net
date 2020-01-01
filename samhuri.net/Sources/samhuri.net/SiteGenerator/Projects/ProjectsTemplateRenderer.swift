@@ -8,6 +8,6 @@
 import Foundation
 
 protocol ProjectsTemplateRenderer {
-    func renderProjects(_ projects: [Project], site: Site, assets: TemplateAssets) throws -> String
+    func renderProjects(_ projects: [Project], site: Site) throws -> String
     func renderProject(_ project: Project, site: Site, assets: TemplateAssets) throws -> String
 }

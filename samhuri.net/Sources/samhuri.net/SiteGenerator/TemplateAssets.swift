@@ -8,15 +8,10 @@
 import Foundation
 
 struct TemplateAssets {
-    let scripts: [String]
-    let styles: [String]
+    var scripts: [String]
+    var styles: [String]
 
-    init(scripts: [String], styles: [String]) {
-        self.scripts = scripts
-        self.styles = styles
-    }
-
-    static func none() -> TemplateAssets {
+    static func empty() -> TemplateAssets {
         TemplateAssets(scripts: [], styles: [])
     }
 }

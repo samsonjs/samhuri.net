@@ -12,6 +12,12 @@ struct SiteContext: TemplateContext {
     let subtitle: String?
     let templateAssets: TemplateAssets
 
+    init(site: Site, subtitle: String? = nil, templateAssets: TemplateAssets = .empty()) {
+        self.site = site
+        self.subtitle = subtitle
+        self.templateAssets = templateAssets
+    }
+
     var title: String {
         guard let subtitle = subtitle else {
             return site.title

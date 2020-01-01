@@ -4,6 +4,7 @@ Author: Sami Samhuri
 Date: 20th February, 2006
 Timestamp: 1140424260
 Tags: rails, coding, hacking, migration, rails, testing
+Styles: typocode.css
 ---
 
 <p><em>I'm a Rails newbie and eager to learn. I welcome any suggestions or criticism you have. You can direct them to <a href="mailto:sjs@uvic.ca">my inbox</a> or leave me a comment below.</em></p>

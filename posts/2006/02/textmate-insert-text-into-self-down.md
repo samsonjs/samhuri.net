@@ -4,6 +4,7 @@ Author: Sami Samhuri
 Date: 21st February, 2006
 Timestamp: 1140562500
 Tags: textmate, rails, hacking, commands, macro, rails, snippets, textmate
+Styles: typocode.css
 ---
 
 <p><em><strong>UPDATE:</strong> I got everything working and it's all packaged up <a href="/posts/2006/02/intelligent-migration-snippets-0_1-for-textmate">here</a>. There's an installation script this time as well.</em></p>

@@ -4,6 +4,7 @@ Author: Sami Samhuri
 Date: 23rd February, 2006
 Timestamp: 1140743880
 Tags: textmate, rails, coding, bundle, macros, rails, snippets, textmate
+Styles: typocode.css
 ---
 
 Everything that you've seen posted on my blog is now available in one bundle. Snippets for Rails database migrations and assertions are all included in this bundle.

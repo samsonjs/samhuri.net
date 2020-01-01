@@ -4,6 +4,7 @@ Author: Sami Samhuri
 Date: 10th May, 2007
 Timestamp: 1178838840
 Tags: ruby, extensions
+Styles: typocode.css
 ---
 
 I wanted a method analogous to Prototype's <a href="http://prototypejs.org/api/enumerable/pluck">pluck</a>  and <a href="http://prototypejs.org/api/enumerable/invoke">invoke</a> in Rails for building lists for <a href="http://api.rubyonrails.org/classes/ActionView/Helpers/FormOptionsHelper.html#M000510">options_for_select</a>. Yes, I know about <a href="http://api.rubyonrails.org/classes/ActionView/Helpers/FormOptionsHelper.html#M000511">options_from_collection_for_select</a>.

@@ -18,7 +18,7 @@ final class RSSFeedWriter {
 
     func writeFeed(_ posts: [Post], for site: Site, to targetURL: URL, with templateRenderer: PostsTemplateRenderer) throws {
         let feedURL = site.url.appendingPathComponent(rssFeed.path)
-        let feedXML = try templateRenderer.renderRSSFeed(posts: posts, feedURL: feedURL, site: site, assets: .none())
+        let feedXML = try templateRenderer.renderRSSFeed(posts: posts, feedURL: feedURL, site: site)
         let feedFileURL = targetURL.appendingPathComponent(rssFeed.path)
         try fileWriter.write(string: feedXML, to: feedFileURL)
     }

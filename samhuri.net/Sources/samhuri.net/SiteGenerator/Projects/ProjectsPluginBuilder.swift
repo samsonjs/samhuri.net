@@ -11,7 +11,7 @@ final class ProjectsPluginBuilder {
     let templateRenderer: ProjectsTemplateRenderer
     private var path: String?
     private var projects: [PartialProject] = []
-    private var projectAssets: TemplateAssets?
+    private var assets: TemplateAssets?
 
     init(templateRenderer: ProjectsTemplateRenderer) {
         self.templateRenderer = templateRenderer
@@ -23,9 +23,9 @@ final class ProjectsPluginBuilder {
         return self
     }
 
-    func projectAssets(_ projectAssets: TemplateAssets) -> ProjectsPluginBuilder {
-        precondition(self.projectAssets == nil, "projectAssets are already defined")
-        self.projectAssets = projectAssets
+    func assets(_ assets: TemplateAssets) -> ProjectsPluginBuilder {
+        precondition(self.assets == nil, "assets are already defined")
+        self.assets = assets
         return self
     }
 
@@ -42,7 +42,7 @@ final class ProjectsPluginBuilder {
         return ProjectsPlugin(
             projects: projects,
             templateRenderer: templateRenderer,
-            projectAssets: projectAssets ?? .none(),
+            projectAssets: assets ?? .empty(),
             outputPath: path
         )
     }

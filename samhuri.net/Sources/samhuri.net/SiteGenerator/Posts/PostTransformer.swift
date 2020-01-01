@@ -29,6 +29,8 @@ final class PostTransformer {
             formattedDate: metadata.formattedDate,
             link: metadata.link,
             tags: metadata.tags,
+            scripts: metadata.scripts,
+            styles: metadata.styles,
             body: result.html,
             path: path
         )
@@ -46,16 +48,18 @@ final class PostTransformer {
     }
 }
 
-struct ParsedMetadata {
+private struct ParsedMetadata {
     let title: String
     let author: String
     let date: Date
     let formattedDate: String
     let link: URL?
     let tags: [String]
+    let scripts: [String]
+    let styles: [String]
 }
 
-extension PostTransformer {
+private extension PostTransformer {
     enum Error: Swift.Error {
         case deficientMetadata(slug: String, missingKeys: [String], metadata: [String: String])
         case invalidTimestamp(String)
@@ -75,23 +79,20 @@ extension PostTransformer {
         let author = metadata["Author"]!
         let date = Date(timeIntervalSince1970: timeInterval)
         let formattedDate = metadata["Date"]!
+        let link = metadata["Link"].flatMap { URL(string: $0) }
+        let tags = metadata.commaSeparatedList(key: "Tags")
+        let scripts = metadata.commaSeparatedList(key: "Scripts")
+        let styles = metadata.commaSeparatedList(key: "Styles")
 
-        let link: URL?
-        if let urlString = metadata["Link"] {
-            link = URL(string: urlString)!
-        }
-        else {
-            link = nil
-        }
-
-        let tags: [String]
-        if let string = metadata["Tags"] {
-            tags = string.split(separator: ",").map({ $0.trimmingCharacters(in: .whitespaces) })
-        }
-        else {
-            tags = []
-        }
-
-        return ParsedMetadata(title: title, author: author, date: date, formattedDate: formattedDate, link: link, tags: tags)
+        return ParsedMetadata(
+            title: title,
+            author: author,
+            date: date,
+            formattedDate: formattedDate,
+            link: link,
+            tags: tags,
+            scripts: scripts,
+            styles: styles
+        )
     }
 }

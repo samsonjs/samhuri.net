@@ -11,10 +11,4 @@ struct Project {
     let title: String
     let description: String
     let url: URL
-
-    init(title: String, description: String, url: URL) {
-        self.title = title
-        self.description = description
-        self.url = url
-    }
 }

@@ -37,7 +37,7 @@ final class JSONFeedWriter {
                     url: url.absoluteString,
                     external_url: post.link?.absoluteString,
                     author: FeedAuthor(name: post.author, avatar: nil, url: nil),
-                    content_html: try templateRenderer.renderFeedPost(post, site: site, assets: .none()),
+                    content_html: try templateRenderer.renderFeedPost(post, site: site),
                     tags: post.tags
                 )
             }

@@ -17,7 +17,10 @@ final class PageRenderer {
 extension PageRenderer: MarkdownPageRenderer {
     func renderPage(site: Site, bodyHTML: String, metadata: [String: String]) throws -> String {
         let pageTitle = metadata["Title"]
-        let context = SiteContext(site: site, subtitle: pageTitle, templateAssets: .none())
+        let scripts = metadata.commaSeparatedList(key: "Scripts")
+        let styles = metadata.commaSeparatedList(key: "Styles")
+        let assets = TemplateAssets(scripts: scripts, styles: styles)
+        let context = SiteContext(site: site, subtitle: pageTitle, templateAssets: assets)
         return render(.page(title: pageTitle ?? "", bodyHTML: bodyHTML), context: context)
     }
 }
