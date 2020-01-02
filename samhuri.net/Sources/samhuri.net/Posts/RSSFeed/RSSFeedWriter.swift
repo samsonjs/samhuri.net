@@ -7,6 +7,10 @@
 
 import Foundation
 
+protocol RSSFeedRendering {
+    func renderRSSFeed(posts: [Post], feedURL: URL, site: Site) throws -> String
+}
+
 final class RSSFeedWriter {
     let fileWriter: FileWriting
     let rssFeed: RSSFeed
@@ -16,9 +20,9 @@ final class RSSFeedWriter {
         self.fileWriter = fileWriter
     }
 
-    func writeFeed(_ posts: [Post], for site: Site, to targetURL: URL, with templateRenderer: PostsTemplateRenderer) throws {
+    func writeFeed(_ posts: [Post], for site: Site, to targetURL: URL, with renderer: RSSFeedRendering) throws {
         let feedURL = site.url.appendingPathComponent(rssFeed.path)
-        let feedXML = try templateRenderer.renderRSSFeed(posts: posts, feedURL: feedURL, site: site)
+        let feedXML = try renderer.renderRSSFeed(posts: posts, feedURL: feedURL, site: site)
         let feedFileURL = targetURL.appendingPathComponent(rssFeed.path)
         try fileWriter.write(string: feedXML, to: feedFileURL)
     }

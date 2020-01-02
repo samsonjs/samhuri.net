@@ -8,7 +8,7 @@
 import Foundation
 import Plot
 
-extension PageRenderer: ProjectsTemplateRenderer {
+extension PageRenderer: ProjectsRenderer {
     func renderProjects(_ projects: [Project], site: Site) throws -> String {
         let context = SiteContext(site: site, subtitle: "Projects", templateAssets: .empty())
         return render(.projects(projects), context: context)

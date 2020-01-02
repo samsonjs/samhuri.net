@@ -12,9 +12,9 @@ final class MarkdownRenderer: Renderer {
     let fileManager: FileManager = .default
     let fileWriter: FileWriting
     let markdownParser = MarkdownParser()
-    let pageRenderer: MarkdownPageRenderer
+    let pageRenderer: PageRendering
 
-    init(pageRenderer: MarkdownPageRenderer, fileWriter: FileWriting = FileWriter()) {
+    init(pageRenderer: PageRendering, fileWriter: FileWriting = FileWriter()) {
         self.pageRenderer = pageRenderer
         self.fileWriter = fileWriter
     }

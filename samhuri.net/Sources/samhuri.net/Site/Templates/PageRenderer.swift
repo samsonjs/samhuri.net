@@ -14,7 +14,7 @@ final class PageRenderer {
     }
 }
 
-extension PageRenderer: MarkdownPageRenderer {
+extension PageRenderer: PageRendering {
     func renderPage(site: Site, bodyHTML: String, metadata: [String: String]) throws -> String {
         let pageTitle = metadata["Title"]
         let scripts = metadata.commaSeparatedList(key: "Scripts")

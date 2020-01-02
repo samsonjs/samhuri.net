@@ -7,55 +7,6 @@
 
 import Foundation
 
-struct MonthPosts {
-    let month: Month
-    var posts: [Post]
-    let path: String
-
-    var title: String {
-        month.padded
-    }
-
-    var isEmpty: Bool {
-        posts.isEmpty
-    }
-
-    var year: Int {
-        posts[0].date.year
-    }
-}
-
-// MARK: -
-
-struct YearPosts {
-    let year: Int
-    var byMonth: [Month: MonthPosts]
-    let path: String
-
-    var title: String {
-        "\(year)"
-    }
-
-    var isEmpty: Bool {
-        byMonth.isEmpty || byMonth.values.allSatisfy { $0.isEmpty }
-    }
-
-    var months: [Month] {
-        Array(byMonth.keys)
-    }
-
-    subscript(month: Month) -> MonthPosts {
-        get {
-            byMonth[month, default: MonthPosts(month: month, posts: [], path: "\(path)/\(month.padded)")]
-        }
-        set {
-            byMonth[month] = newValue
-        }
-    }
-}
-
-// MARK: -
-
 struct PostsByYear {
     private(set) var byYear: [Int: YearPosts]
     let path: String

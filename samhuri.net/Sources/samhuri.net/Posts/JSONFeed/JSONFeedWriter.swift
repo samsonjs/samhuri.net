@@ -7,6 +7,10 @@
 
 import Foundation
 
+protocol JSONFeedRendering {
+    func renderJSONFeedPost(_ post: Post, site: Site) throws -> String
+}
+
 final class JSONFeedWriter {
     let fileWriter: FileWriting
     let jsonFeed: JSONFeed
@@ -16,7 +20,7 @@ final class JSONFeedWriter {
         self.fileWriter = fileWriter
     }
 
-    func writeFeed(_ posts: [Post], for site: Site, to targetURL: URL, with templateRenderer: PostsTemplateRenderer) throws {
+    func writeFeed(_ posts: [Post], for site: Site, to targetURL: URL, with renderer: JSONFeedRendering) throws {
         let feed = Feed(
             title: site.title,
             home_page_url: site.url.absoluteString,
@@ -37,7 +41,7 @@ final class JSONFeedWriter {
                     url: url.absoluteString,
                     external_url: post.link?.absoluteString,
                     author: FeedAuthor(name: post.author, avatar: nil, url: nil),
-                    content_html: try templateRenderer.renderFeedPost(post, site: site),
+                    content_html: try renderer.renderJSONFeedPost(post, site: site),
                     tags: post.tags
                 )
             }

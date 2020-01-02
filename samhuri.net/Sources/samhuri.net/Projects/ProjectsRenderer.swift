@@ -7,7 +7,8 @@
 
 import Foundation
 
-protocol ProjectsTemplateRenderer {
+protocol ProjectsRenderer {
     func renderProjects(_ projects: [Project], site: Site) throws -> String
+
     func renderProject(_ project: Project, site: Site, assets: TemplateAssets) throws -> String
 }

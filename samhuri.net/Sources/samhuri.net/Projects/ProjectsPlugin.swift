@@ -16,7 +16,7 @@ final class ProjectsPlugin: Plugin {
     let fileWriter: FileWriting
     let outputPath: String
     let partialProjects: [PartialProject]
-    let templateRenderer: ProjectsTemplateRenderer
+    let renderer: ProjectsRenderer
     let projectAssets: TemplateAssets
 
     var projects: [Project] = []
@@ -24,13 +24,13 @@ final class ProjectsPlugin: Plugin {
 
     init(
         projects: [PartialProject],
-        templateRenderer: ProjectsTemplateRenderer,
+        renderer: ProjectsRenderer,
         projectAssets: TemplateAssets,
         outputPath: String? = nil,
         fileWriter: FileWriting = FileWriter()
     ) {
         self.partialProjects = projects
-        self.templateRenderer = templateRenderer
+        self.renderer = renderer
         self.projectAssets = projectAssets
         self.outputPath = outputPath ?? "projects"
         self.fileWriter = fileWriter
@@ -56,12 +56,12 @@ final class ProjectsPlugin: Plugin {
 
         let projectsDir = targetURL.appendingPathComponent(outputPath)
         let projectsURL = projectsDir.appendingPathComponent("index.html")
-        let projectsHTML = try templateRenderer.renderProjects(projects, site: site)
+        let projectsHTML = try renderer.renderProjects(projects, site: site)
         try fileWriter.write(string: projectsHTML, to: projectsURL)
 
         for project in projects {
             let projectURL = projectsDir.appendingPathComponent("\(project.title)/index.html")
-            let projectHTML = try templateRenderer.renderProject(project, site: site, assets: projectAssets)
+            let projectHTML = try renderer.renderProject(project, site: site, assets: projectAssets)
             try fileWriter.write(string: projectHTML, to: projectURL)
         }
     }

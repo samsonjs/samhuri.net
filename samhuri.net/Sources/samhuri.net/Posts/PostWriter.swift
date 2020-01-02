@@ -20,9 +20,9 @@ final class PostWriter {
 // MARK: - Post pages
 
 extension PostWriter {
-    func writePosts(_ posts: [Post], for site: Site, to targetURL: URL, with templateRenderer: PostsTemplateRenderer) throws {
+    func writePosts(_ posts: [Post], for site: Site, to targetURL: URL, with renderer: PostsRendering) throws {
         for post in posts {
-            let postHTML = try templateRenderer.renderPost(post, site: site)
+            let postHTML = try renderer.renderPost(post, site: site)
             let postURL = targetURL
                 .appendingPathComponent(outputPath)
                 .appendingPathComponent(filePath(date: post.date, slug: post.slug))
@@ -38,8 +38,8 @@ extension PostWriter {
 // MARK: - Recent posts page
 
 extension PostWriter {
-    func writeRecentPosts(_ recentPosts: [Post], for site: Site, to targetURL: URL, with templateRenderer: PostsTemplateRenderer) throws {
-        let recentPostsHTML = try templateRenderer.renderRecentPosts(recentPosts, site: site)
+    func writeRecentPosts(_ recentPosts: [Post], for site: Site, to targetURL: URL, with renderer: PostsRendering) throws {
+        let recentPostsHTML = try renderer.renderRecentPosts(recentPosts, site: site)
         let fileURL = targetURL.appendingPathComponent("index.html")
         try fileWriter.write(string: recentPostsHTML, to: fileURL)
     }
@@ -48,8 +48,8 @@ extension PostWriter {
 // MARK: - Post archive page
 
 extension PostWriter {
-    func writeArchive(posts: PostsByYear, for site: Site, to targetURL: URL, with templateRenderer: PostsTemplateRenderer) throws {
-        let archiveHTML = try templateRenderer.renderArchive(postsByYear: posts, site: site)
+    func writeArchive(posts: PostsByYear, for site: Site, to targetURL: URL, with renderer: PostsRendering) throws {
+        let archiveHTML = try renderer.renderArchive(postsByYear: posts, site: site)
         let archiveURL = targetURL.appendingPathComponent(outputPath).appendingPathComponent("index.html")
         try fileWriter.write(string: archiveHTML, to: archiveURL)
     }
@@ -58,10 +58,10 @@ extension PostWriter {
 // MARK: - Yearly post index pages
 
 extension PostWriter {
-    func writeYearIndexes(posts: PostsByYear, for site: Site, to targetURL: URL, with templateRenderer: PostsTemplateRenderer) throws {
+    func writeYearIndexes(posts: PostsByYear, for site: Site, to targetURL: URL, with renderer: PostsRendering) throws {
         for yearPosts in posts.byYear.values {
             let yearDir = targetURL.appendingPathComponent(yearPosts.path)
-            let yearHTML = try templateRenderer.renderYearPosts(yearPosts, site: site)
+            let yearHTML = try renderer.renderYearPosts(yearPosts, site: site)
             let yearURL = yearDir.appendingPathComponent("index.html")
             try fileWriter.write(string: yearHTML, to: yearURL)
         }
@@ -71,11 +71,11 @@ extension PostWriter {
 // MARK: - Monthly post roll-up pages
 
 extension PostWriter {
-    func writeMonthRollups(posts: PostsByYear, for site: Site, to targetURL: URL, with templateRenderer: PostsTemplateRenderer) throws {
+    func writeMonthRollups(posts: PostsByYear, for site: Site, to targetURL: URL, with renderer: PostsRendering) throws {
         for yearPosts in posts.byYear.values {
             for monthPosts in yearPosts.byMonth.values {
                 let monthDir = targetURL.appendingPathComponent(monthPosts.path)
-                let monthHTML = try templateRenderer.renderMonthPosts(monthPosts, site: site)
+                let monthHTML = try renderer.renderMonthPosts(monthPosts, site: site)
                 let monthURL = monthDir.appendingPathComponent("index.html")
                 try fileWriter.write(string: monthHTML, to: monthURL)
             }

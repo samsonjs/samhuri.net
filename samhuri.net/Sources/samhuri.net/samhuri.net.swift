@@ -10,8 +10,15 @@ public extension samhuri {
             self.siteURLOverride = siteURLOverride
         }
 
+        public func generate(sourceURL: URL, targetURL: URL) throws {
+            let renderer = PageRenderer()
+            let site = buildSite(renderer: renderer)
+            let generator = try SiteGenerator(sourceURL: sourceURL, site: site)
+            try generator.generate(targetURL: targetURL)
+        }
+
         func buildSite(renderer: PageRenderer) -> Site {
-            let projectsPlugin = ProjectsPluginBuilder(templateRenderer: renderer)
+            let projectsPlugin = ProjectsPlugin.Builder(renderer: renderer)
                 .path("projects")
                 .assets(TemplateAssets(scripts: [
                     "https://ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js",
@@ -35,7 +42,7 @@ public extension samhuri {
                 .add("samhuri.net", description: "this site")
                 .build()
 
-            let postsPlugin = PostsPluginBuilder(templateRenderer: renderer)
+            let postsPlugin = PostsPlugin.Builder(renderer: renderer)
                 .path("posts")
                 .jsonFeed(
                     avatarPath: "images/me.jpg",
@@ -45,7 +52,7 @@ public extension samhuri {
                 .rssFeed()
                 .build()
 
-            return SiteBuilder(
+            return Site.Builder(
                 title: "samhuri.net",
                 description: "just some blog",
                 author: "Sami Samhuri",
@@ -57,13 +64,6 @@ public extension samhuri {
                 .plugin(projectsPlugin)
                 .plugin(postsPlugin)
                 .build()
-        }
-
-        public func generate(sourceURL: URL, targetURL: URL) throws {
-            let renderer = PageRenderer()
-            let site = buildSite(renderer: renderer)
-            let generator = try SiteGenerator(sourceURL: sourceURL, site: site)
-            try generator.generate(targetURL: targetURL)
         }
     }
 }

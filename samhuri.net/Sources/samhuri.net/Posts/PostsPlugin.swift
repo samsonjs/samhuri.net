@@ -8,20 +8,22 @@
 import Foundation
 
 final class PostsPlugin: Plugin {
-    let templateRenderer: PostsTemplateRenderer
+    typealias Renderer = PostsRendering & JSONFeedRendering & RSSFeedRendering
+
+    let renderer: Renderer
     let postRepo: PostRepo
     let postWriter: PostWriter
     let jsonFeedWriter: JSONFeedWriter?
     let rssFeedWriter: RSSFeedWriter?
 
     init(
-        templateRenderer: PostsTemplateRenderer,
+        renderer: Renderer,
         postRepo: PostRepo = PostRepo(),
         postWriter: PostWriter = PostWriter(),
         jsonFeedWriter: JSONFeedWriter?,
         rssFeedWriter: RSSFeedWriter?
     ) {
-        self.templateRenderer = templateRenderer
+        self.renderer = renderer
         self.postRepo = postRepo
         self.postWriter = postWriter
         self.jsonFeedWriter = jsonFeedWriter
@@ -43,12 +45,12 @@ final class PostsPlugin: Plugin {
             return
         }
 
-        try postWriter.writeRecentPosts(postRepo.recentPosts, for: site, to: targetURL, with: templateRenderer)
-        try postWriter.writePosts(postRepo.sortedPosts, for: site, to: targetURL, with: templateRenderer)
-        try postWriter.writeArchive(posts: postRepo.posts, for: site, to: targetURL, with: templateRenderer)
-        try postWriter.writeYearIndexes(posts: postRepo.posts, for: site, to: targetURL, with: templateRenderer)
-        try postWriter.writeMonthRollups(posts: postRepo.posts, for: site, to: targetURL, with: templateRenderer)
-        try jsonFeedWriter?.writeFeed(postRepo.postsForFeed, for: site, to: targetURL, with: templateRenderer)
-        try rssFeedWriter?.writeFeed(postRepo.postsForFeed, for: site, to: targetURL, with: templateRenderer)
+        try postWriter.writeRecentPosts(postRepo.recentPosts, for: site, to: targetURL, with: renderer)
+        try postWriter.writePosts(postRepo.sortedPosts, for: site, to: targetURL, with: renderer)
+        try postWriter.writeArchive(posts: postRepo.posts, for: site, to: targetURL, with: renderer)
+        try postWriter.writeYearIndexes(posts: postRepo.posts, for: site, to: targetURL, with: renderer)
+        try postWriter.writeMonthRollups(posts: postRepo.posts, for: site, to: targetURL, with: renderer)
+        try jsonFeedWriter?.writeFeed(postRepo.postsForFeed, for: site, to: targetURL, with: renderer)
+        try rssFeedWriter?.writeFeed(postRepo.postsForFeed, for: site, to: targetURL, with: renderer)
     }
 }
