@@ -50,7 +50,7 @@ final class PostsPlugin: Plugin {
         try postWriter.writeArchive(posts: postRepo.posts, for: site, to: targetURL, with: renderer)
         try postWriter.writeYearIndexes(posts: postRepo.posts, for: site, to: targetURL, with: renderer)
         try postWriter.writeMonthRollups(posts: postRepo.posts, for: site, to: targetURL, with: renderer)
-        try jsonFeedWriter?.writeFeed(postRepo.postsForFeed, for: site, to: targetURL, with: renderer)
-        try rssFeedWriter?.writeFeed(postRepo.postsForFeed, for: site, to: targetURL, with: renderer)
+        try jsonFeedWriter?.writeFeed(site: site, posts: postRepo.postsForFeed, to: targetURL, with: renderer)
+        try rssFeedWriter?.writeFeed(site: site, posts: postRepo.postsForFeed, to: targetURL, with: renderer)
     }
 }

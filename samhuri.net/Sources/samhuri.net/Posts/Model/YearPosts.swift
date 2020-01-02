@@ -32,4 +32,9 @@ struct YearPosts {
             byMonth[month] = newValue
         }
     }
+
+    /// Returns an array of all posts.
+    func flattened() -> [Post] {
+        byMonth.values.flatMap { $0.posts }
+    }
 }

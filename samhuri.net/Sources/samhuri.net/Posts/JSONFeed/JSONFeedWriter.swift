@@ -20,8 +20,24 @@ final class JSONFeedWriter {
         self.fileWriter = fileWriter
     }
 
-    func writeFeed(_ posts: [Post], for site: Site, to targetURL: URL, with renderer: JSONFeedRendering) throws {
-        let feed = Feed(
+    func writeFeed(site: Site, posts: [Post], to targetURL: URL, with renderer: JSONFeedRendering) throws {
+        let feed = try buildFeed(site: site, posts: posts, renderer: renderer)
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .iso8601
+#if os(Linux)
+        encoder.outputFormatting = [.prettyPrinted]
+#else
+        encoder.outputFormatting = [.prettyPrinted, .withoutEscapingSlashes]
+#endif
+        let feedJSON = try encoder.encode(feed)
+        let feedURL = targetURL.appendingPathComponent(jsonFeed.path)
+        try fileWriter.write(data: feedJSON, to: feedURL)
+    }
+}
+
+private extension JSONFeedWriter {
+    func buildFeed(site: Site, posts: [Post], renderer: JSONFeedRendering) throws -> Feed {
+        Feed(
             title: site.title,
             home_page_url: site.url.absoluteString,
             feed_url: site.url.appendingPathComponent(jsonFeed.path).absoluteString,
@@ -46,16 +62,6 @@ final class JSONFeedWriter {
                 )
             }
         )
-        let encoder = JSONEncoder()
-        encoder.dateEncodingStrategy = .iso8601
-#if os(Linux)
-        encoder.outputFormatting = [.prettyPrinted]
-#else
-        encoder.outputFormatting = [.prettyPrinted, .withoutEscapingSlashes]
-#endif
-        let feedJSON = try encoder.encode(feed)
-        let feedURL = targetURL.appendingPathComponent(jsonFeed.path)
-        try fileWriter.write(data: feedJSON, to: feedURL)
     }
 }
 
