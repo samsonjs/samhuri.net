@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Ink
 
 struct RawPost {
     let slug: String
@@ -18,13 +19,13 @@ final class PostRepo {
     let feedPostsCount = 30
 
     let fileManager: FileManager
-    let outputPath: String
+    let markdownParser: MarkdownParser
 
     private(set) var posts: PostsByYear!
 
-    init(fileManager: FileManager = .default, outputPath: String = "posts") {
+    init(fileManager: FileManager = .default, markdownParser: MarkdownParser = MarkdownParser()) {
         self.fileManager = fileManager
-        self.outputPath = outputPath
+        self.markdownParser = markdownParser
     }
 
     var isEmpty: Bool {
@@ -32,7 +33,7 @@ final class PostRepo {
     }
 
     var sortedPosts: [Post] {
-        posts?.flattened().sorted(by: >) ?? []
+        posts.flattened().sorted(by: >)
     }
 
     var recentPosts: [Post] {
@@ -48,14 +49,46 @@ final class PostRepo {
         return fileManager.fileExists(atPath: postsURL.path)
     }
 
-    func readPosts(sourceURL: URL) throws {
-        let postTransformer = PostTransformer(outputPath: outputPath)
+    func readPosts(sourceURL: URL, outputPath: String) throws {
         let posts = try readRawPosts(sourceURL: sourceURL)
-            .map(postTransformer.makePost)
+            .map { try makePost(from: $0, outputPath: outputPath) }
         self.posts = PostsByYear(posts: posts, path: "/\(outputPath)")
     }
+}
 
-    private func readRawPosts(sourceURL: URL) throws -> [RawPost] {
+private extension PostRepo {
+    func makePost(from rawPost: RawPost, outputPath: String) throws -> Post {
+        let result = markdownParser.parse(rawPost.markdown)
+        let metadata = try PostMetadata(dictionary: result.metadata, slug: rawPost.slug)
+        let path = pathForPost(root: outputPath, date: metadata.date, slug: rawPost.slug)
+        return Post(
+            slug: rawPost.slug,
+            title: metadata.title,
+            author: metadata.author,
+            date: metadata.date,
+            formattedDate: metadata.formattedDate,
+            link: metadata.link,
+            tags: metadata.tags,
+            scripts: metadata.scripts,
+            styles: metadata.styles,
+            body: result.html,
+            path: path
+        )
+    }
+
+    func pathForPost(root: String, date: Date, slug: String) -> String {
+        // format: /{root}/{year}/{month}/{slug}
+        //    e.g. /posts/2019/12/first-post
+        [
+            "",
+            root,
+            "\(date.year)",
+            Month(date).padded,
+            slug,
+        ].joined(separator: "/")
+    }
+
+    func readRawPosts(sourceURL: URL) throws -> [RawPost] {
         let postsURL = sourceURL.appendingPathComponent(postsPath)
         return try enumerateMarkdownFiles(directory: postsURL)
             .compactMap { url in
@@ -69,22 +102,20 @@ final class PostRepo {
             }
     }
 
-    private func readRawPost(url: URL) throws -> RawPost {
+    func readRawPost(url: URL) throws -> RawPost {
         let slug = url.deletingPathExtension().lastPathComponent
         let markdown = try String(contentsOf: url)
         return RawPost(slug: slug, markdown: markdown)
     }
 
-    private func enumerateMarkdownFiles(directory: URL) throws -> [URL] {
-        return try fileManager.contentsOfDirectory(atPath: directory.path).flatMap { (filename: String) -> [URL] in
-            let fileURL = directory.appendingPathComponent(filename)
-            var isDir: ObjCBool = false
-            _ = fileManager.fileExists(atPath: fileURL.path, isDirectory: &isDir)
-            if isDir.boolValue {
-                return try enumerateMarkdownFiles(directory: fileURL)
+    func enumerateMarkdownFiles(directory: URL) throws -> [URL] {
+        return try fileManager.contentsOfDirectory(atPath: directory.path).flatMap { (name: String) -> [URL] in
+            let url = directory.appendingPathComponent(name)
+            if fileManager.directoryExists(at: url) {
+                return try enumerateMarkdownFiles(directory: url)
             }
             else {
-                return fileURL.pathExtension == "md" ? [fileURL] : []
+                return url.pathExtension == "md" ? [url] : []
             }
         }
     }

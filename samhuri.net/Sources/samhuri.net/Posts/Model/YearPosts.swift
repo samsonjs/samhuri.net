@@ -33,6 +33,10 @@ struct YearPosts {
         }
     }
 
+    mutating func add(post: Post, to month: Month) {
+        self[month].add(post: post)
+    }
+
     /// Returns an array of all posts.
     func flattened() -> [Post] {
         byMonth.values.flatMap { $0.posts }

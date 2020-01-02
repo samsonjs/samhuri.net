@@ -12,7 +12,7 @@ extension PageRenderer: RSSFeedRendering {
     func renderRSSFeed(posts: [Post], feedURL: URL, site: Site) throws -> String {
         try RSS(
             .title(site.title),
-            .if(site.description != nil, .description(site.description!)),
+            .description(site.description),
             .link(site.url),
             .pubDate(posts[0].date),
             .atomLink(feedURL),

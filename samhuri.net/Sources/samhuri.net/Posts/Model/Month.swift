@@ -8,7 +8,7 @@
 import Foundation
 
 struct Month: Equatable {
-    static let all = (1 ... 12).map(Month.init(_:))
+    static let all = names.map(Month.init(_:))
 
     static let names = [
         "January", "February", "March", "April",
@@ -18,14 +18,22 @@ struct Month: Equatable {
 
     let number: Int
 
-    init(_ number: Int) {
-        precondition((1 ... 12).contains(number), "Month number must be from 1 to 12, got \(number)")
+    init?(_ number: Int) {
+        guard number < Month.all.count else {
+            return nil
+        }
         self.number = number
     }
 
-    init(_ name: String) {
-        precondition(Month.names.contains(name), "Month name is unknown: \(name)")
-        self.number = 1 + Month.names.firstIndex(of: name)!
+    init?(_ name: String) {
+        guard let index = Month.names.firstIndex(of: name) else {
+            return nil
+        }
+        self.number = index + 1
+    }
+
+    init(_ date: Date) {
+        self.init(date.month)!
     }
 
     var padded: String {
@@ -55,12 +63,18 @@ extension Month: Comparable {
 
 extension Month: ExpressibleByIntegerLiteral {
     init(integerLiteral value: Int) {
-        self.init(value)
+        guard let _ = Month(value) else {
+            fatalError("Invalid month number in string literal: \(value)")
+        }
+        self.init(value)!
     }
 }
 
 extension Month: ExpressibleByStringLiteral {
     init(stringLiteral value: String) {
-        self.init(value)
+        guard let _ = Month(value) else {
+            fatalError("Invalid month name in string literal: \(value)")
+        }
+        self.init(value)!
     }
 }

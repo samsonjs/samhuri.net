@@ -35,8 +35,8 @@ struct PostsByYear {
     }
 
     mutating func add(post: Post) {
-        let (year, month) = (post.date.year, Month(post.date.month))
-        self[year][month].posts.append(post)
+        let (year, month) = (post.date.year, Month(post.date))
+        self[year].add(post: post, to: month)
     }
 
     /// Returns an array of all posts.

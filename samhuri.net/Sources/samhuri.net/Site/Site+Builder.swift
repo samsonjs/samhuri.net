@@ -10,7 +10,7 @@ import Foundation
 extension Site {
     final class Builder {
         private let title: String
-        private let description: String?
+        private let description: String
         private let author: String
         private let email: String
         private let url: URL
@@ -23,7 +23,7 @@ extension Site {
 
         init(
             title: String,
-            description: String? = nil,
+            description: String,
             author: String,
             email: String,
             url: URL

@@ -37,7 +37,7 @@ final class PostsPlugin: Plugin {
             return
         }
 
-        try postRepo.readPosts(sourceURL: sourceURL)
+        try postRepo.readPosts(sourceURL: sourceURL, outputPath: postWriter.outputPath)
     }
 
     func render(site: Site, targetURL: URL) throws {

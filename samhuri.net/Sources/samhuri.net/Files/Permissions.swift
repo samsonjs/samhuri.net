@@ -23,33 +23,28 @@ struct Permissions: OptionSet {
     }
 
     init?(string: String) {
+        guard string.count == 3 else {
+            return nil
+        }
+
         self.init(rawValue: 0)
 
         switch string[string.startIndex] {
-        case "r":
-            insert(.read)
-        case "-":
-            break
-        default:
-            return nil
+        case "r": insert(.read)
+        case "-": break
+        default: return nil
         }
 
         switch string[string.index(string.startIndex, offsetBy: 1)] {
-        case "w":
-            insert(.write)
-        case "-":
-            break
-        default:
-            return nil
+        case "w": insert(.write)
+        case "-": break
+        default: return nil
         }
 
         switch string[string.index(string.startIndex, offsetBy: 2)] {
-        case "x":
-            insert(.execute)
-        case "-":
-            break
-        default:
-            return nil
+        case "x": insert(.execute)
+        case "-": break
+        default: return nil
         }
     }
 }
@@ -66,6 +61,9 @@ extension Permissions: CustomStringConvertible {
 
 extension Permissions: ExpressibleByStringLiteral {
     init(stringLiteral value: String) {
+        guard let _ = Permissions(string: value) else {
+            fatalError("Invalid Permissions string literal: \(value)")
+        }
         self.init(string: value)!
     }
 }

@@ -47,14 +47,11 @@ extension PostsPlugin {
         }
 
         func build() -> PostsPlugin {
-            let postRepo: PostRepo
             let postWriter: PostWriter
             if let outputPath = path {
-                postRepo = PostRepo(outputPath: outputPath)
                 postWriter = PostWriter(outputPath: outputPath)
             }
             else {
-                postRepo = PostRepo()
                 postWriter = PostWriter()
             }
 
@@ -76,7 +73,7 @@ extension PostsPlugin {
 
             return PostsPlugin(
                 renderer: renderer,
-                postRepo: postRepo,
+                postRepo: PostRepo(),
                 postWriter: postWriter,
                 jsonFeedWriter: jsonFeedWriter,
                 rssFeedWriter: rssFeedWriter

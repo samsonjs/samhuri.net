@@ -9,7 +9,6 @@ import Foundation
 import Ink
 
 final class MarkdownRenderer: Renderer {
-    let fileManager: FileManager = .default
     let fileWriter: FileWriting
     let markdownParser = MarkdownParser()
     let pageRenderer: PageRendering
@@ -25,7 +24,7 @@ final class MarkdownRenderer: Renderer {
 
     /// Parse Markdown and render it as HTML, running it through a Stencil template.
     func render(site: Site, fileURL: URL, targetDir: URL) throws {
-        let bodyMarkdown = try String(contentsOf: fileURL, encoding: .utf8)
+        let bodyMarkdown = try String(contentsOf: fileURL)
         let bodyHTML = markdownParser.html(from: bodyMarkdown).trimmingCharacters(in: .whitespacesAndNewlines)
         let metadata = try markdownMetadata(from: fileURL)
         let pageHTML = try pageRenderer.renderPage(site: site, bodyHTML: bodyHTML, metadata: metadata)
@@ -43,7 +42,7 @@ final class MarkdownRenderer: Renderer {
     }
 
     func markdownMetadata(from url: URL) throws -> [String: String] {
-        let md = try String(contentsOf: url, encoding: .utf8)
+        let md = try String(contentsOf: url)
         return markdownParser.parse(md).metadata
     }
 }

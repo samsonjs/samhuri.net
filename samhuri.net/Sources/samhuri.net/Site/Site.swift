@@ -11,7 +11,7 @@ struct Site {
     let author: String
     let email: String
     let title: String
-    let description: String?
+    let description: String
     let url: URL
     let styles: [String]
     let scripts: [String]

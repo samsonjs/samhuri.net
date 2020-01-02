@@ -41,17 +41,15 @@ final class SiteGenerator {
 
     // Recursively copy or render every file in the given path.
     func renderPath(_ path: String, to targetURL: URL) throws {
-        for filename in try fileManager.contentsOfDirectory(atPath: path) {
-            guard !ignoredFilenames.contains(filename) else {
+        for name in try fileManager.contentsOfDirectory(atPath: path) {
+            guard !ignoredFilenames.contains(name) else {
                 continue
             }
 
             // Recurse into subdirectories, updating the target directory as well.
-            let fileURL = URL(fileURLWithPath: path).appendingPathComponent(filename)
-            var isDir: ObjCBool = false
-            _ = fileManager.fileExists(atPath: fileURL.path, isDirectory: &isDir)
-            guard !isDir.boolValue else {
-                try renderPath(fileURL.path, to: targetURL.appendingPathComponent(filename))
+            let url = URL(fileURLWithPath: path).appendingPathComponent(name)
+            guard !fileManager.directoryExists(at: url) else {
+                try renderPath(url.path, to: targetURL.appendingPathComponent(name))
                 continue
             }
 
@@ -59,7 +57,7 @@ final class SiteGenerator {
             try fileManager.createDirectory(at: targetURL, withIntermediateDirectories: true, attributes: nil)
 
             // Process the file, transforming it if necessary.
-            try renderOrCopyFile(url: fileURL, targetDir: targetURL)
+            try renderOrCopyFile(url: url, targetDir: targetURL)
         }
     }
 

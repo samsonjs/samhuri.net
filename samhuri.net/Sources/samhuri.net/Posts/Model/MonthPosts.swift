@@ -9,7 +9,7 @@ import Foundation
 
 struct MonthPosts {
     let month: Month
-    var posts: [Post]
+    private(set) var posts: [Post]
     let path: String
 
     var title: String {
@@ -22,5 +22,9 @@ struct MonthPosts {
 
     var year: Int {
         posts[0].date.year
+    }
+
+    mutating func add(post: Post) {
+        posts.append(post)
     }
 }

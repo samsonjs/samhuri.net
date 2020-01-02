@@ -31,7 +31,7 @@ extension PostWriter {
     }
 
     private func filePath(date: Date, slug: String) -> String {
-        "/\(date.year)/\(Month(date.month).padded)/\(slug)/index.html"
+        "/\(date.year)/\(Month(date).padded)/\(slug)/index.html"
     }
 }
 

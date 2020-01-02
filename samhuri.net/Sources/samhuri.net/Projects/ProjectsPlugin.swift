@@ -20,7 +20,6 @@ final class ProjectsPlugin: Plugin {
     let projectAssets: TemplateAssets
 
     var projects: [Project] = []
-    var sourceURL: URL!
 
     init(
         projects: [PartialProject],
@@ -39,7 +38,6 @@ final class ProjectsPlugin: Plugin {
     // MARK: - Plugin methods
 
     func setUp(site: Site, sourceURL: URL) throws {
-        self.sourceURL = sourceURL
         projects = partialProjects.map { partial in
             Project(
                 title: partial.title,
