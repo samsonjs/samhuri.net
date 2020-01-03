@@ -28,17 +28,17 @@ protocol TemplateContext {
 }
 
 extension TemplateContext {
-    var styles: [URL] {
-        let allStyles = site.styles + templateAssets.styles
-        return allStyles.map { style in
-            style.hasPrefix("http") ? URL(string: style)! : styleURL(style)
-        }
-    }
-
     var scripts: [URL] {
         let allScripts = site.scripts + templateAssets.scripts
         return allScripts.map { script in
-            script.hasPrefix("http") ? URL(string: script)! : scriptURL(script)
+            script.url(dir: scriptDir)
+        }
+    }
+
+    var styles: [URL] {
+        let allStyles = site.styles + templateAssets.styles
+        return allStyles.map { style in
+            style.url(dir: styleDir)
         }
     }
 
@@ -57,14 +57,20 @@ extension TemplateContext {
     }
 
     func scriptURL(_ filename: String) -> URL {
-        site.url
-            .appendingPathComponent("js")
-            .appendingPathComponent(filename)
+        scriptDir.appendingPathComponent(filename)
     }
 
     func styleURL(_ filename: String) -> URL {
-        site.url
-            .appendingPathComponent("css")
-            .appendingPathComponent(filename)
+        styleDir.appendingPathComponent(filename)
+    }
+}
+
+private extension TemplateContext {
+    var scriptDir: URL {
+        site.url.appendingPathComponent("js")
+    }
+
+    var styleDir: URL {
+        site.url.appendingPathComponent("css")
     }
 }

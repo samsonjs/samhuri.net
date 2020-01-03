@@ -8,8 +8,8 @@
 import Foundation
 
 struct TemplateAssets {
-    var scripts: [String]
-    var styles: [String]
+    var scripts: [Script]
+    var styles: [Stylesheet]
 
     static func empty() -> TemplateAssets {
         TemplateAssets(scripts: [], styles: [])

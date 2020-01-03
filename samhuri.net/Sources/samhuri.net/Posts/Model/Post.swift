@@ -15,8 +15,8 @@ struct Post {
     let formattedDate: String
     let link: URL?
     let tags: [String]
-    let scripts: [String]
-    let styles: [String]
+    let scripts: [Script]
+    let styles: [Stylesheet]
     let body: String
     let path: String
 

@@ -13,8 +13,8 @@ struct Site {
     let title: String
     let description: String
     let url: URL
-    let styles: [String]
-    let scripts: [String]
+    let scripts: [Script]
+    let styles: [Stylesheet]
     let renderers: [Renderer]
     let plugins: [Plugin]
 }

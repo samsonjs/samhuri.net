@@ -15,8 +15,8 @@ extension Site {
         private let email: String
         private let url: URL
 
-        private var styles: [String] = []
-        private var scripts: [String] = []
+        private var scripts: [Script] = []
+        private var styles: [Stylesheet] = []
 
         private var plugins: [Plugin] = []
         private var renderers: [Renderer] = []
@@ -35,13 +35,13 @@ extension Site {
             self.url = url
         }
 
-        func styles(_ styles: String...) -> Self {
-            self.styles.append(contentsOf: styles)
+        func scripts(_ scripts: String...) -> Self {
+            self.scripts.append(contentsOf: scripts.map(Script.init(ref:)))
             return self
         }
 
-        func scripts(_ scripts: String...) -> Self {
-            self.scripts.append(contentsOf: scripts)
+        func styles(_ styles: String...) -> Self {
+            self.styles.append(contentsOf: styles.map(Stylesheet.init(ref:)))
             return self
         }
 
@@ -62,8 +62,8 @@ extension Site {
                 title: title,
                 description: description,
                 url: url,
-                styles: styles,
                 scripts: scripts,
+                styles: styles,
                 renderers: renderers,
                 plugins: plugins
             )

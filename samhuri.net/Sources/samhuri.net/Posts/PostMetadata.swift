@@ -14,8 +14,8 @@ struct PostMetadata {
     let formattedDate: String
     let link: URL?
     let tags: [String]
-    let scripts: [String]
-    let styles: [String]
+    let scripts: [Script]
+    let styles: [Stylesheet]
 }
 
 extension PostMetadata {
@@ -41,8 +41,8 @@ extension PostMetadata {
             formattedDate: dictionary["Date"]!,
             link: dictionary["Link"].flatMap { URL(string: $0) },
             tags: dictionary.commaSeparatedList(key: "Tags"),
-            scripts: dictionary.commaSeparatedList(key: "Scripts"),
-            styles: dictionary.commaSeparatedList(key: "Styles")
+            scripts: dictionary.commaSeparatedList(key: "Scripts").map(Script.init(ref:)),
+            styles: dictionary.commaSeparatedList(key: "Styles").map(Stylesheet.init(ref:))
         )
     }
 }
