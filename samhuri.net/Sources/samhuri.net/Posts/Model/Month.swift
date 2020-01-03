@@ -19,7 +19,7 @@ struct Month: Equatable {
     let number: Int
 
     init?(_ number: Int) {
-        guard number < Month.all.count else {
+        guard (1 ... Month.all.count).contains(number) else {
             return nil
         }
         self.number = number
