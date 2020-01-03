@@ -30,8 +30,9 @@ final class MarkdownRenderer: Renderer {
         let pageHTML = try pageRenderer.renderPage(site: site, bodyHTML: bodyHTML, metadata: metadata)
 
         let mdFilename = fileURL.lastPathComponent
+        let showExtension = mdFilename == "index.md" || metadata["Show extension"]?.lowercased() == "yes"
         let htmlPath: String
-        if metadata["Hide extension"]?.lowercased() == "no" || mdFilename == "index.md" {
+        if showExtension {
             htmlPath = mdFilename.replacingOccurrences(of: ".md", with: ".html")
         }
         else {
