@@ -47,4 +47,7 @@ serve:
 	@echo
 	cd www && python -m SimpleHTTPServer
 
-.PHONY: debug ocean beta release publish publish_beta clean clean_blog clean_swift serve
+watch:
+	bin/watch
+
+.PHONY: debug ocean beta release publish publish_beta clean clean_blog clean_swift serve watch

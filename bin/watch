@@ -1,0 +1,10 @@
+#!/bin/bash
+
+BLOG_TARGET=${BLOG_TARGET:-ocean}
+
+while true; do
+  inotifywait -e modify,create,delete,move -r drafts -r posts
+  echo "changed at $(date)"
+  sleep 5
+  make "$TARGET"
+done
