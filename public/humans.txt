@@ -6,5 +6,5 @@ Contact:    sami@samhuri.net
 Twitter:    @_sjs
 Location:   Victoria, British Columbia, Canada
 Standards:  HTML 5, CSS 3, ES 5
-Components: Mostly custom - Normalize.css - Compiled with Harp
+Components: Mostly custom - Normalize.css - Ink and Plot by John Sundell
 Source:     https://github.com/samsonjs/samhuri.net
