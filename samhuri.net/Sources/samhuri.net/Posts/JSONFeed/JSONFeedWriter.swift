@@ -37,15 +37,17 @@ final class JSONFeedWriter {
 
 private extension JSONFeedWriter {
     func buildFeed(site: Site, posts: [Post], renderer: JSONFeedRendering) throws -> Feed {
-        Feed(
+        let author = FeedAuthor(
+            name: site.author,
+            avatar: jsonFeed.avatarPath.map(site.url.appendingPathComponent)?.absoluteString,
+            url: site.url.absoluteString
+        )
+        return Feed(
             title: site.title,
             home_page_url: site.url.absoluteString,
             feed_url: site.url.appendingPathComponent(jsonFeed.path).absoluteString,
-            author: FeedAuthor(
-                name: site.author,
-                avatar: jsonFeed.avatarPath.map(site.url.appendingPathComponent)?.absoluteString,
-                url: site.url.absoluteString
-            ),
+            author: author,
+            authors: [author],
             icon: jsonFeed.iconPath.map(site.url.appendingPathComponent)?.absoluteString,
             favicon: jsonFeed.faviconPath.map(site.url.appendingPathComponent)?.absoluteString,
             items: try posts.map { post in
@@ -66,11 +68,17 @@ private extension JSONFeedWriter {
 }
 
 private struct Feed: Codable {
-    let version = "https://jsonfeed.org/version/1"
+    var version = "https://jsonfeed.org/version/1.1"
+    var language = "en-CA"
     let title: String
     let home_page_url: String
     let feed_url: String
+
+    // `author` has been deprecated in favour of `authors`, but `author` remains for backwards
+    // compatibility.
     let author: FeedAuthor
+    let authors: [FeedAuthor]
+
     let icon: String?
     let favicon: String?
     let items: [FeedItem]

@@ -10,7 +10,7 @@ import Foundation
 struct Permissions: OptionSet {
     let rawValue: Int16
 
-    static let none = Permissions(rawValue: 0)
+    static let none: Permissions = []
 
     // These raw values match those used by Unix file systems and must not be changed.
 

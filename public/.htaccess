@@ -6,6 +6,10 @@ AddType text/html net
 SetOutputFilter DEFLATE
 AddDefaultCharset utf-8
 
+<Files feed.json>
+  AddType application/feed+json json
+</Files>
+
 # Turn on Expires and set default expires to 3 days
 ExpiresActive On
 ExpiresDefault A259200
@@ -18,7 +22,7 @@ ExpiresDefault A259200
 </FilesMatch>
 
 # Set up 2 week caching on commonly updated files
-<FilesMatch "\.(xml|txt|html|js|css|rss)$">
+<FilesMatch "\.(xml|txt|html|js|css|rss|json)$">
   ExpiresDefault A1209600
   Header append Cache-Control "private, must-revalidate"
 </FilesMatch>
