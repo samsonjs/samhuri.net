@@ -29,3 +29,12 @@ extension Node where Context == HTML.BodyContext {
         .element(named: "time", nodes: nodes)
     }
 }
+
+extension Node where Context == HTML.HeadContext {
+    static func themeColor(light: String, dark: String) -> Self {
+        group([
+            .meta(.name("theme-color"), .content(light), .attribute(named: "media", value: "(prefers-color-scheme: light)")),
+            .meta(.name("theme-color"), .content(dark), .attribute(named: "media", value: "(prefers-color-scheme: dark)")),
+        ])
+    }
+}

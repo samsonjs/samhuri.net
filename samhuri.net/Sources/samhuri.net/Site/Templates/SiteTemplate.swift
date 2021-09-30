@@ -11,7 +11,7 @@ import Plot
 enum Template {
     static func site(body: Node<HTML.BodyContext>, context: TemplateContext) -> HTML {
         HTML(
-            .lang("en"),
+            .lang(.english),
             .comment("meow"),
             .head(
                 .encoding(.utf8),
@@ -26,9 +26,9 @@ enum Template {
                 .link(.rel(.shortcutIcon), .href(context.imageURL("favicon.icon"))),
                 .appleTouchIcon(context.imageURL("apple-touch-icon.png")),
                 .safariPinnedTabIcon(context.imageURL("safari-pinned-tab.svg"), color: "#aa0000"),
+                .themeColor(light: "#151515", dark: "#121212"),
                 .link(.attribute(named: "rel", value: "manifest"), .href(context.imageURL("manifest.json"))),
                 .meta(.name("msapplication-config"), .content(context.imageURL("browserconfig.xml").absoluteString)),
-                .meta(.name("theme-color"), .content("#ffffff")),
                 .link(.rel(.dnsPrefetch), .href("https://use.typekit.net")),
                 .link(.rel(.dnsPrefetch), .href("https://netdna.bootstrapcdn.com")),
                 .link(.rel(.dnsPrefetch), .href("https://gist.github.com")),
