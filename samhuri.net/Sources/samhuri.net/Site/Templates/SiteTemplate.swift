@@ -11,7 +11,7 @@ import Plot
 enum Template {
     static func site(body: Node<HTML.BodyContext>, context: TemplateContext) -> HTML {
         HTML(
-            .lang("en"),
+            .lang(.english),
             .comment("meow"),
             .head(
                 .encoding(.utf8),

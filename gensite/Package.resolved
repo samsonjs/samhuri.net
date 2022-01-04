@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/johnsundell/ink.git",
         "state": {
           "branch": null,
-          "revision": "c88bbce588a1ebfde2cf4d61eb9865a3edaa27d4",
-          "version": "0.2.0"
+          "revision": "77c3d8953374a9cf5418ef0bd7108524999de85a",
+          "version": "0.5.1"
         }
       },
       {
@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/johnsundell/plot.git",
         "state": {
           "branch": null,
-          "revision": "dd7fce79ce4802afdc7d45ce34bddc5cea566202",
-          "version": "0.2.0"
+          "revision": "c27f6857deeb4c4623db294172a8ec572790a9be",
+          "version": "0.10.0"
         }
       }
     ]
