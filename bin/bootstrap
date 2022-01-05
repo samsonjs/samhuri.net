@@ -8,7 +8,7 @@ SWIFT_DIR=swift-$SWIFT_VERSION-RELEASE-ubuntu20.04
 SWIFT_FILENAME=$SWIFT_DIR.tar.gz
 
 if [[ $(uname) = "Linux" ]]; then
-  apt-get install \
+  sudo apt-get install \
           binutils \
           git \
           gnupg2 \
