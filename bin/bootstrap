@@ -8,7 +8,7 @@ SWIFT_DIR=swift-$SWIFT_VERSION-RELEASE-ubuntu20.04
 SWIFT_FILENAME=$SWIFT_DIR.tar.gz
 
 if [[ $(uname) = "Linux" ]]; then
-  sudo apt-get install \
+  sudo apt install -y \
           binutils \
           git \
           gnupg2 \
@@ -42,6 +42,9 @@ if [[ $(uname) = "Linux" ]]; then
     fi
     echo "*** add $PWD/$SWIFT_DIR/usr/bin to PATH in your shell's rc file"
   fi
+
+  echo "*** installing inotify-tools for watch script"
+  sudo apt install -y inotify-tools
 fi
 
 echo "*** done"
