@@ -45,7 +45,7 @@ clean_swift:
 
 serve:
 	@echo
-	cd www && python -m SimpleHTTPServer
+	cd www && python3 -m http.server
 
 watch:
 	bin/watch
