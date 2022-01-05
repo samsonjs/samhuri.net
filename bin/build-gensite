@@ -3,7 +3,7 @@
 set -euo pipefail
 
 if [[ $(uname) = "Linux" ]]; then
-    build_platform_dir="$(arch)-unknown-linux"
+    build_platform_dir="$(arch)-unknown-linux-gnu"
 else
     build_platform_dir="$(arch)-apple-macosx"
 fi
