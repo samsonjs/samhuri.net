@@ -8,7 +8,7 @@ debug:
 ocean:
 	@echo
 	bin/build-gensite
-	bin/gensite . www http://ocean.gurulogic.ca:8000
+	bin/gensite . www https://ocean.samhuri.net
 
 beta: clean_blog
 	@echo
@@ -45,7 +45,7 @@ clean_swift:
 
 serve:
 	@echo
-	cd www && python3 -m http.server
+	cd www && python3 -m http.server --bind localhost
 
 watch:
 	bin/watch
