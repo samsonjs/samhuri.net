@@ -16,8 +16,8 @@ let package = Package(
             targets: ["samhuri.net"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/johnsundell/ink.git", from: "0.2.0"),
-        .package(url: "https://github.com/johnsundell/plot.git", from: "0.2.0"),
+        .package(url: "https://github.com/johnsundell/ink.git", from: "0.5.1"),
+        .package(url: "https://github.com/johnsundell/plot.git", from: "0.11.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
