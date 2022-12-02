@@ -37,11 +37,9 @@ clean_blog:
 clean_swift:
 	@echo
 	rm -rf gensite/.build
-	rm -rf $HOME/Library/Developer/Xcode/DerivedData/gensite-ewvaffkhpgybjtfpkcxyucwdpmfl
-	rm -rf SiteGenerator/.build
-	rm -rf $HOME/Library/Developer/Xcode/DerivedData/SiteGenerator-ftomcgvdmmvedteooctyccrevcyn
+	rm -rf $(HOME)/Library/Developer/Xcode/DerivedData/gensite-*
 	rm -rf samhuri.net/.build
-	rm -rf $HOME/Library/Developer/Xcode/DerivedData/samhuri-fvrlgfanofqywqevrqijjltaldjd
+	rm -rf $(HOME)/Library/Developer/Xcode/DerivedData/samhuri-*
 
 serve:
 	@echo
