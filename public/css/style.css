@@ -19,13 +19,16 @@ body {
     font-size: 112%;
   }
 }
+
 @media (min-width: 64rem) {
   body {
     font-size: 120%;
   }
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -44,21 +47,27 @@ body {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+
   .column.full {
     width: 100%;
   }
+
   .column.two-thirds {
     width: 66.7%;
   }
+
   .column.half {
     width: 50%;
   }
+
   .column.third {
     width: 33.3%;
   }
+
   .column.fourth {
     width: 24.95%;
   }
+
   .column.flow-opposite {
     float: right;
   }
@@ -69,7 +78,8 @@ body {
  * http://nicolasgallagher.com/micro-clearfix-hack/
  */
 
-.clearfix:before, .clearfix:after {
+.clearfix:before,
+.clearfix:after {
   content: " ";
   display: table;
 }
@@ -98,7 +108,12 @@ body {
   padding-bottom: constant(safe-area-inset-bottom);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Helvetica Neue', 'Verdana', sans-serif;
 }
 
@@ -134,7 +149,8 @@ header.primary .title {
   float: left;
 }
 
-header.primary h1, header.primary h4 {
+header.primary h1,
+header.primary h4 {
   display: inline-block;
   margin: 0;
   padding: 0;
@@ -149,7 +165,8 @@ header.primary h1 {
   font-size: 1.3rem;
 }
 
-header.primary h1 a, header.primary h1 a:visited {
+header.primary h1 a,
+header.primary h1 a:visited {
   color: #f7f7f7;
 }
 
@@ -183,7 +200,8 @@ header.primary nav {
   }
 }
 
-header.primary nav a, header.primary nav a:visited {
+header.primary nav a,
+header.primary nav a:visited {
   color: #ce0000;
 }
 
@@ -235,7 +253,8 @@ footer {
   font-family: 'Helvetica Neue', 'Verdana', 'Roboto', sans-serif;
 }
 
-footer a, footer a:visited {
+footer a,
+footer a:visited {
   color: #6f6f6f;
 }
 
@@ -264,7 +283,8 @@ footer a, footer a:visited {
     box-shadow: 0 0 12px 2px #404040;
   }
 
-  header.primary h1 a, header.primary h1 a:visited {
+  header.primary h1 a,
+  header.primary h1 a:visited {
     color: #ddd;
   }
 
@@ -280,7 +300,8 @@ footer a, footer a:visited {
     color: #ddd;
   }
 
-  header.primary nav a, header.primary nav a:visited {
+  header.primary nav a,
+  header.primary nav a:visited {
     color: #cc0000;
   }
 
@@ -288,7 +309,8 @@ footer a, footer a:visited {
     color: #919191;
   }
 
-  footer a, footer a:visited {
+  footer a,
+  footer a:visited {
     color: #919191;
   }
 }
@@ -297,8 +319,10 @@ footer a, footer a:visited {
  * Archive
  */
 
-h2.year a, h2.year a:visited,
-h2.month a, h2.month a:visited {
+h2.year a,
+h2.year a:visited,
+h2.month a,
+h2.month a:visited {
   color: #000;
 }
 
@@ -330,8 +354,11 @@ ul.archive li time {
 }
 
 @media (prefers-color-scheme: dark) {
-  h2.year a, h2.year a:visited,
-  h2.month a, h2.month a:visited {
+
+  h2.year a,
+  h2.year a:visited,
+  h2.month a,
+  h2.month a:visited {
     color: #ddd;
   }
 
@@ -365,7 +392,8 @@ ul.archive li time {
   padding: 0 0.3rem;
 }
 
-article.project h1, article.project h4 {
+article.project h1,
+article.project h4 {
   text-align: center;
 }
 
@@ -395,7 +423,8 @@ article {
   word-wrap: break-word;
 }
 
-article header h1, article header h2 {
+article header h1,
+article header h2 {
   word-wrap: break-word;
   margin-bottom: 0.3rem;
 }
