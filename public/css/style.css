@@ -230,19 +230,23 @@ header.primary nav ul li i.fa {
   padding: 0.2rem;
 }
 
-header.primary nav ul li.email i.fa {
+header.primary nav ul li.email i.fa-envelope {
   color: #e6e6e6;
 }
 
-header.primary nav ul li.rss i.fa {
+header.primary nav ul li.rss i.fa-rss {
   color: #e66b19;
 }
 
-header.primary nav ul li.twitter i.fa {
+header.primary nav ul li.twitter i.fa-twitter {
   color: #539aec;
 }
 
-header.primary nav ul li.github i.fa {
+header.primary nav ul li.mastodon i.fa-mastodon {
+  color: #5e4fe5;
+}
+
+header.primary nav ul li.github i.fa-github {
   color: #4183c4;
 }
 

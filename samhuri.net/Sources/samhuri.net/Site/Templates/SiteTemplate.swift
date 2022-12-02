@@ -48,8 +48,8 @@ enum Template {
                             .li(.a(.href(context.url(for: "about")), "About")),
                             .li(.a(.href(context.url(for: "posts")), "Archive")),
                             .li(.a(.href(context.url(for: "projects")), "Projects")),
-                            .li(.class("twitter"), .a(.href("https://twitter.com/_sjs"), .i(.class("fa fa-twitter")))),
-                            .li(.class("github"), .a(.href("https://github.com/samsonjs"), .i(.class("fa fa-github")))),
+                            .li(.class("twitter"), .a(.href("https://twitter.com/_sjs"), .i(.class("fab fa-twitter")))),
+                            .li(.class("github"), .a(.href("https://github.com/samsonjs"), .i(.class("fab fa-github")))),
                             .li(.class("email"), .a(.href("mailto:\(context.site.email)"), .i(.class("fa fa-envelope")))),
                             .li(.class("rss"), .a(.href(context.url(for: "feed.xml")), .i(.class("fa fa-rss"))))
                         )

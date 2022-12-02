@@ -59,7 +59,7 @@ public extension samhuri {
                 email: "sami@samhuri.net",
                 url: siteURLOverride ?? URL(string: "https://samhuri.net")!
             )
-                .styles("normalize.css", "style.css", "font-awesome.min.css")
+                .styles("normalize.css", "style.css", "fontawesome.min.css", "brands.min.css", "solid.min.css")
                 .renderMarkdown(pageRenderer: renderer)
                 .plugin(projectsPlugin)
                 .plugin(postsPlugin)
