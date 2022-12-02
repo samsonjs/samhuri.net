@@ -49,9 +49,9 @@ extension FilePermissions: RawRepresentable {
 
 extension FilePermissions: ExpressibleByStringLiteral {
     init(stringLiteral value: String) {
-        guard let _ = FilePermissions(string: value) else {
+        guard let permissions = FilePermissions(string: value) else {
             fatalError("Invalid FilePermissions string literal: \(value)")
         }
-        self.init(string: value)!
+        self = permissions
     }
 }
