@@ -2,7 +2,7 @@
 Title: I see HTTP
 Author: Sami Samhuri
 Date: 15th December, 2011
-Timestamp: 1323964035
+Timestamp: 2011-12-15T07:47:15-08:00
 Tags: 
 Link: http://calendar.perfplanet.com/2011/i-see-http/
 ---

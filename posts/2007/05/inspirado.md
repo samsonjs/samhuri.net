@@ -2,7 +2,7 @@
 Title: Inspirado
 Author: Sami Samhuri
 Date: 22nd May, 2007
-Timestamp: 1179865380
+Timestamp: 2007-05-22T13:23:00-07:00
 Tags: rails, inspirado
 ---
 

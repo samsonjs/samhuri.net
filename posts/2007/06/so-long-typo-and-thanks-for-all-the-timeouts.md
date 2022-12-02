@@ -2,7 +2,7 @@
 Title: so long typo (and thanks for all the timeouts)
 Author: Sami Samhuri
 Date: 8th June, 2007
-Timestamp: 1181350860
+Timestamp: 2007-06-08T18:01:00-07:00
 Tags: mephisto, typo
 ---
 

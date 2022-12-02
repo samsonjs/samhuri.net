@@ -2,7 +2,7 @@
 Title: SOPA lives - and MPAA calls protests an "abuse of power"
 Author: Sami Samhuri
 Date: 17th January, 2012
-Timestamp: 1326797200
+Timestamp: 2012-01-17T02:46:40-08:00
 Tags: 
 Link: http://arstechnica.com/tech-policy/news/2012/01/sopa-livesand-mpaa-calls-protests-an-abuse-of-power.ars
 ---

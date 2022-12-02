@@ -2,7 +2,7 @@
 Title: Working with C-style structs in Ruby
 Author: Sami Samhuri
 Date: 17th January, 2010
-Timestamp: 1263715200
+Timestamp: 2010-01-17T00:00:00-08:00
 Tags: ruby, cstruct, compiler
 ---
 

@@ -2,7 +2,7 @@
 Author: Sami Samhuri
 Title: A nil-coalescing alternative for Swift
 Date: 6th October, 2017
-Timestamp: 1507324813
+Timestamp: 2017-10-06T14:20:13-07:00
 Tags: iOS, Swift
 ---
 

@@ -2,7 +2,7 @@
 Title: people
 Author: Sami Samhuri
 Date: 12th July, 2007
-Timestamp: 1184243280
+Timestamp: 2007-07-12T05:28:00-07:00
 Tags: life, people
 ---
 

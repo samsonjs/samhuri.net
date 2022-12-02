@@ -2,7 +2,7 @@
 Title: Ruby and Rails have spoiled me rotten
 Author: Sami Samhuri
 Date: 17th July, 2006
-Timestamp: 1153140000
+Timestamp: 2006-07-17T05:40:00-07:00
 Tags: rails, ruby, php, coding, framework, php, rails, ruby, zend
 ---
 

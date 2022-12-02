@@ -2,7 +2,7 @@
 Title: Diggscuss 0.9
 Author: Sami Samhuri
 Date: 25th March, 2007
-Timestamp: 1174834980
+Timestamp: 2007-03-25T08:03:00-07:00
 Tags: coding, digg, firefox, userscript
 ---
 

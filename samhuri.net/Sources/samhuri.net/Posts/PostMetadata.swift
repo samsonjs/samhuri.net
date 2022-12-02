@@ -21,8 +21,10 @@ struct PostMetadata {
 extension PostMetadata {
     enum Error: Swift.Error {
         case deficientMetadata(slug: String, missingKeys: [String], metadata: [String: String])
-        case invalidTimestamp(String)
+        case invalidTimestamp(String?)
     }
+
+    private static let iso8601Formatter = ISO8601DateFormatter()
 
     init(dictionary: [String: String], slug: String) throws {
         let requiredKeys = ["Title", "Author", "Date", "Timestamp"]
@@ -30,14 +32,16 @@ extension PostMetadata {
         guard missingKeys.isEmpty else {
             throw Error.deficientMetadata(slug: slug, missingKeys: missingKeys, metadata: dictionary)
         }
-        guard let timestamp = dictionary["Timestamp"], let timeInterval = TimeInterval(timestamp) else {
-            throw Error.invalidTimestamp(dictionary["Timestamp"]!)
+        guard let timestamp = dictionary["Timestamp"],
+              let date = Self.iso8601Formatter.date(from: timestamp)
+        else {
+            throw Error.invalidTimestamp(dictionary["Timestamp"])
         }
 
         self.init(
             title: dictionary["Title"]!,
             author: dictionary["Author"]!,
-            date: Date(timeIntervalSince1970: timeInterval),
+            date: date,
             formattedDate: dictionary["Date"]!,
             link: dictionary["Link"].flatMap { URL(string: $0) },
             tags: dictionary.commaSeparatedList(key: "Tags"),

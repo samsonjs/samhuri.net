@@ -80,7 +80,7 @@ private extension PostRepo {
         // format: /{root}/{year}/{month}/{slug}
         //    e.g. /posts/2019/12/first-post
         [
-            "",
+            "", // leading slash
             root,
             "\(date.year)",
             Month(date).padded,

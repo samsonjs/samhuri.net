@@ -2,7 +2,7 @@
 Title: Gtkpod in Gutsy Got You Groaning?
 Author: Sami Samhuri
 Date: 29th October, 2007
-Timestamp: 1193692440
+Timestamp: 2007-10-29T14:14:00-07:00
 Tags: broken, gtkpod, linux, ubuntu
 ---
 

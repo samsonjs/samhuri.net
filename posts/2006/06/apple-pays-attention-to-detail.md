@@ -2,7 +2,7 @@
 Title: Apple pays attention to detail
 Author: Sami Samhuri
 Date: 11th June, 2006
-Timestamp: 1150014600
+Timestamp: 2006-06-11T01:30:00-07:00
 Tags: technology, mac os x, apple
 ---
 

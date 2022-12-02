@@ -2,7 +2,7 @@
 Title: Basics of the Mach-O file format
 Author: Sami Samhuri
 Date: 18th January, 2010
-Timestamp: 1263801600
+Timestamp: 2010-01-18T00:00:00-08:00
 Tags: mach-o, os x, compiler
 ---
 

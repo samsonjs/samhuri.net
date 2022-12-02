@@ -2,7 +2,7 @@
 Title: Python and Ruby brain dump
 Author: Sami Samhuri
 Date: 26th September, 2007
-Timestamp: 1190802840
+Timestamp: 2007-09-26T03:34:00-07:00
 Tags: python, ruby
 ---
 

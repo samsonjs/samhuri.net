@@ -2,7 +2,7 @@
 Title: dtrace + Ruby = Goodness for Sun
 Author: Sami Samhuri
 Date: 9th May, 2007
-Timestamp: 1178725500
+Timestamp: 2007-05-09T08:45:00-07:00
 Tags: ruby, dtrace, sun
 ---
 

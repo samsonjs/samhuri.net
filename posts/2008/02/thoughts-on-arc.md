@@ -2,7 +2,7 @@
 Title: Thoughts on Arc
 Author: Sami Samhuri
 Date: 19th February, 2008
-Timestamp: 1203420360
+Timestamp: 2008-02-19T03:26:00-08:00
 Tags: lisp arc
 ---
 

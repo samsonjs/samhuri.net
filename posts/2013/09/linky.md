@@ -2,7 +2,7 @@
 Title: Linky
 Author: Sami Samhuri
 Date: 27th September, 2013
-Timestamp: 1380343742
+Timestamp: 2013-09-27T21:49:02-07:00
 Tags: linky, north watcher, ruby, gmail, links, notifications
 ---
 

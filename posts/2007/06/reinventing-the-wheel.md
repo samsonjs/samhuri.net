@@ -2,7 +2,7 @@
 Title: Reinventing the wheel
 Author: Sami Samhuri
 Date: 20th June, 2007
-Timestamp: 1182356820
+Timestamp: 2007-06-20T09:27:00-07:00
 Tags: emacs, snippets
 ---
 

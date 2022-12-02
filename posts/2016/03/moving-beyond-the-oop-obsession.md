@@ -2,7 +2,7 @@
 Title: Moving Beyond the OOP Obsession
 Author: Sami Samhuri
 Date: 28th March, 2016
-Timestamp: 1459181327
+Timestamp: 2016-03-28T09:08:47-07:00
 Tags: 
 Link: http://prog21.dadgum.com/218.html
 ---

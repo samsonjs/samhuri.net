@@ -2,7 +2,7 @@
 Title: Finnish court rules CSS ineffective at protecting DVDs
 Author: Sami Samhuri
 Date: 26th May, 2007
-Timestamp: 1180175040
+Timestamp: 2007-05-26T03:24:00-07:00
 Tags: drm
 ---
 

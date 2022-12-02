@@ -2,7 +2,7 @@
 Title: Begging the question
 Author: Sami Samhuri
 Date: 15th June, 2007
-Timestamp: 1181933340
+Timestamp: 2007-06-15T11:49:00-07:00
 Tags: english, life, pedantry
 ---
 

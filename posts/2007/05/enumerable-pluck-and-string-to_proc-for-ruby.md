@@ -2,7 +2,7 @@
 Title: Enumurable#pluck and String#to_proc for Ruby
 Author: Sami Samhuri
 Date: 10th May, 2007
-Timestamp: 1178838840
+Timestamp: 2007-05-10T16:14:00-07:00
 Tags: ruby, extensions
 Styles: typocode.css
 ---

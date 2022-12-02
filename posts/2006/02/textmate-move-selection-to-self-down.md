@@ -2,7 +2,7 @@
 Title: TextMate: Move selection to self.down
 Author: Sami Samhuri
 Date: 21st February, 2006
-Timestamp: 1140510360
+Timestamp: 2006-02-21T00:26:00-08:00
 Tags: textmate, rails, hacking, hack, macro, rails, textmate
 Styles: typocode.css
 ---

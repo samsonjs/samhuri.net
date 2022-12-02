@@ -2,7 +2,7 @@
 Title: Some TextMate snippets for Rails Migrations
 Author: Sami Samhuri
 Date: 18th February, 2006
-Timestamp: 1140331680
+Timestamp: 2006-02-18T22:48:00-08:00
 Tags: textmate, rails, hacking, rails, snippets, textmate
 ---
 

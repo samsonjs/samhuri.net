@@ -2,7 +2,7 @@
 Title: Ich bin Ausländer und spreche nicht gut Deutsch
 Author: Sami Samhuri
 Date: 5th June, 2006
-Timestamp: 1149527460
+Timestamp: 2006-06-05T10:11:00-07:00
 Tags: life, munich, seekport, work
 ---
 

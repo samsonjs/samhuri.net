@@ -2,7 +2,7 @@
 Title: TextMate: Insert text into self.down
 Author: Sami Samhuri
 Date: 21st February, 2006
-Timestamp: 1140562500
+Timestamp: 2006-02-21T14:55:00-08:00
 Tags: textmate, rails, hacking, commands, macro, rails, snippets, textmate
 Styles: typocode.css
 ---

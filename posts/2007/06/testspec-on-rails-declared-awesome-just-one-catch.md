@@ -2,7 +2,7 @@
 Title: test/spec on rails declared awesome, just one catch
 Author: Sami Samhuri
 Date: 14th June, 2007
-Timestamp: 1181830860
+Timestamp: 2007-06-14T07:21:00-07:00
 Tags: bdd, rails, test/spec
 ---
 

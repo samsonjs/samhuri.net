@@ -2,7 +2,7 @@
 Title: Catch compiler errors at runtime
 Author: Sami Samhuri
 Date: 19th August, 2007
-Timestamp: 1187561820
+Timestamp: 2007-08-19T15:17:00-07:00
 Tags: ruby
 ---
 

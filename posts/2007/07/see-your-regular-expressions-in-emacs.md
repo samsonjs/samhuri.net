@@ -2,7 +2,7 @@
 Title: See your regular expressions in Emacs
 Author: Sami Samhuri
 Date: 6th July, 2007
-Timestamp: 1183740300
+Timestamp: 2007-07-06T09:45:00-07:00
 Tags: emacs, regex
 ---
 

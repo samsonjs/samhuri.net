@@ -2,7 +2,7 @@
 Title: The Broken Pixel Theory
 Author: Sami Samhuri
 Date: 25th December, 2011
-Timestamp: 1324868060
+Timestamp: 2011-12-25T18:54:20-08:00
 Tags: 
 Link: http://jtaby.com/2011/12/25/the-broken-pixel-theory.html
 ---

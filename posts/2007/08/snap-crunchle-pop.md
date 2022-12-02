@@ -2,7 +2,7 @@
 Title: Snap, crunchle, pop
 Author: Sami Samhuri
 Date: 9th August, 2007
-Timestamp: 1186654620
+Timestamp: 2007-08-09T03:17:00-07:00
 Tags: humans, injury, life
 ---
 

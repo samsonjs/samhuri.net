@@ -2,7 +2,7 @@
 Title: Ubuntu: Linux for Linux users please
 Author: Sami Samhuri
 Date: 13th July, 2006
-Timestamp: 1152804840
+Timestamp: 2006-07-13T08:34:00-07:00
 Tags: linux, linux, ubuntu
 ---
 

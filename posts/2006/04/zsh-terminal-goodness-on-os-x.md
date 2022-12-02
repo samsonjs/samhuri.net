@@ -2,7 +2,7 @@
 Title: zsh terminal goodness on OS X
 Author: Sami Samhuri
 Date: 4th April, 2006
-Timestamp: 1144187820
+Timestamp: 2006-04-04T14:57:00-07:00
 Tags: mac os x, apple, osx, terminal, zsh
 ---
 

@@ -2,7 +2,7 @@
 Title: There's nothing regular about regular expressions
 Author: Sami Samhuri
 Date: 10th June, 2006
-Timestamp: 1149928080
+Timestamp: 2006-06-10T01:28:00-07:00
 Tags: technology, book, regex
 ---
 

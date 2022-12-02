@@ -2,7 +2,7 @@
 Title: Emacs for TextMate junkies
 Author: Sami Samhuri
 Date: 23rd June, 2007
-Timestamp: 1182565020
+Timestamp: 2007-06-22T19:17:00-07:00
 Tags: emacs, textmate
 ---
 

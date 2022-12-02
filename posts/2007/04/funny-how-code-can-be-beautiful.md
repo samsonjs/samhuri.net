@@ -2,7 +2,7 @@
 Title: Funny how code can be beautiful
 Author: Sami Samhuri
 Date: 30th April, 2007
-Timestamp: 1177942020
+Timestamp: 2007-04-30T07:07:00-07:00
 Tags: haskell
 ---
 

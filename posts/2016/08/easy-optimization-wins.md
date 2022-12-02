@@ -2,7 +2,7 @@
 Title: Easy Optimization Wins
 Author: Sami Samhuri
 Date: 10th August, 2016
-Timestamp: 1470850249
+Timestamp: 2016-08-10T10:30:49-07:00
 Tags: ios, git
 ---
 

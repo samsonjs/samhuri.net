@@ -2,7 +2,7 @@
 Title: ActiveRecord::Base.find_or_create and find_or_initialize
 Author: Sami Samhuri
 Date: 11th April, 2007
-Timestamp: 1176287040
+Timestamp: 2007-04-11T03:24:00-07:00
 Tags: activerecord, coding, rails, ruby
 ---
 

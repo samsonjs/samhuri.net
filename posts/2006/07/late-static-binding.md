@@ -2,7 +2,7 @@
 Title: Late static binding
 Author: Sami Samhuri
 Date: 19th July, 2006
-Timestamp: 1153329780
+Timestamp: 2006-07-19T10:23:00-07:00
 Tags: php, coding, coding, php
 ---
 

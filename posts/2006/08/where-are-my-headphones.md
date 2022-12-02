@@ -2,7 +2,7 @@
 Title: Where are my headphones?
 Author: Sami Samhuri
 Date: 22nd August, 2006
-Timestamp: 1156257060
+Timestamp: 2006-08-22T07:31:00-07:00
 Tags: life, seekport
 ---
 

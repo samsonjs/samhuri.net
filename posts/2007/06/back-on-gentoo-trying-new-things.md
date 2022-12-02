@@ -2,7 +2,7 @@
 Title: Back on Gentoo, trying new things
 Author: Sami Samhuri
 Date: 18th June, 2007
-Timestamp: 1182215100
+Timestamp: 2007-06-18T18:05:00-07:00
 Tags: emacs, gentoo, linux, vim
 ---
 

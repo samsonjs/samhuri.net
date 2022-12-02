@@ -2,7 +2,7 @@
 Title: A Scheme parser in Haskell: Part 1
 Author: Sami Samhuri
 Date: 3rd May, 2007
-Timestamp: 1178178470
+Timestamp: 2007-05-03T00:47:50-07:00
 Tags: coding, haskell
 ---
 

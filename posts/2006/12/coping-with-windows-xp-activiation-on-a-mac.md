@@ -2,7 +2,7 @@
 Title: Coping with Windows XP activiation on a Mac
 Author: Sami Samhuri
 Date: 17th December, 2006
-Timestamp: 1166427000
+Timestamp: 2006-12-17T23:30:00-08:00
 Tags: parallels, windows, apple, mac os x, bootcamp
 ---
 

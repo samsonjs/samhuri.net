@@ -2,7 +2,7 @@
 Title: GitHub Flow Like a Pro
 Author: Sami Samhuri
 Date: 28th May, 2015
-Timestamp: 1432824147
+Timestamp: 2015-05-28T07:42:27-07:00
 Tags: 
 Link: http://haacked.com/archive/2014/07/28/github-flow-aliases/
 ---

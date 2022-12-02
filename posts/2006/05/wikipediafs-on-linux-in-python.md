@@ -2,7 +2,7 @@
 Title: WikipediaFS on Linux, in Python
 Author: Sami Samhuri
 Date: 7th May, 2006
-Timestamp: 1147060140
+Timestamp: 2006-05-07T20:49:00-07:00
 Tags: hacking, python, linux, fuse, linux, mediawiki, python, wikipediafs
 ---
 

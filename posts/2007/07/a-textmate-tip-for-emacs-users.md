@@ -2,7 +2,7 @@
 Title: A TextMate tip for Emacs users
 Author: Sami Samhuri
 Date: 3rd July, 2007
-Timestamp: 1183481100
+Timestamp: 2007-07-03T09:45:00-07:00
 Tags: emacs, keyboard shortcuts, textmate
 ---
 

@@ -2,7 +2,7 @@
 Title: Project Euler code repo in Arc
 Author: Sami Samhuri
 Date: 3rd March, 2008
-Timestamp: 1204561440
+Timestamp: 2008-03-03T08:24:00-08:00
 Tags: arc, project euler
 ---
 

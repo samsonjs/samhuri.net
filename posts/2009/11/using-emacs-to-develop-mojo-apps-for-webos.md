@@ -2,7 +2,7 @@
 Title: Using Emacs to Develop Mojo Apps for WebOS
 Author: Sami Samhuri
 Date: 21st November, 2009
-Timestamp: 1258790400
+Timestamp: 2009-11-21T00:00:00-08:00
 Tags: emacs, mojo, webos, lisp, javascript
 ---
 

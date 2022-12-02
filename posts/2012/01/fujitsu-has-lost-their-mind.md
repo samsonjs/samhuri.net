@@ -2,7 +2,7 @@
 Title: Fujitsu has lost their mind
 Author: Sami Samhuri
 Date: 19th January, 2012
-Timestamp: 1327032333
+Timestamp: 2012-01-19T20:05:33-08:00
 Tags: 
 Link: http://tablet-news.com/2012/01/17/fujitsu-lifebook-2013-concept-incorporates-a-tablet-for-a-keyboard-phone-and-digital-camera/
 ---

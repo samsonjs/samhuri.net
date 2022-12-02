@@ -2,7 +2,7 @@
 Title: iPhone Humour
 Author: Sami Samhuri
 Date: 18th May, 2007
-Timestamp: 1179513240
+Timestamp: 2007-05-18T11:34:00-07:00
 Tags: apple, funny, iphone
 ---
 

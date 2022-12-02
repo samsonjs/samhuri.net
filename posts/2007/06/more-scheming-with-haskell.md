@@ -2,7 +2,7 @@
 Title: More Scheming with Haskell
 Author: Sami Samhuri
 Date: 14th June, 2007
-Timestamp: 1181783340
+Timestamp: 2007-06-13T18:09:00-07:00
 Tags: coding, haskell, scheme
 ---
 

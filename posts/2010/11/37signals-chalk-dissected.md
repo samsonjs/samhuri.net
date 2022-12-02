@@ -2,7 +2,7 @@
 Title: 37signals' Chalk Dissected
 Author: Sami Samhuri
 Date: 4th November, 2010
-Timestamp: 1288854000
+Timestamp: 2010-11-04T00:00:00-07:00
 Tags: 37signals, chalk, ipad, javascript, web, html, css, zepto.js
 ---
 

@@ -2,7 +2,7 @@
 Title: Class method? Instance method? It doesn't matter to PHP
 Author: Sami Samhuri
 Date: 21st July, 2006
-Timestamp: 1153493760
+Timestamp: 2006-07-21T07:56:00-07:00
 Tags: php, coding
 ---
 

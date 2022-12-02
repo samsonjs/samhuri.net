@@ -2,7 +2,7 @@
 Title: Jump to view/controller in TextMate
 Author: Sami Samhuri
 Date: 18th February, 2006
-Timestamp: 1140303060
+Timestamp: 2006-02-18T14:51:00-08:00
 Tags: hacking, rails, textmate, rails, textmate
 ---
 

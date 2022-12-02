@@ -2,7 +2,7 @@
 Title: Girlfriend X
 Author: Sami Samhuri
 Date: 18th February, 2006
-Timestamp: 1140292200
+Timestamp: 2006-02-18T11:50:00-08:00
 Tags: crazy, funny
 ---
 
