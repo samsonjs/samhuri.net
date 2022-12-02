@@ -48,12 +48,14 @@ Have a look at my [work history](/cv).
 
 - GitHub: [samsonjs][gh]
 - [Stack Overflow][so]
+- Mastodon: [@sjs@techhub.social][mastodon]
 - Twitter: [@_sjs][twttr]
 - Instagram: [@samsonjs][ig]
 - Email: [sami@samhuri.net][email]
 
 [gh]: https://github.com/samsonjs
-[so]: http://stackoverflow.com/users/188752/sami-samhuri
+[so]: https://stackoverflow.com/users/188752/sami-samhuri
+[mastodon]: https://techhub.social/@sjs
 [twttr]: https://twitter.com/_sjs
 [ig]: https://www.instagram.com/samsonjs/
 [email]: mailto:sami@samhuri.net

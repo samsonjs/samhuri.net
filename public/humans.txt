@@ -3,6 +3,7 @@
 Site name:  samhuri.net
 Site URL:   https://samhuri.net
 Contact:    sami@samhuri.net
+Mastodon:   @sjs@techhub.social
 Twitter:    @_sjs
 Location:   Victoria, British Columbia, Canada
 Standards:  HTML 5, CSS 3, ES 5
