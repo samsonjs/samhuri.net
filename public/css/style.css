@@ -140,7 +140,7 @@ hr {
 header.primary {
   background-color: #151515;
   color: #f7f7f7;
-  padding: 0.4rem 2.5rem;
+  padding: 0.8rem 2.5rem;
   border-bottom: solid 1px #888888;
   box-shadow: 0 0 12px 2px #222;
 }
@@ -187,7 +187,6 @@ header.primary h4 a:hover {
 }
 
 header.primary nav {
-  padding-top: 0.5rem;
   clear: left;
 }
 
@@ -195,8 +194,6 @@ header.primary nav {
   header.primary nav {
     float: right;
     clear: none;
-    padding-top: 0.65rem;
-    height: 1rem;
   }
 }
 
@@ -207,7 +204,7 @@ header.primary nav a:visited {
 
 header.primary nav ul {
   margin: 0;
-  padding: 0;
+  padding: 0.5rem 0;
 }
 
 header.primary nav ul li {
@@ -230,16 +227,8 @@ header.primary nav ul li i.fa {
   padding: 0.2rem;
 }
 
-header.primary nav ul li.email i.fa-envelope {
-  color: #e6e6e6;
-}
-
 header.primary nav ul li.rss i.fa-rss {
   color: #e66b19;
-}
-
-header.primary nav ul li.twitter i.fa-twitter {
-  color: #539aec;
 }
 
 header.primary nav ul li.mastodon i.fa-mastodon {
