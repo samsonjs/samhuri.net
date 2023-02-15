@@ -15,7 +15,6 @@ enum Template {
             .comment("meow"),
             .head(
                 .encoding(.utf8),
-                .viewport(.accordingToDevice),
                 .title(context.title),
                 .siteName(context.site.title),
                 .url(context.site.url),
@@ -28,7 +27,8 @@ enum Template {
                 .safariPinnedTabIcon(context.imageURL("safari-pinned-tab.svg"), color: "#aa0000"),
                 .link(.attribute(named: "rel", value: "manifest"), .href(context.imageURL("manifest.json"))),
                 .meta(.name("msapplication-config"), .content(context.imageURL("browserconfig.xml").absoluteString)),
-                .meta(.name("theme-color"), .content("#ffffff")),
+                .meta(.name("theme-color"), .content("#121212")), // matches header
+                .meta(.name("viewport"), .content("width=device-width, initial-scale=1.0, viewport-fit=cover")),
                 .link(.rel(.dnsPrefetch), .href("https://use.typekit.net")),
                 .link(.rel(.dnsPrefetch), .href("https://netdna.bootstrapcdn.com")),
                 .link(.rel(.dnsPrefetch), .href("https://gist.github.com")),

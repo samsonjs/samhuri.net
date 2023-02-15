@@ -38,7 +38,7 @@ body {
   margin: 0 auto;
   max-width: 48rem;
   width: 90%;
-  padding: 0 constant(safe-area-inset-right) 0 constant(safe-area-inset-left);
+  padding: 0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
 }
 
 @media (min-width: 40rem) {
@@ -105,7 +105,7 @@ body {
   color: #222;
   font-family: 'museo-sans', 'Helvetica Neue', 'Verdana', 'Roboto', sans-serif;
   font-display: swap;
-  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 h1,
@@ -140,7 +140,7 @@ hr {
 header.primary {
   background-color: #151515;
   color: #f7f7f7;
-  padding: 0.8rem 1.2rem;
+  padding: 0.8rem max(1.2rem, env(safe-area-inset-right)) 0.8rem max(1.2rem, env(safe-area-inset-left));
   border-bottom: solid 1px #888888;
   box-shadow: 0 0 12px 2px #222;
 }
