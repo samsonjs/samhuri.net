@@ -460,7 +460,12 @@ ul.audio audio {
 
 pre {
   background-color: #eaeaea;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+code,
+pre {
+  font-family: 'Fira Code', 'JetBrains Mono', 'Meslo LG M', 'Inconsolata', 'Menlo', 'Courier New', monospace;
 }
 
 pre.line-numbers {
@@ -494,5 +499,5 @@ pre.line-numbers {
 .gist {
   font-size: 0.8rem;
   line-height: 1.2rem;
-  font-family: 'Menlo', 'Courier New', monospace;
+  font-family: 'Fira Code', 'JetBrains Mono', 'Meslo LG M', 'Inconsolata', 'Menlo', 'Courier New', monospace;
 }
