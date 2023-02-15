@@ -140,7 +140,7 @@ hr {
 header.primary {
   background-color: #151515;
   color: #f7f7f7;
-  padding: 0.8rem 2.5rem;
+  padding: 0.8rem 1.2rem;
   border-bottom: solid 1px #888888;
   box-shadow: 0 0 12px 2px #222;
 }
@@ -186,12 +186,18 @@ header.primary h4 a:hover {
   text-decoration: underline;
 }
 
-header.primary nav {
+header.primary nav.local {
+  float: left;
   clear: left;
 }
 
+header.primary nav.remote {
+  float: right;
+  margin-left: 1.4rem;
+}
+
 @media (min-width: 35.5rem) {
-  header.primary nav {
+  header.primary nav.local {
     float: right;
     clear: none;
   }

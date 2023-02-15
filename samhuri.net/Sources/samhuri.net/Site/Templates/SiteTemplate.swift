@@ -43,14 +43,18 @@ enum Template {
                          .br(),
                          .h4(.text("By "), .a(.href(context.url(for: "about")), .text(context.site.author)))
                     ),
-                    .nav(
+                    .nav(.class("remote"),
                         .ul(
-                            .li(.a(.href(context.url(for: "about")), "About")),
-                            .li(.a(.href(context.url(for: "posts")), "Archive")),
-                            .li(.a(.href(context.url(for: "projects")), "Projects")),
                             .li(.class("mastodon"), .a(.attribute(named: "rel", value: "me"), .href("https://techhub.social/@sjs"), .i(.class("fab fa-mastodon")))),
                             .li(.class("github"), .a(.href("https://github.com/samsonjs"), .i(.class("fab fa-github")))),
                             .li(.class("rss"), .a(.href(context.url(for: "feed.xml")), .i(.class("fa fa-rss"))))
+                        )
+                    ),
+                    .nav(.class("local"),
+                        .ul(
+                            .li(.a(.href(context.url(for: "about")), "About")),
+                            .li(.a(.href(context.url(for: "posts")), "Archive")),
+                            .li(.a(.href(context.url(for: "projects")), "Projects"))
                         )
                     ),
                     .div(.class("clearfix"))
