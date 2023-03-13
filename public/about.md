@@ -10,7 +10,7 @@ I'm Sami Samhuri, a software developer and general technology geek. Sometimes I 
 
 ## What I do
 
-I make iOS apps, and I make web apps from front to back mainly with Ruby and JavaScript. Sometimes I do some Android work. I dabble with lots of other technologies for fun and profit and have been known to do some ops and devops. I've been using Linux for over 15 years, and have spent a bit of time with FreeBSD and OpenBSD along the way.
+I make iOS apps, and I make web apps from front to back mainly with Ruby and JavaScript. Sometimes I do some Android work and have a strong preference for Kotlin. I dabble with lots of other technologies for fun and profit and have been known to do some ops and devops. I've been using Linux for over 20 years, and have spent a bit of time with FreeBSD and OpenBSD along the way.
 
 My public work includes [some open-source projects][proj], and there are even more on [GitHub][] but you'll have to wade through ones that I've forked from others. At some point or other I've written: [C][], [Objective-C][objc], [Swift][], [Java][], Python, [Ruby][], [bash and zsh][sh], [Haskell][], [Lisp][], Scheme, PHP, [Objective-J][objj], [Motorola 6800][m6800] assembly, and of course the language everyone loves to hate, the ever [maligned][pusher] [yet][repl-edit] [omnipresent][format] [JavaScript][strftime] ([which][nw] [I][kwikemon] [kind][deferred] [of][gitter] [like][batteries] [most][deferredviz] [of][elisp] [the][mojoext] [time][node]).
 
