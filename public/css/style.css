@@ -279,7 +279,7 @@ footer a:visited {
     background-color: #121212;
     color: #ddd;
     border-bottom: solid 1px #4d4d4d;
-    box-shadow: 0 0 12px 2px #404040;
+    box-shadow: 0 0 8px 2px #333;
   }
 
   header.primary h1 a,
