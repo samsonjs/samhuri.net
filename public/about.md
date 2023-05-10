@@ -60,15 +60,13 @@ Have a look at my [work history](/cv).
 
 ## So meta
 
-This site is lovingly hand-crafted, tag by tag, and pixel by pixel. It adheres to and embraces modern web standards. It is authored in HTML, CSS, and JavaScript in conjunction with [Markdown][Markdown] and [LESS][], and then it's all compiled with [some custom code][samhuri.net] before [Apache][] serves it up. The header and body font, [Museo Sans][Museo], is provided by [TypeKit][].
-
-[Markdown]: http://daringfireball.net/projects/markdown/
-[LESS]: http://lesscss.org
-[samhuri.net]: https://github.com/samsonjs/samhuri.net
-[Apache]: http://apache.org
-[Museo]: http://www.exljbris.com/museosans.html
-[TypeKit]: https://typekit.com/fonts
+This site is lovingly hand-crafted, tag by tag, and pixel by pixel. It adheres to and embraces modern web standards. It is authored in [Markdown][], HTML, CSS, and JavaScript, and then it's all compiled with [some custom code][samhuri.net] before [Apache][] serves it up. The header and body font, [Museo Sans][], is provided by [TypeKit][].
 
 Oh, and a shout out to [Font Awesome][fa] for being awesome. <i class="fa fa-thumbs-up" style="color: #ccc"></i>
 
+[Markdown]: http://daringfireball.net/projects/markdown/
+[samhuri.net]: https://github.com/samsonjs/samhuri.net
+[Apache]: http://apache.org
+[Museo Sans]: http://www.exljbris.com/museosans.html
+[TypeKit]: https://typekit.com/fonts
 [fa]: http://fontawesome.io
