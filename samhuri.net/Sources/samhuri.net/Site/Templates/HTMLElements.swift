@@ -23,9 +23,3 @@ extension Node where Context == HTML.HeadContext {
         .link(.attribute(named: "rel", value: "mask-icon"), .attribute(named: "color", value: color), .href(url))
     }
 }
-
-extension Node where Context == HTML.BodyContext {
-    static func time(_ nodes: Node<HTML.BodyContext>...) -> Self {
-        .element(named: "time", nodes: nodes)
-    }
-}

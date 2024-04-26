@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.10
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -6,14 +6,14 @@ import PackageDescription
 let package = Package(
     name: "gensite",
     platforms: [
-        .macOS(.v10_15),
-        .iOS(.v13),
+        .macOS(.v14),
+        .iOS(.v17),
     ],
     dependencies: [
         .package(path: "../samhuri.net"),
     ],
     targets: [
-        .target( name: "gensite", dependencies: [
+        .executableTarget( name: "gensite", dependencies: [
             "samhuri.net",
         ]),
         .testTarget(name: "gensiteTests", dependencies: ["gensite"]),

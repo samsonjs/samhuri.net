@@ -36,7 +36,7 @@ extension Node where Context == HTML.BodyContext {
 }
 
 extension Node where Context == HTML.ListContext {
-    static func postItem(_ post: Post, date: Node<HTML.BodyContext>) -> Self {
+    static func postItem(_ post: Post, date: Node<HTML.TimeContext>) -> Self {
         .if(post.isLink, .li(
                 .a(.href(post.link?.absoluteString ?? post.path), "→ \(post.title)"),
                 .time(date),
