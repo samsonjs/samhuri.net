@@ -38,3 +38,7 @@ And some other hosts / actions that seem to be supported:
 It looks like these are supported for the `photos:` URL scheme as well but I had zero luck opening that URL at all, rather than the `photos-navigation:` scheme which at least opens the app in all cases.
 
 The next step might be trying to figure out which app/framework handles the Photo Shuffle lock screen and then decompile that to figure out which URL it calls.
+
+----
+
+_Update 2024-10-11: `photos-navigation://memories` works on the iOS 18.1 beta however I've still had no luck with navigation to a specific asset._
