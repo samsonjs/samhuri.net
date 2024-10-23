@@ -20,6 +20,7 @@ enum Template {
                 .url(context.site.url),
                 .rssFeedLink(context.url(for: "feed.xml"), title: context.site.title),
                 .jsonFeedLink(context.url(for: "feed.json"), title: context.site.title),
+                .meta(.name("fediverse:creator"), .content("@sjs@techhub.social")),
                 .link(.rel(.author), .type("text/plain"), .href(context.url(for: "humans.txt"))),
                 .link(.rel(.icon), .type("image/png"), .href(context.imageURL("favicon-32x32.png"))),
                 .link(.rel(.shortcutIcon), .href(context.imageURL("favicon.icon"))),
