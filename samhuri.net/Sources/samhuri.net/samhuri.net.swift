@@ -45,7 +45,6 @@ public extension samhuri {
             let postsPlugin = PostsPlugin.Builder(renderer: renderer)
                 .path("posts")
                 .jsonFeed(
-                    avatarPath: "images/me.jpg",
                     iconPath: "images/apple-touch-icon-300.png",
                     faviconPath: "images/apple-touch-icon-80.png"
                 )
@@ -54,8 +53,9 @@ public extension samhuri {
 
             return Site.Builder(
                 title: "samhuri.net",
-                description: "just some blog",
+                description: "Sami Samhuri's blog about programming, mainly about iOS and Ruby and Rails these days.",
                 author: "Sami Samhuri",
+                imagePath: "images/me.jpg",
                 email: "sami@samhuri.net",
                 url: siteURLOverride ?? URL(string: "https://samhuri.net")!
             )

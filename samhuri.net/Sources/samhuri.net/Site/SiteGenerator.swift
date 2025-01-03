@@ -70,7 +70,7 @@ final class SiteGenerator {
             try fileManager.removeItem(at: targetURL)
         }
 
-        let ext = String(filename.split(separator: ".").last!)
+        let ext = filename.split(separator: ".").last.flatMap { String($0) }
         for renderer in site.renderers {
             if renderer.canRenderFile(named: filename, withExtension: ext) {
                 try renderer.render(site: site, fileURL: sourceURL, targetDir: targetDir)

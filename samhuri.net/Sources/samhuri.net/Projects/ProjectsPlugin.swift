@@ -54,12 +54,13 @@ final class ProjectsPlugin: Plugin {
 
         let projectsDir = targetURL.appendingPathComponent(outputPath)
         let projectsURL = projectsDir.appendingPathComponent("index.html")
-        let projectsHTML = try renderer.renderProjects(projects, site: site)
+        let projectsHTML = try renderer.renderProjects(projects, site: site, path: outputPath)
         try fileWriter.write(string: projectsHTML, to: projectsURL)
 
         for project in projects {
             let projectURL = projectsDir.appendingPathComponent("\(project.title)/index.html")
-            let projectHTML = try renderer.renderProject(project, site: site, assets: projectAssets)
+            let path = [outputPath, project.title].joined(separator: "/")
+            let projectHTML = try renderer.renderProject(project, site: site, path: path, assets: projectAssets)
             try fileWriter.write(string: projectHTML, to: projectURL)
         }
     }

@@ -18,26 +18,31 @@ final class MarkdownRenderer: Renderer {
         self.fileWriter = fileWriter
     }
 
-    func canRenderFile(named filename: String, withExtension ext: String) -> Bool {
+    func canRenderFile(named filename: String, withExtension ext: String?) -> Bool {
         ext == "md"
     }
 
     /// Parse Markdown and render it as HTML, running it through a Stencil template.
     func render(site: Site, fileURL: URL, targetDir: URL) throws {
-        let bodyMarkdown = try String(contentsOf: fileURL)
-        let bodyHTML = markdownParser.html(from: bodyMarkdown).trimmingCharacters(in: .whitespacesAndNewlines)
         let metadata = try markdownMetadata(from: fileURL)
-        let pageHTML = try pageRenderer.renderPage(site: site, bodyHTML: bodyHTML, metadata: metadata)
-
         let mdFilename = fileURL.lastPathComponent
         let showExtension = mdFilename == "index.md" || metadata["Show extension"]?.lowercased() == "yes"
-        let htmlPath: String
-        if showExtension {
-            htmlPath = mdFilename.replacingOccurrences(of: ".md", with: ".html")
+        let htmlPath: String = if showExtension {
+            mdFilename.replacingOccurrences(of: ".md", with: ".html")
         }
         else {
-            htmlPath = mdFilename.replacingOccurrences(of: ".md", with: "/index.html")
+            mdFilename.replacingOccurrences(of: ".md", with: "/index.html")
         }
+        let bodyMarkdown = try String(contentsOf: fileURL)
+        let bodyHTML = markdownParser.html(from: bodyMarkdown).trimmingCharacters(in: .whitespacesAndNewlines)
+        let url = site.url.appending(path: htmlPath.replacingOccurrences(of: "/index.html", with: ""))
+        let pageHTML = try pageRenderer.renderPage(
+            site: site,
+            url: url,
+            bodyHTML: bodyHTML,
+            metadata: metadata
+        )
+
         let htmlURL = targetDir.appendingPathComponent(htmlPath)
         try fileWriter.write(string: pageHTML, to: htmlURL)
     }

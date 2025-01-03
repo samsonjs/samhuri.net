@@ -8,5 +8,5 @@
 import Foundation
 
 protocol PageRendering {
-    func renderPage(site: Site, bodyHTML: String, metadata: [String: String]) throws -> String
+    func renderPage(site: Site, url: URL, bodyHTML: String, metadata: [String: String]) throws -> String
 }

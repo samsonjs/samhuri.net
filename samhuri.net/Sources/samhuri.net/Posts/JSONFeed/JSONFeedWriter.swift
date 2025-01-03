@@ -39,7 +39,7 @@ private extension JSONFeedWriter {
     func buildFeed(site: Site, posts: [Post], renderer: JSONFeedRendering) throws -> Feed {
         let author = FeedAuthor(
             name: site.author,
-            avatar: jsonFeed.avatarPath.map(site.url.appendingPathComponent)?.absoluteString,
+            avatar: site.imageURL?.absoluteString,
             url: site.url.absoluteString
         )
         return Feed(

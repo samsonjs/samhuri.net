@@ -26,14 +26,12 @@ extension PostsPlugin {
 
         func jsonFeed(
             path: String? = nil,
-            avatarPath: String? = nil,
             iconPath: String? = nil,
             faviconPath: String? = nil
         ) -> Self {
             precondition(jsonFeed == nil, "JSON feed is already defined")
             jsonFeed = JSONFeed(
                 path: path ?? "feed.json",
-                avatarPath: avatarPath,
                 iconPath: iconPath,
                 faviconPath: faviconPath
             )

@@ -18,6 +18,7 @@ struct Post {
     let scripts: [Script]
     let styles: [Stylesheet]
     let body: String
+    let excerpt: String
     let path: String
 
     var isLink: Bool {

@@ -12,6 +12,7 @@ extension Site {
         private let title: String
         private let description: String
         private let author: String
+        private let imageURL: URL?
         private let email: String
         private let url: URL
 
@@ -25,12 +26,20 @@ extension Site {
             title: String,
             description: String,
             author: String,
+            imagePath: String?,
             email: String,
             url: URL
         ) {
             self.title = title
             self.description = description
             self.author = author
+            self.imageURL = imagePath.flatMap { path in
+                var imageURL = url
+                for component in path.split(separator: "/") {
+                    imageURL = imageURL.appending(component: component)
+                }
+                return imageURL
+            }
             self.email = email
             self.url = url
         }
@@ -61,6 +70,7 @@ extension Site {
                 email: email,
                 title: title,
                 description: description,
+                imageURL: imageURL,
                 url: url,
                 scripts: scripts,
                 styles: styles,

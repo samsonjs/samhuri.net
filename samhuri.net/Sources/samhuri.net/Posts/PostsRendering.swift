@@ -8,13 +8,13 @@
 import Foundation
 
 protocol PostsRendering {
-    func renderArchive(postsByYear: PostsByYear, site: Site) throws -> String
+    func renderArchive(postsByYear: PostsByYear, site: Site, path: String) throws -> String
 
-    func renderYearPosts(_ yearPosts: YearPosts, site: Site) throws -> String
+    func renderYearPosts(_ yearPosts: YearPosts, site: Site, path: String) throws -> String
 
-    func renderMonthPosts(_ posts: MonthPosts, site: Site) throws -> String
+    func renderMonthPosts(_ posts: MonthPosts, site: Site, path: String) throws -> String
 
-    func renderPost(_ post: Post, site: Site) throws -> String
+    func renderPost(_ post: Post, site: Site, path: String) throws -> String
 
-    func renderRecentPosts(_ posts: [Post], site: Site) throws -> String
+    func renderRecentPosts(_ posts: [Post], site: Site, path: String) throws -> String
 }

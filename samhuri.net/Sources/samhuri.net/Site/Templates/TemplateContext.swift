@@ -12,6 +12,9 @@ protocol TemplateContext {
 
     var site: Site { get }
     var title: String { get }
+    var canonicalURL: URL { get }
+    var description: String { get }
+    var pageType: String { get }
     var templateAssets: TemplateAssets { get }
 
     // These all have default implementations

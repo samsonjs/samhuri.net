@@ -11,6 +11,31 @@ import Ink
 struct RawPost {
     let slug: String
     let markdown: String
+
+    private static let StripMetadataRegex = try! Regex(#"---\n.*?---\n"#).dotMatchesNewlines()
+
+    private static let TextifyParenthesesLinksRegex = try! Regex(#"\[([\w\s.-_]*)\]\([^)]+\)"#)
+
+    private static let TextifyBracketLinksRegex = try! Regex(#"\[([\w\s.-_]*)\]\[[^\]]+\]"#)
+
+    private static let StripImagesRegex = try! Regex(#"!\[[\w\s.-_]*\]\([^)]+\)"#)
+
+    private static let WhitespaceRegex = try! Regex(#"\s+"#)
+
+    private static let StripHTMLTagsRegex = try! Regex(#"<[^>]+>"#)
+
+    var excerpt: String {
+        markdown
+            .replacing(Self.StripMetadataRegex, with: "")
+            .replacing(Self.StripImagesRegex, with: "") // must be before links for linked images
+            .replacing(Self.TextifyParenthesesLinksRegex) { match in match.output[1].substring ?? "" }
+            .replacing(Self.TextifyBracketLinksRegex) { match in match.output[1].substring ?? "" }
+            .replacing(Self.StripHTMLTagsRegex, with: "")
+            .replacing(Self.WhitespaceRegex, with: " ")
+            .trimmingPrefix(Self.WhitespaceRegex)
+            .prefix(300)
+        + "..."
+    }
 }
 
 final class PostRepo {
@@ -72,6 +97,7 @@ private extension PostRepo {
             scripts: metadata.scripts,
             styles: metadata.styles,
             body: result.html,
+            excerpt: rawPost.excerpt,
             path: path
         )
     }

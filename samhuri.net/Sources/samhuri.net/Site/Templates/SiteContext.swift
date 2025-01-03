@@ -9,12 +9,26 @@ import Foundation
 
 struct SiteContext: TemplateContext {
     let site: Site
+    let canonicalURL: URL
     let subtitle: String?
+    let description: String
+    let pageType: String
     let templateAssets: TemplateAssets
 
-    init(site: Site, subtitle: String? = nil, templateAssets: TemplateAssets = .empty()) {
+    init(
+        site: Site,
+        canonicalURL: URL,
+        subtitle: String? = nil,
+        description: String? = nil,
+        pageType: String? = nil,
+        templateAssets: TemplateAssets = .empty()
+    ) {
         self.site = site
+        self.canonicalURL = canonicalURL
         self.subtitle = subtitle
+        self.description = description ?? site.description
+        self.pageType = pageType ?? "website"
+
         self.templateAssets = templateAssets
     }
 
@@ -24,17 +38,5 @@ struct SiteContext: TemplateContext {
         }
 
         return "\(site.title): \(subtitle)"
-    }
-}
-
-extension SiteContext {
-    var dictionary: [String: Any] {
-        [
-            "site": site,
-            "title": site.title,
-            "styles": site.styles,
-            "scripts": site.scripts,
-            "currentYear": Date().year,
-        ]
     }
 }
