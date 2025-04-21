@@ -24,7 +24,7 @@ extension PostMetadata {
         case invalidTimestamp(String?)
     }
 
-    private static let iso8601Formatter = ISO8601DateFormatter()
+    nonisolated(unsafe) private static let iso8601Formatter = ISO8601DateFormatter()
 
     init(dictionary: [String: String], slug: String) throws {
         let requiredKeys = ["Title", "Author", "Date", "Timestamp"]

@@ -8,17 +8,15 @@
 import Foundation
 
 extension Date {
-    static var defaultCalendar = Calendar.current
-
     var year: Int {
-        Date.defaultCalendar.dateComponents([.year], from: self).year!
+        Calendar.current.dateComponents([.year], from: self).year!
     }
 
     var month: Int {
-        Date.defaultCalendar.dateComponents([.month], from: self).month!
+        Calendar.current.dateComponents([.month], from: self).month!
     }
 
     var day: Int {
-        Date.defaultCalendar.dateComponents([.day], from: self).day!
+        Calendar.current.dateComponents([.day], from: self).day!
     }
 }

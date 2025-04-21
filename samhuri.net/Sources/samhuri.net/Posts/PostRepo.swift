@@ -12,17 +12,17 @@ struct RawPost {
     let slug: String
     let markdown: String
 
-    private static let StripMetadataRegex = try! Regex(#"---\n.*?---\n"#).dotMatchesNewlines()
+    private nonisolated(unsafe) static let StripMetadataRegex = try! Regex(#"---\n.*?---\n"#).dotMatchesNewlines()
 
-    private static let TextifyParenthesesLinksRegex = try! Regex(#"\[([\w\s.-_]*)\]\([^)]+\)"#)
+    private nonisolated(unsafe) static let TextifyParenthesesLinksRegex = try! Regex(#"\[([\w\s.-_]*)\]\([^)]+\)"#)
 
-    private static let TextifyBracketLinksRegex = try! Regex(#"\[([\w\s.-_]*)\]\[[^\]]+\]"#)
+    private nonisolated(unsafe) static let TextifyBracketLinksRegex = try! Regex(#"\[([\w\s.-_]*)\]\[[^\]]+\]"#)
 
-    private static let StripImagesRegex = try! Regex(#"!\[[\w\s.-_]*\]\([^)]+\)"#)
+    private nonisolated(unsafe) static let StripImagesRegex = try! Regex(#"!\[[\w\s.-_]*\]\([^)]+\)"#)
 
-    private static let WhitespaceRegex = try! Regex(#"\s+"#)
+    private nonisolated(unsafe) static let WhitespaceRegex = try! Regex(#"\s+"#)
 
-    private static let StripHTMLTagsRegex = try! Regex(#"<[^>]+>"#)
+    private nonisolated(unsafe) static let StripHTMLTagsRegex = try! Regex(#"<[^>]+>"#)
 
     var excerpt: String {
         markdown
