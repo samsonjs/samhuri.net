@@ -5,41 +5,33 @@
 //  Created by Sami Samhuri on 2019-12-31.
 //
 
-import XCTest
+import Foundation
 @testable import samhuri_net
+import Testing
 
-extension Date {
-    final class Tests: XCTestCase {
-        var date: Date!
+class DateSugarTests {
+    let date: Date
 
-        override func setUp() {
-            var calendar = Calendar(identifier: .gregorian)
-            calendar.timeZone = TimeZone(secondsFromGMT: 0)!
-            Date.defaultCalendar = calendar
-            date = Date(timeIntervalSince1970: 0)
-        }
+    init() {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
+        Date.defaultCalendar = calendar
+        date = Date(timeIntervalSince1970: 0)
+    }
 
-        override func tearDown() {
-            Date.defaultCalendar = .current
-            date = nil
-        }
+    deinit {
+        Date.defaultCalendar = .current
+    }
 
-        func testYear() {
-            XCTAssertEqual(1970, date.year)
-        }
+    @Test func year() {
+        #expect(date.year == 1970)
+    }
 
-        func testMonth() {
-            XCTAssertEqual(1, date.month)
-        }
+    @Test func month() {
+        #expect(date.month == 1)
+    }
 
-        func testDay() {
-            XCTAssertEqual(1, date.day)
-        }
-
-        static var allTests = [
-            ("testYear", testYear),
-            ("testMonth", testMonth),
-            ("testDay", testDay),
-        ]
+    @Test func day() {
+        #expect(date.day == 1)
     }
 }

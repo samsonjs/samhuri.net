@@ -1,14 +1,8 @@
-import XCTest
+import Testing
 @testable import samhuri_net
 
-extension samhuri.net {
-    final class Tests: XCTestCase {
-        func testExample() {
-            XCTAssert(true)
-        }
-
-        static var allTests = [
-            ("testExample", testExample),
-        ]
+struct samhuri_net_Tests {
+    @Test func example() {
+        #expect(true)
     }
 }

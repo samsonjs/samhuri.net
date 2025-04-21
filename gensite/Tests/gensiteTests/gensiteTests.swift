@@ -1,6 +1,8 @@
-import XCTest
-import class Foundation.Bundle
+@testable import gensite
+import Testing
 
-final class gensiteTests: XCTestCase {
-    static var allTests = [(String, XCTestCase)]()
+struct gensiteTests {
+    @Test func example() {
+        #expect(true)
+    }
 }
