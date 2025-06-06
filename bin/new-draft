@@ -1,0 +1,94 @@
+#!/usr/bin/env ruby -w
+
+require 'fileutils'
+
+DRAFTS_DIR = File.expand_path("../public/drafts", __dir__).freeze
+
+def usage
+  puts "Usage: #{$0} [title]"
+  puts
+  puts "Examples:"
+  puts "  #{$0} Top 5 Ways to Write Clickbait  # using a title without quotes"
+  puts "  #{$0} 'Something with punctuation?!' # fancy chars need quotes"
+  puts "  #{$0} working-with-databases         # using a slug"
+  puts "  #{$0}  # Creates untitled.md (or untitled-2.md, etc.)"
+  puts
+  puts "Creates a new draft in public/drafts/ directory with proper frontmatter."
+end
+
+def draft_path(filename)
+  File.join(DRAFTS_DIR, filename)
+end
+
+def main
+  if ARGV.include?('-h') || ARGV.include?('--help')
+    usage
+    exit 0
+  end
+
+  title, filename =
+    if ARGV.empty?
+      ['Untitled', next_available_draft]
+    else
+      given_title = ARGV.join(' ')
+      filename = "#{slugify(given_title)}.md"
+      path = draft_path(filename)
+      if File.exist?(path)
+        puts "Error: draft already exists at #{path}"
+        exit 1
+      end
+
+      [given_title, filename]
+    end
+
+  FileUtils.mkdir_p(DRAFTS_DIR)
+  path = draft_path(filename)
+  content = render_template(title)
+  File.write(path, content)
+
+  puts "Created new draft at #{path}"
+  puts '>>> Contents below <<<'
+  puts
+  puts content
+end
+
+def slugify(title)
+  title.downcase
+       .gsub(/[^a-z0-9\s-]/, '')
+       .gsub(/\s+/, '-')
+       .gsub(/-+/, '-')
+       .gsub(/^-|-$/, '')
+end
+
+def next_available_draft(base_filename = 'untitled.md')
+  return base_filename unless File.exist?(draft_path(base_filename))
+
+  name_without_ext = File.basename(base_filename, '.md')
+  counter = 1
+  loop do
+    numbered_filename = "#{name_without_ext}-#{counter}.md"
+    return numbered_filename unless File.exist?(draft_path(numbered_filename))
+    counter += 1
+  end
+end
+
+def render_template(title)
+  now = Time.now
+  iso_timestamp = now.strftime('%Y-%m-%dT%H:%M:%S%:z')
+
+  <<~FRONTMATTER
+    ---
+    Author: #{`whoami`.strip}
+    Title: #{title}
+    Date: unpublished
+    Timestamp: #{iso_timestamp}
+    Tags:
+    ---
+
+    # #{title}
+
+    TKTK
+  FRONTMATTER
+end
+
+main if $0 == __FILE__

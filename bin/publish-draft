@@ -1,0 +1,70 @@
+#!/usr/bin/env ruby -w
+
+require 'fileutils'
+
+def usage
+  puts "Usage: #{$0} <draft-path-or-filename>"
+  puts
+  puts "Examples:"
+  puts "  #{$0} public/drafts/reverse-engineering-photo-urls.md"
+  puts
+  puts "Available drafts:"
+  drafts = Dir.glob('public/drafts/*.md').map { |f| File.basename(f) }
+  if drafts.empty?
+    puts "  (no drafts found)"
+  else
+    drafts.each { |d| puts "  #{d}" }
+  end
+end
+
+if ARGV.empty?
+  usage
+  abort
+end
+
+input_path = ARGV.first
+
+# Handle both full paths and just filenames
+if input_path.include?('/')
+  draft_path = input_path
+  draft_file = File.basename(input_path)
+  if input_path.start_with?('posts/')
+    abort "Error: '#{input_path}' is already published in posts/ directory"
+  end
+else
+  draft_file = input_path
+  draft_path = "public/drafts/#{draft_file}"
+end
+
+abort "Error: File not found: #{draft_path}" unless File.exist?(draft_path)
+
+# Update display date timestamp to current time
+def ordinal_date(time)
+  day = time.day
+  suffix = case day
+           when 1, 21, 31 then 'st'
+           when 2, 22 then 'nd'
+           when 3, 23 then 'rd'
+           else 'th'
+           end
+  time.strftime("#{day}#{suffix} %B, %Y")
+end
+now = Time.now
+iso_timestamp = now.strftime('%Y-%m-%dT%H:%M:%S%:z')
+human_date = ordinal_date(now)
+content = File.read(draft_path)
+content.sub!(/^Date:.*$/, "Date: #{human_date}")
+content.sub!(/^Timestamp:.*$/, "Timestamp: #{iso_timestamp}")
+
+# Use current year/month for directory, pad with strftime
+year_month = now.strftime('%Y-%m')
+year, month = year_month.split('-')
+
+target_dir = "posts/#{year}/#{month}"
+FileUtils.mkdir_p(target_dir)
+target_path = "#{target_dir}/#{draft_file}"
+
+File.write(target_path, content)
+FileUtils.rm_f(draft_path)
+
+puts "Published draft: #{draft_path} → #{target_path}"

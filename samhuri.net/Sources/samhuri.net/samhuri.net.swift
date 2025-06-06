@@ -12,12 +12,12 @@ public extension samhuri {
 
         public func generate(sourceURL: URL, targetURL: URL) throws {
             let renderer = PageRenderer()
-            let site = buildSite(renderer: renderer)
+            let site = makeSite(renderer: renderer)
             let generator = try SiteGenerator(sourceURL: sourceURL, site: site)
             try generator.generate(targetURL: targetURL)
         }
 
-        func buildSite(renderer: PageRenderer) -> Site {
+        func makeSite(renderer: PageRenderer) -> Site {
             let projectsPlugin = ProjectsPlugin.Builder(renderer: renderer)
                 .path("projects")
                 .assets(TemplateAssets(scripts: [
