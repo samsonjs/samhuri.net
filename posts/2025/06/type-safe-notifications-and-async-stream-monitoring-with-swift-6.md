@@ -45,15 +45,35 @@ The `monitor` method creates a `Task` internally and handles cleanup when the ca
 You're free to do the usual `[weak self]` and `guard let self else { return }` dance, but there's a variant that accepts a context parameter that's automatically weakified. Your closure receives a strong reference:
 
 ```swift
-NotificationCenter.default
+let cancellable = NotificationCenter.default
     .notifications(named: .NSCalendarDayChanged)
     .map(\.name)
     .monitor(context: self) { _self, _ in
         _self.dayChanged()
-    }.store(in: &cancellables)
+    }
 ```
 
 The monitor finishes automatically after finding a nil context.
+
+### Cancellation tokens
+
+Similar to Combine there's the concept of a cancellable that ties the observation to the lifetime of that cancellable instance. And of course, we call it a dispose bag. Just kidding obviously, it's called `AsyncCancellable` and there's an `AnyAsyncCancellable` type-erasing wrapper. So very much like Combine you write this:
+
+```swift
+import AsyncMonitor
+
+class Whatever {
+    private var cancellables: Set<AnyAsyncCancellable> = []
+
+    func something() {
+        NotificationCenter.default
+            .notifications(named: .NSCalendarDayChanged)
+            .map(\.name)
+            .monitor { _ in /* ... */ }
+            .store(in: &cancellables)
+    }
+}
+```
 
 ### KVO
 
