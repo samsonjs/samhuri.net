@@ -36,7 +36,7 @@ body {
 
 .container {
     margin: 0 auto;
-    max-width: 48rem;
+    max-width: 72rem;
     width: 90%;
     padding: 0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
 }
