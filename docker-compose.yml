@@ -1,0 +1,17 @@
+version: '3.9'
+services:
+  watcher:
+    build:
+      context: .
+      dockerfile: docker-watcher/Dockerfile
+    volumes:
+      - ".:/site"
+
+  server:
+    build:
+      context: .
+      dockerfile: docker-server/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./www:/www"
