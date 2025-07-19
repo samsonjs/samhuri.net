@@ -5,6 +5,11 @@ debug:
 	bin/build-gensite
 	bin/gensite . www http://localhost:8000
 
+mudge:
+	@echo
+	bin/build-gensite
+	bin/gensite . www http://mudge:8000
+
 ocean:
 	@echo
 	bin/build-gensite
