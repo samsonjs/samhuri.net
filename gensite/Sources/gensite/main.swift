@@ -10,7 +10,7 @@ import samhuri_net
 
 guard CommandLine.arguments.count >= 3 else {
     let name = CommandLine.arguments[0]
-    fputs("Usage: \(name) <site dir> <target dir>\n", stderr)
+    FileHandle.standardError.write("Usage: \(name) <site dir> <target dir>\n".data(using: .utf8)!)
     exit(1)
 }
 
@@ -18,7 +18,7 @@ let sourcePath = CommandLine.arguments[1]
 var isDir: ObjCBool = false
 let sourceExists = FileManager.default.fileExists(atPath: sourcePath, isDirectory: &isDir)
 guard sourceExists, isDir.boolValue else {
-    fputs("error: Site path \(sourcePath) does not exist or is not a directory\n", stderr)
+    FileHandle.standardError.write("error: Site path \(sourcePath) does not exist or is not a directory\n".data(using: .utf8)!)
     exit(2)
 }
 
@@ -28,7 +28,7 @@ let siteURLOverride: URL?
 if CommandLine.argc > 3, CommandLine.arguments[3].isEmpty == false {
     let urlString = CommandLine.arguments[3]
     guard let url = URL(string: urlString) else {
-        fputs("error: invalid site URL \(urlString)\n", stderr)
+        FileHandle.standardError.write("error: invalid site URL \(urlString)\n".data(using: .utf8)!)
         exit(4)
     }
     siteURLOverride = url
@@ -45,6 +45,6 @@ do {
     exit(0)
 }
 catch {
-    fputs("error: \(error)\n", stderr)
+    FileHandle.standardError.write("error: \(error)\n".data(using: .utf8)!)
     exit(-1)
 }
