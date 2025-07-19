@@ -3,8 +3,8 @@
 # bail on errors and unset variables
 set -euo pipefail
 
-SWIFT_VERSION=5.5.2
-SWIFT_DIR=swift-$SWIFT_VERSION-RELEASE-ubuntu20.04
+SWIFT_VERSION=6.1
+SWIFT_DIR=swift-$SWIFT_VERSION-RELEASE-ubuntu24.04
 SWIFT_FILENAME=$SWIFT_DIR.tar.gz
 
 if [[ $(uname) = "Linux" ]]; then
@@ -15,10 +15,10 @@ if [[ $(uname) = "Linux" ]]; then
           libc6-dev \
           libcurl4 \
           libedit2 \
-          libgcc-9-dev \
-          libpython2.7 \
+          libgcc-s1 \
+          libpython3.12 \
           libsqlite3-0 \
-          libstdc++-9-dev \
+          libstdc++-14-dev \
           libxml2 \
           libz3-dev \
           pkg-config \
@@ -33,7 +33,7 @@ if [[ $(uname) = "Linux" ]]; then
     if [[ -e $SWIFT_FILENAME ]]; then
       echo "*** $SWIFT_FILENAME exists, skipping download"
     else
-      wget https://swift.org/builds/swift-$SWIFT_VERSION-release/ubuntu2004/swift-$SWIFT_VERSION-RELEASE/$SWIFT_FILENAME
+      wget https://download.swift.org/swift-$SWIFT_VERSION-release/ubuntu2404/swift-$SWIFT_VERSION-RELEASE/$SWIFT_FILENAME
     fi
     if [[ -e $SWIFT_DIR ]]; then
       echo "*** $SWIFT_DIR exists, skipping extraction"
