@@ -1,0 +1,151 @@
+#!/usr/bin/env ruby
+
+require 'fileutils'
+require 'digest'
+
+class OutputValidator
+  def initialize(swift_dir:, ruby_dir:)
+    @swift_dir = swift_dir
+    @ruby_dir = ruby_dir
+    @differences = []
+    @missing_in_ruby = []
+    @missing_in_swift = []
+    @identical_count = 0
+  end
+
+  def validate
+    puts "Comparing outputs:"
+    puts "  Swift: #{@swift_dir}"
+    puts "  Ruby:  #{@ruby_dir}"
+    puts ""
+
+    swift_files = find_html_files(@swift_dir)
+    ruby_files = find_html_files(@ruby_dir)
+
+    puts "Found #{swift_files.length} Swift HTML files"
+    puts "Found #{ruby_files.length} Ruby HTML files"
+    puts ""
+
+    compare_files(swift_files, ruby_files)
+    print_summary
+  end
+
+  private
+
+  def find_html_files(dir)
+    Dir.glob(File.join(dir, '**', '*.{html,xml,json}'))
+       .map { |f| f.sub("#{dir}/", '') }
+       .sort
+  end
+
+  def compare_files(swift_files, ruby_files)
+    all_files = (swift_files + ruby_files).uniq.sort
+
+    all_files.each do |relative_path|
+      swift_path = File.join(@swift_dir, relative_path)
+      ruby_path = File.join(@ruby_dir, relative_path)
+
+      if !File.exist?(swift_path)
+        @missing_in_swift << relative_path
+      elsif !File.exist?(ruby_path)
+        @missing_in_ruby << relative_path
+      else
+        compare_file_contents(relative_path, swift_path, ruby_path)
+      end
+    end
+  end
+
+  def compare_file_contents(relative_path, swift_path, ruby_path)
+    swift_content = normalize_html(File.read(swift_path))
+    ruby_content = normalize_html(File.read(ruby_path))
+
+    if swift_content == ruby_content
+      @identical_count += 1
+      puts "✓ #{relative_path}"
+    else
+      @differences << {
+        path: relative_path,
+        swift_hash: Digest::SHA256.hexdigest(swift_content),
+        ruby_hash: Digest::SHA256.hexdigest(ruby_content),
+        swift_size: swift_content.length,
+        ruby_size: ruby_content.length
+      }
+      puts "✗ #{relative_path} (differs)"
+    end
+  end
+
+  def normalize_html(content)
+    content
+      .gsub(/\s+/, ' ')
+      .gsub(/>\s+</, '><')
+      .gsub(/<lastBuildDate>.*?<\/lastBuildDate>/, '')
+      .strip
+  end
+
+  def print_summary
+    puts ""
+    puts "=" * 60
+    puts "VALIDATION SUMMARY"
+    puts "=" * 60
+    puts ""
+    puts "Identical files: #{@identical_count}"
+    puts "Different files: #{@differences.length}"
+    puts "Missing in Ruby: #{@missing_in_ruby.length}"
+    puts "Missing in Swift: #{@missing_in_swift.length}"
+    puts ""
+
+    if @differences.any?
+      puts "Files with differences:"
+      @differences.each do |diff|
+        puts "  #{diff[:path]}"
+        puts "    Swift: #{diff[:swift_size]} bytes (#{diff[:swift_hash][0..7]}...)"
+        puts "    Ruby:  #{diff[:ruby_size]} bytes (#{diff[:ruby_hash][0..7]}...)"
+      end
+      puts ""
+    end
+
+    if @missing_in_ruby.any?
+      puts "Missing in Ruby output:"
+      @missing_in_ruby.each { |path| puts "  #{path}" }
+      puts ""
+    end
+
+    if @missing_in_swift.any?
+      puts "Missing in Swift output:"
+      @missing_in_swift.each { |path| puts "  #{path}" }
+      puts ""
+    end
+
+    success = @differences.empty? && @missing_in_ruby.empty? && @missing_in_swift.empty?
+    puts success ? "✅ VALIDATION PASSED" : "❌ VALIDATION FAILED"
+    puts ""
+
+    exit(success ? 0 : 1)
+  end
+end
+
+if ARGV.length != 2
+  puts "Usage: validate-output SWIFT_DIR RUBY_DIR"
+  puts ""
+  puts "Compares HTML/XML/JSON output from Swift and Ruby generators."
+  puts ""
+  puts "Example:"
+  puts "  validate-output www-swift www-ruby"
+  exit 1
+end
+
+swift_dir = ARGV[0]
+ruby_dir = ARGV[1]
+
+unless Dir.exist?(swift_dir)
+  puts "ERROR: Swift directory not found: #{swift_dir}"
+  exit 1
+end
+
+unless Dir.exist?(ruby_dir)
+  puts "ERROR: Ruby directory not found: #{ruby_dir}"
+  exit 1
+end
+
+validator = OutputValidator.new(swift_dir: swift_dir, ruby_dir: ruby_dir)
+validator.validate

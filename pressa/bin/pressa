@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/pressa'
+
+if ARGV.length < 2
+  puts "Usage: pressa SOURCE TARGET [URL]"
+  puts ""
+  puts "Arguments:"
+  puts "  SOURCE  Directory containing posts/ and public/"
+  puts "  TARGET  Directory to write generated site"
+  puts "  URL     Optional site URL override"
+  exit 1
+end
+
+source_path = ARGV[0]
+target_path = ARGV[1]
+site_url = ARGV[2]
+
+begin
+  site = Pressa.create_site(url_override: site_url)
+  generator = Pressa::SiteGenerator.new(site:)
+  generator.generate(source_path:, target_path:)
+  puts "Site generated successfully!"
+rescue => e
+  puts "Error: #{e.message}"
+  puts e.backtrace
+  exit 1
+end

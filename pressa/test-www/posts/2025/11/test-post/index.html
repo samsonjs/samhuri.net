@@ -1,0 +1,36 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Testing Pressa with Ruby and Phlex – samhuri.net</title><meta name="description" content="The personal blog of Sami Samhuri"><meta name="author" content="Sami Samhuri"><link rel="canonical" href="http://localhost:8000/posts/2025/11/test-post"><meta property="og:title" content="Testing Pressa with Ruby and Phlex – samhuri.net"><meta property="og:description" content="The personal blog of Sami Samhuri"><meta property="og:url" content="http://localhost:8000/posts/2025/11/test-post"><meta property="og:type" content="website"><meta property="og:image" content="http://localhost:8000/images"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Testing Pressa with Ruby and Phlex – samhuri.net"><meta name="twitter:description" content="The personal blog of Sami Samhuri"><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="http://localhost:8000/feed.xml"><link rel="alternate" type="application/json" title="JSON Feed" href="http://localhost:8000/feed.json"><link rel="stylesheet" href="http://localhost:8000/css/style.css"></head><body><header><h1><a href="/">samhuri.net</a></h1><nav><ul><li><a href="/">Home</a></li><li><a href="/posts/">Archive</a></li><li><a href="/projects/">Projects</a></li><li><a href="/about/">About</a></li></ul></nav></header><main><article class="post"><header><h1>Testing Pressa with Ruby and Phlex</h1><div class="post-meta"><time datetime="2025-11-11T14:00:00-08:00">11th November, 2025</time> · <a href="http://localhost:8000/posts/2025/11/test-post" class="permalink">Permalink</a></div></header><div class="post-content"><p>This is a test post to verify that Pressa is working correctly. We’re building a static site generator using:</p>
+
+<ul>
+  <li>Ruby 3.4</li>
+  <li>Phlex for HTML generation</li>
+  <li>Kramdown with Rouge for Markdown and syntax highlighting</li>
+  <li>dry-struct for immutable data models</li>
+</ul>
+
+<h2 id="code-example">Code Example</h2>
+
+<p>Here’s some Ruby code:</p>
+
+<div class="language-ruby highlighter-rouge"><span class="k">class</span> <span class="nc">Post</span> <span class="o">&lt;</span> <span class="no">Dry</span><span class="o">::</span><span class="no">Struct</span>
+  <span class="n">attribute</span> <span class="ss">:title</span><span class="p">,</span> <span class="no">Types</span><span class="o">::</span><span class="no">String</span>
+  <span class="n">attribute</span> <span class="ss">:body</span><span class="p">,</span> <span class="no">Types</span><span class="o">::</span><span class="no">String</span>
+<span class="k">end</span>
+
+<span class="n">post</span> <span class="o">=</span> <span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">title: </span><span class="s2">"Hello World"</span><span class="p">,</span> <span class="ss">body: </span><span class="s2">"This is a test"</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">post</span><span class="p">.</span><span class="nf">title</span>
+</div>
+
+<h2 id="features">Features</h2>
+
+<p>The generator supports:</p>
+
+<ol>
+  <li>Hierarchical post organization (year/month)</li>
+  <li>Link posts (external URLs)</li>
+  <li>JSON and RSS feeds</li>
+  <li>Archive pages</li>
+  <li>Projects section</li>
+</ol>
+
+<p>Pretty cool, right?</p>
+</div><footer class="post-footer"><div class="fin">◼</div></footer></article></main><footer><p>© 2025 Sami Samhuri</p><p>Email: <a href="mailto:sami@samhuri.net">sami@samhuri.net</a></p></footer></body></html>
