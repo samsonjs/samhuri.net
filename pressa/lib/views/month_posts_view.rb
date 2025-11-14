@@ -11,10 +11,12 @@ module Pressa
       end
 
       def view_template
-        article(class: "month-posts") do
+        div(class: 'container') do
           h1 { "#{@month_posts.month.name} #{@year}" }
+        end
 
-          @month_posts.sorted_posts.each do |post|
+        @month_posts.sorted_posts.each do |post|
+          div(class: 'container') do
             render PostView.new(post:, site: @site)
           end
         end

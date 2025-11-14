@@ -1,16 +1,20 @@
 #!/usr/bin/env ruby
 
+require 'optparse'
 require 'fileutils'
 require 'digest'
 
 class OutputValidator
-  def initialize(swift_dir:, ruby_dir:)
+  def initialize(swift_dir:, ruby_dir:, verbose:, ignore_patterns:, show_details:)
     @swift_dir = swift_dir
     @ruby_dir = ruby_dir
     @differences = []
     @missing_in_ruby = []
     @missing_in_swift = []
     @identical_count = 0
+    @verbose = verbose
+    @ignore_patterns = ignore_patterns
+    @show_details = show_details
   end
 
   def validate
@@ -22,8 +26,8 @@ class OutputValidator
     swift_files = find_html_files(@swift_dir)
     ruby_files = find_html_files(@ruby_dir)
 
-    puts "Found #{swift_files.length} Swift HTML files"
-    puts "Found #{ruby_files.length} Ruby HTML files"
+    puts "Found #{swift_files.length} Swift output files"
+    puts "Found #{ruby_files.length} Ruby output files"
     puts ""
 
     compare_files(swift_files, ruby_files)
@@ -33,7 +37,7 @@ class OutputValidator
   private
 
   def find_html_files(dir)
-    Dir.glob(File.join(dir, '**', '*.{html,xml,json}'))
+    Dir.glob(File.join(dir, '**', '*.{html,xml,json,css,js,png,jpg,jpeg,gif,svg,ico,woff,woff2,ttf,eot}'))
        .map { |f| f.sub("#{dir}/", '') }
        .sort
   end
@@ -42,6 +46,8 @@ class OutputValidator
     all_files = (swift_files + ruby_files).uniq.sort
 
     all_files.each do |relative_path|
+      next if ignored?(relative_path)
+
       swift_path = File.join(@swift_dir, relative_path)
       ruby_path = File.join(@ruby_dir, relative_path)
 
@@ -56,12 +62,17 @@ class OutputValidator
   end
 
   def compare_file_contents(relative_path, swift_path, ruby_path)
-    swift_content = normalize_html(File.read(swift_path))
-    ruby_content = normalize_html(File.read(ruby_path))
+    if binary_file?(relative_path)
+      swift_content = File.binread(swift_path)
+      ruby_content = File.binread(ruby_path)
+    else
+      swift_content = normalize_html(File.read(swift_path))
+      ruby_content = normalize_html(File.read(ruby_path))
+    end
 
     if swift_content == ruby_content
       @identical_count += 1
-      puts "✓ #{relative_path}"
+      puts "✓ #{relative_path}" if @verbose
     else
       @differences << {
         path: relative_path,
@@ -72,6 +83,17 @@ class OutputValidator
       }
       puts "✗ #{relative_path} (differs)"
     end
+  end
+
+  def ignored?(path)
+    return false if @ignore_patterns.empty?
+
+    @ignore_patterns.any? { |pattern| File.fnmatch?(pattern, path) }
+  end
+
+  def binary_file?(path)
+    ext = File.extname(path).downcase
+    %w[.png .jpg .jpeg .gif .svg .ico .woff .woff2 .ttf .eot].include?(ext)
   end
 
   def normalize_html(content)
@@ -96,6 +118,8 @@ class OutputValidator
 
     if @differences.any?
       puts "Files with differences:"
+      return unless @show_details
+
       @differences.each do |diff|
         puts "  #{diff[:path]}"
         puts "    Swift: #{diff[:swift_size]} bytes (#{diff[:swift_hash][0..7]}...)"
@@ -124,13 +148,32 @@ class OutputValidator
   end
 end
 
+options = {
+  verbose: false,
+  ignore_patterns: [],
+  show_details: false
+}
+
+parser = OptionParser.new do |opts|
+  opts.banner = "Usage: validate-output [options] SWIFT_DIR RUBY_DIR"
+
+  opts.on('-v', '--verbose', 'Print a ✓ line for every identical file') do
+    options[:verbose] = true
+  end
+
+  opts.on('-iPATTERN', '--ignore=PATTERN', 'Ignore files matching the glob (may be repeated)') do |pattern|
+    options[:ignore_patterns] << pattern
+  end
+
+  opts.on('--details', 'Include byte counts and hashes for differing files') do
+    options[:show_details] = true
+  end
+end
+
+parser.parse!
+
 if ARGV.length != 2
-  puts "Usage: validate-output SWIFT_DIR RUBY_DIR"
-  puts ""
-  puts "Compares HTML/XML/JSON output from Swift and Ruby generators."
-  puts ""
-  puts "Example:"
-  puts "  validate-output www-swift www-ruby"
+  puts parser
   exit 1
 end
 
@@ -147,5 +190,11 @@ unless Dir.exist?(ruby_dir)
   exit 1
 end
 
-validator = OutputValidator.new(swift_dir: swift_dir, ruby_dir: ruby_dir)
+validator = OutputValidator.new(
+  swift_dir: swift_dir,
+  ruby_dir: ruby_dir,
+  verbose: options[:verbose],
+  ignore_patterns: options[:ignore_patterns],
+  show_details: options[:show_details]
+)
 validator.validate

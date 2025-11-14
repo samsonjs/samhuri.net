@@ -9,36 +9,54 @@ module Pressa
       end
 
       def view_template
-        article(class: "project", data_title: @project.github_path) do
-          header do
-            h1 { @project.title }
-            p(class: "description") { @project.description }
+        article(class: 'container project') do
+          h1(id: 'project', data: { title: @project.title }) { @project.title }
+          h4 { @project.description }
+
+          div(class: 'project-stats') do
             p do
-              a(href: @project.url) { "View on GitHub →" }
+              a(href: @project.url) { 'GitHub' }
+              plain ' • '
+              a(id: 'nstar', href: stargazers_url)
+              plain ' • '
+              a(id: 'nfork', href: network_url)
+            end
+
+            p do
+              plain 'Last updated on '
+              span(id: 'updated')
             end
           end
 
-          section(class: "project-stats") do
-            h2 { "Statistics" }
-            div(id: "stats") do
-              p { "Loading..." }
+          div(class: 'project-info row clearfix') do
+            div(class: 'column half') do
+              h3 { 'Contributors' }
+              div(id: 'contributors')
             end
-          end
 
-          section(class: "project-contributors") do
-            h2 { "Contributors" }
-            div(id: "contributors") do
-              p { "Loading..." }
-            end
-          end
-
-          section(class: "project-languages") do
-            h2 { "Languages" }
-            div(id: "languages") do
-              p { "Loading..." }
+            div(class: 'column half') do
+              h3 { 'Languages' }
+              div(id: 'langs')
             end
           end
         end
+
+        div(class: 'row clearfix') do
+          p(class: 'fin') do
+            i(class: 'fa fa-code')
+          end
+        end
+
+      end
+
+      private
+
+      def stargazers_url
+        "#{@project.url}/stargazers"
+      end
+
+      def network_url
+        "#{@project.url}/network/members"
       end
     end
   end

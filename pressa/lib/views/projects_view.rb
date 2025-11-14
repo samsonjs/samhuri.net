@@ -9,18 +9,22 @@ module Pressa
       end
 
       def view_template
-        article(class: "projects") do
-          h1 { "Projects" }
+        article(class: 'container') do
+          h1 { 'Projects' }
 
-          p { "Open source projects I've created or contributed to." }
-
-          ul(class: "projects-list") do
-            @projects.each do |project|
-              li do
+          @projects.each do |project|
+            div(class: 'project-listing') do
+              h4 do
                 a(href: @site.url_for(project.path)) { project.title }
-                plain " – #{project.description}"
               end
+              p(class: 'description') { project.description }
             end
+          end
+        end
+
+        div(class: 'row clearfix') do
+          p(class: 'fin') do
+            i(class: 'fa fa-code')
           end
         end
       end

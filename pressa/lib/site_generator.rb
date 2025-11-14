@@ -31,12 +31,23 @@ module Pressa
         next if File.directory?(source_file)
         next if File.basename(source_file) == '.' || File.basename(source_file) == '..'
 
+        filename = File.basename(source_file)
+        ext = File.extname(source_file)[1..]
+
+        if can_render?(filename, ext)
+          next
+        end
+
         relative_path = source_file.sub("#{public_dir}/", '')
         target_file = File.join(target_path, relative_path)
 
         FileUtils.mkdir_p(File.dirname(target_file))
         FileUtils.cp(source_file, target_file)
       end
+    end
+
+    def can_render?(filename, ext)
+      site.renderers.any? { |renderer| renderer.can_render_file?(filename:, extension: ext) }
     end
 
     def process_public_directory(source_path, target_path)
@@ -51,7 +62,12 @@ module Pressa
           ext = File.extname(source_file)[1..]
 
           if renderer.can_render_file?(filename:, extension: ext)
-            relative_path = File.dirname(source_file).sub("#{public_dir}/", '')
+            dir_name = File.dirname(source_file)
+            relative_path = if dir_name == public_dir
+                              ''
+                            else
+                              dir_name.sub("#{public_dir}/", '')
+                            end
             target_dir = File.join(target_path, relative_path)
 
             renderer.render(site:, file_path: source_file, target_dir:)

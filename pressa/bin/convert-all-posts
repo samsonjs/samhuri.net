@@ -1,0 +1,66 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/utils/frontmatter_converter'
+
+source_dir = ARGV[0] || '../posts'
+dry_run = ARGV.include?('--dry-run')
+
+unless Dir.exist?(source_dir)
+  puts "ERROR: Directory not found: #{source_dir}"
+  exit 1
+end
+
+posts = Dir.glob(File.join(source_dir, '**', '*.md')).sort
+
+puts "Found #{posts.length} posts to convert"
+puts "Mode: #{dry_run ? 'DRY RUN (no changes will be made)' : 'CONVERTING FILES'}"
+puts ""
+
+converted = 0
+errors = []
+
+posts.each do |post_path|
+  relative_path = post_path.sub("#{source_dir}/", '')
+
+  begin
+    if dry_run
+      content = File.read(post_path)
+      Pressa::Utils::FrontmatterConverter.convert_content(content)
+      puts "✓ Would convert: #{relative_path}"
+    else
+      Pressa::Utils::FrontmatterConverter.convert_file(post_path)
+      puts "✓ Converted: #{relative_path}"
+    end
+    converted += 1
+  rescue => e
+    errors << {path: relative_path, error: e.message}
+    puts "✗ Error: #{relative_path}"
+    puts "  #{e.message}"
+  end
+end
+
+puts ""
+puts "="  * 60
+puts "CONVERSION SUMMARY"
+puts "=" * 60
+puts ""
+puts "Total posts: #{posts.length}"
+puts "Converted: #{converted}"
+puts "Errors: #{errors.length}"
+puts ""
+
+if errors.any?
+  puts "Posts with errors:"
+  errors.each do |err|
+    puts "  #{err[:path]}"
+    puts "    #{err[:error]}"
+  end
+  puts ""
+end
+
+if dry_run
+  puts "This was a dry run. Run without --dry-run to actually convert files."
+  puts ""
+end
+
+exit(errors.empty? ? 0 : 1)

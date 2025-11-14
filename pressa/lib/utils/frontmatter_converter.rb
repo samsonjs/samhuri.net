@@ -1,7 +1,7 @@
 module Pressa
   module Utils
     class FrontmatterConverter
-      FIELD_PATTERN = /^([A-Z][a-z]+):\s*(.+)$/
+      FIELD_PATTERN = /^([A-Z][A-Za-z\s]+):\s*(.+)$/
 
       def self.convert_file(input_path, output_path = nil)
         content = File.read(input_path)
@@ -40,7 +40,7 @@ module Pressa
           next if line.empty?
 
           if line =~ FIELD_PATTERN
-            field_name = $1
+            field_name = $1.strip
             field_value = $2.strip
 
             fields[field_name] = field_value
@@ -56,12 +56,27 @@ module Pressa
       end
 
       private_class_method def self.format_yaml_field(name, value)
-        needs_quoting = (value.include?(':') && !value.start_with?('http')) ||
+        return "#{name}: #{value}" if name == 'Timestamp'
+
+        if name == 'Tags'
+          tags = value.split(',').map(&:strip)
+          return "#{name}: [#{tags.join(', ')}]"
+        end
+
+        if name == 'Title'
+          escaped_value = value.gsub('\\', '\\\\\\\\').gsub('"', '\\"')
+          return "#{name}: \"#{escaped_value}\""
+        end
+
+        has_special_chars = value.include?('\\') || value.include?('"')
+        needs_quoting = has_special_chars ||
+                        (value.include?(':') && !value.start_with?('http')) ||
                         value.include?(',') ||
                         name == 'Date'
 
         if needs_quoting
-          "#{name}: \"#{value}\""
+          escaped_value = value.gsub('\\', '\\\\\\\\').gsub('"', '\\"')
+          "#{name}: \"#{escaped_value}\""
         else
           "#{name}: #{value}"
         end

@@ -8,8 +8,12 @@ require_relative 'models'
 module Pressa
   module Projects
     class Plugin < Pressa::Plugin
-      def initialize(projects: [])
+      attr_reader :scripts, :styles
+
+      def initialize(projects: [], scripts: [], styles: [])
         @projects = projects
+        @scripts = scripts
+        @styles = styles
       end
 
       def setup(site:, source_path:)
@@ -30,7 +34,7 @@ module Pressa
 
         html = render_layout(
           site:,
-          page_title: "Projects – #{site.title}",
+          page_subtitle: 'Projects',
           canonical_url: site.url_for('/projects/'),
           content: content_view
         )
@@ -44,20 +48,34 @@ module Pressa
 
         html = render_layout(
           site:,
-          page_title: "#{project.title} – #{site.title}",
+          page_subtitle: project.title,
           canonical_url: site.url_for(project.path),
-          content: content_view
+          content: content_view,
+          page_scripts: @scripts,
+          page_styles: @styles,
+          page_description: project.description
         )
 
         file_path = File.join(target_path, 'projects', project.name, 'index.html')
         Utils::FileWriter.write(path: file_path, content: html)
       end
 
-      def render_layout(site:, page_title:, canonical_url:, content:)
+      def render_layout(
+        site:,
+        page_subtitle:,
+        canonical_url:,
+        content:,
+        page_scripts: [],
+        page_styles: [],
+        page_description: nil
+      )
         layout = Views::Layout.new(
           site:,
-          page_title:,
-          canonical_url:
+          page_subtitle:,
+          canonical_url:,
+          page_scripts:,
+          page_styles:,
+          page_description:
         )
 
         layout.call do

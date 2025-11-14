@@ -18,10 +18,10 @@ RSpec.describe Pressa::Utils::FrontmatterConverter do
       output = described_class.convert_content(input)
 
       expect(output).to start_with("---\n")
-      expect(output).to include("Title: Test Post")
+      expect(output).to include("Title: \"Test Post\"")
       expect(output).to include("Author: Sami Samhuri")
       expect(output).to include("Date: \"11th November, 2025\"")
-      expect(output).to include("Timestamp: \"2025-11-11T14:00:00-08:00\"")
+      expect(output).to include("Timestamp: 2025-11-11T14:00:00-08:00")
       expect(output).to end_with("---\n\nThis is the post body.\n")
     end
 
@@ -45,8 +45,8 @@ RSpec.describe Pressa::Utils::FrontmatterConverter do
 
       output = described_class.convert_content(input)
 
-      expect(output).to include("Title: Zelda Tones for iOS")
-      expect(output).to include("Tags: \"zelda, nintendo, pacman, ringtones, tones, ios\"")
+      expect(output).to include("Title: \"Zelda Tones for iOS\"")
+      expect(output).to include("Tags:\n  - zelda\n  - nintendo\n  - pacman\n  - ringtones\n  - tones\n  - ios")
       expect(output).to include("<h2>Zelda</h2>")
     end
 
@@ -67,7 +67,7 @@ RSpec.describe Pressa::Utils::FrontmatterConverter do
       output = described_class.convert_content(input)
 
       expect(output).to include("Link: http://en.wikipedia.org/wiki/Buffalo_buffalo_buffalo_buffalo_buffalo_buffalo_buffalo_buffalo")
-      expect(output).to include("Tags: \"amusement, buffalo\"")
+      expect(output).to include("Tags:\n  - amusement\n  - buffalo")
     end
 
     it 'converts front-matter with Scripts and Styles' do
@@ -105,7 +105,7 @@ RSpec.describe Pressa::Utils::FrontmatterConverter do
       output = described_class.convert_content(input)
 
       expect(output).to include("Date: \"1st January, 2025\"")
-      expect(output).to include("Timestamp: \"2025-01-01T12:00:00-08:00\"")
+      expect(output).to include("Timestamp: 2025-01-01T12:00:00-08:00")
     end
 
     it 'raises error if no front-matter delimiter' do
@@ -165,11 +165,11 @@ RSpec.describe Pressa::Utils::FrontmatterConverter do
 
       yaml = described_class.convert_frontmatter_to_yaml(input)
 
-      expect(yaml).to include("Title: Test Post")
+      expect(yaml).to include("Title: \"Test Post\"")
       expect(yaml).to include("Author: Sami Samhuri")
       expect(yaml).to include("Date: \"11th November, 2025\"")
-      expect(yaml).to include("Timestamp: \"2025-11-11T14:00:00-08:00\"")
-      expect(yaml).to include("Tags: \"Ruby, Testing\"")
+      expect(yaml).to include("Timestamp: 2025-11-11T14:00:00-08:00")
+      expect(yaml).to include("Tags:\n  - Ruby\n  - Testing")
       expect(yaml).to include("Link: https://example.net")
       expect(yaml).to include("Scripts: app.js")
       expect(yaml).to include("Styles: style.css")
@@ -187,8 +187,48 @@ RSpec.describe Pressa::Utils::FrontmatterConverter do
 
       yaml = described_class.convert_frontmatter_to_yaml(input)
 
-      expect(yaml).to include("Title: Test")
+      expect(yaml).to include("Title: \"Test\"")
       expect(yaml).to include("Author: Sami Samhuri")
+    end
+
+    it 'handles multi-word field names' do
+      input = <<~FRONTMATTER
+        Title: About Page
+        Page type: page
+        Show extension: false
+        Date: 1st January, 2025
+        Timestamp: 2025-01-01T12:00:00-08:00
+      FRONTMATTER
+
+      yaml = described_class.convert_frontmatter_to_yaml(input)
+
+      expect(yaml).to include("Page type: page")
+      expect(yaml).to include("Show extension: false")
+    end
+
+    it 'escapes embedded quotes in values' do
+      input = <<~FRONTMATTER
+        Title: The "Swift" Programming Language
+        Date: 1st January, 2025
+        Timestamp: 2025-01-01T12:00:00-08:00
+      FRONTMATTER
+
+      yaml = described_class.convert_frontmatter_to_yaml(input)
+
+      expect(yaml).to include('Title: "The \"Swift\" Programming Language"')
+      expect(yaml).not_to include('Title: "The "Swift" Programming Language"')
+    end
+
+    it 'escapes backslashes in values' do
+      input = <<~FRONTMATTER
+        Title: Paths\\and\\backslashes, oh my
+        Date: 1st January, 2025
+        Timestamp: 2025-01-01T12:00:00-08:00
+      FRONTMATTER
+
+      yaml = described_class.convert_frontmatter_to_yaml(input)
+
+      expect(yaml).to include('Title: "Paths\\\\and\\\\backslashes, oh my"')
     end
   end
 end

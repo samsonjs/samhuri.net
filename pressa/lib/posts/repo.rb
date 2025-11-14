@@ -76,20 +76,22 @@ module Pressa
       def generate_excerpt(markdown)
         text = markdown.dup
 
-        text.gsub!(/!\[.*?\]\([^)]+\)/, '')
+        text.gsub!(/!\[[^\]]*\]\([^)]+\)/, '')
+        text.gsub!(/!\[[^\]]*\]\[[^\]]+\]/, '')
 
-        text.gsub!(/\[(.*?)\]\([^)]+\)/, '\1')
+        text.gsub!(/\[([^\]]+)\]\([^)]+\)/, '\1')
+        text.gsub!(/\[([^\]]+)\]\[[^\]]+\]/, '\1')
+
+        text.gsub!(/(?m)^\[[^\]]+\]:\s*\S.*$/, '')
 
         text.gsub!(/<[^>]+>/, '')
 
         text.gsub!(/\s+/, ' ')
         text.strip!
 
-        if text.length > EXCERPT_LENGTH
-          "#{text[0...EXCERPT_LENGTH]}..."
-        else
-          text
-        end
+        return '...' if text.empty?
+
+        "#{text[0...EXCERPT_LENGTH]}..."
       end
 
       def add_post_to_hierarchy(post)

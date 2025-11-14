@@ -1,5 +1,6 @@
 require 'json'
 require_relative '../utils/file_writer'
+require_relative '../views/feed_post_view'
 
 module Pressa
   module Posts
@@ -14,20 +15,7 @@ module Pressa
       def write_feed(target_path:, limit: 30)
         recent = @posts_by_year.recent_posts(limit)
 
-        feed = {
-          version: FEED_VERSION,
-          title: @site.title,
-          home_page_url: @site.url,
-          feed_url: @site.url_for('/feed.json'),
-          description: @site.description,
-          authors: [
-            {
-              name: @site.author,
-              url: @site.url
-            }
-          ],
-          items: recent.map { |post| feed_item(post) }
-        }
+        feed = build_feed(recent)
 
         json = JSON.pretty_generate(feed)
         file_path = File.join(target_path, 'feed.json')
@@ -36,22 +24,49 @@ module Pressa
 
       private
 
-      def feed_item(post)
-        item = {
-          id: @site.url_for(post.path),
-          url: post.link_post? ? post.link : @site.url_for(post.path),
-          title: post.link_post? ? "→ #{post.title}" : post.title,
-          content_html: post.body,
-          summary: post.excerpt,
-          date_published: post.date.iso8601,
-          authors: [
-            {
-              name: post.author
-            }
-          ]
+      def build_feed(posts)
+        author = {
+          name: @site.author,
+          url: @site.url,
+          avatar: @site.image_url
         }
 
+        items = posts.map { |post| feed_item(post) }
+
+        {
+          icon: icon_url,
+          favicon: favicon_url,
+          items: items,
+          home_page_url: @site.url,
+          author:,
+          version: FEED_VERSION,
+          authors: [author],
+          feed_url: @site.url_for('/feed.json'),
+          language: 'en-CA',
+          title: @site.title
+        }
+      end
+
+      def icon_url
+        @site.url_for('/images/apple-touch-icon-300.png')
+      end
+
+      def favicon_url
+        @site.url_for('/images/apple-touch-icon-80.png')
+      end
+
+      def feed_item(post)
+        content_html = Views::FeedPostView.new(post:, site: @site).call
+        permalink = @site.url_for(post.path)
+
+        item = {}
+        item[:url] = post.link_post? ? post.link : permalink
         item[:tags] = post.tags unless post.tags.empty?
+        item[:content_html] = content_html
+        item[:title] = post.link_post? ? "→ #{post.title}" : post.title
+        item[:author] = { name: post.author }
+        item[:date_published] = post.date.iso8601
+        item[:id] = permalink
 
         item
       end

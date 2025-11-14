@@ -10,7 +10,7 @@ module Pressa
       end
 
       def view_template
-        div(class: "recent-posts") do
+        div(class: 'container') do
           @posts.each do |post|
             render PostView.new(post:, site: @site)
           end
