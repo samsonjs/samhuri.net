@@ -170,7 +170,7 @@ module Pressa
       end
 
       def render_footer
-        footer(class: 'container') do
+        footer do
           plain "© #{START_YEAR} - #{Time.now.year} "
           a(href: site.url_for('/about')) { site.author }
         end
