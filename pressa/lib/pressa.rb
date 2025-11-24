@@ -53,6 +53,7 @@ module Pressa
       styles: [
         Stylesheet.new(href: 'css/normalize.css'),
         Stylesheet.new(href: 'css/style.css'),
+        Stylesheet.new(href: 'css/syntax.css'),
         Stylesheet.new(href: 'css/fontawesome.min.css'),
         Stylesheet.new(href: 'css/brands.min.css'),
         Stylesheet.new(href: 'css/solid.min.css')

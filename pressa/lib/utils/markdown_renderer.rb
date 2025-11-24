@@ -78,7 +78,7 @@ module Pressa
           syntax_highlighter: 'rouge',
           syntax_highlighter_opts: {
             line_numbers: false,
-            wrap: false
+            wrap: true
           }
         ).to_html
       end

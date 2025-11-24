@@ -114,7 +114,7 @@ Kramdown::Document.new(
   syntax_highlighter: 'rouge',
   syntax_highlighter_opts: {
     line_numbers: false,  # Change to true if you want line numbers
-    wrap: false           # Change to true for <div> wrapping
+    wrap: true            # Leave true so Rouge emits <pre><code> blocks
   }
 ).to_html
 ```
