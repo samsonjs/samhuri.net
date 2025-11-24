@@ -1,9 +1,9 @@
 ---
-Title: 5 ways to avoid looking like a jerk on the Internet
+Title: "5 ways to avoid looking like a jerk on the Internet"
 Author: Sami Samhuri
-Date: 30th August, 2007
+Date: "30th August, 2007"
 Timestamp: 2007-08-30T08:25:00-07:00
-Tags: life, netiquette
+Tags: [life, netiquette]
 ---
 
 Let me begin by stating that these are tips I have gathered by posting in many public forums on the Internet and I have learned most of these rules by making the mistakes myself.  I'm not trying to point fingers at anyone or act all holier-than-thou.  It's a cold, emotionless medium text is.  It can be difficult to accurately convey one's feelings when typing a quick reply somewhere.  <a href="http://www.penny-arcade.com/comic/2004/03/19">John Gabriel's theory</a> certainly plays a part as well, but I'll try and assume that you are generally a nice person.  I also assume that we are talking about a text medium (IRC, forums, Slashdot/Reddit/Digg).  None of that fancy voice or video conferencing stuff!

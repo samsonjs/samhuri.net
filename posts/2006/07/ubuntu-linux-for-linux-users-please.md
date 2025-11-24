@@ -1,9 +1,9 @@
 ---
-Title: Ubuntu: Linux for Linux users please
+Title: "Ubuntu: Linux for Linux users please"
 Author: Sami Samhuri
-Date: 13th July, 2006
+Date: "13th July, 2006"
 Timestamp: 2006-07-13T08:34:00-07:00
-Tags: linux, linux, ubuntu
+Tags: [linux, linux, ubuntu]
 ---
 
 <a href="http://www.ubuntu.com/">Ubuntu</a> is a fine Linux distro, which is why it's popular. I still use <a href="http://www.gentoo.org/">Gentoo</a> on my servers but Ubuntu is fast to set up for a desktop. Linux for humans it certainly is, but dammit sometimes I want Linux like I'm used to.

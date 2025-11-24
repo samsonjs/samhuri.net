@@ -1,9 +1,9 @@
 ---
-Title: A Git Pre-commit Hook for iOS
+Title: "A Git Pre-commit Hook for iOS"
 Author: Sami Samhuri
-Date: 4th August, 2016
+Date: "4th August, 2016"
 Timestamp: 2016-08-04T09:38:03-07:00
-Tags: ios, git
+Tags: [ios, git]
 ---
 
 [Krzysztof Zabłocki][kztwitter] wrote [a nice article on using a git pre-commit hook to catch mistakes in iOS projects][link] before you push those mistakes out to the whole team/world. It's a great idea! But the shell script has some problems, so let's fix those.

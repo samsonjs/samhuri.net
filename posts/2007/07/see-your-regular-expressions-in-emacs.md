@@ -1,9 +1,9 @@
 ---
-Title: See your regular expressions in Emacs
+Title: "See your regular expressions in Emacs"
 Author: Sami Samhuri
-Date: 6th July, 2007
+Date: "6th July, 2007"
 Timestamp: 2007-07-06T09:45:00-07:00
-Tags: emacs, regex
+Tags: [emacs, regex]
 ---
 
 First, if you are an Emacs newbie then be sure to read (at least) the introduction of <a href="http://stuff.mit.edu/iap/emacs">Being Productive with Emacs</a>. For some reason the PDF and HTML versions are slightly similar.

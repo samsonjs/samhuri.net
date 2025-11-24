@@ -1,9 +1,9 @@
 ---
-Title: Enumurable#pluck and String#to_proc for Ruby
+Title: "Enumurable#pluck and String#to_proc for Ruby"
 Author: Sami Samhuri
-Date: 10th May, 2007
+Date: "10th May, 2007"
 Timestamp: 2007-05-10T16:14:00-07:00
-Tags: ruby, extensions
+Tags: [ruby, extensions]
 Styles: typocode.css
 ---
 

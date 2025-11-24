@@ -1,9 +1,9 @@
 ---
-Title: Zelda Tones for iOS
+Title: "Zelda Tones for iOS"
 Author: Sami Samhuri
-Date: 6th March, 2013
+Date: "6th March, 2013"
 Timestamp: 2013-03-06T18:51:13-08:00
-Tags: zelda, nintendo, pacman, ringtones, tones, ios
+Tags: [zelda, nintendo, pacman, ringtones, tones, ios]
 ---
 
 <h2>Zelda</h2>

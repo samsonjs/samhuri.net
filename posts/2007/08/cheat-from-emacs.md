@@ -1,9 +1,9 @@
 ---
-Title: Cheat from Emacs
+Title: "Cheat from Emacs"
 Author: Sami Samhuri
-Date: 9th August, 2007
+Date: "9th August, 2007"
 Timestamp: 2007-08-09T18:56:00-07:00
-Tags: Emacs
+Tags: [Emacs]
 ---
 
 *Update: I had inadvertently used <code>string-join</code>, a function provided by something in my ~/.emacs.d. The script has been updated to work with a vanilla Emacs (23, but should work with 22 as well).*

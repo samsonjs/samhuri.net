@@ -1,9 +1,9 @@
 ---
-Title: Obligatory Post about Ruby on Rails
+Title: "Obligatory Post about Ruby on Rails"
 Author: Sami Samhuri
-Date: 20th February, 2006
+Date: "20th February, 2006"
 Timestamp: 2006-02-20T00:31:00-08:00
-Tags: rails, coding, hacking, migration, rails, testing
+Tags: [rails, coding, hacking, migration, rails, testing]
 Styles: typocode.css
 ---
 

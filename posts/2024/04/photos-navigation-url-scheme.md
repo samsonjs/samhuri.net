@@ -1,9 +1,9 @@
 ---
 Author: Sami Samhuri
-Title: Reverse-engineering the photos-navigation URL scheme on iOS
-Date: 18th April, 2024
+Title: "Reverse-engineering the photos-navigation URL scheme on iOS"
+Date: "18th April, 2024"
 Timestamp: 2024-04-18T20:08:02-07:00
-Tags: iOS, Swift, hacking
+Tags: [iOS, Swift, hacking]
 ---
 
 It would be cool to open up the Photos app to a specific asset on iOS, just like the Photo Shuffle lock screen.

@@ -1,9 +1,9 @@
 ---
-Title: Linky
+Title: "Linky"
 Author: Sami Samhuri
-Date: 27th September, 2013
+Date: "27th September, 2013"
 Timestamp: 2013-09-27T21:49:02-07:00
-Tags: linky, north watcher, ruby, gmail, links, notifications
+Tags: [linky, north watcher, ruby, gmail, links, notifications]
 ---
 
 ## Send links from mobile devices to your computers.

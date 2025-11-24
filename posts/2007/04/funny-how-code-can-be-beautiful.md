@@ -1,9 +1,9 @@
 ---
-Title: Funny how code can be beautiful
+Title: "Funny how code can be beautiful"
 Author: Sami Samhuri
-Date: 30th April, 2007
+Date: "30th April, 2007"
 Timestamp: 2007-04-30T07:07:00-07:00
-Tags: haskell
+Tags: [haskell]
 ---
 
 While reading a <a href="http://www.haskell.org/tutorial/index.html">Haskell tutorial</a> I came across the following code for defining the <a href="http://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci numbers</a>:

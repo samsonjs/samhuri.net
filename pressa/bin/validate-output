@@ -3,9 +3,17 @@
 require 'optparse'
 require 'fileutils'
 require 'digest'
+require 'json'
+require 'nokogiri'
+
+begin
+  require 'htmlbeautifier'
+rescue LoadError
+  # Optional dependency used only for nicer diffs.
+end
 
 class OutputValidator
-  def initialize(swift_dir:, ruby_dir:, verbose:, ignore_patterns:, show_details:)
+  def initialize(swift_dir:, ruby_dir:, verbose:, ignore_patterns:, show_details:, dump_dir:)
     @swift_dir = swift_dir
     @ruby_dir = ruby_dir
     @differences = []
@@ -15,6 +23,8 @@ class OutputValidator
     @verbose = verbose
     @ignore_patterns = ignore_patterns
     @show_details = show_details
+    @dump_dir = dump_dir
+    prepare_dump_dirs if @dump_dir
   end
 
   def validate
@@ -66,8 +76,9 @@ class OutputValidator
       swift_content = File.binread(swift_path)
       ruby_content = File.binread(ruby_path)
     else
-      swift_content = normalize_html(File.read(swift_path))
-      ruby_content = normalize_html(File.read(ruby_path))
+      swift_content = normalize_content(relative_path, File.read(swift_path))
+      ruby_content = normalize_content(relative_path, File.read(ruby_path))
+      dump_normalized(relative_path, swift_content, ruby_content) if @dump_dir
     end
 
     if swift_content == ruby_content
@@ -85,6 +96,22 @@ class OutputValidator
     end
   end
 
+  def prepare_dump_dirs
+    FileUtils.rm_rf(@dump_dir)
+    FileUtils.mkdir_p(File.join(@dump_dir, 'swift'))
+    FileUtils.mkdir_p(File.join(@dump_dir, 'ruby'))
+  end
+
+  def dump_normalized(relative_path, swift_content, ruby_content)
+    write_normalized(File.join(@dump_dir, 'swift', relative_path), swift_content)
+    write_normalized(File.join(@dump_dir, 'ruby', relative_path), ruby_content)
+  end
+
+  def write_normalized(path, content)
+    FileUtils.mkdir_p(File.dirname(path))
+    File.write(path, content)
+  end
+
   def ignored?(path)
     return false if @ignore_patterns.empty?
 
@@ -96,12 +123,64 @@ class OutputValidator
     %w[.png .jpg .jpeg .gif .svg .ico .woff .woff2 .ttf .eot].include?(ext)
   end
 
-  def normalize_html(content)
-    content
-      .gsub(/\s+/, ' ')
-      .gsub(/>\s+</, '><')
-      .gsub(/<lastBuildDate>.*?<\/lastBuildDate>/, '')
-      .strip
+  def normalize_content(path, content)
+    normalized = case File.extname(path).downcase
+                 when '.html', '.htm'
+                   normalize_html_dom(content)
+                 when '.xml'
+                   normalize_xml_dom(content)
+                 when '.json'
+                   normalize_json(content)
+                 else
+                   normalize_text(content)
+                 end
+
+    strip_dynamic_values(normalized)
+  end
+
+  def normalize_html_dom(content)
+    doc = Nokogiri::HTML5(content)
+    html = doc.to_html
+    if defined?(HtmlBeautifier) && HtmlBeautifier.respond_to?(:beautify)
+      html = HtmlBeautifier.beautify(html)
+    end
+    html
+  rescue StandardError
+    normalize_text(content)
+  end
+
+  def normalize_xml_dom(content)
+    doc = Nokogiri::XML(content) { |cfg| cfg.noblanks }
+    doc.to_xml(indent: 2)
+  rescue StandardError
+    normalize_text(content)
+  end
+
+  def normalize_json(content)
+    JSON.pretty_generate(JSON.parse(content))
+  rescue StandardError
+    normalize_text(content)
+  end
+
+  def normalize_text(content)
+    content.gsub(/\s+/, ' ').gsub(/>\s+</, '><').strip
+  end
+
+  def strip_dynamic_values(content)
+    content.gsub(/<lastBuildDate>.*?<\/lastBuildDate>/, '')
+  end
+
+  # Legacy helper retained for backwards compatibility if needed elsewhere.
+  def html_save_options
+    Nokogiri::XML::Node::SaveOptions::AS_XHTML |
+      Nokogiri::XML::Node::SaveOptions::NO_DECLARATION |
+      Nokogiri::XML::Node::SaveOptions::FORMAT
+  end
+
+  def xml_save_options
+    Nokogiri::XML::Node::SaveOptions::AS_XML |
+      Nokogiri::XML::Node::SaveOptions::NO_DECLARATION |
+      Nokogiri::XML::Node::SaveOptions::FORMAT
   end
 
   def print_summary
@@ -151,7 +230,8 @@ end
 options = {
   verbose: false,
   ignore_patterns: [],
-  show_details: false
+  show_details: false,
+  dump_dir: nil
 }
 
 parser = OptionParser.new do |opts|
@@ -167,6 +247,10 @@ parser = OptionParser.new do |opts|
 
   opts.on('--details', 'Include byte counts and hashes for differing files') do
     options[:show_details] = true
+  end
+
+  opts.on('--dump-normalized=DIR', 'Write normalized Swift/Ruby files to DIR/{swift,ruby}') do |dir|
+    options[:dump_dir] = dir
   end
 end
 
@@ -195,6 +279,7 @@ validator = OutputValidator.new(
   ruby_dir: ruby_dir,
   verbose: options[:verbose],
   ignore_patterns: options[:ignore_patterns],
-  show_details: options[:show_details]
+  show_details: options[:show_details],
+  dump_dir: options[:dump_dir]
 )
 validator.validate

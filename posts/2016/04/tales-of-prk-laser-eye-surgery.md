@@ -1,9 +1,8 @@
 ---
-Title: Tales of PRK Laser Eye Surgery
+Title: "Tales of PRK Laser Eye Surgery"
 Author: Sami Samhuri
-Date: 12th April, 2016
+Date: "12th April, 2016"
 Timestamp: 2016-04-11T20:52:53-07:00
-Tags:
 ---
 
 Today I scheduled PRK laser eye surgery on April 19th. Exciting but also kind of terrifying because the procedure sounds a bit horrific. Most accounts from people don't sound very bad though so the operation itself should be a breeze! I scoured the web for PRK recovery stories to get an idea of what I was in for and found some good quotes.

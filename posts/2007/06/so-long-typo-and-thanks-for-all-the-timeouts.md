@@ -1,9 +1,9 @@
 ---
-Title: so long typo (and thanks for all the timeouts)
+Title: "so long typo (and thanks for all the timeouts)"
 Author: Sami Samhuri
-Date: 8th June, 2007
+Date: "8th June, 2007"
 Timestamp: 2007-06-08T18:01:00-07:00
-Tags: mephisto, typo
+Tags: [mephisto, typo]
 ---
 
 Well for just over a year Typo ran the show. I thought I had worked out most of the kinks with Typo and Dreamhost but the latest problem I ran into was pretty major. I couldn't post new articles. If the stars aligned perfectly and I sacrificed baby animals and virgins, every now and then I could get it to work. Ok, all I really had to do was refresh several dozen times, waiting 1 minute for it to timeout every time, but it sucked nonetheless.

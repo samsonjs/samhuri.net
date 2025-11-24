@@ -1,9 +1,9 @@
 ---
-Title: Inspirado
+Title: "Inspirado"
 Author: Sami Samhuri
-Date: 22nd May, 2007
+Date: "22nd May, 2007"
 Timestamp: 2007-05-22T13:23:00-07:00
-Tags: rails, inspirado
+Tags: [rails, inspirado]
 ---
 
 <a href="http://spyderous.livejournal.com/">spyderous</a> is a Gentoo dev and I read his posts via the <a href="http://planet.gentoo.org/">Gentoo planet</a> (and again on the <a href="http://planet.freedesktop.org/">freedesktop.org planet</a>).

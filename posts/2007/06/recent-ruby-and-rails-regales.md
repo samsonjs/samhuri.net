@@ -1,9 +1,9 @@
 ---
-Title: Recent Ruby and Rails Regales
+Title: "Recent Ruby and Rails Regales"
 Author: Sami Samhuri
-Date: 28th June, 2007
+Date: "28th June, 2007"
 Timestamp: 2007-06-28T12:23:00-07:00
-Tags: rails, rails on rules, regular expressions, ruby, sake, secure associations, regex
+Tags: [rails, rails on rules, regular expressions, ruby, sake, secure associations, regex]
 ---
 
 Some cool Ruby and [the former on] Rails things are springing up and I haven't written much about the two Rs lately, though I work with them daily.

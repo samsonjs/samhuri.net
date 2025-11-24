@@ -1,9 +1,9 @@
 ---
-Title: Quickly inserting millions of rows with MySQL/InnoDB
+Title: "Quickly inserting millions of rows with MySQL/InnoDB"
 Author: Sami Samhuri
-Date: 26th April, 2007
+Date: "26th April, 2007"
 Timestamp: 2007-04-26T07:06:00-07:00
-Tags: linux, mysql
+Tags: [linux, mysql]
 ---
 
 The absolute first thing you should do is check your MySQL configuration to make sure it’s sane for the system you’re using. I kept getting a ‘The table is too large’ error on my Gentoo box after inserting several million rows because the default config limits the InnoDB tablespace size to 128M. It was also tuned for a box with as little as 64M of RAM. That’s cool for a small VPS or your old Pentium in the corner collecting dust. For a modern server, workstation, or even notebook with gigs of RAM you’ll likely want to make some changes.

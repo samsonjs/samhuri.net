@@ -1,9 +1,9 @@
 ---
-Title: Working with C-style structs in Ruby
+Title: "Working with C-style structs in Ruby"
 Author: Sami Samhuri
-Date: 17th January, 2010
+Date: "17th January, 2010"
 Timestamp: 2010-01-17T00:00:00-08:00
-Tags: ruby, cstruct, compiler
+Tags: [ruby, cstruct, compiler]
 ---
 
 This is the beginning of a series on generating Mach-O object files in

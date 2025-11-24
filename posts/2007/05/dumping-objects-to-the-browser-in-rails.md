@@ -1,9 +1,9 @@
 ---
-Title: Dumping Objects to the Browser in Rails
+Title: "Dumping Objects to the Browser in Rails"
 Author: Sami Samhuri
-Date: 15th May, 2007
+Date: "15th May, 2007"
 Timestamp: 2007-05-15T13:38:00-07:00
-Tags: rails
+Tags: [rails]
 Styles: typocode.css
 ---
 

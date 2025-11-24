@@ -1,9 +1,9 @@
 ---
-Title: Opera is pretty slick
+Title: "Opera is pretty slick"
 Author: Sami Samhuri
-Date: 11th August, 2007
+Date: "11th August, 2007"
 Timestamp: 2007-08-11T05:11:00-07:00
-Tags: browsers, firefox, opera
+Tags: [browsers, firefox, opera]
 ---
 
 Though I usually prefer free software, I don't have any problems using proprietary stuff if I think it's good.  I had Firefox open for a couple of days and noticed that it was using 700M of memory.  That's not a problem at all since I have 4G but it's also a lot of RAM to be in use for just one window with one tab open.  The fact that Firefox gets sluggish after some time and needs to be restarted tells me that this isn't expected behaviour and is likely not due to caching for quick back/forward or whatever they claim is taking up the leaked memory.

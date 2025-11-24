@@ -1,9 +1,9 @@
 ---
-Title: Embrace the database
+Title: "Embrace the database"
 Author: Sami Samhuri
-Date: 22nd June, 2007
+Date: "22nd June, 2007"
 Timestamp: 2007-06-22T03:14:00-07:00
-Tags: activerecord, rails, ruby
+Tags: [activerecord, rails, ruby]
 ---
 
 If you drink the Rails koolaid you may have read the notorious <a href="http://www.loudthinking.com/arc/2005_09.html">single layer of cleverness</a> post by <a href="http://www.loudthinking.com/">DHH</a>.  <em>[5th post on the archive page]</em> In a nutshell he states that it's better to have a single point of cleverness when it comes to business logic.  The reasons for this include staying agile, staying in Ruby all the time, and being able to switch the back-end DB at any time.  Put the logic in ActiveRecord and use the DB as a dumb data store, that is the Rails way.  It's simple. It works. You don't need to be a DBA to be a Rails developer.

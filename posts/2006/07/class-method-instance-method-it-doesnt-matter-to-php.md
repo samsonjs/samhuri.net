@@ -1,9 +1,9 @@
 ---
-Title: Class method? Instance method? It doesn't matter to PHP
+Title: "Class method? Instance method? It doesn't matter to PHP"
 Author: Sami Samhuri
-Date: 21st July, 2006
+Date: "21st July, 2006"
 Timestamp: 2006-07-21T07:56:00-07:00
-Tags: php, coding
+Tags: [php, coding]
 ---
 
 *Update: This has <a href="http://www.php.net/~derick/meeting-notes.html#method-calls">been discussed</a> for PHP6. A little late, but I guess better than never.*

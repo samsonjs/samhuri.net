@@ -1,9 +1,9 @@
 ---
-Title: Gtkpod in Gutsy Got You Groaning?
+Title: "Gtkpod in Gutsy Got You Groaning?"
 Author: Sami Samhuri
-Date: 29th October, 2007
+Date: "29th October, 2007"
 Timestamp: 2007-10-29T14:14:00-07:00
-Tags: broken, gtkpod, linux, ubuntu
+Tags: [broken, gtkpod, linux, ubuntu]
 ---
 
 I recently upgraded the <a href="http://www.ubuntu.com/">Ubuntu</a> installation on my workstation from Feisty Fawn to Gutsy Gibbon and for the most part I am happy with the changes.  One thing I don't care much for is the fact that gtkpod-aac is a sham.  Ubuntu provides the gtkpod-aac package for one to transfer aac files, and thus mp4 files with aac audio tracks, to their iPod.  The version in the Gutsy repos is broken.  This shows a weakness in Ubuntu, and though it's rather small it is one that will piss off a lot of people who expect things to just work.  The kind of people who would buy an iPod.  The kind of people who use Linux.  The kind of Linux users that use Ubuntu.  The kicker is that <a href="https://bugs.launchpad.net/ubuntu/+source/gtkpod-aac/+bug/135178/comments/6">it doesn't look like</a> they will ship a working version of gtkpod-aac for Gutsy at all.  I know it's only 6 months but that seems like an eternity when you have the same old crap to watch on your iPod for that long.

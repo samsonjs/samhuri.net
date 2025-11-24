@@ -1,9 +1,9 @@
 ---
-Title: A TextMate tip for Emacs users
+Title: "A TextMate tip for Emacs users"
 Author: Sami Samhuri
-Date: 3rd July, 2007
+Date: "3rd July, 2007"
 Timestamp: 2007-07-03T09:45:00-07:00
-Tags: emacs, keyboard shortcuts, textmate
+Tags: [emacs, keyboard shortcuts, textmate]
 ---
 
 *Update: The only place I've seen this mentioned is in a <a href="http://macromates.com/blog/2005/screencast/#comment-660">comment</a> on the MacroMates blog.*

@@ -1,9 +1,9 @@
 ---
-Title: Back on Gentoo, trying new things
+Title: "Back on Gentoo, trying new things"
 Author: Sami Samhuri
-Date: 18th June, 2007
+Date: "18th June, 2007"
 Timestamp: 2007-06-18T18:05:00-07:00
-Tags: emacs, gentoo, linux, vim
+Tags: [emacs, gentoo, linux, vim]
 ---
 
 I started using my Gentoo box for development again and there are a few things about Linux I didn't realize I had been missing.

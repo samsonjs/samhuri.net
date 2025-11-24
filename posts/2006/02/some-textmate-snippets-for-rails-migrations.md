@@ -1,9 +1,9 @@
 ---
-Title: Some TextMate snippets for Rails Migrations
+Title: "Some TextMate snippets for Rails Migrations"
 Author: Sami Samhuri
-Date: 18th February, 2006
+Date: "18th February, 2006"
 Timestamp: 2006-02-18T22:48:00-08:00
-Tags: textmate, rails, hacking, rails, snippets, textmate
+Tags: [textmate, rails, hacking, rails, snippets, textmate]
 ---
 
 My arsenal of snippets and macros in TextMate is building as I read through the rails canon, <a href="http://www.pragmaticprogrammer.com/titles/rails/" title="Agile Web Development With Rails">Agile Web Development...</a> I'm only 150 pages in so I haven't had to add much so far because I started with the bundle found on the <a href="http://wiki.rubyonrails.org/rails/pages/TextMate">rails wiki</a>. The main ones so far are for migrations.

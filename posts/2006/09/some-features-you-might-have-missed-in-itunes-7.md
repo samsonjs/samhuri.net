@@ -1,9 +1,9 @@
 ---
-Title: Some features you might have missed in iTunes 7
+Title: "Some features you might have missed in iTunes 7"
 Author: Sami Samhuri
-Date: 22nd September, 2006
+Date: "22nd September, 2006"
 Timestamp: 2006-09-22T16:59:00-07:00
-Tags: apple, apple, itunes
+Tags: [apple, apple, itunes]
 ---
 
 Besides the <a href="http://www.tuaw.com/2006/09/12/walkthrough-itunes-7s-big-new-features/">big changes</a> in <a href="http://www.apple.com/itunes">iTunes 7</a> there have been some minor changes that are still pretty useful.

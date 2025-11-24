@@ -1,9 +1,9 @@
 ---
-Title: Thoughts on Arc
+Title: "Thoughts on Arc"
 Author: Sami Samhuri
-Date: 19th February, 2008
+Date: "19th February, 2008"
 Timestamp: 2008-02-19T03:26:00-08:00
-Tags: lisp arc
+Tags: [lisp arc]
 ---
 
 *NB: This is just a braindump.  There's nothing profound or particularly insightful in this post.*

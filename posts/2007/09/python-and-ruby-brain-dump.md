@@ -1,9 +1,9 @@
 ---
-Title: Python and Ruby brain dump
+Title: "Python and Ruby brain dump"
 Author: Sami Samhuri
-Date: 26th September, 2007
+Date: "26th September, 2007"
 Timestamp: 2007-09-26T03:34:00-07:00
-Tags: python, ruby
+Tags: [python, ruby]
 ---
 
 It turns out that <a href="http://dev.laptop.org/git?p=security;a=blob;f=bitfrost.txt">Python is the language of choice on the OLPC</a>, both for implementing applications and exposing to the users.  There is a view source key available.  I think Python is a great choice.

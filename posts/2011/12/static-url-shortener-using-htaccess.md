@@ -1,9 +1,9 @@
 ---
-Title: A Static URL Shortener Using .htaccess
+Title: "A Static URL Shortener Using .htaccess"
 Author: Sami Samhuri
-Date: 10th December, 2011
+Date: "10th December, 2011"
 Timestamp: 2011-12-10T22:29:09-08:00
-Tags: s42.ca, url, shortener, samhuri.net, url shortener
+Tags: [s42.ca, url, shortener, samhuri.net, url shortener]
 ---
 
 This blog is statically generated. A few Ruby and Node.js scripts along with a Makefile and some duct tape hold it all together. All of [samhuri.net is on Github][GH] if you want to take a look. Most of it is quite minimal, sometimes to a fault. Little improvements are made here and there and the most recent one is a neat [.htaccess][htaccess-wiki] hack. I want to automatically announce new posts on Twitter so short URLs are in order.

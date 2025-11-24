@@ -1,9 +1,9 @@
 ---
-Title: Emacs: tagify-region-or-insert-tag
+Title: "Emacs: tagify-region-or-insert-tag"
 Author: Sami Samhuri
-Date: 25th June, 2007
+Date: "25th June, 2007"
 Timestamp: 2007-06-25T15:13:00-07:00
-Tags: emacs, tagify
+Tags: [emacs, tagify]
 ---
 
 After <a href="/posts/2007/06/rtfm">axing</a> half of <a href="/posts/2007/06/emacs-for-textmate-junkies">wrap-region.el</a> I renamed it to <a href="/f/tagify.el">tagify.el</a> and improved it ever so slightly. It's leaner, and does more!

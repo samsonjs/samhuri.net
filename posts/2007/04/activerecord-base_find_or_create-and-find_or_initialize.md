@@ -1,9 +1,9 @@
 ---
-Title: ActiveRecord::Base.find_or_create and find_or_initialize
+Title: "ActiveRecord::Base.find_or_create and find_or_initialize"
 Author: Sami Samhuri
-Date: 11th April, 2007
+Date: "11th April, 2007"
 Timestamp: 2007-04-11T03:24:00-07:00
-Tags: activerecord, coding, rails, ruby
+Tags: [activerecord, coding, rails, ruby]
 ---
 
 I've extended ActiveRecord with `find_or_create(params)` and `find_or_initialize(params)`. Those are actually just wrappers around `find_or_do(action, params)` which does the heavy lifting.

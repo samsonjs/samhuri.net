@@ -1,9 +1,9 @@
 ---
-Title: people
+Title: "people"
 Author: Sami Samhuri
-Date: 12th July, 2007
+Date: "12th July, 2007"
 Timestamp: 2007-07-12T05:28:00-07:00
-Tags: life, people
+Tags: [life, people]
 ---
 
 Sometimes this is difficult to remember for someone who (likes to think that he) thinks somewhat logically.

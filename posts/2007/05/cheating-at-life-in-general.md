@@ -1,9 +1,9 @@
 ---
-Title: Cheating at Life in General
+Title: "Cheating at Life in General"
 Author: Sami Samhuri
-Date: 16th May, 2007
+Date: "16th May, 2007"
 Timestamp: 2007-05-16T02:46:00-07:00
-Tags: cheat, vim, emacs, textmate
+Tags: [cheat, vim, emacs, textmate]
 ---
 
 *NB: My definition of life is slightly skewed by my being somewhat of a geek*

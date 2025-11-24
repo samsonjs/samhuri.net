@@ -1,9 +1,9 @@
 ---
-Title: A Scheme parser in Haskell: Part 1
+Title: "A Scheme parser in Haskell: Part 1"
 Author: Sami Samhuri
-Date: 3rd May, 2007
+Date: "3rd May, 2007"
 Timestamp: 2007-05-03T00:47:50-07:00
-Tags: coding, haskell
+Tags: [coding, haskell]
 ---
 
 From <a href="http://halogen.note.amherst.edu/~jdtang/scheme_in_48/tutorial/firststeps.html">Write Yourself a Scheme in 48 hours</a>:

@@ -1,9 +1,9 @@
 ---
-Title: SJ's Rails Bundle 0.2 for TextMate
+Title: "SJ's Rails Bundle 0.2 for TextMate"
 Author: Sami Samhuri
-Date: 23rd February, 2006
+Date: "23rd February, 2006"
 Timestamp: 2006-02-23T17:18:00-08:00
-Tags: textmate, rails, coding, bundle, macros, rails, snippets, textmate
+Tags: [textmate, rails, coding, bundle, macros, rails, snippets, textmate]
 Styles: typocode.css
 ---
 
