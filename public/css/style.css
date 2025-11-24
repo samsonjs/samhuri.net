@@ -247,7 +247,7 @@ header.primary nav ul li.github i.fa-github {
 }
 
 footer {
-    padding: 1rem 0;
+    padding: 0 env(safe-area-inset-right) 2rem env(safe-area-inset-left);
     text-align: center;
     color: #6f6f6f;
     font-family: "Helvetica Neue", "Verdana", "Roboto", sans-serif;

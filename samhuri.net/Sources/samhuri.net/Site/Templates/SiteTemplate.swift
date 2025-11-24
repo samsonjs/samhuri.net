@@ -79,7 +79,7 @@ enum Template {
 
                 body,
 
-                .footer(.class("container"),
+                .footer(
                     "© 2006 - \(context.currentYear)",
                     .a(.href(context.url(for: "about")), .text(context.site.author))
                 ),
