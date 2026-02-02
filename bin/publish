@@ -3,8 +3,8 @@
 # exit on errors
 set -e
 
-PUBLISH_HOST="samhuri.net"
-PUBLISH_DIR="samhuri.net/public"
+PUBLISH_HOST="mudge"
+PUBLISH_DIR="/var/www/samhuri.net/public"
 ECHO=0
 RSYNC_OPTS=""
 
@@ -14,7 +14,7 @@ while [[ $# > 0 ]]; do
   case "$ARG" in
 
     -b|--beta)
-      PUBLISH_DIR="beta.samhuri.net"
+      PUBLISH_DIR="/var/www/beta.samhuri.net/public"
       shift
       ;;
 
