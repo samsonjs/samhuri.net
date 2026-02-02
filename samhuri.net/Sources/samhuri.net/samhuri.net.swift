@@ -26,20 +26,17 @@ public extension samhuri {
                     "store.js",
                     "projects.js",
                 ], styles: []))
+                .add("samhuri.net", description: "this site")
                 .add("bin", description: "my collection of scripts in ~/bin")
                 .add("config", description: "important dot files (zsh, emacs, vim, screen)")
                 .add("compiler", description: "a compiler targeting x86 in Ruby")
                 .add("lake", description: "a simple implementation of Scheme in C")
+                .add("AsyncMonitor", description: "easily monitor async sequences using Swift concurrency")
+                .add("NotificationSmuggler", description: "embed strongly-typed values in notifications on Apple platforms")
                 .add("strftime", description: "strftime for JavaScript")
                 .add("format", description: "printf for JavaScript")
                 .add("gitter", description: "a GitHub client for Node (v3 API)")
-                .add("mojo.el", description: "turn emacs into a sweet mojo editor")
-                .add("ThePusher", description: "Github post-receive hook router")
-                .add("NorthWatcher", description: "cron for filesystem changes")
-                .add("repl-edit", description: "edit Node repl commands with your text editor")
                 .add("cheat.el", description: "cheat from emacs")
-                .add("batteries", description: "a general purpose node library")
-                .add("samhuri.net", description: "this site")
                 .build()
 
             let postsPlugin = PostsPlugin.Builder(renderer: renderer)
