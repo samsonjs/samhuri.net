@@ -10,11 +10,6 @@ mudge:
 	bin/build-gensite
 	bin/gensite . www http://mudge:8000
 
-ocean:
-	@echo
-	bin/build-gensite
-	bin/gensite . www https://ocean.samhuri.net
-
 beta: clean_blog
 	@echo
 	bin/build-gensite
@@ -53,4 +48,4 @@ serve:
 watch:
 	bin/watch
 
-.PHONY: debug ocean beta release publish publish_beta clean clean_blog clean_swift serve watch
+.PHONY: debug beta release publish publish_beta clean clean_blog clean_swift serve watch
