@@ -23,7 +23,7 @@ extension Node where Context == HTML.BodyContext {
             ),
 
             .div(.class("row clearfix"),
-                .p(.class("fin"), .i(.class("fa fa-code")))
+                .p(.class("fin"), Icons.code())
             )
         ])
     }

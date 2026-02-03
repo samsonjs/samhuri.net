@@ -61,13 +61,11 @@ Have a look at my [work history](/cv).
 
 ## So meta
 
-This site is lovingly hand-crafted, tag by tag, and pixel by pixel. It adheres to and embraces modern web standards. It is authored in [Markdown][], HTML, CSS, and JavaScript, and then it's all compiled with [some custom code][samhuri.net] before [Apache][] serves it up. The header and body font, [Museo Sans][], is provided by [TypeKit][].
+This site is lovingly hand-crafted, tag by tag, and pixel by pixel. It adheres to and embraces modern web standards. It is authored in [Markdown][], HTML, CSS, and JavaScript, and then it's all compiled with [some custom code][samhuri.net] before [Caddy][] serves it up.
 
-Oh, and a shout out to [Font Awesome][fa] for being awesome. <i class="fa fa-thumbs-up" style="color: #ccc"></i>
+Oh, and a shout out to [Font Awesome][fa] for being awesome. <svg class="icon icon-thumbs-up" viewBox="0 0 512 512" aria-hidden="true" focusable="false" style="color: #ccc"><path transform="translate(0,448) scale(1,-1)" d="M104 224c13.2549 0 24 -10.7451 24 -24v-240c0 -13.2549 -10.7451 -24 -24 -24h-80c-13.2549 0 -24 10.7451 -24 24v240c0 13.2549 10.7451 24 24 24h80zM64 -24c13.2549 0 24 10.7451 24 24s-10.7451 24 -24 24s-24 -10.7451 -24 -24s10.7451 -24 24 -24zM384 366.548 c0 -42.416 -25.9697 -66.208 -33.2773 -94.5479h101.724c33.3965 0 59.3965 -27.7461 59.5527 -58.0977c0.0839844 -17.9385 -7.5459 -37.249 -19.4395 -49.1973l-0.109375 -0.110352c9.83594 -23.3369 8.23633 -56.0371 -9.30859 -79.4688 c8.68164 -25.8945 -0.0683594 -57.7041 -16.3818 -74.7568c4.29785 -17.5977 2.24414 -32.5752 -6.14746 -44.6318c-20.4102 -29.3242 -70.9961 -29.7373 -113.773 -29.7373l-2.84473 0.000976562c-48.2871 0.0166016 -87.8057 17.5977 -119.561 31.7246 c-15.957 7.09961 -36.8203 15.8877 -52.6504 16.1787c-6.54004 0.120117 -11.7832 5.45703 -11.7832 11.998v213.77c0 3.2002 1.28223 6.27148 3.55762 8.52148c39.6143 39.1436 56.6484 80.5869 89.1172 113.11c14.8037 14.832 20.1885 37.2363 25.3936 58.9023 c4.44629 18.501 13.749 57.7939 33.9316 57.7939c24 0 72 -8 72 -81.4521z"/></svg>
 
 [Markdown]: http://daringfireball.net/projects/markdown/
 [samhuri.net]: https://github.com/samsonjs/samhuri.net
-[Apache]: http://apache.org
-[Museo Sans]: http://www.exljbris.com/museosans.html
-[TypeKit]: https://typekit.com/fonts
+[Caddy]: https://caddyserver.com
 [fa]: http://fontawesome.io

@@ -103,8 +103,8 @@ img {
 body {
     background-color: #f7f7f7;
     color: #222;
-    font-family: "museo-sans", "Helvetica Neue", "Verdana", "Roboto", sans-serif;
-    font-display: swap;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial,
+        sans-serif;
     padding-bottom: env(safe-area-inset-bottom);
 }
 
@@ -156,8 +156,8 @@ header.primary h4 {
     margin: 0;
     padding: 0;
     word-wrap: break-word;
-    font-family: "museo-sans", "Helvetica Neue", "Verdana", "Roboto", sans-serif;
-    font-display: swap;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial,
+        sans-serif;
     font-weight: normal;
 }
 
@@ -229,20 +229,29 @@ header.primary nav ul li:last-child {
     padding-right: 0;
 }
 
-header.primary nav ul li i.fa {
-    font-size: 1.4rem;
-    padding: 0.2rem;
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+    vertical-align: -0.125em;
 }
 
-header.primary nav ul li.rss i.fa-rss {
+header.primary nav ul li .icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    padding: 0.15rem;
+}
+
+header.primary nav ul li.rss .icon {
     color: #e66b19;
 }
 
-header.primary nav ul li.mastodon i.fa-mastodon {
+header.primary nav ul li.mastodon .icon {
     color: #5e4fe5;
 }
 
-header.primary nav ul li.github i.fa-github {
+header.primary nav ul li.github .icon {
     color: #4183c4;
 }
 
@@ -438,6 +447,11 @@ p.fin {
     text-align: center;
     color: #c4c4c4;
     margin: 1rem 0;
+}
+
+p.fin .icon {
+    width: 1.4rem;
+    height: 1.4rem;
 }
 
 blockquote {

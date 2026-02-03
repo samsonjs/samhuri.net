@@ -42,8 +42,6 @@ enum Template {
             .meta(.name("msapplication-config"), .content(context.imageURL("browserconfig.xml").absoluteString)),
             .meta(.name("theme-color"), .content("#121212")), // matches header
             .meta(.name("viewport"), .content("width=device-width, initial-scale=1.0, viewport-fit=cover")),
-            .link(.rel(.dnsPrefetch), .href("https://use.typekit.net")),
-            .link(.rel(.dnsPrefetch), .href("https://netdna.bootstrapcdn.com")),
             .link(.rel(.dnsPrefetch), .href("https://gist.github.com")),
             .group(context.styles.map { url in
                     .link(.rel(.stylesheet), .type("text/css"), .href(url))
@@ -62,9 +60,28 @@ enum Template {
                     ),
                     .nav(.class("remote"),
                         .ul(
-                            .li(.class("mastodon"), .a(.attribute(named: "rel", value: "me"), .href("https://techhub.social/@sjs"), .i(.class("fab fa-mastodon")))),
-                            .li(.class("github"), .a(.href("https://github.com/samsonjs"), .i(.class("fab fa-github")))),
-                            .li(.class("rss"), .a(.href(context.url(for: "feed.xml")), .i(.class("fa fa-rss"))))
+                            .li(.class("mastodon"),
+                                .a(
+                                    .attribute(named: "rel", value: "me"),
+                                    .attribute(named: "aria-label", value: "Mastodon"),
+                                    .href("https://techhub.social/@sjs"),
+                                    Icons.mastodon()
+                                )
+                            ),
+                            .li(.class("github"),
+                                .a(
+                                    .attribute(named: "aria-label", value: "GitHub"),
+                                    .href("https://github.com/samsonjs"),
+                                    Icons.github()
+                                )
+                            ),
+                            .li(.class("rss"),
+                                .a(
+                                    .attribute(named: "aria-label", value: "RSS"),
+                                    .href(context.url(for: "feed.xml")),
+                                    Icons.rss()
+                                )
+                            )
                         )
                     ),
                     .nav(.class("local"),
@@ -86,9 +103,7 @@ enum Template {
 
                 .group(context.scripts.map { script in
                     .script(.attribute(named: "defer"), .src(script))
-                }),
-                .script(.src("https://use.typekit.net/tcm1whv.js"), .attribute(named: "crossorigin", value: "anonymous")),
-                .script("try{Typekit.load({ async: true });}catch(e){}")
+                })
             )
         )
     }
