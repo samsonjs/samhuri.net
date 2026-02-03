@@ -103,7 +103,8 @@ img {
 body {
     background-color: #f7f7f7;
     color: #222;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial,
+    font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial,
         sans-serif;
     padding-bottom: env(safe-area-inset-bottom);
 }
@@ -156,7 +157,8 @@ header.primary h4 {
     margin: 0;
     padding: 0;
     word-wrap: break-word;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial,
+    font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial,
         sans-serif;
     font-weight: normal;
 }
@@ -206,7 +208,7 @@ header.primary nav.remote {
 
 header.primary nav a,
 header.primary nav a:visited {
-    color: #ce0000;
+    color: #ee0000;
 }
 
 header.primary nav ul {
@@ -274,11 +276,11 @@ footer a:visited {
     }
 
     a {
-        color: #b30000;
+        color: #e30000;
     }
 
     a:visited {
-        color: #900;
+        color: #d00;
     }
 
     hr {
@@ -311,7 +313,7 @@ footer a:visited {
 
     header.primary nav a,
     header.primary nav a:visited {
-        color: #cc0000;
+        color: #e30000;
     }
 
     footer {
@@ -485,7 +487,8 @@ pre {
 
 code,
 pre {
-    font-family: "Fira Code", "JetBrains Mono", "Meslo LG M", "Inconsolata", "Menlo", "Courier New",
+    font-family:
+        "Fira Code", "JetBrains Mono", "Meslo LG M", "Inconsolata", "Menlo", "Courier New",
         monospace;
 }
 
@@ -520,6 +523,7 @@ pre.line-numbers {
 .gist {
     font-size: 0.8rem;
     line-height: 1.2rem;
-    font-family: "Fira Code", "JetBrains Mono", "Meslo LG M", "Inconsolata", "Menlo", "Courier New",
+    font-family:
+        "Fira Code", "JetBrains Mono", "Meslo LG M", "Inconsolata", "Menlo", "Courier New",
         monospace;
 }
