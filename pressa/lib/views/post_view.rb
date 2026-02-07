@@ -1,4 +1,5 @@
 require 'phlex'
+require_relative 'icons'
 
 class String
   include Phlex::SGML::SafeObject
@@ -32,7 +33,7 @@ module Pressa
 
         div(class: 'row clearfix') do
           p(class: 'fin') do
-            i(class: 'fa fa-code')
+            raw(Icons.code)
           end
         end
       end

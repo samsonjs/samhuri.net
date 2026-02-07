@@ -28,8 +28,8 @@ RSpec.describe Pressa::Posts::PostMetadata do
       expect(metadata.date.day).to eq(5)
       expect(metadata.link).to eq('https://example.net/external')
       expect(metadata.tags).to eq(['Ruby', 'Testing'])
-      expect(metadata.scripts.map(&:src)).to eq(['highlight.js'])
-      expect(metadata.styles.map(&:href)).to eq(['code.css'])
+      expect(metadata.scripts.map(&:src)).to eq(['js/highlight.js'])
+      expect(metadata.styles.map(&:href)).to eq(['css/code.css'])
     end
 
     it 'raises error when required fields are missing' do

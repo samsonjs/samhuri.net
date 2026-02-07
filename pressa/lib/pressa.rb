@@ -19,20 +19,17 @@ module Pressa
     end
 
     projects = [
+      build_project.call('samhuri.net', 'samhuri.net', 'this site'),
       build_project.call('bin', 'bin', 'my collection of scripts in ~/bin'),
       build_project.call('config', 'config', 'important dot files (zsh, emacs, vim, screen)'),
       build_project.call('compiler', 'compiler', 'a compiler targeting x86 in Ruby'),
       build_project.call('lake', 'lake', 'a simple implementation of Scheme in C'),
+      build_project.call('AsyncMonitor', 'AsyncMonitor', 'easily monitor async sequences using Swift concurrency'),
+      build_project.call('NotificationSmuggler', 'NotificationSmuggler', 'embed strongly-typed values in notifications on Apple platforms'),
       build_project.call('strftime', 'strftime', 'strftime for JavaScript'),
       build_project.call('format', 'format', 'printf for JavaScript'),
       build_project.call('gitter', 'gitter', 'a GitHub client for Node (v3 API)'),
-      build_project.call('mojo.el', 'mojo.el', 'turn emacs into a sweet mojo editor'),
-      build_project.call('ThePusher', 'ThePusher', 'Github post-receive hook router'),
-      build_project.call('NorthWatcher', 'NorthWatcher', 'cron for filesystem changes'),
-      build_project.call('repl-edit', 'repl-edit', 'edit Node repl commands with your text editor'),
-      build_project.call('cheat.el', 'cheat.el', 'cheat from emacs'),
-      build_project.call('batteries', 'batteries', 'a general purpose node library'),
-      build_project.call('samhuri.net', 'samhuri.net', 'this site')
+      build_project.call('cheat.el', 'cheat.el', 'cheat from emacs')
     ]
 
     project_scripts = [
@@ -53,10 +50,7 @@ module Pressa
       styles: [
         Stylesheet.new(href: 'css/normalize.css'),
         Stylesheet.new(href: 'css/style.css'),
-        Stylesheet.new(href: 'css/syntax.css'),
-        Stylesheet.new(href: 'css/fontawesome.min.css'),
-        Stylesheet.new(href: 'css/brands.min.css'),
-        Stylesheet.new(href: 'css/solid.min.css')
+        Stylesheet.new(href: 'css/syntax.css')
       ],
       plugins: [
         Posts::Plugin.new,

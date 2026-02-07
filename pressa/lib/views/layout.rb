@@ -1,4 +1,5 @@
 require 'phlex'
+require_relative 'icons'
 
 module Pressa
   module Views
@@ -82,8 +83,6 @@ module Pressa
             meta(name: 'msapplication-config', content: site.url_for('/images/browserconfig.xml'))
             meta(name: 'theme-color', content: '#121212')
             meta(name: 'viewport', content: 'width=device-width, initial-scale=1.0, viewport-fit=cover')
-            link(rel: 'dns-prefetch', href: 'https://use.typekit.net')
-            link(rel: 'dns-prefetch', href: 'https://netdna.bootstrapcdn.com')
             link(rel: 'dns-prefetch', href: 'https://gist.github.com')
 
             all_styles.each do |style|
@@ -140,18 +139,18 @@ module Pressa
           nav(class: 'remote') do
             ul do
               li(class: 'mastodon') do
-                a(rel: 'me', href: 'https://techhub.social/@sjs') do
-                  i(class: 'fab fa-mastodon')
+                a(rel: 'me', 'aria-label': 'Mastodon', href: 'https://techhub.social/@sjs') do
+                  raw(Icons.mastodon)
                 end
               end
               li(class: 'github') do
-                a(href: 'https://github.com/samsonjs') do
-                  i(class: 'fab fa-github')
+                a('aria-label': 'GitHub', href: 'https://github.com/samsonjs') do
+                  raw(Icons.github)
                 end
               end
               li(class: 'rss') do
-                a(href: site.url_for('/feed.xml')) do
-                  i(class: 'fa fa-rss')
+                a('aria-label': 'RSS', href: site.url_for('/feed.xml')) do
+                  raw(Icons.rss)
                 end
               end
             end
@@ -182,9 +181,6 @@ module Pressa
           attrs[:defer] = true if scr.defer
           script(**attrs)
         end
-
-        script(src: 'https://use.typekit.net/tcm1whv.js', crossorigin: 'anonymous')
-        script { plain 'try{Typekit.load({ async: true });}catch(e){}' }
       end
 
       def script_src(src)

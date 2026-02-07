@@ -46,7 +46,7 @@ RSpec.describe Pressa::Utils::FrontmatterConverter do
       output = described_class.convert_content(input)
 
       expect(output).to include("Title: \"Zelda Tones for iOS\"")
-      expect(output).to include("Tags:\n  - zelda\n  - nintendo\n  - pacman\n  - ringtones\n  - tones\n  - ios")
+      expect(output).to include("Tags: [zelda, nintendo, pacman, ringtones, tones, ios]")
       expect(output).to include("<h2>Zelda</h2>")
     end
 
@@ -67,7 +67,7 @@ RSpec.describe Pressa::Utils::FrontmatterConverter do
       output = described_class.convert_content(input)
 
       expect(output).to include("Link: http://en.wikipedia.org/wiki/Buffalo_buffalo_buffalo_buffalo_buffalo_buffalo_buffalo_buffalo")
-      expect(output).to include("Tags:\n  - amusement\n  - buffalo")
+      expect(output).to include("Tags: [amusement, buffalo]")
     end
 
     it 'converts front-matter with Scripts and Styles' do
@@ -169,7 +169,7 @@ RSpec.describe Pressa::Utils::FrontmatterConverter do
       expect(yaml).to include("Author: Sami Samhuri")
       expect(yaml).to include("Date: \"11th November, 2025\"")
       expect(yaml).to include("Timestamp: 2025-11-11T14:00:00-08:00")
-      expect(yaml).to include("Tags:\n  - Ruby\n  - Testing")
+      expect(yaml).to include("Tags: [Ruby, Testing]")
       expect(yaml).to include("Link: https://example.net")
       expect(yaml).to include("Scripts: app.js")
       expect(yaml).to include("Styles: style.css")

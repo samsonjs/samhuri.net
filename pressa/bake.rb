@@ -33,14 +33,14 @@ end
 def publish_beta
   beta
   puts "Deploying to beta server..."
-  system('rsync -avz --delete www/ beta.samhuri.net:/var/www/beta/')
+  system('rsync -avz --delete www/ mudge:/var/www/beta.samhuri.net/public')
 end
 
 # Publish to production server
 def publish
   release
   puts "Deploying to production server..."
-  system('rsync -avz --delete www/ samhuri.net:/var/www/html/')
+  system('rsync -avz --delete www/ mudge:/var/www/samhuri.net/public')
 end
 
 # Clean generated files
