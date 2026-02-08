@@ -47,8 +47,6 @@ module Pressa
           formatted_date: metadata.formatted_date,
           link: metadata.link,
           tags: metadata.tags,
-          scripts: metadata.scripts,
-          styles: metadata.styles,
           body: html_body,
           excerpt:,
           path:

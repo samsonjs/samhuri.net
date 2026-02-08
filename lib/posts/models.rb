@@ -11,8 +11,6 @@ module Pressa
       attribute :formatted_date, Types::String
       attribute :link, Types::String.optional.default(nil)
       attribute :tags, Types::Array.of(Types::String).default([].freeze)
-      attribute :scripts, Types::Array.of(Script).default([].freeze)
-      attribute :styles, Types::Array.of(Stylesheet).default([].freeze)
       attribute :body, Types::String
       attribute :excerpt, Types::String
       attribute :path, Types::String

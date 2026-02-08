@@ -74,8 +74,6 @@ module Pressa
           page_subtitle: post.title,
           canonical_url: @site.url_for(post.path),
           content: content_view,
-          page_scripts: post.scripts,
-          page_styles: post.styles,
           page_description: post.excerpt,
           page_type: "article"
         )
@@ -120,8 +118,6 @@ module Pressa
         page_subtitle:,
         canonical_url:,
         content:,
-        page_scripts: [],
-        page_styles: [],
         page_description: nil,
         page_type: "website"
       )
@@ -129,8 +125,6 @@ module Pressa
           site: @site,
           page_subtitle:,
           canonical_url:,
-          page_scripts:,
-          page_styles:,
           page_description:,
           page_type:,
           content:

@@ -9,8 +9,6 @@ class Pressa::Posts::PostMetadataTest < Minitest::Test
       Date: 5th November, 2025
       Timestamp: 2025-11-05T10:00:00-08:00
       Tags: Ruby, Testing
-      Scripts: highlight.js
-      Styles: code.css
       Link: https://example.net/external
       ---
 
@@ -27,8 +25,6 @@ class Pressa::Posts::PostMetadataTest < Minitest::Test
     assert_equal(5, metadata.date.day)
     assert_equal("https://example.net/external", metadata.link)
     assert_equal(["Ruby", "Testing"], metadata.tags)
-    assert_equal(["js/highlight.js"], metadata.scripts.map(&:src))
-    assert_equal(["css/code.css"], metadata.styles.map(&:href))
   end
 
   def test_parse_raises_error_when_required_fields_are_missing
@@ -59,8 +55,6 @@ class Pressa::Posts::PostMetadataTest < Minitest::Test
     metadata = Pressa::Posts::PostMetadata.parse(content)
 
     assert_equal([], metadata.tags)
-    assert_equal([], metadata.scripts)
-    assert_equal([], metadata.styles)
     assert_nil(metadata.link)
   end
 end
