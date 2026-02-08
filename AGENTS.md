@@ -24,8 +24,10 @@ Keep new code under the existing `Pressa` module structure (for example `lib/pos
 - `rbenv exec bundle exec bake publish_beta|publish`: build and rsync `www/` to remote host.
 - `rbenv exec bundle exec bake clean`: remove `www/`.
 - `rbenv exec bundle exec bake test`: run test suite.
-- `rbenv exec bundle exec standardrb` or `rbenv exec bundle exec bake lint`: lint code.
+- `rbenv exec bundle exec bake lint`: lint code.
 - `rbenv exec bundle exec bake lint_fix`: auto-fix lint issues.
+- `rbenv exec bundle exec bake coverage`: run tests and report `lib/` line coverage.
+- `rbenv exec bundle exec bake coverage_regression baseline=merge-base`: compare coverage to a baseline and fail on regression (override `baseline` as needed).
 
 ## Draft Workflow
 - `rbenv exec bundle exec bake new_draft "Post Title"` creates `public/drafts/<slug>.md`.
@@ -44,7 +46,7 @@ Optional keys include `Tags`, `Link`, `Scripts`, and `Styles`.
 
 ## Coding Style & Naming Conventions
 - Ruby version: `4.0.1` (see `.ruby-version` and `Gemfile`).
-- Follow idiomatic Ruby style and keep code `standardrb`-clean.
+- Follow idiomatic Ruby style and keep code `bake lint`-clean.
 - Use 2-space indentation and descriptive `snake_case` names for methods/variables, `UpperCamelCase` for classes/modules.
 - Prefer small, focused classes for plugins, views, renderers, and config loaders.
 - Do not hand-edit generated files in `www/`.
@@ -54,7 +56,8 @@ Optional keys include `Tags`, `Link`, `Scripts`, and `Styles`.
 - Add regression specs for parser, rendering, feed, and generator behavior changes.
 - Before submitting, run:
   - `rbenv exec bundle exec bake test`
-  - `rbenv exec bundle exec standardrb`
+  - `rbenv exec bundle exec bake coverage`
+  - `rbenv exec bundle exec bake lint`
   - `rbenv exec bundle exec bake debug`
 
 ## Commit & Pull Request Guidelines

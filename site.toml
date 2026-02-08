@@ -6,6 +6,7 @@ url = "https://samhuri.net"
 image_url = "/images/me.jpg"
 scripts = []
 styles = ["css/normalize.css", "css/style.css", "css/syntax.css"]
+plugins = ["posts", "projects"]
 
 [projects_plugin]
 scripts = [

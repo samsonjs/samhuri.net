@@ -40,6 +40,90 @@ class Pressa::Config::LoaderTest < Minitest::Test
     end
   end
 
+  def test_build_site_defaults_to_no_plugins_when_plugins_key_is_missing
+    Dir.mktmpdir do |dir|
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Sami Samhuri"
+        email = "sami@samhuri.net"
+        title = "samhuri.net"
+        description = "blog"
+        url = "https://samhuri.net"
+      TOML
+
+      loader = Pressa::Config::Loader.new(source_path: dir)
+      site = loader.build_site
+      assert_empty(site.plugins)
+    end
+  end
+
+  def test_build_site_raises_for_invalid_plugins_type
+    Dir.mktmpdir do |dir|
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Sami Samhuri"
+        email = "sami@samhuri.net"
+        title = "samhuri.net"
+        description = "blog"
+        url = "https://samhuri.net"
+        plugins = "posts"
+      TOML
+
+      loader = Pressa::Config::Loader.new(source_path: dir)
+      error = assert_raises(Pressa::Config::ValidationError) { loader.build_site }
+      assert_match(/Expected site\.toml plugins to be an array/, error.message)
+    end
+  end
+
+  def test_build_site_raises_for_unknown_plugin_name
+    Dir.mktmpdir do |dir|
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Sami Samhuri"
+        email = "sami@samhuri.net"
+        title = "samhuri.net"
+        description = "blog"
+        url = "https://samhuri.net"
+        plugins = ["wat"]
+      TOML
+
+      loader = Pressa::Config::Loader.new(source_path: dir)
+      error = assert_raises(Pressa::Config::ValidationError) { loader.build_site }
+      assert_match(/Unknown plugin 'wat'/, error.message)
+    end
+  end
+
+  def test_build_site_raises_for_empty_plugin_name
+    Dir.mktmpdir do |dir|
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Sami Samhuri"
+        email = "sami@samhuri.net"
+        title = "samhuri.net"
+        description = "blog"
+        url = "https://samhuri.net"
+        plugins = [""]
+      TOML
+
+      loader = Pressa::Config::Loader.new(source_path: dir)
+      error = assert_raises(Pressa::Config::ValidationError) { loader.build_site }
+      assert_match(/Expected site\.toml plugins\[0\] to be a non-empty String/, error.message)
+    end
+  end
+
+  def test_build_site_raises_for_duplicate_plugins
+    Dir.mktmpdir do |dir|
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Sami Samhuri"
+        email = "sami@samhuri.net"
+        title = "samhuri.net"
+        description = "blog"
+        url = "https://samhuri.net"
+        plugins = ["posts", "posts"]
+      TOML
+
+      loader = Pressa::Config::Loader.new(source_path: dir)
+      error = assert_raises(Pressa::Config::ValidationError) { loader.build_site }
+      assert_match(/Duplicate plugin 'posts' in site\.toml plugins/, error.message)
+    end
+  end
+
   def test_build_site_raises_for_missing_projects_array
     Dir.mktmpdir do |dir|
       File.write(File.join(dir, "site.toml"), <<~TOML)
@@ -48,6 +132,7 @@ class Pressa::Config::LoaderTest < Minitest::Test
         title = "samhuri.net"
         description = "blog"
         url = "https://samhuri.net"
+        plugins = ["projects"]
       TOML
       File.write(File.join(dir, "projects.toml"), "title = \"no projects\"\n")
 
@@ -65,6 +150,7 @@ class Pressa::Config::LoaderTest < Minitest::Test
         title = "samhuri.net"
         description = "blog"
         url = "https://samhuri.net"
+        plugins = ["projects"]
       TOML
       File.write(File.join(dir, "projects.toml"), <<~TOML)
         projects = [1]
@@ -84,6 +170,7 @@ class Pressa::Config::LoaderTest < Minitest::Test
         title = "samhuri.net"
         description = "blog"
         url = "https://samhuri.net"
+        plugins = ["projects"]
         projects_plugin = []
       TOML
       File.write(File.join(dir, "projects.toml"), <<~TOML)
@@ -148,6 +235,7 @@ class Pressa::Config::LoaderTest < Minitest::Test
         image_url = "https://images.example.net/me.jpg"
         scripts = [{"src": "/js/site.js", "defer": false}]
         styles = [{"href": "/css/site.css"}]
+        plugins = ["posts", "projects"]
 
         [projects_plugin]
         scripts = [{"src": "/js/projects.js", "defer": true}]
@@ -240,6 +328,7 @@ class Pressa::Config::LoaderTest < Minitest::Test
         title = "samhuri.net"
         description = "blog"
         url = "https://samhuri.net"
+        plugins = ["projects"]
 
         [projects_plugin]
         scripts = "js/projects.js"
@@ -262,6 +351,7 @@ class Pressa::Config::LoaderTest < Minitest::Test
         image_url = "/images/me.jpg"
         scripts = []
         styles = ["css/style.css"]
+        plugins = ["posts", "projects"]
 
         [projects_plugin]
         scripts = ["js/projects.js"]

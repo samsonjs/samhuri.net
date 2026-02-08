@@ -18,14 +18,11 @@ module Pressa
 
       def build_site(url_override: nil)
         site_config = load_toml("site.toml")
-        projects_config = load_toml("projects.toml")
 
         validate_required!(site_config, REQUIRED_SITE_KEYS, context: "site.toml")
 
         site_url = url_override || site_config["url"]
-        projects_plugin = hash_or_empty(site_config["projects_plugin"], "site.toml projects_plugin")
-
-        projects = build_projects(projects_config)
+        plugins = build_plugins(site_config)
 
         Site.new(
           author: site_config["author"],
@@ -36,14 +33,7 @@ module Pressa
           image_url: normalize_image_url(site_config["image_url"], site_url),
           scripts: build_scripts(site_config["scripts"], context: "site.toml scripts"),
           styles: build_styles(site_config["styles"], context: "site.toml styles"),
-          plugins: [
-            Posts::Plugin.new,
-            Projects::Plugin.new(
-              projects:,
-              scripts: build_scripts(projects_plugin["scripts"], context: "site.toml projects_plugin.scripts"),
-              styles: build_styles(projects_plugin["styles"], context: "site.toml projects_plugin.styles")
-            )
-          ],
+          plugins:,
           renderers: [
             Utils::MarkdownRenderer.new
           ]
@@ -88,6 +78,54 @@ module Pressa
         return if missing.empty?
 
         raise ValidationError, "Missing required #{context} keys: #{missing.join(", ")}"
+      end
+
+      def build_plugins(site_config)
+        plugin_names = parse_plugin_names(site_config["plugins"])
+
+        plugin_names.map.with_index do |plugin_name, index|
+          case plugin_name
+          when "posts"
+            Posts::Plugin.new
+          when "projects"
+            build_projects_plugin(site_config)
+          else
+            raise ValidationError, "Unknown plugin '#{plugin_name}' at site.toml plugins[#{index}]"
+          end
+        end
+      end
+
+      def parse_plugin_names(value)
+        return [] if value.nil?
+        raise ValidationError, "Expected site.toml plugins to be an array" unless value.is_a?(Array)
+
+        seen = {}
+
+        value.map.with_index do |plugin_name, index|
+          unless plugin_name.is_a?(String) && !plugin_name.strip.empty?
+            raise ValidationError, "Expected site.toml plugins[#{index}] to be a non-empty String"
+          end
+
+          normalized_plugin_name = plugin_name.strip
+          if seen[normalized_plugin_name]
+            raise ValidationError, "Duplicate plugin '#{normalized_plugin_name}' in site.toml plugins"
+          end
+          seen[normalized_plugin_name] = true
+
+          normalized_plugin_name
+        end
+      end
+
+      def build_projects_plugin(site_config)
+        projects_plugin = hash_or_empty(site_config["projects_plugin"], "site.toml projects_plugin")
+        projects_config = load_toml("projects.toml")
+        projects = build_projects(projects_config)
+
+        Projects::Plugin.new(
+          projects:,
+          scripts: build_scripts(projects_plugin["scripts"], context: "site.toml projects_plugin.scripts"),
+          styles: build_styles(projects_plugin["styles"], context: "site.toml projects_plugin.styles")
+        )
       end
 
       def hash_or_empty(value, context)

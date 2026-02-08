@@ -43,7 +43,7 @@ rbenv exec bundle exec bake serve   # serve www/ locally
 
 Site metadata and project data are configured with TOML files at the repository root:
 
-- `site.toml`: site identity, default scripts/styles, and `projects_plugin` assets.
+- `site.toml`: site identity, default scripts/styles, and a `plugins` list (for example `["posts", "projects"]`), plus `projects_plugin` assets when that plugin is enabled.
 - `projects.toml`: project listing entries using `[[projects]]`.
 
 `Pressa.create_site` loads both files from the provided `source_path` and still supports URL overrides for `debug`, `beta`, and `release` builds.
@@ -53,9 +53,10 @@ Site metadata and project data are configured with TOML files at the repository 
 If this workflow seems like a good fit, here is the minimum to make it your own:
 
 - Update `site.toml` with your site identity (`author`, `email`, `title`, `description`, `url`) and any global `scripts` / `styles`.
+- Set `plugins` in `site.toml` to explicitly enable features (`"posts"`, `"projects"`). Safe default if omitted is no plugins.
 - Define your projects in `projects.toml` using `[[projects]]` entries with `name`, `title`, `description`, and `url`.
-- Configure project-page-only assets in `site.toml` under `[projects_plugin]` (`scripts` and `styles`).
-- Keep the built-in plugins (`Posts::Plugin` and `Projects::Plugin`) or add your own by implementing `Pressa::Plugin` in `lib/` and registering it in `lib/config/loader.rb`.
+- Configure project-page-only assets in `site.toml` under `[projects_plugin]` (`scripts` and `styles`) when using the `"projects"` plugin.
+- Add custom plugins by implementing `Pressa::Plugin` in `lib/` and registering them in `lib/config/loader.rb`.
 - Adjust rendering and layout in `lib/views/` and the static content in `public/` as needed.
 
 Other targets:
