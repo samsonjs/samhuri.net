@@ -4,7 +4,7 @@ Source code for [samhuri.net](https://samhuri.net), powered by a Ruby static sit
 
 ## Overview
 
-This repository is now a single integrated Ruby project. The legacy Swift generators (`gensite/` and `samhuri.net/`) have been removed.
+This repository contains the Ruby static-site generator and site content for samhuri.net.
 
 - Generator core: `lib/`
 - Build tasks and utility workflows: `bake.rb`
@@ -46,7 +46,7 @@ Site metadata and project data are configured with TOML files at the repository 
 - `site.toml`: site identity, default scripts/styles, and a `plugins` list (for example `["posts", "projects"]`), plus `projects_plugin` assets when that plugin is enabled.
 - `projects.toml`: project listing entries using `[[projects]]`.
 
-`Pressa.create_site` loads both files from the provided `source_path` and still supports URL overrides for `debug`, `beta`, and `release` builds.
+`Pressa.create_site` loads both files from the provided `source_path` and supports URL overrides for `debug`, `beta`, and `release` builds.
 
 ## Customizing for your site
 
