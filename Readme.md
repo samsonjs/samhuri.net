@@ -54,7 +54,8 @@ Other targets:
 rbenv exec bundle exec bake mudge
 rbenv exec bundle exec bake beta
 rbenv exec bundle exec bake release
-rbenv exec bundle exec bake watch
+rbenv exec bundle exec bake watch target=debug
+rbenv exec bundle exec bake clean
 rbenv exec bundle exec bake publish_beta
 rbenv exec bundle exec bake publish
 ```
@@ -63,8 +64,16 @@ rbenv exec bundle exec bake publish
 
 ```bash
 rbenv exec bundle exec bake new_draft "Post title"
+rbenv exec bundle exec bake drafts
 rbenv exec bundle exec bake publish_draft public/drafts/post-title.md
 ```
+
+Published posts in `posts/YYYY/MM/*.md` require YAML front matter keys:
+
+- `Title`
+- `Author`
+- `Date`
+- `Timestamp`
 
 ## Tests And Lint
 
@@ -78,9 +87,12 @@ Or via bake:
 ```bash
 rbenv exec bundle exec bake test
 rbenv exec bundle exec bake lint
+rbenv exec bundle exec bake lint_fix
 ```
 
 ## Notes
 
 - `bake watch` is Linux-only and requires `inotifywait`.
-- Deployment uses `rsync` to the configured `mudge` host paths in `bake.rb`.
+- Deployment uses `rsync` to host `mudge` (configured in `bake.rb`):
+  - production: `/var/www/samhuri.net/public`
+  - beta: `/var/www/beta.samhuri.net/public`
