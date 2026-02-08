@@ -10,6 +10,7 @@ This repository is now a single integrated Ruby project. The legacy Swift genera
 - Build tasks: `bake.rb`
 - CLI and utilities: `bin/`
 - Tests: `spec/`
+- Config: `site.toml` and `projects.toml`
 - Content: `posts/` and `public/`
 - Output: `www/`
 
@@ -38,6 +39,15 @@ rbenv exec bundle install
 rbenv exec bundle exec bake debug   # build for http://localhost:8000
 rbenv exec bundle exec bake serve   # serve www/ locally
 ```
+
+## Configuration
+
+Site metadata and project data are configured with TOML files at the repository root:
+
+- `site.toml`: site identity, default scripts/styles, and `projects_plugin` assets.
+- `projects.toml`: project listing entries using `[[projects]]`.
+
+`Pressa.create_site` loads both files from the provided `source_path` and still supports URL overrides for `debug`, `beta`, and `release` builds.
 
 Other targets:
 

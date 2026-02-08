@@ -85,7 +85,7 @@ def build(url)
   require_relative 'lib/pressa'
 
   puts "Building site for #{url}..."
-  site = Pressa.create_site(url_override: url)
+  site = Pressa.create_site(source_path: '.', url_override: url)
   generator = Pressa::SiteGenerator.new(site:)
   generator.generate(source_path: '.', target_path: 'www')
   puts "Site built successfully in www/"

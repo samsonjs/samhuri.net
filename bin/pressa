@@ -17,7 +17,7 @@ target_path = ARGV[1]
 site_url = ARGV[2]
 
 begin
-  site = Pressa.create_site(url_override: site_url)
+  site = Pressa.create_site(source_path:, url_override: site_url)
   generator = Pressa::SiteGenerator.new(site:)
   generator.generate(source_path:, target_path:)
   puts "Site generated successfully!"
