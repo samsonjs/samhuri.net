@@ -44,4 +44,23 @@ RSpec.describe Pressa::Views::Layout do
 
     expect(html).to include("<title>samhuri.net: &lt;img src=x onerror=alert(1)&gt;</title>")
   end
+
+  it "preserves absolute stylesheet URLs" do
+    cdn_site = Pressa::Site.new(
+      author: "Sami Samhuri",
+      email: "sami@samhuri.net",
+      title: "samhuri.net",
+      description: "blog",
+      url: "https://samhuri.net",
+      styles: [Pressa::Stylesheet.new(href: "https://cdn.example.com/site.css")]
+    )
+
+    html = described_class.new(
+      site: cdn_site,
+      canonical_url: "https://samhuri.net/posts/",
+      content: test_content_view
+    ).call
+
+    expect(html).to include(%(<link rel="stylesheet" type="text/css" href="https://cdn.example.com/site.css">))
+  end
 end

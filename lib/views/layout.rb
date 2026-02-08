@@ -88,7 +88,7 @@ module Pressa
             link(rel: "dns-prefetch", href: "https://gist.github.com")
 
             all_styles.each do |style|
-              link(rel: "stylesheet", type: "text/css", href: absolute_asset(style.href))
+              link(rel: "stylesheet", type: "text/css", href: style_href(style.href))
             end
           end
 
@@ -189,6 +189,12 @@ module Pressa
         return src if src.start_with?("http://", "https://")
 
         absolute_asset(src)
+      end
+
+      def style_href(href)
+        return href if href.start_with?("http://", "https://")
+
+        absolute_asset(href)
       end
 
       def absolute_asset(path)
