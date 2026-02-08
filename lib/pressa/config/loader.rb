@@ -141,10 +141,18 @@ module Pressa
         entries.map.with_index do |item, index|
           case item
           when String
+            validate_asset_path!(
+              item,
+              context: "#{context}[#{index}]"
+            )
             Script.new(src: item, defer: true)
           when Hash
             src = item["src"]
             raise ValidationError, "Expected #{context}[#{index}].src to be a String" unless src.is_a?(String) && !src.empty?
+            validate_asset_path!(
+              src,
+              context: "#{context}[#{index}].src"
+            )
 
             defer = item.key?("defer") ? item["defer"] : true
             unless [true, false].include?(defer)
@@ -164,10 +172,18 @@ module Pressa
         entries.map.with_index do |item, index|
           case item
           when String
+            validate_asset_path!(
+              item,
+              context: "#{context}[#{index}]"
+            )
             Stylesheet.new(href: item)
           when Hash
             href = item["href"]
             raise ValidationError, "Expected #{context}[#{index}].href to be a String" unless href.is_a?(String) && !href.empty?
+            validate_asset_path!(
+              href,
+              context: "#{context}[#{index}].href"
+            )
 
             Stylesheet.new(href:)
           else
@@ -189,6 +205,12 @@ module Pressa
 
         normalized = value.start_with?("/") ? value : "/#{value}"
         "#{site_url}#{normalized}"
+      end
+
+      def validate_asset_path!(value, context:)
+        return if value.start_with?("/", "http://", "https://")
+
+        raise ValidationError, "Expected #{context} to start with / or use http(s) scheme"
       end
     end
   end

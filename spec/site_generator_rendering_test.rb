@@ -20,6 +20,20 @@ class Pressa::SiteGeneratorRenderingTest < Minitest::Test
     end
   end
 
+  class PostsPluginSpy < PluginSpy
+    attr_reader :posts_by_year, :render_site_year
+
+    def initialize(posts_by_year:)
+      super()
+      @posts_by_year = posts_by_year
+    end
+
+    def render(site:, target_path:)
+      @render_site_year = site.copyright_start_year
+      super
+    end
+  end
+
   class MarkdownRendererSpy
     attr_reader :calls
 
@@ -49,6 +63,27 @@ class Pressa::SiteGeneratorRenderingTest < Minitest::Test
       plugins: [plugin],
       renderers: [renderer]
     )
+  end
+
+  def build_posts_by_year(year:)
+    post = Pressa::Posts::Post.new(
+      slug: "first-post",
+      title: "First Post",
+      author: "Sami Samhuri",
+      date: DateTime.parse("#{year}-02-01T10:00:00-08:00"),
+      formatted_date: "1st February, #{year}",
+      body: "<p>First post</p>",
+      excerpt: "First post...",
+      path: "/posts/#{year}/02/first-post"
+    )
+
+    month_posts = Pressa::Posts::MonthPosts.new(
+      month: Pressa::Posts::Month.new(name: "February", number: 2, padded: "02"),
+      posts: [post]
+    )
+
+    year_posts = Pressa::Posts::YearPosts.new(year:, by_month: {2 => month_posts})
+    Pressa::Posts::PostsByYear.new(by_year: {year => year_posts})
   end
 
   def test_generate_runs_plugins_copies_static_files_and_renders_supported_files
@@ -108,6 +143,22 @@ class Pressa::SiteGeneratorRenderingTest < Minitest::Test
 
       assert(File.exist?(File.join(target_path, "plugin-output.txt")))
       assert_empty(renderer.calls)
+    end
+  end
+
+  def test_generate_sets_copyright_start_year_from_earliest_post_year
+    Dir.mktmpdir do |root|
+      source_path = File.join(root, "source")
+      target_path = File.join(root, "target")
+      FileUtils.mkdir_p(source_path)
+
+      plugin = PostsPluginSpy.new(posts_by_year: build_posts_by_year(year: 2006))
+      renderer = MarkdownRendererSpy.new
+      site = build_site(plugin:, renderer:)
+
+      Pressa::SiteGenerator.new(site:).generate(source_path:, target_path:)
+
+      assert_equal(2006, plugin.render_site_year)
     end
   end
 end

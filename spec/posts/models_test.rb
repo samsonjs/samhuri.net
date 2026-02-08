@@ -70,7 +70,13 @@ class Pressa::Posts::ModelsTest < Minitest::Test
     assert_equal([11, 10], year_2025.sorted_months.map { |mp| mp.month.number })
     assert_equal([regular_post, link_post], year_2025.all_posts)
     assert_equal([2025, 2024], posts_by_year.sorted_years)
+    assert_equal(2024, posts_by_year.earliest_year)
     assert_equal(3, posts_by_year.all_posts.length)
     assert_equal([regular_post], posts_by_year.recent_posts(1))
+  end
+
+  def test_posts_by_year_earliest_year_is_nil_for_empty_collection
+    posts_by_year = Pressa::Posts::PostsByYear.new(by_year: {})
+    assert_nil(posts_by_year.earliest_year)
   end
 end

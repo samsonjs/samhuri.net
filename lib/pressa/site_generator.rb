@@ -15,8 +15,10 @@ module Pressa
       FileUtils.rm_rf(target_path)
       FileUtils.mkdir_p(target_path)
 
-      site.plugins.each { |plugin| plugin.setup(site:, source_path:) }
+      setup_site = site
+      setup_site.plugins.each { |plugin| plugin.setup(site: setup_site, source_path:) }
 
+      @site = site_with_copyright_start_year(setup_site)
       site.plugins.each { |plugin| plugin.render(site:, target_path:) }
 
       copy_static_files(source_path, target_path)
@@ -98,6 +100,24 @@ module Pressa
     def skip_file?(source_file)
       basename = File.basename(source_file)
       basename.start_with?(".")
+    end
+
+    def site_with_copyright_start_year(base_site)
+      start_year = find_copyright_start_year(base_site)
+      Site.new(**base_site.to_h.merge(copyright_start_year: start_year))
+    end
+
+    def find_copyright_start_year(base_site)
+      years = base_site.plugins.filter_map do |plugin|
+        next unless plugin.respond_to?(:posts_by_year)
+
+        posts_by_year = plugin.posts_by_year
+        next unless posts_by_year.respond_to?(:earliest_year)
+
+        posts_by_year.earliest_year
+      end
+
+      years.min || Time.now.year
     end
   end
 end

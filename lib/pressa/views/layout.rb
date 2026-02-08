@@ -4,8 +4,6 @@ require "pressa/views/icons"
 module Pressa
   module Views
     class Layout < Phlex::HTML
-      START_YEAR = 2006
-
       attr_reader :site,
         :page_subtitle,
         :page_description,
@@ -32,10 +30,6 @@ module Pressa
         @page_scripts = page_scripts
         @page_styles = page_styles
         @content = content
-      end
-
-      def format_output?
-        true
       end
 
       def view_template
@@ -172,7 +166,7 @@ module Pressa
 
       def render_footer
         footer do
-          plain "© #{START_YEAR} - #{Time.now.year} "
+          plain "© #{footer_years} "
           a(href: site.url_for("/about")) { site.author }
         end
       end
@@ -200,6 +194,14 @@ module Pressa
       def absolute_asset(path)
         normalized = path.start_with?("/") ? path : "/#{path}"
         site.url_for(normalized)
+      end
+
+      def footer_years
+        current_year = Time.now.year
+        start_year = site.copyright_start_year || current_year
+        return current_year.to_s if start_year >= current_year
+
+        "#{start_year} - #{current_year}"
       end
     end
   end

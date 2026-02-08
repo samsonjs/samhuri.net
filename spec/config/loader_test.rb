@@ -11,11 +11,11 @@ class Pressa::Config::LoaderTest < Minitest::Test
       assert_equal("Sami Samhuri", site.author)
       assert_equal("https://samhuri.net", site.url)
       assert_equal("https://samhuri.net/images/me.jpg", site.image_url)
-      assert_equal(["css/style.css"], site.styles.map(&:href))
+      assert_equal(["/css/style.css"], site.styles.map(&:href))
 
       projects_plugin = site.plugins.find { |plugin| plugin.is_a?(Pressa::Projects::Plugin) }
       refute_nil(projects_plugin)
-      assert_equal(["js/projects.js"], projects_plugin.scripts.map(&:src))
+      assert_equal(["/js/projects.js"], projects_plugin.scripts.map(&:src))
     end
   end
 
@@ -338,6 +338,25 @@ class Pressa::Config::LoaderTest < Minitest::Test
     end
   end
 
+  def test_build_site_rejects_non_absolute_local_asset_paths
+    Dir.mktmpdir do |dir|
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Sami Samhuri"
+        email = "sami@samhuri.net"
+        title = "samhuri.net"
+        description = "blog"
+        url = "https://samhuri.net"
+        scripts = ["js/site.js"]
+        styles = ["css/site.css"]
+      TOML
+      File.write(File.join(dir, "projects.toml"), "")
+
+      loader = Pressa::Config::Loader.new(source_path: dir)
+      error = assert_raises(Pressa::Config::ValidationError) { loader.build_site }
+      assert_match(%r{start with / or use http\(s\) scheme}, error.message)
+    end
+  end
+
   private
 
   def with_temp_config
@@ -350,11 +369,11 @@ class Pressa::Config::LoaderTest < Minitest::Test
         url = "https://samhuri.net"
         image_url = "/images/me.jpg"
         scripts = []
-        styles = ["css/style.css"]
+        styles = ["/css/style.css"]
         plugins = ["posts", "projects"]
 
         [projects_plugin]
-        scripts = ["js/projects.js"]
+        scripts = ["/js/projects.js"]
         styles = []
       TOML
 

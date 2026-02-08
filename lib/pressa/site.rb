@@ -21,6 +21,7 @@ module Pressa
     attribute :description, Types::String
     attribute :url, Types::String
     attribute :image_url, Types::String.optional.default(nil)
+    attribute :copyright_start_year, Types::Integer.optional.default(nil)
     attribute :scripts, Types::Array.of(Script).default([].freeze)
     attribute :styles, Types::Array.of(Stylesheet).default([].freeze)
     attribute :plugins, Types::Array.default([].freeze)

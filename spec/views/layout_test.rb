@@ -21,6 +21,17 @@ class Pressa::Views::LayoutTest < Minitest::Test
     )
   end
 
+  def site_with_copyright_start_year(year)
+    Pressa::Site.new(
+      author: "Sami Samhuri",
+      email: "sami@samhuri.net",
+      title: "samhuri.net",
+      description: "blog",
+      url: "https://samhuri.net",
+      copyright_start_year: year
+    )
+  end
+
   def test_rendering_child_components_as_html_instead_of_escaped_text
     html = Pressa::Views::Layout.new(
       site:,
@@ -64,13 +75,25 @@ class Pressa::Views::LayoutTest < Minitest::Test
     assert_includes(html, %(<link rel="stylesheet" type="text/css" href="https://cdn.example.com/site.css">))
   end
 
-  def test_format_output_is_enabled
-    layout = Pressa::Views::Layout.new(
-      site:,
+  def test_footer_renders_year_range_using_copyright_start_year
+    html = Pressa::Views::Layout.new(
+      site: site_with_copyright_start_year(2006),
       canonical_url: "https://samhuri.net/posts/",
       content: content_view
-    )
+    ).call
 
-    assert(layout.format_output?)
+    assert_includes(html, "<footer>© 2006 - #{Time.now.year} <a href=\"https://samhuri.net/about\">Sami Samhuri</a></footer>")
+  end
+
+  def test_footer_renders_single_year_when_start_year_matches_current_year
+    current_year = Time.now.year
+    html = Pressa::Views::Layout.new(
+      site: site_with_copyright_start_year(current_year),
+      canonical_url: "https://samhuri.net/posts/",
+      content: content_view
+    ).call
+
+    assert_includes(html, "<footer>© #{current_year} <a href=\"https://samhuri.net/about\">Sami Samhuri</a></footer>")
+    refute_includes(html, "<footer>© #{current_year} - #{current_year} ")
   end
 end

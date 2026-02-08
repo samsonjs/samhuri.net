@@ -86,6 +86,10 @@ module Pressa
       def recent_posts(limit = 10)
         all_posts.take(limit)
       end
+
+      def earliest_year
+        by_year.keys.min
+      end
     end
   end
 end
