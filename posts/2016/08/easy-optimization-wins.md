@@ -10,7 +10,7 @@ It's not hard to hide a whole lot of complexity behind a function call, so you h
 
 Here's some example code illustrating a big performance problem I found in a codebase I've inherited. We have a dictionary keyed by a string representing a date, e.g. "2016-08-10", and where the values are arrays of videos for that given date. Due to some unimportant product details videos can actually appear in more than one of the array values. The goal is to get an array of all videos, sorted by date, and with no duplicates. So we need to discard duplicates when building the sorted array.
 
-```Swift 
+```swift
 func allVideosSortedByDate(allVideos: [String:[Video]]) -> [Video] {
     var sortedVideos: [Video] = []
     // sort keys newest first
@@ -32,7 +32,7 @@ Because this is being called from within a loop that's already looping over all 
 
 In this particular case my first instinct is to reach for a set. We want a collection of all the videos and want to ensure that they're unique, and that's what sets are for. So what about sorting? Well we can build up the set of all videos, then sort that set, converting it to an array in the process. Sounds like a lot of work right? Is it really faster? Let's see what it looks like.
 
-```Swift
+```swift
 func allVideosSortedByDate(allVideos: [String:[Video]]) -> [Video] {
     var uniqueVideos: Set<Video> = []
     for key in allVideos.allKeys {

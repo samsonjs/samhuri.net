@@ -4,7 +4,6 @@ Author: Sami Samhuri
 Date: "23rd February, 2006"
 Timestamp: 2006-02-23T17:18:00-08:00
 Tags: [textmate, rails, coding, bundle, macros, rails, snippets, textmate]
-Styles: typocode.css
 ---
 
 Everything that you've seen posted on my blog is now available in one bundle. Snippets for Rails database migrations and assertions are all included in this bundle.
@@ -13,15 +12,17 @@ There are 2 macros for class-end and def-end blocks, bound to <strong>⌃C</stro
 
 I use an underscore to denote the position of the cursor  in the following example:
 
-
-<div class="typocode"><pre><code class="typocode_ruby "><span class="ident">method</span><span class="punct">(</span><span class="ident">arg1</span><span class="punct">,</span> <span class="ident">arg2_</span><span class="punct">)</span></code></pre></div>
+```ruby
+method(arg1, arg2_)
+```
 
 Typing <strong>⌃D</strong> at this point results in this code:
 
-
-<div class="typocode"><pre><code class="typocode_ruby "><span class="keyword">def </span><span class="method">method</span><span class="punct">(</span><span class="ident">arg1</span><span class="punct">,</span> <span class="ident">arg2</span><span class="punct">)</span>
-  <span class="ident">_</span>
-<span class="keyword">end</span></code></pre></div>
+```ruby
+def method(arg1, arg2)
+  _
+end
+```
 
 There is a list of the snippets in Features.rtf, which is included in the disk image. Of course you can also browse them in the Snippets Editor built into TextMate.
 

@@ -8,7 +8,6 @@ module Pressa
 
       PLACEHOLDER_PREFIX = '%%PRESSA_PRESERVE_'
       PRESERVE_PATTERNS = [
-        /<div class="typocode">.*?<\/div>/m,
         /<div class="pressa">.*?<\/div>/m,
         /<div class="language-[^"]*?highlighter-rouge">.*?<\/div>\s*<\/div>/m
       ].freeze

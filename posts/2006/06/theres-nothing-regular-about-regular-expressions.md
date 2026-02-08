@@ -16,8 +16,9 @@ It requires more thinking than the last 2 computer books I read, *Programming Ru
 
 QOTD, p. 329, about matching nested pairs of parens:
 
-    \(([^()]|\(([^()]|\(([^()]|\(([^()])*\))*\))*\))*\)
-    Wow, that's ugly.
+```conf
+\(([^()]|\(([^()]|\(([^()]|\(([^()])*\))*\))*\))*\)
+Wow, that's ugly.
+```
 
 (Don't worry, there's a much better solution on the next 2 pages after that quote.)
-

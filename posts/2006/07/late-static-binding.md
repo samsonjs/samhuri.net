@@ -10,8 +10,7 @@ Tags: [php, coding, coding, php]
 
 As colder on ##php (freenode) told me today, class methods in PHP don't have what they call late static binding. What's that? It means that this code:
 
-<pre>
-<code>
+```php
 class Foo
 {
   public static function my_method()
@@ -24,15 +23,13 @@ class Bar extends Foo
 {}
 
 Bar::my_method();
-</code>
-</pre>
+```
 
 outputs "I'm a Foo!", instead of "I'm a Bar!". That's not fun.
 
 Using <code>__CLASS__</code> in place of <code>get_class()</code> makes zero difference. You end up with proxy methods in each subclass of Foo that pass in the real name of the calling class, which sucks.
 
-<pre>
-<code>
+```php
 class Bar extends Foo
 {
   public static function my_method()
@@ -40,8 +37,7 @@ class Bar extends Foo
     return parent::my_method( get_class() );
   }
 }
-</code>
-</pre>
+```
 
 I was told that they had a discussion about this on the internal PHP list, so at least they're thinking about this stuff. Too bad PHP5 doesn't have it. I guess I should just be glad I won't be maintaining this code.
 

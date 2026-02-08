@@ -35,17 +35,23 @@ Yup, that is a lot of moving parts. It is rather elegant in a [Unixy way](http:/
 
 For example, the following lines would be created in a file at `~/Dropbox/Linky/Ruxton/<generated filename>.txt` for my machine named [Ruxton](http://en.wikipedia.org/wiki/Ruxton_Island).
 
-    Callbacks as our Generations' Go To Statement
-    http://tirania.org/blog/archive/2013/Aug-15.html
+```markdown
+Callbacks as our Generations' Go To Statement
+http://tirania.org/blog/archive/2013/Aug-15.html
+```
 
 The filename field is defined as:
 
-    {FromAddress}-{ReceivedAt}
+```conf
+{FromAddress}-{ReceivedAt}
+```
 
 And the content is:
 
-    {Subject}<br/>
-    {BodyPlain}<br/>
+```conf
+{Subject}<br/>
+{BodyPlain}<br/>
+```
 
 That means that when you email links, the subject should contain the title and the body should contain the link on the first line. It's ok if there's stuff after the body (like your signature), they will be ignored later.
 
@@ -63,7 +69,9 @@ This is a quick and dirty thing I whipped up a couple of years ago, and now it's
 
 It has a text configuration file kind of like [cron](http://en.wikipedia.org/wiki/Cron). Here's mine from Ruxton:
 
-    + Dropbox/Linky/Ruxton ruby /Users/sjs/bin/linky-notify
+```shell
++ Dropbox/Linky/Ruxton ruby /Users/sjs/bin/linky-notify
+```
 
 That tells NorthWatcher to run `ruby /Users/sjs/bin/linky-notify` when files are added to the directory `~/Dropbox/Linky/Ruxton`.
 
@@ -80,4 +88,3 @@ You can get `terminal-notifier` with [homebrew](http://brew.sh) in a few seconds
 ## Cool story, bro
 
 It may not be exciting, but as someone who typically suffers from [NIH syndrome](http://en.wikipedia.org/wiki/Not_invented_here) and writes too much from scratch, I found it pretty rewarding to cobble something seemingly complicated together with a bunch of existing components. It didn't take very long and only involved about 10 lines of code. It's not exactly what I wanted but it's surprisingly close. Success!
-

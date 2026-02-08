@@ -28,7 +28,9 @@ If anyone actually knows how to write batch files I'd like to hear any suggestio
 
 You will probably just want to test my method of testing for Parallels and Boot Camp first. The easiest way is to just open a command window and run this command:
 
-    ipconfig /all | find "Parallels"
+```bat
+ipconfig /all | find "Parallels"
+```
 
 If you see a line of output like **"Description . . . . : Parallels Network Adapter"** and you are in Parallels then the test works. If you see no output and you are in Boot Camp then the test works.
 
@@ -46,8 +48,10 @@ If you're lazy then you can download <a href="http://sami.samhuri.net/files/para
 
 Run Windows in Parallels, activate it, then open a command window and run:
 
-    mkdir C:\Windows\System32\Parallels
-    copy C:\Windows\System32\wpa.* C:\Windows\System32\Parallels
+```bat
+mkdir C:\Windows\System32\Parallels
+copy C:\Windows\System32\wpa.* C:\Windows\System32\Parallels
+```
 
 Download <a href="http://sami.samhuri.net/files/parallels/backup-parallels-wpa.bat">backup-parallels-wpa.bat</a>
 
@@ -57,8 +61,10 @@ Download <a href="http://sami.samhuri.net/files/parallels/backup-parallels-wpa.b
 
 Run Windows using Boot Camp, activate it, then run:
 
-    mkdir C:\Windows\System32\BootCamp
-    copy C:\Windows\System32\wpa.* C:\Windows\System32\BootCamp
+```bat
+mkdir C:\Windows\System32\BootCamp
+copy C:\Windows\System32\wpa.* C:\Windows\System32\BootCamp
+```
 
 Download <a href="http://sami.samhuri.net/files/parallels/backup-bootcamp-wpa.bat">backup-bootcamp-wpa.bat</a>
 
@@ -72,19 +78,21 @@ If you have XP Pro then you can get it to run using the Group Policy editor. Sav
 
   <p>If you have XP Home then the best you can do is run this script from your Startup folder (Start -> All Programs -> Startup), but that is not really going to work because eventually Windows will not even let you log in until you activate it. What a P.O.S.</p>
 
-   @echo off
+```bat
+@echo off
 
-    ipconfig /all | find "Parallels" > network.tmp
-    for /F "tokens=14" %%x in (network.tmp) do set parallels=%x
-    del network.tmp
+ipconfig /all | find "Parallels" > network.tmp
+for /F "tokens=14" %%x in (network.tmp) do set parallels=%x
+del network.tmp
 
-    if defined parallels (
-      echo Parallels
-      copy C:\Windows\System32\Parallels\wpa.* C:\Windows\System32
-    ) else (
-      echo Boot Camp
-      copy C:\Windows\System32\BootCamp\wpa.* C:\Windows\System32
-    )
+if defined parallels (
+  echo Parallels
+  copy C:\Windows\System32\Parallels\wpa.* C:\Windows\System32
+) else (
+  echo Boot Camp
+  copy C:\Windows\System32\BootCamp\wpa.* C:\Windows\System32
+)
+```
 
 Download <a href="http://sami.samhuri.net/files/parallels/activate.bat">activate.bat</a>
 
@@ -105,4 +113,3 @@ This method worked for me and hopefully it will work for you as well. I'm intere
 I finally bought Windows XP this week and I'm starting to regret it because of all the hoops they make you jump through to use it. I only use it to fix sites in IE because it can't render a web page properly and I didn't want to buy it just for that. I thought that it would be good to finally get a legit copy since I was using a pirated version and was sick of working around validation bullshit for updates. Now I have to work around MS's activation bullshit and it's just as bad! Screw Microsoft for putting their customers through this sort of thing. Things like this and the annoying balloons near the system tray just fuel my contempt for Windows and reinforce my love of Linux and Mac OS X.
 
 I don't make money off any of my sites, which is why I didn't want to have to buy stupid Windows. I hate MS so much for making shitty IE the standard browser.
-

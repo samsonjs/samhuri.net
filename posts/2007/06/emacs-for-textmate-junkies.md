@@ -14,76 +14,20 @@ Tags: [emacs, textmate]
 
 Despite my current infatuation with Emacs there are many reasons I started using TextMate, especially little time-savers that are very addictive. I'll talk about one of those features tonight. When you have text selected in TextMate and you hit say the <code>'</code> (single quote) then TextMate will surround the selected text with single quotes. The same goes for double quotes, parentheses, brackets, and braces. This little trick is one of my favourites so I had to come up with something similar in Emacs. It was easy since a <a href="http://osdir.com/ml/emacs.nxml.general/2005-08/msg00002.html">mailing list post</a> has a solution for surrounding the current region with tags, which served as a great starting point.
 
-
-<pre class="line-numbers">1
-2
-3
-4
-5
-6
-7
-</pre>
-<pre><code>(defun surround-region-with-tag (tag-name beg end)
+```lisp
+(defun surround-region-with-tag (tag-name beg end)
       (interactive "sTag name: \nr")
       (save-excursion
         (goto-char beg)
-        (insert "&lt;" tag-name "&gt;")
+        (insert "<" tag-name ">")
         (goto-char (+ end 2 (length tag-name)))
-        (insert "&lt;/" tag-name "&gt;")))</code></pre>
-
+        (insert "</" tag-name ">")))
+```
 
 With a little modification I now have the following in my ~/.emacs file:
 
-
-<pre class="line-numbers">1
-2
-3
-4
-5
-6
-7
-8
-9
-<strong>10</strong>
-11
-12
-13
-14
-15
-16
-17
-18
-19
-<strong>20</strong>
-21
-22
-23
-24
-25
-26
-27
-28
-29
-<strong>30</strong>
-31
-32
-33
-34
-35
-36
-37
-38
-39
-<strong>40</strong>
-41
-42
-43
-44
-45
-46
-47
-</pre>
-<pre><code>;; help out a TextMate junkie
+```lisp
+;; help out a TextMate junkie
 
 (defun wrap-region (left right beg end)
   "Wrap the region in arbitrary text, LEFT goes to the left and RIGHT goes to the right."
@@ -103,7 +47,7 @@ With a little modification I now have the following in my ~/.emacs file:
   (interactive)
   (if (and mark-active transient-mark-mode)
       (call-interactively 'wrap-region-with-tag)
-    (insert "&lt;")))
+    (insert "<")))
 
 (defun wrap-region-with-tag (tag beg end)
   "Wrap the region in the given HTML/XML tag using `wrap-region'. If any
@@ -111,10 +55,10 @@ attributes are specified then they are only included in the opening tag."
   (interactive "*sTag (including attributes): \nr")
   (let* ((elems    (split-string tag " "))
          (tag-name (car elems))
-         (right    (concat "&lt;/" tag-name "&gt;")))
+         (right    (concat "</" tag-name ">")))
     (if (= 1 (length elems))
-        (wrap-region (concat "&lt;" tag-name "&gt;") right beg end)
-      (wrap-region (concat "&lt;" tag "&gt;") right beg end))))
+        (wrap-region (concat "<" tag-name ">") right beg end)
+      (wrap-region (concat "<" tag ">") right beg end))))
 
 (defun wrap-region-or-insert (left right)
   "Wrap the region with `wrap-region' if an active region is marked, otherwise insert LEFT at point."
@@ -129,7 +73,8 @@ attributes are specified then they are only included in the opening tag."
 (global-set-key "("  (wrap-region-with-function "(" ")"))
 (global-set-key "["  (wrap-region-with-function "[" "]"))
 (global-set-key "{"  (wrap-region-with-function "{" "}"))
-(global-set-key "&lt;"  'wrap-region-with-tag-or-insert) ;; I opted not to have a wrap-with-angle-brackets</code></pre>
+(global-set-key "<"  'wrap-region-with-tag-or-insert) ;; I opted not to have a wrap-with-angle-brackets
+```
 
 &darr; <a href="/f/wrap-region.el" alt="wrap-region.el">Download wrap-region.el</a>
 

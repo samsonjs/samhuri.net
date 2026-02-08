@@ -21,21 +21,8 @@ Now that you know what to do I'll give you what you probably wanted at the begin
 
 &darr; <a href="/f/gtkpod-aac-fix.sh">gtkpod-aac-fix.sh</a>
 
-<pre class="line-numbers">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-</pre>
-
-<pre ondblclick="with (this.style) { overflow = (overflow == 'auto' || overflow == '') ? 'visible' : 'auto' }"><code>mkdir /tmp/gtkpod-fix
+```shell
+mkdir /tmp/gtkpod-fix
 cd /tmp/gtkpod-fix
 wget http://ftp.uni-kl.de/debian-multimedia/pool/main/libm/libmpeg4ip/libmp4v2-0_1.5.0.1-0.3_amd64.deb
 wget http://ftp.uni-kl.de/debian-multimedia/pool/main/libm/libmpeg4ip/libmp4v2-dev_1.5.0.1-0.3_amd64.deb
@@ -44,6 +31,7 @@ wget http://ftp.uni-kl.de/debian-multimedia/pool/main/libm/libmpeg4ip/libmpeg4ip
 for f in *.deb; do sudo gdebi -n "$f"; done
 svn co https://gtkpod.svn.sourceforge.net/svnroot/gtkpod/gtkpod/trunk gtkpod
 cd gtkpod
-./autogen.sh --with-mp4v2 &amp;&amp; make &amp;&amp; sudo make install
+./autogen.sh --with-mp4v2 && make && sudo make install
 cd
-rm -rf /tmp/gtkpod-fix</code></pre>
+rm -rf /tmp/gtkpod-fix
+```
