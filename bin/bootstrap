@@ -22,9 +22,15 @@ cd "$ROOT_DIR"
 if command -v rbenv >/dev/null 2>/dev/null; then
   echo "*** using rbenv (ruby $RUBY_VERSION)"
   rbenv install -s "$RUBY_VERSION"
+  if ! rbenv exec gem list -i bundler >/dev/null 2>/dev/null; then
+    rbenv exec gem install bundler
+  fi
   rbenv exec bundle install
 else
   echo "*** rbenv not found, using system Ruby"
+  if ! gem list -i bundler >/dev/null 2>/dev/null; then
+    gem install bundler
+  fi
   bundle install
 fi
 

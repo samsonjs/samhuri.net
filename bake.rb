@@ -2,7 +2,6 @@
 
 require 'etc'
 require 'fileutils'
-require 'shellwords'
 
 DRAFTS_DIR = 'public/drafts'.freeze
 PUBLISH_HOST = 'mudge'.freeze
@@ -38,49 +37,6 @@ def serve
   trap('INT') { server.shutdown }
   puts 'Server running at http://localhost:8000'
   server.start
-end
-
-# Generate a site from an arbitrary source directory into a target directory.
-# @parameter source_path [String] Directory containing site sources.
-# @parameter target_path [String] Directory to write generated site.
-# @parameter url [String] Optional site URL override.
-def generate(source_path = '.', target_path = 'www', url = nil)
-  require_relative 'lib/pressa'
-
-  site = Pressa.create_site(source_path:, url_override: url)
-  generator = Pressa::SiteGenerator.new(site:)
-  generator.generate(source_path:, target_path:)
-  puts "Site built successfully in #{target_path}"
-end
-
-# Install local prerequisites and gem dependencies.
-def setup
-  ruby_version = File.read('.ruby-version').strip
-
-  if RUBY_PLATFORM.include?('linux')
-    puts '*** installing Linux prerequisites'
-    unless system('sudo', 'apt', 'install', '-y',
-      'build-essential',
-      'git',
-      'inotify-tools',
-      'libffi-dev',
-      'libyaml-dev',
-      'pkg-config',
-      'zlib1g-dev')
-      abort 'Error: failed to install Linux prerequisites.'
-    end
-  end
-
-  if command_available?('rbenv')
-    puts "*** using rbenv (ruby #{ruby_version})"
-    abort 'Error: rbenv install failed.' unless system('rbenv', 'install', '-s', ruby_version)
-    abort 'Error: bundle install failed.' unless system('rbenv', 'exec', 'bundle', 'install')
-  else
-    puts '*** rbenv not found, using system Ruby'
-    abort 'Error: bundle install failed.' unless system('bundle', 'install')
-  end
-
-  puts '*** done'
 end
 
 # Create a new draft in public/drafts/.
@@ -148,7 +104,7 @@ end
 
 # Watch content directories and rebuild on every change.
 # @parameter target [String] One of debug, mudge, beta, or release.
-def watch(target: 'mudge')
+def watch(target: 'debug')
   unless command_available?('inotifywait')
     abort 'inotifywait is required (install inotify-tools).'
   end
@@ -159,17 +115,6 @@ def watch(target: 'mudge')
     sleep 2
     run_build_target(target)
   end
-end
-
-# Deploy files via rsync without building first.
-# @parameter beta [Boolean] Deploy to beta host path.
-# @parameter test [Boolean] Enable rsync --dry-run.
-# @parameter delete [Boolean] Enable rsync --delete.
-# @parameter paths [Array] Optional local paths; defaults to www/.
-def deploy(*paths, beta: false, test: false, delete: false)
-  publish_dir = truthy?(beta) ? BETA_PUBLISH_DIR : PRODUCTION_PUBLISH_DIR
-  local_paths = paths.empty? ? ['www/'] : paths
-  run_rsync(local_paths:, publish_dir:, dry_run: test, delete:)
 end
 
 # Publish to beta/staging server
@@ -222,19 +167,13 @@ private
 # Build the site with specified URL
 # @parameter url [String] The site URL to use
 def build(url)
+  require_relative 'lib/pressa'
+
   puts "Building site for #{url}..."
-  generate('.', 'www', url)
-end
-
-def run_rsync(local_paths:, publish_dir:, dry_run:, delete:)
-  command = ['rsync', '-aKv', '-e', 'ssh -4']
-  command << '--dry-run' if truthy?(dry_run)
-  command << '--delete' if truthy?(delete)
-  command.concat(local_paths)
-  command << "#{PUBLISH_HOST}:#{publish_dir}"
-
-  puts "Running: #{Shellwords.join(command)}"
-  abort 'Error: rsync failed.' unless system(*command)
+  site = Pressa.create_site(source_path: '.', url_override: url)
+  generator = Pressa::SiteGenerator.new(site:)
+  generator.generate(source_path: '.', target_path: 'www')
+  puts 'Site built successfully in www/'
 end
 
 def run_build_target(target)
@@ -248,6 +187,15 @@ end
 
 def watch_paths
   WATCHABLE_DIRECTORIES.flat_map { |path| ['-r', path] }
+end
+
+def run_rsync(local_paths:, publish_dir:, dry_run:, delete:)
+  command = ['rsync', '-aKv', '-e', 'ssh -4']
+  command << '--dry-run' if dry_run
+  command << '--delete' if delete
+  command.concat(local_paths)
+  command << "#{PUBLISH_HOST}:#{publish_dir}"
+  abort 'Error: rsync failed.' unless system(*command)
 end
 
 def resolve_draft_input(input_path)
@@ -328,15 +276,4 @@ end
 
 def command_available?(command)
   system('which', command, out: File::NULL, err: File::NULL)
-end
-
-def truthy?(value)
-  case value
-  when true
-    true
-  when false, nil
-    false
-  else
-    %w[1 true yes on].include?(value.to_s.downcase)
-  end
 end

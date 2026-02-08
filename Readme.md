@@ -54,9 +54,7 @@ Other targets:
 rbenv exec bundle exec bake mudge
 rbenv exec bundle exec bake beta
 rbenv exec bundle exec bake release
-rbenv exec bundle exec bake generate . www https://samhuri.net
-rbenv exec bundle exec bake watch target=debug
-rbenv exec bundle exec bake deploy --test true --delete true
+rbenv exec bundle exec bake watch
 rbenv exec bundle exec bake publish_beta
 rbenv exec bundle exec bake publish
 ```
@@ -80,14 +78,6 @@ Or via bake:
 ```bash
 rbenv exec bundle exec bake test
 rbenv exec bundle exec bake lint
-```
-
-## Site Generation
-
-```bash
-rbenv exec bundle exec bake generate SOURCE TARGET [URL]
-# example:
-rbenv exec bundle exec bake generate . www https://samhuri.net
 ```
 
 ## Notes
