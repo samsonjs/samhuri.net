@@ -3,7 +3,7 @@ Title: "Typo and I are friends again"
 Author: Sami Samhuri
 Date: "1st May, 2007"
 Timestamp: 2007-05-01T21:51:37-07:00
-Tags: [typo]
+Tags: typo
 ---
 
 <p>I've been really frustrated with <a href="http://www.typosphere.org/">Typo</a> recently. For some reason changing my <a href="/posts/2007/04/funny-how-code-can-be-beautiful">last post</a> would cause MySQL to timeout and I'd have to kill the rogue ruby process manually before any other changes to the DB would work, instead of hanging for a minute or two then timing out. Luckily I was able to disable the post using the command line client, the bug only manifested itself when issuing an UPDATE with all the fields present. Presumably the body was tripping things up because most other fields are simple booleans, numbers, or very short strings.

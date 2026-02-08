@@ -3,7 +3,7 @@ Title: "TextMate Snippets for Rails Assertions"
 Author: Sami Samhuri
 Date: "20th February, 2006"
 Timestamp: 2006-02-20T23:52:00-08:00
-Tags: [textmate, rails, coding, rails, snippets, testing, textmate]
+Tags: textmate, rails, coding, rails, snippets, testing, textmate
 ---
 
 This time I've got a few snippets for assertions. Using these to type up your tests quickly, and then hitting **⌘R** to run the tests without leaving TextMate, makes testing your Rails app that much more convenient. Just when you thought it was already too easy! (Don't forget that you can use **⌥⌘↓** to move between your code and the corresponding test case.)

@@ -3,7 +3,7 @@ Title: "Intelligent Migration Snippets 0.1 for TextMate"
 Author: Sami Samhuri
 Date: "22nd February, 2006"
 Timestamp: 2006-02-22T03:28:00-08:00
-Tags: [mac os x, textmate, rails, hacking, migrations, snippets]
+Tags: mac os x, textmate, rails, hacking, migrations, snippets
 ---
 
 *This should be working now. I've tested it under a new user account here.*

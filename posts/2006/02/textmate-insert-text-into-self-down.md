@@ -3,7 +3,7 @@ Title: "TextMate: Insert text into self.down"
 Author: Sami Samhuri
 Date: "21st February, 2006"
 Timestamp: 2006-02-21T14:55:00-08:00
-Tags: [textmate, rails, hacking, commands, macro, rails, snippets, textmate]
+Tags: textmate, rails, hacking, commands, macro, rails, snippets, textmate
 ---
 
 <p><em><strong>UPDATE:</strong> I got everything working and it's all packaged up <a href="/posts/2006/02/intelligent-migration-snippets-0_1-for-textmate">here</a>. There's an installation script this time as well.</em></p>

@@ -3,7 +3,7 @@ Title: "Catch compiler errors at runtime"
 Author: Sami Samhuri
 Date: "19th August, 2007"
 Timestamp: 2007-08-19T15:17:00-07:00
-Tags: [ruby]
+Tags: ruby
 ---
 
 While coding just now I had a small epiphany about Ruby.  Though Ruby is highly dynamic and compiled at runtime, that doesn't preclude one catching some mistakes at compile time.  I'm not talking about mere syntax errors or anything either.  The only proviso to catching mistakes at compile time is that you must have a decent chunk of code executed during compilation.  One benefit of Ruby's blurring of compile time and runtime is that you can run real code at compile time.  This is largely how metaprogramming tricks are pulled off elegantly and with ease in projects such as Rails.

@@ -3,7 +3,7 @@ Title: "Working with the Zend Framework"
 Author: Sami Samhuri
 Date: "6th July, 2006"
 Timestamp: 2006-07-06T07:36:00-07:00
-Tags: [coding, technology, php, framework, php, seekport, zend]
+Tags: coding, technology, php, framework, php, seekport, zend
 ---
 
 At [Seekport](http://translate.google.ca/translate?hl=en&sl=de&u=http://de.wikipedia.org/wiki/Seekport&prev=/search%3Fq%3Dseekport%26client%3Dsafari%26rls%3Den) I'm currently working on an app to handle

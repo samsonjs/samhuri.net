@@ -3,7 +3,7 @@ Author: Sami Samhuri
 Title: "Type-safe notifications and async stream monitoring with Swift 6"
 Date: "6th June, 2025"
 Timestamp: 2025-06-06T14:27:11-07:00
-Tags: [Swift, iOS, notifications, async, concurrency, AsyncMonitor, NotificationSmuggler]
+Tags: Swift, iOS, notifications, async, concurrency, AsyncMonitor, NotificationSmuggler
 ---
 
 Swift 6 concurrency checking made handling notifications without warnings kinda tedious. The old Combine approach doesn't work with `@Sendable` closures and manually managing tasks gets repetitive. I made a couple of tiny Swift packages to help out with the situation: [AsyncMonitor](https://github.com/samsonjs/AsyncMonitor) which wraps task management, and [NotificationSmuggler](https://github.com/samsonjs/NotificationSmuggler) which adds a type-safe interface on top of `Notification` and `NotificationCenter`.

@@ -3,7 +3,7 @@ Title: "Ruby and Rails have spoiled me rotten"
 Author: Sami Samhuri
 Date: "17th July, 2006"
 Timestamp: 2006-07-17T05:40:00-07:00
-Tags: [rails, ruby, php, coding, framework, php, rails, ruby, zend]
+Tags: rails, ruby, php, coding, framework, php, rails, ruby, zend
 ---
 
 It's true. I'm sitting here coding in PHP using the <a href="http://framework.zend.com/">Zend Framework</a> and all I can think about is how much nicer Rails is, or how much easier it is to do [x] in Ruby. It's not that the Zend Framework is bad or anything, it's quite nice, but you just can't match Ruby's expressiveness in a language like PHP. Add the amazing convenience Rails builds on top of Ruby and that's a really hard combo to compete with.

@@ -3,7 +3,7 @@ Title: "Full-screen Cover Flow"
 Author: Sami Samhuri
 Date: "6th March, 2007"
 Timestamp: 2007-03-06T13:51:00-08:00
-Tags: [apple, coverflow, itunes]
+Tags: apple, coverflow, itunes
 ---
 
 <a href="http://www.apple.com/itunes/jukebox/coverflow.html">Cover Flow</a> now comes in a full-screen flavour. It's pretty sweet, but unfortunately the remote controls iTunes exactly the same so you need a mouse to flick through the covers.

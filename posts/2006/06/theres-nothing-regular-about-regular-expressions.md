@@ -3,7 +3,7 @@ Title: "There's nothing regular about regular expressions"
 Author: Sami Samhuri
 Date: "10th June, 2006"
 Timestamp: 2006-06-10T01:28:00-07:00
-Tags: [technology, book, regex]
+Tags: technology, book, regex
 ---
 
 I'm almost half way reading Jeffrey Friedl's book <a href="http://www.oreilly.com/catalog/regex2/">Mastering Regular Expressions</a> and I have to say that for a book on something that could potentially bore you to tears, he really does an excellent job of keeping it interesting. Even though a lot of the examples are contrived (I'm sure out of necessity), he also uses real examples of regexes that he's actually used at <a href="http://www.yahoo.com/">Yahoo!</a>.

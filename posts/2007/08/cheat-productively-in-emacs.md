@@ -3,7 +3,7 @@ Title: "Cheat productively in Emacs"
 Author: Sami Samhuri
 Date: "21st August, 2007"
 Timestamp: 2007-08-21T11:20:00-07:00
-Tags: [Emacs]
+Tags: Emacs
 ---
 
 By now you may have heard about <a href="http://cheat.errtheblog.com/">cheat</a>, the command line cheat sheet collection that's completely open to editing, wiki style.  A couple of weeks ago I posted <a href="/posts/2007/08/cheat-from-emacs">cheat.el</a> which allows one to cheat from within Emacs.  There's an update.  However, before I get to cheat.el there's a small detour.

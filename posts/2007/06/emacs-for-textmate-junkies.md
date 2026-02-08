@@ -3,7 +3,7 @@ Title: "Emacs for TextMate junkies"
 Author: Sami Samhuri
 Date: "23rd June, 2007"
 Timestamp: 2007-06-22T19:17:00-07:00
-Tags: [emacs, textmate]
+Tags: emacs, textmate
 ---
 
 *Update #1: What I first posted will take out your < key by mistake (it's available via `C-q <`), it has since been revised to Do The Right Thing.*

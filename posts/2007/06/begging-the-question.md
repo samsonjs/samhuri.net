@@ -3,7 +3,7 @@ Title: "Begging the question"
 Author: Sami Samhuri
 Date: "15th June, 2007"
 Timestamp: 2007-06-15T11:49:00-07:00
-Tags: [english, life, pedantry]
+Tags: english, life, pedantry
 ---
 
 I'm currently reading <a href="http://mitpress.mit.edu/sicp/full-text/book/book.html">SICP</a> since it's highly recommended by many people, available for free, and interesting. The fact that I have a little <a href="/posts/2007/06/more-scheming-with-haskell">Scheme interpreter</a> to play with makes it much more fun since I can add missing functionality to it as I progress through the book, thereby learning more Haskell in the process. Yay!

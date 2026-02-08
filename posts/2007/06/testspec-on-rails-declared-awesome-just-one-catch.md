@@ -3,7 +3,7 @@ Title: "test/spec on rails declared awesome, just one catch"
 Author: Sami Samhuri
 Date: "14th June, 2007"
 Timestamp: 2007-06-14T07:21:00-07:00
-Tags: [bdd, rails, test/spec]
+Tags: bdd, rails, test/spec
 ---
 
 This last week I've been getting to know <a href="http://chneukirchen.org/blog/archive/2007/01/announcing-test-spec-0-3-a-bdd-interface-for-test-unit.html">test/spec</a> via <a href="http://errtheblog.com/">err's</a> <a href="http://require.errtheblog.com/plugins/wiki/TestSpecRails">test/spec on rails</a> plugin. I have to say that I really dig this method of testing my code and I look forward to trying out some actual <a href="http://behaviour-driven.org/">BDD</a> in the future.

@@ -3,7 +3,7 @@ Title: "Coping with Windows XP activiation on a Mac"
 Author: Sami Samhuri
 Date: "17th December, 2006"
 Timestamp: 2006-12-17T23:30:00-08:00
-Tags: [parallels, windows, apple, mac os x, bootcamp]
+Tags: parallels, windows, apple, mac os x, bootcamp
 ---
 
 **Update:** This needs to be run at system startup, before you log in. I have XP Home and haven't been able to get it to run that way yet.

@@ -3,7 +3,7 @@ Title: "More Scheming with Haskell"
 Author: Sami Samhuri
 Date: "14th June, 2007"
 Timestamp: 2007-06-13T18:09:00-07:00
-Tags: [coding, haskell, scheme]
+Tags: coding, haskell, scheme
 ---
 
 It's been a little while since I wrote about Haskell and the <a href="/posts/2007/05/a-scheme-parser-in-haskell-part-1">Scheme interpreter</a> I've been using to learn and play with both Haskell and Scheme. I finished the tutorial and got myself a working Scheme interpreter and indeed it has been fun to use it for trying out little things now and then. (Normally I would use Emacs or Dr. Scheme for that sort of thing.) There certainly are <a href="http://www.lshift.net/blog/2007/06/11/folds-and-continuation-passing-style">interesting things</a> to try floating around da intranet. And also things to read and learn from, such as <a href="http://cubiclemuses.com/cm/blog/tags/Misp">misp</a> (via <a href="http://moonbase.rydia.net/mental/blog/programming/misp-is-a-lisp">Moonbase</a>).

@@ -3,7 +3,7 @@ Title: "A triple-booting, schizophrenic MacBook"
 Author: Sami Samhuri
 Date: "4th April, 2007"
 Timestamp: 2007-04-04T23:30:00-07:00
-Tags: [linux, mac os x, windows]
+Tags: linux, mac os x, windows
 ---
 
 The steps are well documented so I won’t get into detail here but if you have a backup and can wipe your disk all you do is:

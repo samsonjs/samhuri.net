@@ -3,7 +3,7 @@ Title: "ElSchemo: Boolean logic and branching"
 Author: Sami Samhuri
 Date: "2nd August, 2007"
 Timestamp: 2007-08-02T09:59:00-07:00
-Tags: [elschemo, haskell, scheme]
+Tags: elschemo, haskell, scheme
 ---
 
 I've been developing a Scheme

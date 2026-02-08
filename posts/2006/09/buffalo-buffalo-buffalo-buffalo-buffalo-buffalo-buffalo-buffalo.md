@@ -3,7 +3,7 @@ Title: "Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo"
 Author: Sami Samhuri
 Date: "16th September, 2006"
 Timestamp: 2006-09-16T22:11:00-07:00
-Tags: [amusement, buffalo]
+Tags: amusement, buffalo
 Link: http://en.wikipedia.org/wiki/Buffalo_buffalo_buffalo_buffalo_buffalo_buffalo_buffalo_buffalo
 ---
 

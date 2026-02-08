@@ -3,7 +3,7 @@ Title: "I Can't Wait to See What Trey Parker & Matt Stone Do With This"
 Author: Sami Samhuri
 Date: "9th May, 2007"
 Timestamp: 2007-05-09T14:34:00-07:00
-Tags: [crazy]
+Tags: crazy
 ---
 
 I'd just like to say, <a href="http://news.com.com/8301-10784_3-9717828-7.html">bwa ha ha ha!</a>

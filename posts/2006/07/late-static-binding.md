@@ -3,7 +3,7 @@ Title: "Late static binding"
 Author: Sami Samhuri
 Date: "19th July, 2006"
 Timestamp: 2006-07-19T10:23:00-07:00
-Tags: [php, coding, coding, php]
+Tags: php, coding, coding, php
 ---
 
 *Update: This has <a href="http://www.php.net/~derick/meeting-notes.html#late-static-binding-using-this-without-or-perhaps-with-a-different-name">been discussed</a> and will be uh, sort of fixed, in PHP6. You'll be able to use static::my_method() to get the real reference to self in class methods. Not optimal, but still a solution I guess.*

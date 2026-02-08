@@ -3,7 +3,7 @@ Title: "Propaganda makes me sick"
 Author: Sami Samhuri
 Date: "25th June, 2007"
 Timestamp: 2007-06-25T03:55:00-07:00
-Tags: [propaganda]
+Tags: propaganda
 ---
 
 Things <a href="http://arstechnica.com/news.ars/post/20070625-spying-on-campus-fbi-warns-mit-harvard.html">like this</a> in modern times are surprising. Can't people spot this phony crap for what it is?

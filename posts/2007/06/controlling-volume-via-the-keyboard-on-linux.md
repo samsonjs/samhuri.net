@@ -3,7 +3,7 @@ Title: "Controlling volume via the keyboard on Linux"
 Author: Sami Samhuri
 Date: "30th June, 2007"
 Timestamp: 2007-06-30T16:13:00-07:00
-Tags: [alsa, linux, ruby, volume]
+Tags: alsa, linux, ruby, volume
 ---
 
 I was using Amarok's global keyboard shortcuts to control the volume of my music via the <a href="http://pfuca-store.stores.yahoo.net/haphackeylit1.html">keyboard</a> but I wanted to control the system volume as well. A quick script later and now I can control both, and thanks to libnotify I get some feedback on what happened. It's not as pretty as OS X's volume control or <a href="http://growl.info/">Growl</a> but it'll certainly do.

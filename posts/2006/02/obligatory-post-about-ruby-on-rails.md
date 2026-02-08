@@ -3,7 +3,7 @@ Title: "Obligatory Post about Ruby on Rails"
 Author: Sami Samhuri
 Date: "20th February, 2006"
 Timestamp: 2006-02-20T00:31:00-08:00
-Tags: [rails, coding, hacking, migration, rails, testing]
+Tags: rails, coding, hacking, migration, rails, testing
 ---
 
 <p><em>I'm a Rails newbie and eager to learn. I welcome any suggestions or criticism you have. You can direct them to <a href="mailto:sjs@uvic.ca">my inbox</a> or leave me a comment below.</em></p>

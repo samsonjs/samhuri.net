@@ -3,7 +3,7 @@ Title: "Reinventing the wheel"
 Author: Sami Samhuri
 Date: "20th June, 2007"
 Timestamp: 2007-06-20T09:27:00-07:00
-Tags: [emacs, snippets]
+Tags: emacs, snippets
 ---
 
 Emacs is very impressive. I only felt lost and unproductive for minutes and now it seems natural to use and get around in. I've got <a href="/posts/2007/06/more-scheming-with-haskell">ElSchemo</a> set as the default scheme, and running inferior processes interactively is an absolute dream. My scheme doesn't have readline support (which bothers me to the point where I've thought about adding it just so I can use the thing) but when running it under Emacs there's absoutely no need for anything like that since I have the power of my editor when interacting with any program.

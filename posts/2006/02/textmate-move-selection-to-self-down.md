@@ -3,7 +3,7 @@ Title: "TextMate: Move selection to self.down"
 Author: Sami Samhuri
 Date: "21st February, 2006"
 Timestamp: 2006-02-21T00:26:00-08:00
-Tags: [textmate, rails, hacking, hack, macro, rails, textmate]
+Tags: textmate, rails, hacking, hack, macro, rails, textmate
 ---
 
 <p><strong>UPDATE:</strong> <em>This is obsolete, see <a href="/posts/2006/02/textmate-insert-text-into-self-down">this post</a> for a better solution.</em></p>

@@ -3,7 +3,7 @@ Title: "A New Way to Look at Networking"
 Author: Sami Samhuri
 Date: "5th May, 2007"
 Timestamp: 2007-05-05T16:10:00-07:00
-Tags: [technology, networking]
+Tags: technology, networking
 ---
 
 <a href="http://en.wikipedia.org/wiki/Van_Jacobson">Van Jacobson</a> gave a <a href="https://www.youtube.com/watch?v=gqGEMQveoqg">Google Tech Talk</a> on some of his ideas of how a modern, global network could work more effectively, and with more trust in the data which changes many hands on its journey to its final destination.

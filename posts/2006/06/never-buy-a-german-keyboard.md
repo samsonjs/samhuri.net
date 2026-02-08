@@ -3,7 +3,7 @@ Title: "Never buy a German keyboard!"
 Author: Sami Samhuri
 Date: "9th June, 2006"
 Timestamp: 2006-06-09T01:17:00-07:00
-Tags: [apple, apple, german, keyboard]
+Tags: apple, apple, german, keyboard
 ---
 
 Nothing personal, but the backtick/tilde is located where the rest of the left shift key should be, and the return key is double-height, forcing the backslash/bar to the right of the dash/underscore (that'd be the apostrophe/double quote for pretty much everyone else who types qwerty). Note that I'm talking about using a German keyboard with an English layout. The German layout is flat out impossible for coding.

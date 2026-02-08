@@ -3,7 +3,7 @@ Title: "Floating point in ElSchemo"
 Author: Sami Samhuri
 Date: "24th June, 2007"
 Timestamp: 2007-06-24T11:53:00-07:00
-Tags: [elschemo, haskell, scheme]
+Tags: elschemo, haskell, scheme
 ---
 
 ### Parsing floating point numbers ###

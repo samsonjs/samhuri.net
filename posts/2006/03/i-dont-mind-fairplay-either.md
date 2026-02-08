@@ -3,7 +3,7 @@ Title: "I don't mind FairPlay either"
 Author: Sami Samhuri
 Date: "3rd March, 2006"
 Timestamp: 2006-03-03T21:56:00-08:00
-Tags: [apple, mac os x, life, drm, fairplay, ipod, itunes]
+Tags: apple, mac os x, life, drm, fairplay, ipod, itunes
 ---
 
 I think that <a href="http://jim.roepcke.com/2006/03/02#item7471">Jim is right</a> about Apple's DRM not being all that evil.

@@ -3,7 +3,7 @@ Title: "Getting to know Vista"
 Author: Sami Samhuri
 Date: "16th April, 2007"
 Timestamp: 2007-04-16T11:09:00-07:00
-Tags: [windows]
+Tags: windows
 ---
 
 ### It looks pretty good! ###

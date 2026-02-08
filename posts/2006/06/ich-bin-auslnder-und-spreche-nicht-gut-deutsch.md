@@ -3,7 +3,7 @@ Title: "Ich bin Ausländer und spreche nicht gut Deutsch"
 Author: Sami Samhuri
 Date: "5th June, 2006"
 Timestamp: 2006-06-05T10:11:00-07:00
-Tags: [life, munich, seekport, work]
+Tags: life, munich, seekport, work
 ---
 
 How's this for an update: I'm working in Munich for the summer at a European search engine called <a href="http://www.seekport.co.uk/">Seekport</a>. The search engine isn't all they do, as right now I'm programming a desktop widget that shows live scores &amp; news from World Cup matches (in English and Arabic). I'm building it on top of the <a href="http://widgets.yahoo.com/">Yahoo! Widget Engine</a> because it needs to run on Windows. Even though I quite like the Y! Engine, I would still prefer to be coding in straight HTML, CSS & JavaScript like Dashboard programmers get to use. The Y! Engine uses XML (it is somewhat HTML-like) and JavaScript.

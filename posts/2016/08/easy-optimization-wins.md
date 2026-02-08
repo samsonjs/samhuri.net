@@ -3,7 +3,7 @@ Title: "Easy Optimization Wins"
 Author: Sami Samhuri
 Date: "10th August, 2016"
 Timestamp: 2016-08-10T10:30:49-07:00
-Tags: [ios, git]
+Tags: ios, git
 ---
 
 It's not hard to hide a whole lot of complexity behind a function call, so you have to be very aware of what the functions you are using actually do, and how long they take to do it.
