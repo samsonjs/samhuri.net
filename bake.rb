@@ -136,12 +136,15 @@ def clean
   puts "Cleaned www/ directory"
 end
 
+# Default task: run tests and lint.
+def default
+  test
+  lint
+end
+
 # Run Minitest tests
 def test
-  test_files = Dir.glob("spec/**/*_test.rb").sort
-  abort "Error: no tests found in spec/**/*_test.rb" if test_files.empty?
-
-  exec "ruby", "-Ilib", "-Ispec", "-e", "ARGV.each { |file| require File.expand_path(file) }", *test_files
+  run_test_suite(test_file_list)
 end
 
 # Run Guard for continuous testing
@@ -158,15 +161,81 @@ end
 
 # Run StandardRB linter
 def lint
-  exec(*standardrb_command)
+  run_standardrb
 end
 
 # Auto-fix StandardRB issues
 def lint_fix
-  exec(*standardrb_command("--fix"))
+  run_standardrb("--fix")
+end
+
+# Measure line coverage for files under lib/.
+# @parameter lowest [Integer] Number of lowest-covered files to print (default: 10, use 0 to hide).
+def coverage(lowest: 10)
+  lowest_count = Integer(lowest)
+  abort "Error: lowest must be >= 0." if lowest_count.negative?
+
+  run_coverage(test_files: test_file_list, lowest_count:)
 end
 
 private
+
+def run_test_suite(test_files)
+  run_command("ruby", "-Ilib", "-Ispec", "-e", "ARGV.each { |file| require File.expand_path(file) }", *test_files)
+end
+
+def run_coverage(test_files:, lowest_count:)
+  coverage_script = <<~RUBY
+    require "coverage"
+
+    root = Dir.pwd
+    lib_root = File.join(root, "lib") + "/"
+    Coverage.start(lines: true)
+
+    at_exit do
+      result = Coverage.result
+      rows = result.keys
+        .select { |file| file.start_with?(lib_root) && file.end_with?(".rb") }
+        .sort
+        .map do |file|
+          lines = result[file][:lines] || []
+          total = 0
+          covered = 0
+          lines.each do |line_count|
+            next if line_count.nil?
+            total += 1
+            covered += 1 if line_count.positive?
+          end
+          percent = total.zero? ? 100.0 : (covered.to_f / total * 100)
+          [file, covered, total, percent]
+        end
+
+      covered_lines = rows.sum { |row| row[1] }
+      total_lines = rows.sum { |row| row[2] }
+      overall_percent = total_lines.zero? ? 100.0 : (covered_lines.to_f / total_lines * 100)
+      puts format("Coverage (lib): %.2f%% (%d / %d lines)", overall_percent, covered_lines, total_lines)
+
+      unless #{lowest_count}.zero? || rows.empty?
+        puts "Lowest covered files:"
+        rows.sort_by { |row| row[3] }.first(#{lowest_count}).each do |file, covered, total, percent|
+          relative_path = file.delete_prefix(root + "/")
+          puts format("  %6.2f%% %d/%d %s", percent, covered, total, relative_path)
+        end
+      end
+    end
+
+    ARGV.each { |file| require File.expand_path(file) }
+  RUBY
+
+  run_command("ruby", "-Ilib", "-Ispec", "-e", coverage_script, *test_files)
+end
+
+def test_file_list
+  test_files = Dir.glob("spec/**/*_test.rb").sort
+  abort "Error: no tests found in spec/**/*_test.rb" if test_files.empty?
+
+  test_files
+end
 
 # Build the site with specified URL
 # @parameter url [String] The site URL to use
@@ -195,6 +264,14 @@ end
 
 def standardrb_command(*extra_args)
   ["bundle", "exec", "standardrb", *extra_args, *LINT_TARGETS]
+end
+
+def run_standardrb(*extra_args)
+  run_command(*standardrb_command(*extra_args))
+end
+
+def run_command(*command)
+  abort "Error: command failed: #{command.join(" ")}" unless system(*command)
 end
 
 def run_rsync(local_paths:, publish_dir:, dry_run:, delete:)
