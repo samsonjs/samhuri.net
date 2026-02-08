@@ -1,5 +1,5 @@
 require "phlex"
-require_relative "post_view"
+require "pressa/views/post_view"
 
 module Pressa
   module Views

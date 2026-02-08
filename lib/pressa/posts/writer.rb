@@ -1,10 +1,10 @@
-require_relative "../utils/file_writer"
-require_relative "../views/layout"
-require_relative "../views/post_view"
-require_relative "../views/recent_posts_view"
-require_relative "../views/archive_view"
-require_relative "../views/year_posts_view"
-require_relative "../views/month_posts_view"
+require "pressa/utils/file_writer"
+require "pressa/views/layout"
+require "pressa/views/post_view"
+require "pressa/views/recent_posts_view"
+require "pressa/views/archive_view"
+require "pressa/views/year_posts_view"
+require "pressa/views/month_posts_view"
 
 module Pressa
   module Posts

@@ -3,7 +3,7 @@
 ## Project Structure & Module Organization
 This repository is a single Ruby static-site generator project (the legacy Swift generators were removed).
 
-- Generator code: `lib/`
+- Generator code: `lib/pressa/` (entrypoint: `lib/pressa.rb`)
 - Build/deploy/draft tasks: `bake.rb`
 - Tests: `spec/`
 - Site config: `site.toml`, `projects.toml`
@@ -12,7 +12,7 @@ This repository is a single Ruby static-site generator project (the legacy Swift
 - Draft posts: `public/drafts/`
 - Generated output: `www/` (safe to delete/regenerate)
 
-Keep new code under the existing `Pressa` module structure (for example `lib/posts`, `lib/projects`, `lib/views`, `lib/config`, `lib/utils`) and add matching specs under `spec/`.
+Keep new code under the existing `Pressa` module structure (for example `lib/pressa/posts`, `lib/pressa/projects`, `lib/pressa/views`, `lib/pressa/config`, `lib/pressa/utils`) and add matching specs under `spec/`.
 
 ## Setup, Build, Test, and Development Commands
 - Use `rbenv exec` for Ruby commands in this repository (for example `rbenv exec bundle exec ...`) to ensure the project Ruby version is used.

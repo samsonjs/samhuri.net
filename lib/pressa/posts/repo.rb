@@ -1,6 +1,6 @@
 require "kramdown"
-require_relative "models"
-require_relative "metadata"
+require "pressa/posts/models"
+require "pressa/posts/metadata"
 
 module Pressa
   module Posts

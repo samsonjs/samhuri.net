@@ -1,5 +1,5 @@
 require "fileutils"
-require_relative "utils/file_writer"
+require "pressa/utils/file_writer"
 
 module Pressa
   class SiteGenerator

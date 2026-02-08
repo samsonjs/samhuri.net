@@ -1,6 +1,6 @@
 require "builder"
-require_relative "../utils/file_writer"
-require_relative "../views/feed_post_view"
+require "pressa/utils/file_writer"
+require "pressa/views/feed_post_view"
 
 module Pressa
   module Posts

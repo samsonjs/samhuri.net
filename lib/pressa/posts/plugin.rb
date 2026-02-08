@@ -1,8 +1,8 @@
-require_relative "../plugin"
-require_relative "repo"
-require_relative "writer"
-require_relative "json_feed"
-require_relative "rss_feed"
+require "pressa/plugin"
+require "pressa/posts/repo"
+require "pressa/posts/writer"
+require "pressa/posts/json_feed"
+require "pressa/posts/rss_feed"
 
 module Pressa
   module Posts

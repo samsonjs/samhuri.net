@@ -1,9 +1,9 @@
 require "kramdown"
 require "yaml"
-require_relative "file_writer"
-require_relative "../site"
-require_relative "../views/layout"
-require_relative "../views/icons"
+require "pressa/utils/file_writer"
+require "pressa/site"
+require "pressa/views/layout"
+require "pressa/views/icons"
 
 module Pressa
   module Utils

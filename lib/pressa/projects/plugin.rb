@@ -1,9 +1,9 @@
-require_relative "../plugin"
-require_relative "../utils/file_writer"
-require_relative "../views/layout"
-require_relative "../views/projects_view"
-require_relative "../views/project_view"
-require_relative "models"
+require "pressa/plugin"
+require "pressa/utils/file_writer"
+require "pressa/views/layout"
+require "pressa/views/projects_view"
+require "pressa/views/project_view"
+require "pressa/projects/models"
 
 module Pressa
   module Projects

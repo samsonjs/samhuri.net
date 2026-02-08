@@ -1,8 +1,8 @@
-require_relative "../site"
-require_relative "../posts/plugin"
-require_relative "../projects/plugin"
-require_relative "../utils/markdown_renderer"
-require_relative "simple_toml"
+require "pressa/site"
+require "pressa/posts/plugin"
+require "pressa/projects/plugin"
+require "pressa/utils/markdown_renderer"
+require "pressa/config/simple_toml"
 
 module Pressa
   module Config

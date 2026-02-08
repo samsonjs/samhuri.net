@@ -1,10 +1,10 @@
-require_relative "site"
-require_relative "site_generator"
-require_relative "plugin"
-require_relative "posts/plugin"
-require_relative "projects/plugin"
-require_relative "utils/markdown_renderer"
-require_relative "config/loader"
+require "pressa/site"
+require "pressa/site_generator"
+require "pressa/plugin"
+require "pressa/posts/plugin"
+require "pressa/projects/plugin"
+require "pressa/utils/markdown_renderer"
+require "pressa/config/loader"
 
 module Pressa
   def self.create_site(source_path: ".", url_override: nil)

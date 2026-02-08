@@ -1,5 +1,5 @@
 require "dry-struct"
-require_relative "../site"
+require "pressa/site"
 
 module Pressa
   module Posts

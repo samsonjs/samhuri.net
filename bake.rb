@@ -5,6 +5,9 @@ require "fileutils"
 require "open3"
 require "tmpdir"
 
+LIB_PATH = File.expand_path("lib", __dir__).freeze
+$LOAD_PATH.unshift(LIB_PATH) unless $LOAD_PATH.include?(LIB_PATH)
+
 DRAFTS_DIR = "public/drafts".freeze
 PUBLISH_HOST = "mudge".freeze
 PRODUCTION_PUBLISH_DIR = "/var/www/samhuri.net/public".freeze
@@ -358,7 +361,7 @@ end
 # Build the site with specified URL
 # @parameter url [String] The site URL to use
 def build(url)
-  require_relative "lib/pressa"
+  require "pressa"
 
   puts "Building site for #{url}..."
   site = Pressa.create_site(source_path: ".", url_override: url)

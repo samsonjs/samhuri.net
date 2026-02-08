@@ -1,5 +1,5 @@
 require "phlex"
-require_relative "icons"
+require "pressa/views/icons"
 
 module Pressa
   module Views
