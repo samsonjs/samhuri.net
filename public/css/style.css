@@ -10,6 +10,13 @@
 /* 40 rem ~ 640px */
 /* 64 rem ~ 1024px */
 
+@supports (font: -apple-system-body) and (-webkit-touch-callout: none) {
+    html {
+        /* Enable iOS/iPadOS Dynamic Type in Safari and web views. */
+        font: -apple-system-body;
+    }
+}
+
 body {
     font-size: 100%;
 }
@@ -164,8 +171,8 @@ header.primary h4 {
 }
 
 header.primary h1 {
-    height: 1.3rem;
     font-size: 1.3rem;
+    line-height: 1.2;
 }
 
 header.primary h1 a,
@@ -174,8 +181,8 @@ header.primary h1 a:visited {
 }
 
 header.primary h4 {
-    height: 0.8rem;
     font-size: 0.8rem;
+    line-height: 1.2;
     color: #dedede;
 }
 
@@ -476,7 +483,7 @@ blockquote:before {
 }
 
 ul.audio li {
-    height: 2rem;
+    min-height: 2rem;
     margin: 0.5rem 0;
 }
 
