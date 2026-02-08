@@ -1,5 +1,5 @@
-require 'phlex'
-require_relative 'icons'
+require "phlex"
+require_relative "icons"
 
 module Pressa
   module Views
@@ -21,14 +21,14 @@ module Pressa
               end
             end
             time { @post.formatted_date }
-            a(href: @post.path, class: 'permalink') { '∞' }
+            a(href: @post.path, class: "permalink") { "∞" }
           end
 
           raw(safe(@post.body))
         end
 
-        div(class: 'row clearfix') do
-          p(class: 'fin') do
+        div(class: "row clearfix") do
+          p(class: "fin") do
             raw(safe(Icons.code))
           end
         end
@@ -39,7 +39,7 @@ module Pressa
       def article_attributes
         return {} unless @article_class
 
-        { class: @article_class }
+        {class: @article_class}
       end
     end
   end

@@ -1,4 +1,4 @@
-require 'dry-struct'
+require "dry-struct"
 
 module Pressa
   module Types

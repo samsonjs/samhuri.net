@@ -1,4 +1,4 @@
-require_relative '../lib/pressa'
+require_relative "../lib/pressa"
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

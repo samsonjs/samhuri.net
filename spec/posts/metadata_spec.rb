@@ -1,8 +1,8 @@
-require 'spec_helper'
+require "spec_helper"
 
 RSpec.describe Pressa::Posts::PostMetadata do
-  describe '.parse' do
-    it 'parses valid YAML front-matter' do
+  describe ".parse" do
+    it "parses valid YAML front-matter" do
       content = <<~MARKDOWN
         ---
         Title: Test Post
@@ -20,19 +20,19 @@ RSpec.describe Pressa::Posts::PostMetadata do
 
       metadata = described_class.parse(content)
 
-      expect(metadata.title).to eq('Test Post')
-      expect(metadata.author).to eq('Trent Reznor')
-      expect(metadata.formatted_date).to eq('5th November, 2025')
+      expect(metadata.title).to eq("Test Post")
+      expect(metadata.author).to eq("Trent Reznor")
+      expect(metadata.formatted_date).to eq("5th November, 2025")
       expect(metadata.date.year).to eq(2025)
       expect(metadata.date.month).to eq(11)
       expect(metadata.date.day).to eq(5)
-      expect(metadata.link).to eq('https://example.net/external')
-      expect(metadata.tags).to eq(['Ruby', 'Testing'])
-      expect(metadata.scripts.map(&:src)).to eq(['js/highlight.js'])
-      expect(metadata.styles.map(&:href)).to eq(['css/code.css'])
+      expect(metadata.link).to eq("https://example.net/external")
+      expect(metadata.tags).to eq(["Ruby", "Testing"])
+      expect(metadata.scripts.map(&:src)).to eq(["js/highlight.js"])
+      expect(metadata.styles.map(&:href)).to eq(["css/code.css"])
     end
 
-    it 'raises error when required fields are missing' do
+    it "raises error when required fields are missing" do
       content = <<~MARKDOWN
         ---
         Title: Incomplete Post
@@ -46,7 +46,7 @@ RSpec.describe Pressa::Posts::PostMetadata do
       }.to raise_error(/Missing required fields/)
     end
 
-    it 'handles posts without optional fields' do
+    it "handles posts without optional fields" do
       content = <<~MARKDOWN
         ---
         Title: Simple Post

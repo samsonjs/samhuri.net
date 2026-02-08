@@ -4,19 +4,19 @@ module Pressa
       module_function
 
       def mastodon
-        svg(class_name: 'icon icon-mastodon', view_box: '0 0 448 512', path: IconPath::MASTODON)
+        svg(class_name: "icon icon-mastodon", view_box: "0 0 448 512", path: IconPath::MASTODON)
       end
 
       def github
-        svg(class_name: 'icon icon-github', view_box: '0 0 496 512', path: IconPath::GITHUB)
+        svg(class_name: "icon icon-github", view_box: "0 0 496 512", path: IconPath::GITHUB)
       end
 
       def rss
-        svg(class_name: 'icon icon-rss', view_box: '0 0 448 512', path: IconPath::RSS)
+        svg(class_name: "icon icon-rss", view_box: "0 0 448 512", path: IconPath::RSS)
       end
 
       def code
-        svg(class_name: 'icon icon-code', view_box: '0 0 640 512', path: IconPath::CODE)
+        svg(class_name: "icon icon-code", view_box: "0 0 640 512", path: IconPath::CODE)
       end
 
       private_class_method def svg(class_name:, view_box:, path:)

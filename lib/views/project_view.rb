@@ -1,5 +1,5 @@
-require 'phlex'
-require_relative 'icons'
+require "phlex"
+require_relative "icons"
 
 module Pressa
   module Views
@@ -10,44 +10,43 @@ module Pressa
       end
 
       def view_template
-        article(class: 'container project') do
-          h1(id: 'project', data: { title: @project.title }) { @project.title }
+        article(class: "container project") do
+          h1(id: "project", data: {title: @project.title}) { @project.title }
           h4 { @project.description }
 
-          div(class: 'project-stats') do
+          div(class: "project-stats") do
             p do
-              a(href: @project.url) { 'GitHub' }
-              plain ' • '
-              a(id: 'nstar', href: stargazers_url)
-              plain ' • '
-              a(id: 'nfork', href: network_url)
+              a(href: @project.url) { "GitHub" }
+              plain " • "
+              a(id: "nstar", href: stargazers_url)
+              plain " • "
+              a(id: "nfork", href: network_url)
             end
 
             p do
-              plain 'Last updated on '
-              span(id: 'updated')
+              plain "Last updated on "
+              span(id: "updated")
             end
           end
 
-          div(class: 'project-info row clearfix') do
-            div(class: 'column half') do
-              h3 { 'Contributors' }
-              div(id: 'contributors')
+          div(class: "project-info row clearfix") do
+            div(class: "column half") do
+              h3 { "Contributors" }
+              div(id: "contributors")
             end
 
-            div(class: 'column half') do
-              h3 { 'Languages' }
-              div(id: 'langs')
+            div(class: "column half") do
+              h3 { "Languages" }
+              div(id: "langs")
             end
           end
         end
 
-        div(class: 'row clearfix') do
-          p(class: 'fin') do
+        div(class: "row clearfix") do
+          p(class: "fin") do
             raw(safe(Icons.code))
           end
         end
-
       end
 
       private

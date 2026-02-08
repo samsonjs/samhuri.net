@@ -1,9 +1,9 @@
-require 'kramdown'
-require 'yaml'
-require_relative 'file_writer'
-require_relative '../site'
-require_relative '../views/layout'
-require_relative '../views/icons'
+require "kramdown"
+require "yaml"
+require_relative "file_writer"
+require_relative "../site"
+require_relative "../views/layout"
+require_relative "../views/icons"
 
 module Pressa
   module Utils
@@ -11,7 +11,7 @@ module Pressa
       EXCERPT_LENGTH = 300
 
       def can_render_file?(filename:, extension:)
-        extension == 'md'
+        extension == "md"
       end
 
       def render(site:, file_path:, target_dir:)
@@ -20,21 +20,21 @@ module Pressa
 
         html_body = render_markdown(body_markdown)
 
-        page_title = presence(metadata['Title']) || File.basename(file_path, '.md').capitalize
-        page_type = presence(metadata['Page type']) || 'website'
-        page_description = presence(metadata['Description']) || generate_excerpt(body_markdown)
-        show_extension = ['true', 'yes', true].include?(metadata['Show extension'])
+        page_title = presence(metadata["Title"]) || File.basename(file_path, ".md").capitalize
+        page_type = presence(metadata["Page type"]) || "website"
+        page_description = presence(metadata["Description"]) || generate_excerpt(body_markdown)
+        show_extension = ["true", "yes", true].include?(metadata["Show extension"])
 
-        slug = File.basename(file_path, '.md')
+        slug = File.basename(file_path, ".md")
 
-        relative_dir = File.dirname(file_path).sub(/^.*?\/public\/?/, '')
-        relative_dir = '' if relative_dir == '.'
+        relative_dir = File.dirname(file_path).sub(/^.*?\/public\/?/, "")
+        relative_dir = "" if relative_dir == "."
 
         canonical_path = if show_extension
-                           "/#{relative_dir}/#{slug}.html".squeeze('/')
-                         else
-                           "/#{relative_dir}/#{slug}/".squeeze('/')
-                         end
+          "/#{relative_dir}/#{slug}.html".squeeze("/")
+        else
+          "/#{relative_dir}/#{slug}/".squeeze("/")
+        end
 
         html = render_layout(
           site:,
@@ -46,10 +46,10 @@ module Pressa
         )
 
         output_filename = if show_extension
-                            "#{slug}.html"
-                          else
-                            File.join(slug, 'index.html')
-                          end
+          "#{slug}.html"
+        else
+          File.join(slug, "index.html")
+        end
 
         output_path = File.join(target_dir, output_filename)
         FileWriter.write(path: output_path, content: html)
@@ -71,9 +71,9 @@ module Pressa
       def render_markdown(markdown)
         Kramdown::Document.new(
           markdown,
-          input: 'GFM',
+          input: "GFM",
           hard_wrap: false,
-          syntax_highlighter: 'rouge',
+          syntax_highlighter: "rouge",
           syntax_highlighter_opts: {
             line_numbers: false,
             wrap: true
@@ -101,13 +101,13 @@ module Pressa
         end
 
         def view_template
-          article(class: 'container') do
+          article(class: "container") do
             h1 { @page_title }
             raw(safe(@body))
           end
 
-          div(class: 'row clearfix') do
-            p(class: 'fin') do
+          div(class: "row clearfix") do
+            p(class: "fin") do
               raw(safe(Views::Icons.code))
             end
           end
@@ -118,18 +118,18 @@ module Pressa
         text = markdown.dup
 
         # Drop inline and reference-style images before links are simplified.
-        text.gsub!(/!\[[^\]]*\]\([^)]+\)/, '')
-        text.gsub!(/!\[[^\]]*\]\[[^\]]+\]/, '')
+        text.gsub!(/!\[[^\]]*\]\([^)]+\)/, "")
+        text.gsub!(/!\[[^\]]*\]\[[^\]]+\]/, "")
 
         # Replace inline and reference links with just their text.
         text.gsub!(/\[([^\]]+)\]\([^)]+\)/, '\1')
         text.gsub!(/\[([^\]]+)\]\[[^\]]+\]/, '\1')
 
         # Remove link reference definitions such as: [foo]: http://example.com
-        text.gsub!(/(?m)^\[[^\]]+\]:\s*\S.*$/, '')
+        text.gsub!(/(?m)^\[[^\]]+\]:\s*\S.*$/, "")
 
-        text.gsub!(/<[^>]+>/, '')
-        text.gsub!(/\s+/, ' ')
+        text.gsub!(/<[^>]+>/, "")
+        text.gsub!(/\s+/, " ")
         text.strip!
 
         return nil if text.empty?

@@ -1,4 +1,4 @@
-require 'json'
+require "json"
 
 module Pressa
   module Config
@@ -89,7 +89,7 @@ module Pressa
         keys.each do |key|
           cursor[key] ||= {}
           unless cursor[key].is_a?(Hash)
-            raise ParseError, "Expected table path '#{keys.join('.')}' at line #{line_number}"
+            raise ParseError, "Expected table path '#{keys.join(".")}' at line #{line_number}"
           end
 
           cursor = cursor[key]
@@ -99,7 +99,7 @@ module Pressa
       end
 
       def parse_path(raw_path, line_number)
-        keys = raw_path.split('.').map(&:strip)
+        keys = raw_path.split(".").map(&:strip)
         if keys.empty? || keys.any? { |part| part.empty? || part !~ /\A[A-Za-z0-9_]+\z/ }
           raise ParseError, "Invalid table path '#{raw_path}' at line #{line_number}"
         end
@@ -107,7 +107,7 @@ module Pressa
       end
 
       def parse_assignment(source, line_number)
-        separator = index_of_unquoted(source, '=')
+        separator = index_of_unquoted(source, "=")
         raise ParseError, "Invalid assignment at line #{line_number}" unless separator
 
         key = source[0...separator].strip
@@ -136,7 +136,7 @@ module Pressa
           if in_string
             if escaped
               escaped = false
-            elsif char == '\\'
+            elsif char == "\\"
               escaped = true
             elsif char == '"'
               in_string = false
@@ -148,9 +148,9 @@ module Pressa
           case char
           when '"'
             in_string = true
-          when '[', '{'
+          when "[", "{"
             depth += 1
-          when ']', '}'
+          when "]", "}"
             depth -= 1
           end
         end
@@ -159,7 +159,7 @@ module Pressa
       end
 
       def strip_comments(line)
-        output = +''
+        output = +""
         in_string = false
         escaped = false
 
@@ -169,7 +169,7 @@ module Pressa
 
             if escaped
               escaped = false
-            elsif char == '\\'
+            elsif char == "\\"
               escaped = true
             elsif char == '"'
               in_string = false
@@ -182,7 +182,7 @@ module Pressa
           when '"'
             in_string = true
             output << char
-          when '#'
+          when "#"
             break
           else
             output << char
@@ -200,7 +200,7 @@ module Pressa
           if in_string
             if escaped
               escaped = false
-            elsif char == '\\'
+            elsif char == "\\"
               escaped = true
             elsif char == '"'
               in_string = false

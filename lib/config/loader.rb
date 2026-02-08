@@ -1,8 +1,8 @@
-require_relative '../site'
-require_relative '../posts/plugin'
-require_relative '../projects/plugin'
-require_relative '../utils/markdown_renderer'
-require_relative 'simple_toml'
+require_relative "../site"
+require_relative "../posts/plugin"
+require_relative "../projects/plugin"
+require_relative "../utils/markdown_renderer"
+require_relative "simple_toml"
 
 module Pressa
   module Config
@@ -17,31 +17,31 @@ module Pressa
       end
 
       def build_site(url_override: nil)
-        site_config = load_toml('site.toml')
-        projects_config = load_toml('projects.toml')
+        site_config = load_toml("site.toml")
+        projects_config = load_toml("projects.toml")
 
-        validate_required!(site_config, REQUIRED_SITE_KEYS, context: 'site.toml')
+        validate_required!(site_config, REQUIRED_SITE_KEYS, context: "site.toml")
 
-        site_url = url_override || site_config['url']
-        projects_plugin = hash_or_empty(site_config['projects_plugin'], 'site.toml projects_plugin')
+        site_url = url_override || site_config["url"]
+        projects_plugin = hash_or_empty(site_config["projects_plugin"], "site.toml projects_plugin")
 
         projects = build_projects(projects_config)
 
         Site.new(
-          author: site_config['author'],
-          email: site_config['email'],
-          title: site_config['title'],
-          description: site_config['description'],
+          author: site_config["author"],
+          email: site_config["email"],
+          title: site_config["title"],
+          description: site_config["description"],
           url: site_url,
-          image_url: normalize_image_url(site_config['image_url'], site_url),
-          scripts: build_scripts(site_config['scripts'], context: 'site.toml scripts'),
-          styles: build_styles(site_config['styles'], context: 'site.toml styles'),
+          image_url: normalize_image_url(site_config["image_url"], site_url),
+          scripts: build_scripts(site_config["scripts"], context: "site.toml scripts"),
+          styles: build_styles(site_config["styles"], context: "site.toml styles"),
           plugins: [
             Posts::Plugin.new,
             Projects::Plugin.new(
               projects:,
-              scripts: build_scripts(projects_plugin['scripts'], context: 'site.toml projects_plugin.scripts'),
-              styles: build_styles(projects_plugin['styles'], context: 'site.toml projects_plugin.styles')
+              scripts: build_scripts(projects_plugin["scripts"], context: "site.toml projects_plugin.scripts"),
+              styles: build_styles(projects_plugin["styles"], context: "site.toml projects_plugin.styles")
             )
           ],
           renderers: [
@@ -60,7 +60,7 @@ module Pressa
       end
 
       def build_projects(projects_config)
-        projects = projects_config['projects']
+        projects = projects_config["projects"]
         raise ValidationError, "Missing required top-level array 'projects' in projects.toml" unless projects
         raise ValidationError, "Expected 'projects' to be an array in projects.toml" unless projects.is_a?(Array)
 
@@ -72,10 +72,10 @@ module Pressa
           validate_required!(project, REQUIRED_PROJECT_KEYS, context: "projects.toml project ##{index + 1}")
 
           Projects::Project.new(
-            name: project['name'],
-            title: project['title'],
-            description: project['description'],
-            url: project['url']
+            name: project["name"],
+            title: project["title"],
+            description: project["description"],
+            url: project["url"]
           )
         end
       end
@@ -87,7 +87,7 @@ module Pressa
 
         return if missing.empty?
 
-        raise ValidationError, "Missing required #{context} keys: #{missing.join(', ')}"
+        raise ValidationError, "Missing required #{context} keys: #{missing.join(", ")}"
       end
 
       def hash_or_empty(value, context)
@@ -105,10 +105,10 @@ module Pressa
           when String
             Script.new(src: item, defer: true)
           when Hash
-            src = item['src']
+            src = item["src"]
             raise ValidationError, "Expected #{context}[#{index}].src to be a String" unless src.is_a?(String) && !src.empty?
 
-            defer = item.key?('defer') ? item['defer'] : true
+            defer = item.key?("defer") ? item["defer"] : true
             unless [true, false].include?(defer)
               raise ValidationError, "Expected #{context}[#{index}].defer to be a Boolean"
             end
@@ -128,7 +128,7 @@ module Pressa
           when String
             Stylesheet.new(href: item)
           when Hash
-            href = item['href']
+            href = item["href"]
             raise ValidationError, "Expected #{context}[#{index}].href to be a String" unless href.is_a?(String) && !href.empty?
 
             Stylesheet.new(href:)
@@ -147,9 +147,9 @@ module Pressa
 
       def normalize_image_url(value, site_url)
         return nil if value.nil?
-        return value if value.start_with?('http://', 'https://')
+        return value if value.start_with?("http://", "https://")
 
-        normalized = value.start_with?('/') ? value : "/#{value}"
+        normalized = value.start_with?("/") ? value : "/#{value}"
         "#{site_url}#{normalized}"
       end
     end

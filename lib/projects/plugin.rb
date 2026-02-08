@@ -1,9 +1,9 @@
-require_relative '../plugin'
-require_relative '../utils/file_writer'
-require_relative '../views/layout'
-require_relative '../views/projects_view'
-require_relative '../views/project_view'
-require_relative 'models'
+require_relative "../plugin"
+require_relative "../utils/file_writer"
+require_relative "../views/layout"
+require_relative "../views/projects_view"
+require_relative "../views/project_view"
+require_relative "models"
 
 module Pressa
   module Projects
@@ -34,12 +34,12 @@ module Pressa
 
         html = render_layout(
           site:,
-          page_subtitle: 'Projects',
-          canonical_url: site.url_for('/projects/'),
+          page_subtitle: "Projects",
+          canonical_url: site.url_for("/projects/"),
           content: content_view
         )
 
-        file_path = File.join(target_path, 'projects', 'index.html')
+        file_path = File.join(target_path, "projects", "index.html")
         Utils::FileWriter.write(path: file_path, content: html)
       end
 
@@ -56,7 +56,7 @@ module Pressa
           page_description: project.description
         )
 
-        file_path = File.join(target_path, 'projects', project.name, 'index.html')
+        file_path = File.join(target_path, "projects", project.name, "index.html")
         Utils::FileWriter.write(path: file_path, content: html)
       end
 

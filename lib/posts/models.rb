@@ -1,5 +1,5 @@
-require 'dry-struct'
-require_relative '../site'
+require "dry-struct"
+require_relative "../site"
 
 module Pressa
   module Posts
@@ -30,11 +30,11 @@ module Pressa
       end
 
       def formatted_month
-        date.strftime('%B')
+        date.strftime("%B")
       end
 
       def padded_month
-        format('%02d', month)
+        format("%02d", month)
       end
     end
 
@@ -45,9 +45,9 @@ module Pressa
 
       def self.from_date(date)
         new(
-          name: date.strftime('%B'),
+          name: date.strftime("%B"),
           number: date.month,
-          padded: format('%02d', date.month)
+          padded: format("%02d", date.month)
         )
       end
     end

@@ -1,5 +1,5 @@
-require 'phlex'
-require_relative 'year_posts_view'
+require "phlex"
+require_relative "year_posts_view"
 
 module Pressa
   module Views
@@ -10,8 +10,8 @@ module Pressa
       end
 
       def view_template
-        div(class: 'container') do
-          h1 { 'Archive' }
+        div(class: "container") do
+          h1 { "Archive" }
         end
 
         @posts_by_year.sorted_years.each do |year|

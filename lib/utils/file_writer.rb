@@ -1,11 +1,11 @@
-require 'fileutils'
+require "fileutils"
 
 module Pressa
   module Utils
     class FileWriter
       def self.write(path:, content:, permissions: 0o644)
         FileUtils.mkdir_p(File.dirname(path))
-        File.write(path, content, mode: 'w')
+        File.write(path, content, mode: "w")
         File.chmod(permissions, path)
       end
 

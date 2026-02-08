@@ -1,13 +1,13 @@
-require 'kramdown'
-require_relative 'models'
-require_relative 'metadata'
+require "kramdown"
+require_relative "models"
+require_relative "metadata"
 
 module Pressa
   module Posts
     class PostRepo
       EXCERPT_LENGTH = 300
 
-      def initialize(output_path: 'posts')
+      def initialize(output_path: "posts")
         @output_path = output_path
         @posts_by_year = {}
       end
@@ -24,18 +24,18 @@ module Pressa
       private
 
       def enumerate_markdown_files(dir, &block)
-        Dir.glob(File.join(dir, '**', '*.md')).each(&block)
+        Dir.glob(File.join(dir, "**", "*.md")).each(&block)
       end
 
       def read_post(file_path)
         content = File.read(file_path)
         metadata = PostMetadata.parse(content)
 
-        body_markdown = content.sub(/\A---\s*\n.*?\n---\s*\n/m, '')
+        body_markdown = content.sub(/\A---\s*\n.*?\n---\s*\n/m, "")
 
         html_body = render_markdown(body_markdown)
 
-        slug = File.basename(file_path, '.md')
+        slug = File.basename(file_path, ".md")
         path = generate_path(slug, metadata.date)
         excerpt = generate_excerpt(body_markdown)
 
@@ -58,9 +58,9 @@ module Pressa
       def render_markdown(markdown)
         Kramdown::Document.new(
           markdown,
-          input: 'GFM',
+          input: "GFM",
           hard_wrap: false,
-          syntax_highlighter: 'rouge',
+          syntax_highlighter: "rouge",
           syntax_highlighter_opts: {
             line_numbers: false,
             wrap: true
@@ -70,27 +70,27 @@ module Pressa
 
       def generate_path(slug, date)
         year = date.year
-        month = format('%02d', date.month)
+        month = format("%02d", date.month)
         "/#{@output_path}/#{year}/#{month}/#{slug}"
       end
 
       def generate_excerpt(markdown)
         text = markdown.dup
 
-        text.gsub!(/!\[[^\]]*\]\([^)]+\)/, '')
-        text.gsub!(/!\[[^\]]*\]\[[^\]]+\]/, '')
+        text.gsub!(/!\[[^\]]*\]\([^)]+\)/, "")
+        text.gsub!(/!\[[^\]]*\]\[[^\]]+\]/, "")
 
         text.gsub!(/\[([^\]]+)\]\([^)]+\)/, '\1')
         text.gsub!(/\[([^\]]+)\]\[[^\]]+\]/, '\1')
 
-        text.gsub!(/(?m)^\[[^\]]+\]:\s*\S.*$/, '')
+        text.gsub!(/(?m)^\[[^\]]+\]:\s*\S.*$/, "")
 
-        text.gsub!(/<[^>]+>/, '')
+        text.gsub!(/<[^>]+>/, "")
 
-        text.gsub!(/\s+/, ' ')
+        text.gsub!(/\s+/, " ")
         text.strip!
 
-        return '...' if text.empty?
+        return "..." if text.empty?
 
         "#{text[0...EXCERPT_LENGTH]}..."
       end

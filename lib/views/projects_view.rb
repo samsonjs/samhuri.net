@@ -1,5 +1,5 @@
-require 'phlex'
-require_relative 'icons'
+require "phlex"
+require_relative "icons"
 
 module Pressa
   module Views
@@ -10,21 +10,21 @@ module Pressa
       end
 
       def view_template
-        article(class: 'container') do
-          h1 { 'Projects' }
+        article(class: "container") do
+          h1 { "Projects" }
 
           @projects.each do |project|
-            div(class: 'project-listing') do
+            div(class: "project-listing") do
               h4 do
                 a(href: @site.url_for(project.path)) { project.title }
               end
-              p(class: 'description') { project.description }
+              p(class: "description") { project.description }
             end
           end
         end
 
-        div(class: 'row clearfix') do
-          p(class: 'fin') do
+        div(class: "row clearfix") do
+          p(class: "fin") do
             raw(safe(Icons.code))
           end
         end

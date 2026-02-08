@@ -1,10 +1,10 @@
-require_relative '../utils/file_writer'
-require_relative '../views/layout'
-require_relative '../views/post_view'
-require_relative '../views/recent_posts_view'
-require_relative '../views/archive_view'
-require_relative '../views/year_posts_view'
-require_relative '../views/month_posts_view'
+require_relative "../utils/file_writer"
+require_relative "../views/layout"
+require_relative "../views/post_view"
+require_relative "../views/recent_posts_view"
+require_relative "../views/archive_view"
+require_relative "../views/year_posts_view"
+require_relative "../views/month_posts_view"
 
 module Pressa
   module Posts
@@ -28,11 +28,11 @@ module Pressa
           page_subtitle: nil,
           canonical_url: @site.url,
           content: content_view,
-          page_description: 'Recent posts',
-          page_type: 'article'
+          page_description: "Recent posts",
+          page_type: "article"
         )
 
-        file_path = File.join(target_path, 'index.html')
+        file_path = File.join(target_path, "index.html")
         Utils::FileWriter.write(path: file_path, content: html)
       end
 
@@ -40,13 +40,13 @@ module Pressa
         content_view = Views::ArchiveView.new(posts_by_year: @posts_by_year, site: @site)
 
         html = render_layout(
-          page_subtitle: 'Archive',
-          canonical_url: @site.url_for('/posts/'),
+          page_subtitle: "Archive",
+          canonical_url: @site.url_for("/posts/"),
           content: content_view,
-          page_description: 'Archive of all posts'
+          page_description: "Archive of all posts"
         )
 
-        file_path = File.join(target_path, 'posts', 'index.html')
+        file_path = File.join(target_path, "posts", "index.html")
         Utils::FileWriter.write(path: file_path, content: html)
       end
 
@@ -68,7 +68,7 @@ module Pressa
       private
 
       def write_post(post:, target_path:)
-        content_view = Views::PostView.new(post:, site: @site, article_class: 'container')
+        content_view = Views::PostView.new(post:, site: @site, article_class: "container")
 
         html = render_layout(
           page_subtitle: post.title,
@@ -77,10 +77,10 @@ module Pressa
           page_scripts: post.scripts,
           page_styles: post.styles,
           page_description: post.excerpt,
-          page_type: 'article'
+          page_type: "article"
         )
 
-        file_path = File.join(target_path, post.path.sub(/^\//, ''), 'index.html')
+        file_path = File.join(target_path, post.path.sub(/^\//, ""), "index.html")
         Utils::FileWriter.write(path: file_path, content: html)
       end
 
@@ -92,10 +92,10 @@ module Pressa
           canonical_url: @site.url_for("/posts/#{year}/"),
           content: content_view,
           page_description: "Archive of all posts from #{year}",
-          page_type: 'article'
+          page_type: "article"
         )
 
-        file_path = File.join(target_path, 'posts', year.to_s, 'index.html')
+        file_path = File.join(target_path, "posts", year.to_s, "index.html")
         Utils::FileWriter.write(path: file_path, content: html)
       end
 
@@ -109,10 +109,10 @@ module Pressa
           canonical_url: @site.url_for("/posts/#{year}/#{month.padded}/"),
           content: content_view,
           page_description: "Archive of all posts from #{title}",
-          page_type: 'article'
+          page_type: "article"
         )
 
-        file_path = File.join(target_path, 'posts', year.to_s, month.padded, 'index.html')
+        file_path = File.join(target_path, "posts", year.to_s, month.padded, "index.html")
         Utils::FileWriter.write(path: file_path, content: html)
       end
 
@@ -123,7 +123,7 @@ module Pressa
         page_scripts: [],
         page_styles: [],
         page_description: nil,
-        page_type: 'website'
+        page_type: "website"
       )
         layout = Views::Layout.new(
           site: @site,

@@ -1,5 +1,5 @@
-require 'dry-struct'
-require_relative '../site'
+require "dry-struct"
+require_relative "../site"
 
 module Pressa
   module Projects
@@ -11,7 +11,7 @@ module Pressa
 
       def github_path
         uri = URI.parse(url)
-        uri.path.sub(/^\//, '')
+        uri.path.sub(/^\//, "")
       end
 
       def path

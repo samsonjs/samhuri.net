@@ -1,14 +1,14 @@
-require 'spec_helper'
-require 'fileutils'
-require 'tmpdir'
+require "spec_helper"
+require "fileutils"
+require "tmpdir"
 
 RSpec.describe Pressa::Posts::PostRepo do
   let(:repo) { described_class.new }
 
-  describe '#read_posts' do
-    it 'reads and organizes posts by year and month' do
+  describe "#read_posts" do
+    it "reads and organizes posts by year and month" do
       Dir.mktmpdir do |tmpdir|
-        posts_dir = File.join(tmpdir, 'posts', '2025', '11')
+        posts_dir = File.join(tmpdir, "posts", "2025", "11")
         FileUtils.mkdir_p(posts_dir)
 
         post_content = <<~MARKDOWN
@@ -22,25 +22,25 @@ RSpec.describe Pressa::Posts::PostRepo do
           Had an epic day at Whistler. The powder was deep and the lines were short.
         MARKDOWN
 
-        File.write(File.join(posts_dir, 'shredding.md'), post_content)
+        File.write(File.join(posts_dir, "shredding.md"), post_content)
 
-        posts_by_year = repo.read_posts(File.join(tmpdir, 'posts'))
+        posts_by_year = repo.read_posts(File.join(tmpdir, "posts"))
 
         expect(posts_by_year.all_posts.length).to eq(1)
 
         post = posts_by_year.all_posts.first
-        expect(post.title).to eq('Shredding in November')
-        expect(post.author).to eq('Shaun White')
-        expect(post.slug).to eq('shredding')
+        expect(post.title).to eq("Shredding in November")
+        expect(post.author).to eq("Shaun White")
+        expect(post.slug).to eq("shredding")
         expect(post.year).to eq(2025)
         expect(post.month).to eq(11)
-        expect(post.path).to eq('/posts/2025/11/shredding')
+        expect(post.path).to eq("/posts/2025/11/shredding")
       end
     end
 
-    it 'generates excerpts from post content' do
+    it "generates excerpts from post content" do
       Dir.mktmpdir do |tmpdir|
-        posts_dir = File.join(tmpdir, 'posts', '2025', '11')
+        posts_dir = File.join(tmpdir, "posts", "2025", "11")
         FileUtils.mkdir_p(posts_dir)
 
         post_content = <<~MARKDOWN
@@ -58,15 +58,15 @@ RSpec.describe Pressa::Posts::PostRepo do
           More content with a [link](https://example.net).
         MARKDOWN
 
-        File.write(File.join(posts_dir, 'test.md'), post_content)
+        File.write(File.join(posts_dir, "test.md"), post_content)
 
-        posts_by_year = repo.read_posts(File.join(tmpdir, 'posts'))
+        posts_by_year = repo.read_posts(File.join(tmpdir, "posts"))
         post = posts_by_year.all_posts.first
 
-        expect(post.excerpt).to include('test post')
-        expect(post.excerpt).not_to include('![')
-        expect(post.excerpt).to include('link')
-        expect(post.excerpt).not_to include('[link]')
+        expect(post.excerpt).to include("test post")
+        expect(post.excerpt).not_to include("![")
+        expect(post.excerpt).to include("link")
+        expect(post.excerpt).not_to include("[link]")
       end
     end
   end

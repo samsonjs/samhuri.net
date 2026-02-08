@@ -1,5 +1,5 @@
-require 'phlex'
-require_relative 'post_view'
+require "phlex"
+require_relative "post_view"
 
 module Pressa
   module Views
@@ -10,7 +10,7 @@ module Pressa
       end
 
       def view_template
-        div(class: 'container') do
+        div(class: "container") do
           @posts.each do |post|
             render PostView.new(post:, site: @site)
           end

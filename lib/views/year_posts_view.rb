@@ -1,4 +1,4 @@
-require 'phlex'
+require "phlex"
 
 module Pressa
   module Views
@@ -10,8 +10,8 @@ module Pressa
       end
 
       def view_template
-        div(class: 'container') do
-          h2(class: 'year') do
+        div(class: "container") do
+          h2(class: "year") do
             a(href: year_path) { @year.to_s }
           end
 
@@ -30,13 +30,13 @@ module Pressa
       def render_month(month_posts)
         month = month_posts.month
 
-        h3(class: 'month') do
+        h3(class: "month") do
           a(href: @site.url_for("/posts/#{@year}/#{month.padded}/")) do
             month.name
           end
         end
 
-        ul(class: 'archive') do
+        ul(class: "archive") do
           month_posts.sorted_posts.each do |post|
             li do
               a(href: post_link(post)) { post.title }
@@ -51,7 +51,7 @@ module Pressa
       end
 
       def short_date(date)
-        date.strftime('%-d %b')
+        date.strftime("%-d %b")
       end
     end
   end

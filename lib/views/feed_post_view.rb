@@ -1,4 +1,4 @@
-require 'phlex'
+require "phlex"
 
 module Pressa
   module Views
@@ -10,10 +10,10 @@ module Pressa
 
       def view_template
         div do
-          p(class: 'time') { @post.formatted_date }
+          p(class: "time") { @post.formatted_date }
           raw(safe(@post.body))
           p do
-            a(class: 'permalink', href: @site.url_for(@post.path)) { '∞' }
+            a(class: "permalink", href: @site.url_for(@post.path)) { "∞" }
           end
         end
       end

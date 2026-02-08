@@ -1,6 +1,6 @@
-require 'json'
-require_relative '../utils/file_writer'
-require_relative '../views/feed_post_view'
+require "json"
+require_relative "../utils/file_writer"
+require_relative "../views/feed_post_view"
 
 module Pressa
   module Posts
@@ -18,7 +18,7 @@ module Pressa
         feed = build_feed(recent)
 
         json = JSON.pretty_generate(feed)
-        file_path = File.join(target_path, 'feed.json')
+        file_path = File.join(target_path, "feed.json")
         Utils::FileWriter.write(path: file_path, content: json)
       end
 
@@ -41,18 +41,18 @@ module Pressa
           author:,
           version: FEED_VERSION,
           authors: [author],
-          feed_url: @site.url_for('/feed.json'),
-          language: 'en-CA',
+          feed_url: @site.url_for("/feed.json"),
+          language: "en-CA",
           title: @site.title
         }
       end
 
       def icon_url
-        @site.url_for('/images/apple-touch-icon-300.png')
+        @site.url_for("/images/apple-touch-icon-300.png")
       end
 
       def favicon_url
-        @site.url_for('/images/apple-touch-icon-80.png')
+        @site.url_for("/images/apple-touch-icon-80.png")
       end
 
       def feed_item(post)
@@ -65,7 +65,7 @@ module Pressa
         item[:tags] = post.tags unless post.tags.empty?
         item[:content_html] = content_html
         item[:title] = post.link_post? ? "→ #{post.title}" : post.title
-        item[:author] = { name: post.author }
+        item[:author] = {name: post.author}
         item[:date_published] = post.date.iso8601
         item[:id] = permalink
 

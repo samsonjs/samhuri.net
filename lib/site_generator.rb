@@ -1,5 +1,5 @@
-require 'fileutils'
-require_relative 'utils/file_writer'
+require "fileutils"
+require_relative "utils/file_writer"
 
 module Pressa
   class SiteGenerator
@@ -30,7 +30,7 @@ module Pressa
       target_abs = absolute_path(target_path)
       return unless contains_path?(container: target_abs, path: source_abs)
 
-      raise ArgumentError, 'target_path must not be the same as or contain source_path'
+      raise ArgumentError, "target_path must not be the same as or contain source_path"
     end
 
     def absolute_path(path)
@@ -42,12 +42,12 @@ module Pressa
     end
 
     def copy_static_files(source_path, target_path)
-      public_dir = File.join(source_path, 'public')
+      public_dir = File.join(source_path, "public")
       return unless Dir.exist?(public_dir)
 
-      Dir.glob(File.join(public_dir, '**', '*'), File::FNM_DOTMATCH).each do |source_file|
+      Dir.glob(File.join(public_dir, "**", "*"), File::FNM_DOTMATCH).each do |source_file|
         next if File.directory?(source_file)
-        next if File.basename(source_file) == '.' || File.basename(source_file) == '..'
+        next if File.basename(source_file) == "." || File.basename(source_file) == ".."
 
         filename = File.basename(source_file)
         ext = File.extname(source_file)[1..]
@@ -56,7 +56,7 @@ module Pressa
           next
         end
 
-        relative_path = source_file.sub("#{public_dir}/", '')
+        relative_path = source_file.sub("#{public_dir}/", "")
         target_file = File.join(target_path, relative_path)
 
         FileUtils.mkdir_p(File.dirname(target_file))
@@ -69,11 +69,11 @@ module Pressa
     end
 
     def process_public_directory(source_path, target_path)
-      public_dir = File.join(source_path, 'public')
+      public_dir = File.join(source_path, "public")
       return unless Dir.exist?(public_dir)
 
       site.renderers.each do |renderer|
-        Dir.glob(File.join(public_dir, '**', '*'), File::FNM_DOTMATCH).each do |source_file|
+        Dir.glob(File.join(public_dir, "**", "*"), File::FNM_DOTMATCH).each do |source_file|
           next if File.directory?(source_file)
 
           filename = File.basename(source_file)
@@ -82,10 +82,10 @@ module Pressa
           if renderer.can_render_file?(filename:, extension: ext)
             dir_name = File.dirname(source_file)
             relative_path = if dir_name == public_dir
-                              ''
-                            else
-                              dir_name.sub("#{public_dir}/", '')
-                            end
+              ""
+            else
+              dir_name.sub("#{public_dir}/", "")
+            end
             target_dir = File.join(target_path, relative_path)
 
             renderer.render(site:, file_path: source_file, target_dir:)

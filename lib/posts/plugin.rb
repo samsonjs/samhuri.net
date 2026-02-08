@@ -1,8 +1,8 @@
-require_relative '../plugin'
-require_relative 'repo'
-require_relative 'writer'
-require_relative 'json_feed'
-require_relative 'rss_feed'
+require_relative "../plugin"
+require_relative "repo"
+require_relative "writer"
+require_relative "json_feed"
+require_relative "rss_feed"
 
 module Pressa
   module Posts
@@ -10,7 +10,7 @@ module Pressa
       attr_reader :posts_by_year
 
       def setup(site:, source_path:)
-        posts_dir = File.join(source_path, 'posts')
+        posts_dir = File.join(source_path, "posts")
         return unless Dir.exist?(posts_dir)
 
         repo = PostRepo.new

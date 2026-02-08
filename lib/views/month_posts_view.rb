@@ -1,5 +1,5 @@
-require 'phlex'
-require_relative 'post_view'
+require "phlex"
+require_relative "post_view"
 
 module Pressa
   module Views
@@ -11,12 +11,12 @@ module Pressa
       end
 
       def view_template
-        div(class: 'container') do
+        div(class: "container") do
           h1 { "#{@month_posts.month.name} #{@year}" }
         end
 
         @month_posts.sorted_posts.each do |post|
-          div(class: 'container') do
+          div(class: "container") do
             render PostView.new(post:, site: @site)
           end
         end

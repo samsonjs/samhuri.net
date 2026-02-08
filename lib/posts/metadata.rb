@@ -1,5 +1,5 @@
-require 'yaml'
-require 'date'
+require "yaml"
+require "date"
 
 module Pressa
   module Posts
@@ -28,36 +28,36 @@ module Pressa
 
       def validate_required_fields!
         missing = REQUIRED_FIELDS.reject { |field| @raw.key?(field) }
-        raise "Missing required fields: #{missing.join(', ')}" unless missing.empty?
+        raise "Missing required fields: #{missing.join(", ")}" unless missing.empty?
       end
 
       def parse_fields
-        @title = @raw['Title']
-        @author = @raw['Author']
-        timestamp = @raw['Timestamp']
+        @title = @raw["Title"]
+        @author = @raw["Author"]
+        timestamp = @raw["Timestamp"]
         @date = timestamp.is_a?(String) ? DateTime.parse(timestamp) : timestamp.to_datetime
-        @formatted_date = @raw['Date']
-        @link = @raw['Link']
-        @tags = parse_tags(@raw['Tags'])
-        @scripts = parse_scripts(@raw['Scripts'])
-        @styles = parse_styles(@raw['Styles'])
+        @formatted_date = @raw["Date"]
+        @link = @raw["Link"]
+        @tags = parse_tags(@raw["Tags"])
+        @scripts = parse_scripts(@raw["Scripts"])
+        @styles = parse_styles(@raw["Styles"])
       end
 
       def parse_tags(value)
         return [] if value.nil?
-        value.is_a?(Array) ? value : value.split(',').map(&:strip)
+        value.is_a?(Array) ? value : value.split(",").map(&:strip)
       end
 
       def parse_comma_separated(value)
         return [] if value.nil? || value.empty?
-        value.split(',').map(&:strip)
+        value.split(",").map(&:strip)
       end
 
       def parse_scripts(value)
         return [] if value.nil?
 
         parse_comma_separated(value).map do |src|
-          Script.new(src: normalize_asset_path(src, 'js'), defer: true)
+          Script.new(src: normalize_asset_path(src, "js"), defer: true)
         end
       end
 
@@ -65,13 +65,13 @@ module Pressa
         return [] if value.nil?
 
         parse_comma_separated(value).map do |href|
-          Stylesheet.new(href: normalize_asset_path(href, 'css'))
+          Stylesheet.new(href: normalize_asset_path(href, "css"))
         end
       end
 
       def normalize_asset_path(path, default_dir)
-        return path if path.start_with?('http://', 'https://', '/')
-        return path if path.include?('/')
+        return path if path.start_with?("http://", "https://", "/")
+        return path if path.include?("/")
 
         "#{default_dir}/#{path}"
       end
