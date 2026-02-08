@@ -6,7 +6,9 @@ Source code for [samhuri.net](https://samhuri.net), powered by a Ruby static sit
 
 This repository contains the Ruby static-site generator and site content for samhuri.net.
 
-- Generator core: `lib/`
+If what you want is an artisanal, hand-crafted, static site generator for your personal blog then this might be a decent starting point. If you want a static site generator for other purposes then this has the bones you need to do that too, by ripping out the bundled plugins for posts and projects and writing your own.
+
+- Generator core: `lib/pressa/` (entrypoint: `lib/pressa.rb`)
 - Build tasks and utility workflows: `bake.rb`
 - Tests: `spec/`
 - Config: `site.toml` and `projects.toml`
@@ -29,14 +31,14 @@ Or manually:
 
 ```bash
 rbenv install -s "$(cat .ruby-version)"
-rbenv exec bundle install
+bundle install
 ```
 
 ## Build And Serve
 
 ```bash
-rbenv exec bundle exec bake debug   # build for http://localhost:8000
-rbenv exec bundle exec bake serve   # serve www/ locally
+bake debug   # build for http://localhost:8000
+bake serve   # serve www/ locally
 ```
 
 ## Configuration
@@ -56,27 +58,27 @@ If this workflow seems like a good fit, here is the minimum to make it your own:
 - Set `plugins` in `site.toml` to explicitly enable features (`"posts"`, `"projects"`). Safe default if omitted is no plugins.
 - Define your projects in `projects.toml` using `[[projects]]` entries with `name`, `title`, `description`, and `url`.
 - Configure project-page-only assets in `site.toml` under `[projects_plugin]` (`scripts` and `styles`) when using the `"projects"` plugin.
-- Add custom plugins by implementing `Pressa::Plugin` in `lib/` and registering them in `lib/config/loader.rb`.
-- Adjust rendering and layout in `lib/views/` and the static content in `public/` as needed.
+- Add custom plugins by implementing `Pressa::Plugin` in `lib/pressa/` and registering them in `lib/pressa/config/loader.rb`.
+- Adjust rendering and layout in `lib/pressa/views/` and the static content in `public/` as needed.
 
 Other targets:
 
 ```bash
-rbenv exec bundle exec bake mudge
-rbenv exec bundle exec bake beta
-rbenv exec bundle exec bake release
-rbenv exec bundle exec bake watch target=debug
-rbenv exec bundle exec bake clean
-rbenv exec bundle exec bake publish_beta
-rbenv exec bundle exec bake publish
+bake mudge
+bake beta
+bake release
+bake watch target=debug
+bake clean
+bake publish_beta
+bake publish
 ```
 
 ## Draft Workflow
 
 ```bash
-rbenv exec bundle exec bake new_draft "Post title"
-rbenv exec bundle exec bake drafts
-rbenv exec bundle exec bake publish_draft public/drafts/post-title.md
+bake new_draft "Post title"
+bake drafts
+bake publish_draft public/drafts/post-title.md
 ```
 
 Published posts in `posts/YYYY/MM/*.md` require YAML front matter keys:
@@ -89,16 +91,16 @@ Published posts in `posts/YYYY/MM/*.md` require YAML front matter keys:
 ## Tests And Lint
 
 ```bash
-rbenv exec bundle exec bake test
-rbenv exec bundle exec standardrb
+bake test
+standardrb
 ```
 
 Or via bake:
 
 ```bash
-rbenv exec bundle exec bake test
-rbenv exec bundle exec bake lint
-rbenv exec bundle exec bake lint_fix
+bake test
+bake lint
+bake lint_fix
 ```
 
 ## Notes
