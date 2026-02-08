@@ -1,5 +1,16 @@
 # Build tasks for samhuri.net static site generator
 
+require 'etc'
+require 'fileutils'
+require 'shellwords'
+
+DRAFTS_DIR = 'public/drafts'.freeze
+PUBLISH_HOST = 'mudge'.freeze
+PRODUCTION_PUBLISH_DIR = '/var/www/samhuri.net/public'.freeze
+BETA_PUBLISH_DIR = '/var/www/beta.samhuri.net/public'.freeze
+WATCHABLE_DIRECTORIES = %w[public posts lib].freeze
+BUILD_TARGETS = %w[debug mudge beta release].freeze
+
 # Generate the site in debug mode (localhost:8000)
 def debug
   build('http://localhost:8000')
@@ -25,29 +36,158 @@ def serve
   require 'webrick'
   server = WEBrick::HTTPServer.new(Port: 8000, DocumentRoot: 'www')
   trap('INT') { server.shutdown }
-  puts "Server running at http://localhost:8000"
+  puts 'Server running at http://localhost:8000'
   server.start
+end
+
+# Generate a site from an arbitrary source directory into a target directory.
+# @parameter source_path [String] Directory containing site sources.
+# @parameter target_path [String] Directory to write generated site.
+# @parameter url [String] Optional site URL override.
+def generate(source_path = '.', target_path = 'www', url = nil)
+  require_relative 'lib/pressa'
+
+  site = Pressa.create_site(source_path:, url_override: url)
+  generator = Pressa::SiteGenerator.new(site:)
+  generator.generate(source_path:, target_path:)
+  puts "Site built successfully in #{target_path}"
+end
+
+# Install local prerequisites and gem dependencies.
+def setup
+  ruby_version = File.read('.ruby-version').strip
+
+  if RUBY_PLATFORM.include?('linux')
+    puts '*** installing Linux prerequisites'
+    unless system('sudo', 'apt', 'install', '-y',
+      'build-essential',
+      'git',
+      'inotify-tools',
+      'libffi-dev',
+      'libyaml-dev',
+      'pkg-config',
+      'zlib1g-dev')
+      abort 'Error: failed to install Linux prerequisites.'
+    end
+  end
+
+  if command_available?('rbenv')
+    puts "*** using rbenv (ruby #{ruby_version})"
+    abort 'Error: rbenv install failed.' unless system('rbenv', 'install', '-s', ruby_version)
+    abort 'Error: bundle install failed.' unless system('rbenv', 'exec', 'bundle', 'install')
+  else
+    puts '*** rbenv not found, using system Ruby'
+    abort 'Error: bundle install failed.' unless system('bundle', 'install')
+  end
+
+  puts '*** done'
+end
+
+# Create a new draft in public/drafts/.
+# @parameter title_parts [Array] Optional title words; defaults to Untitled.
+def new_draft(*title_parts)
+  title, filename =
+    if title_parts.empty?
+      ['Untitled', next_available_draft]
+    else
+      given_title = title_parts.join(' ')
+      slug = slugify(given_title)
+      abort 'Error: title cannot be converted to a filename.' if slug.empty?
+
+      filename = "#{slug}.md"
+      path = draft_path(filename)
+      abort "Error: draft already exists at #{path}" if File.exist?(path)
+
+      [given_title, filename]
+    end
+
+  FileUtils.mkdir_p(DRAFTS_DIR)
+  path = draft_path(filename)
+  content = render_draft_template(title)
+  File.write(path, content)
+
+  puts "Created new draft at #{path}"
+  puts '>>> Contents below <<<'
+  puts
+  puts content
+end
+
+# Publish a draft by moving it to posts/YYYY/MM and updating dates.
+# @parameter input_path [String] Draft path or filename in public/drafts.
+def publish_draft(input_path = nil)
+  if input_path.nil? || input_path.strip.empty?
+    puts 'Usage: bake publish_draft <draft-path-or-filename>'
+    puts
+    puts 'Available drafts:'
+    drafts = Dir.glob("#{DRAFTS_DIR}/*.md").map { |path| File.basename(path) }
+    if drafts.empty?
+      puts '  (no drafts found)'
+    else
+      drafts.each { |draft| puts "  #{draft}" }
+    end
+    abort
+  end
+
+  draft_path_value, draft_file = resolve_draft_input(input_path)
+  abort "Error: File not found: #{draft_path_value}" unless File.exist?(draft_path_value)
+
+  now = Time.now
+  content = File.read(draft_path_value)
+  content.sub!(/^Date:.*$/, "Date: #{ordinal_date(now)}")
+  content.sub!(/^Timestamp:.*$/, "Timestamp: #{now.strftime('%Y-%m-%dT%H:%M:%S%:z')}")
+
+  target_dir = "posts/#{now.strftime('%Y/%m')}"
+  FileUtils.mkdir_p(target_dir)
+  target_path = "#{target_dir}/#{draft_file}"
+
+  File.write(target_path, content)
+  FileUtils.rm_f(draft_path_value)
+
+  puts "Published draft: #{draft_path_value} -> #{target_path}"
+end
+
+# Watch content directories and rebuild on every change.
+# @parameter target [String] One of debug, mudge, beta, or release.
+def watch(target: 'mudge')
+  unless command_available?('inotifywait')
+    abort 'inotifywait is required (install inotify-tools).'
+  end
+
+  loop do
+    abort 'Error: watch failed.' unless system('inotifywait', '-e', 'modify,create,delete,move', *watch_paths)
+    puts "changed at #{Time.now}"
+    sleep 2
+    run_build_target(target)
+  end
+end
+
+# Deploy files via rsync without building first.
+# @parameter beta [Boolean] Deploy to beta host path.
+# @parameter test [Boolean] Enable rsync --dry-run.
+# @parameter delete [Boolean] Enable rsync --delete.
+# @parameter paths [Array] Optional local paths; defaults to www/.
+def deploy(*paths, beta: false, test: false, delete: false)
+  publish_dir = truthy?(beta) ? BETA_PUBLISH_DIR : PRODUCTION_PUBLISH_DIR
+  local_paths = paths.empty? ? ['www/'] : paths
+  run_rsync(local_paths:, publish_dir:, dry_run: test, delete:)
 end
 
 # Publish to beta/staging server
 def publish_beta
   beta
-  puts "Deploying to beta server..."
-  system('rsync -avz --delete www/ mudge:/var/www/beta.samhuri.net/public')
+  run_rsync(local_paths: ['www/'], publish_dir: BETA_PUBLISH_DIR, dry_run: false, delete: true)
 end
 
 # Publish to production server
 def publish
   release
-  puts "Deploying to production server..."
-  system('rsync -avz --delete www/ mudge:/var/www/samhuri.net/public')
+  run_rsync(local_paths: ['www/'], publish_dir: PRODUCTION_PUBLISH_DIR, dry_run: false, delete: true)
 end
 
 # Clean generated files
 def clean
-  require 'fileutils'
   FileUtils.rm_rf('www')
-  puts "Cleaned www/ directory"
+  puts 'Cleaned www/ directory'
 end
 
 # Run RSpec tests
@@ -62,7 +202,7 @@ end
 
 # List all available drafts
 def drafts
-  Dir.glob('public/drafts/*.md').sort.each do |draft|
+  Dir.glob("#{DRAFTS_DIR}/*.md").sort.each do |draft|
     puts File.basename(draft)
   end
 end
@@ -82,11 +222,121 @@ private
 # Build the site with specified URL
 # @parameter url [String] The site URL to use
 def build(url)
-  require_relative 'lib/pressa'
-
   puts "Building site for #{url}..."
-  site = Pressa.create_site(source_path: '.', url_override: url)
-  generator = Pressa::SiteGenerator.new(site:)
-  generator.generate(source_path: '.', target_path: 'www')
-  puts "Site built successfully in www/"
+  generate('.', 'www', url)
+end
+
+def run_rsync(local_paths:, publish_dir:, dry_run:, delete:)
+  command = ['rsync', '-aKv', '-e', 'ssh -4']
+  command << '--dry-run' if truthy?(dry_run)
+  command << '--delete' if truthy?(delete)
+  command.concat(local_paths)
+  command << "#{PUBLISH_HOST}:#{publish_dir}"
+
+  puts "Running: #{Shellwords.join(command)}"
+  abort 'Error: rsync failed.' unless system(*command)
+end
+
+def run_build_target(target)
+  target_name = target.to_s
+  unless BUILD_TARGETS.include?(target_name)
+    abort "Error: invalid target '#{target_name}'. Use one of: #{BUILD_TARGETS.join(', ')}"
+  end
+
+  public_send(target_name)
+end
+
+def watch_paths
+  WATCHABLE_DIRECTORIES.flat_map { |path| ['-r', path] }
+end
+
+def resolve_draft_input(input_path)
+  if input_path.include?('/')
+    if input_path.start_with?('posts/')
+      abort "Error: '#{input_path}' is already published in posts/ directory"
+    end
+
+    [input_path, File.basename(input_path)]
+  else
+    [draft_path(input_path), input_path]
+  end
+end
+
+def draft_path(filename)
+  File.join(DRAFTS_DIR, filename)
+end
+
+def slugify(title)
+  title.downcase
+    .gsub(/[^a-z0-9\s-]/, '')
+    .gsub(/\s+/, '-')
+    .gsub(/-+/, '-')
+    .gsub(/^-|-$/, '')
+end
+
+def next_available_draft(base_filename = 'untitled.md')
+  return base_filename unless File.exist?(draft_path(base_filename))
+
+  name_without_ext = File.basename(base_filename, '.md')
+  counter = 1
+  loop do
+    numbered_filename = "#{name_without_ext}-#{counter}.md"
+    return numbered_filename unless File.exist?(draft_path(numbered_filename))
+
+    counter += 1
+  end
+end
+
+def render_draft_template(title)
+  now = Time.now
+  <<~FRONTMATTER
+    ---
+    Author: #{current_author}
+    Title: #{title}
+    Date: unpublished
+    Timestamp: #{now.strftime('%Y-%m-%dT%H:%M:%S%:z')}
+    Tags:
+    ---
+
+    # #{title}
+
+    TKTK
+  FRONTMATTER
+end
+
+def current_author
+  Etc.getlogin || ENV['USER'] || `whoami`.strip
+rescue StandardError
+  ENV['USER'] || `whoami`.strip
+end
+
+def ordinal_date(time)
+  day = time.day
+  suffix = case day
+  when 1, 21, 31
+    'st'
+  when 2, 22
+    'nd'
+  when 3, 23
+    'rd'
+  else
+    'th'
+  end
+
+  time.strftime("#{day}#{suffix} %B, %Y")
+end
+
+def command_available?(command)
+  system('which', command, out: File::NULL, err: File::NULL)
+end
+
+def truthy?(value)
+  case value
+  when true
+    true
+  when false, nil
+    false
+  else
+    %w[1 true yes on].include?(value.to_s.downcase)
+  end
 end
