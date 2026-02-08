@@ -1,7 +1,7 @@
 require "test_helper"
 
 class Pressa::Views::LayoutTest < Minitest::Test
-  def test_content_view
+  def content_view
     Class.new(Phlex::HTML) do
       def view_template
         article do
@@ -25,7 +25,7 @@ class Pressa::Views::LayoutTest < Minitest::Test
     html = Pressa::Views::Layout.new(
       site:,
       canonical_url: "https://samhuri.net/posts/",
-      content: test_content_view
+      content: content_view
     ).call
 
     assert_includes(html, "<article>")
@@ -39,7 +39,7 @@ class Pressa::Views::LayoutTest < Minitest::Test
       site:,
       canonical_url: "https://samhuri.net/posts/",
       page_subtitle: subtitle,
-      content: test_content_view
+      content: content_view
     ).call
 
     assert_includes(html, "<title>samhuri.net: &lt;img src=x onerror=alert(1)&gt;</title>")
@@ -58,7 +58,7 @@ class Pressa::Views::LayoutTest < Minitest::Test
     html = Pressa::Views::Layout.new(
       site: cdn_site,
       canonical_url: "https://samhuri.net/posts/",
-      content: test_content_view
+      content: content_view
     ).call
 
     assert_includes(html, %(<link rel="stylesheet" type="text/css" href="https://cdn.example.com/site.css">))
