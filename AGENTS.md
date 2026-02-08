@@ -45,7 +45,7 @@ Posts must include YAML front matter. Required keys (enforced by `Pressa::Posts:
 Optional keys include `Tags`, `Link`, `Scripts`, and `Styles`.
 
 ## Coding Style & Naming Conventions
-- Ruby version: `4.0.1` (see `.ruby-version` and `Gemfile`).
+- Ruby (see `.ruby-version`).
 - Follow idiomatic Ruby style and keep code `bake lint`-clean.
 - Use 2-space indentation and descriptive `snake_case` names for methods/variables, `UpperCamelCase` for classes/modules.
 - Prefer small, focused classes for plugins, views, renderers, and config loaders.

@@ -1,7 +1,5 @@
 source "https://rubygems.org"
 
-ruby "~> 4.0.1"
-
 gem "phlex", "~> 2.3"
 gem "kramdown", "~> 2.5"
 gem "kramdown-parser-gfm", "~> 1.1"
