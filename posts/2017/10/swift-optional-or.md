@@ -1,14 +1,14 @@
 ---
 Author: Sami Samhuri
-Title: A nil-coalescing alternative for Swift
-Date: 6th October, 2017
+Title: "A nil-coalescing alternative for Swift"
+Date: "6th October, 2017"
 Timestamp: 2017-10-06T14:20:13-07:00
 Tags: iOS, Swift
 ---
 
 Swift compile times leave something to be desired and a common culprit is the affectionately-named [nil-coalescing operator][nilop]. A small extension to `Optional` can improve this without sacrificing a lot of readability.
 
-```Swift
+```swift
 extension Optional {
     func or(_ defaultValue: Wrapped) -> Wrapped {
         switch self {
@@ -21,7 +21,7 @@ extension Optional {
 
 And you use it like so:
 
-```Swift
+```swift
 let dict: [String : String] = [:]
 let maybeString = dict["not here"]
 print("the string is: \(maybeString.or("default"))")

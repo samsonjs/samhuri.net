@@ -1,7 +1,7 @@
 ---
-Title: A Git Pre-commit Hook for iOS
+Title: "A Git Pre-commit Hook for iOS"
 Author: Sami Samhuri
-Date: 4th August, 2016
+Date: "4th August, 2016"
 Timestamp: 2016-08-04T09:38:03-07:00
 Tags: ios, git
 ---

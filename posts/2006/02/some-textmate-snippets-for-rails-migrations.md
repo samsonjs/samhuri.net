@@ -1,7 +1,7 @@
 ---
-Title: Some TextMate snippets for Rails Migrations
+Title: "Some TextMate snippets for Rails Migrations"
 Author: Sami Samhuri
-Date: 18th February, 2006
+Date: "18th February, 2006"
 Timestamp: 2006-02-18T22:48:00-08:00
 Tags: textmate, rails, hacking, rails, snippets, textmate
 ---
@@ -16,39 +16,53 @@ Scope should be *source.ruby.rails* and the triggers I use are above the snippet
 
 mcdt: **M**igration **C**reate and **D**rop **T**able
 
-    create_table "${1:table}" do |t|
-        $0
-    end
-    ${2:drop_table "$1"}
+```ruby
+create_table "${1:table}" do |t|
+    $0
+end
+${2:drop_table "$1"}
+```
 
 mcc: **M**igration **C**reate **C**olumn
 
-    t.column "${1:title}", :${2:string}
+```ruby
+t.column "${1:title}", :${2:string}
+```
 
 marc: **M**igration **A**dd and **R**emove **C**olumn
 
-    add_column "${1:table}", "${2:column}", :${3:string}
-    ${4:remove_column "$1", "$2"}
+```ruby
+add_column "${1:table}", "${2:column}", :${3:string}
+${4:remove_column "$1", "$2"}
+```
 
 I realize this might not be for everyone, so here are my original 4 snippets that do the work of *marc* and *mcdt*.
 
 mct: **M**igration **C**reate **T**able
 
-    create_table "${1:table}" do |t|
-        $0
-    end
+```ruby
+create_table "${1:table}" do |t|
+    $0
+end
+```
 
 mdt: **M**igration **D**rop **T**able
 
-    drop_table "${1:table}"
+```ruby
+drop_table "${1:table}"
+```
 
 mac: **M**igration **A**dd **C**olumn
 
-    add_column "${1:table}", "${2:column}", :${3:string}
+```ruby
+add_column "${1:table}", "${2:column}", :${3:string}
+```
 
 mrc: **M**igration **R**remove **C**olumn
 
-    remove_column "${1:table}", "${2:column}"
+```ruby
+remove_column "${1:table}", "${2:column}"
+```
 
 I'll be adding more snippets and macros. There should be a central place where the rails bundle can be improved and extended. Maybe there is...
 
@@ -91,4 +105,3 @@ I'll be adding more snippets and macros. There should be a central place where t
     <p>P.S.  I tried several ways to get the combo-snippets to put the pieces inside the right functions but failed.  We'll see tomorrow if Allan (creator of TextMate) has any ideas.</p>
   </div>
 </div>
-

@@ -1,7 +1,7 @@
 ---
-Title: There's nothing regular about regular expressions
+Title: "There's nothing regular about regular expressions"
 Author: Sami Samhuri
-Date: 10th June, 2006
+Date: "10th June, 2006"
 Timestamp: 2006-06-10T01:28:00-07:00
 Tags: technology, book, regex
 ---
@@ -16,8 +16,9 @@ It requires more thinking than the last 2 computer books I read, *Programming Ru
 
 QOTD, p. 329, about matching nested pairs of parens:
 
-    \(([^()]|\(([^()]|\(([^()]|\(([^()])*\))*\))*\))*\)
-    Wow, that's ugly.
+```conf
+\(([^()]|\(([^()]|\(([^()]|\(([^()])*\))*\))*\))*\)
+Wow, that's ugly.
+```
 
 (Don't worry, there's a much better solution on the next 2 pages after that quote.)
-

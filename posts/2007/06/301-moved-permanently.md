@@ -1,7 +1,7 @@
 ---
-Title: 301 moved permanently
+Title: "301 moved permanently"
 Author: Sami Samhuri
-Date: 8th June, 2007
+Date: "8th June, 2007"
 Timestamp: 2007-06-08T18:00:00-07:00
 Tags: life
 ---

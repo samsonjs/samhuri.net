@@ -1,7 +1,7 @@
 ---
-Title: Learning Lisp? Read PCL
+Title: "Learning Lisp? Read PCL"
 Author: Sami Samhuri
-Date: 25th September, 2007
+Date: "25th September, 2007"
 Timestamp: 2007-09-25T02:59:00-07:00
 Tags: lisp
 ---

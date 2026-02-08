@@ -1,7 +1,7 @@
 ---
-Title: RTFM!
+Title: "RTFM!"
 Author: Sami Samhuri
-Date: 26th June, 2007
+Date: "26th June, 2007"
 Timestamp: 2007-06-25T14:19:00-07:00
 Tags: emacs, rtfm
 ---

@@ -1,9 +1,8 @@
 ---
-Title: Recovering From a Computer Science Education
+Title: "Recovering From a Computer Science Education"
 Author: Sami Samhuri
-Date: 17th January, 2012
+Date: "17th January, 2012"
 Timestamp: 2012-01-17T00:00:00-08:00
-Tags: 
 Link: http://prog21.dadgum.com/123.html
 ---
 

@@ -1,7 +1,7 @@
 ---
-Title: Never buy a German keyboard!
+Title: "Never buy a German keyboard!"
 Author: Sami Samhuri
-Date: 9th June, 2006
+Date: "9th June, 2006"
 Timestamp: 2006-06-09T01:17:00-07:00
 Tags: apple, apple, german, keyboard
 ---

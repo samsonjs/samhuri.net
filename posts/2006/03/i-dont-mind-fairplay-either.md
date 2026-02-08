@@ -1,7 +1,7 @@
 ---
-Title: I don't mind FairPlay either
+Title: "I don't mind FairPlay either"
 Author: Sami Samhuri
-Date: 3rd March, 2006
+Date: "3rd March, 2006"
 Timestamp: 2006-03-03T21:56:00-08:00
 Tags: apple, mac os x, life, drm, fairplay, ipod, itunes
 ---

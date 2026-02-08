@@ -1,7 +1,7 @@
 ---
-Title: Basics of the Mach-O file format
+Title: "Basics of the Mach-O file format"
 Author: Sami Samhuri
-Date: 18th January, 2010
+Date: "18th January, 2010"
 Timestamp: 2010-01-18T00:00:00-08:00
 Tags: mach-o, os x, compiler
 ---
@@ -45,17 +45,15 @@ blob of machine code.  That blob could be described by a single
 section named \_\_text, inside a single nameless segment.  Here's a
 diagram showing the layout of such a file:</p>
 
-<pre>
-
+```markdown
             ,---------------------------,
   Header    |  Mach header              |
             |    Segment 1              |
             |      Section 1 (__text)   | --,
             |---------------------------|   |
-  Data      |           blob            | &lt;-'
+  Data      |           blob            | <-'
             '---------------------------'
-</pre>
-
+```
 
 <h2>The Mach Header</h2>
 
@@ -70,7 +68,6 @@ Mac).</p>
 CStruct</a> we define the Mach header like so:</p>
 
 <script src="https://gist.github.com/280635.js" integrity="mDxjhIjSzfTrTGCoJEal7X5EowTQWcPyyE9xuDaRH4Al5wWVemvfjJr3WT0QCOGA" crossorigin="anonymous"></script>
-
 
 <h2>Segments</h2>
 
@@ -91,7 +88,6 @@ e.g. \_\_DATA or \_\_TEXT </p>
 be easy enough to follow.</p>
 
 <script src="https://gist.github.com/280642.js" integrity="eY3t12vnVg5AdETSbfxWASVlAMXw8Ti7m7V2siEe9AmPncn5rckLDlh5jWBGYBbJ" crossorigin="anonymous"></script>
-
 
 <h2>Sections</h2>
 
@@ -115,7 +111,6 @@ two underscores, e.g. \_\_bss or \_\_text</p>
 
 <script src="https://gist.github.com/280643.js" integrity="TTawOAzAxNuDvbcDU7DXvkoK6vBygkHd1Web2mk2sKx9iCK1ZOnWUPU9tZUDFzig" crossorigin="anonymous"></script>
 
-
 <h2>macho.rb</h2>
 
 <p>As much of the Mach-O format as we need is defined in
@@ -125,7 +120,6 @@ relocation tables, and symbol table structs are all there, with a few
 constants as well.</p>
 
 <p>I'll cover symbol tables and relocation tables in my next post.</p>
-
 
 <h2>Looking at real Mach-O files</h2>
 
@@ -144,7 +138,6 @@ also disassemble the \_\_text section with
 <code>otool -tv /usr/bin/true</code>.</p>
 
 <p>You'll get to know otool quite well if you work with Mach-O.</p>
-
 
 <h2>Take a break</h2>
 

@@ -445,6 +445,10 @@ article header time {
     font-family: "Helvetica Neue", "Verdana", sans-serif;
 }
 
+.permalink {
+    padding-left: 8px;
+}
+
 p.fin {
     text-align: center;
     color: #c4c4c4;

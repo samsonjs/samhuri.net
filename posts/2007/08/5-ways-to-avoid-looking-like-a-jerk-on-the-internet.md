@@ -1,7 +1,7 @@
 ---
-Title: 5 ways to avoid looking like a jerk on the Internet
+Title: "5 ways to avoid looking like a jerk on the Internet"
 Author: Sami Samhuri
-Date: 30th August, 2007
+Date: "30th August, 2007"
 Timestamp: 2007-08-30T08:25:00-07:00
 Tags: life, netiquette
 ---

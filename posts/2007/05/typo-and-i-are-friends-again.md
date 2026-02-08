@@ -1,7 +1,7 @@
 ---
-Title: Typo and I are friends again
+Title: "Typo and I are friends again"
 Author: Sami Samhuri
-Date: 1st May, 2007
+Date: "1st May, 2007"
 Timestamp: 2007-05-01T21:51:37-07:00
 Tags: typo
 ---

@@ -1,7 +1,7 @@
 ---
-Title: RushCheck: QuickCheck for Ruby
+Title: "RushCheck: QuickCheck for Ruby"
 Author: Sami Samhuri
-Date: 5th July, 2007
+Date: "5th July, 2007"
 Timestamp: 2007-07-05T12:50:00-07:00
 Tags: quickcheck, ruby, rushcheck
 ---

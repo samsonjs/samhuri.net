@@ -1,7 +1,7 @@
 ---
-Title: Rails Plugins (link dump)
+Title: "Rails Plugins (link dump)"
 Author: Sami Samhuri
-Date: 10th May, 2007
+Date: "10th May, 2007"
 Timestamp: 2007-05-09T17:22:00-07:00
 Tags: rails
 ---

@@ -1,7 +1,7 @@
 ---
-Title: Embrace the database
+Title: "Embrace the database"
 Author: Sami Samhuri
-Date: 22nd June, 2007
+Date: "22nd June, 2007"
 Timestamp: 2007-06-22T03:14:00-07:00
 Tags: activerecord, rails, ruby
 ---

@@ -1,7 +1,7 @@
 ---
-Title: Recovering Old Blog Posts
+Title: "Recovering Old Blog Posts"
 Author: Sami Samhuri
-Date: 27th November, 2011
+Date: "27th November, 2011"
 Timestamp: 2011-11-27T01:15:00-08:00
 Tags: recover, old, blog, posts
 ---

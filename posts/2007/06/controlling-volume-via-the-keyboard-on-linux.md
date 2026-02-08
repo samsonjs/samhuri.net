@@ -1,7 +1,7 @@
 ---
-Title: Controlling volume via the keyboard on Linux
+Title: "Controlling volume via the keyboard on Linux"
 Author: Sami Samhuri
-Date: 30th June, 2007
+Date: "30th June, 2007"
 Timestamp: 2007-06-30T16:13:00-07:00
 Tags: alsa, linux, ruby, volume
 ---

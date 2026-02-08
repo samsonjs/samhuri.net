@@ -1,7 +1,7 @@
 ---
-Title: Urban Extreme Gymnastics?
+Title: "Urban Extreme Gymnastics?"
 Author: Sami Samhuri
-Date: 15th February, 2006
+Date: "15th February, 2006"
 Timestamp: 2006-02-15T10:41:00-08:00
 Tags: amusement
 ---

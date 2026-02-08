@@ -1,9 +1,8 @@
 ---
-Title: Pure CSS3 images? Hmm, maybe later
+Title: "Pure CSS3 images? Hmm, maybe later"
 Author: Sami Samhuri
-Date: 11th December, 2011
+Date: "11th December, 2011"
 Timestamp: 2011-12-11T12:25:03-08:00
-Tags: 
 Link: http://calendar.perfplanet.com/2011/pure-css3-images-hmm-maybe-later/
 ---
 

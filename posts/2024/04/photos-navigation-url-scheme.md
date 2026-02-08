@@ -1,7 +1,7 @@
 ---
 Author: Sami Samhuri
-Title: Reverse-engineering the photos-navigation URL scheme on iOS
-Date: 18th April, 2024
+Title: "Reverse-engineering the photos-navigation URL scheme on iOS"
+Date: "18th April, 2024"
 Timestamp: 2024-04-18T20:08:02-07:00
 Tags: iOS, Swift, hacking
 ---

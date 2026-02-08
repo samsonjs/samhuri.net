@@ -1,9 +1,8 @@
 ---
-Title: New Release of Firefox for Android, Optimized for Tablets
+Title: "New Release of Firefox for Android, Optimized for Tablets"
 Author: Sami Samhuri
-Date: 22nd December, 2011
+Date: "22nd December, 2011"
 Timestamp: 2011-12-25T18:54:11-08:00
-Tags: 
 Link: http://daringfireball.net/linked/2011/12/22/firefox-android
 ---
 

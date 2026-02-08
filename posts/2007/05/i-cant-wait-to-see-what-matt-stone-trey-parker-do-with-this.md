@@ -1,7 +1,7 @@
 ---
-Title: I Can't Wait to See What Trey Parker & Matt Stone Do With This
+Title: "I Can't Wait to See What Trey Parker & Matt Stone Do With This"
 Author: Sami Samhuri
-Date: 9th May, 2007
+Date: "9th May, 2007"
 Timestamp: 2007-05-09T14:34:00-07:00
 Tags: crazy
 ---

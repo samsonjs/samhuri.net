@@ -1,7 +1,7 @@
 ---
-Title: Begging the question
+Title: "Begging the question"
 Author: Sami Samhuri
-Date: 15th June, 2007
+Date: "15th June, 2007"
 Timestamp: 2007-06-15T11:49:00-07:00
 Tags: english, life, pedantry
 ---
@@ -14,9 +14,11 @@ Anyway I was very pleased to see the only correct usage of the phrase "begs the 
 
 This describes a perfectly legitimate mathematical function. We could use it to recognize whether one number is the square root of another, or to derive facts about square roots in general. On the other hand, the definition does not describe a procedure. Indeed, it tells us almost nothing about how to actually find the square root of a given number. It will not help matters to rephrase this definition in pseudo-Lisp:
 
-<pre><code>(define (sqrt x)
+```scheme
+(define (sqrt x)
   (the y (and (= y 0)
-              (= (square y) x))))</code></pre>
+              (= (square y) x))))
+```
 
 <strong>This only begs the question.</strong>
 </blockquote>

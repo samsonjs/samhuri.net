@@ -1,7 +1,7 @@
 ---
-Title: 37signals' Chalk Dissected
+Title: "37signals' Chalk Dissected"
 Author: Sami Samhuri
-Date: 4th November, 2010
+Date: "4th November, 2010"
 Timestamp: 2010-11-04T00:00:00-07:00
 Tags: 37signals, chalk, ipad, javascript, web, html, css, zepto.js
 ---
@@ -14,7 +14,8 @@ Tags: 37signals, chalk, ipad, javascript, web, html, css, zepto.js
 
 <p>The manifest is a nice summary of the contents, and allows browsers to cache the app for offline use. Combine this with mobile Safari's "Add to Home Screen" button and you have yourself a free chalkboard app that works offline.</p>
 
-<pre><code>CACHE MANIFEST
+```conf
+CACHE MANIFEST
 
 /
 /zepto.min.js
@@ -26,7 +27,7 @@ Tags: 37signals, chalk, ipad, javascript, web, html, css, zepto.js
 /images/chalk-tile-red.png
 /images/chalk-tile-white.png
 /stylesheets/chalk.css
-</code></pre>
+```
 
 <p>Not much there, just 10 requests to fetch the whole thing. 11 including the manifest. In we go.</p>
 
@@ -169,7 +170,6 @@ chalk-sprites.png </div>
 
 <p>&nbsp;</p>
 <script src="https://gist.github.com/664260.js?file=chalk-shade.js" integrity="mJqbDt7at8NZ71dB7ItvDOdAKnEzyfVHTRcz0l10vbA0ts1noJ7p9vms8nY4XmZ1" crossorigin="anonymous"></script>
-
 
 <p>When the light switch is touched (or clicked) the shade class on the body element is toggled. Nothing to it.</p>
 

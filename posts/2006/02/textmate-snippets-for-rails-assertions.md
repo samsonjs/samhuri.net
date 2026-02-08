@@ -1,7 +1,7 @@
 ---
-Title: TextMate Snippets for Rails Assertions
+Title: "TextMate Snippets for Rails Assertions"
 Author: Sami Samhuri
-Date: 20th February, 2006
+Date: "20th February, 2006"
 Timestamp: 2006-02-20T23:52:00-08:00
 Tags: textmate, rails, coding, rails, snippets, testing, textmate
 ---

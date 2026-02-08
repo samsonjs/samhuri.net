@@ -1,7 +1,7 @@
 ---
 Author: Sami Samhuri
-Title: Type-safe notifications and async stream monitoring with Swift 6
-Date: 6th June, 2025
+Title: "Type-safe notifications and async stream monitoring with Swift 6"
+Date: "6th June, 2025"
 Timestamp: 2025-06-06T14:27:11-07:00
 Tags: Swift, iOS, notifications, async, concurrency, AsyncMonitor, NotificationSmuggler
 ---

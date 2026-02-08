@@ -1,7 +1,7 @@
 ---
-Title: Cheat from Emacs
+Title: "Cheat from Emacs"
 Author: Sami Samhuri
-Date: 9th August, 2007
+Date: "9th August, 2007"
 Timestamp: 2007-08-09T18:56:00-07:00
 Tags: Emacs
 ---

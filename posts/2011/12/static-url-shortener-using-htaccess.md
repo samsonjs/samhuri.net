@@ -1,7 +1,7 @@
 ---
-Title: A Static URL Shortener Using .htaccess
+Title: "A Static URL Shortener Using .htaccess"
 Author: Sami Samhuri
-Date: 10th December, 2011
+Date: "10th December, 2011"
 Timestamp: 2011-12-10T22:29:09-08:00
 Tags: s42.ca, url, shortener, samhuri.net, url shortener
 ---

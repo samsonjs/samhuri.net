@@ -1,7 +1,7 @@
 ---
-Title: Gotta Love the Ferry Ride
+Title: "Gotta Love the Ferry Ride"
 Author: Sami Samhuri
-Date: 5th May, 2007
+Date: "5th May, 2007"
 Timestamp: 2007-05-05T04:25:00-07:00
 Tags: life, photo, bc, victoria
 ---

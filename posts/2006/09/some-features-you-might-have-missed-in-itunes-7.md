@@ -1,7 +1,7 @@
 ---
-Title: Some features you might have missed in iTunes 7
+Title: "Some features you might have missed in iTunes 7"
 Author: Sami Samhuri
-Date: 22nd September, 2006
+Date: "22nd September, 2006"
 Timestamp: 2006-09-22T16:59:00-07:00
 Tags: apple, apple, itunes
 ---

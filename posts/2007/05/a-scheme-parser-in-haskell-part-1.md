@@ -1,7 +1,7 @@
 ---
-Title: A Scheme parser in Haskell: Part 1
+Title: "A Scheme parser in Haskell: Part 1"
 Author: Sami Samhuri
-Date: 3rd May, 2007
+Date: "3rd May, 2007"
 Timestamp: 2007-05-03T00:47:50-07:00
 Tags: coding, haskell
 ---
@@ -18,9 +18,10 @@ I'm going to explain one of the exercises because converting between the various
 
 Last night I rewrote <code>parseNumber</code> using <code>do</code> and <code>&gt;&gt;=</code> (bind) notations (ex. 3.3.1). Here's <code>parseNumber</code> using the <code>liftM</code> method given in the tutorial:
 
-<pre><code>parseNumber :: Parser LispVal
+```haskell
+parseNumber :: Parser LispVal
 parseNumber :: liftM (Number . read) $ many1 digit
-</code></pre>
+```
 Okay that's pretty simple right? Let's break it down, first looking at the right-hand side of the <code>$</code> operator, then the left.
 
  * <code>many1 digit</code> reads as many decimal digits as it can.
@@ -41,24 +42,25 @@ The <code>$</code> acts similar to a pipe in <code>$FAVOURITE_SHELL</code>, and 
 
 So how does a Haskell newbie go about re-writing that using other notations which haven't even been explained in the tutorial? Clearly one must search the web and read as much as they can until they understand enough to figure it out (which is one thing I like about the tutorial). If you're lazy like me, here are 3 equivalent pieces of code for you to chew on. <code>parseNumber</code>'s type is <code>Parser LispVal</code> (Parser is a monad).
 
-
 Familiar <code>liftM</code> method:
-<pre><code>parseNumber -&gt; liftM (Number . read) $ many1 digit
-</code></pre>
+```haskell
+parseNumber -> liftM (Number . read) $ many1 digit
+```
 
 Using <code>do</code> notation:
-<pre><code>parseNumber -&gt; do digits &lt;- many1 digit
+```haskell
+parseNumber -> do digits <- many1 digit
                   return $ (Number . read) digits
-</code></pre>
+```
 If you're thinking "Hey a <code>return</code>, I know that one!" then the devious masterminds behind Haskell are certainly laughing evilly right now. <code>return</code> simply wraps up it's argument in a monad of some sort. In this case it's the <code>Parser</code> monad. The <code>return</code> part may seem strange at first. Since <code>many1 digit</code> yields a monad why do we need to wrap anything? The answer is that using <code>&lt;-</code> causes <code>digits</code> to contain a <code>String</code>, stripped out of the monad which resulted from <code>many1 digit</code>. Hence we no longer use <code>liftM</code> to make <code>(Number . read)</code> monads, and instead need to use <code>return</code> to properly wrap it back up in a monad.
 
 In other words <code>liftM</code> eliminates the need to explicitly re-monadize the contents as is necessary using <code>do</code>.
 
-
 Finally, using <code>&gt;&gt;=</code> (bind) notation:
-<pre><code>parseNumber -&gt; many1 digit &gt;&gt;= \digits -&gt;
+```haskell
+parseNumber -> many1 digit >>= \digits ->
                return $ (Number . read) digits
-</code></pre>
+```
 At this point I don't think this warrants much of an explanation. The syntactic sugar provided by <code>do</code> should be pretty obvious. Just in case it's not, <code>&gt;&gt;=</code> passes the contents of its left argument (a monad) to the <em>function</em> on its right. Once again <code>return</code> is needed to wrap up the result and send it on its way.
 
 When I first read about Haskell I was overwhelmed by not knowing anything, and not being able to apply my previous knowledge of programming to <em>anything</em> in Haskell. One piece of syntax at a time I am slowly able to understand more of the Haskell found <a href="http://www.google.com/url?sa=t&amp;ct=res&amp;cd=2&amp;url=http%3A%2F%2Fblog.moertel.com%2Farticles%2F2005%2F03%2F25%2Fwriting-a-simple-ruby-evaluator-in-haskell&amp;ei=Q1A6RtWPLZvYigGZsMjxAQ&amp;usg=AFrqEzdrRepwsuNaQqe1gHYjHvqdCDKfoA&amp;sig2=0qNTIOB9XxeZRqKR7J61Iw">in the wild</a>.

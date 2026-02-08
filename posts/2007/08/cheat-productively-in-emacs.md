@@ -1,7 +1,7 @@
 ---
-Title: Cheat productively in Emacs
+Title: "Cheat productively in Emacs"
 Author: Sami Samhuri
-Date: 21st August, 2007
+Date: "21st August, 2007"
 Timestamp: 2007-08-21T11:20:00-07:00
 Tags: Emacs
 ---

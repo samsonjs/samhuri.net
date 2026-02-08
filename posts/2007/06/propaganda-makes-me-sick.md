@@ -1,7 +1,7 @@
 ---
-Title: Propaganda makes me sick
+Title: "Propaganda makes me sick"
 Author: Sami Samhuri
-Date: 25th June, 2007
+Date: "25th June, 2007"
 Timestamp: 2007-06-25T03:55:00-07:00
 Tags: propaganda
 ---

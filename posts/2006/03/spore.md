@@ -1,7 +1,7 @@
 ---
-Title: Spore
+Title: "Spore"
 Author: Sami Samhuri
-Date: 3rd March, 2006
+Date: "3rd March, 2006"
 Timestamp: 2006-03-03T21:43:00-08:00
 Tags: amusement, technology, cool, fun, games
 ---

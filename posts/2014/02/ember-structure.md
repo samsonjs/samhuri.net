@@ -1,7 +1,7 @@
 ---
-Title: Structure of an Ember app
+Title: "Structure of an Ember app"
 Author: Sami Samhuri
-Date: 3rd February, 2014
+Date: "3rd February, 2014"
 Timestamp: 2014-02-03T18:05:49-08:00
 Tags: ember.js
 ---

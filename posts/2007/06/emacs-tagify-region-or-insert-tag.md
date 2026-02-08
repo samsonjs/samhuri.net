@@ -1,7 +1,7 @@
 ---
-Title: Emacs: tagify-region-or-insert-tag
+Title: "Emacs: tagify-region-or-insert-tag"
 Author: Sami Samhuri
-Date: 25th June, 2007
+Date: "25th June, 2007"
 Timestamp: 2007-06-25T15:13:00-07:00
 Tags: emacs, tagify
 ---

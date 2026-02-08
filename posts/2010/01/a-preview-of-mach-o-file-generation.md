@@ -1,7 +1,7 @@
 ---
-Title: A preview of Mach-O file generation
+Title: "A preview of Mach-O file generation"
 Author: Sami Samhuri
-Date: 20th January, 2010
+Date: "20th January, 2010"
 Timestamp: 2010-01-20T00:00:00-08:00
 Tags: ruby, mach-o, os x, compiler
 ---

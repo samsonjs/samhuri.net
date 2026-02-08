@@ -1,7 +1,7 @@
 ---
-Title: so long typo (and thanks for all the timeouts)
+Title: "so long typo (and thanks for all the timeouts)"
 Author: Sami Samhuri
-Date: 8th June, 2007
+Date: "8th June, 2007"
 Timestamp: 2007-06-08T18:01:00-07:00
 Tags: mephisto, typo
 ---
@@ -12,22 +12,15 @@ Recently I had looked at converting Typo to Mephisto and it seemed pretty painle
 
 After running that code snippet to fix my tags, I decided to completely ditch categories in favour of tags. I tagged each new Mephisto article with a tag for each Typo category it had previously belonged to. I fired up <code>RAILS_ENV=production script/console</code> and typed something similar to the following:
 
-<pre class="line-numbers">1
-2
-3
-4
-5
-6
-7 
-</pre>
-<pre><code>require <span class="s"><span class="dl">'</span><span class="k">converters/base</span><span class="dl">'</span></span>
-require <span class="s"><span class="dl">'</span><span class="k">converters/typo</span><span class="dl">'</span></span>
-articles = <span class="co">Typo</span>::<span class="co">Article</span>.find(<span class="sy">:all</span>).map {|a| [a, <span class="co">Article</span>.find_by_permalink(a.permalink)] }
-articles.each <span class="r">do</span> |ta, ma|
-  <span class="r">next</span> <span class="r">if</span> ma.nil?
-  ma.tags &lt;&lt; <span class="co">Tag</span>.find_or_create(ta.categories.map(&amp;<span class="sy">:name</span>))
-<span class="r">end</span></code></pre>
-
+```ruby
+require 'converters/base'
+require 'converters/typo'
+articles = Typo::Article.find(:all).map {|a| [a, Article.find_by_permalink(a.permalink)] }
+articles.each do |ta, ma|
+  next if ma.nil?
+  ma.tags << Tag.find_or_create(ta.categories.map(&:name))
+end
+```
 
 When I say something similar I mean exactly that. I just typed that from memory so it may not work, or even be syntactically correct. If any permalinks changed then you'll have to manually add new tags corresponding to old Typo categories. The only case where this bit me was when I had edited the title of an article, in which case the new Mephisto permalink matched the new title while the Typo permalink matched the initial title, whatever it was.
 

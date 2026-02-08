@@ -1,7 +1,7 @@
 ---
-Title: Full-screen Cover Flow
+Title: "Full-screen Cover Flow"
 Author: Sami Samhuri
-Date: 6th March, 2007
+Date: "6th March, 2007"
 Timestamp: 2007-03-06T13:51:00-08:00
 Tags: apple, coverflow, itunes
 ---

@@ -1,7 +1,7 @@
 ---
-Title: First Post!
+Title: "First Post!"
 Author: Sami Samhuri
-Date: 8th February, 2006
+Date: "8th February, 2006"
 Timestamp: 2006-02-07T19:21:00-08:00
 Tags: life
 ---

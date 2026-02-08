@@ -1,7 +1,7 @@
 ---
-Title: Digg v4: Reply to replies (Greasemonkey script)
+Title: "Digg v4: Reply to replies (Greasemonkey script)"
 Author: Sami Samhuri
-Date: 8th March, 2007
+Date: "8th March, 2007"
 Timestamp: 2007-03-08T23:19:00-08:00
 Tags: coding, digg, firefox, userscript
 ---

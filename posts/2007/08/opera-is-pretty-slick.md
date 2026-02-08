@@ -1,7 +1,7 @@
 ---
-Title: Opera is pretty slick
+Title: "Opera is pretty slick"
 Author: Sami Samhuri
-Date: 11th August, 2007
+Date: "11th August, 2007"
 Timestamp: 2007-08-11T05:11:00-07:00
 Tags: browsers, firefox, opera
 ---

@@ -1,7 +1,7 @@
 ---
-Title: Class method? Instance method? It doesn't matter to PHP
+Title: "Class method? Instance method? It doesn't matter to PHP"
 Author: Sami Samhuri
-Date: 21st July, 2006
+Date: "21st July, 2006"
 Timestamp: 2006-07-21T07:56:00-07:00
 Tags: php, coding
 ---
@@ -16,7 +16,7 @@ I would fully expect the PHP parser to give me an error like "No class method [f
 
 This code:
 
-<pre><code>
+```php
 class Foo {
   public static function static_fun()
   {
@@ -29,7 +29,7 @@ class Foo {
   }
 }
 
-echo '&lt;pre&gt;';
+echo '<pre>';
 echo "From Foo:\n";
 echo Foo::static_fun();
 echo Foo::not_static();
@@ -37,14 +37,14 @@ echo "\n";
 
 echo "From \$foo = new Foo():\n";
 $foo = new Foo();
-echo $foo-&gt;static_fun();
-echo $foo-&gt;not_static();
-echo '&lt;/pre&gt;';
-</code></pre>
+echo $foo->static_fun();
+echo $foo->not_static();
+echo '</pre>';
+```
 
 Produces:
 
-<pre><code>
+```php
 From Foo:
 This is a class method!
 This is an instance method!
@@ -52,7 +52,7 @@ This is an instance method!
 From $foo = new Foo():
 This is a class method!
 This is an instance method!
-</code></pre>
+```
 
 What the fuck?! <a href="http://www.php.net/manual/en/language.oop5.static.php">http://www.php.net/manual/en/language.oop5.static.php</a> is lying to everyone.
 

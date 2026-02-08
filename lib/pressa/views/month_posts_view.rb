@@ -1,0 +1,26 @@
+require "phlex"
+require "pressa/views/post_view"
+
+module Pressa
+  module Views
+    class MonthPostsView < Phlex::HTML
+      def initialize(year:, month_posts:, site:)
+        @year = year
+        @month_posts = month_posts
+        @site = site
+      end
+
+      def view_template
+        div(class: "container") do
+          h1 { "#{@month_posts.month.name} #{@year}" }
+        end
+
+        @month_posts.sorted_posts.each do |post|
+          div(class: "container") do
+            render PostView.new(post:, site: @site)
+          end
+        end
+      end
+    end
+  end
+end

@@ -1,7 +1,7 @@
 ---
-Title: A New Way to Look at Networking
+Title: "A New Way to Look at Networking"
 Author: Sami Samhuri
-Date: 5th May, 2007
+Date: "5th May, 2007"
 Timestamp: 2007-05-05T16:10:00-07:00
 Tags: technology, networking
 ---

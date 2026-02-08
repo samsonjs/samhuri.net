@@ -1,7 +1,7 @@
 ---
-Title: Generate self.down in your Rails migrations
+Title: "Generate self.down in your Rails migrations"
 Author: Sami Samhuri
-Date: 3rd March, 2006
+Date: "3rd March, 2006"
 Timestamp: 2006-03-03T21:38:00-08:00
 Tags: rails, textmate, migrations, rails, textmate
 ---

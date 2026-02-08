@@ -1,7 +1,7 @@
 ---
-Title: Quickly inserting millions of rows with MySQL/InnoDB
+Title: "Quickly inserting millions of rows with MySQL/InnoDB"
 Author: Sami Samhuri
-Date: 26th April, 2007
+Date: "26th April, 2007"
 Timestamp: 2007-04-26T07:06:00-07:00
 Tags: linux, mysql
 ---

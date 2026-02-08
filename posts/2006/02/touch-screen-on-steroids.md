@@ -1,7 +1,7 @@
 ---
-Title: Touch Screen on Steroids
+Title: "Touch Screen on Steroids"
 Author: Sami Samhuri
-Date: 8th February, 2006
+Date: "8th February, 2006"
 Timestamp: 2006-02-08T06:06:00-08:00
 Tags: technology, touch
 ---

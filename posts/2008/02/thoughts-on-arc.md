@@ -1,7 +1,7 @@
 ---
-Title: Thoughts on Arc
+Title: "Thoughts on Arc"
 Author: Sami Samhuri
-Date: 19th February, 2008
+Date: "19th February, 2008"
 Timestamp: 2008-02-19T03:26:00-08:00
 Tags: lisp arc
 ---

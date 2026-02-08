@@ -1,7 +1,7 @@
 ---
-Title: A triple-booting, schizophrenic MacBook
+Title: "A triple-booting, schizophrenic MacBook"
 Author: Sami Samhuri
-Date: 4th April, 2007
+Date: "4th April, 2007"
 Timestamp: 2007-04-04T23:30:00-07:00
 Tags: linux, mac os x, windows
 ---

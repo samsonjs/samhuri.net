@@ -1,7 +1,7 @@
 ---
-Title: Random pet peeve of the day
+Title: "Random pet peeve of the day"
 Author: Sami Samhuri
-Date: 7th January, 2008
+Date: "7th January, 2008"
 Timestamp: 2008-01-07T09:42:00-08:00
 Tags: usability, web
 ---

@@ -1,7 +1,7 @@
 ---
-Title: OS X and Fitt's law
+Title: "OS X and Fitt's law"
 Author: Sami Samhuri
-Date: 7th May, 2006
+Date: "7th May, 2006"
 Timestamp: 2006-05-07T20:43:00-07:00
 Tags: mac os x, apple, mac, os, usability, x
 ---
