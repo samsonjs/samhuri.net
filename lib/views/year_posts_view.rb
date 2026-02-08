@@ -38,16 +38,24 @@ module Pressa
 
         ul(class: "archive") do
           month_posts.sorted_posts.each do |post|
-            li do
-              a(href: post_link(post)) { post.title }
-              time { short_date(post.date) }
-            end
+            render_post_item(post)
           end
         end
       end
 
-      def post_link(post)
-        post.link_post? ? post.link : @site.url_for(post.path)
+      def render_post_item(post)
+        if post.link_post?
+          li do
+            a(href: post.link) { "→ #{post.title}" }
+            time { short_date(post.date) }
+            a(class: "permalink", href: post.path) { "∞" }
+          end
+        else
+          li do
+            a(href: post.path) { post.title }
+            time { short_date(post.date) }
+          end
+        end
       end
 
       def short_date(date)
