@@ -70,4 +70,39 @@ class Pressa::Posts::PostRepoTest < Minitest::Test
       refute_includes(post.excerpt, "[link]")
     end
   end
+
+  def test_read_posts_merges_multiple_posts_in_same_month
+    Dir.mktmpdir do |tmpdir|
+      posts_dir = File.join(tmpdir, "posts", "2025", "11")
+      FileUtils.mkdir_p(posts_dir)
+
+      File.write(File.join(posts_dir, "first.md"), <<~MARKDOWN)
+        ---
+        Title: First Post
+        Author: Sami Samhuri
+        Date: 5th November, 2025
+        Timestamp: 2025-11-05T10:00:00-08:00
+        ---
+
+        First
+      MARKDOWN
+
+      File.write(File.join(posts_dir, "second.md"), <<~MARKDOWN)
+        ---
+        Title: Second Post
+        Author: Sami Samhuri
+        Date: 6th November, 2025
+        Timestamp: 2025-11-06T10:00:00-08:00
+        ---
+
+        Second
+      MARKDOWN
+
+      posts_by_year = repo.read_posts(File.join(tmpdir, "posts"))
+      month_posts = posts_by_year.by_year.fetch(2025).by_month.fetch(11)
+
+      assert_equal(2, month_posts.posts.length)
+      assert_equal(["Second Post", "First Post"], month_posts.sorted_posts.map(&:title))
+    end
+  end
 end

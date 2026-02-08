@@ -57,4 +57,12 @@ class Pressa::Posts::PostMetadataTest < Minitest::Test
     assert_equal([], metadata.tags)
     assert_nil(metadata.link)
   end
+
+  def test_parse_raises_error_when_front_matter_is_missing
+    error = assert_raises(StandardError) do
+      Pressa::Posts::PostMetadata.parse("just plain markdown")
+    end
+
+    assert_match(/No YAML front-matter found in post/, error.message)
+  end
 end

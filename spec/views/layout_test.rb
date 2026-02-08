@@ -63,4 +63,14 @@ class Pressa::Views::LayoutTest < Minitest::Test
 
     assert_includes(html, %(<link rel="stylesheet" type="text/css" href="https://cdn.example.com/site.css">))
   end
+
+  def test_format_output_is_enabled
+    layout = Pressa::Views::Layout.new(
+      site:,
+      canonical_url: "https://samhuri.net/posts/",
+      content: content_view
+    )
+
+    assert(layout.format_output?)
+  end
 end

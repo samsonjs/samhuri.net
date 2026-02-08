@@ -40,6 +40,215 @@ class Pressa::Config::LoaderTest < Minitest::Test
     end
   end
 
+  def test_build_site_raises_for_missing_projects_array
+    Dir.mktmpdir do |dir|
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Sami Samhuri"
+        email = "sami@samhuri.net"
+        title = "samhuri.net"
+        description = "blog"
+        url = "https://samhuri.net"
+      TOML
+      File.write(File.join(dir, "projects.toml"), "title = \"no projects\"\n")
+
+      loader = Pressa::Config::Loader.new(source_path: dir)
+      error = assert_raises(Pressa::Config::ValidationError) { loader.build_site }
+      assert_match(/Missing required top-level array 'projects'/, error.message)
+    end
+  end
+
+  def test_build_site_raises_for_invalid_project_entries
+    Dir.mktmpdir do |dir|
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Sami Samhuri"
+        email = "sami@samhuri.net"
+        title = "samhuri.net"
+        description = "blog"
+        url = "https://samhuri.net"
+      TOML
+      File.write(File.join(dir, "projects.toml"), <<~TOML)
+        projects = [1]
+      TOML
+
+      loader = Pressa::Config::Loader.new(source_path: dir)
+      error = assert_raises(Pressa::Config::ValidationError) { loader.build_site }
+      assert_match(/Project entry 1 must be a table/, error.message)
+    end
+  end
+
+  def test_build_site_raises_for_invalid_projects_plugin_type
+    Dir.mktmpdir do |dir|
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Sami Samhuri"
+        email = "sami@samhuri.net"
+        title = "samhuri.net"
+        description = "blog"
+        url = "https://samhuri.net"
+        projects_plugin = []
+      TOML
+      File.write(File.join(dir, "projects.toml"), <<~TOML)
+        [[projects]]
+        name = "demo"
+        title = "demo"
+        description = "demo project"
+        url = "https://github.com/samsonjs/demo"
+      TOML
+
+      loader = Pressa::Config::Loader.new(source_path: dir)
+      error = assert_raises(Pressa::Config::ValidationError) { loader.build_site }
+      assert_match(/Expected site\.toml projects_plugin to be a table/, error.message)
+    end
+  end
+
+  def test_build_site_raises_for_invalid_script_and_style_entries
+    Dir.mktmpdir do |dir|
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Sami Samhuri"
+        email = "sami@samhuri.net"
+        title = "samhuri.net"
+        description = "blog"
+        url = "https://samhuri.net"
+        scripts = [{}]
+        styles = [123]
+      TOML
+      File.write(File.join(dir, "projects.toml"), <<~TOML)
+        [[projects]]
+        name = "demo"
+        title = "demo"
+        description = "demo project"
+        url = "https://github.com/samsonjs/demo"
+      TOML
+
+      loader = Pressa::Config::Loader.new(source_path: dir)
+      script_error = assert_raises(Pressa::Config::ValidationError) { loader.build_site }
+      assert_match(/Expected site\.toml scripts\[0\]\.src to be a String/, script_error.message)
+
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Sami Samhuri"
+        email = "sami@samhuri.net"
+        title = "samhuri.net"
+        description = "blog"
+        url = "https://samhuri.net"
+        scripts = []
+        styles = [123]
+      TOML
+      style_error = assert_raises(Pressa::Config::ValidationError) { loader.build_site }
+      assert_match(/Expected site\.toml styles\[0\] to be a String or table/, style_error.message)
+    end
+  end
+
+  def test_build_site_accepts_script_hashes_and_absolute_image_url
+    Dir.mktmpdir do |dir|
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Sami Samhuri"
+        email = "sami@samhuri.net"
+        title = "samhuri.net"
+        description = "blog"
+        url = "https://samhuri.net"
+        image_url = "https://images.example.net/me.jpg"
+        scripts = [{"src": "/js/site.js", "defer": false}]
+        styles = [{"href": "/css/site.css"}]
+
+        [projects_plugin]
+        scripts = [{"src": "/js/projects.js", "defer": true}]
+        styles = [{"href": "/css/projects.css"}]
+      TOML
+      File.write(File.join(dir, "projects.toml"), <<~TOML)
+        [[projects]]
+        name = "demo"
+        title = "demo"
+        description = "demo project"
+        url = "https://github.com/samsonjs/demo"
+      TOML
+
+      loader = Pressa::Config::Loader.new(source_path: dir)
+      site = loader.build_site
+
+      assert_equal("https://images.example.net/me.jpg", site.image_url)
+      assert_equal(["/js/site.js"], site.scripts.map(&:src))
+      assert_equal([false], site.scripts.map(&:defer))
+      assert_equal(["/css/site.css"], site.styles.map(&:href))
+    end
+  end
+
+  def test_build_site_rewraps_toml_parse_errors_as_validation_errors
+    Dir.mktmpdir do |dir|
+      File.write(File.join(dir, "site.toml"), "author = \"unterminated\n")
+      File.write(File.join(dir, "projects.toml"), <<~TOML)
+        [[projects]]
+        name = "demo"
+        title = "demo"
+        description = "demo project"
+        url = "https://github.com/samsonjs/demo"
+      TOML
+
+      loader = Pressa::Config::Loader.new(source_path: dir)
+      error = assert_raises(Pressa::Config::ValidationError) { loader.build_site }
+      assert_match(/Unterminated value for key 'author'/, error.message)
+    end
+  end
+
+  def test_build_site_rejects_non_boolean_defer_values
+    Dir.mktmpdir do |dir|
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Sami Samhuri"
+        email = "sami@samhuri.net"
+        title = "samhuri.net"
+        description = "blog"
+        url = "https://samhuri.net"
+        scripts = [{"src": "/js/site.js", "defer": "yes"}]
+      TOML
+      File.write(File.join(dir, "projects.toml"), <<~TOML)
+        [[projects]]
+        name = "demo"
+        title = "demo"
+        description = "demo project"
+        url = "https://github.com/samsonjs/demo"
+      TOML
+
+      loader = Pressa::Config::Loader.new(source_path: dir)
+      error = assert_raises(Pressa::Config::ValidationError) { loader.build_site }
+      assert_match(/Expected site\.toml scripts\[0\]\.defer to be a Boolean/, error.message)
+    end
+  end
+
+  def test_build_site_rejects_non_string_or_table_scripts_and_non_array_script_lists
+    Dir.mktmpdir do |dir|
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Sami Samhuri"
+        email = "sami@samhuri.net"
+        title = "samhuri.net"
+        description = "blog"
+        url = "https://samhuri.net"
+        scripts = [123]
+      TOML
+      File.write(File.join(dir, "projects.toml"), <<~TOML)
+        [[projects]]
+        name = "demo"
+        title = "demo"
+        description = "demo project"
+        url = "https://github.com/samsonjs/demo"
+      TOML
+
+      loader = Pressa::Config::Loader.new(source_path: dir)
+      invalid_item = assert_raises(Pressa::Config::ValidationError) { loader.build_site }
+      assert_match(/Expected site\.toml scripts\[0\] to be a String or table/, invalid_item.message)
+
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Sami Samhuri"
+        email = "sami@samhuri.net"
+        title = "samhuri.net"
+        description = "blog"
+        url = "https://samhuri.net"
+
+        [projects_plugin]
+        scripts = "js/projects.js"
+      TOML
+      non_array = assert_raises(Pressa::Config::ValidationError) { loader.build_site }
+      assert_match(/Expected site\.toml projects_plugin\.scripts to be an array/, non_array.message)
+    end
+  end
+
   private
 
   def with_temp_config
