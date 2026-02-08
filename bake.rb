@@ -8,6 +8,7 @@ PUBLISH_HOST = 'mudge'.freeze
 PRODUCTION_PUBLISH_DIR = '/var/www/samhuri.net/public'.freeze
 BETA_PUBLISH_DIR = '/var/www/beta.samhuri.net/public'.freeze
 WATCHABLE_DIRECTORIES = %w[public posts lib].freeze
+LINT_TARGETS = %w[bake.rb bin Gemfile lib spec].freeze
 BUILD_TARGETS = %w[debug mudge beta release].freeze
 
 # Generate the site in debug mode (localhost:8000)
@@ -154,12 +155,12 @@ end
 
 # Run StandardRB linter
 def lint
-  exec 'bundle exec standardrb'
+  exec(*standardrb_command)
 end
 
 # Auto-fix StandardRB issues
 def lint_fix
-  exec 'bundle exec standardrb --fix'
+  exec(*standardrb_command('--fix'))
 end
 
 private
@@ -187,6 +188,10 @@ end
 
 def watch_paths
   WATCHABLE_DIRECTORIES.flat_map { |path| ['-r', path] }
+end
+
+def standardrb_command(*extra_args)
+  ["bundle", "exec", "standardrb", *extra_args, *LINT_TARGETS]
 end
 
 def run_rsync(local_paths:, publish_dir:, dry_run:, delete:)
