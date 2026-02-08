@@ -1,4 +1,4 @@
-# Build tasks for Pressa static site generator
+# Build tasks for samhuri.net static site generator
 
 # Generate the site in debug mode (localhost:8000)
 def debug
@@ -62,7 +62,7 @@ end
 
 # List all available drafts
 def drafts
-  Dir.glob('drafts/*.md').sort.each do |draft|
+  Dir.glob('public/drafts/*.md').sort.each do |draft|
     puts File.basename(draft)
   end
 end
@@ -87,6 +87,6 @@ def build(url)
   puts "Building site for #{url}..."
   site = Pressa.create_site(url_override: url)
   generator = Pressa::SiteGenerator.new(site:)
-  generator.generate(source_path: '..', target_path: 'www')
+  generator.generate(source_path: '.', target_path: 'www')
   puts "Site built successfully in www/"
 end

@@ -1,50 +1,31 @@
 #!/bin/bash
 
-# bail on errors and unset variables
 set -euo pipefail
 
-SWIFT_VERSION=6.1
-SWIFT_DIR=swift-$SWIFT_VERSION-RELEASE-ubuntu24.04
-SWIFT_FILENAME=$SWIFT_DIR.tar.gz
+ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+RUBY_VERSION="$(cat "$ROOT_DIR/.ruby-version")"
 
-if [[ $(uname) = "Linux" ]]; then
+if [[ "$(uname)" = "Linux" ]]; then
+  echo "*** installing Linux prerequisites"
   sudo apt install -y \
-          binutils \
-          git \
-          gnupg2 \
-          libc6-dev \
-          libcurl4 \
-          libedit2 \
-          libgcc-s1 \
-          libpython3.12 \
-          libsqlite3-0 \
-          libstdc++-14-dev \
-          libxml2 \
-          libz3-dev \
-          pkg-config \
-          tzdata \
-          uuid-dev \
-          zlib1g-dev
+    build-essential \
+    git \
+    inotify-tools \
+    libffi-dev \
+    libyaml-dev \
+    pkg-config \
+    zlib1g-dev
+fi
 
-  if which swift >/dev/null 2>/dev/null && swift --version | grep $SWIFT_VERSION >/dev/null 2>/dev/null; then
-    echo "*** swift $SWIFT_VERSION is installed"
-  else
-    echo "*** installing swift"
-    if [[ -e $SWIFT_FILENAME ]]; then
-      echo "*** $SWIFT_FILENAME exists, skipping download"
-    else
-      wget https://download.swift.org/swift-$SWIFT_VERSION-release/ubuntu2404/swift-$SWIFT_VERSION-RELEASE/$SWIFT_FILENAME
-    fi
-    if [[ -e $SWIFT_DIR ]]; then
-      echo "*** $SWIFT_DIR exists, skipping extraction"
-    else
-      tar xzf $SWIFT_FILENAME
-    fi
-    echo "*** add $PWD/$SWIFT_DIR/usr/bin to PATH in your shell's rc file"
-  fi
+cd "$ROOT_DIR"
 
-  echo "*** installing inotify-tools for watch script"
-  sudo apt install -y inotify-tools
+if command -v rbenv >/dev/null 2>/dev/null; then
+  echo "*** using rbenv (ruby $RUBY_VERSION)"
+  rbenv install -s "$RUBY_VERSION"
+  rbenv exec bundle install
+else
+  echo "*** rbenv not found, using system Ruby"
+  bundle install
 fi
 
 echo "*** done"
