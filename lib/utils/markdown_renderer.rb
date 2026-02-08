@@ -72,6 +72,7 @@ module Pressa
         Kramdown::Document.new(
           markdown,
           input: 'GFM',
+          hard_wrap: false,
           syntax_highlighter: 'rouge',
           syntax_highlighter_opts: {
             line_numbers: false,
