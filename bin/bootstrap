@@ -1,0 +1,31 @@
+#!/bin/bash
+
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+RUBY_VERSION="$(cat "$ROOT_DIR/.ruby-version")"
+
+if [[ "$(uname)" = "Linux" ]]; then
+  echo "*** installing Linux prerequisites"
+  sudo apt install -y \
+    build-essential \
+    git \
+    inotify-tools \
+    libffi-dev \
+    libyaml-dev \
+    pkg-config \
+    zlib1g-dev
+fi
+
+cd "$ROOT_DIR"
+
+if command -v rbenv >/dev/null 2>/dev/null; then
+  echo "*** using rbenv (ruby $RUBY_VERSION)"
+  rbenv install -s "$RUBY_VERSION"
+  rbenv exec bundle install
+else
+  echo "*** rbenv not found, using system Ruby"
+  bundle install
+fi
+
+echo "*** done"

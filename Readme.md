@@ -15,11 +15,17 @@ This repository is now a single integrated Ruby project. The legacy Swift genera
 
 ## Requirements
 
-- Ruby `3.4.1` (see `.ruby-version`)
+- Ruby (see `.ruby-version`)
 - Bundler
 - `rbenv` recommended
 
 ## Setup
+
+```bash
+bin/bootstrap
+```
+
+Or manually:
 
 ```bash
 rbenv install -s "$(cat .ruby-version)"
