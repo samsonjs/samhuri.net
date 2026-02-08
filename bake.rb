@@ -136,9 +136,12 @@ def clean
   puts "Cleaned www/ directory"
 end
 
-# Run RSpec tests
+# Run Minitest tests
 def test
-  exec "bundle exec rspec"
+  test_files = Dir.glob("spec/**/*_test.rb").sort
+  abort "Error: no tests found in spec/**/*_test.rb" if test_files.empty?
+
+  exec "ruby", "-Ilib", "-Ispec", "-e", "ARGV.each { |file| require File.expand_path(file) }", *test_files
 end
 
 # Run Guard for continuous testing

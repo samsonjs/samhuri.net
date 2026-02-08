@@ -1,7 +1,7 @@
-require "spec_helper"
+require "test_helper"
 
-RSpec.describe Pressa::Views::Layout do
-  let(:test_content_view) do
+class Pressa::Views::LayoutTest < Minitest::Test
+  def test_content_view
     Class.new(Phlex::HTML) do
       def view_template
         article do
@@ -11,8 +11,8 @@ RSpec.describe Pressa::Views::Layout do
     end.new
   end
 
-  let(:site) do
-    Pressa::Site.new(
+  def site
+    @site ||= Pressa::Site.new(
       author: "Sami Samhuri",
       email: "sami@samhuri.net",
       title: "samhuri.net",
@@ -21,31 +21,31 @@ RSpec.describe Pressa::Views::Layout do
     )
   end
 
-  it "renders child components as HTML instead of escaped text" do
-    html = described_class.new(
+  def test_rendering_child_components_as_html_instead_of_escaped_text
+    html = Pressa::Views::Layout.new(
       site:,
       canonical_url: "https://samhuri.net/posts/",
       content: test_content_view
     ).call
 
-    expect(html).to include("<article>")
-    expect(html).to include("<h1>Hello</h1>")
-    expect(html).not_to include("&lt;article&gt;")
+    assert_includes(html, "<article>")
+    assert_includes(html, "<h1>Hello</h1>")
+    refute_includes(html, "&lt;article&gt;")
   end
 
-  it "keeps escaping enabled for untrusted string fields" do
+  def test_keeps_escaping_enabled_for_untrusted_string_fields
     subtitle = "<img src=x onerror=alert(1)>"
-    html = described_class.new(
+    html = Pressa::Views::Layout.new(
       site:,
       canonical_url: "https://samhuri.net/posts/",
       page_subtitle: subtitle,
       content: test_content_view
     ).call
 
-    expect(html).to include("<title>samhuri.net: &lt;img src=x onerror=alert(1)&gt;</title>")
+    assert_includes(html, "<title>samhuri.net: &lt;img src=x onerror=alert(1)&gt;</title>")
   end
 
-  it "preserves absolute stylesheet URLs" do
+  def test_preserves_absolute_stylesheet_urls
     cdn_site = Pressa::Site.new(
       author: "Sami Samhuri",
       email: "sami@samhuri.net",
@@ -55,12 +55,12 @@ RSpec.describe Pressa::Views::Layout do
       styles: [Pressa::Stylesheet.new(href: "https://cdn.example.com/site.css")]
     )
 
-    html = described_class.new(
+    html = Pressa::Views::Layout.new(
       site: cdn_site,
       canonical_url: "https://samhuri.net/posts/",
       content: test_content_view
     ).call
 
-    expect(html).to include(%(<link rel="stylesheet" type="text/css" href="https://cdn.example.com/site.css">))
+    assert_includes(html, %(<link rel="stylesheet" type="text/css" href="https://cdn.example.com/site.css">))
   end
 end

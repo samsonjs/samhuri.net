@@ -12,8 +12,7 @@ gem "bake", "~> 0.20"
 gem "nokogiri", "~> 1.18"
 
 group :development, :test do
-  gem "rspec", "~> 3.13"
   gem "guard", "~> 2.18"
-  gem "guard-rspec", "~> 4.7"
+  gem "minitest", "~> 6.0"
   gem "standard", "~> 1.43"
 end

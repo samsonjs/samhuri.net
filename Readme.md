@@ -78,7 +78,7 @@ Published posts in `posts/YYYY/MM/*.md` require YAML front matter keys:
 ## Tests And Lint
 
 ```bash
-rbenv exec bundle exec rspec
+rbenv exec bundle exec bake test
 rbenv exec bundle exec standardrb
 ```
 
