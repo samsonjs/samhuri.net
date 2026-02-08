@@ -56,12 +56,6 @@ bin/new-draft "Post title"
 bin/publish-draft public/drafts/post-title.md
 ```
 
-## Post Utilities
-
-```bash
-bin/convert-frontmatter posts/2025/11/some-post.md
-```
-
 ## Tests And Lint
 
 ```bash
