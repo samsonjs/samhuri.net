@@ -48,6 +48,16 @@ Site metadata and project data are configured with TOML files at the repository 
 
 `Pressa.create_site` loads both files from the provided `source_path` and still supports URL overrides for `debug`, `beta`, and `release` builds.
 
+## Customizing for your site
+
+If this workflow seems like a good fit, here is the minimum to make it your own:
+
+- Update `site.toml` with your site identity (`author`, `email`, `title`, `description`, `url`) and any global `scripts` / `styles`.
+- Define your projects in `projects.toml` using `[[projects]]` entries with `name`, `title`, `description`, and `url`.
+- Configure project-page-only assets in `site.toml` under `[projects_plugin]` (`scripts` and `styles`).
+- Keep the built-in plugins (`Posts::Plugin` and `Projects::Plugin`) or add your own by implementing `Pressa::Plugin` in `lib/` and registering it in `lib/config/loader.rb`.
+- Adjust rendering and layout in `lib/views/` and the static content in `public/` as needed.
+
 Other targets:
 
 ```bash
