@@ -132,12 +132,11 @@ module Pressa
           page_scripts:,
           page_styles:,
           page_description:,
-          page_type:
+          page_type:,
+          content:
         )
 
-        layout.call do
-          content.call
-        end
+        layout.call
       end
     end
   end

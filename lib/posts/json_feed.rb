@@ -60,7 +60,8 @@ module Pressa
         permalink = @site.url_for(post.path)
 
         item = {}
-        item[:url] = post.link_post? ? post.link : permalink
+        item[:url] = permalink
+        item[:external_url] = post.link if post.link_post?
         item[:tags] = post.tags unless post.tags.empty?
         item[:content_html] = content_html
         item[:title] = post.link_post? ? "→ #{post.title}" : post.title

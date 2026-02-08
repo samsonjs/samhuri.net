@@ -1,10 +1,6 @@
 require 'phlex'
 require_relative 'icons'
 
-class String
-  include Phlex::SGML::SafeObject
-end
-
 module Pressa
   module Views
     class PostView < Phlex::HTML
@@ -28,12 +24,12 @@ module Pressa
             a(href: @post.path, class: 'permalink') { '∞' }
           end
 
-          raw(@post.body)
+          raw(safe(@post.body))
         end
 
         div(class: 'row clearfix') do
           p(class: 'fin') do
-            raw(Icons.code)
+            raw(safe(Icons.code))
           end
         end
       end

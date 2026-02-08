@@ -44,7 +44,7 @@ module Pressa
 
         div(class: 'row clearfix') do
           p(class: 'fin') do
-            raw(Icons.code)
+            raw(safe(Icons.code))
           end
         end
 

@@ -5,10 +5,6 @@ require_relative '../site'
 require_relative '../views/layout'
 require_relative '../views/icons'
 
-class String
-  include Phlex::SGML::SafeObject
-end
-
 module Pressa
   module Utils
     class MarkdownRenderer
@@ -90,13 +86,11 @@ module Pressa
           page_subtitle:,
           canonical_url:,
           page_description:,
-          page_type:
+          page_type:,
+          content: PageView.new(page_title: page_subtitle, body:)
         )
 
-        content_view = PageView.new(page_title: page_subtitle, body:)
-        layout.call do
-          content_view.call
-        end
+        layout.call
       end
 
       class PageView < Phlex::HTML
@@ -108,12 +102,12 @@ module Pressa
         def view_template
           article(class: 'container') do
             h1 { @page_title }
-            raw(@body)
+            raw(safe(@body))
           end
 
           div(class: 'row clearfix') do
             p(class: 'fin') do
-              raw(Views::Icons.code)
+              raw(safe(Views::Icons.code))
             end
           end
         end

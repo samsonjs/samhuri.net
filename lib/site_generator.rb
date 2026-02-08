@@ -10,6 +10,8 @@ module Pressa
     end
 
     def generate(source_path:, target_path:)
+      validate_paths!(source_path:, target_path:)
+
       FileUtils.rm_rf(target_path)
       FileUtils.mkdir_p(target_path)
 
@@ -22,6 +24,22 @@ module Pressa
     end
 
     private
+
+    def validate_paths!(source_path:, target_path:)
+      source_abs = absolute_path(source_path)
+      target_abs = absolute_path(target_path)
+      return unless contains_path?(container: target_abs, path: source_abs)
+
+      raise ArgumentError, 'target_path must not be the same as or contain source_path'
+    end
+
+    def absolute_path(path)
+      File.exist?(path) ? File.realpath(path) : File.expand_path(path)
+    end
+
+    def contains_path?(container:, path:)
+      path == container || path.start_with?("#{container}#{File::SEPARATOR}")
+    end
 
     def copy_static_files(source_path, target_path)
       public_dir = File.join(source_path, 'public')

@@ -12,7 +12,8 @@ module Pressa
                   :page_type,
                   :canonical_url,
                   :page_scripts,
-                  :page_styles
+                  :page_styles,
+                  :content
 
       def initialize(
         site:,
@@ -21,7 +22,8 @@ module Pressa
         page_description: nil,
         page_type: 'website',
         page_scripts: [],
-        page_styles: []
+        page_styles: [],
+        content: nil
       )
         @site = site
         @page_subtitle = page_subtitle
@@ -30,13 +32,14 @@ module Pressa
         @canonical_url = canonical_url
         @page_scripts = page_scripts
         @page_styles = page_styles
+        @content = content
       end
 
       def format_output?
         true
       end
 
-      def view_template(&block)
+      def view_template
         doctype
 
         html(lang: 'en') do
@@ -92,7 +95,7 @@ module Pressa
 
           body do
             render_header
-            instance_exec(&block) if block
+            render(content) if content
             render_footer
             render_scripts
           end
@@ -140,17 +143,17 @@ module Pressa
             ul do
               li(class: 'mastodon') do
                 a(rel: 'me', 'aria-label': 'Mastodon', href: 'https://techhub.social/@sjs') do
-                  raw(Icons.mastodon)
+                  raw(safe(Icons.mastodon))
                 end
               end
               li(class: 'github') do
                 a('aria-label': 'GitHub', href: 'https://github.com/samsonjs') do
-                  raw(Icons.github)
+                  raw(safe(Icons.github))
                 end
               end
               li(class: 'rss') do
                 a('aria-label': 'RSS', href: site.url_for('/feed.xml')) do
-                  raw(Icons.rss)
+                  raw(safe(Icons.rss))
                 end
               end
             end

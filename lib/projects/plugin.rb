@@ -75,12 +75,11 @@ module Pressa
           canonical_url:,
           page_scripts:,
           page_styles:,
-          page_description:
+          page_description:,
+          content:
         )
 
-        layout.call do
-          content.call
-        end
+        layout.call
       end
     end
   end
