@@ -69,5 +69,32 @@ RSpec.describe Pressa::Posts::JSONFeedWriter do
         expect(item).not_to have_key("external_url")
       end
     end
+
+    it "expands root-relative links in content_html to absolute URLs" do
+      post_with_assets = Pressa::Posts::Post.new(
+        slug: "swift-optional-or",
+        title: "Swift Optional OR",
+        author: "Sami Samhuri",
+        date: DateTime.parse("2017-10-01T10:00:00-07:00"),
+        formatted_date: "1st October, 2017",
+        body: '<p><a href="/posts/2010/01/basics-of-the-mach-o-file-format">read</a></p>' \
+              '<p><img src="/images/me.jpg" alt="me"></p>' \
+              '<p><a href="//cdn.example.net/app.js">cdn</a></p>',
+        excerpt: "hello...",
+        path: "/posts/2017/10/swift-optional-or"
+      )
+      allow(posts_by_year).to receive(:recent_posts).and_return([post_with_assets])
+
+      Dir.mktmpdir do |dir|
+        writer.write_feed(target_path: dir, limit: 30)
+        feed = JSON.parse(File.read(File.join(dir, "feed.json")))
+        item = feed.fetch("items").first
+        content_html = item.fetch("content_html")
+
+        expect(content_html).to include('href="https://samhuri.net/posts/2010/01/basics-of-the-mach-o-file-format"')
+        expect(content_html).to include('src="https://samhuri.net/images/me.jpg"')
+        expect(content_html).to include('href="//cdn.example.net/app.js"')
+      end
+    end
   end
 end

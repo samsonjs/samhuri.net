@@ -47,7 +47,7 @@ module Pressa
 
       Dir.glob(File.join(public_dir, "**", "*"), File::FNM_DOTMATCH).each do |source_file|
         next if File.directory?(source_file)
-        next if File.basename(source_file) == "." || File.basename(source_file) == ".."
+        next if skip_file?(source_file)
 
         filename = File.basename(source_file)
         ext = File.extname(source_file)[1..]
@@ -75,6 +75,7 @@ module Pressa
       site.renderers.each do |renderer|
         Dir.glob(File.join(public_dir, "**", "*"), File::FNM_DOTMATCH).each do |source_file|
           next if File.directory?(source_file)
+          next if skip_file?(source_file)
 
           filename = File.basename(source_file)
           ext = File.extname(source_file)[1..]
@@ -92,6 +93,11 @@ module Pressa
           end
         end
       end
+    end
+
+    def skip_file?(source_file)
+      basename = File.basename(source_file)
+      basename.start_with?(".")
     end
   end
 end
