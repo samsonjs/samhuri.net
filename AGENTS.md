@@ -5,14 +5,14 @@ This repository is a single Ruby static-site generator project (the legacy Swift
 
 - Generator code: `lib/pressa/` (entrypoint: `lib/pressa.rb`)
 - Build/deploy/draft tasks: `bake.rb`
-- Tests: `spec/`
+- Tests: `test/`
 - Site config: `site.toml`, `projects.toml`
 - Published posts: `posts/YYYY/MM/*.md`
 - Static and renderable public content: `public/`
 - Draft posts: `public/drafts/`
 - Generated output: `www/` (safe to delete/regenerate)
 
-Keep new code under the existing `Pressa` module structure (for example `lib/pressa/posts`, `lib/pressa/projects`, `lib/pressa/views`, `lib/pressa/config`, `lib/pressa/utils`) and add matching specs under `spec/`.
+Keep new code under the existing `Pressa` module structure (for example `lib/pressa/posts`, `lib/pressa/projects`, `lib/pressa/views`, `lib/pressa/config`, `lib/pressa/utils`) and add matching tests under `test/`.
 
 ## Setup, Build, Test, and Development Commands
 - Use `rbenv exec` for Ruby commands in this repository (for example `rbenv exec bundle exec ...`) to ensure the project Ruby version is used.
@@ -52,8 +52,8 @@ Optional keys include `Tags`, `Link`, `Scripts`, and `Styles`.
 - Do not hand-edit generated files in `www/`.
 
 ## Testing Guidelines
-- Use Minitest under `spec/` (for example `spec/posts`, `spec/config`, `spec/views`).
-- Add regression specs for parser, rendering, feed, and generator behavior changes.
+- Use Minitest under `test/` (for example `test/posts`, `test/config`, `test/views`).
+- Add regression tests for parser, rendering, feed, and generator behavior changes.
 - Before submitting, run:
   - `rbenv exec bundle exec bake test`
   - `rbenv exec bundle exec bake coverage`

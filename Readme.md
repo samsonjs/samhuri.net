@@ -10,7 +10,7 @@ If what you want is an artisanal, hand-crafted, static site generator for your p
 
 - Generator core: `lib/pressa/` (entrypoint: `lib/pressa.rb`)
 - Build tasks and utility workflows: `bake.rb`
-- Tests: `spec/`
+- Tests: `test/`
 - Config: `site.toml` and `projects.toml`
 - Content: `posts/` and `public/`
 - Output: `www/`

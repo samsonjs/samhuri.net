@@ -13,7 +13,7 @@ PUBLISH_HOST = "mudge".freeze
 PRODUCTION_PUBLISH_DIR = "/var/www/samhuri.net/public".freeze
 BETA_PUBLISH_DIR = "/var/www/beta.samhuri.net/public".freeze
 WATCHABLE_DIRECTORIES = %w[public posts lib].freeze
-LINT_TARGETS = %w[bake.rb Gemfile lib spec].freeze
+LINT_TARGETS = %w[bake.rb Gemfile lib test].freeze
 BUILD_TARGETS = %w[debug mudge beta release].freeze
 
 # Generate the site in debug mode (localhost:8000)
@@ -217,7 +217,7 @@ end
 private
 
 def run_test_suite(test_files)
-  run_command("ruby", "-Ilib", "-Ispec", "-e", "ARGV.each { |file| require File.expand_path(file) }", *test_files)
+  run_command("ruby", "-Ilib", "-Itest", "-e", "ARGV.each { |file| require File.expand_path(file) }", *test_files)
 end
 
 def run_coverage(test_files:, lowest_count:)
@@ -226,8 +226,8 @@ def run_coverage(test_files:, lowest_count:)
 end
 
 def test_file_list(chdir: Dir.pwd)
-  test_files = Dir.chdir(chdir) { Dir.glob("spec/**/*_test.rb").sort }
-  abort "Error: no tests found in spec/**/*_test.rb under #{chdir}" if test_files.empty?
+  test_files = Dir.chdir(chdir) { Dir.glob("test/**/*_test.rb").sort }
+  abort "Error: no tests found in test/**/*_test.rb under #{chdir}" if test_files.empty?
 
   test_files
 end
@@ -277,7 +277,7 @@ def coverage_script(lowest_count:)
 end
 
 def capture_coverage_output(test_files:, lowest_count:, chdir:)
-  capture_command("ruby", "-Ilib", "-Ispec", "-e", coverage_script(lowest_count:), *test_files, chdir:)
+  capture_command("ruby", "-Ilib", "-Itest", "-e", coverage_script(lowest_count:), *test_files, chdir:)
 end
 
 def parse_coverage_percent(output)
