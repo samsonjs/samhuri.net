@@ -34,7 +34,7 @@ lines.each_with_index do |line, i|
 end
 
 # return the new text, escaping special chars
-print up_line + lines.reverse.to_s.gsub('[$`\\]', '\\\\\1').gsub('\\$\\$', '$')
+print up_line + lines.reverse.to_s.gsub(/([$`\\])/, '\\\\\1').gsub(/\$\$/, '$')
 ```
 
 <p>Save this as a command in your Rails, or <a href="http://blog.inquirylabs.com/">syncPeople on Rails</a>, bundle. The command options should be as follows:</p>
@@ -56,4 +56,3 @@ The macro I'm thinking of to invoke this is tab-triggered and will simply:
   <li>Select to end of file (<code><strong>⇧⌘↓</strong></code>)</li>
   <li>Run command "Put in self.down"</li>
 </ul>
-
