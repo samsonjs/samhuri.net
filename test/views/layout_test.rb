@@ -32,6 +32,17 @@ class Pressa::Views::LayoutTest < Minitest::Test
     )
   end
 
+  def site_with_remote_links(links)
+    Pressa::Site.new(
+      author: "Sami Samhuri",
+      email: "sami@samhuri.net",
+      title: "samhuri.net",
+      description: "blog",
+      url: "https://samhuri.net",
+      output_options: Pressa::HTMLOutputOptions.new(remote_links: links)
+    )
+  end
+
   def test_rendering_child_components_as_html_instead_of_escaped_text
     html = Pressa::Views::Layout.new(
       site:,
@@ -95,5 +106,35 @@ class Pressa::Views::LayoutTest < Minitest::Test
 
     assert_includes(html, "<footer>© #{current_year} <a href=\"https://samhuri.net/about\">Sami Samhuri</a></footer>")
     refute_includes(html, "<footer>© #{current_year} - #{current_year} ")
+  end
+
+  def test_remote_links_render_from_output_config
+    html = Pressa::Views::Layout.new(
+      site: site_with_remote_links([
+        Pressa::OutputLink.new(label: "Mastodon", href: "https://techhub.social/@sjs", icon: "mastodon"),
+        Pressa::OutputLink.new(label: "GitHub", href: "https://github.com/samsonjs", icon: "github"),
+        Pressa::OutputLink.new(label: "RSS", href: "/feed.xml", icon: "rss")
+      ]),
+      canonical_url: "https://samhuri.net/posts/",
+      content: content_view
+    ).call
+
+    assert_includes(html, "href=\"https://techhub.social/@sjs\"")
+    assert_includes(html, "href=\"https://github.com/samsonjs\"")
+    assert_includes(html, "href=\"https://samhuri.net/feed.xml\"")
+    assert_includes(html, "aria-label=\"Mastodon\"")
+    assert_includes(html, "aria-label=\"GitHub\"")
+    assert_includes(html, "aria-label=\"RSS\"")
+  end
+
+  def test_missing_remote_links_do_not_render_hardcoded_profiles
+    html = Pressa::Views::Layout.new(
+      site:,
+      canonical_url: "https://samhuri.net/posts/",
+      content: content_view
+    ).call
+
+    refute_includes(html, "techhub.social")
+    refute_includes(html, "github.com/samsonjs")
   end
 end

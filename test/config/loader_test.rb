@@ -12,6 +12,7 @@ class Pressa::Config::LoaderTest < Minitest::Test
       assert_equal("https://samhuri.net", site.url)
       assert_equal("https://samhuri.net/images/me.jpg", site.image_url)
       assert_equal(["/css/style.css"], site.styles.map(&:href))
+      assert_equal(["Mastodon", "GitHub"], site.html_output_options&.remote_links&.map(&:label))
 
       projects_plugin = site.plugins.find { |plugin| plugin.is_a?(Pressa::Projects::Plugin) }
       refute_nil(projects_plugin)
@@ -26,6 +27,209 @@ class Pressa::Config::LoaderTest < Minitest::Test
 
       assert_equal("https://beta.samhuri.net", site.url)
       assert_equal("https://beta.samhuri.net/images/me.jpg", site.image_url)
+    end
+  end
+
+  def test_build_site_supports_gemini_output_format
+    with_temp_config do |dir|
+      loader = Pressa::Config::Loader.new(source_path: dir)
+      site = loader.build_site(output_format: "gemini")
+
+      assert_equal("gemini", site.output_format)
+      assert(site.plugins.any? { |plugin| plugin.is_a?(Pressa::Posts::GeminiPlugin) })
+      assert(site.plugins.any? { |plugin| plugin.is_a?(Pressa::Projects::GeminiPlugin) })
+      assert_equal(["Pressa::Utils::GeminiMarkdownRenderer"], site.renderers.map(&:class).map(&:name))
+      assert_equal(["tweets/**"], site.public_excludes)
+      assert_equal(20, site.gemini_output_options&.recent_posts_limit)
+      assert_equal(["About", "GitHub"], site.gemini_output_options&.home_links&.map(&:label))
+    end
+  end
+
+  def test_build_site_rejects_invalid_output_excludes
+    Dir.mktmpdir do |dir|
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Sami Samhuri"
+        email = "sami@samhuri.net"
+        title = "samhuri.net"
+        description = "blog"
+        url = "https://samhuri.net"
+
+        [outputs.gemini]
+        exclude_public = [123]
+      TOML
+      File.write(File.join(dir, "projects.toml"), "projects = []\n")
+
+      loader = Pressa::Config::Loader.new(source_path: dir)
+      error = assert_raises(Pressa::Config::ValidationError) do
+        loader.build_site(output_format: "gemini")
+      end
+      assert_match(/exclude_public\[0\] to be a non-empty String/, error.message)
+    end
+  end
+
+  def test_build_site_rejects_legacy_output_key
+    Dir.mktmpdir do |dir|
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Sami Samhuri"
+        email = "sami@samhuri.net"
+        title = "samhuri.net"
+        description = "blog"
+        url = "https://samhuri.net"
+
+        [output.gemini]
+        exclude_public = ["tweets/**"]
+      TOML
+      File.write(File.join(dir, "projects.toml"), "projects = []\n")
+
+      loader = Pressa::Config::Loader.new(source_path: dir)
+      error = assert_raises(Pressa::Config::ValidationError) { loader.build_site(output_format: "gemini") }
+      assert_match(/Legacy key 'output' is no longer supported/, error.message)
+    end
+  end
+
+  def test_build_site_rejects_legacy_social_url_keys
+    Dir.mktmpdir do |dir|
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Sami Samhuri"
+        email = "sami@samhuri.net"
+        title = "samhuri.net"
+        description = "blog"
+        url = "https://samhuri.net"
+        mastodon_url = "https://example.social/@sami"
+      TOML
+      File.write(File.join(dir, "projects.toml"), "projects = []\n")
+
+      loader = Pressa::Config::Loader.new(source_path: dir)
+      error = assert_raises(Pressa::Config::ValidationError) { loader.build_site }
+      assert_match(/Legacy keys 'mastodon_url'\/'github_url' are no longer supported/, error.message)
+    end
+  end
+
+  def test_build_site_accepts_gemini_home_links
+    Dir.mktmpdir do |dir|
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Sami Samhuri"
+        email = "sami@samhuri.net"
+        title = "samhuri.net"
+        description = "blog"
+        url = "https://samhuri.net"
+        plugins = ["posts"]
+
+        [outputs.gemini]
+        recent_posts_limit = 15
+        home_links = [
+          {"label": "About", "href": "/about/"},
+          {"label": "GitHub", "href": "https://github.com/samsonjs"}
+        ]
+      TOML
+      File.write(File.join(dir, "projects.toml"), "projects = []\n")
+
+      loader = Pressa::Config::Loader.new(source_path: dir)
+      site = loader.build_site(output_format: "gemini")
+
+      assert_equal(15, site.gemini_output_options&.recent_posts_limit)
+      assert_equal(["About", "GitHub"], site.gemini_output_options&.home_links&.map(&:label))
+      assert_equal(["/about/", "https://github.com/samsonjs"], site.gemini_output_options&.home_links&.map(&:href))
+    end
+  end
+
+  def test_build_site_rejects_invalid_gemini_home_links
+    Dir.mktmpdir do |dir|
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Sami Samhuri"
+        email = "sami@samhuri.net"
+        title = "samhuri.net"
+        description = "blog"
+        url = "https://samhuri.net"
+
+        [outputs.gemini]
+        home_links = [{"label": "About"}]
+      TOML
+      File.write(File.join(dir, "projects.toml"), "projects = []\n")
+
+      loader = Pressa::Config::Loader.new(source_path: dir)
+      error = assert_raises(Pressa::Config::ValidationError) { loader.build_site(output_format: "gemini") }
+      assert_match(/outputs\.gemini\.home_links\[0\]\.href to be a non-empty String/, error.message)
+    end
+  end
+
+  def test_build_site_rejects_invalid_recent_posts_limit
+    Dir.mktmpdir do |dir|
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Sami Samhuri"
+        email = "sami@samhuri.net"
+        title = "samhuri.net"
+        description = "blog"
+        url = "https://samhuri.net"
+
+        [outputs.gemini]
+        recent_posts_limit = 0
+      TOML
+      File.write(File.join(dir, "projects.toml"), "projects = []\n")
+
+      loader = Pressa::Config::Loader.new(source_path: dir)
+      error = assert_raises(Pressa::Config::ValidationError) { loader.build_site(output_format: "gemini") }
+      assert_match(/outputs\.gemini\.recent_posts_limit to be a positive Integer/, error.message)
+    end
+  end
+
+  def test_build_site_rejects_invalid_html_remote_links
+    Dir.mktmpdir do |dir|
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Sami Samhuri"
+        email = "sami@samhuri.net"
+        title = "samhuri.net"
+        description = "blog"
+        url = "https://samhuri.net"
+
+        [outputs.html]
+        remote_links = [{"label": "GitHub", "href": "github.com/samsonjs"}]
+      TOML
+      File.write(File.join(dir, "projects.toml"), "projects = []\n")
+
+      loader = Pressa::Config::Loader.new(source_path: dir)
+      error = assert_raises(Pressa::Config::ValidationError) { loader.build_site }
+      assert_match(/outputs\.html\.remote_links\[0\]\.href to start with \//, error.message)
+    end
+  end
+
+  def test_build_site_rejects_unknown_gemini_output_keys
+    Dir.mktmpdir do |dir|
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Sami Samhuri"
+        email = "sami@samhuri.net"
+        title = "samhuri.net"
+        description = "blog"
+        url = "https://samhuri.net"
+
+        [outputs.gemini]
+        something_else = true
+      TOML
+      File.write(File.join(dir, "projects.toml"), "projects = []\n")
+
+      loader = Pressa::Config::Loader.new(source_path: dir)
+      error = assert_raises(Pressa::Config::ValidationError) { loader.build_site(output_format: "gemini") }
+      assert_match(/Unknown key\(s\) in site\.toml outputs\.gemini: something_else/, error.message)
+    end
+  end
+
+  def test_build_site_rejects_unknown_gemini_home_link_keys
+    Dir.mktmpdir do |dir|
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Sami Samhuri"
+        email = "sami@samhuri.net"
+        title = "samhuri.net"
+        description = "blog"
+        url = "https://samhuri.net"
+
+        [outputs.gemini]
+        home_links = [{"label": "About", "href": "/about/", "icon": "mastodon"}]
+      TOML
+      File.write(File.join(dir, "projects.toml"), "projects = []\n")
+
+      loader = Pressa::Config::Loader.new(source_path: dir)
+      error = assert_raises(Pressa::Config::ValidationError) { loader.build_site(output_format: "gemini") }
+      assert_match(/Unknown key\(s\) in site\.toml outputs\.gemini\.home_links\[0\]: icon/, error.message)
     end
   end
 
@@ -375,6 +579,20 @@ class Pressa::Config::LoaderTest < Minitest::Test
         [projects_plugin]
         scripts = ["/js/projects.js"]
         styles = []
+
+        [outputs.html]
+        remote_links = [
+          {"label": "Mastodon", "href": "https://techhub.social/@sjs", "icon": "mastodon"},
+          {"label": "GitHub", "href": "https://github.com/samsonjs", "icon": "github"}
+        ]
+
+        [outputs.gemini]
+        recent_posts_limit = 20
+        home_links = [
+          {"label": "About", "href": "/about/"},
+          {"label": "GitHub", "href": "https://github.com/samsonjs"}
+        ]
+        exclude_public = ["tweets/**"]
       TOML
 
       File.write(File.join(dir, "projects.toml"), <<~TOML)

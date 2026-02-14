@@ -3,6 +3,7 @@ email = "sami@samhuri.net"
 title = "samhuri.net"
 description = "Sami Samhuri's blog about programming, mainly about iOS and Ruby and Rails these days."
 url = "https://samhuri.net"
+fediverse_creator = "@sjs@techhub.social"
 image_url = "/images/me.jpg"
 scripts = []
 styles = ["/css/normalize.css", "/css/style.css", "/css/syntax.css"]
@@ -16,3 +17,32 @@ scripts = [
   "/js/projects.js"
 ]
 styles = []
+
+[outputs.html]
+remote_links = [
+  {"label": "Mastodon", "href": "https://techhub.social/@sjs", "icon": "mastodon"},
+  {"label": "GitHub", "href": "https://github.com/samsonjs", "icon": "github"},
+  {"label": "RSS", "href": "/feed.xml", "icon": "rss"}
+]
+
+[outputs.gemini]
+recent_posts_limit = 20
+home_links = [
+  {"label": "About", "href": "/about/"},
+  {"label": "Projects", "href": "/projects/"},
+  {"label": "Mastodon", "href": "https://techhub.social/@sjs"},
+  {"label": "GitHub", "href": "https://github.com/samsonjs"},
+  {"label": "RSS", "href": "/feed.xml"},
+  {"label": "Email", "href": "mailto:sami@samhuri.net"}
+]
+exclude_public = [
+  "tweets/**",
+  "css/**",
+  "js/**",
+  "apple-touch-icon.png",
+  "favicon.ico",
+  "favicon.gif",
+  "robots.txt",
+  "humans.txt",
+  "isitmycakeday.html"
+]

@@ -65,6 +65,20 @@ class Pressa::SiteGeneratorRenderingTest < Minitest::Test
     )
   end
 
+  def build_gemini_site(plugin:, renderer:, public_excludes: [])
+    Pressa::Site.new(
+      author: "Sami Samhuri",
+      email: "sami@samhuri.net",
+      title: "samhuri.net",
+      description: "blog",
+      url: "https://samhuri.net",
+      plugins: [plugin],
+      renderers: [renderer],
+      output_format: "gemini",
+      output_options: Pressa::GeminiOutputOptions.new(public_excludes:)
+    )
+  end
+
   def build_posts_by_year(year:)
     post = Pressa::Posts::Post.new(
       slug: "first-post",
@@ -159,6 +173,26 @@ class Pressa::SiteGeneratorRenderingTest < Minitest::Test
       Pressa::SiteGenerator.new(site:).generate(source_path:, target_path:)
 
       assert_equal(2006, plugin.render_site_year)
+    end
+  end
+
+  def test_generate_skips_tweets_directory_for_gemini_output
+    Dir.mktmpdir do |root|
+      source_path = File.join(root, "source")
+      target_path = File.join(root, "target")
+      tweets_dir = File.join(source_path, "public", "tweets")
+      FileUtils.mkdir_p(tweets_dir)
+      File.write(File.join(tweets_dir, "index.html"), "<html>tweets</html>")
+      File.write(File.join(source_path, "public", "notes.md"), "# notes")
+
+      plugin = PluginSpy.new
+      renderer = MarkdownRendererSpy.new
+      site = build_gemini_site(plugin:, renderer:, public_excludes: ["tweets/**"])
+
+      Pressa::SiteGenerator.new(site:).generate(source_path:, target_path:)
+
+      refute(File.exist?(File.join(target_path, "tweets", "index.html")))
+      assert(File.exist?(File.join(target_path, "notes.html")))
     end
   end
 end

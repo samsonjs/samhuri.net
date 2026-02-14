@@ -52,4 +52,40 @@ class Pressa::Projects::PluginTest < Minitest::Test
       assert_includes(details_html, "css/projects.css")
     end
   end
+
+  def test_gemini_plugin_renders_index_and_project_pages
+    gemini_site = Pressa::Site.new(
+      author: "Sami Samhuri",
+      email: "sami@samhuri.net",
+      title: "samhuri.net",
+      description: "blog",
+      url: "https://samhuri.net",
+      output_format: "gemini",
+      output_options: Pressa::GeminiOutputOptions.new
+    )
+
+    plugin = Pressa::Projects::GeminiPlugin.new(projects: [project])
+
+    Dir.mktmpdir do |dir|
+      plugin.render(site: gemini_site, target_path: dir)
+
+      index_path = File.join(dir, "projects/index.gmi")
+      details_path = File.join(dir, "projects/demo/index.gmi")
+      assert(File.exist?(index_path))
+      assert(File.exist?(details_path))
+
+      index_text = File.read(index_path)
+      details_text = File.read(details_path)
+
+      assert_includes(index_text, "## Demo")
+      assert_includes(index_text, "Demo project")
+      assert_includes(index_text, "=> https://github.com/samsonjs/demo")
+      refute_includes(index_text, "=> /projects/demo/")
+
+      assert_includes(details_text, "=> https://github.com/samsonjs/demo")
+      assert_includes(details_text, "=> /projects/ Back to projects")
+      refute_includes(details_text, "Project link")
+      refute_includes(details_text, "Read on the web")
+    end
+  end
 end

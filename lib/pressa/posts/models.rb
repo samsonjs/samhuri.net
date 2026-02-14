@@ -12,6 +12,7 @@ module Pressa
       attribute :link, Types::String.optional.default(nil)
       attribute :tags, Types::Array.of(Types::String).default([].freeze)
       attribute :body, Types::String
+      attribute :markdown_body, Types::String.default("".freeze)
       attribute :excerpt, Types::String
       attribute :path, Types::String
 

@@ -69,7 +69,7 @@ module Pressa
               title: site.title
             )
 
-            meta(name: "fediverse:creator", content: "@sjs@techhub.social")
+            meta(name: "fediverse:creator", content: site.fediverse_creator) if site.fediverse_creator
             link(rel: "author", type: "text/plain", href: site.url_for("/humans.txt"))
             link(rel: "icon", type: "image/png", href: site.url_for("/images/favicon-32x32.png"))
             link(rel: "shortcut icon", href: site.url_for("/images/favicon.icon"))
@@ -134,19 +134,19 @@ module Pressa
 
           nav(class: "remote") do
             ul do
-              li(class: "mastodon") do
-                a(rel: "me", "aria-label": "Mastodon", href: "https://techhub.social/@sjs") do
-                  raw(safe(Icons.mastodon))
-                end
-              end
-              li(class: "github") do
-                a("aria-label": "GitHub", href: "https://github.com/samsonjs") do
-                  raw(safe(Icons.github))
-                end
-              end
-              li(class: "rss") do
-                a("aria-label": "RSS", href: site.url_for("/feed.xml")) do
-                  raw(safe(Icons.rss))
+              html_remote_links.each do |link|
+                li(class: remote_link_class(link)) do
+                  attrs = {"aria-label": link.label, href: remote_link_href(link.href)}
+                  attrs[:rel] = "me" if mastodon_link?(link)
+
+                  a(**attrs) do
+                    icon_markup = remote_link_icon_markup(link)
+                    if icon_markup
+                      raw(safe(icon_markup))
+                    else
+                      plain link.label
+                    end
+                  end
                 end
               end
             end
@@ -202,6 +202,41 @@ module Pressa
         return current_year.to_s if start_year >= current_year
 
         "#{start_year} - #{current_year}"
+      end
+
+      def html_remote_links
+        site.html_output_options&.remote_links || []
+      end
+
+      def remote_link_href(href)
+        return href if href.start_with?("http://", "https://")
+
+        absolute_asset(href)
+      end
+
+      def remote_link_class(link)
+        slug = link.icon || link.label.downcase.gsub(/[^a-z0-9]+/, "-").gsub(/^-|-$/, "")
+        "remote-link #{slug}"
+      end
+
+      def remote_link_icon_markup(link)
+        icon_renderer = remote_link_icon_renderer(link.icon)
+        return nil unless icon_renderer
+
+        Icons.public_send(icon_renderer)
+      end
+
+      def remote_link_icon_renderer(icon)
+        case icon
+        when "mastodon" then :mastodon
+        when "github" then :github
+        when "rss" then :rss
+        when "code" then :code
+        end
+      end
+
+      def mastodon_link?(link)
+        link.icon == "mastodon"
       end
     end
   end

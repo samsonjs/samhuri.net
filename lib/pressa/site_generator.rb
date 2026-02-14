@@ -50,6 +50,7 @@ module Pressa
       Dir.glob(File.join(public_dir, "**", "*"), File::FNM_DOTMATCH).each do |source_file|
         next if File.directory?(source_file)
         next if skip_file?(source_file)
+        next if skip_for_output_format?(source_file:, public_dir:)
 
         filename = File.basename(source_file)
         ext = File.extname(source_file)[1..]
@@ -78,6 +79,7 @@ module Pressa
         Dir.glob(File.join(public_dir, "**", "*"), File::FNM_DOTMATCH).each do |source_file|
           next if File.directory?(source_file)
           next if skip_file?(source_file)
+          next if skip_for_output_format?(source_file:, public_dir:)
 
           filename = File.basename(source_file)
           ext = File.extname(source_file)[1..]
@@ -102,9 +104,31 @@ module Pressa
       basename.start_with?(".")
     end
 
+    def skip_for_output_format?(source_file:, public_dir:)
+      relative_path = source_file.sub("#{public_dir}/", "")
+      site.public_excludes.any? do |pattern|
+        excluded_by_pattern?(relative_path:, pattern:)
+      end
+    end
+
+    def excluded_by_pattern?(relative_path:, pattern:)
+      normalized = pattern.sub(%r{\A/+}, "")
+
+      if normalized.end_with?("/**")
+        prefix = normalized.delete_suffix("/**")
+        return relative_path.start_with?("#{prefix}/") || relative_path == prefix
+      end
+
+      File.fnmatch?(normalized, relative_path, File::FNM_PATHNAME)
+    end
+
     def site_with_copyright_start_year(base_site)
       start_year = find_copyright_start_year(base_site)
-      Site.new(**base_site.to_h.merge(copyright_start_year: start_year))
+      attrs = base_site.to_h.merge(
+        output_options: base_site.output_options,
+        copyright_start_year: start_year
+      )
+      Site.new(**attrs)
     end
 
     def find_copyright_start_year(base_site)

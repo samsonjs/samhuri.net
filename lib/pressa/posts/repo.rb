@@ -48,6 +48,7 @@ module Pressa
           link: metadata.link,
           tags: metadata.tags,
           body: html_body,
+          markdown_body: body_markdown,
           excerpt:,
           path:
         )
