@@ -69,8 +69,9 @@ class Pressa::Posts::GeminiPluginTest < Minitest::Test
 
       assert(File.exist?(File.join(target_path, "index.gmi")))
       assert(File.exist?(File.join(target_path, "posts/index.gmi")))
-      assert(File.exist?(File.join(target_path, "posts/2025/index.gmi")))
-      assert(File.exist?(File.join(target_path, "posts/2025/11/index.gmi")))
+      assert(File.exist?(File.join(target_path, "posts/feed.gmi")))
+      refute(File.exist?(File.join(target_path, "posts/2025/index.gmi")))
+      refute(File.exist?(File.join(target_path, "posts/2025/11/index.gmi")))
 
       markdown_post = File.join(target_path, "posts/2025/11/markdown-only/index.gmi")
       html_post = File.join(target_path, "posts/2025/11/html-heavy/index.gmi")
@@ -81,8 +82,8 @@ class Pressa::Posts::GeminiPluginTest < Minitest::Test
       index_text = File.read(File.join(target_path, "index.gmi"))
       markdown_text = File.read(markdown_post)
       html_text = File.read(html_post)
-      year_index = File.read(File.join(target_path, "posts/2025/index.gmi"))
-      month_index = File.read(File.join(target_path, "posts/2025/11/index.gmi"))
+      archive_text = File.read(File.join(target_path, "posts/index.gmi"))
+      feed_text = File.read(File.join(target_path, "posts/feed.gmi"))
 
       assert_includes(index_text, "=> /about/")
       assert_includes(index_text, "=> https://techhub.social/@sjs")
@@ -92,12 +93,13 @@ class Pressa::Posts::GeminiPluginTest < Minitest::Test
       assert_includes(html_text, "Read on the web")
       assert_includes(markdown_text, "=> https://example.com")
       assert_includes(html_text, "=> https://example.org")
-      assert_includes(year_index, "## November")
-      refute_includes(year_index, "=> /posts/2025/11/ November 2025")
-      assert_match(%r{=> /posts/2025/11/link-post/ 2025-11-07 - Link Post\n=> https://example.net/story}, year_index)
-      assert_includes(year_index, "=> /posts/2025/11/html-heavy/ 2025-11-06 - HTML Heavy")
-      assert_includes(year_index, "=> /posts/2025/11/markdown-only/ 2025-11-05 - Markdown Only")
-      assert_match(%r{=> /posts/2025/11/link-post/ 2025-11-07 - Link Post\n=> https://example.net/story}, month_index)
+      assert_includes(markdown_text, "=> /posts Back to posts")
+      assert_includes(archive_text, "# samhuri.net posts")
+      assert_includes(archive_text, "## Feed")
+      assert_match(%r{=> /posts/2025/11/link-post/ 2025-11-07 - Link Post\n=> https://example.net/story}, archive_text)
+      assert_includes(archive_text, "=> /posts/2025/11/html-heavy/ 2025-11-06 - HTML Heavy")
+      assert_includes(archive_text, "=> /posts/2025/11/markdown-only/ 2025-11-05 - Markdown Only")
+      assert_equal(archive_text, feed_text)
     end
   end
 end

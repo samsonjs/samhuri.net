@@ -50,4 +50,23 @@ class Pressa::Utils::GemtextRendererTest < Minitest::Test
     refute_includes(rendered, "* GitHub: samsonjs")
     refute_includes(rendered, "* Stack Overflow")
   end
+
+  def test_render_decodes_common_named_html_entities
+    markdown = "a &rarr; b &hellip; and down &darr;"
+    rendered = Pressa::Utils::GemtextRenderer.render(markdown)
+
+    assert_includes(rendered, "a \u2192 b ... and down \u2193")
+    refute_includes(rendered, "&rarr;")
+    refute_includes(rendered, "&darr;")
+  end
+
+  def test_render_collapses_link_only_text_lines_to_links
+    markdown = <<~MARKDOWN
+      <a href="/f/volume.rb">&darr; Download volume.rb</a>
+    MARKDOWN
+
+    rendered = Pressa::Utils::GemtextRenderer.render(markdown)
+
+    assert_equal("=> /f/volume.rb", rendered)
+  end
 end

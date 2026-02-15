@@ -125,7 +125,7 @@ module Pressa
             h1 do
               a(href: site.url) { site.title }
             end
-            br
+
             h4 do
               plain "By "
               a(href: site.url_for("/about")) { site.author }
@@ -134,7 +134,7 @@ module Pressa
 
           nav(class: "remote") do
             ul do
-              html_remote_links.each do |link|
+              remote_nav_links.each do |link|
                 li(class: remote_link_class(link)) do
                   attrs = {"aria-label": link.label, href: remote_link_href(link.href)}
                   attrs[:rel] = "me" if mastodon_link?(link)
@@ -177,6 +177,92 @@ module Pressa
           attrs[:defer] = true if scr.defer
           script(**attrs)
         end
+
+        render_gemini_fallback_script
+      end
+
+      def render_gemini_fallback_script
+        # Inline so the behavior ships with the base HTML layout without needing
+        # separate asset management for one small handler.
+        script do
+          raw(safe(<<~JS))
+            (function () {
+              function isPlainLeftClick(e) {
+                return (
+                  e.button === 0 &&
+                  !e.defaultPrevented &&
+                  !e.metaKey &&
+                  !e.ctrlKey &&
+                  !e.shiftKey &&
+                  !e.altKey
+                );
+              }
+
+              function setupGeminiFallback() {
+                var link = document.querySelector(
+                  'header.primary nav.remote li.gemini a[href^="gemini://"]'
+                );
+                if (!link) return;
+
+                link.addEventListener("click", function (e) {
+                  if (!isPlainLeftClick(e)) return;
+
+                  e.preventDefault();
+
+                  var geminiHref = link.getAttribute("href");
+                  var fallbackHref = "https://geminiprotocol.net";
+
+                  var done = false;
+                  var fallbackTimer = null;
+
+                  function cleanup() {
+                    if (fallbackTimer) window.clearTimeout(fallbackTimer);
+                    document.removeEventListener("visibilitychange", onVisibilityChange);
+                    window.removeEventListener("pagehide", onPageHide);
+                    window.removeEventListener("blur", onBlur);
+                  }
+
+                  function markDone() {
+                    done = true;
+                    cleanup();
+                  }
+
+                  function onVisibilityChange() {
+                    // If a handler opens and the browser backgrounded, consider it "successful".
+                    if (document.visibilityState === "hidden") markDone();
+                  }
+
+                  function onPageHide() {
+                    markDone();
+                  }
+
+                  function onBlur() {
+                    // Some browsers blur the page when a protocol handler is invoked.
+                    markDone();
+                  }
+
+                  document.addEventListener("visibilitychange", onVisibilityChange);
+                  window.addEventListener("pagehide", onPageHide, { once: true });
+                  window.addEventListener("blur", onBlur, { once: true });
+
+                  // If we're still here shortly after attempting navigation, assume it failed.
+                  fallbackTimer = window.setTimeout(function () {
+                    if (done) return;
+                    window.location.href = fallbackHref;
+                  }, 900);
+
+                  window.location.href = geminiHref;
+                });
+              }
+
+              if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", setupGeminiFallback);
+              } else {
+                setupGeminiFallback();
+              }
+            })();
+          JS
+        end
       end
 
       def script_src(src)
@@ -208,8 +294,12 @@ module Pressa
         site.html_output_options&.remote_links || []
       end
 
+      def remote_nav_links
+        html_remote_links
+      end
+
       def remote_link_href(href)
-        return href if href.start_with?("http://", "https://")
+        return href if href.match?(/\A[a-z][a-z0-9+\-.]*:/i)
 
         absolute_asset(href)
       end
@@ -220,6 +310,16 @@ module Pressa
       end
 
       def remote_link_icon_markup(link)
+        # Gemini doesn't have an obvious, widely-recognized protocol icon.
+        # Use a simple custom SVG mark so it aligns like the other SVG icons.
+        if link.icon == "gemini"
+          return <<~SVG.strip
+            <svg class="icon icon-gemini-protocol" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path transform="translate(12 12) scale(0.84 1.04) translate(-12 -12)" d="M18,5.3C19.35,4.97 20.66,4.54 21.94,4L21.18,2.14C18.27,3.36 15.15,4 12,4C8.85,4 5.73,3.38 2.82,2.17L2.06,4C3.34,4.54 4.65,4.97 6,5.3V18.7C4.65,19.03 3.34,19.46 2.06,20L2.82,21.86C8.7,19.42 15.3,19.42 21.18,21.86L21.94,20C20.66,19.46 19.35,19.03 18,18.7V5.3M8,18.3V5.69C9.32,5.89 10.66,6 12,6C13.34,6 14.68,5.89 16,5.69V18.31C13.35,17.9 10.65,17.9 8,18.31V18.3Z"/>
+            </svg>
+          SVG
+        end
+
         icon_renderer = remote_link_icon_renderer(link.icon)
         return nil unless icon_renderer
 
@@ -232,6 +332,8 @@ module Pressa
         when "github" then :github
         when "rss" then :rss
         when "code" then :code
+        # The Gemini SVG icon was too ambiguous in practice; render this as text instead.
+        when "gemini" then nil
         end
       end
 

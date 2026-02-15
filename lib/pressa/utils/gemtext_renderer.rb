@@ -78,6 +78,10 @@ module Pressa
 
         def convert_text_line(line, link_reference_definitions)
           clean_text, links = extract_links(line, link_reference_definitions)
+          if !links.empty? && clean_inline_text(strip_links_from_text(line)).empty?
+            return render_link_rows(links)
+          end
+
           rows = []
           inline_text = clean_inline_text(clean_text)
           rows << inline_text unless inline_text.empty?
@@ -130,7 +134,7 @@ module Pressa
         end
 
         def link_only_list_item?(text, link_reference_definitions)
-          clean_text, links = extract_links(text, link_reference_definitions)
+          _clean_text, links = extract_links(text, link_reference_definitions)
           return false if links.empty?
 
           remaining_text = strip_links_from_text(text)
@@ -183,7 +187,26 @@ module Pressa
           cleaned.gsub!(/\*([^*]+)\*/, '\1')
           cleaned.gsub!(/_([^_]+)_/, '\1')
           cleaned.gsub!(/\s+/, " ")
-          CGI.unescapeHTML(cleaned).strip
+          cleaned = CGI.unescapeHTML(cleaned)
+          cleaned = decode_named_html_entities(cleaned)
+          cleaned.strip
+        end
+
+        def decode_named_html_entities(text)
+          text.gsub(/&([A-Za-z]+);/) do
+            entity = Regexp.last_match(1).downcase
+
+            case entity
+            when "darr" then "\u2193"
+            when "uarr" then "\u2191"
+            when "larr" then "\u2190"
+            when "rarr" then "\u2192"
+            when "hellip" then "..."
+            when "nbsp" then " "
+            else
+              "&#{Regexp.last_match(1)};"
+            end
+          end
         end
 
         def strip_html_tags(text)

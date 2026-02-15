@@ -23,7 +23,7 @@ module Pressa
           rows << "=> #{link.href}"
         end
         rows << "" unless home_links.empty?
-        rows << "Recent posts"
+        rows << "## Recent posts"
         rows << ""
 
         @posts_by_year.recent_posts(limit).each do |post|
@@ -31,7 +31,6 @@ module Pressa
         end
 
         rows << ""
-        rows << "=> /posts/ Archive"
         rows << "=> #{web_url_for("/")} Website"
         rows << ""
 
@@ -39,11 +38,11 @@ module Pressa
         Utils::FileWriter.write(path: file_path, content: rows.join("\n"))
       end
 
-      def write_archive(target_path:)
-        rows = ["# Archive", ""]
+      def write_posts_index(target_path:)
+        rows = ["# #{@site.title} posts", "## Feed", ""]
 
-        @posts_by_year.sorted_years.each do |year|
-          rows << "=> /posts/#{year}/ #{year}"
+        @posts_by_year.all_posts.each do |post|
+          rows.concat(post_listing_lines(post))
         end
 
         rows << ""
@@ -51,8 +50,9 @@ module Pressa
         rows << "=> #{web_url_for("/posts/")} Read on the web"
         rows << ""
 
-        file_path = File.join(target_path, "posts", "index.gmi")
-        Utils::FileWriter.write(path: file_path, content: rows.join("\n"))
+        content = rows.join("\n")
+        Utils::FileWriter.write(path: File.join(target_path, "posts", "index.gmi"), content:)
+        Utils::FileWriter.write(path: File.join(target_path, "posts", "feed.gmi"), content:)
       end
 
       def write_year_indexes(target_path:)
@@ -84,7 +84,7 @@ module Pressa
         rows << gemtext_body unless gemtext_body.empty?
         rows << "" unless rows.last.to_s.empty?
 
-        rows << "=> /posts/ Back to archive"
+        rows << "=> /posts Back to posts"
         rows << "=> #{web_url_for("#{post.path}/")} Read on the web" if include_web_link?(post)
         rows << ""
 
@@ -99,12 +99,12 @@ module Pressa
           month = month_posts.month
           rows << "## #{month.name}"
           month_posts.sorted_posts.each do |post|
-            rows.concat(post_archive_lines(post))
+            rows.concat(post_listing_lines(post))
           end
           rows << ""
         end
 
-        rows << "=> /posts/ Back to archive"
+        rows << "=> /posts Back to posts"
         rows << "=> #{web_url_for("/posts/#{year}/")} Read on the web"
         rows << ""
 
@@ -117,12 +117,12 @@ module Pressa
         rows = ["# #{month.name} #{year}", ""]
 
         month_posts.sorted_posts.each do |post|
-          rows.concat(post_archive_lines(post))
+          rows.concat(post_listing_lines(post))
         end
 
         rows << ""
         rows << "=> /posts/#{year}/ Back to year"
-        rows << "=> /posts/ Back to archive"
+        rows << "=> /posts Back to posts"
         rows << "=> #{web_url_for("/posts/#{year}/#{month.padded}/")} Read on the web"
         rows << ""
 
@@ -134,7 +134,7 @@ module Pressa
         "=> #{post.path}/ #{post.date.strftime("%Y-%m-%d")} - #{post.title}"
       end
 
-      def post_archive_lines(post)
+      def post_listing_lines(post)
         rows = [post_link_line(post)]
         rows << "=> #{post.link}" if post.link_post?
         rows

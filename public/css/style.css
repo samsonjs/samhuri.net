@@ -160,7 +160,7 @@ header.primary .title {
 
 header.primary h1,
 header.primary h4 {
-    display: inline-block;
+    display: block;
     margin: 0;
     padding: 0;
     word-wrap: break-word;
@@ -179,6 +179,8 @@ header.primary h1 a,
 header.primary h1 a:visited {
     color: #f7f7f7;
 }
+
+/* (protocol-link styles removed; Gemini now renders in the remote icon row) */
 
 header.primary h4 {
     font-size: 0.8rem;
@@ -262,6 +264,15 @@ header.primary nav ul li.mastodon .icon {
 
 header.primary nav ul li.github .icon {
     color: #4183c4;
+}
+
+header.primary nav ul li.gemini a,
+header.primary nav ul li.gemini a:visited {
+    color: #bdbdbd;
+}
+
+header.primary nav ul li.gemini a:hover {
+    color: #f7f7f7;
 }
 
 footer {

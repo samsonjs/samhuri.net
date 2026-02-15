@@ -45,9 +45,7 @@ module Pressa
         writer = GeminiWriter.new(site:, posts_by_year: @posts_by_year)
         writer.write_posts(target_path:)
         writer.write_recent_posts(target_path:, limit: gemini_recent_posts_limit(site))
-        writer.write_archive(target_path:)
-        writer.write_year_indexes(target_path:)
-        writer.write_month_rollups(target_path:)
+        writer.write_posts_index(target_path:)
       end
 
       private

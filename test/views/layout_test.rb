@@ -112,6 +112,7 @@ class Pressa::Views::LayoutTest < Minitest::Test
     html = Pressa::Views::Layout.new(
       site: site_with_remote_links([
         Pressa::OutputLink.new(label: "Mastodon", href: "https://techhub.social/@sjs", icon: "mastodon"),
+        Pressa::OutputLink.new(label: "Gemini", href: "gemini://samhuri.net", icon: "gemini"),
         Pressa::OutputLink.new(label: "GitHub", href: "https://github.com/samsonjs", icon: "github"),
         Pressa::OutputLink.new(label: "RSS", href: "/feed.xml", icon: "rss")
       ]),
@@ -120,9 +121,11 @@ class Pressa::Views::LayoutTest < Minitest::Test
     ).call
 
     assert_includes(html, "href=\"https://techhub.social/@sjs\"")
+    assert_includes(html, "href=\"gemini://samhuri.net\"")
     assert_includes(html, "href=\"https://github.com/samsonjs\"")
     assert_includes(html, "href=\"https://samhuri.net/feed.xml\"")
     assert_includes(html, "aria-label=\"Mastodon\"")
+    assert_includes(html, "aria-label=\"Gemini\"")
     assert_includes(html, "aria-label=\"GitHub\"")
     assert_includes(html, "aria-label=\"RSS\"")
   end

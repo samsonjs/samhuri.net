@@ -22,17 +22,20 @@ styles = []
 remote_links = [
   {"label": "Mastodon", "href": "https://techhub.social/@sjs", "icon": "mastodon"},
   {"label": "GitHub", "href": "https://github.com/samsonjs", "icon": "github"},
-  {"label": "RSS", "href": "/feed.xml", "icon": "rss"}
+  {"label": "RSS", "href": "/feed.xml", "icon": "rss"},
+  {"label": "Gemini", "href": "gemini://samhuri.net", "icon": "gemini"}
 ]
 
 [outputs.gemini]
 recent_posts_limit = 20
 home_links = [
-  {"label": "About", "href": "/about/"},
-  {"label": "Projects", "href": "/projects/"},
+  {"label": "About", "href": "/about"},
+  {"label": "Posts", "href": "/posts"},
+  {"label": "Projects", "href": "/projects"},
   {"label": "Mastodon", "href": "https://techhub.social/@sjs"},
   {"label": "GitHub", "href": "https://github.com/samsonjs"},
-  {"label": "RSS", "href": "/feed.xml"},
+  {"label": "RSS (Gemini)", "href": "/posts/feed.gmi"},
+  {"label": "RSS (Web)", "href": "https://samhuri.net/feed.xml"},
   {"label": "Email", "href": "mailto:sami@samhuri.net"}
 ]
 exclude_public = [
