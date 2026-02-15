@@ -173,6 +173,7 @@ header.primary h4 {
 header.primary h1 {
     font-size: 1.3rem;
     line-height: 1.2;
+    margin-bottom: 0.25rem;
 }
 
 header.primary h1 a,
