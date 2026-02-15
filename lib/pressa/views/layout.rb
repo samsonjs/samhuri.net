@@ -336,8 +336,6 @@ module Pressa
         when "github" then :github
         when "rss" then :rss
         when "code" then :code
-        # The Gemini SVG icon was too ambiguous in practice; render this as text instead.
-        when "gemini" then nil
         end
       end
 

@@ -60,21 +60,6 @@ module Pressa
         Utils::FileWriter.write(path: File.join(target_path, "posts", "feed.gmi"), content:)
       end
 
-      def write_year_indexes(target_path:)
-        @posts_by_year.sorted_years.each do |year|
-          year_posts = @posts_by_year.by_year[year]
-          write_year_index(year:, year_posts:, target_path:)
-        end
-      end
-
-      def write_month_rollups(target_path:)
-        @posts_by_year.by_year.each do |year, year_posts|
-          year_posts.sorted_months.each do |month_posts|
-            write_month_rollup(year:, month_posts:, target_path:)
-          end
-        end
-      end
-
       private
 
       def write_post(post:, target_path:)
@@ -94,44 +79,6 @@ module Pressa
         rows << ""
 
         file_path = File.join(target_path, post.path.sub(%r{^/}, ""), "index.gmi")
-        Utils::FileWriter.write(path: file_path, content: rows.join("\n"))
-      end
-
-      def write_year_index(year:, year_posts:, target_path:)
-        rows = ["# #{year}", ""]
-
-        year_posts.sorted_months.each do |month_posts|
-          month = month_posts.month
-          rows << "## #{month.name}"
-          month_posts.sorted_posts.each do |post|
-            rows.concat(post_listing_lines(post))
-          end
-          rows << ""
-        end
-
-        rows << "=> /posts Back to posts"
-        rows << "=> #{web_url_for("/posts/#{year}/")} Read on the web"
-        rows << ""
-
-        file_path = File.join(target_path, "posts", year.to_s, "index.gmi")
-        Utils::FileWriter.write(path: file_path, content: rows.join("\n"))
-      end
-
-      def write_month_rollup(year:, month_posts:, target_path:)
-        month = month_posts.month
-        rows = ["# #{month.name} #{year}", ""]
-
-        month_posts.sorted_posts.each do |post|
-          rows.concat(post_listing_lines(post))
-        end
-
-        rows << ""
-        rows << "=> /posts/#{year}/ Back to year"
-        rows << "=> /posts Back to posts"
-        rows << "=> #{web_url_for("/posts/#{year}/#{month.padded}/")} Read on the web"
-        rows << ""
-
-        file_path = File.join(target_path, "posts", year.to_s, month.padded, "index.gmi")
         Utils::FileWriter.write(path: file_path, content: rows.join("\n"))
       end
 
