@@ -6,7 +6,8 @@ module Pressa
   end
 
   class OutputLink < Dry::Struct
-    attribute :label, Types::String
+    # label is required for HTML remote links, but Gemini home_links may omit it.
+    attribute :label, Types::String.optional.default(nil)
     attribute :href, Types::String
     attribute :icon, Types::String.optional.default(nil)
   end

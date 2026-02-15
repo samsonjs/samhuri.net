@@ -214,7 +214,9 @@ module Pressa
         remote_links = build_output_links(
           format_config["remote_links"],
           context: "site.toml outputs.html.remote_links",
-          allow_icon: true
+          allow_icon: true,
+          allow_label_optional: false,
+          allow_string_entries: false
         )
 
         HTMLOutputOptions.new(
@@ -236,7 +238,9 @@ module Pressa
         home_links = build_output_links(
           format_config["home_links"],
           context: "site.toml outputs.gemini.home_links",
-          allow_icon: false
+          allow_icon: false,
+          allow_label_optional: true,
+          allow_string_entries: true
         )
         recent_posts_limit = build_recent_posts_limit(
           format_config["recent_posts_limit"],
@@ -339,11 +343,21 @@ module Pressa
         end
       end
 
-      def build_output_links(value, context:, allow_icon:)
+      def build_output_links(value, context:, allow_icon:, allow_label_optional:, allow_string_entries:)
         entries = array_or_empty(value, context)
         entries.map.with_index do |entry, index|
+          if allow_string_entries && entry.is_a?(String)
+            href = entry
+            unless !href.strip.empty?
+              raise ValidationError, "Expected #{context}[#{index}] to be a non-empty String"
+            end
+            validate_link_href!(href.strip, context: "#{context}[#{index}]")
+
+            next OutputLink.new(label: nil, href: href.strip, icon: nil)
+          end
+
           unless entry.is_a?(Hash)
-            raise ValidationError, "Expected #{context}[#{index}] to be a table"
+            raise ValidationError, "Expected #{context}[#{index}] to be a String or table"
           end
 
           allowed_keys = allow_icon ? %w[label href icon] : %w[label href]
@@ -353,15 +367,22 @@ module Pressa
             context: "#{context}[#{index}]"
           )
 
-          label = entry["label"]
           href = entry["href"]
-          unless label.is_a?(String) && !label.strip.empty?
-            raise ValidationError, "Expected #{context}[#{index}].label to be a non-empty String"
-          end
           unless href.is_a?(String) && !href.strip.empty?
             raise ValidationError, "Expected #{context}[#{index}].href to be a non-empty String"
           end
           validate_link_href!(href.strip, context: "#{context}[#{index}].href")
+
+          label = entry["label"]
+          if label.nil?
+            unless allow_label_optional
+              raise ValidationError, "Expected #{context}[#{index}].label to be a non-empty String"
+            end
+          else
+            unless label.is_a?(String) && !label.strip.empty?
+              raise ValidationError, "Expected #{context}[#{index}].label to be a non-empty String"
+            end
+          end
 
           icon = entry["icon"]
           unless allow_icon
@@ -376,7 +397,7 @@ module Pressa
             raise ValidationError, "Expected #{context}[#{index}].icon to be a non-empty String"
           end
 
-          OutputLink.new(label: label.strip, href: href.strip, icon: icon&.strip)
+          OutputLink.new(label: label&.strip, href: href.strip, icon: icon&.strip)
         end
       end
 

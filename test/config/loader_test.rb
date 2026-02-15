@@ -41,7 +41,7 @@ class Pressa::Config::LoaderTest < Minitest::Test
       assert_equal(["Pressa::Utils::GeminiMarkdownRenderer"], site.renderers.map(&:class).map(&:name))
       assert_equal(["tweets/**"], site.public_excludes)
       assert_equal(20, site.gemini_output_options&.recent_posts_limit)
-      assert_equal(["About", "GitHub"], site.gemini_output_options&.home_links&.map(&:label))
+      assert_equal(["/about/", "https://github.com/samsonjs"], site.gemini_output_options&.home_links&.map(&:href))
     end
   end
 
@@ -561,6 +561,35 @@ class Pressa::Config::LoaderTest < Minitest::Test
     end
   end
 
+  def test_build_site_allows_string_home_links_and_optional_labels_for_gemini
+    Dir.mktmpdir do |dir|
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Sami Samhuri"
+        email = "sami@samhuri.net"
+        title = "samhuri.net"
+        description = "blog"
+        url = "https://samhuri.net"
+
+        [outputs.gemini]
+        home_links = [
+          "/about/",
+          {"href": "/posts/"},
+          {"label": "GitHub", "href": "https://github.com/samsonjs"}
+        ]
+      TOML
+      File.write(File.join(dir, "projects.toml"), "projects = []\n")
+
+      loader = Pressa::Config::Loader.new(source_path: dir)
+      site = loader.build_site(output_format: "gemini")
+
+      assert_equal("gemini", site.output_format)
+      assert_equal(3, site.gemini_output_options&.home_links&.length)
+      assert_nil(site.gemini_output_options&.home_links&.at(0)&.label)
+      assert_nil(site.gemini_output_options&.home_links&.at(1)&.label)
+      assert_equal("GitHub", site.gemini_output_options&.home_links&.at(2)&.label)
+    end
+  end
+
   private
 
   def with_temp_config
@@ -588,10 +617,7 @@ class Pressa::Config::LoaderTest < Minitest::Test
 
         [outputs.gemini]
         recent_posts_limit = 20
-        home_links = [
-          {"label": "About", "href": "/about/"},
-          {"label": "GitHub", "href": "https://github.com/samsonjs"}
-        ]
+        home_links = ["/about/", "https://github.com/samsonjs"]
         exclude_public = ["tweets/**"]
       TOML
 

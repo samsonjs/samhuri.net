@@ -199,60 +199,64 @@ module Pressa
               }
 
               function setupGeminiFallback() {
-                var link = document.querySelector(
-                  'header.primary nav.remote li.gemini a[href^="gemini://"]'
+                var links = document.querySelectorAll(
+                  'header.primary nav.remote a[href^="gemini://"]'
                 );
-                if (!link) return;
+                if (!links || links.length === 0) return;
 
-                link.addEventListener("click", function (e) {
-                  if (!isPlainLeftClick(e)) return;
+                for (var i = 0; i < links.length; i++) {
+                  (function (link) {
+                    link.addEventListener("click", function (e) {
+                      if (!isPlainLeftClick(e)) return;
 
-                  e.preventDefault();
+                      e.preventDefault();
 
-                  var geminiHref = link.getAttribute("href");
-                  var fallbackHref = "https://geminiprotocol.net";
+                      var geminiHref = link.getAttribute("href");
+                      var fallbackHref = "https://geminiprotocol.net";
 
-                  var done = false;
-                  var fallbackTimer = null;
+                      var done = false;
+                      var fallbackTimer = null;
 
-                  function cleanup() {
-                    if (fallbackTimer) window.clearTimeout(fallbackTimer);
-                    document.removeEventListener("visibilitychange", onVisibilityChange);
-                    window.removeEventListener("pagehide", onPageHide);
-                    window.removeEventListener("blur", onBlur);
-                  }
+                      function cleanup() {
+                        if (fallbackTimer) window.clearTimeout(fallbackTimer);
+                        document.removeEventListener("visibilitychange", onVisibilityChange);
+                        window.removeEventListener("pagehide", onPageHide);
+                        window.removeEventListener("blur", onBlur);
+                      }
 
-                  function markDone() {
-                    done = true;
-                    cleanup();
-                  }
+                      function markDone() {
+                        done = true;
+                        cleanup();
+                      }
 
-                  function onVisibilityChange() {
-                    // If a handler opens and the browser backgrounded, consider it "successful".
-                    if (document.visibilityState === "hidden") markDone();
-                  }
+                      function onVisibilityChange() {
+                        // If a handler opens and the browser backgrounded, consider it "successful".
+                        if (document.visibilityState === "hidden") markDone();
+                      }
 
-                  function onPageHide() {
-                    markDone();
-                  }
+                      function onPageHide() {
+                        markDone();
+                      }
 
-                  function onBlur() {
-                    // Some browsers blur the page when a protocol handler is invoked.
-                    markDone();
-                  }
+                      function onBlur() {
+                        // Some browsers blur the page when a protocol handler is invoked.
+                        markDone();
+                      }
 
-                  document.addEventListener("visibilitychange", onVisibilityChange);
-                  window.addEventListener("pagehide", onPageHide, { once: true });
-                  window.addEventListener("blur", onBlur, { once: true });
+                      document.addEventListener("visibilitychange", onVisibilityChange);
+                      window.addEventListener("pagehide", onPageHide, { once: true });
+                      window.addEventListener("blur", onBlur, { once: true });
 
-                  // If we're still here shortly after attempting navigation, assume it failed.
-                  fallbackTimer = window.setTimeout(function () {
-                    if (done) return;
-                    window.location.href = fallbackHref;
-                  }, 900);
+                      // If we're still here shortly after attempting navigation, assume it failed.
+                      fallbackTimer = window.setTimeout(function () {
+                        if (done) return;
+                        window.location.href = fallbackHref;
+                      }, 900);
 
-                  window.location.href = geminiHref;
-                });
+                      window.location.href = geminiHref;
+                    });
+                  })(links[i]);
+                }
               }
 
               if (document.readyState === "loading") {

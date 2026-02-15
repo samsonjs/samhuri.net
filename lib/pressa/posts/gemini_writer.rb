@@ -20,7 +20,12 @@ module Pressa
       def write_recent_posts(target_path:, limit: RECENT_POSTS_LIMIT)
         rows = ["# #{@site.title}", ""]
         home_links.each do |link|
-          rows << "=> #{link.href}"
+          label = link.label&.strip
+          rows << if label.nil? || label.empty?
+            "=> #{link.href}"
+          else
+            "=> #{link.href} #{label}"
+          end
         end
         rows << "" unless home_links.empty?
         rows << "## Recent posts"

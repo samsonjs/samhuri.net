@@ -29,14 +29,14 @@ remote_links = [
 [outputs.gemini]
 recent_posts_limit = 20
 home_links = [
-  {"label": "About", "href": "/about"},
-  {"label": "Posts", "href": "/posts"},
-  {"label": "Projects", "href": "/projects"},
-  {"label": "Mastodon", "href": "https://techhub.social/@sjs"},
-  {"label": "GitHub", "href": "https://github.com/samsonjs"},
-  {"label": "RSS (Gemini)", "href": "/posts/feed.gmi"},
-  {"label": "RSS (Web)", "href": "https://samhuri.net/feed.xml"},
-  {"label": "Email", "href": "mailto:sami@samhuri.net"}
+  "/about",
+  "/posts",
+  "/projects",
+  "https://techhub.social/@sjs",
+  "https://github.com/samsonjs",
+  "/posts/feed.gmi",
+  "https://samhuri.net/feed.xml",
+  "mailto:sami@samhuri.net"
 ]
 exclude_public = [
   "tweets/**",
