@@ -12,28 +12,34 @@ DRAFTS_DIR = "public/drafts".freeze
 PUBLISH_HOST = "mudge".freeze
 PRODUCTION_PUBLISH_DIR = "/var/www/samhuri.net/public".freeze
 BETA_PUBLISH_DIR = "/var/www/beta.samhuri.net/public".freeze
+GEMINI_PUBLISH_DIR = "/var/gemini/samhuri.net".freeze
 WATCHABLE_DIRECTORIES = %w[public posts lib].freeze
 LINT_TARGETS = %w[bake.rb Gemfile lib test].freeze
-BUILD_TARGETS = %w[debug mudge beta release].freeze
+BUILD_TARGETS = %w[debug mudge beta release gemini].freeze
 
 # Generate the site in debug mode (localhost:8000)
 def debug
-  build("http://localhost:8000")
+  build("http://localhost:8000", output_format: "html", target_path: "www")
 end
 
 # Generate the site for the mudge development server
 def mudge
-  build("http://mudge:8000")
+  build("http://mudge:8000", output_format: "html", target_path: "www")
 end
 
 # Generate the site for beta/staging
 def beta
-  build("https://beta.samhuri.net")
+  build("https://beta.samhuri.net", output_format: "html", target_path: "www")
 end
 
 # Generate the site for production
 def release
-  build("https://samhuri.net")
+  build("https://samhuri.net", output_format: "html", target_path: "www")
+end
+
+# Generate the Gemini capsule for production
+def gemini
+  build("https://samhuri.net", output_format: "gemini", target_path: "gemini")
 end
 
 # Start local development server
@@ -109,7 +115,7 @@ def publish_draft(input_path = nil)
 end
 
 # Watch content directories and rebuild on every change.
-# @parameter target [String] One of debug, mudge, beta, or release.
+# @parameter target [String] One of debug, mudge, beta, release, or gemini.
 def watch(target: "debug")
   unless command_available?("inotifywait")
     abort "inotifywait is required (install inotify-tools)."
@@ -129,16 +135,24 @@ def publish_beta
   run_rsync(local_paths: ["www/"], publish_dir: BETA_PUBLISH_DIR, dry_run: false, delete: true)
 end
 
+# Publish Gemini capsule to production
+def publish_gemini
+  gemini
+  run_rsync(local_paths: ["gemini/"], publish_dir: GEMINI_PUBLISH_DIR, dry_run: false, delete: true)
+end
+
 # Publish to production server
 def publish
   release
   run_rsync(local_paths: ["www/"], publish_dir: PRODUCTION_PUBLISH_DIR, dry_run: false, delete: true)
+  publish_gemini
 end
 
 # Clean generated files
 def clean
   FileUtils.rm_rf("www")
-  puts "Cleaned www/ directory"
+  FileUtils.rm_rf("gemini")
+  puts "Cleaned www/ and gemini/ directories"
 end
 
 # Default task: run coverage and lint.
@@ -358,16 +372,18 @@ def capture_command_optional(*command, chdir: Dir.pwd)
   ""
 end
 
-# Build the site with specified URL
-# @parameter url [String] The site URL to use
-def build(url)
+# Build the site with specified URL and output format.
+# @parameter url [String] The site URL to use.
+# @parameter output_format [String] One of html or gemini.
+# @parameter target_path [String] Target directory for generated output.
+def build(url, output_format:, target_path:)
   require "pressa"
 
-  puts "Building site for #{url}..."
-  site = Pressa.create_site(source_path: ".", url_override: url)
+  puts "Building #{output_format} site for #{url}..."
+  site = Pressa.create_site(source_path: ".", url_override: url, output_format:)
   generator = Pressa::SiteGenerator.new(site:)
-  generator.generate(source_path: ".", target_path: "www")
-  puts "Site built successfully in www/"
+  generator.generate(source_path: ".", target_path:)
+  puts "Site built successfully in #{target_path}/"
 end
 
 def run_build_target(target)

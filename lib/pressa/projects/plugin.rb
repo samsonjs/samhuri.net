@@ -7,7 +7,7 @@ require "pressa/projects/models"
 
 module Pressa
   module Projects
-    class Plugin < Pressa::Plugin
+    class HTMLPlugin < Pressa::Plugin
       attr_reader :scripts, :styles
 
       def initialize(projects: [], scripts: [], styles: [])
@@ -82,5 +82,57 @@ module Pressa
         layout.call
       end
     end
+
+    class GeminiPlugin < Pressa::Plugin
+      def initialize(projects: [])
+        @projects = projects
+      end
+
+      def setup(site:, source_path:)
+      end
+
+      def render(site:, target_path:)
+        write_projects_index(site:, target_path:)
+
+        @projects.each do |project|
+          write_project_page(project:, site:, target_path:)
+        end
+      end
+
+      private
+
+      def write_projects_index(site:, target_path:)
+        rows = ["# Projects", ""]
+        @projects.each do |project|
+          rows << "## #{project.title}"
+          rows << project.description
+          rows << "=> #{project.url}"
+          rows << ""
+        end
+        rows << "=> / Home"
+        rows << "=> #{site.url_for("/projects/")} Read on the web"
+        rows << ""
+
+        file_path = File.join(target_path, "projects", "index.gmi")
+        Utils::FileWriter.write(path: file_path, content: rows.join("\n"))
+      end
+
+      def write_project_page(project:, site:, target_path:)
+        rows = [
+          "# #{project.title}",
+          "",
+          project.description,
+          "",
+          "=> #{project.url}",
+          "=> /projects/ Back to projects",
+          ""
+        ]
+
+        file_path = File.join(target_path, "projects", project.name, "index.gmi")
+        Utils::FileWriter.write(path: file_path, content: rows.join("\n"))
+      end
+    end
+
+    Plugin = HTMLPlugin
   end
 end

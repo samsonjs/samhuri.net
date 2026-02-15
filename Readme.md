@@ -13,7 +13,7 @@ If what you want is an artisanal, hand-crafted, static site generator for your p
 - Tests: `test/`
 - Config: `site.toml` and `projects.toml`
 - Content: `posts/` and `public/`
-- Output: `www/`
+- Output: `www/` (HTML), `gemini/` (Gemini capsule)
 
 ## Requirements
 
@@ -45,7 +45,7 @@ bake serve   # serve www/ locally
 
 Site metadata and project data are configured with TOML files at the repository root:
 
-- `site.toml`: site identity, default scripts/styles, and a `plugins` list (for example `["posts", "projects"]`), plus `projects_plugin` assets when that plugin is enabled.
+- `site.toml`: site identity, default scripts/styles, a `plugins` list (for example `["posts", "projects"]`), and output-specific settings under `outputs.*` (for example `outputs.html.remote_links` and `outputs.gemini.{exclude_public,recent_posts_limit,home_links}`), plus `projects_plugin` assets when that plugin is enabled.
 - `projects.toml`: project listing entries using `[[projects]]`.
 
 `Pressa.create_site` loads both files from the provided `source_path` and supports URL overrides for `debug`, `beta`, and `release` builds.
@@ -58,6 +58,9 @@ If this workflow seems like a good fit, here is the minimum to make it your own:
 - Set `plugins` in `site.toml` to explicitly enable features (`"posts"`, `"projects"`). Safe default if omitted is no plugins.
 - Define your projects in `projects.toml` using `[[projects]]` entries with `name`, `title`, `description`, and `url`.
 - Configure project-page-only assets in `site.toml` under `[projects_plugin]` (`scripts` and `styles`) when using the `"projects"` plugin.
+- Configure output pipelines with `site.toml` `outputs.*` tables:
+  - `[outputs.html]` supports `remote_links` (array of `{label, href, icon}`).
+  - `[outputs.gemini]` supports `exclude_public`, `recent_posts_limit`, and `home_links` (array of `{label, href}`).
 - Add custom plugins by implementing `Pressa::Plugin` in `lib/pressa/` and registering them in `lib/pressa/config/loader.rb`.
 - Adjust rendering and layout in `lib/pressa/views/` and the static content in `public/` as needed.
 
@@ -67,9 +70,11 @@ Other targets:
 bake mudge
 bake beta
 bake release
+bake gemini
 bake watch target=debug
 bake clean
 bake publish_beta
+bake publish_gemini
 bake publish
 ```
 
@@ -109,3 +114,4 @@ bake lint_fix
 - Deployment uses `rsync` to host `mudge` (configured in `bake.rb`):
   - production: `/var/www/samhuri.net/public`
   - beta: `/var/www/beta.samhuri.net/public`
+  - gemini: `/var/gemini/samhuri.net`

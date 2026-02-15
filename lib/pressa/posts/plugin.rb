@@ -1,12 +1,13 @@
 require "pressa/plugin"
 require "pressa/posts/repo"
 require "pressa/posts/writer"
+require "pressa/posts/gemini_writer"
 require "pressa/posts/json_feed"
 require "pressa/posts/rss_feed"
 
 module Pressa
   module Posts
-    class Plugin < Pressa::Plugin
+    class BasePlugin < Pressa::Plugin
       attr_reader :posts_by_year
 
       def setup(site:, source_path:)
@@ -16,7 +17,9 @@ module Pressa
         repo = PostRepo.new
         @posts_by_year = repo.read_posts(posts_dir)
       end
+    end
 
+    class HTMLPlugin < BasePlugin
       def render(site:, target_path:)
         return unless @posts_by_year
 
@@ -34,5 +37,24 @@ module Pressa
         rss_feed.write_feed(target_path:, limit: 30)
       end
     end
+
+    class GeminiPlugin < BasePlugin
+      def render(site:, target_path:)
+        return unless @posts_by_year
+
+        writer = GeminiWriter.new(site:, posts_by_year: @posts_by_year)
+        writer.write_posts(target_path:)
+        writer.write_recent_posts(target_path:, limit: gemini_recent_posts_limit(site))
+        writer.write_posts_index(target_path:)
+      end
+
+      private
+
+      def gemini_recent_posts_limit(site)
+        site.gemini_output_options&.recent_posts_limit || GeminiWriter::RECENT_POSTS_LIMIT
+      end
+    end
+
+    Plugin = HTMLPlugin
   end
 end
