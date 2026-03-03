@@ -45,7 +45,6 @@ exclude_public = [
   "apple-touch-icon.png",
   "favicon.ico",
   "favicon.gif",
-  "robots.txt",
   "humans.txt",
   "isitmycakeday.html"
 ]
