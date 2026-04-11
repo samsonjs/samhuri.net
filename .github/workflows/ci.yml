@@ -24,7 +24,7 @@ jobs:
         run: bin/bootstrap
 
       - name: Coverage
-        run: bundle exec bake coverage
+        run: bundle exec bake quality:coverage
 
   lint:
     runs-on: ubuntu-latest
@@ -43,7 +43,7 @@ jobs:
         run: bin/bootstrap
 
       - name: Lint
-        run: bundle exec bake lint
+        run: bundle exec bake quality:lint
 
   debug:
     runs-on: ubuntu-latest
@@ -62,4 +62,4 @@ jobs:
         run: bin/bootstrap
 
       - name: Debug Build
-        run: bundle exec bake debug
+        run: bundle exec bake build:debug

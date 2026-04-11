@@ -4,7 +4,7 @@
 This repository is a Ruby static-site generator (Pressa) that outputs both HTML and Gemini formats.
 
 - Generator code: `lib/pressa/` (entrypoint: `lib/pressa.rb`)
-- Build/deploy/draft tasks: `bake.rb`
+- Build/publish/draft tasks: `bake.rb` (root) + `bake/` (namespaced task files)
 - Tests: `test/`
 - Site config: `site.toml`, `projects.toml`
 - Published posts: `posts/YYYY/MM/*.md`
@@ -20,26 +20,26 @@ Keep new code under the existing `Pressa` module structure (for example `lib/pre
 ## Setup, Build, Test, and Development Commands
 - Use `rbenv exec` for Ruby commands in this repository (for example `rbenv exec bundle exec ...`) to ensure the project Ruby version is used.
 - `bin/bootstrap`: install prerequisites and gems (uses `rbenv` when available).
-- `rbenv exec bundle exec bake debug`: build HTML for `http://localhost:8000` into `www/`.
-- `rbenv exec bundle exec bake serve`: serve `www/` via WEBrick on port 8000.
-- `rbenv exec bundle exec bake watch target=debug`: Linux-only autorebuild loop (`inotifywait` required).
-- `rbenv exec bundle exec bake mudge|beta|release`: build HTML with environment-specific base URLs.
-- `rbenv exec bundle exec bake gemini`: build Gemini capsule into `gemini/`.
-- `rbenv exec bundle exec bake publish_beta`: build and rsync `www/` to beta host.
-- `rbenv exec bundle exec bake publish_gemini`: build and rsync `gemini/` to production host.
-- `rbenv exec bundle exec bake publish`: build and rsync both HTML and Gemini to production.
-- `rbenv exec bundle exec bake clean`: remove `www/` and `gemini/`.
-- `rbenv exec bundle exec bake test`: run test suite.
-- `rbenv exec bundle exec bake guard`: run Guard for continuous testing.
-- `rbenv exec bundle exec bake lint`: lint code with StandardRB.
-- `rbenv exec bundle exec bake lint_fix`: auto-fix lint issues.
-- `rbenv exec bundle exec bake coverage`: run tests and report `lib/` line coverage.
-- `rbenv exec bundle exec bake coverage_regression baseline=merge-base`: compare coverage to a baseline and fail on regression (override `baseline` as needed).
+- `rbenv exec bundle exec bake build:debug`: build HTML for `http://localhost:8000` into `www/`.
+- `rbenv exec bundle exec bake build:serve`: serve `www/` via WEBrick on port 8000.
+- `rbenv exec bundle exec bake build:watch target=debug`: Linux-only autorebuild loop (`inotifywait` required).
+- `rbenv exec bundle exec bake build:mudge|build:beta|build:release`: build HTML with environment-specific base URLs.
+- `rbenv exec bundle exec bake build:gemini`: build Gemini capsule into `gemini/`.
+- `rbenv exec bundle exec bake publish:beta`: build and rsync `www/` to beta host.
+- `rbenv exec bundle exec bake publish:gemini`: build and rsync `gemini/` to production host.
+- `rbenv exec bundle exec bake publish:production`: build and rsync both HTML and Gemini to production.
+- `rbenv exec bundle exec bake build:clean`: remove `www/` and `gemini/`.
+- `rbenv exec bundle exec bake quality:test`: run test suite.
+- `rbenv exec bundle exec bake quality:guard`: run Guard for continuous testing.
+- `rbenv exec bundle exec bake quality:lint`: lint code with StandardRB.
+- `rbenv exec bundle exec bake quality:lint_fix`: auto-fix lint issues.
+- `rbenv exec bundle exec bake quality:coverage`: run tests and report `lib/` line coverage.
+- `rbenv exec bundle exec bake quality:coverage_regression baseline=merge-base`: compare coverage to a baseline and fail on regression (override `baseline` as needed).
 
 ## Draft Workflow
-- `rbenv exec bundle exec bake new_draft "Post Title"` creates `public/drafts/<slug>.md`.
-- `rbenv exec bundle exec bake drafts` lists available drafts.
-- `rbenv exec bundle exec bake publish_draft public/drafts/<slug>.md` moves draft to `posts/YYYY/MM/` and updates `Date` and `Timestamp`.
+- `rbenv exec bundle exec bake draft:new "Post Title"` creates `public/drafts/<slug>.md`.
+- `rbenv exec bundle exec bake draft:list` lists available drafts.
+- `rbenv exec bundle exec bake draft:publish public/drafts/<slug>.md` moves draft to `posts/YYYY/MM/` and updates `Date` and `Timestamp`.
 
 ## Content and Metadata Requirements
 Posts must include YAML front matter. Required keys (enforced by `Pressa::Posts::PostMetadata`) are:
@@ -53,7 +53,7 @@ Optional keys include `Tags`, `Link`, `Scripts`, and `Styles`.
 
 ## Coding Style & Naming Conventions
 - Ruby (see `.ruby-version`).
-- Follow idiomatic Ruby style and keep code `bake lint`-clean.
+- Follow idiomatic Ruby style and keep code `bake quality:lint`-clean.
 - Use 2-space indentation and descriptive `snake_case` names for methods/variables, `UpperCamelCase` for classes/modules.
 - Prefer small, focused classes for plugins, views, renderers, and config loaders.
 - Do not hand-edit generated files in `www/` or `gemini/`.
@@ -62,10 +62,10 @@ Optional keys include `Tags`, `Link`, `Scripts`, and `Styles`.
 - Use Minitest under `test/` (for example `test/posts`, `test/config`, `test/views`).
 - Add regression tests for parser, rendering, feed, and generator behavior changes.
 - Before submitting, run:
-  - `rbenv exec bundle exec bake test`
-  - `rbenv exec bundle exec bake coverage`
-  - `rbenv exec bundle exec bake lint`
-  - `rbenv exec bundle exec bake debug`
+  - `rbenv exec bundle exec bake quality:test`
+  - `rbenv exec bundle exec bake quality:coverage`
+  - `rbenv exec bundle exec bake quality:lint`
+  - `rbenv exec bundle exec bake build:debug`
 
 ## Commit & Pull Request Guidelines
 - Use concise, imperative commit subjects (history examples: `Fix internal permalink regression in archives`).
@@ -74,11 +74,11 @@ Optional keys include `Tags`, `Link`, `Scripts`, and `Styles`.
 - Include screenshots when changing rendered layout/CSS output.
 
 ## Deployment & Security Notes
-- Deployment is defined in `bake.rb` via rsync over SSH.
+- Publish tasks are defined in `bake/publish.rb` via rsync over SSH.
 - Current publish host is `mudge` with:
   - production HTML: `/var/www/samhuri.net/public`
   - beta HTML: `/var/www/beta.samhuri.net/public`
   - production Gemini: `/var/gemini/samhuri.net`
-- `bake publish` deploys both HTML and Gemini to production.
+- `bake publish:production` deploys both HTML and Gemini to production.
 - Validate `www/` and `gemini/` before publishing to avoid shipping stale assets.
 - Never commit credentials, SSH keys, or other secrets.
