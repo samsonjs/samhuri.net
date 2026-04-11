@@ -590,6 +590,46 @@ class Pressa::Config::LoaderTest < Minitest::Test
     end
   end
 
+  def test_build_site_rejects_unsupported_output_format
+    with_temp_config do |dir|
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Test Author"
+        email = "test@example.com"
+        title = "Test Site"
+        description = "Test description"
+        url = "https://example.net"
+      TOML
+
+      loader = Pressa::Config::Loader.new(source_path: dir)
+
+      assert_raises(Pressa::Config::ValidationError, "Unsupported output format 'invalid'") do
+        loader.build_site(output_format: "invalid")
+      end
+    end
+  end
+
+  def test_build_site_wraps_toml_parse_errors_in_validation_errors
+    with_temp_config do |dir|
+      # Create a malformed TOML file
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Test Author"
+        email = "test@example.com"
+        title = "Test Site"
+        description = "Test description"
+        url = "https://example.net"
+        [invalid section without closing bracket
+      TOML
+
+      loader = Pressa::Config::Loader.new(source_path: dir)
+
+      error = assert_raises(Pressa::Config::ValidationError) do
+        loader.build_site
+      end
+
+      assert_includes error.message, "Invalid"
+    end
+  end
+
   private
 
   def with_temp_config

@@ -69,4 +69,67 @@ class Pressa::Utils::GemtextRendererTest < Minitest::Test
 
     assert_equal("=> /f/volume.rb", rendered)
   end
+
+  def test_render_converts_various_markdown_features
+    markdown = <<~MARKDOWN
+      ## My [Website](https://powder.example.net "Powder Day")
+
+      >No-space quote with a [link](https://shred.example.net)
+      > Normal quote line
+
+      ```ruby
+      [link](url) and **bold** preserved
+      <script>alert('drop-in')</script>
+      ```
+
+      Normal text after fence. **bold** *italic* __under__ _em_ `code` <em>html</em>
+
+      Entities: &uarr; &larr; &nbsp; &foobar;
+
+      <img src="/rails.jpg" alt="rails">
+
+      - Check [this](https://one.example.net) and [that](https://two.example.net) out
+      * Star item
+      + Plus item
+
+      [my   ref]: <https://ref.example.net>
+
+      See [my ref][].
+    MARKDOWN
+
+    rendered = Pressa::Utils::GemtextRenderer.render(markdown)
+
+    assert_includes(rendered, "## My Website")
+    assert_includes(rendered, "=> https://powder.example.net")
+    assert_includes(rendered, "> No-space quote with a link")
+    assert_includes(rendered, "=> https://shred.example.net")
+    assert_includes(rendered, "> Normal quote line")
+    assert_includes(rendered, "```")
+    assert_includes(rendered, "[link](url) and **bold** preserved")
+    assert_includes(rendered, "<script>alert('drop-in')</script>")
+    assert_includes(rendered, "bold italic under em code html")
+    assert_includes(rendered, "\u2191")
+    assert_includes(rendered, "\u2190")
+    assert_includes(rendered, "&foobar;")
+    assert_includes(rendered, "=> /rails.jpg")
+    assert_includes(rendered, "* Check this and that out")
+    assert_includes(rendered, "=> https://one.example.net")
+    assert_includes(rendered, "=> https://two.example.net")
+    assert_includes(rendered, "* Star item")
+    assert_includes(rendered, "* Plus item")
+    assert_includes(rendered, "=> https://ref.example.net")
+  end
+
+  def test_render_handles_edge_cases
+    assert_equal("", Pressa::Utils::GemtextRenderer.render(""))
+    assert_equal("", Pressa::Utils::GemtextRenderer.render(nil))
+
+    rendered = Pressa::Utils::GemtextRenderer.render("Line 1\r\nLine 2\r\n")
+    assert_includes(rendered, "Line 1")
+    assert_includes(rendered, "Line 2")
+
+    rendered = Pressa::Utils::GemtextRenderer.render("Line 1\n\n\n\nLine 2")
+    lines = rendered.split("\n")
+    refute lines.each_cons(2).any? { it[0].strip.empty? && it[1].strip.empty? }
+  end
 end
