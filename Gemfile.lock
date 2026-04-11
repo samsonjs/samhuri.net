@@ -174,7 +174,7 @@ DEPENDENCIES
   minitest (~> 6.0)
   phlex (~> 2.3)
   rouge (~> 4.6)
-  standard (~> 1.43)
+  standard (~> 1.52)
 
 RUBY VERSION
   ruby 4.0.2

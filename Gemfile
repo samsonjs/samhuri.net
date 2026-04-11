@@ -12,5 +12,5 @@ gem "bake", "~> 0.20"
 group :development, :test do
   gem "guard", "~> 2.18"
   gem "minitest", "~> 6.0"
-  gem "standard", "~> 1.43"
+  gem "standard", "~> 1.52"
 end

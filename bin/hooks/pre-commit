@@ -1,0 +1,49 @@
+#!/bin/zsh
+
+set -euo pipefail
+
+STAGED_FILES=(${(f)"$(git diff --cached --name-only --diff-filter=ACM)"})
+
+if [[ ${#STAGED_FILES[@]} -eq 0 ]]; then
+    exit 0
+fi
+
+RUBY_FILES=()
+for file in "${STAGED_FILES[@]}"; do
+    if [[ -f "$file" ]]; then
+        if [[ "$file" =~ \.rb$ ]] || head -1 "$file" 2>/dev/null | grep -q ruby; then
+            RUBY_FILES+=("$file")
+        fi
+    fi
+done
+
+if [[ ${#RUBY_FILES[@]} -eq 0 ]]; then
+    exit 0
+fi
+
+echo "Running StandardRB on staged Ruby files..."
+if command -v rbenv &>/dev/null; then
+    rbenv exec bundle exec standardrb --fix "${RUBY_FILES[@]}"
+else
+    bundle exec standardrb --fix "${RUBY_FILES[@]}"
+fi
+
+MODIFIED=false
+for file in "${RUBY_FILES[@]}"; do
+    if ! git diff --quiet "$file"; then
+        MODIFIED=true
+        echo "✗ $file was modified by StandardRB"
+    fi
+done
+
+if [[ "$MODIFIED" == "true" ]]; then
+    echo ""
+    echo "❌ Formatting changes were made. Please review and stage the changes, then commit again."
+    echo ""
+    echo "To see the changes: git diff"
+    echo "To add the changes: git add -u"
+    exit 1
+fi
+
+echo "✅ All files are properly formatted"
+exit 0
