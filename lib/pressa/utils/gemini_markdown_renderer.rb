@@ -39,7 +39,11 @@ module Pressa
           File.join(slug, "index.gmi")
         end
 
-        output_path = File.join(target_dir, output_filename)
+        output_path = if relative_dir.empty?
+          File.join(target_dir, output_filename)
+        else
+          File.join(target_dir, relative_dir, output_filename)
+        end
         FileWriter.write(path: output_path, content: rows.join("\n"))
       end
 
