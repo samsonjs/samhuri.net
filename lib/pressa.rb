@@ -6,6 +6,9 @@ require "pressa/projects/plugin"
 require "pressa/utils/markdown_renderer"
 require "pressa/utils/gemini_markdown_renderer"
 require "pressa/config/loader"
+require "pressa/drafts"
+require "pressa/coverage"
+require "pressa/publish"
 
 module Pressa
   def self.create_site(source_path: ".", url_override: nil, output_format: "html")
