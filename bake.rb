@@ -1,6 +1,7 @@
 # Build tasks for samhuri.net static site generator
 
 require "fileutils"
+require "json"
 require "open3"
 require "tmpdir"
 
@@ -8,6 +9,8 @@ LIB_PATH = File.expand_path("lib", __dir__).freeze
 $LOAD_PATH.unshift(LIB_PATH) unless $LOAD_PATH.include?(LIB_PATH)
 
 require "pressa/drafts"
+require "pressa/link_post"
+require "pressa/config/simple_toml"
 require "pressa/coverage"
 require "pressa/publish"
 require "pressa/git"
@@ -53,6 +56,39 @@ def serve
   trap("INT") { server.shutdown }
   puts "Server running at http://localhost:8000"
   server.start
+end
+
+# Create a published link post in posts/YYYY/MM from a JSON payload on stdin:
+#   {"title": "...", "link": "...", "body": "...", "tags": "tag1, tag2"}
+# Reading from stdin keeps URLs, quotes, and multi-line bodies intact regardless
+# of shell quoting. Prints the path to the created post. Drives bin/post-link.
+def new_link
+  payload =
+    begin
+      JSON.parse($stdin.read)
+    rescue JSON::ParserError => e
+      abort "Error: invalid JSON payload on stdin: #{e.message}"
+    end
+
+  author = payload["author"] || Pressa::Config::SimpleToml.load_file("site.toml")["author"]
+  post =
+    begin
+      Pressa::LinkPost.build(
+        title: payload["title"],
+        link: payload["link"],
+        body: payload["body"],
+        tags: payload["tags"],
+        author:
+      )
+    rescue Pressa::LinkPost::Error => e
+      abort "Error: #{e.message}"
+    end
+
+  abort "Error: post already exists at #{post.target_path}" if File.exist?(post.target_path)
+
+  FileUtils.mkdir_p(File.dirname(post.target_path))
+  File.write(post.target_path, post.content)
+  puts post.target_path
 end
 
 # Create a new draft in public/drafts/.

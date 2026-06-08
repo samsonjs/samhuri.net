@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+#
+# Create and publish a link post from a JSON payload on stdin, then deploy.
+# Designed to be invoked over SSH from a phone Shortcut on the Tailscale network.
+# The Shortcut base64-encodes the JSON (so quotes in the title/body can't break
+# shell quoting) and the SSH command decodes it back onto our stdin:
+#
+#   echo <base64> | base64 --decode | $HOME/samhuri.net/bin/post-link
+#
+# Manually, just pipe JSON straight in:
+#
+#   ssh mudge '$HOME/samhuri.net/bin/post-link' <<'JSON'
+#   {"title": "Magical Wristband", "link": "https://example.net/x",
+#    "body": "Optional commentary.", "tags": "gear, tech"}
+#   JSON
+#
+# It pulls latest, writes the post via `bake new_link`, commits, pushes to
+# GitHub, then runs `bake publish` to build HTML + Gemini and rsync to the
+# live directories. Everything runs on mudge, so publishing is a local affair.
+
+set -euo pipefail
+
+# Non-interactive SSH sessions get a bare PATH; make sure rbenv is reachable.
+export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
+if command -v rbenv >/dev/null 2>&1; then
+  eval "$(rbenv init - bash)"
+fi
+
+# Run from the repo root regardless of where the script lives.
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO="${SAMHURI_REPO:-$(cd "$SCRIPT_DIR/.." && pwd)}"
+cd "$REPO"
+
+# Local clones here name the GitHub remote "github"; a fresh clone on the server
+# names it "origin". Prefer github, fall back to origin, unless overridden.
+REMOTE="${SAMHURI_REMOTE:-$(git remote | grep -qx github && echo github || echo origin)}"
+BRANCH="${SAMHURI_BRANCH:-main}"
+
+payload="$(cat)"
+if [ -z "${payload//[[:space:]]/}" ]; then
+  echo "Error: empty payload on stdin" >&2
+  exit 1
+fi
+
+echo "==> Pulling latest from $REMOTE/$BRANCH" >&2
+git pull --ff-only "$REMOTE" "$BRANCH" >&2
+
+echo "==> Creating link post" >&2
+post_path="$(printf '%s' "$payload" | bundle exec bake new_link)"
+echo "    $post_path" >&2
+
+slug="$(basename "$post_path" .md)"
+echo "==> Committing and pushing" >&2
+git add "$post_path"
+git commit -m "Add link post: $slug" >&2
+git push "$REMOTE" "HEAD:$BRANCH" >&2
+
+echo "==> Building and publishing" >&2
+bundle exec bake publish >&2
+
+echo "==> Published $post_path" >&2
+# Stdout carries just the path so the caller (Shortcut) can show/use it.
+echo "$post_path"
