@@ -10,6 +10,7 @@ $LOAD_PATH.unshift(LIB_PATH) unless $LOAD_PATH.include?(LIB_PATH)
 require "pressa/drafts"
 require "pressa/coverage"
 require "pressa/publish"
+require "pressa/git"
 
 DRAFTS_DIR = "public/drafts".freeze
 PUBLISH_HOST = "mudge".freeze
@@ -272,12 +273,11 @@ end
 def preferred_remote
   upstream = capture_command_optional("git", "rev-parse", "--abbrev-ref", "--symbolic-full-name", "@{upstream}").strip
   upstream_remote = upstream.split("/").first unless upstream.empty?
-  return upstream_remote if upstream_remote && !upstream_remote.empty?
-
   remotes = capture_command("git", "remote").lines.map(&:strip).reject(&:empty?)
-  abort "Error: no git remotes configured; pass baseline=<ref>." if remotes.empty?
 
-  remotes.include?("origin") ? "origin" : remotes.first
+  Pressa::Git.choose_remote(remotes:, upstream_remote:)
+rescue Pressa::Git::Error => e
+  abort "Error: #{e.message}"
 end
 
 def remote_default_branch_ref(remote)

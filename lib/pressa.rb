@@ -9,6 +9,7 @@ require "pressa/config/loader"
 require "pressa/drafts"
 require "pressa/coverage"
 require "pressa/publish"
+require "pressa/git"
 
 module Pressa
   def self.create_site(source_path: ".", url_override: nil, output_format: "html")
