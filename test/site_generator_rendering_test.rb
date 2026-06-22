@@ -176,6 +176,64 @@ class Pressa::SiteGeneratorRenderingTest < Minitest::Test
     end
   end
 
+  def test_generate_writes_drafts_index_for_html_output
+    Dir.mktmpdir do |root|
+      source_path = File.join(root, "source")
+      target_path = File.join(root, "target")
+      drafts_dir = File.join(source_path, "public", "drafts")
+      FileUtils.mkdir_p(drafts_dir)
+
+      File.write(File.join(drafts_dir, "powder-day.md"), <<~MARKDOWN)
+        ---
+        Author: Shaun White
+        Title: Powder Day at Baker
+        Date: unpublished
+        Timestamp: 2025-11-05T10:00:00-08:00
+        ---
+
+        TKTK
+      MARKDOWN
+
+      plugin = PluginSpy.new
+      renderer = MarkdownRendererSpy.new
+      site = build_site(plugin:, renderer:)
+
+      Pressa::SiteGenerator.new(site:).generate(source_path:, target_path:)
+
+      index_path = File.join(target_path, "drafts", "index.html")
+      assert(File.exist?(index_path))
+      assert_includes(File.read(index_path), "Powder Day at Baker")
+    end
+  end
+
+  def test_generate_skips_drafts_index_for_gemini_output
+    Dir.mktmpdir do |root|
+      source_path = File.join(root, "source")
+      target_path = File.join(root, "target")
+      drafts_dir = File.join(source_path, "public", "drafts")
+      FileUtils.mkdir_p(drafts_dir)
+
+      File.write(File.join(drafts_dir, "powder-day.md"), <<~MARKDOWN)
+        ---
+        Author: Shaun White
+        Title: Powder Day at Baker
+        Date: unpublished
+        Timestamp: 2025-11-05T10:00:00-08:00
+        ---
+
+        TKTK
+      MARKDOWN
+
+      plugin = PluginSpy.new
+      renderer = MarkdownRendererSpy.new
+      site = build_gemini_site(plugin:, renderer:)
+
+      Pressa::SiteGenerator.new(site:).generate(source_path:, target_path:)
+
+      refute(File.exist?(File.join(target_path, "drafts", "index.html")))
+    end
+  end
+
   def test_generate_skips_tweets_directory_for_gemini_output
     Dir.mktmpdir do |root|
       source_path = File.join(root, "source")

@@ -1,5 +1,7 @@
 require "fileutils"
 require "pressa/utils/file_writer"
+require "pressa/drafts/repo"
+require "pressa/drafts/writer"
 
 module Pressa
   class SiteGenerator
@@ -23,9 +25,18 @@ module Pressa
 
       copy_static_files(source_path, target_path)
       process_public_directory(source_path, target_path)
+      write_drafts_index(source_path, target_path) if site.output_format == "html"
     end
 
     private
+
+    def write_drafts_index(source_path, target_path)
+      drafts_dir = File.join(source_path, "public", "drafts")
+      return unless Dir.exist?(drafts_dir)
+
+      entries = Drafts::Repo.new(dir: drafts_dir).read_entries
+      Drafts::Writer.new(site:, entries:).write_index(target_path:)
+    end
 
     def validate_paths!(source_path:, target_path:)
       source_abs = absolute_path(source_path)
