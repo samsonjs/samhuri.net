@@ -3,6 +3,7 @@ Title: "My kind of feature checklist"
 Author: Sami Samhuri
 Date: "19th December, 2011"
 Timestamp: 2011-12-19T20:20:05-08:00
+Tags: coding
 Link: http://www.marco.org/2011/12/19/amazon-kindle-vs-ipad
 ---
 

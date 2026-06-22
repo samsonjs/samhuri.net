@@ -3,6 +3,7 @@ Title: "Lights"
 Author: Sami Samhuri
 Date: "27th November, 2011"
 Timestamp: 2011-11-27T18:11:00-08:00
+Tags: web
 Link: http://lights.elliegoulding.com/
 ---
 

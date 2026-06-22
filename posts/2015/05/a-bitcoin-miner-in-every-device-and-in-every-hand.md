@@ -3,6 +3,7 @@ Title: "A bitcoin miner in every device and in every hand"
 Author: Sami Samhuri
 Date: "19th May, 2015"
 Timestamp: 2015-05-18T19:53:54-07:00
+Tags: life
 Link: https://medium.com/@21dotco/a-bitcoin-miner-in-every-device-and-in-every-hand-e315b40f2821
 ---
 
