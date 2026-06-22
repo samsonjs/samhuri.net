@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+#
+# Build a link post from a JSON payload on stdin and preview it on the mudge
+# blog server (http://mudge:8000, served by blog-server.service straight out
+# of www/) without touching git at all: no pull, no commit, no push. The post
+# file is deleted from posts/ again right after the preview build, so this
+# never leaves a trace in the repo or in git history.
+#
+#   ssh mudge '$HOME/samhuri.net/bin/preview-link' <<'JSON'
+#   {"title": "Magical Wristband", "link": "https://example.net/x",
+#    "body": "Optional commentary.", "tags": "gear, tech"}
+#   JSON
+#
+# Prints the preview URL on stdout, progress on stderr. Used by the
+# dashboard's "Publish Beta" button.
+
+set -euo pipefail
+
+# Non-interactive SSH sessions get a bare PATH; make sure rbenv is reachable.
+export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
+if command -v rbenv >/dev/null 2>&1; then
+  eval "$(rbenv init - bash)"
+fi
+
+# Run from the repo root regardless of where the script lives.
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO="${SAMHURI_REPO:-$(cd "$SCRIPT_DIR/.." && pwd)}"
+cd "$REPO"
+
+payload="$(cat)"
+if [ -z "${payload//[[:space:]]/}" ]; then
+  echo "Error: empty payload on stdin" >&2
+  exit 1
+fi
+
+echo "==> Building preview" >&2
+# `bake mudge` logs its own build progress to stdout (not stderr), so only the
+# final line -- the preview URL `preview_link` puts last -- is what we want.
+printf '%s' "$payload" | bundle exec bake preview_link | tee /dev/stderr | tail -n 1

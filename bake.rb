@@ -101,6 +101,49 @@ def new_link
   puts post.target_path
 end
 
+# Build a link post and preview it on the mudge blog server without touching
+# git: writes posts/YYYY/MM/slug.md, builds for http://mudge:8000 (the same
+# target blog-server.service serves straight out of www/), prints the
+# preview URL, then deletes the local file. Drives bin/preview-link.
+def preview_link
+  payload =
+    begin
+      JSON.parse($stdin.read)
+    rescue JSON::ParserError => e
+      abort "Error: invalid JSON payload on stdin: #{e.message}"
+    end
+
+  author = payload["author"] || Pressa::Config::SimpleToml.load_file("site.toml")["author"]
+  post =
+    begin
+      Pressa::LinkPost.build(
+        title: payload["title"],
+        link: payload["link"],
+        body: payload["body"],
+        tags: payload["tags"],
+        author:
+      )
+    rescue Pressa::LinkPost::Error => e
+      abort "Error: #{e.message}"
+    end
+
+  abort "Error: post already exists at #{post.target_path}" if File.exist?(post.target_path)
+
+  FileUtils.mkdir_p(File.dirname(post.target_path))
+  File.write(post.target_path, post.content)
+
+  year_month = post.target_path[%r{^posts/(\d{4}/\d{2})/}, 1]
+  slug = File.basename(post.filename, ".md")
+
+  begin
+    mudge
+  ensure
+    FileUtils.rm_f(post.target_path)
+  end
+
+  puts "http://mudge:8000/posts/#{year_month}/#{slug}/"
+end
+
 # Create a new draft in public/drafts/.
 # @parameter title_parts [Array] Optional title words; defaults to Untitled.
 def new_draft(*title_parts)
