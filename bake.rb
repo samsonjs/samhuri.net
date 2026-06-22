@@ -3,6 +3,7 @@
 require "fileutils"
 require "json"
 require "open3"
+require "socket"
 require "tmpdir"
 
 LIB_PATH = File.expand_path("lib", __dir__).freeze
@@ -16,12 +17,15 @@ require "pressa/publish"
 require "pressa/git"
 
 DRAFTS_DIR = "public/drafts".freeze
-# Defaults to the "mudge" tailnet host. Set SAMHURI_PUBLISH_HOST=local (or empty)
-# to rsync into the publish dirs directly, e.g. when building on mudge itself.
+# Defaults to the "mudge" tailnet host. A nil host means rsync into the publish
+# dirs locally instead of over SSH, which is what we want when building on the
+# publish host itself (otherwise we'd SSH back to ourselves). We auto-detect that
+# by hostname; SAMHURI_PUBLISH_HOST=local (or empty) forces it, and any other
+# value overrides the target host entirely.
 PUBLISH_HOST =
   case (host = ENV.fetch("SAMHURI_PUBLISH_HOST", "mudge"))
   when "", "local" then nil
-  else host.freeze
+  else (host == Socket.gethostname.split(".").first) ? nil : host.freeze
   end
 PRODUCTION_PUBLISH_DIR = "/var/www/samhuri.net/public".freeze
 BETA_PUBLISH_DIR = "/var/www/beta.samhuri.net/public".freeze

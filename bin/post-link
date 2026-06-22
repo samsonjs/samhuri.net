@@ -57,8 +57,9 @@ git -c commit.gpgsign=false commit -m "Add link post: $slug" >&2
 git push "$REMOTE" "HEAD:$BRANCH" >&2
 
 echo "==> Building and publishing" >&2
-# We're already on the publish host, so rsync into the live dirs locally
-# instead of trying to SSH back to ourselves.
+# We're already on the publish host, so rsync into the live dirs locally instead
+# of trying to SSH back to ourselves. bake auto-detects this by hostname, but we
+# force it here too since this script only ever runs on the publish host.
 SAMHURI_PUBLISH_HOST=local bundle exec bake publish >&2
 
 echo "==> Published $post_path" >&2
