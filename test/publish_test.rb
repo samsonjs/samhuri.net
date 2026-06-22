@@ -30,6 +30,15 @@ class Pressa::PublishTest < Minitest::Test
     refute_includes(command, "--delete")
   end
 
+  def test_rsync_command_publishes_locally_when_host_is_nil
+    command = Pressa::Publish.rsync_command(
+      local_paths: ["www/"], host: nil, publish_dir: "/var/www/samhuri.net/public",
+      dry_run: false, delete: true
+    )
+    assert_equal("/var/www/samhuri.net/public", command.last)
+    refute_includes(command, "-e")
+  end
+
   def test_rsync_command_supports_multiple_local_paths
     command = Pressa::Publish.rsync_command(
       local_paths: ["www/", "extra/"], host: "powder", publish_dir: "/srv/site",

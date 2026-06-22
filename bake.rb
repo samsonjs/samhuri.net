@@ -16,7 +16,13 @@ require "pressa/publish"
 require "pressa/git"
 
 DRAFTS_DIR = "public/drafts".freeze
-PUBLISH_HOST = "mudge".freeze
+# Defaults to the "mudge" tailnet host. Set SAMHURI_PUBLISH_HOST=local (or empty)
+# to rsync into the publish dirs directly, e.g. when building on mudge itself.
+PUBLISH_HOST =
+  case (host = ENV.fetch("SAMHURI_PUBLISH_HOST", "mudge"))
+  when "", "local" then nil
+  else host.freeze
+  end
 PRODUCTION_PUBLISH_DIR = "/var/www/samhuri.net/public".freeze
 BETA_PUBLISH_DIR = "/var/www/beta.samhuri.net/public".freeze
 GEMINI_PUBLISH_DIR = "/var/gemini/samhuri.net".freeze
