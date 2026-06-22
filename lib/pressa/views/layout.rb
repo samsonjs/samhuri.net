@@ -8,6 +8,9 @@ module Pressa
         :page_subtitle,
         :page_description,
         :page_type,
+        :page_image,
+        :page_tags,
+        :page_published_time,
         :canonical_url,
         :page_scripts,
         :page_styles,
@@ -18,6 +21,9 @@ module Pressa
         canonical_url:, page_subtitle: nil,
         page_description: nil,
         page_type: "website",
+        page_image: nil,
+        page_tags: [],
+        page_published_time: nil,
         page_scripts: [],
         page_styles: [],
         content: nil
@@ -26,6 +32,9 @@ module Pressa
         @page_subtitle = page_subtitle
         @page_description = page_description
         @page_type = page_type
+        @page_image = page_image
+        @page_tags = page_tags
+        @page_published_time = page_published_time
         @canonical_url = canonical_url
         @page_scripts = page_scripts
         @page_styles = page_styles
@@ -54,7 +63,12 @@ module Pressa
             meta(property: "og:image", content: og_image_url) if og_image_url
             meta(property: "og:type", content: page_type)
             meta(property: "article:author", content: site.author)
-            meta(name: "twitter:card", content: "summary")
+            meta(name: "twitter:card", content: twitter_card_type)
+
+            if page_type == "article"
+              meta(property: "article:published_time", content: page_published_time) if page_published_time
+              page_tags.each { |tag| meta(property: "article:tag", content: tag) }
+            end
 
             link(
               rel: "alternate",
@@ -108,7 +122,16 @@ module Pressa
       end
 
       def og_image_url
+        if page_image
+          return page_image if page_image.start_with?("http://", "https://")
+          return absolute_asset(page_image)
+        end
+
         site.image_url
+      end
+
+      def twitter_card_type
+        page_image ? "summary_large_image" : "summary"
       end
 
       def all_styles

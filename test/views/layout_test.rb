@@ -140,4 +140,66 @@ class Pressa::Views::LayoutTest < Minitest::Test
     refute_includes(html, "techhub.social")
     refute_includes(html, "github.com/samsonjs")
   end
+
+  def test_page_image_overrides_og_image_and_uses_large_image_card
+    html = Pressa::Views::Layout.new(
+      site:,
+      canonical_url: "https://samhuri.net/posts/",
+      page_image: "/images/blog/post.png",
+      content: content_view
+    ).call
+
+    assert_includes(html, %(<meta property="og:image" content="https://samhuri.net/images/blog/post.png">))
+    assert_includes(html, %(<meta name="twitter:card" content="summary_large_image">))
+  end
+
+  def test_page_image_preserves_absolute_urls
+    html = Pressa::Views::Layout.new(
+      site:,
+      canonical_url: "https://samhuri.net/posts/",
+      page_image: "https://cdn.example.net/preview.png",
+      content: content_view
+    ).call
+
+    assert_includes(html, %(<meta property="og:image" content="https://cdn.example.net/preview.png">))
+  end
+
+  def test_default_twitter_card_is_summary_without_page_image
+    html = Pressa::Views::Layout.new(
+      site:,
+      canonical_url: "https://samhuri.net/posts/",
+      content: content_view
+    ).call
+
+    assert_includes(html, %(<meta name="twitter:card" content="summary">))
+  end
+
+  def test_article_tags_render_published_time_and_tags
+    html = Pressa::Views::Layout.new(
+      site:,
+      canonical_url: "https://samhuri.net/posts/2025/11/05/post/",
+      page_type: "article",
+      page_published_time: "2025-11-05T10:00:00-08:00",
+      page_tags: ["ruby", "rails"],
+      content: content_view
+    ).call
+
+    assert_includes(html, %(<meta property="article:published_time" content="2025-11-05T10:00:00-08:00">))
+    assert_includes(html, %(<meta property="article:tag" content="ruby">))
+    assert_includes(html, %(<meta property="article:tag" content="rails">))
+  end
+
+  def test_article_tags_do_not_render_for_non_article_pages
+    html = Pressa::Views::Layout.new(
+      site:,
+      canonical_url: "https://samhuri.net/posts/",
+      page_type: "website",
+      page_published_time: "2025-11-05T10:00:00-08:00",
+      page_tags: ["ruby"],
+      content: content_view
+    ).call
+
+    refute_includes(html, "article:published_time")
+    refute_includes(html, "article:tag")
+  end
 end
