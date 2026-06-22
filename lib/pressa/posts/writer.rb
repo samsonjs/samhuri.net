@@ -36,11 +36,11 @@ module Pressa
         Utils::FileWriter.write(path: file_path, content: html)
       end
 
-      def write_archive(target_path:)
+      def write_posts_archive(target_path:)
         content_view = Views::ArchiveView.new(posts_by_year: @posts_by_year, site: @site)
 
         html = render_layout(
-          page_subtitle: "Archive",
+          page_subtitle: "Posts",
           canonical_url: @site.url_for("/posts/"),
           content: content_view,
           page_description: "Archive of all posts"

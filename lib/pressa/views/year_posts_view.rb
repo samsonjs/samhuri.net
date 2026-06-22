@@ -36,7 +36,7 @@ module Pressa
           end
         end
 
-        ul(class: "archive") do
+        ul(class: "posts") do
           month_posts.sorted_posts.each do |post|
             render_post_item(post)
           end

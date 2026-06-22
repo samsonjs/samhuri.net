@@ -84,14 +84,14 @@ class Pressa::Posts::PostWriterTest < Minitest::Test
     end
   end
 
-  def test_write_archive_writes_archive_index
+  def test_write_posts_archive_writes_posts_index
     Dir.mktmpdir do |dir|
-      writer.write_archive(target_path: dir)
+      writer.write_posts_archive(target_path: dir)
 
-      archive_path = File.join(dir, "posts/index.html")
-      assert(File.exist?(archive_path))
-      html = File.read(archive_path)
-      assert_includes(html, "Archive")
+      posts_path = File.join(dir, "posts/index.html")
+      assert(File.exist?(posts_path))
+      html = File.read(posts_path)
+      assert_includes(html, "Posts")
       assert_includes(html, "https://samhuri.net/posts/2025/")
     end
   end

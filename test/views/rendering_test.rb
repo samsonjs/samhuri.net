@@ -95,7 +95,7 @@ class Pressa::Views::RenderingTest < Minitest::Test
     assert_includes(details, "https://github.com/samsonjs/demo/network/members")
   end
 
-  def test_archive_views_render_year_month_and_both_post_types
+  def test_posts_views_render_year_month_and_both_post_types
     may_posts = Pressa::Posts::MonthPosts.new(
       month: Pressa::Posts::Month.new(name: "May", number: 5, padded: "05"),
       posts: [link_post]
@@ -114,7 +114,7 @@ class Pressa::Views::RenderingTest < Minitest::Test
     year_html = Pressa::Views::YearPostsView.new(year: 2015, year_posts: by_year[2015], site:).call
     month_html = Pressa::Views::MonthPostsView.new(year: 2017, month_posts: oct_posts, site:).call
     recent_html = Pressa::Views::RecentPostsView.new(posts: [regular_post], site:).call
-    archive_html = Pressa::Views::ArchiveView.new(posts_by_year:, site:).call
+    posts_html = Pressa::Views::ArchiveView.new(posts_by_year:, site:).call
 
     assert_includes(year_html, "https://samhuri.net/posts/2015/05/")
     assert_includes(year_html, "→ GitHub Flow Like a Pro")
@@ -122,8 +122,8 @@ class Pressa::Views::RenderingTest < Minitest::Test
 
     assert_includes(month_html, "October 2017")
     assert_includes(recent_html, "Swift Optional OR")
-    assert_includes(archive_html, "Archive")
-    assert_includes(archive_html, "https://samhuri.net/posts/2017/")
-    assert_includes(archive_html, "https://samhuri.net/posts/2015/")
+    assert_includes(posts_html, "Posts")
+    assert_includes(posts_html, "https://samhuri.net/posts/2017/")
+    assert_includes(posts_html, "https://samhuri.net/posts/2015/")
   end
 end

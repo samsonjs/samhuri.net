@@ -82,7 +82,7 @@ class Pressa::Posts::GeminiPluginTest < Minitest::Test
       index_text = File.read(File.join(target_path, "index.gmi"))
       markdown_text = File.read(markdown_post)
       html_text = File.read(html_post)
-      archive_text = File.read(File.join(target_path, "posts/index.gmi"))
+      posts_text = File.read(File.join(target_path, "posts/index.gmi"))
       feed_text = File.read(File.join(target_path, "posts/feed.gmi"))
 
       assert_includes(index_text, "=> /about/")
@@ -94,12 +94,12 @@ class Pressa::Posts::GeminiPluginTest < Minitest::Test
       assert_includes(markdown_text, "=> https://example.com")
       assert_includes(html_text, "=> https://example.org")
       assert_includes(markdown_text, "=> /posts Back to posts")
-      assert_includes(archive_text, "# samhuri.net posts")
-      assert_includes(archive_text, "## Feed")
-      assert_match(%r{=> /posts/2025/11/link-post/ 2025-11-07 - Link Post\n=> https://example.net/story}, archive_text)
-      assert_includes(archive_text, "=> /posts/2025/11/html-heavy/ 2025-11-06 - HTML Heavy")
-      assert_includes(archive_text, "=> /posts/2025/11/markdown-only/ 2025-11-05 - Markdown Only")
-      assert_equal(archive_text, feed_text)
+      assert_includes(posts_text, "# samhuri.net posts")
+      assert_includes(posts_text, "## Feed")
+      assert_match(%r{=> /posts/2025/11/link-post/ 2025-11-07 - Link Post\n=> https://example.net/story}, posts_text)
+      assert_includes(posts_text, "=> /posts/2025/11/html-heavy/ 2025-11-06 - HTML Heavy")
+      assert_includes(posts_text, "=> /posts/2025/11/markdown-only/ 2025-11-05 - Markdown Only")
+      assert_equal(posts_text, feed_text)
     end
   end
 end

@@ -26,7 +26,7 @@ module Pressa
         writer = PostWriter.new(site:, posts_by_year: @posts_by_year)
         writer.write_posts(target_path:)
         writer.write_recent_posts(target_path:, limit: 10)
-        writer.write_archive(target_path:)
+        writer.write_posts_archive(target_path:)
         writer.write_year_indexes(target_path:)
         writer.write_month_rollups(target_path:)
 

@@ -346,7 +346,7 @@ footer a:visited {
 }
 
 /**
- * Archive
+ * Posts
  */
 
 h2.year a,
@@ -356,7 +356,7 @@ h2.month a:visited {
     color: #000;
 }
 
-ul.archive {
+ul.posts {
     padding-left: 0;
     margin-left: 5%;
     margin-bottom: 2rem;
@@ -364,20 +364,20 @@ ul.archive {
 }
 
 @media (min-width: 40rem) {
-    ul.archive {
+    ul.posts {
         margin-right: 5%;
     }
 }
 
-ul.archive li {
+ul.posts li {
     margin: 0.8rem 0;
 }
 
-ul.archive li a {
+ul.posts li a {
     text-decoration: none;
 }
 
-ul.archive li time {
+ul.posts li time {
     font-size: 80%;
     padding-left: 0.5rem;
     color: #6f6f6f;
@@ -391,7 +391,7 @@ ul.archive li time {
         color: #ddd;
     }
 
-    ul.archive li time {
+    ul.posts li time {
         color: #919191;
     }
 }

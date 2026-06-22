@@ -155,7 +155,7 @@ module Pressa
           nav(class: "local") do
             ul do
               li { a(href: site.url_for("/about")) { "About" } }
-              li { a(href: site.url_for("/posts")) { "Archive" } }
+              li { a(href: site.url_for("/posts")) { "Posts" } }
               li { a(href: site.url_for("/projects")) { "Projects" } }
             end
           end

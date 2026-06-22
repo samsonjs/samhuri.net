@@ -11,7 +11,7 @@ module Pressa
 
       def view_template
         div(class: "container") do
-          h1 { "Archive" }
+          h1 { "Posts" }
         end
 
         @posts_by_year.sorted_years.each do |year|
