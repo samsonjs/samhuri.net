@@ -71,4 +71,20 @@ class Pressa::LinkPostTest < Minitest::Test
     error = assert_raises(Pressa::LinkPost::Error) { build(link: "  ") }
     assert_match(/link/i, error.message)
   end
+
+  def test_image_is_included_in_front_matter_when_given
+    post = build(image: "https://example.net/preview.png")
+    meta = Pressa::Posts::PostMetadata.parse(post.content)
+    assert_equal("https://example.net/preview.png", meta.image)
+  end
+
+  def test_image_is_omitted_when_blank
+    post = build(image: "  ")
+    refute_includes(post.content, "Image:")
+  end
+
+  def test_image_is_omitted_when_not_given
+    post = build
+    refute_includes(post.content, "Image:")
+  end
 end

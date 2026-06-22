@@ -11,6 +11,7 @@ $LOAD_PATH.unshift(LIB_PATH) unless $LOAD_PATH.include?(LIB_PATH)
 
 require "pressa/drafts"
 require "pressa/link_post"
+require "pressa/open_graph"
 require "pressa/config/simple_toml"
 require "pressa/coverage"
 require "pressa/publish"
@@ -81,6 +82,7 @@ def new_link
     end
 
   author = payload["author"] || Pressa::Config::SimpleToml.load_file("site.toml")["author"]
+  image = payload["image"] || fetch_link_image(payload["link"])
   post =
     begin
       Pressa::LinkPost.build(
@@ -88,6 +90,7 @@ def new_link
         link: payload["link"],
         body: payload["body"],
         tags: payload["tags"],
+        image:,
         author:
       )
     rescue Pressa::LinkPost::Error => e
@@ -114,6 +117,7 @@ def preview_link
     end
 
   author = payload["author"] || Pressa::Config::SimpleToml.load_file("site.toml")["author"]
+  image = payload["image"] || fetch_link_image(payload["link"])
   post =
     begin
       Pressa::LinkPost.build(
@@ -121,6 +125,7 @@ def preview_link
         link: payload["link"],
         body: payload["body"],
         tags: payload["tags"],
+        image:,
         author:
       )
     rescue Pressa::LinkPost::Error => e
@@ -338,6 +343,14 @@ def coverage_regression(baseline: "merge-base", lowest: 10)
 end
 
 private
+
+# Best-effort: a slow or broken link shouldn't block creating the post, it
+# just means the Image front-matter field is left for the author to fill in.
+def fetch_link_image(link)
+  return nil if link.to_s.strip.empty?
+
+  Pressa::OpenGraph.fetch(link)&.image
+end
 
 def run_test_suite(test_files)
   run_command("ruby", "-Ilib", "-Itest", "-e", "ARGV.each { |file| require File.expand_path(file) }", *test_files)
