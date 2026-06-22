@@ -9,7 +9,7 @@ module Pressa
 
     Result = Data.define(:filename, :target_path, :content)
 
-    def self.build(title:, link:, body: nil, tags: nil, author: Drafts.current_author, now: Time.now)
+    def self.build(title:, link:, body: nil, tags: nil, image: nil, author: Drafts.current_author, now: Time.now)
       title = title.to_s.strip
       raise Error, "title cannot be empty" if title.empty?
 
@@ -21,12 +21,12 @@ module Pressa
 
       filename = "#{slug}.md"
       target_path = "posts/#{now.strftime("%Y/%m")}/#{filename}"
-      content = render(title:, link:, body:, tags:, author:, now:)
+      content = render(title:, link:, body:, tags:, image:, author:, now:)
 
       Result.new(filename:, target_path:, content:)
     end
 
-    def self.render(title:, link:, body:, tags:, author:, now:)
+    def self.render(title:, link:, body:, tags:, image:, author:, now:)
       lines = [
         "---",
         "Title: #{yaml_quote(title)}",
@@ -37,6 +37,8 @@ module Pressa
       tag_list = normalize_tags(tags)
       lines << "Tags: #{tag_list.join(", ")}" unless tag_list.empty?
       lines << "Link: #{link}"
+      image = image.to_s.strip
+      lines << "Image: #{image}" unless image.empty?
       lines << "---"
 
       front_matter = lines.join("\n")
