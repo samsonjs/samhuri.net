@@ -6,7 +6,7 @@ module Pressa
     class PostMetadata
       REQUIRED_FIELDS = %w[Title Author Date Timestamp].freeze
 
-      attr_reader :title, :author, :date, :formatted_date, :link, :tags
+      attr_reader :title, :author, :date, :formatted_date, :link, :tags, :image
 
       def initialize(yaml_hash)
         @raw = yaml_hash
@@ -39,6 +39,7 @@ module Pressa
         @formatted_date = @raw["Date"]
         @link = @raw["Link"]
         @tags = parse_tags(@raw["Tags"])
+        @image = @raw["Image"]
       end
 
       def parse_tags(value)

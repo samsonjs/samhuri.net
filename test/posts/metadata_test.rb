@@ -10,6 +10,7 @@ class Pressa::Posts::PostMetadataTest < Minitest::Test
       Timestamp: 2025-11-05T10:00:00-08:00
       Tags: Ruby, Testing
       Link: https://example.net/external
+      Image: /images/blog/test-post.png
       ---
 
       This is the post body.
@@ -25,6 +26,7 @@ class Pressa::Posts::PostMetadataTest < Minitest::Test
     assert_equal(5, metadata.date.day)
     assert_equal("https://example.net/external", metadata.link)
     assert_equal(["Ruby", "Testing"], metadata.tags)
+    assert_equal("/images/blog/test-post.png", metadata.image)
   end
 
   def test_parse_raises_error_when_required_fields_are_missing
@@ -56,6 +58,7 @@ class Pressa::Posts::PostMetadataTest < Minitest::Test
 
     assert_equal([], metadata.tags)
     assert_nil(metadata.link)
+    assert_nil(metadata.image)
   end
 
   def test_parse_raises_error_when_front_matter_is_missing

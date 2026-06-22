@@ -23,7 +23,8 @@ class Pressa::Posts::PostWriterTest < Minitest::Test
         link: "https://example.net/linked",
         body: "<p>linked body</p>",
         excerpt: "linked body...",
-        path: "/posts/2025/11/link-post"
+        path: "/posts/2025/11/link-post",
+        image: "/images/blog/link-post.png"
       )
       regular_post = Pressa::Posts::Post.new(
         slug: "regular-post",
@@ -70,6 +71,22 @@ class Pressa::Posts::PostWriterTest < Minitest::Test
       assert(File.exist?(linked))
       assert_includes(File.read(regular), "Regular")
       assert_includes(File.read(linked), "→ Linked")
+    end
+  end
+
+  def test_write_posts_uses_post_image_for_og_image_and_article_tags
+    Dir.mktmpdir do |dir|
+      writer.write_posts(target_path: dir)
+
+      linked = File.join(dir, "posts/2025/11/link-post/index.html")
+      html = File.read(linked)
+
+      assert_includes(html, %(<meta property="og:image" content="https://samhuri.net/images/blog/link-post.png">))
+      assert_includes(html, %(<meta property="article:published_time" content="2025-11-05T10:00:00-08:00">))
+
+      regular = File.join(dir, "posts/2024/10/regular-post/index.html")
+      regular_html = File.read(regular)
+      assert_includes(regular_html, %(<meta property="article:tag" content="ruby">))
     end
   end
 

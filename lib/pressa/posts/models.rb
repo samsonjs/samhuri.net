@@ -11,6 +11,7 @@ module Pressa
       attribute :formatted_date, Types::String
       attribute :link, Types::String.optional.default(nil)
       attribute :tags, Types::Array.of(Types::String).default([].freeze)
+      attribute :image, Types::String.optional.default(nil)
       attribute :body, Types::String
       attribute :markdown_body, Types::String.default("".freeze)
       attribute :excerpt, Types::String

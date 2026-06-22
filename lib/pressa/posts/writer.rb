@@ -117,7 +117,10 @@ module Pressa
           canonical_url: @site.url_for(post.path),
           content: content_view,
           page_description: post.excerpt,
-          page_type: "article"
+          page_type: "article",
+          page_image: post.image,
+          page_tags: post.tags,
+          page_published_time: post.date.iso8601
         )
 
         file_path = File.join(target_path, post.path.sub(/^\//, ""), "index.html")
@@ -161,7 +164,10 @@ module Pressa
         canonical_url:,
         content:,
         page_description: nil,
-        page_type: "website"
+        page_type: "website",
+        page_image: nil,
+        page_tags: [],
+        page_published_time: nil
       )
         layout = Views::Layout.new(
           site: @site,
@@ -169,6 +175,9 @@ module Pressa
           canonical_url:,
           page_description:,
           page_type:,
+          page_image:,
+          page_tags:,
+          page_published_time:,
           content:
         )
 
