@@ -1,4 +1,5 @@
 require "phlex"
+require "pressa/views/post_list_item_view"
 
 module Pressa
   module Views
@@ -38,28 +39,9 @@ module Pressa
 
         ul(class: "posts") do
           month_posts.sorted_posts.each do |post|
-            render_post_item(post)
+            render PostListItemView.new(post:)
           end
         end
-      end
-
-      def render_post_item(post)
-        if post.link_post?
-          li do
-            a(href: post.link) { "→ #{post.title}" }
-            time { short_date(post.date) }
-            a(class: "permalink", href: post.path) { "∞" }
-          end
-        else
-          li do
-            a(href: post.path) { post.title }
-            time { short_date(post.date) }
-          end
-        end
-      end
-
-      def short_date(date)
-        date.strftime("%-d %b")
       end
     end
   end

@@ -33,7 +33,8 @@ class Pressa::Posts::PostWriterTest < Minitest::Test
         formatted_date: "1st October, 2024",
         body: "<p>regular body</p>",
         excerpt: "regular body...",
-        path: "/posts/2024/10/regular-post"
+        path: "/posts/2024/10/regular-post",
+        tags: ["ruby", "rails"]
       )
 
       nov_posts = Pressa::Posts::MonthPosts.new(
@@ -118,6 +119,32 @@ class Pressa::Posts::PostWriterTest < Minitest::Test
       assert(File.exist?(oct))
       assert_includes(File.read(nov), "November 2025")
       assert_includes(File.read(oct), "October 2024")
+    end
+  end
+
+  def test_write_tags_index_writes_tags_with_counts
+    Dir.mktmpdir do |dir|
+      writer.write_tags_index(target_path: dir)
+
+      index_path = File.join(dir, "tags/index.html")
+      assert(File.exist?(index_path))
+      html = File.read(index_path)
+      assert_includes(html, "https://samhuri.net/tags/ruby/")
+      assert_includes(html, "rails")
+      assert_includes(html, "(1)")
+    end
+  end
+
+  def test_write_tag_pages_writes_each_tag_page
+    Dir.mktmpdir do |dir|
+      writer.write_tag_pages(target_path: dir)
+
+      ruby_path = File.join(dir, "tags/ruby/index.html")
+      assert(File.exist?(ruby_path))
+      html = File.read(ruby_path)
+      assert_includes(html, "Tag: ruby")
+      assert_includes(html, "Regular")
+      refute_includes(html, "Linked")
     end
   end
 end

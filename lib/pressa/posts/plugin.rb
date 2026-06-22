@@ -4,6 +4,7 @@ require "pressa/posts/writer"
 require "pressa/posts/gemini_writer"
 require "pressa/posts/json_feed"
 require "pressa/posts/rss_feed"
+require "pressa/posts/tag_index"
 
 module Pressa
   module Posts
@@ -29,6 +30,8 @@ module Pressa
         writer.write_posts_archive(target_path:)
         writer.write_year_indexes(target_path:)
         writer.write_month_rollups(target_path:)
+        writer.write_tags_index(target_path:)
+        writer.write_tag_pages(target_path:)
 
         json_feed = JSONFeedWriter.new(site:, posts_by_year: @posts_by_year)
         json_feed.write_feed(target_path:, limit: 30)

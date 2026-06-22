@@ -5,6 +5,9 @@ require "pressa/views/recent_posts_view"
 require "pressa/views/archive_view"
 require "pressa/views/year_posts_view"
 require "pressa/views/month_posts_view"
+require "pressa/views/tags_index_view"
+require "pressa/views/tag_posts_view"
+require "pressa/posts/tag_index"
 
 module Pressa
   module Posts
@@ -65,7 +68,46 @@ module Pressa
         end
       end
 
+      def write_tags_index(target_path:)
+        content_view = Views::TagsIndexView.new(tag_index:, site: @site)
+
+        html = render_layout(
+          page_subtitle: "Tags",
+          canonical_url: @site.url_for("/tags/"),
+          content: content_view,
+          page_description: "Browse posts by tag"
+        )
+
+        file_path = File.join(target_path, "tags", "index.html")
+        Utils::FileWriter.write(path: file_path, content: html)
+      end
+
+      def write_tag_pages(target_path:)
+        tag_index.tags.each do |tag|
+          write_tag_page(tag:, target_path:)
+        end
+      end
+
       private
+
+      def tag_index
+        @tag_index ||= Posts::TagIndex.from_posts_by_year(@posts_by_year)
+      end
+
+      def write_tag_page(tag:, target_path:)
+        content_view = Views::TagPostsView.new(tag:, posts: tag_index.posts_for(tag), site: @site)
+
+        slug = tag_index.slug(tag)
+        html = render_layout(
+          page_subtitle: "Tag: #{tag}",
+          canonical_url: @site.url_for("/tags/#{slug}/"),
+          content: content_view,
+          page_description: "Posts tagged #{tag}"
+        )
+
+        file_path = File.join(target_path, "tags", slug, "index.html")
+        Utils::FileWriter.write(path: file_path, content: html)
+      end
 
       def write_post(post:, target_path:)
         content_view = Views::PostView.new(post:, site: @site, article_class: "container")

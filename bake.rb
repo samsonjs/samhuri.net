@@ -278,6 +278,15 @@ def drafts
   end
 end
 
+# Print tag post counts and a per-year sparkline of tag usage across posts/.
+def tags
+  require "pressa/posts/repo"
+  require "pressa/posts/tag_report"
+
+  posts_by_year = Pressa::Posts::PostRepo.new.read_posts("posts")
+  puts Pressa::Posts::TagReport.from_posts_by_year(posts_by_year)
+end
+
 # Run StandardRB linter
 def lint
   run_standardrb

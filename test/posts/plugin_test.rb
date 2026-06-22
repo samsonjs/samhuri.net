@@ -62,6 +62,7 @@ class Pressa::Posts::PluginTest < Minitest::Test
       assert(File.exist?(File.join(target_path, "posts/2025/11/shredding/index.html")))
       assert(File.exist?(File.join(target_path, "feed.json")))
       assert(File.exist?(File.join(target_path, "feed.xml")))
+      assert(File.exist?(File.join(target_path, "tags/index.html")))
     end
   end
 end
