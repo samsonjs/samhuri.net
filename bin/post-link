@@ -52,7 +52,8 @@ echo "    $post_path" >&2
 slug="$(basename "$post_path" .md)"
 echo "==> Committing and pushing" >&2
 git add "$post_path"
-git commit -m "Add link post: $slug" >&2
+# Skip commit signing: non-interactive SSH can't unlock a passphrased key.
+git -c commit.gpgsign=false commit -m "Add link post: $slug" >&2
 git push "$REMOTE" "HEAD:$BRANCH" >&2
 
 echo "==> Building and publishing" >&2
