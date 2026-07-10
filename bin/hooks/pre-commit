@@ -22,11 +22,7 @@ if [[ ${#RUBY_FILES[@]} -eq 0 ]]; then
 fi
 
 echo "Running StandardRB on staged Ruby files..."
-if command -v rbenv &>/dev/null; then
-    rbenv exec bundle exec standardrb --fix "${RUBY_FILES[@]}"
-else
-    bundle exec standardrb --fix "${RUBY_FILES[@]}"
-fi
+bundle exec standardrb --fix "${RUBY_FILES[@]}"
 
 MODIFIED=false
 for file in "${RUBY_FILES[@]}"; do

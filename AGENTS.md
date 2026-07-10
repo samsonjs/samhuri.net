@@ -18,28 +18,28 @@ This repository is a Ruby static-site generator (Pressa) that outputs both HTML 
 Keep new code under the existing `Pressa` module structure (for example `lib/pressa/posts`, `lib/pressa/projects`, `lib/pressa/views`, `lib/pressa/config`, `lib/pressa/utils`) and add matching tests under `test/`.
 
 ## Setup, Build, Test, and Development Commands
-- Use `rbenv exec` for Ruby commands in this repository (for example `rbenv exec bundle exec ...`) to ensure the project Ruby version is used.
-- `bin/bootstrap`: install prerequisites and gems (uses `rbenv` when available).
-- `rbenv exec bundle exec bake debug`: build HTML for `http://localhost:8000` into `www/`.
-- `rbenv exec bundle exec bake serve`: serve `www/` via WEBrick on port 8000.
-- `rbenv exec bundle exec bake watch target=debug`: Linux-only autorebuild loop (`inotifywait` required).
-- `rbenv exec bundle exec bake mudge|beta|release`: build HTML with environment-specific base URLs.
-- `rbenv exec bundle exec bake gemini`: build Gemini capsule into `gemini/`.
-- `rbenv exec bundle exec bake publish_beta`: build and rsync `www/` to beta host.
-- `rbenv exec bundle exec bake publish_gemini`: build and rsync `gemini/` to production host.
-- `rbenv exec bundle exec bake publish`: build and rsync both HTML and Gemini to production.
-- `rbenv exec bundle exec bake clean`: remove `www/` and `gemini/`.
-- `rbenv exec bundle exec bake test`: run test suite.
-- `rbenv exec bundle exec bake guard`: run Guard for continuous testing.
-- `rbenv exec bundle exec bake lint`: lint code with StandardRB.
-- `rbenv exec bundle exec bake lint_fix`: auto-fix lint issues.
-- `rbenv exec bundle exec bake coverage`: run tests and report `lib/` line coverage.
-- `rbenv exec bundle exec bake coverage_regression baseline=merge-base`: compare coverage to a baseline and fail on regression (override `baseline` as needed).
+- Ruby commands run directly (`bundle exec ...`); `rv` manages the pinned version via `.ruby-version`, no exec wrapper needed.
+- `bin/bootstrap`: install prerequisites and gems via `rv`.
+- `bundle exec bake debug`: build HTML for `http://localhost:8000` into `www/`.
+- `bundle exec bake serve`: serve `www/` via WEBrick on port 8000.
+- `bundle exec bake watch target=debug`: Linux-only autorebuild loop (`inotifywait` required).
+- `bundle exec bake mudge|beta|release`: build HTML with environment-specific base URLs.
+- `bundle exec bake gemini`: build Gemini capsule into `gemini/`.
+- `bundle exec bake publish_beta`: build and rsync `www/` to beta host.
+- `bundle exec bake publish_gemini`: build and rsync `gemini/` to production host.
+- `bundle exec bake publish`: build and rsync both HTML and Gemini to production.
+- `bundle exec bake clean`: remove `www/` and `gemini/`.
+- `bundle exec bake test`: run test suite.
+- `bundle exec bake guard`: run Guard for continuous testing.
+- `bundle exec bake lint`: lint code with StandardRB.
+- `bundle exec bake lint_fix`: auto-fix lint issues.
+- `bundle exec bake coverage`: run tests and report `lib/` line coverage.
+- `bundle exec bake coverage_regression baseline=merge-base`: compare coverage to a baseline and fail on regression (override `baseline` as needed).
 
 ## Draft Workflow
-- `rbenv exec bundle exec bake new_draft "Post Title"` creates `public/drafts/<slug>.md`.
-- `rbenv exec bundle exec bake drafts` lists available drafts.
-- `rbenv exec bundle exec bake publish_draft public/drafts/<slug>.md` moves draft to `posts/YYYY/MM/` and updates `Date` and `Timestamp`.
+- `bundle exec bake new_draft "Post Title"` creates `public/drafts/<slug>.md`.
+- `bundle exec bake drafts` lists available drafts.
+- `bundle exec bake publish_draft public/drafts/<slug>.md` moves draft to `posts/YYYY/MM/` and updates `Date` and `Timestamp`.
 
 ## Content and Metadata Requirements
 Posts must include YAML front matter. Required keys (enforced by `Pressa::Posts::PostMetadata`) are:
@@ -62,10 +62,10 @@ Optional keys include `Tags`, `Link`, `Scripts`, and `Styles`.
 - Use Minitest under `test/` (for example `test/posts`, `test/config`, `test/views`).
 - Add regression tests for parser, rendering, feed, and generator behavior changes.
 - Before submitting, run:
-  - `rbenv exec bundle exec bake test`
-  - `rbenv exec bundle exec bake coverage`
-  - `rbenv exec bundle exec bake lint`
-  - `rbenv exec bundle exec bake debug`
+  - `bundle exec bake test`
+  - `bundle exec bake coverage`
+  - `bundle exec bake lint`
+  - `bundle exec bake debug`
 
 ## Commit & Pull Request Guidelines
 - Use concise, imperative commit subjects (history examples: `Fix internal permalink regression in archives`).

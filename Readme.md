@@ -19,7 +19,7 @@ If what you want is an artisanal, hand-crafted, static site generator for your p
 
 - Ruby (see `.ruby-version`)
 - Bundler
-- `rbenv` recommended
+- `rv` recommended
 
 ## Setup
 
@@ -30,7 +30,7 @@ bin/bootstrap
 Or manually:
 
 ```bash
-rbenv install -s "$(cat .ruby-version)"
+rv ruby install
 bundle install
 ```
 

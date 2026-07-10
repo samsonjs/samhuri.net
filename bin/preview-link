@@ -16,11 +16,13 @@
 
 set -euo pipefail
 
-# Non-interactive SSH sessions get a bare PATH; make sure rbenv is reachable.
-export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
-if command -v rbenv >/dev/null 2>&1; then
-  eval "$(rbenv init - bash)"
-fi
+# Non-interactive SSH sessions get a bare PATH and skip .profile, so rv is
+# never reachable. Source .profile (which already puts rv on PATH via
+# ~/.cargo/env) rather than guessing rv's install location, then load its
+# Ruby env explicitly since that's only wired into interactive shells via
+# .bashrc.
+[ -f "$HOME/.profile" ] && . "$HOME/.profile"
+eval "$(rv shell env bash)"
 
 # Run from the repo root regardless of where the script lives.
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
