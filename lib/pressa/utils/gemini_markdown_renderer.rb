@@ -1,4 +1,5 @@
 require "yaml"
+require "date"
 require "pressa/utils/file_writer"
 require "pressa/utils/gemtext_renderer"
 
@@ -53,7 +54,7 @@ module Pressa
         if content =~ /\A---\s*\n(.*?)\n---\s*\n(.*)/m
           yaml_content = Regexp.last_match(1)
           markdown = Regexp.last_match(2)
-          metadata = YAML.safe_load(yaml_content) || {}
+          metadata = YAML.safe_load(yaml_content, permitted_classes: [Date, Time]) || {}
           [metadata, markdown]
         else
           [{}, content]

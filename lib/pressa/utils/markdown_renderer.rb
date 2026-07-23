@@ -1,5 +1,6 @@
 require "kramdown"
 require "yaml"
+require "date"
 require "pressa/utils/file_writer"
 require "pressa/site"
 require "pressa/views/layout"
@@ -61,7 +62,7 @@ module Pressa
         if content =~ /\A---\s*\n(.*?)\n---\s*\n(.*)/m
           yaml_content = $1
           markdown = $2
-          metadata = YAML.safe_load(yaml_content) || {}
+          metadata = YAML.safe_load(yaml_content, permitted_classes: [Date, Time]) || {}
           [metadata, markdown]
         else
           [{}, content]

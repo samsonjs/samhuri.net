@@ -145,14 +145,14 @@ def preview_link
 end
 
 # Create a new draft in public/drafts/.
-# @parameter title_parts [Array] Optional title words; defaults to Untitled.
-def new_draft(*title_parts)
+# @parameter title [String] Title, quoted as a single argument, e.g. `bake new_draft "My Title"`.
+def new_draft(title)
   drafts = Pressa::Drafts.new(dir: DRAFTS_DIR)
   title, filename =
-    if title_parts.empty?
+    if title.empty?
       ["Untitled", drafts.next_available]
     else
-      given_title = title_parts.join(" ")
+      given_title = title
       slug = Pressa::Drafts.slugify(given_title)
       abort "Error: title cannot be converted to a filename." if slug.empty?
 
