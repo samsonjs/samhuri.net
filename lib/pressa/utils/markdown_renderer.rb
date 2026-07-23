@@ -2,6 +2,7 @@ require "kramdown"
 require "yaml"
 require "date"
 require "pressa/utils/file_writer"
+require "pressa/utils/rouge_html_formatter"
 require "pressa/site"
 require "pressa/views/layout"
 require "pressa/views/icons"
@@ -77,7 +78,8 @@ module Pressa
           syntax_highlighter: "rouge",
           syntax_highlighter_opts: {
             line_numbers: false,
-            wrap: true
+            wrap: true,
+            formatter: Pressa::Utils::RougeHTMLFormatter
           }
         ).to_html
       end
