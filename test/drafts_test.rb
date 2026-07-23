@@ -88,6 +88,6 @@ class Pressa::DraftsTest < Minitest::Test
     assert_match(/^Title: The Downward Spiral$/, content)
     assert_match(/^Date: unpublished$/, content)
     assert_match(/^Timestamp: 2026-06-07T09:30:00/, content)
-    assert_match(/^# The Downward Spiral$/, content)
+    refute_match(/^# The Downward Spiral$/, content)
   end
 end

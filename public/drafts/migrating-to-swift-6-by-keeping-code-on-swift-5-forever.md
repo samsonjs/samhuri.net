@@ -6,8 +6,6 @@ Timestamp: 2026-07-22T22:01:51-06:00
 Tags: swift, concurrency
 ---
 
-# Migrating to Swift 6 by keeping code on Swift 5 forever
-
 This week I’m at [the inaugural Swift Rockies conference][swiftrockies] in Calgary and it’s been great so far. At Matt Massicotte’s workshop yesterday there was a whole lot of discussion about Swift concurrency which was enlightening and fun (seriously).
 
 [swiftrockies]: /posts/2026/06/swift-concurrency-lab-next-month/

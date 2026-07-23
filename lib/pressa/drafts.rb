@@ -81,8 +81,6 @@ module Pressa
         Tags:
         ---
 
-        # #{title}
-
         TKTK
       FRONTMATTER
     end
