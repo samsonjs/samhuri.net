@@ -176,9 +176,9 @@ end
 
 # Publish a draft by moving it to posts/YYYY/MM and updating dates.
 # @parameter input_path [String] Draft path or filename in public/drafts.
-def publish_draft(input_path = nil)
+def publish_draft(input_path)
   drafts = Pressa::Drafts.new(dir: DRAFTS_DIR)
-  if input_path.nil? || input_path.strip.empty?
+  if input_path.strip.empty?
     puts "Usage: bake publish_draft <draft-path-or-filename>"
     puts
     puts "Available drafts:"
