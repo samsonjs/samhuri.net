@@ -11,29 +11,17 @@
 #    "body": "Optional commentary.", "tags": "gear, tech"}
 #   JSON
 #
-# Prints the preview URL on stdout, progress on stderr. Used by the
-# dashboard's "Publish Beta" button.
+# Prints the preview URL on stdout, progress on stderr. The Pressa web app
+# renders its own preview in-process instead; this is the CLI/SSH equivalent,
+# and the only one that shows the post inside a full site build.
 
 set -euo pipefail
 
-# Non-interactive SSH sessions get a bare PATH and skip .profile, so rv is
-# never reachable. Source .profile (which already puts rv on PATH via
-# ~/.cargo/env) rather than guessing rv's install location, then load its
-# Ruby env explicitly since that's only wired into interactive shells via
-# .bashrc.
-[ -f "$HOME/.profile" ] && . "$HOME/.profile"
-eval "$(rv shell env bash)"
+. "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/lib/common.sh"
 
-# Run from the repo root regardless of where the script lives.
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO="${SAMHURI_REPO:-$(cd "$SCRIPT_DIR/.." && pwd)}"
-cd "$REPO"
-
-payload="$(cat)"
-if [ -z "${payload//[[:space:]]/}" ]; then
-  echo "Error: empty payload on stdin" >&2
-  exit 1
-fi
+payload="$(read_payload)"
+# Writes into posts/ and rebuilds www/, so it takes the same lock as publishing.
+acquire_publish_lock
 
 echo "==> Building preview" >&2
 # `bake mudge` logs its own build progress to stdout (not stderr), so only the

@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 #
 # Create and publish a link post from a JSON payload on stdin, then deploy.
-# Designed to be invoked over SSH from a phone Shortcut on the Tailscale network.
-# The Shortcut base64-encodes the JSON (so quotes in the title/body can't break
-# shell quoting) and the SSH command decodes it back onto our stdin:
+# Driven by the Pressa web app on mudge, and directly over SSH from a phone
+# Shortcut on the Tailscale network. The Shortcut base64-encodes the JSON (so
+# quotes in the title/body can't break shell quoting) and the SSH command
+# decodes it back onto our stdin:
 #
 #   echo <base64> | base64 --decode | $HOME/samhuri.net/bin/post-link
 #
@@ -20,29 +21,10 @@
 
 set -euo pipefail
 
-# Non-interactive SSH sessions get a bare PATH and skip .profile, so rv is
-# never reachable. Source .profile (which already puts rv on PATH via
-# ~/.cargo/env) rather than guessing rv's install location, then load its
-# Ruby env explicitly since that's only wired into interactive shells via
-# .bashrc.
-[ -f "$HOME/.profile" ] && . "$HOME/.profile"
-eval "$(rv shell env bash)"
+. "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/lib/common.sh"
 
-# Run from the repo root regardless of where the script lives.
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO="${SAMHURI_REPO:-$(cd "$SCRIPT_DIR/.." && pwd)}"
-cd "$REPO"
-
-# Local clones here name the GitHub remote "github"; a fresh clone on the server
-# names it "origin". Prefer github, fall back to origin, unless overridden.
-REMOTE="${SAMHURI_REMOTE:-$(git remote | grep -qx github && echo github || echo origin)}"
-BRANCH="${SAMHURI_BRANCH:-main}"
-
-payload="$(cat)"
-if [ -z "${payload//[[:space:]]/}" ]; then
-  echo "Error: empty payload on stdin" >&2
-  exit 1
-fi
+payload="$(read_payload)"
+acquire_publish_lock
 
 echo "==> Pulling latest from $REMOTE/$BRANCH" >&2
 git pull --ff-only "$REMOTE" "$BRANCH" >&2
@@ -65,5 +47,5 @@ echo "==> Building and publishing" >&2
 SAMHURI_PUBLISH_HOST=local bundle exec bake publish >&2
 
 echo "==> Published $post_path" >&2
-# Stdout carries just the path so the caller (Shortcut) can show/use it.
+# Stdout carries just the path so the caller (Shortcut, web app) can show/use it.
 echo "$post_path"

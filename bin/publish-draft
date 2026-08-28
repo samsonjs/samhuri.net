@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+#
+# Publish a draft from public/drafts and deploy, the draft counterpart to
+# bin/post-link. Takes the draft's filename (or slug) as its only argument:
+#
+#   ssh mudge '$HOME/samhuri.net/bin/publish-draft tree-well-protocol'
+#
+# Pending edits to the draft are committed before the pull so the working tree
+# is clean going in -- the web app writes drafts straight to the checkout, and
+# `git pull --ff-only` is entitled to refuse otherwise. Then it moves the draft
+# into posts/YYYY/MM via `bake publish_draft`, commits, pushes, and runs
+# `bake publish` to build HTML + Gemini and rsync to the live directories.
+#
+# Prints the published post's path on stdout, progress on stderr.
+
+set -euo pipefail
+
+. "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/lib/common.sh"
+
+draft="${1:-}"
+if [ -z "$draft" ]; then
+  echo "Usage: bin/publish-draft <draft-slug-or-filename>" >&2
+  exit 1
+fi
+draft="$(basename "$draft" .md)"
+draft_path="public/drafts/$draft.md"
+
+if [ ! -f "$draft_path" ]; then
+  echo "Error: no draft at $draft_path" >&2
+  exit 1
+fi
+
+acquire_publish_lock
+
+if ! git diff --quiet -- public/drafts; then
+  echo "==> Committing pending draft edits" >&2
+  git add public/drafts
+  git -c commit.gpgsign=false commit -m "Update drafts" >&2
+fi
+
+echo "==> Pulling latest from $REMOTE/$BRANCH" >&2
+git pull --ff-only "$REMOTE" "$BRANCH" >&2
+
+echo "==> Publishing draft $draft" >&2
+# publish_draft reports "Published draft: <from> -> <to>"; we want the target.
+post_path="$(bundle exec bake publish_draft "$draft_path" | tail -n 1 | awk '{print $NF}')"
+echo "    $post_path" >&2
+
+echo "==> Committing and pushing" >&2
+git add "$post_path" "$draft_path"
+# Skip commit signing: non-interactive SSH can't unlock a passphrased key.
+git -c commit.gpgsign=false commit -m "Publish draft: $draft" >&2
+git push "$REMOTE" "HEAD:$BRANCH" >&2
+
+echo "==> Building and publishing" >&2
+# Already on the publish host, so rsync locally rather than SSH back to self.
+SAMHURI_PUBLISH_HOST=local bundle exec bake publish >&2
+
+echo "==> Published $post_path" >&2
+echo "$post_path"
