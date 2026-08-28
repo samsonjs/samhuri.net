@@ -164,4 +164,23 @@ class Pressa::Posts::PostWriterTest < Minitest::Test
       refute_includes(html, "Linked")
     end
   end
+
+  def test_post_html_renders_a_single_post_without_writing_a_file
+    post = posts_by_year.all_posts.find { it.slug == "regular-post" }
+    html = writer.post_html(post:)
+
+    assert_includes(html, "<p>regular body</p>")
+    assert_includes(html, "Regular")
+    refute_includes(html, "linked body")
+  end
+
+  def test_post_html_matches_what_write_posts_puts_on_disk
+    Dir.mktmpdir do |tmpdir|
+      writer.write_posts(target_path: tmpdir)
+      post = posts_by_year.all_posts.find { it.slug == "regular-post" }
+      on_disk = File.read(File.join(tmpdir, "posts/2024/10/regular-post/index.html"))
+
+      assert_equal(on_disk, writer.post_html(post:))
+    end
+  end
 end

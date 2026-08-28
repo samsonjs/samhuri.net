@@ -105,4 +105,53 @@ class Pressa::Posts::PostRepoTest < Minitest::Test
       assert_equal(["Second Post", "First Post"], month_posts.sorted_posts.map(&:title))
     end
   end
+
+  def test_build_post_builds_a_post_from_content_without_touching_the_filesystem
+    content = <<~MARKDOWN
+      ---
+      Title: Tree Well Protocol
+      Author: Jane Doe
+      Date: 7th June, 2026
+      Timestamp: 2026-06-07T14:30:00-07:00
+      Tags: snowboarding, safety
+      Link: https://powder.example.net/tree-wells
+      ---
+
+      Never ride alone in deep snow.
+    MARKDOWN
+
+    post = repo.build_post(content:, slug: "tree-well-protocol")
+
+    assert_equal("Tree Well Protocol", post.title)
+    assert_equal("Jane Doe", post.author)
+    assert_equal("tree-well-protocol", post.slug)
+    assert_equal("/posts/2026/06/tree-well-protocol", post.path)
+    assert_equal(["snowboarding", "safety"], post.tags)
+    assert_equal("https://powder.example.net/tree-wells", post.link)
+    assert_includes(post.body, "<p>Never ride alone in deep snow.</p>")
+    assert_equal("Never ride alone in deep snow.\n", post.markdown_body)
+  end
+
+  def test_read_posts_and_build_post_agree
+    Dir.mktmpdir do |tmpdir|
+      posts_dir = File.join(tmpdir, "posts", "2026", "06")
+      FileUtils.mkdir_p(posts_dir)
+
+      content = <<~MARKDOWN
+        ---
+        Title: Lift Line Notes
+        Author: Fat Mike
+        Date: 7th June, 2026
+        Timestamp: 2026-06-07T14:30:00-07:00
+        ---
+
+        Chairlift conversations, collected.
+      MARKDOWN
+
+      File.write(File.join(posts_dir, "lift-line-notes.md"), content)
+      from_disk = repo.read_posts(File.join(tmpdir, "posts")).all_posts.first
+
+      assert_equal(from_disk.to_h, repo.build_post(content:, slug: "lift-line-notes").to_h)
+    end
+  end
 end

@@ -23,6 +23,24 @@ module Pressa
         end
       end
 
+      # The full HTML page for one post, exactly as write_posts would write it,
+      # so the preview endpoint shows the real page rather than an
+      # approximation of it.
+      def post_html(post:)
+        content_view = Views::PostView.new(post:, site: @site, article_class: "container")
+
+        render_layout(
+          page_subtitle: post.title,
+          canonical_url: @site.url_for(post.path),
+          content: content_view,
+          page_description: post.excerpt,
+          page_type: "article",
+          page_image: post.image,
+          page_tags: post.tags,
+          page_published_time: post.date.iso8601
+        )
+      end
+
       def write_recent_posts(target_path:, limit: 10)
         recent = @posts_by_year.recent_posts(limit)
         content_view = Views::RecentPostsView.new(posts: recent, site: @site)
@@ -110,21 +128,8 @@ module Pressa
       end
 
       def write_post(post:, target_path:)
-        content_view = Views::PostView.new(post:, site: @site, article_class: "container")
-
-        html = render_layout(
-          page_subtitle: post.title,
-          canonical_url: @site.url_for(post.path),
-          content: content_view,
-          page_description: post.excerpt,
-          page_type: "article",
-          page_image: post.image,
-          page_tags: post.tags,
-          page_published_time: post.date.iso8601
-        )
-
         file_path = File.join(target_path, post.path.sub(/^\//, ""), "index.html")
-        Utils::FileWriter.write(path: file_path, content: html)
+        Utils::FileWriter.write(path: file_path, content: post_html(post:))
       end
 
       def write_year_index(year:, year_posts:, target_path:)
