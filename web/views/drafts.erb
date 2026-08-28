@@ -1,0 +1,21 @@
+<h1>Drafts</h1>
+
+<form method="post" action="/drafts" class="card row">
+  <input type="text" name="title" placeholder="New draft title" required>
+  <button type="submit">Create</button>
+</form>
+
+<% if @drafts.empty? %>
+  <p class="quiet">No drafts yet.</p>
+<% else %>
+  <ul class="rows">
+    <% @drafts.each do |draft| %>
+      <li>
+        <a href="/drafts/<%= h(draft.slug) %>">
+          <strong><%= h(draft.title) %></strong>
+          <span class="quiet"><%= h(draft.timestamp.strftime("%b %-d, %Y")) %></span>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

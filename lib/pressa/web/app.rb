@@ -1,0 +1,352 @@
+require "json"
+require "sinatra/base"
+require "super_good/csrf_protection"
+require "pressa"
+require "pressa/link_post"
+require "pressa/open_graph"
+require "pressa/posts/repo"
+require "pressa/posts/tag_index"
+require "pressa/web/draft_store"
+require "pressa/web/job_registry"
+require "pressa/web/job_runner"
+require "pressa/web/preview"
+
+module Pressa
+  module Web
+    # Pressa's web front end, hosted on mudge behind Caddy on the tailnet.
+    #
+    # It owns posting a link, drafts, and preview, and it does so by driving
+    # the same bin/ scripts the phone Shortcut drives over SSH rather than
+    # reimplementing the flow. Anything that writes to the checkout goes
+    # through a job so the request can return immediately and the browser can
+    # watch the log.
+    class App < Sinatra::Base
+      WEB_ROOT = File.expand_path("../../../web", __dir__)
+      REPO_ROOT = File.expand_path("../../..", __dir__)
+      TAG_CHIP_LIMIT = 24
+
+      # There are no cookies or sessions here, so what a malicious page would be
+      # riding isn't a login -- it's this machine's position on the tailnet.
+      # Sec-Fetch-* are forbidden header names, so page JavaScript can't forge
+      # them; a request without them didn't come from a browser and can't be the
+      # confused deputy a CSRF needs, which is what keeps curl and the phone
+      # Shortcut working.
+      use SuperGood::CSRFProtection
+
+      # The middleware guards unsafe methods, which is the right default. It
+      # leaves GETs alone, but /link/metadata is a GET that makes this server
+      # fetch a URL the caller chose, so a cross-site page could use it to probe
+      # the tailnet blind. Rather than keep a second copy of the rule, ask the
+      # middleware how it would treat the request if it were a POST.
+      CROSS_ORIGIN_PROBE = SuperGood::CSRFProtection.new(->(_env) { [200, {}, []] })
+
+      set :root, WEB_ROOT
+      set :views, File.join(WEB_ROOT, "views")
+      set :public_folder, File.join(WEB_ROOT, "public")
+      set :bind, ENV.fetch("BIND_ADDRESS", "127.0.0.1")
+      set :port, ENV.fetch("PORT", "1112")
+      set :host_authorization, {permitted_hosts: ["pressa", "mudge", "localhost", "127.0.0.1"]}
+
+      set :repo_root, REPO_ROOT
+      set :site_url, ENV.fetch("PRESSA_SITE_URL", "https://samhuri.net")
+      set :registry, JobRegistry.new
+      set :link_scraper, OpenGraph
+      set :html_site, nil
+      set :gemini_site, nil
+      set :author, nil
+      set :tag_cache, nil
+      set :keep_alive_seconds, 15
+
+      helpers do
+        def h(text) = Rack::Utils.escape_html(text.to_s)
+
+        def registry = settings.registry
+
+        def repo_path(*parts) = File.join(settings.repo_root, *parts)
+
+        def drafts = DraftStore.new(dir: repo_path("public", "drafts"))
+
+        def preview_renderer = Preview.new(html_site:, gemini_site:)
+
+        def html_site
+          settings.html_site || settings.set(:html_site, build_site("html")) && settings.html_site
+        end
+
+        def gemini_site
+          settings.gemini_site || settings.set(:gemini_site, build_site("gemini")) && settings.gemini_site
+        end
+
+        def build_site(output_format)
+          Pressa.create_site(
+            source_path: settings.repo_root, url_override: settings.site_url, output_format:
+          )
+        end
+
+        def author
+          settings.author || settings.set(:author, html_site.author) && settings.author
+        end
+
+        # Rendering every post to count tags takes a beat, and the link form
+        # is the page you want instant on a phone, so it's cached until a post
+        # is added or edited.
+        def tag_chips
+          files = Dir.glob(repo_path("posts", "**", "*.md"))
+          key = [files.length, files.map { File.mtime(it) }.max]
+          cached = settings.tag_cache
+          return cached[:tags] if cached && cached[:key] == key
+
+          posts = Posts::PostRepo.new.read_posts(repo_path("posts"))
+          tags = Posts::TagIndex.from_posts_by_year(posts).counts.keys.first(TAG_CHIP_LIMIT)
+          settings.set(:tag_cache, {key:, tags:})
+          tags
+        end
+
+        def link_form
+          {
+            title: params[:title].to_s.strip,
+            link: params[:link].to_s.strip,
+            # Browsers normalize textarea line breaks to CRLF on submit, per
+            # the HTML spec, even though nothing here ever inserts one.
+            body: params[:body].to_s.gsub("\r\n", "\n").strip,
+            tags: normalize_tags(params[:tags]),
+            image: params[:image].to_s.strip
+          }
+        end
+
+        def normalize_tags(value)
+          value.to_s.split(",").map { it.strip.downcase }.reject(&:empty?).join(", ")
+        end
+
+        def link_post_source(form)
+          LinkPost.build(
+            title: form[:title], link: form[:link], body: form[:body], tags: form[:tags],
+            image: form[:image].empty? ? nil : form[:image], author:
+          )
+        end
+
+        def start_job(kind:, label:, command:, stdin_data: nil)
+          registry.start(kind:, label:) do |job|
+            JobRunner.run(command:, stdin_data:, chdir: settings.repo_root) { job.append(it) }
+          end
+        end
+
+        def sse(payload) = "data: #{payload.to_json}\n\n"
+
+        def cross_origin_request?
+          status, = CROSS_ORIGIN_PROBE.call(request.env.merge("REQUEST_METHOD" => "POST"))
+          status == 403
+        end
+
+        def json_error(status, message) = halt(status, {error: message}.to_json)
+      end
+
+      # --- posting a link ----------------------------------------------------
+
+      get "/" do
+        @form = {}
+        @tags = tag_chips
+        erb :link
+      end
+
+      post "/link" do
+        @form = link_form
+        @tags = tag_chips
+
+        if @form[:title].empty? || @form[:link].empty?
+          @error = "A URL and a title are both required."
+          halt 422, erb(:link)
+        end
+
+        payload = @form.reject { |_key, value| value.to_s.empty? }.to_json
+        begin
+          job = start_job(
+            kind: "publish_link", label: @form[:title],
+            command: [repo_path("bin", "post-link")], stdin_data: payload
+          )
+        rescue JobRegistry::Busy => e
+          @busy = e.job
+          @error = "Something is already publishing. Watch it finish, then try again."
+          halt 409, erb(:link)
+        end
+
+        redirect to("/jobs/#{job.id}"), 303
+      end
+
+      get "/link/metadata" do
+        halt 403, "Forbidden" if cross_origin_request?
+
+        content_type :json
+        url = params[:url].to_s.strip
+        json_error(400, "missing url") if url.empty?
+
+        found = settings.link_scraper.fetch(url)
+        return "{}" unless found
+
+        {title: found.title, description: found.description, image: found.image}.compact.to_json
+      end
+
+      # --- preview -----------------------------------------------------------
+
+      post "/preview" do
+        content_type :json
+
+        begin
+          source, slug = preview_source
+          result = preview_renderer.render(source, slug:)
+        rescue Preview::Error, LinkPost::Error => e
+          json_error(422, e.message)
+        end
+
+        {title: result.title, html: result.html, gemtext: result.gemtext}.to_json
+      end
+
+      # --- jobs --------------------------------------------------------------
+
+      get "/jobs" do
+        @jobs = registry.recent
+        erb :jobs
+      end
+
+      get "/jobs/:id" do
+        @job = registry.find(params[:id]) || halt(404, not_found_page("No job by that name."))
+        erb :job
+      end
+
+      get "/jobs/:id/stream" do
+        job = registry.find(params[:id]) || halt(404, "unknown job")
+
+        content_type "text/event-stream"
+        headers "Cache-Control" => "no-cache", "X-Accel-Buffering" => "no"
+
+        stream(:keep_open) do |out|
+          backlog, queue = job.subscribe
+          out.callback { job.unsubscribe(queue) }
+
+          backlog.each { out << sse(type: "line", text: it) }
+          loop do
+            # A timed pop lets an idle job still get a periodic write, which is
+            # the only way to notice the browser hung up.
+            line = queue.pop(timeout: settings.keep_alive_seconds)
+            if line.nil?
+              break if job.finished? && queue.empty?
+
+              out << ": keep-alive\n\n"
+              next
+            end
+            out << sse(type: "line", text: line)
+          end
+
+          out << sse(job.to_h.merge(type: "state"))
+          out.close
+        rescue IOError, Errno::EPIPE
+          # browser went away
+        end
+      end
+
+      # --- drafts ------------------------------------------------------------
+
+      get "/drafts" do
+        @drafts = drafts.list
+        erb :drafts
+      end
+
+      post "/drafts" do
+        slug =
+          begin
+            drafts.create(params[:title].to_s)
+          rescue DraftStore::Conflict => e
+            @drafts = drafts.list
+            @error = e.message
+            halt 409, erb(:drafts)
+          rescue DraftStore::InvalidTitle
+            @drafts = drafts.list
+            @error = "That title doesn't make a usable filename."
+            halt 422, erb(:drafts)
+          end
+
+        redirect to("/drafts/#{slug}"), 303
+      end
+
+      get "/drafts/:slug" do
+        @slug = params[:slug]
+        @source = find_draft(@slug)
+        erb :draft
+      end
+
+      post "/drafts/:slug" do
+        find_draft(params[:slug])
+        drafts.write(params[:slug], params[:source].to_s)
+        redirect to("/drafts/#{params[:slug]}"), 303
+      end
+
+      post "/drafts/:slug/publish" do
+        @slug = params[:slug]
+        @source = find_draft(@slug)
+
+        begin
+          job = start_job(
+            kind: "publish_draft", label: @slug,
+            command: [repo_path("bin", "publish-draft"), @slug]
+          )
+        rescue JobRegistry::Busy => e
+          @busy = e.job
+          @error = "Something is already publishing. Watch it finish, then try again."
+          halt 409, erb(:draft)
+        end
+
+        redirect to("/jobs/#{job.id}"), 303
+      end
+
+      post "/drafts/:slug/delete" do
+        find_draft(params[:slug])
+        drafts.delete(params[:slug])
+        redirect to("/drafts"), 303
+      end
+
+      # --- odds and ends -----------------------------------------------------
+
+      get "/tags" do
+        content_type :json
+        tag_chips.to_json
+      end
+
+      get "/up" do
+        "ok"
+      end
+
+      not_found do
+        next if response.body.any?
+
+        erb :not_found
+      end
+
+      helpers do
+        def find_draft(slug)
+          drafts.read(slug)
+        rescue DraftStore::Error
+          halt 404, not_found_page("No draft named #{h(slug)}.")
+        end
+
+        def not_found_page(message)
+          @message = message
+          erb :not_found
+        end
+
+        def preview_source
+          raw = params[:source].to_s
+          unless raw.strip.empty?
+            return [raw.gsub("\r\n", "\n"), preview_slug]
+          end
+
+          post = link_post_source(link_form)
+          [post.content, File.basename(post.filename, ".md")]
+        end
+
+        def preview_slug
+          slug = params[:slug].to_s
+          slug.match?(DraftStore::SLUG_PATTERN) ? slug : "preview"
+        end
+      end
+    end
+  end
+end

@@ -33,7 +33,7 @@ BETA_PUBLISH_DIR = "/var/www/beta.samhuri.net/public".freeze
 GEMINI_PUBLISH_DIR = "/var/gemini/samhuri.net".freeze
 STATIC_PUBLISH_DIR = "/var/www/static.samhuri.net/public".freeze
 WATCHABLE_DIRECTORIES = %w[public posts lib].freeze
-LINT_TARGETS = %w[bake.rb Gemfile lib test].freeze
+LINT_TARGETS = %w[bake.rb Gemfile lib test web/config.ru].freeze
 BUILD_TARGETS = %w[debug mudge beta release gemini].freeze
 
 # Generate the site in debug mode (localhost:8000)
@@ -59,6 +59,12 @@ end
 # Generate the Gemini capsule for production
 def gemini
   build("https://samhuri.net", output_format: "gemini", target_path: "gemini")
+end
+
+# Run the Pressa web app locally.
+# @parameter port [String] Port to bind on 127.0.0.1 (default: 1112).
+def web(port: "1112")
+  exec("bundle", "exec", "puma", "-t", "0:16", "-b", "tcp://127.0.0.1:#{port}", "web/config.ru")
 end
 
 # Start local development server

@@ -1,0 +1,16 @@
+<h1>Jobs</h1>
+<% if @jobs.empty? %>
+  <p class="quiet">Nothing has run yet.</p>
+<% else %>
+  <ul class="rows">
+    <% @jobs.each do |job| %>
+      <li>
+        <a href="/jobs/<%= h(job.id) %>">
+          <span class="pill <%= h(job.state) %>"><%= h(job.state) %></span>
+          <strong><%= h(job.label || job.kind) %></strong>
+          <span class="quiet"><%= h(job.started_at.strftime("%b %-d %-I:%M %p")) %></span>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

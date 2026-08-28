@@ -4,6 +4,8 @@
 This repository is a Ruby static-site generator (Pressa) that outputs both HTML and Gemini formats.
 
 - Generator code: `lib/pressa/` (entrypoint: `lib/pressa.rb`)
+- Web app: `lib/pressa/web/` (Sinatra app, jobs, drafts, preview) with templates and assets in `web/`
+- Publish scripts: `bin/post-link`, `bin/publish-draft`, `bin/preview-link`, sharing `bin/lib/common.sh`
 - Build/publish/draft tasks: `bake.rb` (delegating to helpers under `lib/pressa/`)
 - Tests: `test/`
 - Site config: `site.toml`, `projects.toml`
@@ -23,6 +25,7 @@ Keep new code under the existing `Pressa` module structure (for example `lib/pre
 - `bin/bootstrap`: install prerequisites and gems via `rv`.
 - `bundle exec bake debug`: build HTML for `http://localhost:8000` into `www/`.
 - `bundle exec bake serve`: serve `www/` via WEBrick on port 8000.
+- `bundle exec bake web`: run the Pressa web app on `http://localhost:1112`.
 - `bundle exec bake watch target=debug`: Linux-only autorebuild loop (`inotifywait` required).
 - `bundle exec bake mudge|beta|release`: build HTML with environment-specific base URLs.
 - `bundle exec bake gemini`: build Gemini capsule into `gemini/`.
@@ -41,6 +44,15 @@ Keep new code under the existing `Pressa` module structure (for example `lib/pre
 - `bundle exec bake new_draft "Post Title"` creates `public/drafts/<slug>.md`.
 - `bundle exec bake drafts` lists available drafts.
 - `bundle exec bake publish_draft public/drafts/<slug>.md` moves draft to `posts/YYYY/MM/` and updates `Date` and `Timestamp`.
+- `bin/publish-draft <slug>` does the whole thing on the publish host: commit pending edits, pull, `bake publish_draft`, commit, push, `bake publish`.
+
+## Web App
+`lib/pressa/web/` is a Sinatra app that owns posting a link, drafts, and preview. It runs on mudge as `pressa-web.service` on `127.0.0.1:1112`, published by Caddy at `http://mudge:7777` and restricted to Tailscale source IPs, and is served by `web/bin/start` (puma, threads only).
+
+- It drives `bin/post-link` and `bin/publish-draft` rather than reimplementing the publish flow, and renders previews through `Posts::PostWriter#post_html` and `Posts::GeminiWriter#post_content` — the same code the build uses.
+- Anything that writes to the checkout runs as a job (`Web::JobRegistry`, `Web::Job`, `Web::JobRunner`); the browser watches the log over SSE at `/jobs/:id/stream`. One job at a time: a second publish is refused with the running job, never queued.
+- Puma runs threads only, not workers — the single-writer guard is an in-process mutex. `bin/lib/common.sh` adds an `flock` so the SSH path can't race it.
+- Sinatra and puma live in this repo's Gemfile on purpose. A separate `web/Gemfile` would leave `BUNDLE_GEMFILE` pointing at the wrong one inside `bin/post-link`'s `bundle exec bake`.
 
 ## Content and Metadata Requirements
 Posts must include YAML front matter. Required keys (enforced by `Pressa::Posts::PostMetadata`) are:
@@ -76,6 +88,7 @@ Optional keys include `Tags`, `Link`, `Scripts`, and `Styles`.
 
 ## Deployment & Security Notes
 - Publish tasks are defined in `bake.rb` via rsync over SSH.
+- The web app is deployed from the `mudge.samhuri.net` repo (`config/systemd/pressa-web.service` and the Caddy vhost); the code lives here.
 - Current publish host is `mudge` with:
   - production HTML: `/var/www/samhuri.net/public`
   - beta HTML: `/var/www/beta.samhuri.net/public`
