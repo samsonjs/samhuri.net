@@ -12,6 +12,22 @@ module Pressa
     class MarkdownRenderer
       EXCERPT_LENGTH = 300
 
+      # The one place markdown becomes HTML, shared with PostRepo and the
+      # preview endpoint so all three agree on GFM and syntax highlighting.
+      def self.render_html(markdown)
+        Kramdown::Document.new(
+          markdown,
+          input: "GFM",
+          hard_wrap: false,
+          syntax_highlighter: "rouge",
+          syntax_highlighter_opts: {
+            line_numbers: false,
+            wrap: true,
+            formatter: Pressa::Utils::RougeHTMLFormatter
+          }
+        ).to_html
+      end
+
       def can_render_file?(filename:, extension:)
         extension == "md"
       end
@@ -71,17 +87,7 @@ module Pressa
       end
 
       def render_markdown(markdown)
-        Kramdown::Document.new(
-          markdown,
-          input: "GFM",
-          hard_wrap: false,
-          syntax_highlighter: "rouge",
-          syntax_highlighter_opts: {
-            line_numbers: false,
-            wrap: true,
-            formatter: Pressa::Utils::RougeHTMLFormatter
-          }
-        ).to_html
+        self.class.render_html(markdown)
       end
 
       def render_layout(site:, page_subtitle:, canonical_url:, body:, page_description:, page_type:)

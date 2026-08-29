@@ -1,7 +1,6 @@
-require "kramdown"
 require "pressa/posts/models"
 require "pressa/posts/metadata"
-require "pressa/utils/rouge_html_formatter"
+require "pressa/utils/markdown_renderer"
 
 module Pressa
   module Posts
@@ -22,23 +21,12 @@ module Pressa
         PostsByYear.new(by_year: @posts_by_year)
       end
 
-      private
-
-      def enumerate_markdown_files(dir, &block)
-        Dir.glob(File.join(dir, "**", "*.md")).each(&block)
-      end
-
-      def read_post(file_path)
-        content = File.read(file_path)
+      # Builds a Post from raw markdown, no file needed, so drafts and
+      # unsaved link posts can be rendered exactly the way the build renders
+      # published ones.
+      def build_post(content:, slug:)
         metadata = PostMetadata.parse(content)
-
         body_markdown = content.sub(/\A---\s*\n.*?\n---\s*\n/m, "")
-
-        html_body = render_markdown(body_markdown)
-
-        slug = File.basename(file_path, ".md")
-        path = generate_path(slug, metadata.date)
-        excerpt = generate_excerpt(body_markdown)
 
         Post.new(
           slug:,
@@ -49,25 +37,25 @@ module Pressa
           link: metadata.link,
           tags: metadata.tags,
           image: metadata.image,
-          body: html_body,
+          body: render_markdown(body_markdown),
           markdown_body: body_markdown,
-          excerpt:,
-          path:
+          excerpt: generate_excerpt(body_markdown),
+          path: generate_path(slug, metadata.date)
         )
       end
 
+      private
+
+      def enumerate_markdown_files(dir, &block)
+        Dir.glob(File.join(dir, "**", "*.md")).each(&block)
+      end
+
+      def read_post(file_path)
+        build_post(content: File.read(file_path), slug: File.basename(file_path, ".md"))
+      end
+
       def render_markdown(markdown)
-        Kramdown::Document.new(
-          markdown,
-          input: "GFM",
-          hard_wrap: false,
-          syntax_highlighter: "rouge",
-          syntax_highlighter_opts: {
-            line_numbers: false,
-            wrap: true,
-            formatter: Pressa::Utils::RougeHTMLFormatter
-          }
-        ).to_html
+        Utils::MarkdownRenderer.render_html(markdown)
       end
 
       def generate_path(slug, date)

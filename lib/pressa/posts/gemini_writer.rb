@@ -60,9 +60,10 @@ module Pressa
         Utils::FileWriter.write(path: File.join(target_path, "posts", "feed.gmi"), content:)
       end
 
-      private
-
-      def write_post(post:, target_path:)
+      # The gemtext for one post, exactly as write_posts would write it. The
+      # preview endpoint renders drafts through this so what you see is what
+      # the capsule gets.
+      def post_content(post:)
         rows = ["# #{post.title}", "", "#{post.formatted_date} by #{post.author}", ""]
 
         if post.link_post?
@@ -78,8 +79,14 @@ module Pressa
         rows << "=> #{web_url_for("#{post.path}/")} Read on the web" if include_web_link?(post)
         rows << ""
 
+        rows.join("\n")
+      end
+
+      private
+
+      def write_post(post:, target_path:)
         file_path = File.join(target_path, post.path.sub(%r{^/}, ""), "index.gmi")
-        Utils::FileWriter.write(path: file_path, content: rows.join("\n"))
+        Utils::FileWriter.write(path: file_path, content: post_content(post:))
       end
 
       def post_link_line(post)
