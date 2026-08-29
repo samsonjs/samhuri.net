@@ -25,6 +25,17 @@
 
   document.getElementById("preview-close").addEventListener("click", () => { pane.hidden = true; });
 
+  // srcdoc inherits this page's origin, so the rendered post's own height is
+  // readable. Fit both panes to it, floored so a one-liner isn't a sliver and
+  // capped so a long post doesn't push the page miles down.
+  function sizePanes() {
+    const doc = previewHtml.contentDocument;
+    if (!doc || !doc.body) return;
+    const content = doc.documentElement.scrollHeight || doc.body.scrollHeight;
+    const height = Math.min(Math.max(content + 8, 320), Math.round(window.innerHeight * 0.75));
+    pane.style.setProperty("--preview-height", `${height}px`);
+  }
+
   async function renderPreview(formData) {
     pane.hidden = false;
     previewError.hidden = true;
@@ -44,6 +55,7 @@
       }
       previewHtml.srcdoc = data.html;
       previewGemtext.textContent = data.gemtext;
+      previewHtml.addEventListener("load", sizePanes, { once: true });
     } catch (error) {
       previewError.textContent = String(error);
       previewError.hidden = false;

@@ -169,7 +169,16 @@ pre {
 
 .preview-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
 .panes { display: grid; gap: 1rem; grid-template-columns: 1fr; }
-.panes iframe { width: 100%; height: 24rem; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+
+/* Both panes share a height so they line up, and it's set from the rendered
+   page's own height so a short post doesn't sit in a tall empty box. */
+.panes iframe,
+.panes pre {
+  height: var(--preview-height, 24rem);
+  max-height: none;
+}
+
+.panes iframe { width: 100%; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
 
 /* Side by side is the point, but only once there's room for two columns. */
 @media (min-width: 52rem) {
