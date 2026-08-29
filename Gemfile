@@ -14,7 +14,7 @@ gem "bake", "~> 0.20"
 # Gemfile would leave BUNDLE_GEMFILE pointing at the wrong one in the child.
 group :web do
   gem "sinatra", "~> 4.1"
-  gem "puma", "~> 6.6"
+  gem "puma", "~> 7.2"
   gem "super_good-csrf_protection", "~> 0.2"
 end
 
