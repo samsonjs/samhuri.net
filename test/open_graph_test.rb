@@ -1,5 +1,6 @@
 require "test_helper"
 require "pressa/open_graph"
+require "socket"
 
 class Pressa::OpenGraphTest < Minitest::Test
   def test_extract_returns_og_image_resolved_against_base_url
@@ -27,10 +28,10 @@ class Pressa::OpenGraphTest < Minitest::Test
     assert_equal("https://cdn.example.net/tw.png", result.image)
   end
 
-  def test_extract_returns_nil_when_no_image_meta_present
+  def test_extract_leaves_image_nil_when_no_image_meta_present
     html = "<html><head><title>No image here</title></head></html>"
 
-    refute(Pressa::OpenGraph.extract(html, base_url: "https://example.net"))
+    assert_nil(Pressa::OpenGraph.extract(html, base_url: "https://example.net").image)
   end
 
   def test_extract_handles_single_quoted_attributes
@@ -38,6 +39,47 @@ class Pressa::OpenGraphTest < Minitest::Test
 
     result = Pressa::OpenGraph.extract(html, base_url: "https://example.net")
     assert_equal("https://cdn.example.net/single.png", result.image)
+  end
+
+  def test_extract_returns_og_title
+    html = %(<meta property="og:title" content="Ride the Lightning Rail"><title>ignored</title>)
+
+    result = Pressa::OpenGraph.extract(html, base_url: "https://trails.example.net")
+    assert_equal("Ride the Lightning Rail", result.title)
+  end
+
+  def test_extract_falls_back_to_the_title_element
+    html = "<html><head><title>  Powder Day Protocol  </title></head></html>"
+
+    result = Pressa::OpenGraph.extract(html, base_url: "https://powder.example.net")
+    assert_equal("Powder Day Protocol", result.title)
+  end
+
+  def test_extract_returns_og_description
+    html = %(<meta property="og:description" content="A field guide to tree wells.">)
+
+    result = Pressa::OpenGraph.extract(html, base_url: "https://powder.example.net")
+    assert_equal("A field guide to tree wells.", result.description)
+  end
+
+  def test_extract_falls_back_to_the_meta_description
+    html = %(<meta name="description" content="Notes from the lift line.">)
+
+    result = Pressa::OpenGraph.extract(html, base_url: "https://powder.example.net")
+    assert_equal("Notes from the lift line.", result.description)
+  end
+
+  def test_extract_unescapes_html_entities_in_text_fields
+    html = %(<meta property="og:title" content="Bikes &amp; Boards">) +
+      %(<meta property="og:description" content="Trent&#39;s workshop">)
+
+    result = Pressa::OpenGraph.extract(html, base_url: "https://beats.example.net")
+    assert_equal("Bikes & Boards", result.title)
+    assert_equal("Trent's workshop", result.description)
+  end
+
+  def test_extract_returns_nil_when_the_page_offers_nothing
+    refute(Pressa::OpenGraph.extract("<html><body>hi</body></html>", base_url: "https://example.net"))
   end
 
   def test_fetch_uses_injected_http_get_and_extracts_image
@@ -57,5 +99,45 @@ class Pressa::OpenGraphTest < Minitest::Test
     result = Pressa::OpenGraph.fetch("https://example.net/post", http_get: failing_get)
 
     assert_nil(result)
+  end
+
+  # --- giving up ------------------------------------------------------------
+  #
+  # Publishing blocks on this fetch, so a hanging third-party server used to be
+  # able to hold the request open for the better part of a minute: five seconds
+  # of connect plus five of read, per hop, across six possible hops.
+
+  def monotonic = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+
+  def test_http_get_gives_up_on_a_server_that_accepts_and_never_answers
+    server = TCPServer.new("127.0.0.1", 0)
+    accepting = Thread.new { loop { server.accept } }
+    started = monotonic
+
+    url = "http://127.0.0.1:#{server.addr[1]}/"
+    result = Pressa::OpenGraph.fetch(url, http_get: ->(u) { Pressa::OpenGraph.http_get(u, timeout: 0.5) })
+    elapsed = monotonic - started
+
+    assert_nil(result)
+    assert_operator(elapsed, :<, 3, "should have given up on its own budget, took #{elapsed}s")
+  ensure
+    accepting&.kill
+    server&.close
+  end
+
+  def test_http_get_does_not_start_a_request_once_the_budget_is_spent
+    server = TCPServer.new("127.0.0.1", 0)
+    accepting = Thread.new { loop { server.accept } }
+
+    result = Pressa::OpenGraph.http_get("http://127.0.0.1:#{server.addr[1]}/", deadline: monotonic - 1)
+
+    assert_nil(result)
+  ensure
+    accepting&.kill
+    server&.close
+  end
+
+  def test_the_whole_fetch_shares_one_budget_across_redirects
+    assert_equal(5, Pressa::OpenGraph::TOTAL_TIMEOUT_SECONDS)
   end
 end

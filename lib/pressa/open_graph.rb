@@ -1,16 +1,24 @@
+require "cgi"
 require "net/http"
 require "uri"
 
 module Pressa
-  # Best-effort scraper for OpenGraph metadata on a linked page, used to fill
-  # in an Image for link posts. Never raises: network failures, timeouts, and
-  # missing tags all just resolve to a nil image so post creation never blocks
-  # on a flaky or slow third-party site.
+  # Best-effort scraper for OpenGraph metadata on a linked page: an Image for
+  # link posts, plus the title and description used to prefill the link form.
+  # Never raises: network failures, timeouts, and missing tags all just resolve
+  # to nil fields so post creation never blocks on a flaky or slow third-party
+  # site.
   class OpenGraph
-    Result = Data.define(:image)
+    Result = Data.define(:title, :description, :image)
 
     USER_AGENT = "samhuri.net-link-preview/1.0".freeze
     MAX_REDIRECTS = 5
+    # One budget for the whole fetch, redirects included. Publishing blocks on
+    # this, and a per-hop timeout let a hanging server hold the request open for
+    # five seconds of connect plus five of read, six hops deep. The slowest real
+    # site measured 0.85s, so five seconds is generous.
+    TOTAL_TIMEOUT_SECONDS = 5
+    TITLE_ELEMENT = /<title[^>]*>([^<]*)<\/title>/i
 
     def self.fetch(url, http_get: method(:http_get))
       html = http_get.call(url)
@@ -22,10 +30,16 @@ module Pressa
     end
 
     def self.extract(html, base_url:)
+      title = text_field(html, "og:title") || clean(html[TITLE_ELEMENT, 1])
+      description = text_field(html, "og:description") || text_field(html, "description")
       image = meta_content(html, "og:image") || meta_content(html, "twitter:image")
-      return nil if image.nil?
+      return nil if title.nil? && description.nil? && image.nil?
 
-      Result.new(image: resolve(image, base_url:))
+      Result.new(title:, description:, image: image && resolve(image, base_url:))
+    end
+
+    def self.text_field(html, property)
+      clean(meta_content(html, property))
     end
 
     def self.meta_content(html, property)
@@ -37,19 +51,33 @@ module Pressa
       content&.strip&.then { |value| value.empty? ? nil : value }
     end
 
+    def self.clean(value)
+      return nil if value.nil?
+
+      unescaped = CGI.unescapeHTML(value).strip
+      unescaped.empty? ? nil : unescaped
+    end
+
     def self.resolve(image, base_url:)
       URI.join(base_url, image).to_s
     rescue URI::InvalidURIError, URI::InvalidComponentError
       image
     end
 
-    def self.http_get(url, redirects_left: MAX_REDIRECTS)
+    def self.http_get(url, redirects_left: MAX_REDIRECTS, timeout: TOTAL_TIMEOUT_SECONDS, deadline: nil)
       return nil if redirects_left < 0
+
+      deadline ||= monotonic_now + timeout
+      remaining = deadline - monotonic_now
+      return nil unless remaining > 0
 
       uri = URI.parse(url)
       return nil unless uri.is_a?(URI::HTTP)
 
-      Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == "https", open_timeout: 5, read_timeout: 5) do |http|
+      Net::HTTP.start(
+        uri.host, uri.port, use_ssl: uri.scheme == "https",
+        open_timeout: remaining, read_timeout: remaining
+      ) do |http|
         response = http.get(uri.request_uri, "User-Agent" => USER_AGENT)
 
         case response
@@ -59,9 +87,12 @@ module Pressa
           location = response["location"]
           return nil unless location
 
-          http_get(URI.join(url, location).to_s, redirects_left: redirects_left - 1)
+          # Redirects inherit the budget rather than getting a fresh one.
+          http_get(URI.join(url, location).to_s, redirects_left: redirects_left - 1, deadline:)
         end
       end
     end
+
+    def self.monotonic_now = Process.clock_gettime(Process::CLOCK_MONOTONIC)
   end
 end
