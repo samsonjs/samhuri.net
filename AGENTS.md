@@ -73,6 +73,7 @@ Optional keys include `Tags`, `Link`, `Scripts`, and `Styles`.
 
 ## Testing Guidelines
 - Use Minitest under `test/` (for example `test/posts`, `test/config`, `test/views`).
+- `test/bin/publish_scripts_test.rb` runs `bin/post-link` and `bin/publish-draft` for real, against a temporary git repo with a real remote and a stubbed `bake.rb`. It's the slowest file in the suite (~3s of the ~6s total) and it's there because git sequencing bugs in those scripts are invisible to everything else.
 - Add regression tests for parser, rendering, feed, and generator behavior changes.
 - Before submitting, run:
   - `bundle exec bake test`
