@@ -107,4 +107,34 @@ class Pressa::Web::PreviewTest < Minitest::Test
 
     assert_match(/Author/, error.message)
   end
+
+  def test_preview_points_the_highlighter_at_this_app
+    html_site = Pressa::Site.new(
+      author: "Sami Samhuri",
+      email: "sami@samhuri.net",
+      title: "samhuri.net",
+      description: "blog",
+      url: "https://samhuri.net",
+      scripts: [Pressa::Script.new(src: "/js/microlighter/microlighter.min.js", type: "module")]
+    )
+    renderer = Pressa::Web::Preview.new(html_site:, gemini_site: build_site("gemini"))
+
+    result = renderer.render(<<~MARKDOWN, slug: "shred")
+      ---
+      Title: Shred
+      Author: Sami Samhuri
+      Date: 29th August, 2026
+      Timestamp: 1756500000
+      ---
+
+      ```haskell
+      fib = 1 : 1 : zipWith (+) fib (tail fib)
+      ```
+    MARKDOWN
+
+    # A cross-origin module script would never load into the srcdoc iframe.
+    assert_includes(result.html, %(<script src="/js/microlighter/microlighter.min.js"))
+    refute_includes(result.html, "https://samhuri.net/js/microlighter/")
+    assert_includes(result.html, %(<pre><code class="language-haskell">))
+  end
 end

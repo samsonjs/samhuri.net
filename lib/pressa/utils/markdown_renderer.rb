@@ -2,7 +2,6 @@ require "kramdown"
 require "yaml"
 require "date"
 require "pressa/utils/file_writer"
-require "pressa/utils/rouge_html_formatter"
 require "pressa/site"
 require "pressa/views/layout"
 require "pressa/views/icons"
@@ -13,19 +12,13 @@ module Pressa
       EXCERPT_LENGTH = 300
 
       # The one place markdown becomes HTML, shared with PostRepo and the
-      # preview endpoint so all three agree on GFM and syntax highlighting.
+      # preview endpoint so all three agree on GFM.
+      #
+      # No build-time highlighter: with none configured kramdown emits
+      # `<pre><code class="language-x">`, which is exactly the markup
+      # MicroLighter looks for in the browser.
       def self.render_html(markdown)
-        Kramdown::Document.new(
-          markdown,
-          input: "GFM",
-          hard_wrap: false,
-          syntax_highlighter: "rouge",
-          syntax_highlighter_opts: {
-            line_numbers: false,
-            wrap: true,
-            formatter: Pressa::Utils::RougeHTMLFormatter
-          }
-        ).to_html
+        Kramdown::Document.new(markdown, input: "GFM", hard_wrap: false).to_html
       end
 
       def can_render_file?(filename:, extension:)

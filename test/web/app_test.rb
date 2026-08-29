@@ -507,4 +507,41 @@ class Pressa::Web::AppTest < Minitest::Test
 
     assert_predicate(last_response, :ok?)
   end
+
+  def vendor_highlighter
+    dir = File.join(@root, "public", "js", "microlighter", "grammars")
+    FileUtils.mkdir_p(dir)
+    File.write(File.join(dir, "..", "microlighter.min.js"), "export default 1;\n")
+    File.write(File.join(dir, "haskell.js"), %(export default{scopeName:"source.haskell"};\n))
+  end
+
+  def test_serves_the_vendored_highlighter
+    vendor_highlighter
+    get "/js/microlighter/microlighter.min.js"
+
+    assert_equal(200, last_response.status)
+    assert_includes(last_response.content_type, "javascript")
+  end
+
+  def test_serves_a_vendored_grammar
+    vendor_highlighter
+    get "/js/microlighter/grammars/haskell.js"
+
+    assert_equal(200, last_response.status)
+    assert_includes(last_response.body, "source.haskell")
+  end
+
+  def test_rejects_traversal_out_of_the_highlighter_directory
+    vendor_highlighter
+    get "/js/microlighter/../../../site.toml"
+
+    refute_equal(200, last_response.status)
+  end
+
+  def test_missing_highlighter_asset_is_not_found
+    vendor_highlighter
+    get "/js/microlighter/grammars/brainfuck.js"
+
+    assert_equal(404, last_response.status)
+  end
 end

@@ -278,7 +278,12 @@ module Pressa
               raise ValidationError, "Expected #{context}[#{index}].defer to be a Boolean"
             end
 
-            Script.new(src:, defer:)
+            type = item["type"]
+            if item.key?("type") && !(type.is_a?(String) && !type.empty?)
+              raise ValidationError, "Expected #{context}[#{index}].type to be a String"
+            end
+
+            Script.new(src:, type:, defer:)
           else
             raise ValidationError, "Expected #{context}[#{index}] to be a String or table"
           end

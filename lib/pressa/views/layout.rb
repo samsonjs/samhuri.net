@@ -100,7 +100,7 @@ module Pressa
             end
           end
 
-          body do
+          body(**body_attributes) do
             render_header
             render(content) if content
             render_footer
@@ -110,6 +110,11 @@ module Pressa
       end
 
       private
+
+      # MicroLighter reads this to pick the palette in public/css/syntax.css.
+      def body_attributes
+        {"data-syntax-theme": "solarized-light"}
+      end
 
       def description
         page_description || site.description
@@ -197,7 +202,8 @@ module Pressa
       def render_scripts
         all_scripts.each do |scr|
           attrs = {src: script_src(scr.src)}
-          attrs[:defer] = true if scr.defer
+          attrs[:type] = scr.type if scr.type
+          attrs[:defer] = true if scr.defer?
           script(**attrs)
         end
 

@@ -5,7 +5,7 @@ description = "Sami Samhuri's blog about programming, mainly about iOS and Ruby 
 url = "https://samhuri.net"
 fediverse_creator = "@sjs@techhub.social"
 image_url = "/images/me.jpg"
-scripts = []
+scripts = [{"src": "/js/microlighter/microlighter.min.js", "type": "module"}]
 styles = ["/css/normalize.css", "/css/style.css", "/css/syntax.css"]
 plugins = ["posts", "projects"]
 

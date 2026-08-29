@@ -14,7 +14,14 @@ module Pressa
 
   class Script < Dry::Struct
     attribute :src, Types::String
+    attribute :type, Types::String.optional.default(nil)
     attribute :defer, Types::Bool.default(true)
+
+    # Module scripts are deferred by definition, so the attribute is ignored
+    # there and only adds noise to the markup.
+    def defer?
+      defer && type != "module"
+    end
   end
 
   class Stylesheet < Dry::Struct

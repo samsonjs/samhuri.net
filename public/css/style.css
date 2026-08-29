@@ -504,7 +504,11 @@ ul.audio audio {
 }
 
 pre {
-    background-color: #eaeaea;
+    /* A cool slate tint. A neutral grey at this lightness is invisible against
+       the page, so the block needs a hue to read as its own panel the way
+       Solarized's cream does -- without being that cream. Dark mode below uses
+       Solarized's own base instead. */
+    background-color: #f1f5f9;
     padding: 0.5rem 1rem;
 }
 
@@ -535,7 +539,7 @@ pre.line-numbers {
     }
 
     pre {
-        background-color: #141414;
+        background-color: #002b36;
     }
 }
 

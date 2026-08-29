@@ -504,6 +504,55 @@ class Pressa::Config::LoaderTest < Minitest::Test
     end
   end
 
+  def test_build_site_reads_script_types
+    Dir.mktmpdir do |dir|
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Sami Samhuri"
+        email = "sami@samhuri.net"
+        title = "samhuri.net"
+        description = "blog"
+        url = "https://samhuri.net"
+        scripts = [{"src": "/js/microlighter.min.js", "type": "module"}, "/js/gitter.js"]
+      TOML
+      File.write(File.join(dir, "projects.toml"), <<~TOML)
+        [[projects]]
+        name = "demo"
+        title = "demo"
+        description = "demo project"
+        url = "https://github.com/samsonjs/demo"
+      TOML
+
+      site = Pressa::Config::Loader.new(source_path: dir).build_site
+
+      assert_equal(["module", nil], site.scripts.map(&:type))
+      assert_equal([false, true], site.scripts.map(&:defer?))
+    end
+  end
+
+  def test_build_site_rejects_non_string_script_types
+    Dir.mktmpdir do |dir|
+      File.write(File.join(dir, "site.toml"), <<~TOML)
+        author = "Sami Samhuri"
+        email = "sami@samhuri.net"
+        title = "samhuri.net"
+        description = "blog"
+        url = "https://samhuri.net"
+        scripts = [{"src": "/js/site.js", "type": 42}]
+      TOML
+      File.write(File.join(dir, "projects.toml"), <<~TOML)
+        [[projects]]
+        name = "demo"
+        title = "demo"
+        description = "demo project"
+        url = "https://github.com/samsonjs/demo"
+      TOML
+
+      loader = Pressa::Config::Loader.new(source_path: dir)
+      error = assert_raises(Pressa::Config::ValidationError) { loader.build_site }
+      assert_match(/Expected site\.toml scripts\[0\]\.type to be a String/, error.message)
+    end
+  end
+
   def test_build_site_rejects_non_string_or_table_scripts_and_non_array_script_lists
     Dir.mktmpdir do |dir|
       File.write(File.join(dir, "site.toml"), <<~TOML)

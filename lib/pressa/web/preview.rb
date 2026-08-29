@@ -13,6 +13,14 @@ module Pressa
 
       Result = Data.define(:title, :html, :gemtext)
 
+      # The preview iframe uses srcdoc, so it runs on the web app's origin while
+      # the rendered page points its assets at the live site. A stylesheet
+      # crosses origins happily; a module script is fetched in CORS mode and
+      # samhuri.net sends no Access-Control-Allow-Origin, so the highlighter
+      # would never load. Point it back at this app, which serves the same
+      # vendored files from the checkout.
+      HIGHLIGHTER_PATH = "/js/microlighter/"
+
       def initialize(html_site:, gemini_site:)
         @html_site = html_site
         @gemini_site = gemini_site
@@ -28,12 +36,16 @@ module Pressa
 
         Result.new(
           title: post.title,
-          html: html_writer.post_html(post:),
+          html: same_origin_highlighter(html_writer.post_html(post:)),
           gemtext: gemini_writer.post_content(post:)
         )
       end
 
       private
+
+      def same_origin_highlighter(html)
+        html.gsub("#{@html_site.url}#{HIGHLIGHTER_PATH}", HIGHLIGHTER_PATH)
+      end
 
       # Neither post_html nor post_content consults the index, and a preview
       # has no site to index anyway.

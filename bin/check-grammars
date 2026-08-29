@@ -1,0 +1,263 @@
+#!/usr/bin/env -S deno run --allow-read
+//
+// Run every fenced code block in posts/ and public/ through the vendored
+// microlighter runtime and report what it highlighted. There is no browser
+// here, so the handful of DOM APIs microlighter touches are stubbed below.
+//
+// Usage:
+//   bin/check-grammars              summary table, non-zero exit on a gap
+//   bin/check-grammars haskell      also print those blocks in colour
+
+const ROOT = new URL("../", import.meta.url).pathname;
+const only = Deno.args[0];
+
+// Mirrors the alias table baked into microlighter.min.js.
+const ALIASES = {
+  docker: "dockerfile",
+  gql: "graphql",
+  js: "javascript",
+  jsx: "javascript",
+  md: "markdown",
+  py: "python",
+  rb: "ruby",
+  sass: "scss",
+  sh: "bash",
+  shell: "bash",
+  ts: "typescript",
+  yml: "yaml",
+  zsh: "bash"
+};
+
+// --- fenced code blocks -----------------------------------------------------
+
+const walk = async function* (dir) {
+  for await (const entry of Deno.readDir(dir)) {
+    const path = `${dir}/${entry.name}`;
+    if (entry.isDirectory) yield* walk(path);
+    else if (entry.name.endsWith(".md")) yield path;
+  }
+};
+
+const blocks = [];
+
+for (const dir of ["posts", "public"]) {
+  for await (const path of walk(`${ROOT}${dir}`)) {
+    const text = await Deno.readTextFile(path);
+    const fence = /^```([A-Za-z0-9_+-]+)\n([\s\S]*?)^```$/gm;
+    let match;
+    while ((match = fence.exec(text))) {
+      blocks.push({
+        file: path.slice(ROOT.length),
+        language: match[1].toLowerCase(),
+        code: match[2]
+      });
+    }
+  }
+}
+
+// --- minimal DOM ------------------------------------------------------------
+
+const ranges = new Map(); // block index -> [{ start, end, category }]
+
+class Range {
+  setStart(node, offset) {
+    this.node = node;
+    this.start = offset;
+  }
+
+  setEnd(node, offset) {
+    this.end = offset;
+  }
+}
+
+class Highlight {
+  constructor() {
+    this.items = new Set();
+  }
+
+  add(range) {
+    this.items.add(range);
+  }
+
+  clear() {
+    this.items.clear();
+  }
+
+  get size() {
+    return this.items.size;
+  }
+}
+
+const codeBlocks = blocks.map((block, index) => {
+  const node = {
+    nodeType: 3,
+    data: block.code,
+    nextSibling: null,
+    blockIndex: index
+  };
+
+  return {
+    classList: [`language-${block.language}`],
+    dataset: {},
+    firstChild: node,
+    normalize() {},
+    parentElement: { dataset: {}, getAttribute: () => null }
+  };
+});
+
+globalThis.Range = Range;
+globalThis.Highlight = Highlight;
+globalThis.Node = { TEXT_NODE: 3 };
+globalThis.CSS = {
+  highlights: {
+    store: new Map(),
+    get(category) {
+      return this.store.get(category);
+    },
+    delete(category) {
+      this.store.delete(category);
+    },
+    set(category, highlight) {
+      this.store.set(category, highlight);
+      highlight.items.forEach(range => {
+        const list = ranges.get(range.node.blockIndex) ?? [];
+        list.push({ start: range.start, end: range.end, category });
+        ranges.set(range.node.blockIndex, list);
+      });
+    }
+  }
+};
+globalThis.document = {
+  querySelectorAll: () => codeBlocks,
+  addEventListener: () => {}
+};
+
+// --- run --------------------------------------------------------------------
+
+await import(`${ROOT}public/js/microlighter/microlighter.min.js`);
+
+// The auto-runner starts highlighting at import and offers no completion hook,
+// so wait for the grammar imports to settle.
+for (let tick = 0; tick < 50 && CSS.highlights.store.size === 0; tick++) {
+  await new Promise(resolve => setTimeout(resolve, 20));
+}
+await new Promise(resolve => setTimeout(resolve, 50));
+
+// --- report -----------------------------------------------------------------
+
+const COLORS = {
+  comment: "\x1b[90m",
+  keyword: "\x1b[31m",
+  storage: "\x1b[31m",
+  section: "\x1b[31m",
+  string: "\x1b[32m",
+  raw: "\x1b[32m",
+  numeric: "\x1b[33m",
+  boolean: "\x1b[33m",
+  constant: "\x1b[33m",
+  symbol: "\x1b[33m",
+  entity: "\x1b[33m",
+  function: "\x1b[93m",
+  type: "\x1b[35m",
+  support: "\x1b[35m",
+  variable: "\x1b[97m",
+  property: "\x1b[94m",
+  key: "\x1b[94m",
+  operator: "\x1b[36m",
+  punctuation: "\x1b[36m"
+};
+
+const paint = (code, spans) => {
+  // Later rules can overlap earlier ones; last write wins, as in the browser.
+  const colors = new Array(code.length).fill(null);
+  spans.forEach(({ start, end, category }) => {
+    for (let i = start; i < end; i++) colors[i] = COLORS[category] ?? "\x1b[0m";
+  });
+
+  let out = "";
+  let current = null;
+  for (let i = 0; i < code.length; i++) {
+    if (colors[i] !== current) {
+      out += "\x1b[0m" + (colors[i] ?? "");
+      current = colors[i];
+    }
+    out += code[i];
+  }
+  return out + "\x1b[0m";
+};
+
+const stats = new Map();
+
+blocks.forEach((block, index) => {
+  const spans = ranges.get(index) ?? [];
+  const covered = new Set();
+  spans.forEach(({ start, end }) => {
+    for (let i = start; i < end; i++) {
+      if (!/\s/.test(block.code[i])) covered.add(i);
+    }
+  });
+
+  const significant = [...block.code].filter(character => !/\s/.test(character)).length;
+  const entry = stats.get(block.language) ?? { blocks: 0, dark: 0, covered: 0, significant: 0 };
+  entry.blocks += 1;
+  if (!spans.length) entry.dark += 1;
+  entry.covered += covered.size;
+  entry.significant += significant;
+  stats.set(block.language, entry);
+
+  if (only && block.language === only) {
+    console.log(`\x1b[1m--- ${block.file}\x1b[0m`);
+    console.log(paint(block.code, spans));
+  }
+});
+
+console.log("");
+console.log("language      blocks  plain  coloured  grammar");
+console.log("---------------------------------------------");
+
+const missing = [];
+
+for (const [language, entry] of [...stats.entries()].sort()) {
+  const module = ALIASES[language] ?? language;
+  let grammar = module;
+  try {
+    await Deno.stat(`${ROOT}public/js/microlighter/grammars/${module}.js`);
+  } catch {
+    grammar = "MISSING";
+    missing.push(language);
+  }
+
+  const percent = Math.round((entry.covered / entry.significant) * 100);
+  console.log(
+    language.padEnd(14) +
+      String(entry.blocks).padStart(6) +
+      String(entry.dark).padStart(7) +
+      String(`${percent}%`).padStart(10) +
+      "  " +
+      grammar
+  );
+}
+
+console.log("");
+console.log("`plain` counts blocks with nothing worth colouring — transcripts,");
+console.log("ASCII diagrams, bare URLs. Those are fine. A MISSING grammar is not.");
+
+// A scope can flatten to a category the theme never styles, which registers a
+// highlight that renders in the default colour. Catch that here.
+const theme = await Deno.readTextFile(`${ROOT}public/css/syntax.css`);
+const styled = new Set(
+  [...theme.matchAll(/::highlight\(([\w-]+)\)/g)].map(match => match[1])
+);
+const unstyled = [...CSS.highlights.store.keys()]
+  .filter(category => !styled.has(category))
+  .sort();
+
+if (unstyled.length) {
+  console.error(`\ncategories with no rule in public/css/syntax.css: ${unstyled.join(", ")}`);
+}
+
+if (missing.length) {
+  console.error(`\nno grammar for: ${missing.join(", ")}`);
+}
+
+if (missing.length || unstyled.length) Deno.exit(1);

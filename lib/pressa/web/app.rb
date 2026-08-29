@@ -198,6 +198,18 @@ module Pressa
 
       # --- preview -----------------------------------------------------------
 
+      # Serves what Preview#same_origin_highlighter rewrites its script tag to.
+      get "/js/microlighter/*" do
+        asset = params[:splat].first.to_s
+        halt 404 unless /\A[\w.-]+(?:\/[\w.-]+)?\z/.match?(asset) && !asset.include?("..")
+
+        path = repo_path("public", "js", "microlighter", asset)
+        halt 404 unless File.file?(path)
+
+        content_type(asset.end_with?(".js") ? :js : :text)
+        send_file path
+      end
+
       post "/preview" do
         content_type :json
 

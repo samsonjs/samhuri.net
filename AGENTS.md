@@ -6,6 +6,7 @@ This repository is a Ruby static-site generator (Pressa) that outputs both HTML 
 - Generator code: `lib/pressa/` (entrypoint: `lib/pressa.rb`)
 - Web app: `lib/pressa/web/` (Sinatra app, jobs, drafts, preview) with templates and assets in `web/`
 - Publish scripts: `bin/post-link`, `bin/publish-draft`, `bin/preview-link`, sharing `bin/lib/common.sh`
+- Syntax highlighting: MicroLighter, vendored into `public/js/microlighter/` (generated) from the overlay in `vendor/microlighter/`
 - Build/publish/draft tasks: `bake.rb` (delegating to helpers under `lib/pressa/`)
 - Tests: `test/`
 - Site config: `site.toml`, `projects.toml`
@@ -23,6 +24,9 @@ Keep new code under the existing `Pressa` module structure (for example `lib/pre
 ## Setup, Build, Test, and Development Commands
 - Ruby commands run directly (`bundle exec ...`); `rv` manages the pinned version via `.ruby-version`, no exec wrapper needed.
 - `bin/bootstrap`: install prerequisites and gems via `rv`.
+- `bin/vendor-microlighter [version]`: regenerate `public/js/microlighter/` and `public/css/syntax.css`.
+- `bin/check-grammars [language]`: run every fenced code block through the vendored highlighter (needs `deno`).
+- `bin/preview-themes`: write `www/theme-preview.html` comparing every bundled theme (needs `deno`; re-run after `bake debug`).
 - `bundle exec bake debug`: build HTML for `http://localhost:8000` into `www/`.
 - `bundle exec bake serve`: serve `www/` via WEBrick on port 8000.
 - `bundle exec bake web`: run the Pressa web app on `http://localhost:1112`.
@@ -54,6 +58,25 @@ Keep new code under the existing `Pressa` module structure (for example `lib/pre
 - Only one publish may touch the checkout at a time. The `flock` in `bin/lib/common.sh` enforces that across processes, so the phone Shortcut over SSH and the web app can't collide; a blocked publish exits 75 (EX_TEMPFAIL) and the app turns that into a 409 telling you to try again.
 - Sinatra and puma live in this repo's Gemfile on purpose. A separate `web/Gemfile` would leave `BUNDLE_GEMFILE` pointing at the wrong one inside `bin/post-link`'s `bundle exec bake`.
 
+## Syntax Highlighting
+Highlighting happens in the browser, not at build time. Kramdown runs with no
+syntax highlighter, which makes it emit `<pre><code class="language-x">`, and
+MicroLighter turns that into CSS Custom Highlight ranges on load. There are no
+token `<span>`s in the generated HTML and the code element must stay a single
+text node — MicroLighter skips anything else.
+
+- Needs Chrome/Edge 105+, Safari 17.2+, or Firefox 140+. Anywhere else, and with
+  JS off, code blocks render as plain text.
+- The theme is `public/css/syntax.css`, generated from `vendor/microlighter/themes/`.
+  Set on `<body data-syntax-theme="solarized-light">` by `Pressa::Views::Layout`. It
+  supplies token colours only — `style.css` owns the code block background, and
+  a theme's own `pre:has(code)` rule has to be stripped or it overrides that.
+  Compare alternatives with `bin/preview-themes`.
+- Five grammars are local to this repo (`haskell`, `lisp`, `scheme`, `bat`,
+  `conf`) because upstream has none. See `vendor/microlighter/README.md`.
+- A fence tagged with a language that has no grammar renders grey and silent, so
+  `test/syntax_highlighting_test.rb` fails the build on one.
+
 ## Content and Metadata Requirements
 Posts must include YAML front matter. Required keys (enforced by `Pressa::Posts::PostMetadata`) are:
 
@@ -73,6 +96,7 @@ Optional keys include `Tags`, `Link`, `Scripts`, and `Styles`.
 
 ## Testing Guidelines
 - Use Minitest under `test/` (for example `test/posts`, `test/config`, `test/views`).
+- `test/syntax_highlighting_test.rb` guards the highlighting contract: every language used in a fence has a grammar, the local grammars match the vendor overlay, and `site.toml` still loads the runtime and theme.
 - `test/bin/publish_scripts_test.rb` runs `bin/post-link` and `bin/publish-draft` for real, against a temporary git repo with a real remote and a stubbed `bake.rb`. It's the slowest file in the suite (~3s of the ~6s total) and it's there because git sequencing bugs in those scripts are invisible to everything else.
 - Add regression tests for parser, rendering, feed, and generator behavior changes.
 - Before submitting, run:

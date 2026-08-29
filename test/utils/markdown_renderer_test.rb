@@ -91,4 +91,40 @@ class Pressa::Utils::MarkdownRendererTest < Minitest::Test
       assert_includes(html, "<h1>Notes</h1>")
     end
   end
+
+  def test_render_html_marks_fenced_code_with_a_language_class
+    html = Pressa::Utils::MarkdownRenderer.render_html(<<~MARKDOWN)
+      ```ruby
+      puts "shred"
+      ```
+    MARKDOWN
+
+    assert_includes(html, %(<pre><code class="language-ruby">))
+  end
+
+  def test_render_html_leaves_code_as_a_single_text_node
+    html = Pressa::Utils::MarkdownRenderer.render_html(<<~MARKDOWN)
+      ```haskell
+      fib = 1 : 1 : zipWith (+) fib (tail fib)
+      ```
+    MARKDOWN
+
+    code = html[%r{<code[^>]*>(.*?)</code>}m, 1]
+
+    # MicroLighter bails on a code element that holds anything but one text
+    # node, so nothing may wrap the tokens.
+    refute_includes(code, "<span")
+    refute_includes(html, %(<div class="highlight">))
+  end
+
+  def test_render_html_escapes_code_without_marking_it_up
+    html = Pressa::Utils::MarkdownRenderer.render_html(<<~MARKDOWN)
+      ```haskell
+      lispAnd env (pred:rest) = eval env pred >>= \\result -> f result
+      ```
+    MARKDOWN
+
+    assert_includes(html, "&gt;&gt;=")
+    assert_includes(html, "\\result")
+  end
 end

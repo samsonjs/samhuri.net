@@ -202,4 +202,53 @@ class Pressa::Views::LayoutTest < Minitest::Test
     refute_includes(html, "article:published_time")
     refute_includes(html, "article:tag")
   end
+
+  def test_body_carries_the_syntax_theme
+    html = Pressa::Views::Layout.new(
+      site:,
+      canonical_url: "https://samhuri.net/",
+      content: content_view
+    ).call
+
+    assert_includes(html, %(<body data-syntax-theme="solarized-light">))
+  end
+
+  def test_module_scripts_render_without_defer
+    site_with_module = Pressa::Site.new(
+      author: "Sami Samhuri",
+      email: "sami@samhuri.net",
+      title: "samhuri.net",
+      description: "blog",
+      url: "https://samhuri.net",
+      scripts: [Pressa::Script.new(src: "/js/microlighter/microlighter.min.js", type: "module")]
+    )
+
+    html = Pressa::Views::Layout.new(
+      site: site_with_module,
+      canonical_url: "https://samhuri.net/",
+      content: content_view
+    ).call
+
+    assert_includes(html, %(type="module"))
+    assert_match(%r{<script src="[^"]*microlighter\.min\.js" type="module">}, html)
+  end
+
+  def test_classic_scripts_still_defer
+    site_with_script = Pressa::Site.new(
+      author: "Sami Samhuri",
+      email: "sami@samhuri.net",
+      title: "samhuri.net",
+      description: "blog",
+      url: "https://samhuri.net",
+      scripts: [Pressa::Script.new(src: "/js/gitter.js")]
+    )
+
+    html = Pressa::Views::Layout.new(
+      site: site_with_script,
+      canonical_url: "https://samhuri.net/",
+      content: content_view
+    ).call
+
+    assert_match(%r{<script src="[^"]*gitter\.js" defer>}, html)
+  end
 end

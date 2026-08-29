@@ -1,0 +1,205 @@
+#!/usr/bin/env -S deno run --allow-read --allow-write --allow-net
+//
+// Write www/theme-preview.html: every bundled MicroLighter theme applied to
+// real code from this site, on the site's own light and dark backgrounds.
+// `bake debug` clears www/, so re-run this after a build.
+//
+// Usage: bin/preview-themes   then open http://localhost:8000/theme-preview.html
+
+const ROOT = new URL("../", import.meta.url).pathname;
+const VERSION = (await Deno.readTextFile(`${ROOT}vendor/microlighter/VERSION`)).trim();
+
+// Upstream ships the alternatives; only ours is vendored into public/.
+const pkg = await fetch(`https://registry.npmjs.org/microlighter/-/microlighter-${VERSION}.tgz`);
+const files = new Map();
+
+for await (const entry of (await pkg.blob()).stream()
+  .pipeThrough(new DecompressionStream("gzip"))
+  .pipeThrough(new (await import("jsr:@std/tar@0.1/untar-stream")).UntarStream())) {
+  if (!entry.path.startsWith("package/dist/themes/") || entry.path.endsWith("index.css")) {
+    entry.readable?.cancel();
+    continue;
+  }
+  files.set(entry.path.split("/").pop().replace(".css", ""), await new Response(entry.readable).text());
+}
+
+files.set("gruvbox", await Deno.readTextFile(`${ROOT}vendor/microlighter/themes/syntax.css`));
+
+// Every theme ships an identical ::highlight() rule set and differs only in the
+// variable values, so the page carries one unscoped copy of those rules — the
+// same shape the real theme has — and switches themes by swapping which
+// variable block applies. Scoping the rules themselves per theme does not work.
+const themeVars = [...files.entries()].sort().map(([name, css]) => {
+  const block = css.match(/\[data-syntax-theme=("?)[\w-]+\1\]\s*\{([^}]*)\}/)[2];
+  const vars = [...block.matchAll(/(--syntax-[\w-]+):\s*([^;]+);?/g)]
+    // style.css owns the code block background in both appearances.
+    .filter(([, property]) => !["--syntax-background", "--syntax-foreground"].includes(property))
+    .map(([, property, value]) => `  ${property}: ${value.trim()};`)
+    .join("\n");
+
+  return `[data-syntax-theme="${name}"] {\n${vars}\n}`;
+});
+
+// One unscoped rule set, lifted from the vendored theme so the preview and the
+// site cannot drift.
+const highlightRules = (await Deno.readTextFile(`${ROOT}public/css/syntax.css`))
+  .slice((await Deno.readTextFile(`${ROOT}public/css/syntax.css`)).indexOf("::highlight("));
+
+const SAMPLES = [
+  ["haskell", `lispNumPlus :: LispNum -> LispNum -> LispNum
+lispNumPlus (Integer x) (Integer y) = Integer $ x + y
+lispNumPlus (Integer x) (Float y)   = Float $ (fromInteger x) + y
+
+-- Parse a string of digits in the given base.
+parseDigits :: Char -> Parser LispVal
+parseDigits base = many1 d >>= return
+    where d = case base of
+                'b' -> binDigit
+                'x' -> hexDigit
+
+instance Num LispNum where
+    (+) = lispNumPlus
+    fromInteger x = Integer x`],
+  ["swift", `import AsyncMonitor
+
+let cancellable = NotificationCenter.default
+    .notifications(named: .NSCalendarDayChanged)
+    .map(\\.name)
+    .monitor { _ in
+        print("The date is now \\(Date.now)")
+    }`],
+  ["ruby", `# The one place markdown becomes HTML.
+def self.render_html(markdown)
+  Kramdown::Document.new(markdown, input: "GFM", hard_wrap: false).to_html
+end
+
+accounts.each do |account|
+  NotificationSender.new.send_notification(to: account)
+  account.update_last_seen
+end`],
+  ["lisp", `;; help out a TextMate junkie
+(defun wrap-region (left right beg end)
+  "Wrap the region in arbitrary text."
+  (interactive)
+  (save-excursion
+    (goto-char beg)
+    (insert left)
+    (goto-char (+ end (length left)))
+    (insert right)))`],
+  ["bat", `@echo off
+
+ipconfig /all | find "Parallels" > network.tmp
+for /F "tokens=14" %%x in (network.tmp) do set parallels=%x
+
+if defined parallels (
+  echo Parallels
+  copy C:\\Windows\\System32\\Parallels\\wpa.* C:\\Windows\\System32
+)`]
+];
+
+const escape = text => text.replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c]);
+const names = [...files.keys()].sort();
+
+await Deno.writeTextFile(`${ROOT}www/theme-preview.html`, `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Syntax theme preview — samhuri.net</title>
+<style>
+/* The site's own palette, lifted from public/css/style.css. */
+:root { color-scheme: light dark; }
+body {
+  background: #f7f7f7; color: #222; margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+pre { background-color: var(--pre-bg, #f1f5f9); padding: .5rem 1rem; overflow-x: auto; }
+code, pre { font-family: "Fira Code", "JetBrains Mono", Menlo, monospace; }
+header { background: #151515; color: #f7f7f7; padding: .8rem 1.2rem; }
+@media (prefers-color-scheme: dark) {
+  body { background: #000; color: #ddd; }
+  pre { background-color: var(--pre-bg-dark, #002b36); }
+  header { background: #121212; color: #ddd; }
+}
+body.force-light, body.force-light * { color-scheme: light; }
+body.force-light { background: #f7f7f7; color: #222; }
+body.force-light pre { background-color: var(--pre-bg, #f1f5f9); }
+body.force-dark, body.force-dark * { color-scheme: dark; }
+body.force-dark { background: #000; color: #ddd; }
+body.force-dark pre { background-color: var(--pre-bg-dark, #002b36); }
+main { max-width: 62rem; margin: 0 auto; padding: 1.5rem 1.2rem 4rem; }
+.controls { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+select, button { font-size: 1rem; padding: .35rem .5rem; }
+figure { margin: 0 0 1.5rem; }
+figcaption { font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; opacity: .6; margin-bottom: .3rem; }
+.note { font-size: .9rem; opacity: .75; line-height: 1.5; }
+</style>
+<style>
+${themeVars.join("\n")}
+${highlightRules}
+</style>
+</head>
+<body data-syntax-theme="solarized-light">
+<header><strong>Syntax theme preview</strong> — samhuri.net</header>
+<main>
+  <div class="controls">
+    <label>Theme <select id="theme">${names.map(n =>
+      `<option value="${n}"${n === "solarized-light" ? " selected" : ""}>${n}</option>`).join("")}</select></label>
+    <button id="appearance" type="button">Appearance: system</button>
+    <label>Block bg <select id="background">
+      <option value="#faf1f1|#1a1212">red, faint</option>
+      <option value="#f9eeee|#1c1313">red, light</option>
+      <option value="#f7ebeb|#201414">red, medium</option>
+      <option value="#f6e8e8|#241616">red, strong</option>
+      <option value="#f1f5f9|#002b36" selected>blue slate / solarized base (current)</option>
+      <option value="#eaeaea|#141414">neutral grey</option>
+      <option value="#f1f5f9|#101720">blue slate / neutral dark</option>
+      <option value="#fdf6e3|#002b36">solarized cream (both native)</option>
+    </select></label>
+    <code class="note" id="readout"></code>
+  </div>
+  ${SAMPLES.map(([language, code]) =>
+    `<figure><figcaption>${language}</figcaption><pre><code class="language-${language}">${escape(code)}</code></pre></figure>`
+  ).join("\n  ")}
+  <p class="note">Backgrounds come from <code>style.css</code> (#eaeaea light, #141414 dark).
+  Every theme here has its own background, foreground and <code>pre:has(code)</code> rule
+  stripped, so only the token colours change.</p>
+</main>
+<script type="module" src="/js/microlighter/microlighter.min.js"></script>
+<script>
+  const body = document.body;
+  const readout = document.getElementById("readout");
+  const report = () => {
+    const styles = getComputedStyle(body);
+    readout.textContent = body.dataset.syntaxTheme
+      + " keyword=" + styles.getPropertyValue("--syntax-keyword").trim();
+  };
+
+  document.getElementById("background").addEventListener("change", event => {
+    const [light, dark] = event.target.value.split("|");
+    body.style.setProperty("--pre-bg", light);
+    body.style.setProperty("--pre-bg-dark", dark);
+  });
+
+  document.getElementById("theme").addEventListener("change", event => {
+    body.dataset.syntaxTheme = event.target.value;
+    report();
+  });
+
+  const modes = ["system", "light", "dark"];
+  let mode = 0;
+  document.getElementById("appearance").addEventListener("click", event => {
+    mode = (mode + 1) % modes.length;
+    body.classList.remove("force-light", "force-dark");
+    if (modes[mode] !== "system") body.classList.add("force-" + modes[mode]);
+    event.target.textContent = "Appearance: " + modes[mode];
+    report();
+  });
+
+  report();
+</script>
+</body>
+</html>
+`);
+
+console.log(`wrote www/theme-preview.html — ${names.length} themes: ${names.join(", ")}`);

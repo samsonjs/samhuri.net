@@ -1,0 +1,37 @@
+#!/bin/bash
+#
+# Refresh public/js/microlighter/ from the published microlighter package and
+# re-apply the grammars and theme we maintain in vendor/microlighter/.
+#
+# Usage: bin/vendor-microlighter [version]
+
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+VERSION="${1:-$(cat "$ROOT_DIR/vendor/microlighter/VERSION")}"
+OVERLAY_DIR="$ROOT_DIR/vendor/microlighter"
+TARGET_DIR="$ROOT_DIR/public/js/microlighter"
+WORK_DIR="$(mktemp -d)"
+
+trap 'rm -rf "$WORK_DIR"' EXIT
+
+echo "*** fetching microlighter@$VERSION"
+curl -fsSL "https://registry.npmjs.org/microlighter/-/microlighter-$VERSION.tgz" \
+  | tar xz -C "$WORK_DIR"
+
+DIST="$WORK_DIR/package/dist"
+[[ -f "$DIST/microlighter.min.js" ]] || { echo "unexpected package layout" >&2; exit 1; }
+
+echo "*** installing into public/js/microlighter"
+rm -rf "$TARGET_DIR"
+mkdir -p "$TARGET_DIR/grammars"
+cp "$DIST/microlighter.min.js" "$TARGET_DIR/"
+cp "$DIST"/grammars/*.js "$TARGET_DIR/grammars/"
+cp "$WORK_DIR/package/LICENSE" "$TARGET_DIR/LICENSE"
+
+echo "*** applying local overlay"
+cp "$OVERLAY_DIR"/grammars/*.js "$TARGET_DIR/grammars/"
+cp "$OVERLAY_DIR/themes/syntax.css" "$ROOT_DIR/public/css/syntax.css"
+
+echo "$VERSION" > "$OVERLAY_DIR/VERSION"
+echo "*** done: $(ls "$TARGET_DIR/grammars" | wc -l | tr -d ' ') grammars"
