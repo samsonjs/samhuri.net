@@ -21,6 +21,8 @@ module Pressa
     # through a job so the request can return immediately and the browser can
     # watch the log.
     class App < Sinatra::Base
+      class ConfigurationError < StandardError; end
+
       WEB_ROOT = File.expand_path("../../../web", __dir__)
       REPO_ROOT = File.expand_path("../../..", __dir__)
       TAG_CHIP_LIMIT = 24
@@ -40,6 +42,25 @@ module Pressa
       # middleware how it would treat the request if it were a POST.
       CROSS_ORIGIN_PROBE = SuperGood::CSRFProtection.new(->(_env) { [200, {}, []] })
 
+      # Rendering every post to count tags takes a beat, and the link form is
+      # the page that has to feel instant on a phone, so the chips are cached
+      # until a post is added or edited. A plain hash rather than a Sinatra
+      # setting: this is a mutable cache, not configuration, and `set` defines
+      # methods.
+      TAG_CACHE = {}
+
+      # Built once at boot, by web/config.ru. Nothing builds them per request:
+      # it costs about six milliseconds, and the memoisation that saved those
+      # six milliseconds was the ugliest code in this file.
+      def self.configure_sites!
+        set :html_site, build_site("html")
+        set :gemini_site, build_site("gemini")
+      end
+
+      def self.build_site(output_format)
+        Pressa.create_site(source_path: repo_root, url_override: site_url, output_format:)
+      end
+
       set :root, WEB_ROOT
       set :views, File.join(WEB_ROOT, "views")
       set :public_folder, File.join(WEB_ROOT, "public")
@@ -54,7 +75,6 @@ module Pressa
       set :html_site, nil
       set :gemini_site, nil
       set :author, nil
-      set :tag_cache, nil
       set :keep_alive_seconds, 15
 
       helpers do
@@ -68,36 +88,28 @@ module Pressa
 
         def preview_renderer = Preview.new(html_site:, gemini_site:)
 
-        def html_site
-          settings.html_site || settings.set(:html_site, build_site("html")) && settings.html_site
+        def html_site = settings.html_site || missing_site!(:html_site)
+
+        def gemini_site = settings.gemini_site || missing_site!(:gemini_site)
+
+        def missing_site!(key)
+          raise ConfigurationError, "#{key} was never set; web/config.ru builds it at boot"
         end
 
-        def gemini_site
-          settings.gemini_site || settings.set(:gemini_site, build_site("gemini")) && settings.gemini_site
-        end
-
-        def build_site(output_format)
-          Pressa.create_site(
-            source_path: settings.repo_root, url_override: settings.site_url, output_format:
-          )
-        end
-
-        def author
-          settings.author || settings.set(:author, html_site.author) && settings.author
-        end
+        def author = settings.author || html_site.author
 
         # Rendering every post to count tags takes a beat, and the link form
         # is the page you want instant on a phone, so it's cached until a post
         # is added or edited.
         def tag_chips
           files = Dir.glob(repo_path("posts", "**", "*.md"))
-          key = [files.length, files.map { File.mtime(it) }.max]
-          cached = settings.tag_cache
-          return cached[:tags] if cached && cached[:key] == key
+          key = [settings.repo_root, files.length, files.map { File.mtime(it) }.max]
+          return TAG_CACHE[:tags] if TAG_CACHE[:key] == key
 
           posts = Posts::PostRepo.new.read_posts(repo_path("posts"))
           tags = Posts::TagIndex.from_posts_by_year(posts).counts.keys.first(TAG_CHIP_LIMIT)
-          settings.set(:tag_cache, {key:, tags:})
+          TAG_CACHE[:key] = key
+          TAG_CACHE[:tags] = tags
           tags
         end
 

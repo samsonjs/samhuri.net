@@ -369,18 +369,31 @@ class Pressa::Web::AppTest < Minitest::Test
     assert_includes(json_body, "snowboarding")
   end
 
-  def test_the_site_config_comes_from_the_repo_when_it_is_not_supplied
+  # What web/config.ru does at boot, and the only thing that builds a Site.
+  def test_configure_sites_builds_both_from_the_repos_own_config
     %w[site.toml projects.toml].each do |config|
       FileUtils.cp(File.expand_path("../../#{config}", __dir__), File.join(@root, config))
     end
     app.set(:html_site, nil)
     app.set(:gemini_site, nil)
     app.set(:author, nil)
+    app.configure_sites!
 
     post "/preview", source: DRAFT_SOURCE
 
     assert_predicate(last_response, :ok?)
     assert_includes(json_body["gemtext"], "# Lift Line Notes")
+    assert_equal("Sami Samhuri", app.html_site.author)
+  end
+
+  def test_a_missing_site_configuration_says_where_to_set_it
+    app.set(:html_site, nil)
+
+    error = assert_raises(Pressa::Web::App::ConfigurationError) do
+      post "/preview", source: DRAFT_SOURCE
+    end
+
+    assert_match(/config\.ru/, error.message)
   end
 
   def test_an_unknown_page_is_a_404
