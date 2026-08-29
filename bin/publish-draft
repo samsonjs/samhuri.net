@@ -32,10 +32,17 @@ fi
 
 acquire_publish_lock
 
-if ! git diff --quiet -- public/drafts; then
-  echo "==> Committing pending draft edits" >&2
-  git add public/drafts
-  git -c commit.gpgsign=false commit -m "Update drafts" >&2
+# Commit just this draft, if it has uncommitted work: the web app writes drafts
+# straight into the checkout, and `git pull --ff-only` won't run over a dirty
+# tree. Other drafts are deliberately left alone -- publishing one is no reason
+# to commit half-finished work on the others. --porcelain rather than
+# `git diff` because a draft created in the web app is untracked, and git diff
+# calls untracked files clean; that left it uncommitted here and then broke the
+# `git add` below, once publish_draft had moved it out from under us.
+if [ -n "$(git status --porcelain -- "$draft_path")" ]; then
+  echo "==> Committing pending edits to $draft" >&2
+  git add -- "$draft_path"
+  git -c commit.gpgsign=false commit -m "Update draft: $draft" >&2
 fi
 
 echo "==> Pulling latest from $REMOTE/$BRANCH" >&2
