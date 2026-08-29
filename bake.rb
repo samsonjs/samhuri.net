@@ -10,6 +10,7 @@ LIB_PATH = File.expand_path("lib", __dir__).freeze
 $LOAD_PATH.unshift(LIB_PATH) unless $LOAD_PATH.include?(LIB_PATH)
 
 require "pressa/drafts"
+require "pressa/drafts/publisher"
 require "pressa/link_post"
 require "pressa/open_graph"
 require "pressa/config/simple_toml"
@@ -180,44 +181,33 @@ def new_draft(title)
   puts content
 end
 
-# Publish a draft by moving it to posts/YYYY/MM and updating dates.
+# Publish a draft by moving it to posts/YYYY/MM and updating dates. Prints the
+# published post's path on stdout and progress on stderr, so bin/publish-draft
+# can capture the path without parsing prose.
 # @parameter input_path [String] Draft path or filename in public/drafts.
 def publish_draft(input_path)
-  drafts = Pressa::Drafts.new(dir: DRAFTS_DIR)
   if input_path.strip.empty?
-    puts "Usage: bake publish_draft <draft-path-or-filename>"
-    puts
-    puts "Available drafts:"
+    warn "Usage: bake publish_draft <draft-path-or-filename>"
+    warn ""
+    warn "Available drafts:"
     available = Dir.glob("#{DRAFTS_DIR}/*.md").map { |path| File.basename(path) }
     if available.empty?
-      puts "  (no drafts found)"
+      warn "  (no drafts found)"
     else
-      available.each { |draft| puts "  #{draft}" }
+      available.each { |draft| warn "  #{draft}" }
     end
     abort
   end
 
-  draft_path_value, draft_file =
+  result =
     begin
-      drafts.resolve_input(input_path)
-    rescue Pressa::Drafts::Error => e
+      Pressa::Drafts::Publisher.new(drafts_dir: DRAFTS_DIR).publish(input_path)
+    rescue Pressa::Drafts::Publisher::Error => e
       abort "Error: #{e.message}"
     end
-  abort "Error: File not found: #{draft_path_value}" unless File.exist?(draft_path_value)
 
-  now = Time.now
-  content = File.read(draft_path_value)
-  content.sub!(/^Date:.*$/, "Date: #{Pressa::Drafts.ordinal_date(now)}")
-  content.sub!(/^Timestamp:.*$/, "Timestamp: #{now.strftime("%Y-%m-%dT%H:%M:%S%:z")}")
-
-  target_dir = "posts/#{now.strftime("%Y/%m")}"
-  FileUtils.mkdir_p(target_dir)
-  target_path = "#{target_dir}/#{draft_file}"
-
-  File.write(target_path, content)
-  FileUtils.rm_f(draft_path_value)
-
-  puts "Published draft: #{draft_path_value} -> #{target_path}"
+  warn "Published draft: #{result.draft_path} -> #{result.target_path}"
+  puts result.target_path
 end
 
 # Watch content directories and rebuild on every change.

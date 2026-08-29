@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+#
+# Publish a draft from public/drafts and deploy, the draft counterpart to
+# bin/post-link. Takes the draft's filename (or slug) as its only argument:
+#
+#   ssh mudge '$HOME/samhuri.net/bin/publish-draft tree-well-protocol'
+#
+# Pending edits to the draft are committed before the pull so the working tree
+# is clean going in -- the web app writes drafts straight to the checkout, and
+# `git pull --ff-only` is entitled to refuse otherwise. Then it moves the draft
+# into posts/YYYY/MM via `bake publish_draft`, commits, pushes, and runs
+# `bake publish` to build HTML + Gemini and rsync to the live directories.
+#
+# Prints the published post's path on stdout, progress on stderr.
+
+set -euo pipefail
+
+. "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/lib/common.sh"
+
+draft="${1:-}"
+if [ -z "$draft" ]; then
+  echo "Usage: bin/publish-draft <draft-slug-or-filename>" >&2
+  exit 1
+fi
+draft="$(basename "$draft" .md)"
+draft_path="public/drafts/$draft.md"
+
+if [ ! -f "$draft_path" ]; then
+  echo "Error: no draft at $draft_path" >&2
+  exit 1
+fi
+
+acquire_publish_lock
+
+# Commit just this draft, if it has uncommitted work: the web app writes drafts
+# straight into the checkout, and `git pull --ff-only` won't run over a dirty
+# tree. Other drafts are deliberately left alone -- publishing one is no reason
+# to commit half-finished work on the others. --porcelain rather than
+# `git diff` because a draft created in the web app is untracked, and git diff
+# calls untracked files clean; that left it uncommitted here and then broke the
+# `git add` below, once publish_draft had moved it out from under us.
+if [ -n "$(git status --porcelain -- "$draft_path")" ]; then
+  echo "==> Committing pending edits to $draft" >&2
+  git add -- "$draft_path"
+  git -c commit.gpgsign=false commit -m "Update draft: $draft" >&2
+fi
+
+echo "==> Pulling latest from $REMOTE/$BRANCH" >&2
+git pull --ff-only "$REMOTE" "$BRANCH" >&2
+
+echo "==> Publishing draft $draft" >&2
+# publish_draft puts the published path on stdout and its progress on stderr.
+post_path="$(bundle exec bake publish_draft "$draft_path")"
+
+echo "==> Committing and pushing" >&2
+git add "$post_path" "$draft_path"
+# Skip commit signing: non-interactive SSH can't unlock a passphrased key.
+git -c commit.gpgsign=false commit -m "Publish draft: $draft" >&2
+git push "$REMOTE" "HEAD:$BRANCH" >&2
+
+echo "==> Building and publishing" >&2
+# Already on the publish host, so rsync locally rather than SSH back to self.
+SAMHURI_PUBLISH_HOST=local bundle exec bake publish >&2
+
+echo "==> Published $post_path" >&2
+echo "$post_path"
