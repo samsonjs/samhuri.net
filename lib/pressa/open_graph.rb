@@ -13,6 +13,11 @@ module Pressa
 
     USER_AGENT = "samhuri.net-link-preview/1.0".freeze
     MAX_REDIRECTS = 5
+    # One budget for the whole fetch, redirects included. Publishing blocks on
+    # this, and a per-hop timeout let a hanging server hold the request open for
+    # five seconds of connect plus five of read, six hops deep. The slowest real
+    # site measured 0.85s, so five seconds is generous.
+    TOTAL_TIMEOUT_SECONDS = 5
     TITLE_ELEMENT = /<title[^>]*>([^<]*)<\/title>/i
 
     def self.fetch(url, http_get: method(:http_get))
@@ -59,13 +64,20 @@ module Pressa
       image
     end
 
-    def self.http_get(url, redirects_left: MAX_REDIRECTS)
+    def self.http_get(url, redirects_left: MAX_REDIRECTS, timeout: TOTAL_TIMEOUT_SECONDS, deadline: nil)
       return nil if redirects_left < 0
+
+      deadline ||= monotonic_now + timeout
+      remaining = deadline - monotonic_now
+      return nil unless remaining > 0
 
       uri = URI.parse(url)
       return nil unless uri.is_a?(URI::HTTP)
 
-      Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == "https", open_timeout: 5, read_timeout: 5) do |http|
+      Net::HTTP.start(
+        uri.host, uri.port, use_ssl: uri.scheme == "https",
+        open_timeout: remaining, read_timeout: remaining
+      ) do |http|
         response = http.get(uri.request_uri, "User-Agent" => USER_AGENT)
 
         case response
@@ -75,9 +87,12 @@ module Pressa
           location = response["location"]
           return nil unless location
 
-          http_get(URI.join(url, location).to_s, redirects_left: redirects_left - 1)
+          # Redirects inherit the budget rather than getting a fresh one.
+          http_get(URI.join(url, location).to_s, redirects_left: redirects_left - 1, deadline:)
         end
       end
     end
+
+    def self.monotonic_now = Process.clock_gettime(Process::CLOCK_MONOTONIC)
   end
 end

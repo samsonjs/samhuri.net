@@ -1,5 +1,6 @@
 require "test_helper"
 require "pressa/open_graph"
+require "socket"
 
 class Pressa::OpenGraphTest < Minitest::Test
   def test_extract_returns_og_image_resolved_against_base_url
@@ -98,5 +99,45 @@ class Pressa::OpenGraphTest < Minitest::Test
     result = Pressa::OpenGraph.fetch("https://example.net/post", http_get: failing_get)
 
     assert_nil(result)
+  end
+
+  # --- giving up ------------------------------------------------------------
+  #
+  # Publishing blocks on this fetch, so a hanging third-party server used to be
+  # able to hold the request open for the better part of a minute: five seconds
+  # of connect plus five of read, per hop, across six possible hops.
+
+  def monotonic = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+
+  def test_http_get_gives_up_on_a_server_that_accepts_and_never_answers
+    server = TCPServer.new("127.0.0.1", 0)
+    accepting = Thread.new { loop { server.accept } }
+    started = monotonic
+
+    url = "http://127.0.0.1:#{server.addr[1]}/"
+    result = Pressa::OpenGraph.fetch(url, http_get: ->(u) { Pressa::OpenGraph.http_get(u, timeout: 0.5) })
+    elapsed = monotonic - started
+
+    assert_nil(result)
+    assert_operator(elapsed, :<, 3, "should have given up on its own budget, took #{elapsed}s")
+  ensure
+    accepting&.kill
+    server&.close
+  end
+
+  def test_http_get_does_not_start_a_request_once_the_budget_is_spent
+    server = TCPServer.new("127.0.0.1", 0)
+    accepting = Thread.new { loop { server.accept } }
+
+    result = Pressa::OpenGraph.http_get("http://127.0.0.1:#{server.addr[1]}/", deadline: monotonic - 1)
+
+    assert_nil(result)
+  ensure
+    accepting&.kill
+    server&.close
+  end
+
+  def test_the_whole_fetch_shares_one_budget_across_redirects
+    assert_equal(5, Pressa::OpenGraph::TOTAL_TIMEOUT_SECONDS)
   end
 end
