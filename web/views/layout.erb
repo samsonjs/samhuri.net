@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title><%= @page_title ? "#{@page_title} — Pressa" : "Pressa" %></title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css?v=<%= File.mtime(File.join(settings.public_folder, "style.css")).to_i %>">
+</head>
+<body>
+  <header class="bar">
+    <a class="brand" href="/">Pressa</a>
+    <nav>
+      <a href="/" class="<%= request.path == "/" ? "on" : "" %>">Link</a>
+      <a href="/drafts" class="<%= request.path.start_with?("/drafts") ? "on" : "" %>">Drafts</a>
+    </nav>
+  </header>
+
+  <main>
+    <% if @published %>
+      <div class="card good">
+        <strong>Published</strong>
+        <p><%= h(@published) %></p>
+      </div>
+    <% end %>
+
+    <% if @error %>
+      <div class="card bad">
+        <p><%= h(@error) %></p>
+      </div>
+    <% end %>
+
+    <% if @log && !@log.empty? %>
+      <details class="card"<%= " open" if @error %>>
+        <summary>Publish log</summary>
+        <pre><%= h(@log.join("\n")) %></pre>
+      </details>
+    <% end %>
+    <%= yield %>
+  </main>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<section class="card preview" id="preview-pane" hidden>
+  <div class="preview-head">
+    <strong>Preview</strong>
+    <button type="button" class="secondary" id="preview-close">Close</button>
+  </div>
+  <p class="bad" id="preview-error" hidden></p>
+  <div class="panes">
+    <div>
+      <h2>Web</h2>
+      <iframe id="preview-html" title="HTML preview"></iframe>
+    </div>
+    <div>
+      <h2>Gemini</h2>
+      <pre id="preview-gemtext"></pre>
+    </div>
+  </div>
+</section>
+
+<script>
+  const pane = document.getElementById("preview-pane");
+  const previewError = document.getElementById("preview-error");
+  const previewHtml = document.getElementById("preview-html");
+  const previewGemtext = document.getElementById("preview-gemtext");
+
+  document.getElementById("preview-close").addEventListener("click", () => { pane.hidden = true; });
+
+  async function renderPreview(formData) {
+    pane.hidden = false;
+    previewError.hidden = true;
+    previewGemtext.textContent = "Rendering…";
+    try {
+      const response = await fetch("/preview", { method: "POST", body: formData });
+      const data = await response.json();
+      if (!response.ok) {
+        previewError.textContent = data.error || "Could not render a preview.";
+        previewError.hidden = false;
+        previewGemtext.textContent = "";
+        previewHtml.srcdoc = "";
+        return;
+      }
+      previewHtml.srcdoc = data.html;
+      previewGemtext.textContent = data.gemtext;
+    } catch (error) {
+      previewError.textContent = String(error);
+      previewError.hidden = false;
+    }
+    pane.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+</script>

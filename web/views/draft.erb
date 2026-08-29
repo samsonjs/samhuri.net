@@ -1,0 +1,38 @@
+<h1><%= h(Pressa::Web::App.draft_title(@source, @slug)) %></h1>
+<p class="quiet"><%= h(@slug) %>.md</p>
+
+<form method="post" action="/drafts/<%= h(@slug) %>" id="draft-form" class="card stack">
+  <textarea name="source" id="draft-source" rows="24" spellcheck="false"><%= h(@source) %></textarea>
+  <input type="hidden" name="slug" value="<%= h(@slug) %>">
+  <input type="hidden" name="version" value="<%= h(@version) %>">
+  <div class="actions">
+    <button type="submit">Save</button>
+    <button type="button" id="preview" class="secondary">Preview</button>
+  </div>
+</form>
+
+<% if @conflict %>
+  <details class="card" open>
+    <summary>What's on disk now</summary>
+    <pre><%= h(@conflict) %></pre>
+  </details>
+<% end %>
+
+<%= erb :_preview, layout: false %>
+
+<div class="actions spread">
+  <form method="post" action="/drafts/<%= h(@slug) %>/publish"
+        onsubmit="return confirm('Publish this draft and deploy?')">
+    <button type="submit">Publish</button>
+  </form>
+  <form method="post" action="/drafts/<%= h(@slug) %>/delete"
+        onsubmit="return confirm('Delete this draft?')">
+    <button type="submit" class="danger">Delete</button>
+  </form>
+</div>
+
+<script>
+  document.getElementById("preview").addEventListener("click", () => {
+    renderPreview(new FormData(document.getElementById("draft-form")));
+  });
+</script>

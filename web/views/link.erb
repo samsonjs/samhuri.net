@@ -1,0 +1,98 @@
+<h1>Post a link</h1>
+
+<form method="post" action="/link" id="link-form" class="card stack">
+  <label>
+    URL
+    <input type="url" name="link" id="link-url" required inputmode="url"
+           autocapitalize="off" autocorrect="off" spellcheck="false" autofocus
+           value="<%= h(@form[:link]) %>">
+  </label>
+
+  <label>
+    Title
+    <input type="text" name="title" id="link-title" required value="<%= h(@form[:title]) %>">
+  </label>
+
+  <label>
+    Commentary
+    <textarea name="body" id="link-body" rows="5"><%= h(@form[:body]) %></textarea>
+  </label>
+  <button type="button" id="quote-description" class="chip" hidden>Quote the description</button>
+
+  <label>
+    Tags
+    <input type="text" name="tags" id="link-tags" autocapitalize="off" value="<%= h(@form[:tags]) %>">
+  </label>
+  <div class="chips">
+    <% @tags.each do |tag| %>
+      <button type="button" class="chip" data-tag="<%= h(tag) %>"><%= h(tag) %></button>
+    <% end %>
+  </div>
+
+  <input type="hidden" name="image" id="link-image" value="<%= h(@form[:image]) %>">
+
+  <div class="actions">
+    <button type="submit" id="publish">Publish</button>
+    <button type="button" id="preview" class="secondary">Preview</button>
+  </div>
+</form>
+
+<%= erb :_preview, layout: false %>
+
+<script>
+  const url = document.getElementById("link-url");
+  const title = document.getElementById("link-title");
+  const body = document.getElementById("link-body");
+  const tags = document.getElementById("link-tags");
+  const image = document.getElementById("link-image");
+  const quote = document.getElementById("quote-description");
+  let description = null;
+
+  url.addEventListener("change", async () => {
+    quote.hidden = true;
+    description = null;
+    // The image rides along in a hidden field, so it has to be cleared with the
+    // rest of it -- otherwise changing the URL publishes the old page's image.
+    image.value = "";
+    if (!url.value.trim()) return;
+    try {
+      const response = await fetch(`/link/metadata?url=${encodeURIComponent(url.value.trim())}`);
+      if (!response.ok) return;
+      const data = await response.json();
+      if (data.title && !title.value.trim()) title.value = data.title;
+      if (data.image) image.value = data.image;
+      if (data.description) {
+        description = data.description;
+        quote.hidden = false;
+      }
+    } catch {
+      // best effort; the fields stay as they are
+    }
+  });
+
+  quote.addEventListener("click", () => {
+    if (!description) return;
+    const quoted = `> ${description}`;
+    body.value = body.value.trim() ? `${body.value}\n\n${quoted}` : quoted;
+  });
+
+  document.querySelectorAll(".chips .chip").forEach((chip) => {
+    chip.addEventListener("click", () => {
+      const current = tags.value.toLowerCase().split(",").map((t) => t.trim()).filter(Boolean);
+      if (!current.includes(chip.dataset.tag)) current.push(chip.dataset.tag);
+      tags.value = current.join(", ");
+    });
+  });
+
+  tags.addEventListener("blur", () => { tags.value = tags.value.toLowerCase(); });
+
+  document.getElementById("preview").addEventListener("click", () => {
+    renderPreview(new FormData(document.getElementById("link-form")));
+  });
+
+  document.getElementById("link-form").addEventListener("submit", () => {
+    const button = document.getElementById("publish");
+    button.disabled = true;
+    button.textContent = "Publishing…";
+  });
+</script>
