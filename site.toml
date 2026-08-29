@@ -39,6 +39,7 @@ home_links = [
   "mailto:sami@samhuri.net"
 ]
 exclude_public = [
+  ".well-known/**",
   "tweets/**",
   "css/**",
   "js/**",

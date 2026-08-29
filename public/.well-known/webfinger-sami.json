@@ -1,0 +1,23 @@
+{
+  "subject": "acct:sami@samhuri.net",
+  "aliases": [
+    "https://techhub.social/@sjs",
+    "https://techhub.social/users/sjs"
+  ],
+  "links": [
+    {
+      "rel": "http://webfinger.net/rel/profile-page",
+      "type": "text/html",
+      "href": "https://techhub.social/@sjs"
+    },
+    {
+      "rel": "self",
+      "type": "application/activity+json",
+      "href": "https://techhub.social/users/sjs"
+    },
+    {
+      "rel": "http://ostatus.org/schema/1.0/subscribe",
+      "template": "https://techhub.social/authorize_interaction?uri={uri}"
+    }
+  ]
+}
