@@ -312,11 +312,44 @@ class Pressa::Web::AppTest < Minitest::Test
     assert_includes(last_response.body, "Chairlift conversations, collected.")
   end
 
+  def draft_path = File.join(@root, "public/drafts/lift-line-notes.md")
+
+  def current_version
+    get "/drafts/lift-line-notes"
+    last_response.body[/name="version" value="([a-f0-9]+)"/, 1]
+  end
+
+  def test_the_editor_carries_a_version_of_what_it_loaded
+    refute_nil(current_version)
+  end
+
   def test_saving_a_draft_writes_it_back
-    post "/drafts/lift-line-notes", source: "---\nTitle: Lift Line Notes\n---\n\nRewritten.\n"
+    post "/drafts/lift-line-notes",
+      source: "---\nTitle: Lift Line Notes\n---\n\nRewritten.\n", version: current_version
 
     assert_equal(303, last_response.status)
-    assert_includes(File.read(File.join(@root, "public/drafts/lift-line-notes.md")), "Rewritten.")
+    assert_includes(File.read(draft_path), "Rewritten.")
+  end
+
+  def test_a_save_from_a_stale_editor_is_refused_and_keeps_both_versions
+    stale = current_version
+    File.write(draft_path, "---\nTitle: Lift Line Notes\n---\n\nThe other tab got here first.\n")
+
+    post "/drafts/lift-line-notes", source: "My slower edit.\n", version: stale
+
+    assert_equal(409, last_response.status)
+    assert_includes(last_response.body, "My slower edit.")
+    assert_includes(last_response.body, "The other tab got here first.")
+    assert_includes(File.read(draft_path), "The other tab got here first.")
+    refute_includes(File.read(draft_path), "My slower edit.")
+  end
+
+  def test_a_save_with_no_version_at_all_is_refused
+    post "/drafts/lift-line-notes", source: "From a tab opened before the deploy.\n"
+
+    assert_equal(422, last_response.status)
+    assert_includes(last_response.body, "From a tab opened before the deploy.")
+    refute_includes(File.read(draft_path), "From a tab opened before the deploy.")
   end
 
   def test_publishing_a_draft_starts_a_job

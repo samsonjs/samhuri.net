@@ -282,13 +282,32 @@ module Pressa
       get "/drafts/:slug" do
         @slug = params[:slug]
         @source = find_draft(@slug)
+        @version = drafts.version(@slug)
         erb :draft
       end
 
       post "/drafts/:slug" do
-        find_draft(params[:slug])
-        drafts.write(params[:slug], params[:source].to_s)
-        redirect to("/drafts/#{params[:slug]}"), 303
+        @slug = params[:slug]
+        find_draft(@slug)
+        @source = params[:source].to_s
+        @version = params[:version].to_s
+
+        if @version.empty?
+          @error = "This form is out of date. Reload the page, then paste your text back in."
+          halt 422, erb(:draft)
+        end
+
+        begin
+          drafts.write(@slug, @source, expected_version: @version)
+        rescue DraftStore::Stale => e
+          @version = e.current_version
+          @conflict = e.current_content
+          @error = "This draft changed on disk since you opened it. Your text is still below; " \
+            "what's on disk now is underneath it."
+          halt 409, erb(:draft)
+        end
+
+        redirect to("/drafts/#{@slug}"), 303
       end
 
       post "/drafts/:slug/publish" do

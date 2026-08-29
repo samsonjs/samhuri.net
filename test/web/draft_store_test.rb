@@ -55,20 +55,71 @@ class Pressa::Web::DraftStoreTest < Minitest::Test
 
   def test_write_replaces_the_contents_of_an_existing_draft
     write_draft("tree-wells", title: "Tree Wells")
-    store.write("tree-wells", "---\nTitle: Tree Wells\n---\n\nRewritten.\n")
+    store.write("tree-wells", "---\nTitle: Tree Wells\n---\n\nRewritten.\n",
+      expected_version: store.version("tree-wells"))
 
     assert_includes(store.read("tree-wells"), "Rewritten.")
   end
 
   def test_write_raises_for_an_unknown_draft
-    assert_raises(Pressa::Web::DraftStore::NotFound) { store.write("nope", "content") }
+    assert_raises(Pressa::Web::DraftStore::NotFound) do
+      store.write("nope", "content", expected_version: "whatever")
+    end
   end
 
   def test_write_normalizes_the_crlf_browsers_send_from_a_textarea
     write_draft("tree-wells", title: "Tree Wells")
-    store.write("tree-wells", "line one\r\nline two\r\n")
+    store.write("tree-wells", "line one\r\nline two\r\n", expected_version: store.version("tree-wells"))
 
     assert_equal("line one\nline two\n", store.read("tree-wells"))
+  end
+
+  # --- concurrent edits -----------------------------------------------------
+
+  def test_version_is_stable_for_unchanged_contents
+    write_draft("tree-wells", title: "Tree Wells")
+
+    assert_equal(store.version("tree-wells"), store.version("tree-wells"))
+  end
+
+  def test_version_changes_once_the_draft_is_written
+    write_draft("tree-wells", title: "Tree Wells")
+    before = store.version("tree-wells")
+    store.write("tree-wells", "something else\n", expected_version: before)
+
+    refute_equal(before, store.version("tree-wells"))
+  end
+
+  def test_write_refuses_a_version_that_is_out_of_date
+    write_draft("tree-wells", title: "Tree Wells")
+    stale = store.version("tree-wells")
+    store.write("tree-wells", "the other tab got here first\n", expected_version: stale)
+
+    error = assert_raises(Pressa::Web::DraftStore::Stale) do
+      store.write("tree-wells", "my slower edit\n", expected_version: stale)
+    end
+
+    assert_equal("the other tab got here first\n", store.read("tree-wells"))
+    assert_equal("the other tab got here first\n", error.current_content)
+    assert_equal(store.version("tree-wells"), error.current_version)
+  end
+
+  def test_write_refuses_a_missing_version
+    write_draft("tree-wells", title: "Tree Wells")
+
+    assert_raises(Pressa::Web::DraftStore::Stale) do
+      store.write("tree-wells", "no token at all\n", expected_version: nil)
+    end
+
+    refute_includes(store.read("tree-wells"), "no token at all")
+  end
+
+  def test_rewriting_identical_content_is_not_a_conflict
+    write_draft("tree-wells", title: "Tree Wells")
+    same = store.read("tree-wells")
+    store.write("tree-wells", same, expected_version: store.version("tree-wells"))
+
+    assert_equal(same, store.read("tree-wells"))
   end
 
   def test_create_writes_a_draft_from_the_title_and_returns_its_slug

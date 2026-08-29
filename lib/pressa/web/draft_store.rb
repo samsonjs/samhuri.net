@@ -1,3 +1,4 @@
+require "digest"
 require "fileutils"
 require "pressa/drafts"
 require "pressa/drafts/repo"
@@ -17,6 +18,18 @@ module Pressa
       class InvalidSlug < Error; end
 
       class InvalidTitle < Error; end
+
+      # Raised when the draft changed between the editor loading it and the
+      # save arriving. Carries what's on disk so nothing has to be lost.
+      class Stale < Error
+        attr_reader :current_content, :current_version
+
+        def initialize(current_content:, current_version:)
+          @current_content = current_content
+          @current_version = current_version
+          super("the draft changed on disk since it was opened")
+        end
+      end
 
       # Exactly what Drafts.slugify produces, so nothing that could climb out
       # of the drafts directory can name a file.
@@ -38,9 +51,21 @@ module Pressa
         raise NotFound, "no draft named #{slug}"
       end
 
-      def write(slug, content)
+      # A digest of the draft as it stands, handed to the editor and returned
+      # with the save so a second tab can't quietly overwrite the first.
+      def version(slug)
+        Digest::SHA256.hexdigest(read(slug))
+      end
+
+      def write(slug, content, expected_version:)
         target = path(slug)
         raise NotFound, "no draft named #{slug}" unless File.exist?(target)
+
+        current = File.read(target)
+        current_version = Digest::SHA256.hexdigest(current)
+        unless expected_version == current_version
+          raise Stale.new(current_content: current, current_version:)
+        end
 
         # Browsers normalize textarea line breaks to CRLF on submit, per the
         # HTML spec, even though nothing here ever inserts one.
