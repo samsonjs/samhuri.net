@@ -124,6 +124,10 @@ button:disabled { opacity: 0.6; cursor: default; }
 
 .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 
+/* A lone chip in a flex column would stretch to full width and read as a
+   primary action; it's a small affordance. */
+.stack > .chip { align-self: flex-start; }
+
 .chip {
   font-size: 0.8rem;
   font-weight: 500;
@@ -170,6 +174,12 @@ pre {
 /* Side by side is the point, but only once there's room for two columns. */
 @media (min-width: 52rem) {
   .panes { grid-template-columns: 1fr 1fr; }
+}
+
+/* Break the preview out of the reading column so the web pane gets enough
+   width to render something other than the mobile layout. */
+@media (min-width: 60rem) {
+  .preview { margin-inline: -6rem; }
 }
 
 p.bad { color: var(--bad); }

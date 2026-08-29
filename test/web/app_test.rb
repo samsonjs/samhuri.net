@@ -110,18 +110,26 @@ class Pressa::Web::AppTest < Minitest::Test
     assert_includes(last_response.body, "safety")
   end
 
-  def test_posting_a_link_publishes_and_shows_the_result
+  # Rendering straight from the POST meant a reload republished the post.
+  def test_posting_a_link_publishes_and_redirects_to_the_result
     post "/link", link: "https://powder.example.net/tree-wells", title: "Tree Well Protocol",
       body: "Never ride alone.", tags: "Snowboarding, Safety"
 
-    assert_predicate(last_response, :ok?)
-    assert_includes(last_response.body, "posts/2026/06/new-post.md")
-    assert_includes(last_response.body, "==&gt; Building")
+    assert_equal(303, last_response.status)
+    assert_includes(last_response.headers["Location"], "published=posts%2F2026%2F06%2Fnew-post.md")
     assert_equal(1, publish_attempts)
   end
 
-  def test_a_successful_publish_clears_the_form
-    post "/link", link: "https://powder.example.net/tree-wells", title: "Tree Well Protocol"
+  def test_the_result_shows_on_the_page_the_redirect_lands_on
+    get "/", published: "posts/2026/06/new-post.md"
+
+    assert_predicate(last_response, :ok?)
+    assert_includes(last_response.body, "posts/2026/06/new-post.md")
+    assert_includes(last_response.body, "Published")
+  end
+
+  def test_a_successful_publish_leaves_an_empty_form_to_land_on
+    get "/", published: "posts/2026/06/new-post.md"
 
     refute_includes(last_response.body, %(value="https://powder.example.net/tree-wells"))
   end
@@ -258,6 +266,20 @@ class Pressa::Web::AppTest < Minitest::Test
     assert_equal(422, last_response.status)
   end
 
+  def test_the_editor_is_headed_by_the_drafts_title_not_its_slug
+    get "/drafts/lift-line-notes"
+
+    assert_includes(last_response.body, "<h1>Lift Line Notes</h1>")
+    assert_includes(last_response.body, "lift-line-notes.md")
+  end
+
+  def test_the_editor_falls_back_to_the_slug_when_there_is_no_title
+    File.write(File.join(@root, "public/drafts/lift-line-notes.md"), "no front matter\n")
+    get "/drafts/lift-line-notes"
+
+    assert_includes(last_response.body, "<h1>lift-line-notes</h1>")
+  end
+
   def test_the_editor_shows_the_draft_source
     get "/drafts/lift-line-notes"
 
@@ -305,11 +327,11 @@ class Pressa::Web::AppTest < Minitest::Test
     refute_includes(File.read(draft_path), "From a tab opened before the deploy.")
   end
 
-  def test_publishing_a_draft_runs_the_script_and_shows_the_result
+  def test_publishing_a_draft_runs_the_script_and_redirects_to_the_result
     post "/drafts/lift-line-notes/publish"
 
-    assert_predicate(last_response, :ok?)
-    assert_includes(last_response.body, "posts/2026/06/lift-line-notes.md")
+    assert_equal(303, last_response.status)
+    assert_includes(last_response.headers["Location"], "published=posts%2F2026%2F06%2Flift-line-notes.md")
     assert_equal(1, publish_attempts)
   end
 
@@ -414,19 +436,19 @@ class Pressa::Web::AppTest < Minitest::Test
   def test_a_same_origin_publish_goes_through
     post "/link", {link: "https://powder.example.net/x", title: "Tree Well Protocol"}, sec_fetch("same-origin")
 
-    assert_predicate(last_response, :ok?)
+    assert_equal(303, last_response.status)
   end
 
   def test_a_user_initiated_publish_goes_through
     post "/link", {link: "https://powder.example.net/x", title: "Tree Well Protocol"}, sec_fetch("none")
 
-    assert_predicate(last_response, :ok?)
+    assert_equal(303, last_response.status)
   end
 
   def test_a_request_with_no_browser_headers_goes_through
     post "/link", link: "https://powder.example.net/x", title: "Tree Well Protocol"
 
-    assert_predicate(last_response, :ok?)
+    assert_equal(303, last_response.status)
   end
 
   def test_an_older_browser_falls_back_to_the_origin_header
@@ -441,7 +463,7 @@ class Pressa::Web::AppTest < Minitest::Test
     post "/link", {link: "https://powder.example.net/x", title: "Tree Well Protocol"},
       {"HTTP_ORIGIN" => "http://example.org"}
 
-    assert_predicate(last_response, :ok?)
+    assert_equal(303, last_response.status)
   end
 
   def test_cross_site_draft_deletion_is_refused

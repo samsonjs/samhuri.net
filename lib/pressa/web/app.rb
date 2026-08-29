@@ -161,6 +161,7 @@ module Pressa
       get "/" do
         @form = {}
         @tags = tag_chips
+        @published = params[:published]
         erb :link
       end
 
@@ -175,10 +176,11 @@ module Pressa
 
         payload = @form.reject { |_key, value| value.to_s.empty? }.to_json
         status = run_publish(command: [repo_path("bin", "post-link")], stdin_data: payload)
+        # A failure keeps the form and the log on screen so it can be retried.
         halt status, erb(:link) if status
 
-        @form = {}
-        erb :link
+        # Success redirects so a reload can't publish the same post twice.
+        redirect to("/?published=#{Rack::Utils.escape(@published)}"), 303
       end
 
       get "/link/metadata" do
@@ -213,6 +215,7 @@ module Pressa
 
       get "/drafts" do
         @drafts = drafts.list
+        @published = params[:published]
         erb :drafts
       end
 
@@ -238,6 +241,12 @@ module Pressa
         @source = find_draft(@slug)
         @version = drafts.version(@slug)
         erb :draft
+      end
+
+      # The editor holds raw markdown, so its own front matter is the only
+      # place a readable title can come from.
+      def self.draft_title(source, slug)
+        source[/^Title:\s*(.+)$/, 1]&.strip&.then { it.empty? ? nil : it } || slug
       end
 
       post "/drafts/:slug" do
@@ -272,9 +281,9 @@ module Pressa
         status = run_publish(command: [repo_path("bin", "publish-draft"), @slug])
         halt status, erb(:draft) if status
 
-        # The draft is gone now, so there's nothing left to edit.
-        @drafts = drafts.list
-        erb :drafts
+        # The draft is gone now, so there's nothing left to edit -- and the
+        # redirect keeps a reload from trying to publish it again.
+        redirect to("/drafts?published=#{Rack::Utils.escape(@published)}"), 303
       end
 
       post "/drafts/:slug/delete" do

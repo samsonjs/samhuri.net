@@ -1,4 +1,5 @@
-<h1><%= h(@slug) %></h1>
+<h1><%= h(Pressa::Web::App.draft_title(@source, @slug)) %></h1>
+<p class="quiet"><%= h(@slug) %>.md</p>
 
 <form method="post" action="/drafts/<%= h(@slug) %>" id="draft-form" class="card stack">
   <textarea name="source" id="draft-source" rows="24" spellcheck="false"><%= h(@source) %></textarea>
