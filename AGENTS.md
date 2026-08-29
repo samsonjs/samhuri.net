@@ -50,8 +50,8 @@ Keep new code under the existing `Pressa` module structure (for example `lib/pre
 `lib/pressa/web/` is a Sinatra app that owns posting a link, drafts, and preview. It runs on mudge as `pressa-web.service` on `127.0.0.1:1112`, published by Caddy at `http://mudge:7777` and restricted to Tailscale source IPs, and is served by `web/bin/start` (puma, threads only).
 
 - It drives `bin/post-link` and `bin/publish-draft` rather than reimplementing the publish flow, and renders previews through `Posts::PostWriter#post_html` and `Posts::GeminiWriter#post_content` — the same code the build uses.
-- Anything that writes to the checkout runs as a job (`Web::JobRegistry`, `Web::Job`, `Web::JobRunner`); the browser watches the log over SSE at `/jobs/:id/stream`. One job at a time: a second publish is refused with the running job, never queued.
-- Puma runs threads only, not workers — the single-writer guard is an in-process mutex. `bin/lib/common.sh` adds an `flock` so the SSH path can't race it.
+- Publishing runs inline via `Web::JobRunner`, which drives the script and collects its output for the page. A publish measures about five seconds, most of it the two GitHub round trips, so there is nothing for a queue to do.
+- Only one publish may touch the checkout at a time. The `flock` in `bin/lib/common.sh` enforces that across processes, so the phone Shortcut over SSH and the web app can't collide; a blocked publish exits 75 (EX_TEMPFAIL) and the app turns that into a 409 telling you to try again.
 - Sinatra and puma live in this repo's Gemfile on purpose. A separate `web/Gemfile` would leave `BUNDLE_GEMFILE` pointing at the wrong one inside `bin/post-link`'s `bundle exec bake`.
 
 ## Content and Metadata Requirements

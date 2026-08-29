@@ -7,7 +7,6 @@ require "pressa/open_graph"
 require "pressa/posts/repo"
 require "pressa/posts/tag_index"
 require "pressa/web/draft_store"
-require "pressa/web/job_registry"
 require "pressa/web/job_runner"
 require "pressa/web/preview"
 
@@ -17,15 +16,19 @@ module Pressa
     #
     # It owns posting a link, drafts, and preview, and it does so by driving
     # the same bin/ scripts the phone Shortcut drives over SSH rather than
-    # reimplementing the flow. Anything that writes to the checkout goes
-    # through a job so the request can return immediately and the browser can
-    # watch the log.
+    # reimplementing the flow. Publishing runs inline: it measures about five
+    # seconds, and the flock those scripts take is what stops two of them
+    # running at once, so there is nothing here for a job queue to do.
     class App < Sinatra::Base
       class ConfigurationError < StandardError; end
 
       WEB_ROOT = File.expand_path("../../../web", __dir__)
       REPO_ROOT = File.expand_path("../../..", __dir__)
       TAG_CHIP_LIMIT = 24
+      # bin/post-link and bin/publish-draft take an flock, so a second publish
+      # exits 75 (EX_TEMPFAIL) instead of running. That's "try again shortly",
+      # not a failure.
+      BUSY_EXIT_STATUS = 75
 
       # There are no cookies or sessions here, so what a malicious page would be
       # riding isn't a login -- it's this machine's position on the tailnet.
@@ -70,17 +73,13 @@ module Pressa
 
       set :repo_root, REPO_ROOT
       set :site_url, ENV.fetch("PRESSA_SITE_URL", "https://samhuri.net")
-      set :registry, JobRegistry.new
       set :link_scraper, OpenGraph
       set :html_site, nil
       set :gemini_site, nil
       set :author, nil
-      set :keep_alive_seconds, 15
 
       helpers do
         def h(text) = Rack::Utils.escape_html(text.to_s)
-
-        def registry = settings.registry
 
         def repo_path(*parts) = File.join(settings.repo_root, *parts)
 
@@ -136,13 +135,18 @@ module Pressa
           )
         end
 
-        def start_job(kind:, label:, command:, stdin_data: nil)
-          registry.start(kind:, label:) do |job|
-            JobRunner.run(command:, stdin_data:, chdir: settings.repo_root) { job.append(it) }
-          end
+        # Runs one of the publish scripts inline. Returns nil when it worked,
+        # or the status to halt with when it didn't, leaving @error and @log
+        # for the page to render.
+        def run_publish(command:, stdin_data: nil)
+          @log = []
+          @published = JobRunner.run(command:, stdin_data:, chdir: settings.repo_root) { @log << it }
+          nil
+        rescue JobRunner::Failed => e
+          busy = e.exit_status == BUSY_EXIT_STATUS
+          @error = busy ? "Something else is publishing right now. Try again in a moment." : e.message
+          busy ? 409 : 500
         end
-
-        def sse(payload) = "data: #{payload.to_json}\n\n"
 
         def cross_origin_request?
           status, = CROSS_ORIGIN_PROBE.call(request.env.merge("REQUEST_METHOD" => "POST"))
@@ -170,18 +174,11 @@ module Pressa
         end
 
         payload = @form.reject { |_key, value| value.to_s.empty? }.to_json
-        begin
-          job = start_job(
-            kind: "publish_link", label: @form[:title],
-            command: [repo_path("bin", "post-link")], stdin_data: payload
-          )
-        rescue JobRegistry::Busy => e
-          @busy = e.job
-          @error = "Something is already publishing. Watch it finish, then try again."
-          halt 409, erb(:link)
-        end
+        status = run_publish(command: [repo_path("bin", "post-link")], stdin_data: payload)
+        halt status, erb(:link) if status
 
-        redirect to("/jobs/#{job.id}"), 303
+        @form = {}
+        erb :link
       end
 
       get "/link/metadata" do
@@ -210,49 +207,6 @@ module Pressa
         end
 
         {title: result.title, html: result.html, gemtext: result.gemtext}.to_json
-      end
-
-      # --- jobs --------------------------------------------------------------
-
-      get "/jobs" do
-        @jobs = registry.recent
-        erb :jobs
-      end
-
-      get "/jobs/:id" do
-        @job = registry.find(params[:id]) || halt(404, not_found_page("No job by that name."))
-        erb :job
-      end
-
-      get "/jobs/:id/stream" do
-        job = registry.find(params[:id]) || halt(404, "unknown job")
-
-        content_type "text/event-stream"
-        headers "Cache-Control" => "no-cache", "X-Accel-Buffering" => "no"
-
-        stream(:keep_open) do |out|
-          backlog, queue = job.subscribe
-          out.callback { job.unsubscribe(queue) }
-
-          backlog.each { out << sse(type: "line", text: it) }
-          loop do
-            # A timed pop lets an idle job still get a periodic write, which is
-            # the only way to notice the browser hung up.
-            line = queue.pop(timeout: settings.keep_alive_seconds)
-            if line.nil?
-              break if job.finished? && queue.empty?
-
-              out << ": keep-alive\n\n"
-              next
-            end
-            out << sse(type: "line", text: line)
-          end
-
-          out << sse(job.to_h.merge(type: "state"))
-          out.close
-        rescue IOError, Errno::EPIPE
-          # browser went away
-        end
       end
 
       # --- drafts ------------------------------------------------------------
@@ -313,19 +267,14 @@ module Pressa
       post "/drafts/:slug/publish" do
         @slug = params[:slug]
         @source = find_draft(@slug)
+        @version = drafts.version(@slug)
 
-        begin
-          job = start_job(
-            kind: "publish_draft", label: @slug,
-            command: [repo_path("bin", "publish-draft"), @slug]
-          )
-        rescue JobRegistry::Busy => e
-          @busy = e.job
-          @error = "Something is already publishing. Watch it finish, then try again."
-          halt 409, erb(:draft)
-        end
+        status = run_publish(command: [repo_path("bin", "publish-draft"), @slug])
+        halt status, erb(:draft) if status
 
-        redirect to("/jobs/#{job.id}"), 303
+        # The draft is gone now, so there's nothing left to edit.
+        @drafts = drafts.list
+        erb :drafts
       end
 
       post "/drafts/:slug/delete" do

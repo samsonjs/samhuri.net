@@ -13,18 +13,28 @@
     <nav>
       <a href="/" class="<%= request.path == "/" ? "on" : "" %>">Link</a>
       <a href="/drafts" class="<%= request.path.start_with?("/drafts") ? "on" : "" %>">Drafts</a>
-      <a href="/jobs" class="<%= request.path.start_with?("/jobs") ? "on" : "" %>">Jobs</a>
     </nav>
   </header>
 
   <main>
+    <% if @published %>
+      <div class="card good">
+        <strong>Published</strong>
+        <p><%= h(@published) %></p>
+      </div>
+    <% end %>
+
     <% if @error %>
       <div class="card bad">
         <p><%= h(@error) %></p>
-        <% if @busy %>
-          <p><a href="/jobs/<%= h(@busy.id) %>">Watch <%= h(@busy.label || @busy.kind) %> &rarr;</a></p>
-        <% end %>
       </div>
+    <% end %>
+
+    <% if @log && !@log.empty? %>
+      <details class="card"<%= " open" if @error %>>
+        <summary>Publish log</summary>
+        <pre><%= h(@log.join("\n")) %></pre>
+      </details>
     <% end %>
     <%= yield %>
   </main>

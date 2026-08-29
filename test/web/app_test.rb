@@ -40,9 +40,8 @@ class Pressa::Web::AppTest < Minitest::Test
     File.write(File.join(@root, "public/drafts/lift-line-notes.md"), DRAFT_SOURCE)
 
     @metadata = nil
-    @executor = ->(&block) { block.call }
-    write_bin("post-link", "cat > /dev/null; echo '==> Building' >&2; echo posts/2026/06/new-post.md")
-    write_bin("publish-draft", "echo '==> Publishing' >&2; echo \"posts/2026/06/$1.md\"")
+    write_bin("post-link", "cat > /dev/null; echo ran >> ran.log; echo '==> Building' >&2; echo posts/2026/06/new-post.md")
+    write_bin("publish-draft", "echo ran >> ran.log; echo '==> Publishing' >&2; echo \"posts/2026/06/$1.md\"")
   end
 
   # The app runs the repo's real scripts, so tests stand in fake ones rather
@@ -52,6 +51,12 @@ class Pressa::Web::AppTest < Minitest::Test
     FileUtils.mkdir_p(File.dirname(path))
     File.write(path, "#!/bin/sh\n#{script}\n")
     FileUtils.chmod(0o755, path)
+  end
+
+  # The scripts append to ran.log, so a test can assert one never ran.
+  def publish_attempts
+    path = File.join(@root, "ran.log")
+    File.exist?(path) ? File.read(path).lines.size : 0
   end
 
   # Stands in for Pressa::OpenGraph.
@@ -71,10 +76,6 @@ class Pressa::Web::AppTest < Minitest::Test
     )
   end
 
-  def registry
-    @registry ||= Pressa::Web::JobRegistry.new(executor: ->(&block) { @executor.call(&block) })
-  end
-
   def app
     @app ||= Class.new(Pressa::Web::App) do
       set :environment, :test
@@ -83,7 +84,6 @@ class Pressa::Web::AppTest < Minitest::Test
       set :host_authorization, {permitted_hosts: []}
     end.tap do |klass|
       klass.set(:repo_root, @root)
-      klass.set(:registry, registry)
       klass.set(:html_site, build_site("html"))
       klass.set(:gemini_site, build_site("gemini"))
       klass.set(:author, "Sami Samhuri")
@@ -110,23 +110,28 @@ class Pressa::Web::AppTest < Minitest::Test
     assert_includes(last_response.body, "safety")
   end
 
-  def test_posting_a_link_starts_a_job_and_redirects_to_it
+  def test_posting_a_link_publishes_and_shows_the_result
     post "/link", link: "https://powder.example.net/tree-wells", title: "Tree Well Protocol",
       body: "Never ride alone.", tags: "Snowboarding, Safety"
 
-    assert_equal(303, last_response.status)
-    job = registry.recent.first
-    assert_match(%r{/jobs/#{job.id}\z}, last_response.headers["Location"])
-    assert_equal("posts/2026/06/new-post.md", job.result)
-    assert_equal("publish_link", job.kind)
+    assert_predicate(last_response, :ok?)
+    assert_includes(last_response.body, "posts/2026/06/new-post.md")
+    assert_includes(last_response.body, "==&gt; Building")
+    assert_equal(1, publish_attempts)
+  end
+
+  def test_a_successful_publish_clears_the_form
+    post "/link", link: "https://powder.example.net/tree-wells", title: "Tree Well Protocol"
+
+    refute_includes(last_response.body, %(value="https://powder.example.net/tree-wells"))
   end
 
   def test_posting_a_link_sends_the_form_to_the_script_as_json_on_stdin
-    write_bin("post-link", "cat; echo; echo posts/x.md")
+    write_bin("post-link", "cat > payload.json; echo posts/x.md")
     post "/link", link: "https://powder.example.net/tree-wells", title: "Tree Well Protocol",
       body: "Never ride alone.\r\nSecond line.", tags: "Snowboarding,  safety , "
 
-    payload = JSON.parse(registry.recent.first.lines.first)
+    payload = JSON.parse(File.read(File.join(@root, "payload.json")))
 
     assert_equal("Tree Well Protocol", payload["title"])
     assert_equal("https://powder.example.net/tree-wells", payload["link"])
@@ -134,25 +139,30 @@ class Pressa::Web::AppTest < Minitest::Test
     assert_equal("snowboarding, safety", payload["tags"])
   end
 
-  def test_a_failing_publish_leaves_a_failed_job_rather_than_a_500
-    write_bin("post-link", "echo 'fatal: not a git repository' >&2; exit 128")
+  def test_a_failing_publish_shows_the_error_and_the_log
+    write_bin("post-link", "echo '==> Pulling' >&2; echo 'fatal: not a git repository' >&2; exit 128")
     post "/link", link: "https://powder.example.net/x", title: "Tree Well Protocol"
 
-    assert_equal(303, last_response.status)
-    assert_equal(:failed, registry.recent.first.state)
-    assert_equal("fatal: not a git repository", registry.recent.first.error)
+    assert_equal(500, last_response.status)
+    assert_includes(last_response.body, "fatal: not a git repository")
+    assert_includes(last_response.body, "==&gt; Pulling")
   end
 
-  def test_a_second_publish_while_one_is_running_is_refused_not_queued
-    held = nil
-    @executor = ->(&block) { held = block }
-    post "/link", link: "https://powder.example.net/one", title: "First Post"
-    post "/link", link: "https://powder.example.net/two", title: "Second Post"
+  def test_a_failing_publish_keeps_what_was_typed
+    write_bin("post-link", "exit 128")
+    post "/link", link: "https://powder.example.net/x", title: "Tree Well Protocol", body: "Never ride alone."
+
+    assert_includes(last_response.body, "Never ride alone.")
+  end
+
+  # The scripts flock the checkout; exit 75 is EX_TEMPFAIL, meaning something
+  # else holds it -- the phone Shortcut over SSH, most likely.
+  def test_a_publish_that_cannot_get_the_lock_says_to_try_again
+    write_bin("post-link", "echo 'Error: another publish is already running' >&2; exit 75")
+    post "/link", link: "https://powder.example.net/x", title: "Tree Well Protocol"
 
     assert_equal(409, last_response.status)
-    assert_includes(last_response.body, "already")
-    assert_equal(1, registry.recent.length)
-    refute_nil(held)
+    assert_includes(last_response.body, "Try again in a moment")
   end
 
   def test_a_link_without_a_url_or_title_is_rejected_and_the_form_comes_back_filled_in
@@ -160,7 +170,7 @@ class Pressa::Web::AppTest < Minitest::Test
 
     assert_equal(422, last_response.status)
     assert_includes(last_response.body, "Never ride alone.")
-    assert_empty(registry.recent)
+    assert_equal(0, publish_attempts)
   end
 
   # --- link metadata -------------------------------------------------------
@@ -218,63 +228,6 @@ class Pressa::Web::AppTest < Minitest::Test
   end
 
   # --- jobs ----------------------------------------------------------------
-
-  def test_a_job_page_shows_its_state_and_log
-    post "/link", link: "https://powder.example.net/x", title: "Tree Well Protocol"
-    job = registry.recent.first
-    get "/jobs/#{job.id}"
-
-    assert_predicate(last_response, :ok?)
-    assert_includes(last_response.body, "==&gt; Building")
-    assert_includes(last_response.body, "posts/2026/06/new-post.md")
-  end
-
-  def test_an_unknown_job_is_a_404
-    get "/jobs/nope"
-
-    assert_equal(404, last_response.status)
-  end
-
-  def test_the_job_stream_replays_the_log_and_ends_with_the_final_state
-    post "/link", link: "https://powder.example.net/x", title: "Tree Well Protocol"
-    job = registry.recent.first
-    get "/jobs/#{job.id}/stream"
-
-    assert_match(%r{\Atext/event-stream}, last_response.headers["Content-Type"])
-    events = last_response.body.scan(/^data: (.+)$/).flatten.map { JSON.parse(it) }
-
-    assert_includes(events.map { it["text"] }, "==> Building")
-    assert_equal("succeeded", events.last["state"])
-  end
-
-  def test_the_job_stream_delivers_lines_while_the_job_is_still_running
-    @executor = ->(&block) { Thread.new(&block) }
-    app.set(:keep_alive_seconds, 0.05)
-    write_bin("post-link", "echo '==> Pulling' >&2; sleep 0.5; echo '==> Building' >&2; echo posts/x.md")
-    post "/link", link: "https://powder.example.net/x", title: "Tree Well Protocol"
-    job = registry.recent.first
-
-    get "/jobs/#{job.id}/stream"
-    events = last_response.body.scan(/^data: (.+)$/).flatten.map { JSON.parse(it) }
-
-    assert_includes(events.map { it["text"] }, "==> Building")
-    assert_includes(last_response.body, ": keep-alive")
-    assert_equal("succeeded", events.last["state"])
-  end
-
-  def test_streaming_an_unknown_job_is_a_404
-    get "/jobs/nope/stream"
-
-    assert_equal(404, last_response.status)
-  end
-
-  def test_the_jobs_page_lists_recent_jobs
-    post "/link", link: "https://powder.example.net/x", title: "Tree Well Protocol"
-    get "/jobs"
-
-    assert_predicate(last_response, :ok?)
-    assert_includes(last_response.body, "Tree Well Protocol")
-  end
 
   # --- drafts --------------------------------------------------------------
 
@@ -352,26 +305,20 @@ class Pressa::Web::AppTest < Minitest::Test
     refute_includes(File.read(draft_path), "From a tab opened before the deploy.")
   end
 
-  def test_publishing_a_draft_starts_a_job
+  def test_publishing_a_draft_runs_the_script_and_shows_the_result
     post "/drafts/lift-line-notes/publish"
 
-    assert_equal(303, last_response.status)
-    job = registry.recent.first
-
-    assert_equal("publish_draft", job.kind)
-    assert_equal("posts/2026/06/lift-line-notes.md", job.result)
+    assert_predicate(last_response, :ok?)
+    assert_includes(last_response.body, "posts/2026/06/lift-line-notes.md")
+    assert_equal(1, publish_attempts)
   end
 
-  def test_publishing_a_draft_while_something_is_running_is_refused
-    held = nil
-    @executor = ->(&block) { held = block }
-    post "/link", link: "https://powder.example.net/one", title: "First Post"
+  def test_a_failing_draft_publish_shows_the_error
+    write_bin("publish-draft", "echo 'Error: no draft' >&2; exit 1")
     post "/drafts/lift-line-notes/publish"
 
-    assert_equal(409, last_response.status)
-    assert_includes(last_response.body, "already")
-    assert_equal(1, registry.recent.length)
-    refute_nil(held)
+    assert_equal(500, last_response.status)
+    assert_includes(last_response.body, "Error: no draft")
   end
 
   def test_deleting_a_draft_removes_it
@@ -454,32 +401,32 @@ class Pressa::Web::AppTest < Minitest::Test
     post "/link", {link: "https://powder.example.net/x", title: "Tree Well Protocol"}, sec_fetch("cross-site")
 
     assert_equal(403, last_response.status)
-    assert_empty(registry.recent)
+    assert_equal(0, publish_attempts)
   end
 
   def test_a_same_site_publish_is_refused_too
     post "/link", {link: "https://powder.example.net/x", title: "Tree Well Protocol"}, sec_fetch("same-site")
 
     assert_equal(403, last_response.status)
-    assert_empty(registry.recent)
+    assert_equal(0, publish_attempts)
   end
 
   def test_a_same_origin_publish_goes_through
     post "/link", {link: "https://powder.example.net/x", title: "Tree Well Protocol"}, sec_fetch("same-origin")
 
-    assert_equal(303, last_response.status)
+    assert_predicate(last_response, :ok?)
   end
 
   def test_a_user_initiated_publish_goes_through
     post "/link", {link: "https://powder.example.net/x", title: "Tree Well Protocol"}, sec_fetch("none")
 
-    assert_equal(303, last_response.status)
+    assert_predicate(last_response, :ok?)
   end
 
   def test_a_request_with_no_browser_headers_goes_through
     post "/link", link: "https://powder.example.net/x", title: "Tree Well Protocol"
 
-    assert_equal(303, last_response.status)
+    assert_predicate(last_response, :ok?)
   end
 
   def test_an_older_browser_falls_back_to_the_origin_header
@@ -487,14 +434,14 @@ class Pressa::Web::AppTest < Minitest::Test
       {"HTTP_ORIGIN" => "https://evil.example.net"}
 
     assert_equal(403, last_response.status)
-    assert_empty(registry.recent)
+    assert_equal(0, publish_attempts)
   end
 
   def test_a_matching_origin_header_goes_through
     post "/link", {link: "https://powder.example.net/x", title: "Tree Well Protocol"},
       {"HTTP_ORIGIN" => "http://example.org"}
 
-    assert_equal(303, last_response.status)
+    assert_predicate(last_response, :ok?)
   end
 
   def test_cross_site_draft_deletion_is_refused
@@ -508,7 +455,7 @@ class Pressa::Web::AppTest < Minitest::Test
     post "/drafts/lift-line-notes/publish", {}, sec_fetch("cross-site")
 
     assert_equal(403, last_response.status)
-    assert_empty(registry.recent)
+    assert_equal(0, publish_attempts)
   end
 
   def test_reading_pages_cross_site_is_still_allowed
