@@ -21,12 +21,14 @@
   const previewError = document.getElementById("preview-error");
   const previewHtml = document.getElementById("preview-html");
   const previewGemtext = document.getElementById("preview-gemtext");
+  const previewPanes = pane.querySelector(".panes");
 
   document.getElementById("preview-close").addEventListener("click", () => { pane.hidden = true; });
 
   async function renderPreview(formData) {
     pane.hidden = false;
     previewError.hidden = true;
+    previewPanes.hidden = false;
     previewGemtext.textContent = "Rendering…";
     try {
       const response = await fetch("/preview", { method: "POST", body: formData });
@@ -34,6 +36,8 @@
       if (!response.ok) {
         previewError.textContent = data.error || "Could not render a preview.";
         previewError.hidden = false;
+        // Two empty boxes under an error message just look broken.
+        previewPanes.hidden = true;
         previewGemtext.textContent = "";
         previewHtml.srcdoc = "";
         return;
@@ -43,6 +47,7 @@
     } catch (error) {
       previewError.textContent = String(error);
       previewError.hidden = false;
+      previewPanes.hidden = true;
     }
     pane.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }

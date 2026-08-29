@@ -1,5 +1,6 @@
 require "yaml"
 require "date"
+require "pressa/utils/timestamp"
 
 module Pressa
   module Posts
@@ -34,8 +35,7 @@ module Pressa
       def parse_fields
         @title = @raw["Title"]
         @author = @raw["Author"]
-        timestamp = @raw["Timestamp"]
-        @date = timestamp.is_a?(String) ? DateTime.parse(timestamp) : timestamp.to_datetime
+        @date = Utils::Timestamp.parse(@raw["Timestamp"])
         @formatted_date = @raw["Date"]
         @link = @raw["Link"]
         @tags = parse_tags(@raw["Tags"])

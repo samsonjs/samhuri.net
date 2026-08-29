@@ -2,6 +2,7 @@ require "yaml"
 require "date"
 require "pressa/drafts"
 require "pressa/drafts/entry"
+require "pressa/utils/timestamp"
 
 module Pressa
   class Drafts
@@ -28,20 +29,9 @@ module Pressa
         return nil unless title && timestamp_value
 
         slug = File.basename(file_path, ".md")
-        timestamp = parse_timestamp(timestamp_value)
+        timestamp = Utils::Timestamp.parse(timestamp_value)
 
         Entry.new(slug:, title:, timestamp:, path: "/drafts/#{slug}/")
-      end
-
-      def parse_timestamp(value)
-        case value
-        when String
-          DateTime.parse(value)
-        when Integer
-          Time.at(value).to_datetime
-        else
-          value.to_datetime
-        end
       end
     end
   end

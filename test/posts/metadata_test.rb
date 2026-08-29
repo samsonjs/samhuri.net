@@ -68,4 +68,23 @@ class Pressa::Posts::PostMetadataTest < Minitest::Test
 
     assert_match(/No YAML front-matter found in post/, error.message)
   end
+
+  # Every draft in this repo predates ISO timestamps; previewing one used to
+  # blow up with "undefined method 'to_datetime' for an instance of Integer".
+  def test_parses_a_bare_unix_timestamp
+    content = <<~MARKDOWN
+      ---
+      Title: Security Through Obscurity
+      Author: Sami Samhuri
+      Date: 20th August, 2017
+      Timestamp: 1503246688
+      ---
+
+      A common way to configure a Rails server.
+    MARKDOWN
+
+    metadata = Pressa::Posts::PostMetadata.parse(content)
+
+    assert_equal(Time.at(1503246688).to_datetime, metadata.date)
+  end
 end
