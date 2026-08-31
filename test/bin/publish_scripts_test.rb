@@ -57,6 +57,10 @@ class PublishScriptsTest < Minitest::Test
       git.call("clone", "-q", remote, work, chdir: root)
       git.call("config", "user.email", "sami@example.net")
       git.call("config", "user.name", "Sami Samhuri")
+      # A signed commit needs an unlocked key, which a test run can't assume;
+      # the publish scripts pass -c commit.gpgsign=false for the same reason.
+      git.call("config", "commit.gpgsign", "false")
+      git.call("config", "tag.gpgsign", "false")
 
       FileUtils.cp_r(File.join(SOURCE_REPO, "bin"), work)
       %w[Gemfile Gemfile.lock .ruby-version].each { FileUtils.cp(File.join(SOURCE_REPO, it), work) }
