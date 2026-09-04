@@ -1,3 +1,0 @@
-{
-  "file_scan_exclusions": ["public/tweets/", "www", ".DS_Store", ".git"]
-}
