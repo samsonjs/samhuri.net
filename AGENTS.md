@@ -17,7 +17,7 @@ This repository is a Ruby static-site generator (Pressa) that outputs both HTML 
 - Generated Gemini output: `gemini/` (safe to delete/regenerate)
 - Legacy static.samhuri.net assets: `static/` (checked in, **not** generated — do not delete). Published by `bake publish_static` to `/var/www/static.samhuri.net/public` on mudge, which Caddy serves over both http and https. Only assets still referenced anywhere are kept: the four `Screen Shot 2015-*.png` plus `screenshot_2015-05-08-*.png` linked from the archived tweets under `public/tweets/`, and `jazzy.png` which is embedded on GitHub. The other 120 files from the old S3 bucket were dropped; `s3://static.samhuri.net` still holds them all if one is ever needed.
 - Gemini protocol reference docs: `gemini-docs/`
-- CI: `.github/workflows/ci.yml` (runs coverage, lint, and debug build)
+- CI: `.forgejo/workflows/ci.yml` (runs coverage, lint, and debug build)
 
 Keep new code under the existing `Pressa` module structure (for example `lib/pressa/posts`, `lib/pressa/projects`, `lib/pressa/views`, `lib/pressa/config`, `lib/pressa/utils`) and add matching tests under `test/`.
 
