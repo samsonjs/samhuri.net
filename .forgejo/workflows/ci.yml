@@ -1,0 +1,85 @@
+# CI on mudge's Forgejo runner.
+#
+# No `uses:` steps on purpose. Actions get fetched from data.forgejo.org at job
+# start, which is a network dependency that has already broken once; shell
+# steps have no such problem. That also means no actions/checkout, so the job
+# can run in the official Ruby image (no Node required) pinned to the version
+# in .ruby-version. The Gemfile reads the same file, so an image that disagrees
+# with the pin fails loudly at bundle install.
+#
+# bin/bootstrap isn't used here: it reaches for sudo apt on Linux, and the Ruby
+# image already carries everything the bundle needs. bundle install is all
+# that's left of it that matters in CI.
+#
+# Gems live on a bind mount off the runner's cache directory so puma and
+# friends aren't compiled from source every run. mudge allows this one
+# subtree; see container.valid_volumes in its runner config.
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "static/**"
+      - "wayback/**"
+      - "images/**"
+      - "*.md"
+  pull_request:
+    paths-ignore:
+      - "static/**"
+      - "wayback/**"
+      - "images/**"
+      - "*.md"
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Coverage, lint, debug build
+    # The runner maps this label to a plain image; the container below is what
+    # actually runs.
+    runs-on: docker
+    container:
+      image: docker.io/library/ruby:4.0.5
+      volumes:
+        - /home/sjs/forgejo-runner/cache/samhuri.net-gems:/gems
+    timeout-minutes: 20
+    env:
+      BUNDLE_PATH: /gems
+    steps:
+      # Forgejo serves uploadpack.allowAnySHA1InWant, so the run's own commit
+      # can be fetched directly and shallowly. The token goes through an env
+      # var and an extraheader rather than into the remote URL, to keep it out
+      # of the git config the rest of the job can read.
+      - name: Check out
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git init -q .
+          # Scoped to this process rather than `git config --global`, so nothing
+          # is left behind in the image's git config.
+          export GIT_CONFIG_COUNT=1
+          export GIT_CONFIG_KEY_0=safe.directory
+          export GIT_CONFIG_VALUE_0="$PWD"
+          git remote remove origin 2>/dev/null || true
+          git remote add origin "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git"
+          git -c http.extraheader="Authorization: Basic $(printf 'x-access-token:%s' "$TOKEN" | base64 | tr -d '\n')" \
+              fetch -q --depth 1 origin "$GITHUB_SHA"
+          git checkout -qf FETCH_HEAD
+          git --no-pager log -1 --oneline
+          test -f Gemfile || { echo "checkout is empty"; exit 1; }
+
+      - name: Install gems
+        run: bundle install --jobs 4 --retry 3
+
+      - name: Coverage
+        run: bundle exec bake coverage
+
+      - name: Lint
+        run: bundle exec bake lint
+
+      - name: Debug build
+        run: bundle exec bake debug
