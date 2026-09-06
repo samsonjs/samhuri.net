@@ -13,9 +13,21 @@ eval "$(rv shell env bash)"
 REPO="${SAMHURI_REPO:-$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)}"
 cd "$REPO"
 
-# Local clones here name the GitHub remote "github"; a fresh clone on the server
-# names it "origin". Prefer github, fall back to origin, unless overridden.
-REMOTE="${SAMHURI_REMOTE:-$(git remote | grep -qx github && echo github || echo origin)}"
+# The repo lives on Forgejo now, and the clone on mudge (where these scripts
+# actually run) only has a `forgejo` remote. Older clones still carry `github`
+# and a plain clone gets `origin`, so take the first of those that exists
+# unless overridden.
+detect_remote() {
+  local name
+  for name in forgejo github origin; do
+    if git remote | grep -qx "$name"; then
+      echo "$name"
+      return 0
+    fi
+  done
+  echo origin
+}
+REMOTE="${SAMHURI_REMOTE:-$(detect_remote)}"
 BRANCH="${SAMHURI_BRANCH:-main}"
 
 # Serialise everything that writes to the checkout. The phone Shortcut over SSH

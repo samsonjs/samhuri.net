@@ -172,6 +172,17 @@ class PublishScriptsTest < Minitest::Test
     refute_empty(git!("status", "--porcelain", "--", "public/drafts/other-draft.md"))
   end
 
+  # The clone on mudge only has a `forgejo` remote, which the github/origin
+  # fallback used to miss, so every publish there failed at the pull.
+  def test_publish_draft_pushes_to_a_remote_named_forgejo
+    git!("remote", "rename", "origin", "forgejo")
+    write_draft("tree-well-protocol")
+    _stdout, stderr, status = run_script("publish-draft", "tree-well-protocol")
+
+    assert_predicate(status, :success?, stderr)
+    assert_includes(pushed_subjects, "Publish draft: tree-well-protocol")
+  end
+
   def test_publish_draft_accepts_a_filename_as_well_as_a_slug
     write_draft("tree-well-protocol")
     _stdout, _stderr, status = run_script("publish-draft", "tree-well-protocol.md")
