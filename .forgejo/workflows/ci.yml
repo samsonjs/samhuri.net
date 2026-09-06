@@ -45,7 +45,7 @@ jobs:
     container:
       image: docker.io/library/ruby:4.0.5
       volumes:
-        - /home/sjs/forgejo-runner/cache/samhuri.net-gems:/gems
+        - /home/forgejo-runner/cache/samhuri.net-gems:/gems
     timeout-minutes: 20
     env:
       BUNDLE_PATH: /gems
