@@ -108,6 +108,12 @@ bake lint
 bake lint_fix
 ```
 
+## Deploying
+
+Publishing is manual. `.forgejo/workflows/deploy.yml` runs on mudge, the host that serves the site, and is only ever started by hand: pick the Deploy workflow in the Actions tab and choose a `target` of `beta` (default) or `production`. Beta runs `bake publish_beta`; production runs `bake publish`, which covers the HTML site, the Gemini capsule, and static.samhuri.net. Pushing to `main` runs CI but does not deploy.
+
+The same can be done from a checkout with the publish tasks below, which rsync to mudge over SSH.
+
 ## Notes
 
 - `bake watch` is Linux-only and requires `inotifywait`.

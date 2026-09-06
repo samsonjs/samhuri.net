@@ -10,6 +10,8 @@
 # `git pull --ff-only` is entitled to refuse otherwise. Then it moves the draft
 # into posts/YYYY/MM via `bake publish_draft`, commits, pushes, and runs
 # `bake publish` to build HTML + Gemini and rsync to the live directories.
+# Pushing to main doesn't deploy anything (the Deploy workflow is manual), so
+# the publish has to happen here.
 #
 # Prints the published post's path on stdout, progress on stderr.
 

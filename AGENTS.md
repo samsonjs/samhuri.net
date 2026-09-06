@@ -18,6 +18,7 @@ This repository is a Ruby static-site generator (Pressa) that outputs both HTML 
 - Legacy static.samhuri.net assets: `static/` (checked in, **not** generated — do not delete). Published by `bake publish_static` to `/var/www/static.samhuri.net/public` on mudge, which Caddy serves over both http and https. Only assets still referenced anywhere are kept: the four `Screen Shot 2015-*.png` plus `screenshot_2015-05-08-*.png` linked from the archived tweets under `public/tweets/`, and `jazzy.png` which is embedded on GitHub. The other 120 files from the old S3 bucket were dropped; `s3://static.samhuri.net` still holds them all if one is ever needed.
 - Gemini protocol reference docs: `gemini-docs/`
 - CI: `.forgejo/workflows/ci.yml` (runs coverage, lint, and debug build)
+- Deploy: `.forgejo/workflows/deploy.yml` (manual `workflow_dispatch` with a `target` of `beta` or `production`, runs on mudge)
 
 Keep new code under the existing `Pressa` module structure (for example `lib/pressa/posts`, `lib/pressa/projects`, `lib/pressa/views`, `lib/pressa/config`, `lib/pressa/utils`) and add matching tests under `test/`.
 
@@ -120,5 +121,6 @@ Optional keys include `Tags`, `Link`, `Scripts`, and `Styles`.
   - beta HTML: `/var/www/beta.samhuri.net/public`
   - production Gemini: `/var/gemini/samhuri.net`
 - `bake publish` deploys both HTML and Gemini to production.
+- The Deploy workflow does the same from the runner on mudge, but only when dispatched by hand: pushing to `main` does not deploy. `bin/publish-draft` and `bin/post-link` still run `bake publish` themselves for that reason.
 - Validate `www/` and `gemini/` before publishing to avoid shipping stale assets.
 - Never commit credentials, SSH keys, or other secrets.

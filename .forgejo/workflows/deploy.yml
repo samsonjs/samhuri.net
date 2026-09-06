@@ -1,0 +1,70 @@
+# Manual deploy from mudge's Forgejo runner. Run it from the Actions tab (or
+# `tea` / the API) with target=beta or target=production; nothing here fires on
+# push. The site is served from mudge and mudge is the runner host, so the job
+# runs in host mode and rsyncs straight into the publish directories rather
+# than over SSH. SAMHURI_PUBLISH_HOST=local pins that even though bake.rb would
+# work it out from the hostname.
+#
+# The runner's shell has no Ruby on PATH, so the rv Ruby named in .ruby-version
+# is exported explicitly, the way mudge.samhuri.net's workflows do. Gems go to
+# a cache under $HOME: the bind mount CI uses is a container feature and this
+# job has no container, and the gems compiled inside the ruby image aren't
+# guaranteed to load on the host anyway.
+#
+# The checkout is a fresh fetch of the dispatched ref into the job workspace,
+# not the long-lived clone at ~/samhuri.net that bin/publish-draft and the web
+# app write to. The two still share that clone's publish lock so a deploy and
+# a draft publish can't rsync over each other; bin/publish-draft gives up
+# straight away when it's held, so this side waits instead.
+
+name: Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: Where to publish
+        type: choice
+        required: true
+        default: beta
+        options:
+          - beta
+          - production
+
+concurrency:
+  group: deploy
+
+jobs:
+  deploy:
+    name: Publish ${{ inputs.target }}
+    runs-on: mudge
+    timeout-minutes: 15
+    env:
+      BUNDLE_PATH: /home/sjs/.cache/samhuri.net-deploy/gems
+      SAMHURI_PUBLISH_HOST: local
+      DEPLOY_TARGET: ${{ inputs.target }}
+    steps:
+      - name: Check out
+        uses: https://git.samhuri.net/sjs/actions/checkout@v1
+        with:
+          require-file: Gemfile
+
+      - name: Install gems
+        run: |
+          export PATH="$HOME/.local/share/rv/rubies/ruby-$(cat .ruby-version)/bin:$PATH"
+          bundle install --quiet --jobs 4 --retry 3
+
+      - name: Publish
+        run: |
+          export PATH="$HOME/.local/share/rv/rubies/ruby-$(cat .ruby-version)/bin:$PATH"
+          case "$DEPLOY_TARGET" in
+            beta) task=publish_beta ;;
+            # publish covers HTML, the Gemini capsule, and static.samhuri.net.
+            production) task=publish ;;
+            *) echo "unknown target: $DEPLOY_TARGET"; exit 1 ;;
+          esac
+          # A stale www/ or gemini/ from an earlier run in this workspace would
+          # be rsynced --delete onto the live site, so start from nothing.
+          bundle exec bake clean
+          mkdir -p "$HOME/samhuri.net"
+          flock -w 600 "$HOME/samhuri.net/.publish.lock" bundle exec bake "$task"
