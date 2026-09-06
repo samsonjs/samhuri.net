@@ -31,6 +31,7 @@ PUBLISH_HOST =
   end
 PRODUCTION_PUBLISH_DIR = "/var/www/samhuri.net/public".freeze
 BETA_PUBLISH_DIR = "/var/www/beta.samhuri.net/public".freeze
+DRAFT_PUBLISH_DIR = "/var/www/draft.samhuri.net/public".freeze
 GEMINI_PUBLISH_DIR = "/var/gemini/samhuri.net".freeze
 STATIC_PUBLISH_DIR = "/var/www/static.samhuri.net/public".freeze
 WATCHABLE_DIRECTORIES = %w[public posts lib].freeze
@@ -42,9 +43,9 @@ def debug
   build("http://localhost:8000", output_format: "html", target_path: "www")
 end
 
-# Generate the site for the mudge development server
+# Generate the draft site, served by Caddy on mudge as draft.samhuri.net
 def mudge
-  build("http://mudge:8000", output_format: "html", target_path: "www")
+  build("https://draft.samhuri.net", output_format: "html", target_path: "www")
 end
 
 # Generate the site for beta/staging
@@ -112,10 +113,9 @@ def new_link
   puts post.target_path
 end
 
-# Build a link post and preview it on the mudge blog server without touching
-# git: writes posts/YYYY/MM/slug.md, builds for http://mudge:8000 (the same
-# target blog-server.service serves straight out of www/), prints the
-# preview URL, then deletes the local file. Drives bin/preview-link.
+# Build a link post and preview it on the draft site without touching git:
+# writes posts/YYYY/MM/slug.md, builds and publishes the draft site, prints
+# the preview URL, then deletes the local file. Drives bin/preview-link.
 def preview_link
   payload =
     begin
@@ -149,12 +149,12 @@ def preview_link
   slug = File.basename(post.filename, ".md")
 
   begin
-    mudge
+    publish_mudge
   ensure
     FileUtils.rm_f(post.target_path)
   end
 
-  puts "http://mudge:8000/posts/#{year_month}/#{slug}/"
+  puts "https://draft.samhuri.net/posts/#{year_month}/#{slug}/"
 end
 
 # Create a new draft in public/drafts/.
@@ -229,6 +229,13 @@ def watch(target: "debug")
     sleep 2
     run_build_target(target)
   end
+end
+
+# Publish the draft site: Caddy on mudge serves this directory as
+# draft.samhuri.net. Nothing else reads www/ on mudge any more.
+def publish_mudge
+  mudge
+  run_rsync(local_paths: ["www/"], publish_dir: DRAFT_PUBLISH_DIR, dry_run: false, delete: true)
 end
 
 # Publish to beta/staging server

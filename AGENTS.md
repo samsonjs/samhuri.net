@@ -34,6 +34,7 @@ Keep new code under the existing `Pressa` module structure (for example `lib/pre
 - `bundle exec bake mudge|beta|release`: build HTML with environment-specific base URLs.
 - `bundle exec bake gemini`: build Gemini capsule into `gemini/`.
 - `bundle exec bake publish_beta`: build and rsync `www/` to beta host.
+- `bundle exec bake publish_mudge`: build the draft site and rsync `www/` to `/var/www/draft.samhuri.net/public`, which Caddy on mudge serves as https://draft.samhuri.net.
 - `bundle exec bake publish_gemini`: build and rsync `gemini/` to production host.
 - `bundle exec bake publish`: build and rsync both HTML and Gemini to production.
 - `bundle exec bake clean`: remove `www/` and `gemini/`.

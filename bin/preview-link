@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #
 # Build a link post from a JSON payload on stdin and preview it on the mudge
-# blog server (http://mudge:8000, served by blog-server.service straight out
-# of www/) without touching git at all: no pull, no commit, no push. The post
+# draft site (https://draft.samhuri.net, Caddy serving what `bake publish_mudge`
+# rsyncs there) without touching git at all: no pull, no commit, no push. The post
 # file is deleted from posts/ again right after the preview build, so this
 # never leaves a trace in the repo or in git history.
 #
