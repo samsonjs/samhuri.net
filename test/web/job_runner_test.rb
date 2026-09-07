@@ -49,6 +49,18 @@ class Pressa::Web::JobRunnerTest < Minitest::Test
     assert_equal("local", result)
   end
 
+  # A script that fails before it reads its input (bin/post-link losing the
+  # flock, say) closes the pipe while the payload is still being written. The
+  # payload is bigger than the pipe buffer so the write can't finish early.
+  def test_a_command_that_exits_without_reading_stdin_still_reports_its_exit_status
+    error = assert_raises(Pressa::Web::JobRunner::Failed) do
+      Pressa::Web::JobRunner.run(command: sh("echo 'another publish is already running' >&2; exit 75"),
+        stdin_data: "x" * 1_000_000)
+    end
+
+    assert_equal(75, error.exit_status)
+  end
+
   def test_raises_with_the_last_log_line_when_the_command_fails
     error = assert_raises(Pressa::Web::JobRunner::Failed) do
       Pressa::Web::JobRunner.run(command: sh("echo 'fatal: not a git repository' >&2; exit 128"))

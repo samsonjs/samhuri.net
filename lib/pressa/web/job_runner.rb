@@ -27,7 +27,12 @@ module Pressa
 
         options = chdir ? {chdir: chdir} : {}
         status = Open3.popen3(env, *command, **options) do |stdin, stdout, stderr, wait_thread|
-          stdin.write(stdin_data) if stdin_data
+          begin
+            stdin.write(stdin_data) if stdin_data
+          rescue Errno::EPIPE
+            # The script exited before reading its input; its exit status is
+            # the story, and that is reported below.
+          end
           stdin.close
 
           open_streams = [stdout, stderr]
