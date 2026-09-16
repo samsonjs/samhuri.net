@@ -43,7 +43,7 @@ jobs:
     # actually runs.
     runs-on: docker
     container:
-      image: git.samhuri.net/sjs/ruby:4.0.5
+      image: docker.io/library/ruby:4.0.5
       volumes:
         - /home/forgejo-runner/cache/samhuri.net-gems:/gems
     timeout-minutes: 20
