@@ -69,7 +69,7 @@ module Pressa
       set :public_folder, File.join(WEB_ROOT, "public")
       set :bind, ENV.fetch("BIND_ADDRESS", "127.0.0.1")
       set :port, ENV.fetch("PORT", "1112")
-      set :host_authorization, {permitted_hosts: ["pressa", "mudge", "localhost", "127.0.0.1"]}
+      set :host_authorization, {permitted_hosts: ["pressa.sjs.omg.lol", "pressa", "mudge", "localhost", "127.0.0.1"]}
 
       set :repo_root, REPO_ROOT
       set :site_url, ENV.fetch("PRESSA_SITE_URL", "https://samhuri.net")
