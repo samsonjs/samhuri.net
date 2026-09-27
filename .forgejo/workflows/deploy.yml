@@ -5,8 +5,8 @@
 # than over SSH. SAMHURI_PUBLISH_HOST=local pins that even though bake.rb would
 # work it out from the hostname.
 #
-# The runner's shell has no Ruby on PATH, so the rv Ruby named in .ruby-version
-# is exported explicitly, the way mudge.samhuri.net's workflows do. Gems go to
+# The runner's shell has no Ruby on PATH, so the newest rv Ruby in the series
+# .ruby-version names is exported explicitly. Gems go to
 # a cache under $HOME: the bind mount CI uses is a container feature and this
 # job has no container, and the gems compiled inside the ruby image aren't
 # guaranteed to load on the host anyway.
@@ -51,12 +51,12 @@ jobs:
 
       - name: Install gems
         run: |
-          export PATH="$HOME/.local/share/rv/rubies/ruby-$(cat .ruby-version)/bin:$PATH"
+          export PATH="$(dirname "$("$HOME/.cargo/bin/rv" ruby find "$(cat .ruby-version)")"):$PATH"
           bundle install --quiet --jobs 4 --retry 3
 
       - name: Publish
         run: |
-          export PATH="$HOME/.local/share/rv/rubies/ruby-$(cat .ruby-version)/bin:$PATH"
+          export PATH="$(dirname "$("$HOME/.cargo/bin/rv" ruby find "$(cat .ruby-version)")"):$PATH"
           case "$DEPLOY_TARGET" in
             beta) task=publish_beta ;;
             # publish covers HTML, the Gemini capsule, and static.samhuri.net.

@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby file: ".ruby-version"
+ruby ">= 4.0"
 
 gem "phlex", "~> 2.3"
 gem "kramdown", "~> 2.5"

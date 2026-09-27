@@ -4,8 +4,8 @@
 # fetches it from git.samhuri.net rather than data.forgejo.org, which is a
 # network dependency that has already broken once. It's plain git rather than
 # a JavaScript action, so the job can run in the official Ruby image (no Node
-# required) pinned to the version in .ruby-version. The Gemfile reads the same
-# file, so an image that disagrees with the pin fails loudly at bundle install.
+# required) for the Ruby series in .ruby-version, so a Ruby patch release
+# needs no change here.
 #
 # bin/bootstrap isn't used here: it reaches for sudo apt on Linux, and the Ruby
 # image already carries everything the bundle needs. bundle install is all
@@ -43,7 +43,7 @@ jobs:
     # actually runs.
     runs-on: docker
     container:
-      image: docker.io/library/ruby:4.0.5
+      image: docker.io/library/ruby:4.0
       volumes:
         - /home/forgejo-runner/cache/samhuri.net-gems:/gems
     timeout-minutes: 20
