@@ -39,6 +39,15 @@ class Pressa::PublishTest < Minitest::Test
     refute_includes(command, "-e")
   end
 
+  def test_rsync_command_excludes_paths_from_the_delete
+    command = Pressa::Publish.rsync_command(
+      local_paths: ["gemini/"], host: "mudge", publish_dir: "/var/gemini/samhuri.net",
+      dry_run: false, delete: true, excludes: [".certificates"]
+    )
+    assert_includes(command, "--exclude=.certificates")
+    assert_operator(command.index("--exclude=.certificates"), :<, command.index("gemini/"))
+  end
+
   def test_rsync_command_supports_multiple_local_paths
     command = Pressa::Publish.rsync_command(
       local_paths: ["www/", "extra/"], host: "powder", publish_dir: "/srv/site",

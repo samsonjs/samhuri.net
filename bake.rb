@@ -244,10 +244,15 @@ def publish_beta
   run_rsync(local_paths: ["www/"], publish_dir: BETA_PUBLISH_DIR, dry_run: false, delete: true)
 end
 
-# Publish Gemini capsule to production
+# Publish Gemini capsule to production. Agate keeps its key in
+# .certificates under its content directory unless told otherwise, and that
+# key is the capsule's identity to every client, so it must survive --delete.
 def publish_gemini
   gemini
-  run_rsync(local_paths: ["gemini/"], publish_dir: GEMINI_PUBLISH_DIR, dry_run: false, delete: true)
+  run_rsync(
+    local_paths: ["gemini/"], publish_dir: GEMINI_PUBLISH_DIR, dry_run: false, delete: true,
+    excludes: [".certificates"]
+  )
 end
 
 # Publish the legacy static.samhuri.net assets to production. Unlike www/ and
@@ -485,9 +490,9 @@ def run_command(*command)
   abort "Error: command failed: #{command.join(" ")}" unless system(*command)
 end
 
-def run_rsync(local_paths:, publish_dir:, dry_run:, delete:)
+def run_rsync(local_paths:, publish_dir:, dry_run:, delete:, excludes: [])
   command = Pressa::Publish.rsync_command(
-    local_paths:, host: PUBLISH_HOST, publish_dir:, dry_run:, delete:
+    local_paths:, host: PUBLISH_HOST, publish_dir:, dry_run:, delete:, excludes:
   )
   abort "Error: rsync failed." unless system(*command)
 end

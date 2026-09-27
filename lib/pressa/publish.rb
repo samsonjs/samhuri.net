@@ -5,8 +5,9 @@ module Pressa
     module_function
 
     # A nil host publishes locally (no SSH), used when building on the host itself.
-    def rsync_command(local_paths:, host:, publish_dir:, dry_run:, delete:)
+    def rsync_command(local_paths:, host:, publish_dir:, dry_run:, delete:, excludes: [])
       command = ["rsync", "-aKv"]
+      excludes.each { command << "--exclude=#{it}" }
       command.push("-e", "ssh -4") if host
       command << "--dry-run" if dry_run
       command << "--delete" if delete
