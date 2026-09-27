@@ -1,0 +1,10 @@
+#!/bin/sh
+# Installs the Ruby that .ruby-version names and the gems in Gemfile.lock,
+# both through rv. Safe to run again, since rv skips what is already
+# installed, and needs no sudo, so a server can run it as the account that
+# runs the app.
+set -eu
+cd "$(dirname "$0")/.."
+rv=$(command -v rv || echo "$HOME/.cargo/bin/rv")
+"$rv" ruby find >/dev/null 2>&1 || "$rv" ruby install
+"$rv" clean-install
