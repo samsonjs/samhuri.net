@@ -7,7 +7,7 @@ class Pressa::PublishTest < Minitest::Test
       dry_run: false, delete: false
     )
     assert_equal(
-      ["rsync", "-aKv", "--chmod=ug+rwX", "-e", "ssh -4", "www/", "mudge:/var/www/samhuri.net/public"],
+      ["rsync", "-aKOv", "--chmod=ug+rwX", "-e", "ssh -4", "www/", "mudge:/var/www/samhuri.net/public"],
       command
     )
   end
@@ -18,6 +18,7 @@ class Pressa::PublishTest < Minitest::Test
       dry_run: false, delete: true
     )
     assert_includes(command, "--chmod=ug+rwX")
+    assert_includes(command, "-aKOv")
   end
 
   def test_rsync_command_adds_dry_run_and_delete_flags
