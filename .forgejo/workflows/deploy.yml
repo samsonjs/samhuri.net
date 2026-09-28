@@ -1,6 +1,10 @@
-# Manual deploy from mudge's Forgejo runner. Run it from the Actions tab (or
-# `tea` / the API) with target=beta or target=production; nothing here fires on
-# push. The site is served from mudge and mudge is the runner host, so the job
+# Deploy from mudge's Forgejo runner. Every push to main publishes beta; a
+# production publish is dispatched by hand from the Actions tab (or `tea` /
+# the API) with target=production. A dispatch may also name beta, which is
+# how a beta deploy is rerun without pushing anything. A push made by
+# bin/publish-draft or bin/post-link publishes production itself while
+# holding the lock below, so the beta deploy it triggers simply waits its
+# turn. The site is served from mudge and mudge is the runner host, so the job
 # runs in host mode and rsyncs straight into the publish directories rather
 # than over SSH. SAMHURI_PUBLISH_HOST=local pins that even though bake.rb would
 # work it out from the hostname.
@@ -23,6 +27,8 @@
 name: Deploy
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
     inputs:
       target:
@@ -39,13 +45,14 @@ concurrency:
 
 jobs:
   deploy:
-    name: Publish ${{ inputs.target }}
+    name: Publish ${{ inputs.target || 'beta' }}
     runs-on: mudge
     timeout-minutes: 15
     env:
       BUNDLE_PATH: /home/forgejo-runner/cache/samhuri.net-deploy-gems
       SAMHURI_PUBLISH_HOST: local
-      DEPLOY_TARGET: ${{ inputs.target }}
+      # inputs.target is empty on a push, and a push only ever publishes beta.
+      DEPLOY_TARGET: ${{ inputs.target || 'beta' }}
     steps:
       - name: Check out
         uses: https://git.samhuri.net/sjs/actions/checkout@v1
