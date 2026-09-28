@@ -7,9 +7,17 @@ class Pressa::PublishTest < Minitest::Test
       dry_run: false, delete: false
     )
     assert_equal(
-      ["rsync", "-aKv", "-e", "ssh -4", "www/", "mudge:/var/www/samhuri.net/public"],
+      ["rsync", "-aKv", "--chmod=ug+rwX", "-e", "ssh -4", "www/", "mudge:/var/www/samhuri.net/public"],
       command
     )
+  end
+
+  def test_rsync_command_keeps_the_group_bits_open_for_the_publish_acl
+    command = Pressa::Publish.rsync_command(
+      local_paths: ["www/"], host: nil, publish_dir: "/var/www/beta.samhuri.net/public",
+      dry_run: false, delete: true
+    )
+    assert_includes(command, "--chmod=ug+rwX")
   end
 
   def test_rsync_command_adds_dry_run_and_delete_flags

@@ -57,7 +57,7 @@ Keep new code under the existing `Pressa` module structure (for example `lib/pre
 
 - It drives `bin/post-link` and `bin/publish-draft` rather than reimplementing the publish flow, and renders previews through `Posts::PostWriter#post_html` and `Posts::GeminiWriter#post_content` — the same code the build uses.
 - Publishing runs inline via `Web::JobRunner`, which drives the script and collects its output for the page. A publish measures about five seconds, most of it the two GitHub round trips, so there is nothing for a queue to do.
-- Only one publish may touch the checkout at a time. The `flock` in `bin/lib/common.sh` enforces that across processes, so the phone Shortcut over SSH and the web app can't collide; a blocked publish exits 75 (EX_TEMPFAIL) and the app turns that into a 409 telling you to try again.
+- Only one publish may touch the checkout at a time. The `flock` in `bin/lib/common.sh` enforces that across processes, so the phone Shortcut over SSH and the web app can't collide; a blocked publish exits 75 (EX_TEMPFAIL) and the app turns that into a 409 telling you to try again. On mudge the lock file is `/var/www/samhuri.net/.publish.lock`, which the Deploy workflow holds too since it publishes as `forgejo-runner` from its own checkout; elsewhere it falls back to `.publish.lock` in the repo.
 - Sinatra and puma live in this repo's Gemfile on purpose. A separate `web/Gemfile` would leave `BUNDLE_GEMFILE` pointing at the wrong one inside `bin/post-link`'s `bundle exec bake`.
 
 ## Syntax Highlighting
@@ -121,6 +121,6 @@ Optional keys include `Tags`, `Link`, `Scripts`, and `Styles`.
   - beta HTML: `/var/www/beta.samhuri.net/public`
   - production Gemini: `/var/gemini/samhuri.net`
 - `bake publish` deploys both HTML and Gemini to production.
-- The Deploy workflow does the same from the runner on mudge, but only when dispatched by hand: pushing to `main` does not deploy. `bin/publish-draft` and `bin/post-link` still run `bake publish` themselves for that reason.
+- The Deploy workflow does the same from the runner on mudge, but only when dispatched by hand: pushing to `main` does not deploy. `bin/publish-draft` and `bin/post-link` still run `bake publish` themselves for that reason. It runs as `forgejo-runner`, which the mudge repo's caddy and gemini plugins grant a POSIX ACL on the publish directories; the group bits are that ACL's mask, which is why `Pressa::Publish` rsyncs with `--chmod=ug+rwX`.
 - Validate `www/` and `gemini/` before publishing to avoid shipping stale assets.
 - Never commit credentials, SSH keys, or other secrets.
