@@ -77,3 +77,21 @@ jobs:
           # be rsynced --delete onto the live site, so start from nothing.
           bundle exec bake clean
           flock -w 600 /var/www/samhuri.net/.publish.lock bundle exec bake "$task"
+
+      # Beta also goes to Cloudflare Pages (samhuri-beta.pages.dev), to prove the
+      # path before any hostname moves. The runner has no Node, so wrangler runs
+      # in a node container with the built www/ mounted read-only.
+      - name: Upload beta to Cloudflare Pages
+        if: env.DEPLOY_TARGET == 'beta'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          wrangler() {
+            podman run --rm --log-driver=none \
+              -e CLOUDFLARE_API_TOKEN -e CLOUDFLARE_ACCOUNT_ID \
+              -v "$PWD/www:/site:ro" -w /site docker.io/library/node:26-slim \
+              npx --yes wrangler@4.145.0 "$@"
+          }
+          wrangler pages project create samhuri-beta --production-branch main || true
+          wrangler pages deploy /site --project-name samhuri-beta --branch main
