@@ -23,7 +23,7 @@ remote_links = [
   {"label": "Mastodon", "href": "https://techhub.social/@sjs", "icon": "mastodon"},
   {"label": "GitHub", "href": "https://github.com/samsonjs", "icon": "github"},
   {"label": "RSS", "href": "/feed.xml", "icon": "rss"},
-  {"label": "Gemini", "href": "gemini://samhuri.net", "icon": "gemini"}
+  {"label": "Gemini", "href": "gemini://gem.samhuri.net", "icon": "gemini"}
 ]
 
 [outputs.gemini]
