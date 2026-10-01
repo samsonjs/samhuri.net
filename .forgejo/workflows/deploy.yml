@@ -90,7 +90,7 @@ jobs:
           wrangler() {
             podman run --rm --log-driver=none \
               -e CLOUDFLARE_API_TOKEN -e CLOUDFLARE_ACCOUNT_ID \
-              -v "$PWD/www:/site:ro" -w /site docker.io/library/node:26-slim \
+              -v "$PWD/www:/site:ro" -w /tmp docker.io/library/node:26-slim \
               npx --yes wrangler@4.145.0 "$@"
           }
           wrangler pages project create samhuri-beta --production-branch main || true
