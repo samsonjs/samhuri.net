@@ -60,9 +60,7 @@ git add "$post_path" "$draft_path"
 git -c commit.gpgsign=false commit -m "Publish draft: $draft" >&2
 git push "$REMOTE" "HEAD:$BRANCH" >&2
 
-echo "==> Building and publishing" >&2
-# Already on the publish host, so rsync locally rather than SSH back to self.
-SAMHURI_PUBLISH_HOST=local bundle exec bake publish >&2
+echo "==> Pushed; the Deploy workflow publishes it" >&2
 
 echo "==> Published $post_path" >&2
 echo "$post_path"

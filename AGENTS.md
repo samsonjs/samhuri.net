@@ -34,10 +34,9 @@ Keep new code under the existing `Pressa` module structure (for example `lib/pre
 - `bundle exec bake watch target=debug`: Linux-only autorebuild loop (`inotifywait` required).
 - `bundle exec bake mudge|beta|release`: build HTML with environment-specific base URLs.
 - `bundle exec bake gemini`: build Gemini capsule into `gemini/`.
-- `bundle exec bake publish_beta`: build and rsync `www/` to beta host.
 - `bundle exec bake publish_mudge`: build the draft site and rsync `www/` to `/var/www/draft.samhuri.net/public`, which Caddy on mudge serves as https://draft.samhuri.net.
 - `bundle exec bake publish_gemini`: build and rsync `gemini/` to production host.
-- `bundle exec bake publish`: build and rsync both HTML and Gemini to production.
+- `bundle exec bake publish`: build production HTML into `www/`, then rsync the Gemini capsule and static files to mudge. The HTML itself is served from Cloudflare Pages, uploaded by the Deploy workflow.
 - `bundle exec bake clean`: remove `www/` and `gemini/`.
 - `bundle exec bake test`: run test suite.
 - `bundle exec bake guard`: run Guard for continuous testing.
@@ -116,11 +115,7 @@ Optional keys include `Tags`, `Link`, `Scripts`, and `Styles`.
 ## Deployment & Security Notes
 - Publish tasks are defined in `bake.rb` via rsync over SSH.
 - The web app is deployed from the `mudge.samhuri.net` repo (`config/systemd/pressa-web.service` and the Caddy vhost); the code lives here.
-- Current publish host is `mudge` with:
-  - production HTML: `/var/www/samhuri.net/public`
-  - beta HTML: `/var/www/beta.samhuri.net/public`
-  - production Gemini: `/var/gemini/samhuri.net`
-- `bake publish` deploys both HTML and Gemini to production.
-- The Deploy workflow publishes beta from the runner on mudge on every push to `main`, and does a production publish only when dispatched by hand with `target=production`. `bin/publish-draft` and `bin/post-link` still run `bake publish` themselves for that reason; the beta deploy their push triggers waits on the same lock. It runs as `forgejo-runner`, which the mudge repo's caddy and gemini plugins grant a POSIX ACL on the publish directories; the group bits are that ACL's mask, which is why `Pressa::Publish` rsyncs with `--chmod=ug+rwX`.
+- The HTML sites are served from Cloudflare Pages (`samhuri-prod`, `samhuri-beta`, plus the `samhuri-www` and `samhuri-sami` redirect projects). The Gemini capsule (`/var/gemini/samhuri.net`) and static.samhuri.net are rsynced to mudge.
+- The Deploy workflow runs on every push to `main` and publishes all of it from the runner on mudge; `bin/publish-draft` and `bin/post-link` only push and return before the site is live. A manual dispatch can name `beta` or `production` alone. It runs as `forgejo-runner`, which the mudge repo's gemini plugin grants a POSIX ACL on the capsule directory; the group bits are that ACL's mask, which is why `Pressa::Publish` rsyncs with `--chmod=ug+rwX`.
 - Validate `www/` and `gemini/` before publishing to avoid shipping stale assets.
 - Never commit credentials, SSH keys, or other secrets.

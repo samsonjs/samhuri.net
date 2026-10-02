@@ -1,13 +1,11 @@
-# Deploy from mudge's Forgejo runner. Every push to main publishes beta; a
-# production publish is dispatched by hand from the Actions tab (or `tea` /
-# the API) with target=production. A dispatch may also name beta, which is
-# how a beta deploy is rerun without pushing anything. A push made by
-# bin/publish-draft or bin/post-link publishes production itself while
-# holding the lock below, so the beta deploy it triggers simply waits its
-# turn. The site is served from mudge and mudge is the runner host, so the job
-# runs in host mode and rsyncs straight into the publish directories rather
-# than over SSH. SAMHURI_PUBLISH_HOST=local pins that even though bake.rb would
-# work it out from the hostname.
+# Deploy from mudge's Forgejo runner. Every push to main publishes both sites
+# to Cloudflare Pages (beta, then production), the redirect projects, and the
+# Gemini capsule and static.samhuri.net to mudge; bin/publish-draft and
+# bin/post-link just push and let this run. A manual dispatch can name a single
+# target, which is how one half is rerun without pushing anything. The job runs
+# in host mode on mudge because the capsule and static files are rsynced
+# straight into their directories rather than over SSH. SAMHURI_PUBLISH_HOST=local
+# pins that even though bake.rb would work it out from the hostname.
 #
 # The job runs as the forgejo-runner user, not sjs, so nothing under
 # /home/sjs is reachable from here. The runner's shell has no Ruby on PATH, so
@@ -35,8 +33,9 @@ on:
         description: Where to publish
         type: choice
         required: true
-        default: beta
+        default: both
         options:
+          - both
           - beta
           - production
 
@@ -45,14 +44,14 @@ concurrency:
 
 jobs:
   deploy:
-    name: Publish ${{ inputs.target || 'beta' }}
+    name: Publish ${{ inputs.target || 'both' }}
     runs-on: mudge
     timeout-minutes: 15
     env:
       BUNDLE_PATH: /home/forgejo-runner/cache/samhuri.net-deploy-gems
       SAMHURI_PUBLISH_HOST: local
-      # inputs.target is empty on a push, and a push only ever publishes beta.
-      DEPLOY_TARGET: ${{ inputs.target || 'beta' }}
+      # inputs.target is empty on a push, which publishes everything.
+      DEPLOY_TARGET: ${{ inputs.target || 'both' }}
     steps:
       - name: Check out
         uses: https://git.samhuri.net/sjs/actions/checkout@v1
@@ -64,25 +63,21 @@ jobs:
           export PATH="$(dirname "$("$HOME/.cargo/bin/rv" ruby find "$(cat .ruby-version)")"):$PATH"
           bundle check >/dev/null 2>&1 || bundle install --quiet --jobs 4 --retry 3
 
-      - name: Publish
+      # Beta first: it is built into www/ with beta.samhuri.net URLs, uploaded,
+      # then www/ is cleaned and rebuilt for production. A stale www/ or gemini/
+      # from an earlier run in this workspace would be rsynced --delete onto the
+      # live capsule, so each build starts from nothing.
+      - name: Build beta
+        if: env.DEPLOY_TARGET != 'production'
         run: |
-          export PATH="$(dirname "$("$HOME/.cargo/bin/rv" ruby find "$(cat .ruby-version)")"):$PATH"
-          case "$DEPLOY_TARGET" in
-            beta) task=publish_beta ;;
-            # publish covers HTML, the Gemini capsule, and static.samhuri.net.
-            production) task=publish ;;
-            *) echo "unknown target: $DEPLOY_TARGET"; exit 1 ;;
-          esac
-          # A stale www/ or gemini/ from an earlier run in this workspace would
-          # be rsynced --delete onto the live site, so start from nothing.
+          export PATH="$(dirname "$("$HOME/.cargo/bin/rv" ruby find "$(cat .ruby-version)")")":$PATH"
           bundle exec bake clean
-          flock -w 600 /var/www/samhuri.net/.publish.lock bundle exec bake "$task"
+          bundle exec bake beta
 
-      # Beta also goes to Cloudflare Pages (samhuri-beta.pages.dev), to prove the
-      # path before any hostname moves. The runner has no Node, so wrangler runs
-      # in a node container with the built www/ mounted read-only.
+      # The runner has no Node, so wrangler runs in a node container with the
+      # built site mounted read-only.
       - name: Upload beta to Cloudflare Pages
-        if: env.DEPLOY_TARGET == 'beta'
+        if: env.DEPLOY_TARGET != 'production'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -93,34 +88,15 @@ jobs:
               -v "$PWD/www:/site:ro" -w /tmp docker.io/library/node:26-slim \
               npx --yes wrangler@4.145.0 "$@"
           }
-          # Added after the publish above so Caddy on mudge never serves them.
           cp pages/_headers pages/_redirects pages/_worker.js pages/_routes.json www/
           wrangler pages project create samhuri-beta --production-branch main || true
           wrangler pages deploy /site --project-name samhuri-beta --branch main
-
-      # Production also goes to Cloudflare Pages (samhuri-prod.pages.dev), beside the
-      # publish to mudge above, until the apex moves there.
-      - name: Upload production to Cloudflare Pages
-        if: env.DEPLOY_TARGET == 'production'
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: |
-          wrangler() {
-            podman run --rm --log-driver=none \
-              -e CLOUDFLARE_API_TOKEN -e CLOUDFLARE_ACCOUNT_ID \
-              -v "$PWD/www:/site:ro" -w /tmp docker.io/library/node:26-slim \
-              npx --yes wrangler@4.145.0 "$@"
-          }
-          cp pages/_headers pages/_redirects pages/_worker.js pages/_routes.json www/
-          wrangler pages project create samhuri-prod --production-branch main || true
-          wrangler pages deploy /site --project-name samhuri-prod --branch main
 
       # www.samhuri.net is a Pages project holding nothing but a catch-all
       # redirect to the apex (www-redirect/_redirects). Redeploying it is a no-op
       # until that file changes.
       - name: Upload www redirect to Cloudflare Pages
-        if: env.DEPLOY_TARGET == 'beta'
+        if: env.DEPLOY_TARGET != 'production'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -137,7 +113,7 @@ jobs:
       # sami.samhuri.net is a legacy host: sami-redirect/_worker.js maps its old
       # date-based post URLs to /posts/YYYY/MM/slug and sends the rest to the apex.
       - name: Upload sami redirect to Cloudflare Pages
-        if: env.DEPLOY_TARGET == 'beta'
+        if: env.DEPLOY_TARGET != 'production'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -150,3 +126,28 @@ jobs:
           }
           wrangler pages project create samhuri-sami --production-branch main || true
           wrangler pages deploy /site --project-name samhuri-sami --branch main
+
+      # publish builds production into www/, then rsyncs the Gemini capsule and
+      # static.samhuri.net to mudge under the lock shared with bin/publish-draft.
+      - name: Build production and publish capsule and static
+        if: env.DEPLOY_TARGET != 'beta'
+        run: |
+          export PATH="$(dirname "$("$HOME/.cargo/bin/rv" ruby find "$(cat .ruby-version)")")":$PATH"
+          bundle exec bake clean
+          flock -w 600 /var/www/samhuri.net/.publish.lock bundle exec bake publish
+
+      - name: Upload production to Cloudflare Pages
+        if: env.DEPLOY_TARGET != 'beta'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          wrangler() {
+            podman run --rm --log-driver=none \
+              -e CLOUDFLARE_API_TOKEN -e CLOUDFLARE_ACCOUNT_ID \
+              -v "$PWD/www:/site:ro" -w /tmp docker.io/library/node:26-slim \
+              npx --yes wrangler@4.145.0 "$@"
+          }
+          cp pages/_headers pages/_redirects pages/_worker.js pages/_routes.json www/
+          wrangler pages project create samhuri-prod --production-branch main || true
+          wrangler pages deploy /site --project-name samhuri-prod --branch main

@@ -124,7 +124,7 @@ class PublishScriptsTest < Minitest::Test
 
   # --- post-link ------------------------------------------------------------
 
-  def test_post_link_writes_commits_pushes_and_deploys
+  def test_post_link_writes_commits_and_pushes
     payload = %({"title":"Tree Well Protocol","link":"https://powder.example.net/x"})
     stdout, _stderr, status = run_script("post-link", stdin: payload)
 
@@ -133,7 +133,7 @@ class PublishScriptsTest < Minitest::Test
     assert_equal(payload, File.read(File.join(@work, "last-payload.json")))
     assert_includes(commit_subjects, "Add link post: stub-link")
     assert_includes(pushed_subjects, "Add link post: stub-link")
-    assert(File.exist?(File.join(@work, "published.marker")), "should have run bake publish")
+    refute(File.exist?(File.join(@work, "published.marker")), "the push triggers the Deploy workflow, so bake publish is not run here")
   end
 
   def test_post_link_refuses_an_empty_payload

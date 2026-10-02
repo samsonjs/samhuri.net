@@ -73,7 +73,6 @@ bake release
 bake gemini
 bake watch target=debug
 bake clean
-bake publish_beta
 bake publish_gemini
 bake publish
 ```
@@ -110,14 +109,12 @@ bake lint_fix
 
 ## Deploying
 
-Publishing is manual. `.forgejo/workflows/deploy.yml` runs on mudge, the host that serves the site, and is only ever started by hand: pick the Deploy workflow in the Actions tab and choose a `target` of `beta` (default) or `production`. Beta runs `bake publish_beta`; production runs `bake publish`, which covers the HTML site, the Gemini capsule, and static.samhuri.net. Pushing to `main` runs CI but does not deploy.
+`.forgejo/workflows/deploy.yml` runs on mudge, the host that serves the Gemini capsule, on every push to `main`. It builds beta and uploads it to Cloudflare Pages, then builds production, rsyncs the Gemini capsule and static.samhuri.net to mudge, and uploads production to Pages. A manual dispatch can choose a `target` of `both` (default), `beta` or `production`.
 
-The same can be done from a checkout with the publish tasks below, which rsync to mudge over SSH.
+The capsule and static tasks can also be run from a checkout; they rsync to mudge over SSH.
 
 ## Notes
 
 - `bake watch` is Linux-only and requires `inotifywait`.
-- Deployment uses `rsync` to host `mudge` (configured in `bake.rb`):
-  - production: `/var/www/samhuri.net/public`
-  - beta: `/var/www/beta.samhuri.net/public`
+- The Gemini capsule and static files are rsynced to host `mudge` (configured in `bake.rb`); HTML goes to Cloudflare Pages:
   - gemini: `/var/gemini/samhuri.net`

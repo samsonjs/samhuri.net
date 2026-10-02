@@ -29,8 +29,6 @@ PUBLISH_HOST =
   when "", "local" then nil
   else (host == Socket.gethostname.split(".").first) ? nil : host.freeze
   end
-PRODUCTION_PUBLISH_DIR = "/var/www/samhuri.net/public".freeze
-BETA_PUBLISH_DIR = "/var/www/beta.samhuri.net/public".freeze
 DRAFT_PUBLISH_DIR = "/var/www/draft.samhuri.net/public".freeze
 GEMINI_PUBLISH_DIR = "/var/gemini/samhuri.net".freeze
 STATIC_PUBLISH_DIR = "/var/www/static.samhuri.net/public".freeze
@@ -238,12 +236,6 @@ def publish_mudge
   run_rsync(local_paths: ["www/"], publish_dir: DRAFT_PUBLISH_DIR, dry_run: false, delete: true)
 end
 
-# Publish to beta/staging server
-def publish_beta
-  beta
-  run_rsync(local_paths: ["www/"], publish_dir: BETA_PUBLISH_DIR, dry_run: false, delete: true)
-end
-
 # Publish Gemini capsule to production. Agate keeps its key in
 # .certificates under its content directory unless told otherwise, and that
 # key is the capsule's identity to every client, so it must survive --delete.
@@ -263,10 +255,10 @@ def publish_static
   run_rsync(local_paths: ["static/"], publish_dir: STATIC_PUBLISH_DIR, dry_run: false, delete: true)
 end
 
-# Publish to production server
+# Build production HTML into www/ (the Deploy workflow uploads it to Pages), and
+# publish the Gemini capsule and static.samhuri.net to mudge
 def publish
   release
-  run_rsync(local_paths: ["www/"], publish_dir: PRODUCTION_PUBLISH_DIR, dry_run: false, delete: true)
   publish_gemini
   publish_static
 end
