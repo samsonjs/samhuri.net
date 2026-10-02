@@ -95,3 +95,21 @@ jobs:
           }
           wrangler pages project create samhuri-beta --production-branch main || true
           wrangler pages deploy /site --project-name samhuri-beta --branch main
+
+      # www.samhuri.net is a Pages project holding nothing but a catch-all
+      # redirect to the apex (www-redirect/_redirects). Redeploying it is a no-op
+      # until that file changes.
+      - name: Upload www redirect to Cloudflare Pages
+        if: env.DEPLOY_TARGET == 'beta'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          wrangler() {
+            podman run --rm --log-driver=none \
+              -e CLOUDFLARE_API_TOKEN -e CLOUDFLARE_ACCOUNT_ID \
+              -v "$PWD/www-redirect:/site:ro" -w /tmp docker.io/library/node:26-slim \
+              npx --yes wrangler@4.145.0 "$@"
+          }
+          wrangler pages project create samhuri-www --production-branch main || true
+          wrangler pages deploy /site --project-name samhuri-www --branch main
