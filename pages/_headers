@@ -35,3 +35,11 @@
   Content-Type: text/plain; charset=utf-8
 /*.xml
   Content-Type: text/xml; charset=utf-8
+/*.el
+  Content-Type: text/html; charset=utf-8
+/*.geekbench
+  Content-Type: text/plain; charset=utf-8
+/*.patch
+  Content-Type: text/x-patch; charset=utf-8
+/js/microlighter/LICENSE
+  Content-Type: text/plain; charset=utf-8
