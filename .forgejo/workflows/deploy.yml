@@ -93,6 +93,8 @@ jobs:
               -v "$PWD/www:/site:ro" -w /tmp docker.io/library/node:26-slim \
               npx --yes wrangler@4.145.0 "$@"
           }
+          # Added after the publish above so Caddy on mudge never serves them.
+          cp pages/_headers pages/_redirects www/
           wrangler pages project create samhuri-beta --production-branch main || true
           wrangler pages deploy /site --project-name samhuri-beta --branch main
 

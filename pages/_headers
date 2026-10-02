@@ -1,0 +1,37 @@
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: no-referrer, strict-origin-when-cross-origin
+
+/*.ico
+  Cache-Control: public, max-age=2419200
+/*.gif
+  Cache-Control: public, max-age=2419200
+/*.jpg
+  Cache-Control: public, max-age=2419200
+/*.jpeg
+  Cache-Control: public, max-age=2419200
+/*.png
+  Cache-Control: public, max-age=2419200
+/*.pdf
+  Cache-Control: public, max-age=2419200
+/*.mov
+  Cache-Control: public, max-age=2419200
+/*.mp3
+  Cache-Control: public, max-age=2419200
+/*.m4a
+  Cache-Control: public, max-age=2419200
+
+/*.m4r
+  Cache-Control: public, max-age=2419200
+  Content-Type: audio/mp4
+/*.rss
+  Content-Type: application/rss+xml
+/feed.json
+  Content-Type: application/feed+json
+/*.rb
+  Content-Type: text/plain; charset=utf-8
+/*.xml
+  Content-Type: text/xml; charset=utf-8
