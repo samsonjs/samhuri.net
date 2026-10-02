@@ -113,3 +113,20 @@ jobs:
           }
           wrangler pages project create samhuri-www --production-branch main || true
           wrangler pages deploy /site --project-name samhuri-www --branch main
+
+      # sami.samhuri.net is a legacy host: sami-redirect/_worker.js maps its old
+      # date-based post URLs to /posts/YYYY/MM/slug and sends the rest to the apex.
+      - name: Upload sami redirect to Cloudflare Pages
+        if: env.DEPLOY_TARGET == 'beta'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          wrangler() {
+            podman run --rm --log-driver=none \
+              -e CLOUDFLARE_API_TOKEN -e CLOUDFLARE_ACCOUNT_ID \
+              -v "$PWD/sami-redirect:/site:ro" -w /tmp docker.io/library/node:26-slim \
+              npx --yes wrangler@4.145.0 "$@"
+          }
+          wrangler pages project create samhuri-sami --production-branch main || true
+          wrangler pages deploy /site --project-name samhuri-sami --branch main
