@@ -94,7 +94,7 @@ jobs:
               npx --yes wrangler@4.145.0 "$@"
           }
           # Added after the publish above so Caddy on mudge never serves them.
-          cp pages/_headers pages/_redirects www/
+          cp pages/_headers pages/_redirects pages/_worker.js pages/_routes.json www/
           wrangler pages project create samhuri-beta --production-branch main || true
           wrangler pages deploy /site --project-name samhuri-beta --branch main
 
