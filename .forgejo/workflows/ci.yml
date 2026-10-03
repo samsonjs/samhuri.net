@@ -66,3 +66,18 @@ jobs:
 
       - name: Debug build
         run: bundle exec bake debug
+
+  # actionlint runs shellcheck over every run: block, so a broken deploy step
+  # fails here instead of on the next push to main.
+  workflows:
+    name: Lint workflows
+    runs-on: docker
+    container:
+      image: docker.io/library/ruby:4.0
+    timeout-minutes: 5
+    steps:
+      - name: Check out
+        uses: https://git.samhuri.net/sjs/actions/checkout@v1
+
+      - name: Lint
+        uses: https://git.samhuri.net/sjs/actions/actionlint@v1
