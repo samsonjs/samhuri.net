@@ -70,7 +70,7 @@ jobs:
       - name: Build beta
         if: env.DEPLOY_TARGET != 'production'
         run: |
-          export PATH="$(dirname "$("$HOME/.cargo/bin/rv" ruby find "$(cat .ruby-version)")")":$PATH"
+          export PATH="$(dirname "$("$HOME/.cargo/bin/rv" ruby find "$(cat .ruby-version)")"):$PATH"
           bundle exec bake clean
           bundle exec bake beta
 
@@ -132,7 +132,7 @@ jobs:
       - name: Build production and publish capsule and static
         if: env.DEPLOY_TARGET != 'beta'
         run: |
-          export PATH="$(dirname "$("$HOME/.cargo/bin/rv" ruby find "$(cat .ruby-version)")")":$PATH"
+          export PATH="$(dirname "$("$HOME/.cargo/bin/rv" ruby find "$(cat .ruby-version)")"):$PATH"
           bundle exec bake clean
           flock -w 600 /var/www/samhuri.net/.publish.lock bundle exec bake publish
 
