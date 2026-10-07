@@ -34,22 +34,8 @@ BRANCH="${SAMHURI_BRANCH:-main}"
 # and the Pressa web app both end up in these scripts, and two publishes at once
 # against one git repo would corrupt something. Exit 75 (EX_TEMPFAIL) says "try
 # again shortly" rather than "that failed".
-#
-# On mudge the lock lives beside the production site so the Deploy workflow,
-# which runs as another account from its own checkout, can hold the same one;
-# anywhere that file isn't writable the lock stays inside the repo.
-SHARED_LOCK_FILE=/var/www/samhuri.net/.publish.lock
-
-default_lock_file() {
-  if [ -w "$SHARED_LOCK_FILE" ]; then
-    echo "$SHARED_LOCK_FILE"
-  else
-    echo "$REPO/.publish.lock"
-  fi
-}
-
 acquire_publish_lock() {
-  local lock_file="${SAMHURI_LOCK_FILE:-$(default_lock_file)}"
+  local lock_file="${SAMHURI_LOCK_FILE:-$REPO/.publish.lock}"
 
   if ! command -v flock >/dev/null 2>&1; then
     echo "==> flock unavailable, running without the publish lock" >&2

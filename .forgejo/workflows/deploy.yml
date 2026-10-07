@@ -16,11 +16,7 @@
 #
 # The checkout is a fresh fetch of the dispatched ref into the job workspace,
 # not the long-lived clone at ~sjs/samhuri.net that bin/publish-draft and the
-# web app write to. The two share the publish lock beside the production site
-# (created by the mudge repo's caddy plugin, which also grants this account
-# the ACL it needs on the publish directories) so a deploy and a draft publish
-# can't rsync over each other; bin/publish-draft gives up straight away when
-# it's held, so this side waits instead.
+# web app write to.
 
 name: Deploy
 
@@ -130,14 +126,14 @@ jobs:
           wrangler pages deploy /site --project-name samhuri-sami --branch main
 
       # publish builds production into www/, then rsyncs the Gemini capsule to
-      # mudge under the lock shared with bin/publish-draft.
+      # mudge.
       - name: Build production and publish capsule
         if: env.DEPLOY_TARGET != 'beta'
         run: |
           ruby_bin="$(dirname "$("$HOME/.cargo/bin/rv" ruby find "$(cat .ruby-version)")")"
           export PATH="$ruby_bin:$PATH"
           bundle exec bake clean
-          flock -w 600 /var/www/samhuri.net/.publish.lock bundle exec bake publish
+          bundle exec bake publish
 
       - name: Upload production to Cloudflare Pages
         if: env.DEPLOY_TARGET != 'beta'

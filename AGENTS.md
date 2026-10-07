@@ -56,7 +56,7 @@ Keep new code under the existing `Pressa` module structure (for example `lib/pre
 
 - It drives `bin/post-link` and `bin/publish-draft` rather than reimplementing the publish flow, and renders previews through `Posts::PostWriter#post_html` and `Posts::GeminiWriter#post_content` — the same code the build uses.
 - Publishing runs inline via `Web::JobRunner`, which drives the script and collects its output for the page. A publish measures about five seconds, most of it the two GitHub round trips, so there is nothing for a queue to do.
-- Only one publish may touch the checkout at a time. The `flock` in `bin/lib/common.sh` enforces that across processes, so the phone Shortcut over SSH and the web app can't collide; a blocked publish exits 75 (EX_TEMPFAIL) and the app turns that into a 409 telling you to try again. On mudge the lock file is `/var/www/samhuri.net/.publish.lock`, which the Deploy workflow holds too since it publishes as `forgejo-runner` from its own checkout; elsewhere it falls back to `.publish.lock` in the repo.
+- Only one publish may touch the checkout at a time. The `flock` in `bin/lib/common.sh` enforces that across processes, so the phone Shortcut over SSH and the web app can't collide; a blocked publish exits 75 (EX_TEMPFAIL) and the app turns that into a 409 telling you to try again. The lock file is `.publish.lock` in the repo.
 - Sinatra and puma live in this repo's Gemfile on purpose. A separate `web/Gemfile` would leave `BUNDLE_GEMFILE` pointing at the wrong one inside `bin/post-link`'s `bundle exec bake`.
 
 ## Syntax Highlighting
