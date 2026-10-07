@@ -31,7 +31,6 @@ PUBLISH_HOST =
   end
 DRAFT_PUBLISH_DIR = "/var/www/draft.samhuri.net/public".freeze
 GEMINI_PUBLISH_DIR = "/var/gemini/samhuri.net".freeze
-STATIC_PUBLISH_DIR = "/var/www/static.samhuri.net/public".freeze
 WATCHABLE_DIRECTORIES = %w[public posts lib].freeze
 LINT_TARGETS = %w[bake.rb Gemfile lib test web/config.ru].freeze
 BUILD_TARGETS = %w[debug mudge beta release gemini].freeze
@@ -247,20 +246,11 @@ def publish_gemini
   )
 end
 
-# Publish the legacy static.samhuri.net assets to production. Unlike www/ and
-# gemini/ these aren't generated, they're checked in under static/ — image
-# attachments from the archived 2015 tweets, plus jazzy.png which is embedded
-# somewhere on GitHub. Formerly hosted on S3 + CloudFront.
-def publish_static
-  run_rsync(local_paths: ["static/"], publish_dir: STATIC_PUBLISH_DIR, dry_run: false, delete: true)
-end
-
 # Build production HTML into www/ (the Deploy workflow uploads it to Pages), and
-# publish the Gemini capsule and static.samhuri.net to mudge
+# publish the Gemini capsule to mudge
 def publish
   release
   publish_gemini
-  publish_static
 end
 
 # Clean generated files

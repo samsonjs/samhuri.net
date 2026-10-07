@@ -109,12 +109,12 @@ bake lint_fix
 
 ## Deploying
 
-`.forgejo/workflows/deploy.yml` runs on mudge, the host that serves the Gemini capsule, on every push to `main`. It builds beta and uploads it to Cloudflare Pages, then builds production, rsyncs the Gemini capsule and static.samhuri.net to mudge, and uploads production to Pages. A manual dispatch can choose a `target` of `both` (default), `beta` or `production`.
+`.forgejo/workflows/deploy.yml` runs on mudge, the host that serves the Gemini capsule, on every push to `main`. It builds beta and uploads it to Cloudflare Pages, then builds production, rsyncs the Gemini capsule to mudge, and uploads production and static.samhuri.net to Pages. A manual dispatch can choose a `target` of `both` (default), `beta` or `production`.
 
-The capsule and static tasks can also be run from a checkout; they rsync to mudge over SSH.
+The capsule task can also be run from a checkout; it rsyncs to mudge over SSH.
 
 ## Notes
 
 - `bake watch` is Linux-only and requires `inotifywait`.
-- The Gemini capsule and static files are rsynced to host `mudge` (configured in `bake.rb`); HTML goes to Cloudflare Pages:
+- The Gemini capsule is rsynced to host `mudge` (configured in `bake.rb`); HTML and static.samhuri.net go to Cloudflare Pages:
   - gemini: `/var/gemini/samhuri.net`

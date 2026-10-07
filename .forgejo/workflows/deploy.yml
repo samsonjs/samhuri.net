@@ -1,10 +1,10 @@
 # Deploy from mudge's Forgejo runner. Every push to main publishes both sites
-# to Cloudflare Pages (beta, then production), the redirect projects, and the
-# Gemini capsule and static.samhuri.net to mudge; bin/publish-draft and
+# to Cloudflare Pages (beta, then production), the redirect projects and
+# static.samhuri.net, and the Gemini capsule to mudge; bin/publish-draft and
 # bin/post-link just push and let this run. A manual dispatch can name a single
 # target, which is how one half is rerun without pushing anything. The job runs
-# in host mode on mudge because the capsule and static files are rsynced
-# straight into their directories rather than over SSH. SAMHURI_PUBLISH_HOST=local
+# in host mode on mudge because the capsule is rsynced straight into its
+# directory rather than over SSH. SAMHURI_PUBLISH_HOST=local
 # pins that even though bake.rb would work it out from the hostname.
 #
 # The job runs as the forgejo-runner user, not sjs, so nothing under
@@ -129,9 +129,9 @@ jobs:
           wrangler pages project create samhuri-sami --production-branch main || true
           wrangler pages deploy /site --project-name samhuri-sami --branch main
 
-      # publish builds production into www/, then rsyncs the Gemini capsule and
-      # static.samhuri.net to mudge under the lock shared with bin/publish-draft.
-      - name: Build production and publish capsule and static
+      # publish builds production into www/, then rsyncs the Gemini capsule to
+      # mudge under the lock shared with bin/publish-draft.
+      - name: Build production and publish capsule
         if: env.DEPLOY_TARGET != 'beta'
         run: |
           ruby_bin="$(dirname "$("$HOME/.cargo/bin/rv" ruby find "$(cat .ruby-version)")")"
@@ -154,3 +154,20 @@ jobs:
           cp pages/_headers pages/_redirects pages/_worker.js pages/_routes.json www/
           wrangler pages project create samhuri-prod --production-branch main || true
           wrangler pages deploy /site --project-name samhuri-prod --branch main
+
+      # static.samhuri.net is the checked-in static/ directory as it stands:
+      # the legacy 2015 screenshots plus its own _headers and robots.txt.
+      - name: Upload static to Cloudflare Pages
+        if: env.DEPLOY_TARGET != 'beta'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          wrangler() {
+            podman run --rm --log-driver=none \
+              -e CLOUDFLARE_API_TOKEN -e CLOUDFLARE_ACCOUNT_ID \
+              -v "$PWD/static:/site:ro" -w /tmp docker.io/library/node:26-slim \
+              npx --yes wrangler@4.145.0 "$@"
+          }
+          wrangler pages project create samhuri-static --production-branch main || true
+          wrangler pages deploy /site --project-name samhuri-static --branch main
