@@ -42,3 +42,29 @@ The next step might be trying to figure out which app/framework handles the Phot
 ----
 
 _Update 2024-10-11: `photos-navigation://memories` works on the iOS 18.1 beta however I've still had no luck with navigation to a specific asset._
+
+_Update 2026-10-24: OUTLINE, to be written up_
+
+- Reader email (Mark): `photos://asset?uuid=<uuid>` works
+  - UUID is the first component of `PHAsset.localIdentifier`; the full `UUID/L0/001` works too
+  - Get it from the Content Graph in Shortcuts
+  - Confirmed on iPhone 13 mini and 14 Pro, iOS 26.7.1 (Mark: 16.7.2 and 26.7.1)
+- Why I had "zero luck" with `photos:` before
+  - Photos marks the scheme private (`CFBundleURLIsPrivate` in its Info.plist)
+  - Third-party apps get -10814
+  - Works from a Shortcuts Open URLs action because Shortcuts is a system app
+- Things that don't get around it
+  - App Intent returning `OpenURLIntent`: in-app `Button(intent:)`, Spotlight App Shortcut, Shortcuts action
+  - All fail with "The provided URL scheme `photos` is unsupported; launch is prohibited"
+  - Widgets and controls untested (controls run the same kind of intent)
+- Workaround for personal apps: hand off to a shortcut
+  - `shortcuts://x-callback-url/run-shortcut?name=Show%20Photos&input=text&text=<uuid>&x-error=<callback>`
+  - Shortcut: URL action with `photos://asset?uuid=` + Shortcut Input, then Open URLs
+  - `x-error` fires when the shortcut is missing, so the app can show setup steps
+  - Daily Drip's "Show in Photos" does this
+- Shippable alternative: open a date instead of an asset
+  - `photos-navigation://search?searchTerm=2003-01-01` shows just that day
+  - "1 January 2003" works too; "October 26" matches every year; "October 2024" the month
+  - ISO avoids localized month names
+- Still open
+  - How Photo Shuffle does it; no public API to reveal an asset
