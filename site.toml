@@ -48,5 +48,6 @@ exclude_public = [
   "favicon.gif",
   "humans.txt",
   "isitmycakeday.html",
-  "834/**"
+  "834/**",
+  "5168/**"
 ]
