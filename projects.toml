@@ -2,43 +2,43 @@
 name = "samhuri.net"
 title = "samhuri.net"
 description = "this site"
-url = "https://github.com/samsonjs/samhuri.net"
+url = "https://git.samhuri.net/sjs/samhuri.net"
 
 [[projects]]
 name = "bin"
 title = "bin"
 description = "my collection of scripts in ~/bin"
-url = "https://github.com/samsonjs/bin"
+url = "https://git.samhuri.net/sjs/bin"
 
 [[projects]]
 name = "config"
 title = "config"
 description = "important dot files (zsh, emacs, vim, screen)"
-url = "https://github.com/samsonjs/config"
+url = "https://git.samhuri.net/sjs/config"
 
 [[projects]]
 name = "compiler"
 title = "compiler"
 description = "a compiler targeting x86 in Ruby"
-url = "https://github.com/samsonjs/compiler"
+url = "https://git.samhuri.net/sjs/compiler"
 
 [[projects]]
 name = "lake"
 title = "lake"
 description = "a simple implementation of Scheme in C"
-url = "https://github.com/samsonjs/lake"
+url = "https://git.samhuri.net/sjs/lake"
 
 [[projects]]
 name = "AsyncMonitor"
 title = "AsyncMonitor"
 description = "easily monitor async sequences using Swift concurrency"
-url = "https://github.com/samsonjs/AsyncMonitor"
+url = "https://git.samhuri.net/sjs/AsyncMonitor"
 
 [[projects]]
 name = "NotificationSmuggler"
 title = "NotificationSmuggler"
 description = "embed strongly-typed values in notifications on Apple platforms"
-url = "https://github.com/samsonjs/NotificationSmuggler"
+url = "https://git.samhuri.net/sjs/NotificationSmuggler"
 
 [[projects]]
 name = "strftime"
@@ -56,7 +56,7 @@ url = "https://github.com/samsonjs/format"
 name = "gitter"
 title = "gitter"
 description = "a GitHub client for Node (v3 API)"
-url = "https://github.com/samsonjs/gitter"
+url = "https://git.samhuri.net/sjs/gitter"
 
 [[projects]]
 name = "cheat.el"
