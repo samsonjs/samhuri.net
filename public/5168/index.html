@@ -40,7 +40,7 @@
     background: linear-gradient(transparent, rgba(0, 0, 0, .65));
     color: #fff;
   }
-  .hero h1 { margin: 0; font-size: clamp(1.6rem, 4.5vw, 2.8rem); line-height: 1.15; font-weight: 650 }
+  .hero h1 { margin: 0; font-size: clamp(2.6rem, 10vw, 7rem); line-height: 1; font-weight: 900; text-transform: uppercase; letter-spacing: -.02em; text-shadow: 0 3px 18px rgba(0, 0, 0, .55) }
   .hero p { margin: .4rem 0 0; font-size: 1.1rem; opacity: .92 }
 
   main { max-width: 960px; margin: 0 auto; padding: 0 1.25rem 4rem }
@@ -56,6 +56,7 @@
   .facts div { background: var(--card); padding: .9rem 1rem }
   .facts dt { font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted) }
   .facts dd { margin: .15rem 0 0; font-size: 1.15rem; font-weight: 600 }
+  @media (max-width: 480px) { .facts div:last-child:nth-child(odd) { grid-column: 1 / -1 } }
 
   .lede { font-size: 1.12rem }
   .columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0 2.5rem }
@@ -110,8 +111,8 @@
 <header class="hero">
   <img src="photos/01.jpg" alt="The house through the trees and gardens">
   <div class="caption">
-    <h1>5168 Santa Clara Avenue</h1>
-    <p>Cordova Bay, Saanich</p>
+    <h1>Motherfucking trees!!!</h1>
+    <p>5168 Santa Clara Avenue, Cordova Bay</p>
   </div>
 </header>
 
