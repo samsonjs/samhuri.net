@@ -6,5 +6,5 @@ set -euo pipefail
 # the same git checkout. bin/post-link takes an flock as well, which is what
 # keeps the phone Shortcut's SSH path from racing this one.
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
-exec "${RV:-/home/sjs/.cargo/bin/rv}" run bundle exec puma \
+exec rv run bundle exec puma \
   -t 0:16 -b "tcp://${BIND_ADDRESS:-127.0.0.1}:${PORT:-1112}" config.ru

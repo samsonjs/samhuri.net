@@ -2,8 +2,8 @@
 # run it.
 
 # Non-interactive SSH sessions get a bare PATH and skip .profile, so rv is
-# never reachable. Source .profile (which already puts rv on PATH via
-# ~/.cargo/env) rather than guessing rv's install location, then load its
+# never reachable. Source .profile (which already puts ~/.local/bin, where rv
+# lives, on PATH) rather than guessing rv's install location, then load its
 # Ruby env explicitly since that's only wired into interactive shells via
 # .bashrc.
 [ -f "$HOME/.profile" ] && . "$HOME/.profile"

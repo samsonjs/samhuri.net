@@ -5,6 +5,6 @@
 # runs the app.
 set -eu
 cd "$(dirname "$0")/.."
-rv=$(command -v rv || echo "$HOME/.cargo/bin/rv")
-"$rv" ruby find >/dev/null 2>&1 || "$rv" ruby install
-"$rv" clean-install
+command -v rv >/dev/null || { echo "bin/setup: rv isn't on PATH; install it from https://rv.dev" >&2; exit 1; }
+rv ruby find >/dev/null 2>&1 || rv ruby install
+rv clean-install
