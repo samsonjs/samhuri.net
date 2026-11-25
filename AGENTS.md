@@ -18,6 +18,7 @@ This repository is a Ruby static-site generator (Pressa) that outputs both HTML 
 - Legacy static.samhuri.net assets: `static/` (checked in, **not** generated — do not delete). The Deploy workflow uploads the directory as it stands to the `samhuri-static` Cloudflare Pages project, along with its `_headers` and `robots.txt`; http redirects to https. Only assets still referenced anywhere are kept: the four `Screen Shot 2015-*.png` plus `screenshot_2015-05-08-*.png` linked from the archived tweets under `public/tweets/`, and `jazzy.png` which is embedded on GitHub. The other 120 files from the old S3 bucket were dropped; `s3://static.samhuri.net` still holds them all if one is ever needed.
 - Gemini protocol reference docs: `gemini-docs/`
 - CI: `.forgejo/workflows/ci.yml` (runs coverage, lint, and debug build)
+- Gem bumps: `.forgejo/workflows/gem-bumps.yml` (weekly pull request per gem that can move within the Gemfile, from the `bundle-bumps` action in sjs/actions; gems the Gemfile holds back go in one issue)
 - Deploy: `.forgejo/workflows/deploy.yml` (publishes beta on every push to `main`; a manual `workflow_dispatch` with a `target` of `beta` or `production` does either on demand; runs on mudge)
 
 Keep new code under the existing `Pressa` module structure (for example `lib/pressa/posts`, `lib/pressa/projects`, `lib/pressa/views`, `lib/pressa/config`, `lib/pressa/utils`) and add matching tests under `test/`.
